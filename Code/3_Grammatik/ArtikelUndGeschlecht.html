@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Artikel & Geschlecht | LinguaBosna</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary: #0A3D62;
+      --accent:  #F4C542;
+      --secondary:#2E5E2E;
+      --bg:      #F8F5F0;
+      --neutral: #E6E6E6;
+      --white:   #ffffff;
+      --radius:  12px;
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Open Sans',sans-serif;
+      background:var(--bg);
+      color:var(--primary);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    /* Header (fixed) */
+    header{
+      position:fixed; top:0; left:0; right:0;
+      height:72px;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 5%;
+      background:var(--white);
+      border-bottom:1px solid var(--neutral);
+      z-index:1000;
+    }
+    .logo{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--primary);font-size:1.25rem}
+    nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0; align-items:center}
+    nav a{font-weight:600; color:var(--primary)}
+    nav a:hover{color:var(--accent)}
+    .cta{
+      background:var(--accent); color:var(--primary);
+      padding:8px 18px; border-radius:999px; font-family:'Montserrat',sans-serif; font-weight:700;
+      transition: all .22s; border: 2px solid var(--accent);
+    }
+    .cta:hover{background:var(--primary); color:var(--white); border-color:var(--primary)}
+
+    /* Page layout */
+    main{margin-top:92px; padding:28px 5% 80px; max-width:1100px; margin-left:auto; margin-right:auto;}
+
+    /* Hero */
+    .hero{
+      background:var(--white);
+      border:1px solid var(--neutral);
+      border-radius:var(--radius);
+      padding:20px 22px;
+      margin-bottom:18px;
+    }
+    .hero h1{
+      font-family:'Montserrat',sans-serif;
+      font-weight:700;
+      margin:0 0 8px;
+      font-size:1.5rem;
+      color:var(--primary);
+      text-transform:none;
+    }
+    .hero p{margin:0;color:var(--secondary);font-weight:600}
+
+    /* Explanation */
+    .explain{
+      margin:16px 0 22px;
+      padding:16px;
+      background:var(--white);
+      border-radius:12px;
+      border:1px solid var(--neutral);
+      color:#222;
+    }
+    .explain ul{margin:8px 0 0 18px}
+
+    /* Table area */
+    .table-wrap{
+      background:var(--white);
+      border:1px solid var(--neutral);
+      border-radius:12px;
+      overflow:auto;
+      margin-bottom:22px;
+      box-shadow:0 6px 18px rgba(10,61,98,0.03);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:860px; /* allows horizontal scroll on mobile */
+    }
+    thead th{
+      background:var(--primary);
+      color:var(--white);
+      font-family:'Montserrat',sans-serif;
+      font-weight:600;
+      padding:12px 14px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    tbody td{
+      padding:12px 14px;
+      border-bottom:1px solid var(--neutral);
+      vertical-align:middle;
+      color:var(--primary);
+    }
+    .bosnisch { display:flex; align-items:center; gap:10px; font-weight:700; font-family:'Montserrat',sans-serif}
+    .speaker-btn{
+      background:var(--white);
+      border:1px solid var(--neutral);
+      padding:6px 8px;
+      border-radius:8px;
+      cursor:pointer;
+      color:var(--accent);
+      transition: all .18s;
+      font-size:0.95rem;
+    }
+    .speaker-btn:hover{background:var(--primary); color:var(--white); border-color:var(--primary)}
+
+    .badge {
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.9rem;
+    }
+    .badge.m{background:#EAF3FF;color:var(--primary); border:1px solid rgba(10,61,98,0.06)}
+    .badge.f{background:#FFF8E0;color:var(--secondary); border:1px solid rgba(244,197,66,0.12)}
+    .badge.n{background:#F0FFF5;color:#2E5E2E; border:1px solid rgba(46,94,46,0.06)}
+
+    /* Exercise card */
+    .exercise{
+      margin-top:18px;
+      background:var(--white);
+      border-radius:12px;
+      border:1px solid var(--neutral);
+      padding:18px;
+      box-shadow:0 6px 20px rgba(10,61,98,0.03);
+    }
+    .exercise h3{font-family:'Montserrat',sans-serif;margin:0 0 8px;color:var(--primary)}
+    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+    .btn{
+      background:var(--accent);
+      color:var(--primary);
+      padding:9px 14px;
+      border-radius:10px;
+      border:none;
+      font-weight:700;
+      cursor:pointer;
+      transition:all .18s;
+    }
+    .btn:hover{background:var(--primary); color:var(--white)}
+    .btn.secondary{background:var(--white); border:1px solid var(--neutral); color:var(--primary)}
+    .prompt{font-weight:700;color:var(--secondary); margin:8px 0 12px}
+
+    .options{display:flex;gap:10px;flex-wrap:wrap}
+    .option{
+      min-width:110px;
+      padding:10px 12px;
+      background:#f6f6f6;
+      border:1px solid var(--neutral);
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:700;
+      text-align:center;
+    }
+    .option.correct{background:#e6ffea;border-color:#7dd48f}
+    .option.wrong{background:#ffeaea;border-color:#ff8a8a}
+
+    .meta{margin-left:auto; font-weight:700; color:var(--secondary)}
+
+    /* Footer */
+    footer{
+      margin-top:26px;
+      padding:24px 5%;
+      background:var(--primary); color:var(--white);
+      text-align:center; border-top:4px solid rgba(0,0,0,0.04)
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .meta{width:100%; margin-left:0; margin-top:10px}
+      .controls{flex-direction:column; align-items:flex-start}
+    }
+    @media (max-width:640px){
+      thead th{font-size:0.95rem}
+      .bosnisch{font-size:1rem}
+      .option{min-width:80px}
+      main{padding:20px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">LinguaBosna</div>
+    <nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="vokabeln.html">Vokabeln</a></li>
+        <li><a href="grammatik.html" aria-current="page">Grammatik</a></li>
+        <li><a href="lernen.html">Lernen</a></li>
+        <li><a href="kultur.html">Kultur</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="start.html">Jetzt starten</a>
+  </header>
+
+  <main>
+    <!-- Hero / Intro -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <h1 id="heroTitle">Artikel &amp; Geschlecht</h1>
+      <p>Wie Nomen im Bosnischen kategorisiert werden — praktische Regeln & Beispiele für Übersetzungen.</p>
+    </section>
+
+    <!-- Short explanation -->
+    <section class="explain" aria-describedby="explainList">
+      <strong>Kurz:</strong>
+      <ul id="explainList">
+        <li>Im Bosnischen gibt es drei Genera: <strong>maskulin</strong>, <strong>feminin</strong>, <strong>neutrum</strong>.</li>
+        <li>Es gibt keine direkten bestimmten Artikel wie „der/die/das“ — beim Übersetzen ins Deutsche brauchst du trotzdem das passende deutsche Artikelwort.</li>
+        <li>Typische Endungen helfen oft, aber es gibt Ausnahmen. Lerne wichtige Wörter gleich mit Genus.</li>
+      </ul>
+    </section>
+
+    <!-- Table with German article, Bosnian word, bosnian gender -->
+    <div class="table-wrap" role="region" aria-label="Beispieltabelle Artikel und Geschlecht">
+      <table>
+        <thead>
+          <tr>
+            <th>Deutsch (mit Artikel)</th>
+            <th>Bosnisch</th>
+            <th>Geschlecht (bosnisch)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- examples with deliberate DE↔BS differences -->
+          <tr>
+            <td>die Blume</td>
+            <td>
+              <div class="bosnisch">
+                <span>cvijet</span>
+                <button class="speaker-btn" onclick="speakText('cvijet')" aria-label="Aussprache cvijet">🔊</button>
+              </div>
+            </td>
+            <td><span class="badge m">maskulin</span></td>
+          </tr>
+
+          <tr>
+            <td>der Tisch</td>
+            <td>
+              <div class="bosnisch">
+                <span>sto</span>
+                <button class="speaker-btn" onclick="speakText('sto')" aria-label="Aussprache sto">🔊</button>
+              </div>
+            </td>
+            <td><span class="badge m">maskulin</span></td>
+          </tr>
+
+          <tr>
+            <td>das Buch</td>
+            <td>
+              <div class="bosnisch">
+                <span>knjiga</span>
+                <button class="speaker-btn" onclick="speakText('knjiga')" aria-label="Aussprache knjiga">🔊</button>
+              </div>
+            </td>
+            <td><span class="badge f">feminin</span></td>
+          </tr>
+
+          <tr>
+            <td>die Tür</td>
+            <td>
+              <div class="bosnisch">
+                <span>vrata</span>
+                <button class="speaker-btn" onclick="speakText('vrata')" aria-label="Aussprache vrata">🔊</button>
+              </div>
+            </td>
+            <td><span class="badge n">neutrum</span></td>
+          </tr>
+
+          <tr>
+            <td>das Kind</td>
+            <td>
+              <div class="bosnisch">
+                <span>dijete</span>
+                <button class="speaker-btn" onclick="speakText('dijete')" aria-label="Aussprache dijete">🔊</button>
+              </div>
+            </td>
+            <td><span class="badge n">neutrum</span></td>
+          </tr>
+
+          <tr>
+            <td>die Stadt</td>
+            <td>
+              <div class="bosnisch">
+                <span>grad</span>
+                <button class="speaker-btn" onclick="speakText('grad')" aria-label="Aussprache grad">🔊</button>
+              </div>
+            </td>
+            <td><span class="badge m">maskulin</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Exercise (10 words not in table) -->
+    <section class="exercise" aria-labelledby="exerciseTitle">
+      <h3 id="exerciseTitle">Übung — Welches Geschlecht hat das bosnische Wort?</h3>
+      <p class="prompt" id="prompt">Drücke <strong>Start</strong>, um 10 zufällige Fragen zu starten. (Tastatur: Leertaste spielt Aussprache bei aktivem Wort).</p>
+
+      <div class="controls" role="group" aria-label="Quiz-Steuerung">
+        <button id="startBtn" class="btn">Quiz starten</button>
+        <button id="playBtn" class="btn secondary" disabled>🔊 Abspielen</button>
+        <button id="nextBtn" class="btn secondary" disabled>Nächste</button>
+        <div class="meta" id="meta">Frage 0/0 • Punkte: 0</div>
+      </div>
+
+      <div id="questionWrap" style="margin-top:12px">
+        <!-- shown after start -->
+      </div>
+
+      <div id="options" class="options" aria-live="polite" style="margin-top:14px"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;padding:8px 20px;color:var(--white);">
+      <div style="font-weight:700">LinguaBosna &copy; 2025</div>
+      <div style="opacity:.9;margin-top:6px">Kontakt | Impressum | Datenschutz</div>
+    </div>
+  </footer>
+
+  <script>
+    /***********************
+     * Daten: Quiz-Wörter (10), NICHT in Tabelle oben
+     * word: bosnisch, tr: deutsch, gender: 'm'|'f'|'n'
+     *************************/
+    const QUIZ_WORDS = [
+      {word:'knedla', tr:'Kloß (regional)', gender:'f'},
+      {word:'rječnik', tr:'Wörterbuch', gender:'m'},
+      {word:'sunce', tr:'Sonne', gender:'n'},
+      {word:'žlica', tr:'Löffel', gender:'f'},
+      {word:'bicikl', tr:'Fahrrad', gender:'m'},
+      {word:'voda', tr:'Wasser', gender:'f'},
+      {word:'jezgro', tr:'Kern', gender:'n'},
+      {word:'ptica', tr:'Vogel', gender:'f'},
+      {word:'most', tr:'Brücke', gender:'m'},
+      {word:'srce', tr:'Herz', gender:'n'}
+    ];
+
+    // Elements
+    const startBtn = document.getElementById('startBtn');
+    const playBtn = document.getElementById('playBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const prompt = document.getElementById('prompt');
+    const meta = document.getElementById('meta');
+    const questionWrap = document.getElementById('questionWrap');
+    const optionsEl = document.getElementById('options');
+
+    // quiz state
+    let quiz = [];
+    let idx = -1;
+    let score = 0;
+    let current = null;
+    const TOTAL = 10;
+
+    // shuffle util
+    function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+
+    function startQuiz(){
+      quiz = shuffle([...QUIZ_WORDS]).slice(0, TOTAL);
+      idx = 0; score = 0;
+      current = quiz[idx];
+      startBtn.disabled = true;
+      playBtn.disabled = false;
+      nextBtn.disabled = true;
+      renderQuestion();
+      updateMeta();
+    }
+
+    function renderQuestion(){
+      if(!current){
+        finishQuiz();
+        return;
+      }
+      // show word with play button
+      questionWrap.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-family:Montserrat, sans-serif; font-weight:700; font-size:1.2rem">${current.word}</div>
+          <button class="speaker-btn" onclick="speakText('${current.word}')">🔊</button>
+          <div style="color:var(--secondary); margin-left:12px; font-weight:600">${current.tr}</div>
+        </div>
+      `;
+      prompt.textContent = 'Wähle das richtige grammatische Geschlecht (bosnisch).';
+      optionsEl.innerHTML = '';
+      ['m','f','n'].forEach(opt=>{
+        const el = document.createElement('div');
+        el.className = 'option';
+        el.tabIndex = 0;
+        el.textContent = opt === 'm' ? 'Maskulin' : opt === 'f' ? 'Feminin' : 'Neutrum';
+        el.onclick = ()=> selectAnswer(opt, el);
+        el.onkeydown = (e)=> { if(e.key==='Enter') selectAnswer(opt, el); };
+        optionsEl.appendChild(el);
+      });
+      nextBtn.disabled = true;
+      playBtn.disabled = false;
+    }
+
+    function selectAnswer(opt, el){
+      // disable further clicks
+      Array.from(optionsEl.children).forEach(c=> c.style.pointerEvents = 'none');
+      const correct = current.gender;
+      if(opt === correct){
+        el.classList.add('correct');
+        score++;
+        prompt.textContent = `Richtig ✅ — „${current.word}“ ist ${genderFull(correct)}.`;
+      } else {
+        el.classList.add('wrong');
+        // highlight correct
+        const correctEl = Array.from(optionsEl.children).find(c => c.textContent.toLowerCase().startsWith(genderFull(correct).slice(0,3)));
+        if(correctEl) correctEl.classList.add('correct');
+        prompt.textContent = `Falsch ❌ — richtig ist: ${genderFull(correct)}.`;
+      }
+      nextBtn.disabled = false;
+      playBtn.disabled = true;
+      updateMeta();
+    }
+
+    function nextQuestion(){
+      idx++;
+      if(idx >= quiz.length){
+        finishQuiz();
+        return;
+      }
+      current = quiz[idx];
+      renderQuestion();
+      updateMeta();
+    }
+
+    function finishQuiz(){
+      prompt.textContent = `Quiz beendet — Du hast ${score} von ${quiz.length} Punkten erzielt.`;
+      questionWrap.innerHTML = '';
+      optionsEl.innerHTML = '';
+      startBtn.disabled = false;
+      playBtn.disabled = true;
+      nextBtn.disabled = true;
+      meta.textContent = `Frage ${quiz.length}/${quiz.length} • Punkte: ${score}`;
+    }
+
+    function updateMeta(){
+      meta.textContent = `Frage ${Math.min(idx+1, quiz.length)}/${quiz.length} • Punkte: ${score}`;
+    }
+
+    function genderFull(g){
+      return g==='m' ? 'Maskulin' : g==='f' ? 'Feminin' : 'Neutrum';
+    }
+
+    // events
+    startBtn.addEventListener('click', ()=> startQuiz());
+    nextBtn.addEventListener('click', nextQuestion);
+    playBtn.addEventListener('click', ()=> { if(current) speakText(current.word); });
+
+    // keyboard: space plays pron if enabled
+    document.addEventListener('keydown', (e)=>{
+      if(e.code==='Space' && document.activeElement.tagName !== 'INPUT' && !e.target.matches('textarea')){
+        if(!playBtn.disabled){ e.preventDefault(); if(current) speakText(current.word); }
+      }
+    });
+
+    /*********************
+     * Speech Synthesis
+     *********************/
+    let voices = [];
+    function loadVoices(){ voices = window.speechSynthesis.getVoices() || []; }
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+
+    function findPreferedVoice(){
+      const prefer = ['bs','hr','sr','en','de'];
+      for(const p of prefer){
+        const v = voices.find(x => x.lang && x.lang.toLowerCase().startsWith(p));
+        if(v) return v;
+      }
+      return voices[0] || null;
+    }
+
+    function speakText(text){
+      if(!('speechSynthesis' in window)){
+        alert('Sprachausgabe wird von deinem Browser nicht unterstützt.');
+        return;
+      }
+      const u = new SpeechSynthesisUtterance(text);
+      const v = findPreferedVoice();
+      if(v) u.voice = v;
+      u.lang = (v && v.lang) ? v.lang : 'bs';
+      u.rate = 0.95;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    }
+
+    // accessibility: allow clicking speaker buttons in table that call speakText (global)
+    window.speakText = speakText;
+  </script>
+</body>
+</html>

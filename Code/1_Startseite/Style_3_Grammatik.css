@@ -1,0 +1,41 @@
+main {
+      margin-top: 90px;
+      padding: 40px 5%;
+      text-align: center;
+    }
+
+    main h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .grammar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .grammar-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .grammar-card:hover {
+      transform: translateY(-5px);
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    .grammar-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }

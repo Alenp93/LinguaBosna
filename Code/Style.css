@@ -1,0 +1,130 @@
+/* Farbpalette */
+    :root {
+      --primary: #0A3D62;
+      --accent: #F4C542;
+      --secondary: #2E5E2E;
+      --bg-light: #F8F5F0;
+      --neutral: #E6E6E6;
+    }
+
+    /* Basisstyles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+     
+    .header-image {
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+      filter: brightness(0.5);
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid var(--neutral);
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      padding: 15px 5%;
+      z-index: 1000;
+    }
+
+    header .logo {
+     display: inline-block; 
+     vertical-align: top;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    .cta-btn {
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 40px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 60px
+    }
+
+    footer a {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    footer .social {
+      display: flex;
+      gap: 15px;
+    }
+
+    footer .social a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media(max-width: 768px){
+      nav ul {
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .features, .course-grid, .culture-grid {
+        flex-direction: column;
+      }
+    }

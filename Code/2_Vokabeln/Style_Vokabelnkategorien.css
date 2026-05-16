@@ -1,0 +1,122 @@
+ /* Main */
+    main {
+      margin-top: 100px;
+      padding: 40px 5%;
+    }
+
+    main h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--neutral);
+    }
+
+    th {
+      background-color: var(--primary);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .speaker-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-left: 10px;
+    }
+
+    .speaker-btn:hover {
+      color: var(--primary);
+    }
+
+    .count {
+      margin-top: 20px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+  
+    /* Responsive Design */
+@media(max-width: 768px) {
+  main h1 {
+    font-size: 1.6rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+@media(max-width: 480px) {
+  main h1 {
+    font-size: 1.3rem;
+  }
+
+  nav ul {
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+}

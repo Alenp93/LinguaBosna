@@ -1,0 +1,63 @@
+
+    /* Main */
+    main {
+      margin-top: 100px;
+      padding: 60px 5%;
+      text-align: center;
+    }
+
+    main h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .culture-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .culture-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .culture-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .culture-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10,61,98,0.7); /* primary mit Transparenz */
+      color: #fff;
+      padding: 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    
+
+    /* Responsive */
+    @media(max-width: 768px){
+      main h1 {
+        font-size: 1.8rem;
+      }
+    }

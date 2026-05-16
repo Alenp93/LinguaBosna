@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alphabet & Aussprache | LinguaBosna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#0A3D62;
+      --accent:#F4C542;
+      --secondary:#2E5E2E;
+      --bg:#F8F5F0;
+      --neutral:#E6E6E6;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Open Sans',sans-serif;
+      background:var(--bg);
+      color:var(--primary);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Header (wie restliche Seite) */
+    header{
+      background:var(--primary);
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 5%;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+    }
+    .logo{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem}
+    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0;align-items:center}
+    nav a{color:#fff;text-decoration:none;font-weight:600}
+    .cta{background:var(--accent);color:var(--primary);padding:8px 14px;border-radius:24px;font-weight:700;text-decoration:none}
+
+    main{margin-top:78px;padding:28px 5% 60px;}
+
+    /* Hero / Intro */
+    .hero{
+      background:#fff;border-radius:12px;padding:22px;border:1px solid var(--neutral);
+      margin-bottom:22px;
+    }
+    .hero h1{font-family:'Montserrat',sans-serif;font-size:1.6rem;margin:0 0 8px;text-transform:none;color:var(--primary)}
+    .hero p{margin:0;color:var(--secondary)}
+
+    /* Info box */
+    .info{
+      margin:18px 0 28px;padding:16px;background:#fff;border-radius:10px;border:1px solid var(--neutral);color:#333;
+    }
+
+    /* Tabelle */
+    .table-wrap{
+      background: #fff;
+      border-radius: 10px;
+      border:1px solid var(--neutral);
+      overflow:auto;
+      margin-bottom:20px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:980px; /* erlaubt horizontales scrollen auf Mobil */
+    }
+    th,td{
+      padding:12px 14px;
+      border-bottom:1px solid var(--neutral);
+      text-align:left;
+      vertical-align:middle;
+      font-size:0.98rem;
+    }
+    th{
+      background:var(--primary);
+      color:#fff;
+      font-family:'Montserrat',sans-serif;
+      font-weight:600;
+    }
+    .letter{
+      font-family:'Montserrat',sans-serif;
+      font-weight:700;
+      font-size:1.1rem;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .speaker-btn{
+      background:transparent;border:1px solid var(--neutral);border-radius:8px;padding:6px 8px;cursor:pointer;color:var(--accent);
+    }
+    .speaker-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+    /* Übungsbereich */
+    .exercise{
+      margin-top:22px;
+      background:#fff;border-radius:10px;padding:18px;border:1px solid var(--neutral);
+    }
+    .exercise h3{font-family:'Montserrat',sans-serif;margin:0 0 12px;color:var(--primary)}
+    .quiz-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+    .btn{background:var(--accent);color:var(--primary);padding:8px 12px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+    .btn:hover{background:var(--primary);color:#fff}
+    .options{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .option{
+      background:#f6f6f6;border:1px solid var(--neutral);padding:10px 14px;border-radius:8px;cursor:pointer;
+      min-width:90px;text-align:center;font-weight:600;
+    }
+    .option.correct{background:#d4f4d4;border-color:#74c774}
+    .option.wrong{background:#ffd6d6;border-color:#ff8a8a}
+
+    .quiz-meta{margin-top:12px;font-weight:600;color:var(--secondary)}
+
+    /* Footer */
+    footer{background:var(--primary);color:#fff;padding:20px 5%;text-align:center;margin-top:28px;border-top:4px solid rgba(0,0,0,0.03)}
+
+    /* Responsive tweaks */
+    @media (max-width:780px){
+      th,td{padding:10px}
+      .letter{font-size:1rem}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">LinguaBosna</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="vokabeln.html">Vokabeln</a></li>
+        <li><a href="grammatik.html">Grammatik</a></li>
+        <li><a href="lernen.html">Lernen</a></li>
+        <li><a href="kultur.html">Kultur</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="start.html">Jetzt starten</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Alphabet & Aussprache</h1>
+      <p>Grundlagen: So klingt das Bosnische — wichtige Buchstaben, Spezialzeichen und Beispiele.</p>
+    </section>
+
+    <section class="info">
+      <strong>Kurze Einführung — gründlich gedacht:</strong>
+      <p style="margin:8px 0 0">
+        Bosnisch verwendet hauptsächlich das lateinische Alphabet (mit diakritischen Zeichen: č, ć, đ, š, ž und Digraphen wie dž, lj, nj). Es existiert außerdem eine entsprechende kyrillische Variante — für Lernzwecke empfehlen wir zunächst das lateinische Alphabet. In der Tabelle findest du zu jedem Zeichen eine leicht verständliche Aussprache-Hinweis und ein Beispielwort.  
+        Benutze die Lautsprecher-Buttons, um dir die Aussprache anzuhören (Web Speech API).
+      </p>
+    </section>
+
+    <!-- Tabelle -->
+    <div class="table-wrap" aria-live="polite">
+      <table>
+        <thead>
+          <tr>
+            <th>Buchstabe / Beispiel (Bosnisch)</th>
+            <th>Aussprache (Kurz-Hinweis)</th>
+            <th>Beispiel — Deutsch</th>
+          </tr>
+        </thead>
+        <tbody id="alphabetBody">
+          <!-- JS fügt die Zeilen ein -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Übungsbereich -->
+    <section class="exercise" aria-labelledby="exerciseTitle">
+      <h3 id="exerciseTitle">Interaktives Hör-Quiz — Welcher Buchstabe?</h3>
+      <p>Du hörst ein Wort (oder die Aussprache). Wähle den Buchstaben, der zum gehörten Beispiel passt. 5 Fragen — gleich starten!</p>
+
+      <div class="quiz-controls">
+        <button id="startQuiz" class="btn">Quiz starten</button>
+        <button id="playSound" class="btn" disabled>🔊 Ton abspielen</button>
+        <button id="nextQ" class="btn" disabled>Weiter</button>
+        <div style="margin-left:auto" class="quiz-meta">
+          Frage: <span id="qIndex">0</span>/<span id="qTotal">0</span> &nbsp; • &nbsp; Punkte: <span id="score">0</span>
+        </div>
+      </div>
+
+      <div id="prompt" style="font-weight:700;color:var(--secondary)">Drücke „Quiz starten“</div>
+      <div id="options" class="options" aria-live="polite"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <small>&copy; 2025 LinguaBosna — Alphabet & Aussprache</small>
+  </footer>
+
+  <script>
+    /*************************************************************************
+     * Daten: Bosnisches lateinisches Alphabet (repräsentative Beispiele)
+     * Für jede Zeile: symbol, example (Bosnisch), translation (DE), hint (Aussprache)
+     *************************************************************************/
+    const alphabet = [
+      {symbol: 'A', example: 'auto', tr: 'Auto', hint: 'a wie in „Auto“'},
+      {symbol: 'B', example: 'brat', tr: 'Bruder', hint: 'b wie in „Bahn“'},
+      {symbol: 'C', example: 'cijena', tr: 'Preis', hint: 'c = /ts/ wie in „Zeit“'},
+      {symbol: 'Č', example: 'čaj', tr: 'Tee', hint: 'č = /tʃ/ wie „tsch“'},
+      {symbol: 'Ć', example: 'ćerka', tr: 'Tochter', hint: 'ć weicher als č (≈ tɕ)'},
+      {symbol: 'D', example: 'dan', tr: 'Tag', hint: 'd wie in „Dose“'},
+      {symbol: 'Dž', example: 'džem', tr: 'Marmelade', hint: 'dž = /dʒ/ wie „j“ in „James“'},
+      {symbol: 'Đ', example: 'đak', tr: 'Schüler', hint: 'đ ähnlich wie dž, regional variierend'},
+      {symbol: 'E', example: 'ekipa', tr: 'Team', hint: 'e wie in „Ende“'},
+      {symbol: 'F', example: 'fabrika', tr: 'Fabrik', hint: 'f wie in „Film“'},
+      {symbol: 'G', example: 'grad', tr: 'Stadt', hint: 'g wie in „Garten“'},
+      {symbol: 'H', example: 'hvala', tr: 'Danke', hint: 'h wie in „Haus“'},
+      {symbol: 'I', example: 'igra', tr: 'Spiel', hint: 'i wie in „ich“'},
+      {symbol: 'J', example: 'ja', tr: 'ich', hint: 'j = /j/ wie „j“ in „ja“ (→ deutsches „j“)'},
+      {symbol: 'K', example: 'kafa', tr: 'Kaffee', hint: 'k wie in „Karte“'},
+      {symbol: 'L', example: 'limun', tr: 'Zitrone', hint: 'l wie in „Licht“'},
+      {symbol: 'Lj', example: 'ljubav', tr: 'Liebe', hint: 'lj = palatalisiertes l (≈ „lj“ zusammen)'},
+      {symbol: 'M', example: 'majka', tr: 'Mutter', hint: 'm wie in „Mutter“'},
+      {symbol: 'N', example: 'nos', tr: 'Nase', hint: 'n wie in „Nase“'},
+      {symbol: 'Nj', example: 'njiva', tr: 'Acker', hint: 'nj ähnlich wie in „John“ (ny)'},
+      {symbol: 'O', example: 'oko', tr: 'Auge', hint: 'o wie in „Ofen“'},
+      {symbol: 'P', example: 'put', tr: 'Weg', hint: 'p wie in „Park“'},
+      {symbol: 'R', example: 'ruka', tr: 'Hand/Arm', hint: 'r gerollt (kurz)'},
+      {symbol: 'S', example: 'sunce', tr: 'Sonne', hint: 's wie in „Sonne“'},
+      {symbol: 'Š', example: 'šuma', tr: 'Wald', hint: 'š = /ʃ/ wie „sch“'},
+      {symbol: 'T', example: 'tata', tr: 'Papa', hint: 't wie in „Tisch“'},
+      {symbol: 'U', example: 'ulica', tr: 'Straße', hint: 'u wie in „Uhr“'},
+      {symbol: 'V', example: 'voda', tr: 'Wasser', hint: 'v wie in „Vase“'},
+      {symbol: 'Z', example: 'zvijezda', tr: 'Stern', hint: 'z wie in „Zoo“'},
+      {symbol: 'Ž', example: 'žena', tr: 'Frau', hint: 'ž = /ʒ/ wie „s“ in „Vision“'}
+    ];
+
+    /*************************************************************************
+     * 1) Tabelle rendern
+     *************************************************************************/
+    const tbody = document.getElementById('alphabetBody');
+    alphabet.forEach((item, idx) => {
+      const tr = document.createElement('tr');
+
+      // Bosnisch-Spalte (Buchstabe + Beispiel + Lautsprecher)
+      const td1 = document.createElement('td');
+      const letterDiv = document.createElement('div');
+      letterDiv.className = 'letter';
+      letterDiv.innerHTML = `<span style="min-width:60px">${item.symbol}</span>
+                             <span style="color:#666;font-weight:600">${item.example}</span>`;
+      const spBtn = document.createElement('button');
+      spBtn.className = 'speaker-btn';
+      spBtn.setAttribute('aria-label', `Aussprache abspielen: ${item.example}`);
+      spBtn.innerHTML = '🔊';
+      spBtn.onclick = () => speakText(item.example);
+      letterDiv.appendChild(spBtn);
+      td1.appendChild(letterDiv);
+
+      // Aussprache-Hinweis
+      const td2 = document.createElement('td');
+      td2.textContent = item.hint;
+
+      // Beispiel + DE
+      const td3 = document.createElement('td');
+      td3.textContent = `${item.tr}`;
+
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+
+      tbody.appendChild(tr);
+    });
+
+    /*************************************************************************
+     * 2) Speech Synthesis util — wähle bestmögliche Stimme (bs/hr/sr) falls da
+     *************************************************************************/
+    let availableVoices = [];
+    function loadVoices(){
+      availableVoices = window.speechSynthesis.getVoices() || [];
+      // optional: sort or prefer voices with 'bs' or 'hr' languages
+    }
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+
+    function findBestVoice(){
+      // Prioritäten: bs, hr, sr, hr-HR, sr-RS, fallback to any with 'en' or default
+      const prefer = ['bs','bs-BA','hr','hr-HR','sr','sr-RS'];
+      for (const p of prefer){
+        const v = availableVoices.find(voice => voice.lang && voice.lang.toLowerCase().startsWith(p));
+        if (v) return v;
+      }
+      return availableVoices[0] || null;
+    }
+
+    function speakText(text){
+      if (!('speechSynthesis' in window)){
+        alert('Dein Browser unterstützt keine Sprachausgabe. Bitte ein moderner Browser (Chrome/Edge/Firefox) verwenden.');
+        return;
+      }
+      const utter = new SpeechSynthesisUtterance(text);
+      const v = findBestVoice();
+      if (v) utter.voice = v;
+      // Sprache setzen: bs wenn möglich, sonst voice.lang
+      utter.lang = (v && v.lang) ? v.lang : 'bs';
+      // leichte Geschwindigkeitsanpassung für bessere Klarheit
+      utter.rate = 0.9;
+      window.speechSynthesis.cancel(); // stoppe evtl. laufende
+      window.speechSynthesis.speak(utter);
+    }
+
+    /*************************************************************************
+     * 3) Quiz-Logik
+     *************************************************************************/
+    const startBtn = document.getElementById('startQuiz');
+    const playBtn = document.getElementById('playSound');
+    const nextBtn = document.getElementById('nextQ');
+    const prompt = document.getElementById('prompt');
+    const optionsWrap = document.getElementById('options');
+    const qIndexEl = document.getElementById('qIndex');
+    const qTotalEl = document.getElementById('qTotal');
+    const scoreEl = document.getElementById('score');
+
+    let quizQuestions = [];
+    let current = null;
+    let idx = 0;
+    let score = 0;
+    let totalQuestions = 5;
+
+    function makeQuestions(n=5){
+      // shuffle a copy and pick n items
+      const copy = [...alphabet];
+      shuffle(copy);
+      return copy.slice(0,n);
+    }
+
+    function shuffle(arr){
+      for(let i=arr.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]]=[arr[j],arr[i]];
+      }
+      return arr;
+    }
+
+    function startQuiz(){
+      quizQuestions = makeQuestions(totalQuestions);
+      idx = 0;
+      score = 0;
+      qTotalEl.textContent = totalQuestions;
+      updateMeta();
+      startBtn.disabled = true;
+      playBtn.disabled = false;
+      nextBtn.disabled = true;
+      prompt.textContent = 'Drücke „🔊 Ton abspielen“, höre genau hin und wähle die richtige Option.';
+      optionsWrap.innerHTML = '';
+      prepareQuestion();
+    }
+
+    function updateMeta(){
+      qIndexEl.textContent = idx+1 <= totalQuestions ? idx+1 : totalQuestions;
+      scoreEl.textContent = score;
+    }
+
+    function prepareQuestion(){
+      current = quizQuestions[idx];
+      // build option buttons (correct + 3 random others)
+      const others = alphabet.filter(a=>a.symbol !== current.symbol);
+      shuffle(others);
+      const opts = [current, others[0], others[1], others[2]];
+      shuffle(opts);
+
+      optionsWrap.innerHTML = '';
+      opts.forEach(opt=>{
+        const btn = document.createElement('div');
+        btn.className = 'option';
+        btn.setAttribute('role','button');
+        btn.tabIndex = 0;
+        btn.textContent = opt.symbol;
+        btn.onclick = () => guess(opt.symbol, btn);
+        btn.onkeydown = (e)=>{ if (e.key==='Enter') guess(opt.symbol, btn); };
+        optionsWrap.appendChild(btn);
+      });
+
+      // Set controls
+      nextBtn.disabled = true;
+    }
+
+    function playCurrentSound(){
+      if(!current){ alert('Bitte zuerst Quiz starten.'); return; }
+      // Wir sprechen das Beispielwort (klarer Kontext für den Buchstaben)
+      speakText(current.example);
+    }
+
+    function guess(symbol, btnEl){
+      // Prevent multiple clicks after answered
+      if (btnEl.classList.contains('correct') || btnEl.classList.contains('wrong')) return;
+
+      const correct = symbol === current.symbol;
+      // mark buttons
+      const allBtns = Array.from(optionsWrap.children);
+      allBtns.forEach(b=>{
+        b.style.pointerEvents='none';
+        if (b.textContent === current.symbol) b.classList.add('correct');
+      });
+      if (!correct) {
+        btnEl.classList.add('wrong');
+        prompt.textContent = `Falsch — richtig ist: ${current.symbol} (Beispiel: ${current.example} — ${current.tr})`;
+      } else {
+        score++;
+        scoreEl.textContent = score;
+        prompt.textContent = `Richtig! ${current.symbol} — (${current.example} → ${current.tr})`;
+      }
+      nextBtn.disabled = false;
+    }
+
+    function nextQuestion(){
+      idx++;
+      if (idx >= totalQuestions){
+        finishQuiz();
+        return;
+      }
+      updateMeta();
+      optionsWrap.innerHTML = '';
+      prompt.textContent = 'Drücke „🔊 Ton abspielen“ für die nächste Frage.';
+      prepareQuestion();
+      playBtn.disabled = false;
+      nextBtn.disabled = true;
+    }
+
+    function finishQuiz(){
+      prompt.textContent = `Quiz beendet — Du hast ${score} von ${totalQuestions} Punkten erzielt.`;
+      startBtn.disabled = false;
+      playBtn.disabled = true;
+      nextBtn.disabled = true;
+      optionsWrap.innerHTML = `<div style="padding:10px;color:var(--secondary)">Tipp: Wiederhole schwierige Buchstaben in der Tabelle oben — benutze die Lautsprecher.</div>`;
+      qIndexEl.textContent = totalQuestions;
+      // offer retry set-up
+    }
+
+    // Event listeners
+    startBtn.addEventListener('click', startQuiz);
+    playBtn.addEventListener('click', playCurrentSound);
+    nextBtn.addEventListener('click', nextQuestion);
+
+    // initialize meta
+    qTotalEl.textContent = totalQuestions;
+    qIndexEl.textContent = 0;
+    scoreEl.textContent = 0;
+
+    // Extra: enable keyboard space to play sound when quiz active
+    document.addEventListener('keydown', (e)=>{
+      if (e.code==='Space' && !e.target.matches('input,textarea')) {
+        if (!playBtn.disabled) { e.preventDefault(); playCurrentSound(); }
+      }
+    });
+  </script>
+</body>
+</html>

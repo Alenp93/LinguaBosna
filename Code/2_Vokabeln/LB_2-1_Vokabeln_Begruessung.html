@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <link rel="stylesheet" href="/LinguaBosna/Code/Style.css">
+  <link rel="stylesheet" href="/LinguaBosna/Code/2_Vokabeln/Style_Vokabelnkategorien.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaBosna – Vokabeln: Begrüßung & Alltagssprache</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  <script src="/LinguaBosna/Code/LB_main.js" ></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header"></div>
+
+  <!-- Main -->
+  <main>
+    <h1>Begrüßung & Alltagssprache</h1>
+
+    <!-- Buttons -->
+    <div class="actions">
+      <a href="vokabeltrainer.html" class="btn">Zum Vokabeltrainer</a>
+      <button onclick="window.print()" class="btn">Tabelle drucken</button>
+    </div>
+
+    <!-- Tabelle -->
+    <table id="vocabTable">
+      <thead>
+        <tr>
+          <th>Bosnisch</th>
+          <th>Deutsch</th>
+          <th>Wortart</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Zdravo <button class="speaker-btn" onclick="playAudio('zdravo')">🔊</button></td>
+          <td>Hallo</td>
+          <td>Interjektion</td>
+        </tr>
+        <tr>
+          <td>Dobar dan <button class="speaker-btn" onclick="playAudio('dobar-dan')">🔊</button></td>
+          <td>Guten Tag</td>
+          <td>Redewendung</td>
+        </tr>
+        <tr>
+          <td>Kako si? <button class="speaker-btn" onclick="playAudio('kako-si')">🔊</button></td>
+          <td>Wie geht’s?</td>
+          <td>Frage</td>
+        </tr>
+        <!-- Weitere Vokabeln hier ergänzen -->
+      </tbody>
+    </table>
+
+    <!-- Vokabelanzahl -->
+    <div class="count">
+      Anzahl der Vokabeln: <span id="vocabCount"></span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- JS -->
+  <script>
+    // Beispiel: Audio abspielen (Platzhalter-Dateien, noch zu ergänzen)
+    function playAudio(word) {
+      const audio = new Audio('audio/' + word + '.mp3');
+      audio.play();
+    }
+
+    // Vokabelanzahl automatisch zählen
+    document.getElementById("vocabCount").textContent =
+      document.querySelectorAll("#vocabTable tbody tr").length;
+  </script>
+</body>
+</html>

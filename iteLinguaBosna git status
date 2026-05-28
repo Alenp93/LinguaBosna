@@ -1,0 +1,190 @@
+[1mdiff --git a/Code/1_Startseite/Style_1_Startseite.css b/Code/1_Startseite/Style_1_Startseite.css[m
+[1mindex 5bfbf2a..100811f 100644[m
+[1m--- a/Code/1_Startseite/Style_1_Startseite.css[m
+[1m+++ b/Code/1_Startseite/Style_1_Startseite.css[m
+[36m@@ -2,7 +2,7 @@[m
+     .hero {[m
+       margin-top: 80px;[m
+       background: url('hero-image.jpg') center/cover no-repeat;[m
+[31m-      height: 80vh;[m
+[32m+[m[32m      height: 40vh;[m
+       display: flex;[m
+       flex-direction: column;[m
+       justify-content: center;[m
+[1mdiff --git a/Code/2_Vokabeln/LB_2-1_Vokabeln_Begruessung.html b/Code/2_Vokabeln/LB_2-1_Vokabeln_Begruessung.html[m
+[1mindex dfc7ad8..bd97588 100644[m
+[1m--- a/Code/2_Vokabeln/LB_2-1_Vokabeln_Begruessung.html[m
+[1m+++ b/Code/2_Vokabeln/LB_2-1_Vokabeln_Begruessung.html[m
+[36m@@ -7,7 +7,7 @@[m
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+   <title>LinguaBosna – Vokabeln: Begrüßung & Alltagssprache</title>[m
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">[m
+[31m-  <script src="/LinguaBosna/Code/LB_main.js" ></script>[m
+[32m+[m[32m  <script src="/Code/LB_main.js" ></script>[m
+ </head>[m
+ <body>[m
+ [m
+[36m@@ -35,19 +35,154 @@[m
+       </thead>[m
+       <tbody>[m
+         <tr>[m
+[31m-          <td>Zdravo <button class="speaker-btn" onclick="playAudio('zdravo')">🔊</button></td>[m
+[31m-          <td>Hallo</td>[m
+[31m-          <td>Interjektion</td>[m
+[32m+[m[32m          <td>zdravo <button class="speaker-btn" onclick="playAudio('zdravo')">🔊</button></td>[m
+[32m+[m[32m          <td>hallo</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+         </tr>[m
+         <tr>[m
+[31m-          <td>Dobar dan <button class="speaker-btn" onclick="playAudio('dobar-dan')">🔊</button></td>[m
+[31m-          <td>Guten Tag</td>[m
+[31m-          <td>Redewendung</td>[m
+[32m+[m[32m          <td>dobar dan <button class="speaker-btn" onclick="playAudio('dobar-dan')">🔊</button></td>[m
+[32m+[m[32m          <td>guten Tag</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+         </tr>[m
+         <tr>[m
+[31m-          <td>Kako si? <button class="speaker-btn" onclick="playAudio('kako-si')">🔊</button></td>[m
+[31m-          <td>Wie geht’s?</td>[m
+[31m-          <td>Frage</td>[m
+[32m+[m[32m          <td>dobro jutro <button class="speaker-btn" onclick="playAudio('dobro-jutro')">🔊</button></td>[m
+[32m+[m[32m          <td>guten Morgen</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>dobro veče <button class="speaker-btn" onclick="playAudio('dobro-vece')">🔊</button></td>[m
+[32m+[m[32m          <td>guten Abend</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>laku noć <button class="speaker-btn" onclick="playAudio('laku-noc')">🔊</button></td>[m
+[32m+[m[32m          <td>gute Nacht</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>doviđenja <button class="speaker-btn" onclick="playAudio('dovidjenja')">🔊</button></td>[m
+[32m+[m[32m          <td>auf Wiedersehen</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>hvala <button class="speaker-btn" onclick="playAudio('hvala')">🔊</button></td>[m
+[32m+[m[32m          <td>danke</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>molim <button class="speaker-btn" onclick="playAudio('molim')">🔊</button></td>[m
+[32m+[m[32m          <td>bitte</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>izvoli <button class="speaker-btn" onclick="playAudio('izvoli')">🔊</button></td>[m
+[32m+[m[32m          <td>bitte sehr (beim Geben)</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>oprostite <button class="speaker-btn" onclick="playAudio('oprostite')">🔊</button></td>[m
+[32m+[m[32m          <td>entschuldigen Sie</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>kako si? <button class="speaker-btn" onclick="playAudio('kako-si')">🔊</button></td>[m
+[32m+[m[32m          <td>wie geht's dir?</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>dobro <button class="speaker-btn" onclick="playAudio('dobro')">🔊</button></td>[m
+[32m+[m[32m          <td>gut</td>[m
+[32m+[m[32m          <td>Adjektiv</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>loše <button class="speaker-btn" onclick="playAudio('lose')">🔊</button></td>[m
+[32m+[m[32m          <td>schlecht</td>[m
+[32m+[m[32m          <td>Adjektiv</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>tako-tako <button class="speaker-btn" onclick="playAudio('tako-tako')">🔊</button></td>[m
+[32m+[m[32m          <td>so lala</td>[m
+[32m+[m[32m          <td>Adjektiv</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>može <button class="speaker-btn" onclick="playAudio('moze')">🔊</button></td>[m
+[32m+[m[32m          <td>geht</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>ne može <button class="speaker-btn" onclick="playAudio('ne-moze')">🔊</button></td>[m
+[32m+[m[32m          <td>geht nicht</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>naravno <button class="speaker-btn" onclick="playAudio('naravno')">🔊</button></td>[m
+[32m+[m[32m          <td>natürlich</td>[m
+[32m+[m[32m          <td>Adverb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>u redu <button class="speaker-btn" onclick="playAudio('u-redu')">🔊</button></td>[m
+[32m+[m[32m          <td>in Ordnung</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>gdje je …? <button class="speaker-btn" onclick="playAudio('gdje-je')">🔊</button></td>[m
+[32m+[m[32m          <td>wo ist …?</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>ponovi, molim te <button class="speaker-btn" onclick="playAudio('ponovi-molim-te')">🔊</button></td>[m
+[32m+[m[32m          <td>wiederhole bitte</td>[m
+[32m+[m[32m          <td>Phrase</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>razumijem <button class="speaker-btn" onclick="playAudio('razumijem')">🔊</button></td>[m
+[32m+[m[32m          <td>ich verstehe</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>ne razumijem <button class="speaker-btn" onclick="playAudio('ne-razumijem')">🔊</button></td>[m
+[32m+[m[32m          <td>ich verstehe nicht</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>da <button class="speaker-btn" onclick="playAudio('da')">🔊</button></td>[m
+[32m+[m[32m          <td>ja</td>[m
+[32m+[m[32m          <td>Partikel</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>ne <button class="speaker-btn" onclick="playAudio('ne')">🔊</button></td>[m
+[32m+[m[32m          <td>nein</td>[m
+[32m+[m[32m          <td>Partikel</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>biti <button class="speaker-btn" onclick="playAudio('biti')">🔊</button></td>[m
+[32m+[m[32m          <td>sein</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>imati <button class="speaker-btn" onclick="playAudio('imati')">🔊</button></td>[m
+[32m+[m[32m          <td>haben</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>moći <button class="speaker-btn" onclick="playAudio('moci')">🔊</button></td>[m
+[32m+[m[32m          <td>können</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>htjeti <button class="speaker-btn" onclick="playAudio('htjeti')">🔊</button></td>[m
+[32m+[m[32m          <td>wollen</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>trebati <button class="speaker-btn" onclick="playAudio('trebati')">🔊</button></td>[m
+[32m+[m[32m          <td>brauchen</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+[32m+[m[32m        </tr>[m
+[32m+[m[32m        <tr>[m
+[32m+[m[32m          <td>govoriti <button class="speaker-btn" onclick="playAudio('govoriti')">🔊</button></td>[m
+[32m+[m[32m          <td>sprechen</td>[m
+[32m+[m[32m          <td>Verb</td>[m
+         </tr>[m
+         <!-- Weitere Vokabeln hier ergänzen -->[m
+       </tbody>[m

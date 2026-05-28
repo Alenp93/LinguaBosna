@@ -2,7 +2,7 @@
     .hero {
       margin-top: 80px;
       background: url('hero-image.jpg') center/cover no-repeat;
-      height: 80vh;
+      height: 40vh;
       display: flex;
       flex-direction: column;
       justify-content: center;

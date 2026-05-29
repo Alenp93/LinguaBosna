@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaBosna – Vokabeltrainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue:    #0A3D62;
+    --blue-md: #1a5c8f;
+    --blue-lt: #d0e8f7;
+    --gold:    #F4C542;
+    --gold-dk: #c9a030;
+    --green:   #2E5E2E;
+    --green-lt:#e8f4e8;
+    --bg:      #F8F5F0;
+    --gray:    #E6E6E6;
+    --text:    #1a1a1a;
+    --muted:   #5a5a5a;
+    --white:   #ffffff;
+    --radius:  12px;
+    --shadow:  0 4px 24px rgba(10,61,98,0.10);
+  }
+  body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* HEADER */
+  header {
+    background: var(--blue); padding: 0 2rem; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(10,61,98,0.18);
+  }
+  .logo { font-size: 1.4rem; font-weight: 700; color: var(--gold); letter-spacing: 0.5px; }
+  .logo span { color: var(--white); }
+  nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 600; margin-left: 1.5rem; transition: color 0.2s; }
+  nav a:hover { color: var(--gold); }
+
+  main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  /* PAGE TITLE */
+  .page-title { text-align: center; margin-bottom: 1.75rem; }
+  .page-title h1 { font-size: 1.9rem; font-weight: 700; color: var(--blue); margin-bottom: 0.3rem; }
+  .page-title .category-badge {
+    display: inline-block; background: var(--gold); color: var(--blue);
+    font-size: 0.82rem; font-weight: 700; padding: 0.3rem 1rem;
+    border-radius: 50px; margin-top: 0.4rem; letter-spacing: 0.3px;
+  }
+  .page-title p { font-size: 0.92rem; color: var(--muted); margin-top: 0.5rem; }
+
+  /* LOADING / ERROR */
+  .state-msg {
+    text-align: center; padding: 3rem 2rem; background: var(--white);
+    border-radius: var(--radius); box-shadow: var(--shadow); color: var(--muted); font-size: 1rem;
+  }
+  .state-msg.error { color: #b03030; }
+
+  /* UNIT SELECTOR */
+  .selector-wrap { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 1.25rem; }
+  .unit-btn {
+    padding: 0.55rem 1.2rem; border-radius: 50px; border: 2px solid var(--blue);
+    background: var(--white); color: var(--blue); font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
+  }
+  .unit-btn:hover { background: var(--blue-lt); }
+  .unit-btn.active { background: var(--blue); color: var(--white); }
+
+  /* DIRECTION TOGGLE */
+  .direction-wrap { display: flex; justify-content: center; margin-bottom: 1.25rem; }
+  .direction-toggle {
+    display: flex; background: var(--white); border: 1.5px solid var(--gray);
+    border-radius: 50px; overflow: hidden; padding: 3px; gap: 3px;
+  }
+  .dir-btn {
+    padding: 0.4rem 1rem; border-radius: 50px; border: none; cursor: pointer;
+    font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600;
+    color: var(--muted); background: transparent; transition: all 0.18s;
+  }
+  .dir-btn.active { background: var(--blue); color: var(--white); }
+  .dir-btn:hover:not(.active) { background: var(--blue-lt); color: var(--blue); }
+
+  /* MODE ROW */
+  .mode-row { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .mode-btn {
+    padding: 0.45rem 1rem; border-radius: 50px; border: 1.5px solid var(--gray);
+    background: var(--white); color: var(--muted); font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
+  }
+  .mode-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .mode-btn.active { background: var(--gold); border-color: var(--gold); color: var(--blue); }
+
+  /* PROGRESS */
+  .progress-wrap { margin-bottom: 1.5rem; }
+  .progress-info { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 600; }
+  .progress-bar-bg { height: 8px; background: var(--gray); border-radius: 50px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--blue-md)); border-radius: 50px; transition: width 0.4s ease; }
+
+  /* SCORE */
+  .score-row { display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+  .score-badge { padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; }
+  .score-badge.correct   { background: var(--green-lt); color: var(--green); border: 1.5px solid #88c288; }
+  .score-badge.wrong     { background: #fdecea; color: #b03030; border: 1.5px solid #f0a0a0; }
+  .score-badge.remaining { background: var(--blue-lt); color: var(--blue); border: 1.5px solid #88b8d8; }
+
+  /* CARD SHELL — fixed height prevents flicker */
+  .card-shell { min-height: 220px; margin-bottom: 2rem; }
+
+  /* CARD FLIP */
+  .card-wrap { perspective: 1200px; cursor: pointer; height: 220px; }
+  .card-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-inner.flipped { transform: rotateY(180deg); }
+
+  /* KEY FIX for flicker: visibility hidden on back face until card is ready */
+  .card-inner.preparing .card-back { visibility: hidden; }
+
+  .card-face {
+    position: absolute; inset: 0; border-radius: var(--radius);
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 2rem 2rem; box-shadow: var(--shadow); text-align: center;
+  }
+  .card-front { background: var(--white); border: 2px solid var(--gray); }
+  .card-back  { background: var(--blue); border: 2px solid var(--blue); transform: rotateY(180deg); color: var(--white); }
+
+  .card-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+  .card-back .card-label { color: rgba(255,255,255,0.55); }
+  .card-word { font-size: 2rem; font-weight: 700; color: var(--blue); margin-bottom: 0.45rem; line-height: 1.2; }
+  .card-back .card-word { color: var(--gold); font-size: 1.8rem; }
+  .card-type { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 50px; background: var(--blue-lt); color: var(--blue); }
+  .card-back .card-type { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
+  .card-hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
+  .card-back .card-hint { color: rgba(255,255,255,0.55); }
+
+  .card-audio-btn {
+    margin-top: 0.9rem; background: var(--gold); color: var(--blue); border: none;
+    border-radius: 50px; padding: 0.38rem 1rem; font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: background 0.18s;
+    display: flex; align-items: center; gap: 0.3rem;
+  }
+  .card-audio-btn:hover { background: var(--gold-dk); }
+
+  /* FLIP HINT */
+  .flip-hint { text-align: center; font-size: 0.78rem; font-weight: 600; color: var(--muted); margin-bottom: 0.75rem; min-height: 1.2rem; }
+  .flip-hint.visible { color: var(--blue-md); }
+
+  /* FEEDBACK */
+  .feedback-toast { text-align: center; min-height: 1.8rem; font-size: 0.92rem; font-weight: 600; margin-bottom: 1.25rem; }
+  .feedback-toast.correct { color: var(--green); }
+  .feedback-toast.wrong   { color: #c0392b; }
+
+  /* ANSWER BUTTONS */
+  .answer-row { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+  .ans-btn {
+    flex: 1; min-width: 120px; max-width: 200px; padding: 0.8rem 1rem;
+    border-radius: var(--radius); border: 2px solid transparent;
+    font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 700;
+    cursor: pointer; transition: all 0.18s; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  }
+  .ans-btn:disabled { cursor: not-allowed; opacity: 0.35; }
+  .ans-btn.correct-btn { background: var(--green); color: var(--white); border-color: var(--green); }
+  .ans-btn.correct-btn:hover:not(:disabled) { background: #3a7a3a; }
+  .ans-btn.wrong-btn   { background: #c0392b; color: var(--white); border-color: #c0392b; }
+  .ans-btn.wrong-btn:hover:not(:disabled)   { background: #a93226; }
+  .ans-btn.skip-btn    { background: var(--white); color: var(--muted); border-color: var(--gray); font-weight: 600; }
+  .ans-btn.skip-btn:hover:not(:disabled)    { background: var(--bg); }
+
+  /* QUIZ */
+  .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .quiz-opt {
+    padding: 0.85rem 1rem; border-radius: var(--radius); border: 2px solid var(--gray);
+    background: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.88rem;
+    font-weight: 600; cursor: pointer; transition: all 0.18s; text-align: center; color: var(--text);
+  }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--blue); background: var(--blue-lt); color: var(--blue); }
+  .quiz-opt.selected-correct { background: var(--green); color: var(--white); border-color: var(--green); }
+  .quiz-opt.selected-wrong   { background: #c0392b; color: var(--white); border-color: #c0392b; }
+  .quiz-opt.reveal-correct   { background: var(--green-lt); color: var(--green); border-color: #88c288; }
+  .quiz-opt:disabled { cursor: not-allowed; }
+
+  /* RESULT */
+  .result-screen { text-align: center; padding: 3rem 2rem; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .result-screen h2 { font-size: 1.55rem; font-weight: 700; color: var(--blue); margin-bottom: 0.4rem; }
+  .result-big { font-size: 3.2rem; font-weight: 700; color: var(--gold); margin: 0.8rem 0; }
+  .result-sub { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .result-stars { font-size: 1.9rem; margin-bottom: 0.9rem; }
+  .result-wrong-count { font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; color: #b03030; }
+  .result-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .restart-btn {
+    padding: 0.75rem 2rem; border: none; border-radius: 50px;
+    font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700;
+    cursor: pointer; transition: all 0.18s;
+  }
+  .restart-btn.primary   { background: var(--blue); color: var(--white); }
+  .restart-btn.primary:hover { background: var(--blue-md); }
+  .restart-btn.secondary { background: var(--white); color: #b03030; border: 2px solid #c0392b; }
+  .restart-btn.secondary:hover:not(:disabled) { background: #fdecea; }
+  .restart-btn.secondary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* WORD LIST */
+  .word-list-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; margin-top: 1.5rem; }
+  .word-chip { background: var(--white); border: 1.5px solid var(--gray); border-radius: var(--radius); padding: 0.65rem 1rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+  .word-chip .bos { font-weight: 700; color: var(--blue); }
+  .word-chip .de  { color: var(--muted); font-size: 0.8rem; }
+  .word-chip .tag { font-size: 0.68rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 50px; background: var(--blue-lt); color: var(--blue); white-space: nowrap; }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 600px) {
+    header { padding: 0 1rem; }
+    nav a  { display: none; }
+    main   { padding: 1.5rem 1rem 3rem; }
+    .page-title h1 { font-size: 1.4rem; }
+    .card-word     { font-size: 1.5rem; }
+    .card-back .card-word { font-size: 1.4rem; }
+    .quiz-options  { grid-template-columns: 1fr; }
+    .ans-btn       { min-width: 100px; font-size: 0.82rem; }
+    .result-btns   { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Lingua<span>Bosna</span></div>
+  <nav>
+    <a href="#">Start</a>
+    <a href="#">Kurse</a>
+    <a href="#">Kultur</a>
+    <a href="#">Community</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-title">
+    <h1>Vokabeltrainer</h1>
+    <div class="category-badge" id="categoryBadge">Wird geladen…</div>
+    <p id="categoryDesc"></p>
+  </div>
+
+  <!-- Loading / Error states -->
+  <div id="stateMsg" class="state-msg">⏳ Vokabeln werden geladen…</div>
+
+  <!-- Trainer UI (hidden until data loaded) -->
+  <div id="trainerUI" class="hidden">
+
+    <!-- UNIT SELECTOR -->
+    <div class="selector-wrap" id="unitSelector"></div>
+
+    <!-- DIRECTION -->
+    <div class="direction-wrap">
+      <div class="direction-toggle">
+        <button class="dir-btn active" id="dirBosDE" onclick="setDirection('bos-de')">🇧🇦 Bosnisch → Deutsch</button>
+        <button class="dir-btn"        id="dirDeBS"  onclick="setDirection('de-bos')">🇩🇪 Deutsch → Bosnisch</button>
+      </div>
+    </div>
+
+    <!-- MODE -->
+    <div class="mode-row">
+      <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')">🃏 Karteikarte</button>
+      <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')">🧠 Multiple Choice</button>
+      <button class="mode-btn"        id="modeList"  onclick="setMode('list')">📋 Übersicht</button>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-info">
+        <span id="progressText">Vokabel 1 von 15</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+
+    <!-- SCORE -->
+    <div class="score-row" id="scoreRow">
+      <div class="score-badge correct">✓ <span id="scoreCorrect">0</span> Richtig</div>
+      <div class="score-badge wrong">✗ <span id="scoreWrong">0</span> Falsch</div>
+      <div class="score-badge remaining">◉ <span id="scoreRem">15</span> Übrig</div>
+    </div>
+
+    <!-- FLASH MODE -->
+    <div id="flashMode">
+      <div class="card-shell">
+        <div class="card-wrap" id="cardWrap" onclick="flipCard()">
+          <div class="card-inner preparing" id="cardInner">
+            <div class="card-face card-front">
+              <div class="card-label" id="cardFrontLabel">Bosnisch</div>
+              <div class="card-word" id="cardFrontWord"></div>
+              <div class="card-type" id="cardFrontType"></div>
+              <div class="card-hint">Klicke um die Übersetzung zu sehen</div>
+              <button class="card-audio-btn" onclick="speakWord(event)">🔊 Anhören</button>
+            </div>
+            <div class="card-face card-back">
+              <div class="card-label" id="cardBackLabel">Deutsch</div>
+              <div class="card-word" id="cardBackWord"></div>
+              <div class="card-type" id="cardBackType"></div>
+              <div class="card-hint" id="cardBackHint"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-hint" id="flipHint">⬆ Karte erst umdrehen, um zu bewerten</div>
+      <div class="feedback-toast" id="feedbackToast"></div>
+
+      <div class="answer-row">
+        <button class="ans-btn wrong-btn"   id="btnWrong"   onclick="answer(false)" disabled>✗ Falsch</button>
+        <button class="ans-btn skip-btn"    id="btnSkip"    onclick="skipCard()">→ Überspringen</button>
+        <button class="ans-btn correct-btn" id="btnCorrect" onclick="answer(true)"  disabled>✓ Richtig</button>
+      </div>
+    </div>
+
+    <!-- QUIZ MODE -->
+    <div id="quizMode" class="hidden">
+      <div class="card-shell" style="height:auto">
+        <div style="background:var(--white);border:2px solid var(--gray);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;text-align:center;margin-bottom:1.5rem;">
+          <div class="card-label" id="quizLabel">Was bedeutet auf Deutsch …</div>
+          <div class="card-word" id="quizWord" style="color:var(--blue)"></div>
+          <div class="card-type" id="quizType"></div>
+        </div>
+      </div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="feedback-toast" id="quizFeedback"></div>
+    </div>
+
+    <!-- LIST MODE -->
+    <div id="listMode" class="hidden">
+      <div class="word-list-grid" id="wordListGrid"></div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="resultScreen" class="result-screen hidden">
+      <div class="result-stars" id="resultStars">⭐⭐⭐</div>
+      <h2>Lerneinheit abgeschlossen!</h2>
+      <div class="result-big" id="resultScore">—</div>
+      <div class="result-sub" id="resultSub"></div>
+      <div class="result-wrong-count" id="resultWrongCount"></div>
+      <div class="result-btns">
+        <button class="restart-btn primary"   onclick="restart()">🔄 Alle Karten wiederholen</button>
+        <button class="restart-btn secondary" id="btnRetryWrong" onclick="retryWrong()">✗ Nur falsche Karten</button>
+      </div>
+    </div>
+
+  </div><!-- /trainerUI -->
+</main>
+
+<script>
+// ─────────────────────────────────────────────
+// CONFIG — adjust path to your JSON file
+// ─────────────────────────────────────────────
+const JSON_PATH = 'vokabeln_flat.json';
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let allVocab   = [];   // full JSON data
+let allInCat   = [];   // all entries for current Kapitel
+let unitVocab  = [];   // entries for the selected unit (Teil 1 / Teil 2)
+let queue      = [];
+let current    = 0;
+let correct    = 0;
+let wrong      = 0;
+let wrongList  = [];
+let isFlipped  = false;
+let answered   = false;
+let mode       = 'flash';
+let direction  = 'bos-de';
+let activeKapitel = 1;
+let activeUnit    = 0;   // 0 = Teil 1, 1 = Teil 2
+
+// ─────────────────────────────────────────────
+// BOOT — read URL param ?kapitel=1
+// ─────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', async () => {
+  const params = new URLSearchParams(window.location.search);
+  activeKapitel = parseInt(params.get('kapitel') || '1', 10);
+  await loadVocab();
+});
+
+async function loadVocab() {
+  try {
+    const res = await fetch(JSON_PATH);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    allVocab = await res.json();
+    initCategory();
+  } catch(e) {
+    document.getElementById('stateMsg').textContent = '⚠️ Fehler beim Laden der Vokabeln. Stelle sicher, dass vokabeln_flat.json im gleichen Ordner liegt.';
+    document.getElementById('stateMsg').classList.add('error');
+  }
+}
+
+function getWortart(entry) {
+  return entry['Wortart'] || entry['Wortart (Genus)'] || '';
+}
+
+function initCategory() {
+  allInCat = allVocab.filter(e => e.Kapitel === activeKapitel);
+  if (!allInCat.length) {
+    document.getElementById('stateMsg').textContent = `⚠️ Keine Vokabeln für Kapitel ${activeKapitel} gefunden.`;
+    document.getElementById('stateMsg').classList.add('error');
+    return;
+  }
+
+  const kapitelname = allInCat[0].Kapitelname;
+  document.getElementById('categoryBadge').textContent = `Kapitel ${activeKapitel}: ${kapitelname}`;
+  document.getElementById('categoryDesc').textContent  = `${allInCat.length} Vokabeln · aufgeteilt in Lerneinheiten à 15`;
+  document.title = `LinguaBosna – ${kapitelname}`;
+
+  document.getElementById('stateMsg').classList.add('hidden');
+  document.getElementById('trainerUI').classList.remove('hidden');
+
+  buildUnitSelector();
+  selectUnit(0);
+}
+
+// ─────────────────────────────────────────────
+// UNIT SELECTOR
+// ─────────────────────────────────────────────
+function buildUnitSelector() {
+  const wrap = document.getElementById('unitSelector');
+  wrap.innerHTML = '';
+  const chunkSize = 15;
+  const chunks = Math.ceil(allInCat.length / chunkSize);
+  for (let i = 0; i < chunks; i++) {
+    const from = i * chunkSize + 1;
+    const to   = Math.min((i + 1) * chunkSize, allInCat.length);
+    const btn  = document.createElement('button');
+    btn.className = 'unit-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = `Teil ${i + 1}  (${from}–${to})`;
+    btn.onclick = () => selectUnit(i);
+    wrap.appendChild(btn);
+  }
+}
+
+function selectUnit(idx) {
+  activeUnit = idx;
+  document.querySelectorAll('.unit-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+  const chunkSize = 15;
+  unitVocab = allInCat.slice(idx * chunkSize, (idx + 1) * chunkSize);
+  restart();
+}
+
+// ─────────────────────────────────────────────
+// MODE & DIRECTION
+// ─────────────────────────────────────────────
+function setMode(m) {
+  mode = m;
+  ['Flash','Quiz','List'].forEach(n => document.getElementById('mode'+n).classList.remove('active'));
+  document.getElementById('mode' + m.charAt(0).toUpperCase() + m.slice(1)).classList.add('active');
+  restart();
+}
+
+function setDirection(dir) {
+  direction = dir;
+  document.getElementById('dirBosDE').classList.toggle('active', dir === 'bos-de');
+  document.getElementById('dirDeBS').classList.toggle('active',  dir === 'de-bos');
+  restart();
+}
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+function frontText(v) { return direction === 'bos-de' ? v.Bosnisch : v.Deutsch; }
+function backText(v)  { return direction === 'bos-de' ? v.Deutsch  : v.Bosnisch; }
+function frontLang()  { return direction === 'bos-de' ? 'Bosnisch' : 'Deutsch'; }
+function backLang()   { return direction === 'bos-de' ? 'Deutsch'  : 'Bosnisch'; }
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ─────────────────────────────────────────────
+// RESTART / RETRY
+// ─────────────────────────────────────────────
+function restart() {
+  queue     = shuffle([...unitVocab]);
+  current   = 0; correct = 0; wrong = 0; wrongList = [];
+  isFlipped = false; answered = false;
+
+  document.getElementById('resultScreen').classList.add('hidden');
+  document.getElementById('progressWrap').classList.remove('hidden');
+  document.getElementById('scoreRow').classList.remove('hidden');
+
+  if (mode === 'list') {
+    showListMode();
+  } else if (mode === 'quiz') {
+    document.getElementById('flashMode').classList.add('hidden');
+    document.getElementById('quizMode').classList.remove('hidden');
+    document.getElementById('listMode').classList.add('hidden');
+    showQuizCard();
+  } else {
+    document.getElementById('flashMode').classList.remove('hidden');
+    document.getElementById('quizMode').classList.add('hidden');
+    document.getElementById('listMode').classList.add('hidden');
+    showCard();
+  }
+  updateProgress();
+}
+
+function retryWrong() {
+  if (!wrongList.length) return;
+  queue     = shuffle([...wrongList]);
+  current   = 0; correct = 0; wrong = 0; wrongList = [];
+  isFlipped = false; answered = false;
+
+  document.getElementById('resultScreen').classList.add('hidden');
+  document.getElementById('progressWrap').classList.remove('hidden');
+  document.getElementById('scoreRow').classList.remove('hidden');
+
+  if (mode === 'quiz') {
+    document.getElementById('flashMode').classList.add('hidden');
+    document.getElementById('quizMode').classList.remove('hidden');
+    document.getElementById('listMode').classList.add('hidden');
+    showQuizCard();
+  } else {
+    document.getElementById('flashMode').classList.remove('hidden');
+    document.getElementById('quizMode').classList.add('hidden');
+    document.getElementById('listMode').classList.add('hidden');
+    showCard();
+  }
+  updateProgress();
+}
+
+// ─────────────────────────────────────────────
+// FLASHCARD
+// ─────────────────────────────────────────────
+function showCard() {
+  if (current >= queue.length) { showResult(); return; }
+  const v     = queue[current];
+  const inner = document.getElementById('cardInner');
+
+  // 1. Immediately reset to front (no animation), hide back face visually
+  inner.classList.add('preparing');      // back face: visibility:hidden
+  inner.style.transition = 'none';
+  inner.classList.remove('flipped');
+
+  // 2. Update DOM content while back is invisible
+  document.getElementById('cardFrontLabel').textContent = frontLang();
+  document.getElementById('cardFrontWord').textContent  = frontText(v);
+  document.getElementById('cardFrontType').textContent  = getWortart(v);
+  document.getElementById('cardBackLabel').textContent  = backLang();
+  document.getElementById('cardBackWord').textContent   = backText(v);
+  document.getElementById('cardBackType').textContent   = getWortart(v);
+  document.getElementById('cardBackHint').textContent   = backLang() + ': ' + backText(v);
+
+  // 3. After one paint, restore transition and un-hide back face
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      inner.style.transition = '';
+      inner.classList.remove('preparing');
+    });
+  });
+
+  isFlipped = false;
+  answered  = false;
+
+  document.getElementById('btnWrong').disabled   = true;
+  document.getElementById('btnCorrect').disabled = true;
+  document.getElementById('btnSkip').disabled    = false;
+
+  const hint = document.getElementById('flipHint');
+  hint.textContent = '⬆ Karte erst umdrehen, um zu bewerten';
+  hint.classList.remove('visible');
+
+  document.getElementById('feedbackToast').textContent = '';
+  document.getElementById('feedbackToast').className = 'feedback-toast';
+}
+
+function flipCard() {
+  if (answered) return;
+  const inner = document.getElementById('cardInner');
+  inner.classList.toggle('flipped');
+  isFlipped = !isFlipped;
+
+  const hint = document.getElementById('flipHint');
+  if (isFlipped) {
+    document.getElementById('btnWrong').disabled   = false;
+    document.getElementById('btnCorrect').disabled = false;
+    hint.textContent = '👇 Wie gut hast du es gewusst?';
+    hint.classList.add('visible');
+  } else {
+    document.getElementById('btnWrong').disabled   = true;
+    document.getElementById('btnCorrect').disabled = true;
+    hint.textContent = '⬆ Karte erst umdrehen, um zu bewerten';
+    hint.classList.remove('visible');
+  }
+}
+
+function answer(isCorrect) {
+  if (answered || !isFlipped) return;
+  answered = true;
+
+  if (isCorrect) { correct++; }
+  else           { wrong++; wrongList.push(queue[current]); }
+
+  document.getElementById('btnWrong').disabled   = true;
+  document.getElementById('btnCorrect').disabled = true;
+  document.getElementById('btnSkip').disabled    = true;
+
+  const toast = document.getElementById('feedbackToast');
+  toast.textContent = isCorrect ? '✓ Super gemacht!' : '✗ Nicht ganz — übe weiter!';
+  toast.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
+  document.getElementById('flipHint').textContent = '';
+
+  updateScores();
+  setTimeout(() => { current++; showCard(); updateProgress(); }, 900);
+}
+
+function skipCard() {
+  queue.push(queue[current]);
+  current++;
+  showCard();
+  updateProgress();
+}
+
+function speakWord(e) {
+  e.stopPropagation();
+  const v = queue[current];
+  if (!v) return;
+  const word = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
+  if ('speechSynthesis' in window) {
+    const u = new SpeechSynthesisUtterance(word);
+    u.lang = direction === 'bos-de' ? 'bs-BA' : 'de-DE';
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  }
+}
+
+// ─────────────────────────────────────────────
+// QUIZ
+// ─────────────────────────────────────────────
+function showQuizCard() {
+  if (current >= queue.length) { showResult(); return; }
+  const v    = queue[current];
+  const opts = getQuizOptions(v);
+
+  document.getElementById('quizLabel').textContent = direction === 'bos-de'
+    ? 'Was bedeutet auf Deutsch …' : 'Wie heißt auf Bosnisch …';
+  document.getElementById('quizWord').textContent = frontText(v);
+  document.getElementById('quizType').textContent = getWortart(v);
+
+  const container = document.getElementById('quizOptions');
+  container.innerHTML = '';
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className   = 'quiz-opt';
+    btn.textContent = backText(opt);
+    btn.onclick     = () => selectQuizOpt(btn, opt, v);
+    container.appendChild(btn);
+  });
+  document.getElementById('quizFeedback').textContent = '';
+  document.getElementById('quizFeedback').className = 'feedback-toast';
+}
+
+function getQuizOptions(correctV) {
+  // Use all vocab in the category as distractor pool for better variety
+  const pool = allInCat.filter(v => v !== correctV);
+  return shuffle([correctV, ...shuffle(pool).slice(0, 3)]);
+}
+
+function selectQuizOpt(btn, opt, correctV) {
+  document.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+  const isCorrect = opt === correctV;
+  if (isCorrect) {
+    btn.classList.add('selected-correct');
+    correct++;
+  } else {
+    btn.classList.add('selected-wrong');
+    wrong++;
+    wrongList.push(correctV);
+    const correctAnswer = backText(correctV);
+    document.querySelectorAll('.quiz-opt').forEach(b => {
+      if (b.textContent === correctAnswer) b.classList.add('reveal-correct');
+    });
+  }
+  const fb = document.getElementById('quizFeedback');
+  fb.textContent = isCorrect ? '✓ Richtig!' : '✗ Falsch — die Antwort war: ' + backText(correctV);
+  fb.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
+  updateScores();
+  setTimeout(() => { current++; showQuizCard(); updateProgress(); }, 1100);
+}
+
+// ─────────────────────────────────────────────
+// LIST
+// ─────────────────────────────────────────────
+function showListMode() {
+  document.getElementById('flashMode').classList.add('hidden');
+  document.getElementById('quizMode').classList.add('hidden');
+  document.getElementById('listMode').classList.remove('hidden');
+  document.getElementById('progressWrap').classList.add('hidden');
+  document.getElementById('scoreRow').classList.add('hidden');
+
+  const grid = document.getElementById('wordListGrid');
+  grid.innerHTML = '';
+  unitVocab.forEach(v => {
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    const first  = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
+    const second = direction === 'bos-de' ? v.Deutsch  : v.Bosnisch;
+    chip.innerHTML = `<div><div class="bos">${first}</div><div class="de">${second}</div></div><div class="tag">${getWortart(v)}</div>`;
+    grid.appendChild(chip);
+  });
+}
+
+// ─────────────────────────────────────────────
+// PROGRESS & SCORES
+// ─────────────────────────────────────────────
+function updateProgress() {
+  const total = queue.length;
+  const done  = Math.min(current, total);
+  const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('progressText').textContent = `Vokabel ${Math.min(done + 1, total)} von ${unitVocab.length}`;
+  document.getElementById('progressPct').textContent  = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+  updateScores();
+}
+
+function updateScores() {
+  document.getElementById('scoreCorrect').textContent = correct;
+  document.getElementById('scoreWrong').textContent   = wrong;
+  document.getElementById('scoreRem').textContent     = Math.max(0, unitVocab.length - current);
+}
+
+// ─────────────────────────────────────────────
+// RESULT
+// ─────────────────────────────────────────────
+function showResult() {
+  document.getElementById('flashMode').classList.add('hidden');
+  document.getElementById('quizMode').classList.add('hidden');
+  document.getElementById('progressWrap').classList.add('hidden');
+  document.getElementById('scoreRow').classList.add('hidden');
+  document.getElementById('resultScreen').classList.remove('hidden');
+
+  const total = unitVocab.length;
+  const pct   = total > 0 ? Math.round((correct / total) * 100) : 0;
+  const stars = pct >= 90 ? '⭐⭐⭐' : pct >= 60 ? '⭐⭐' : '⭐';
+  const msg   = pct >= 90 ? 'Ausgezeichnet – du bist ein Bosnisch-Profi!'
+              : pct >= 60 ? 'Gut gemacht! Noch etwas Übung und du hast es!'
+              : 'Nicht aufgeben – Wiederholung macht den Meister!';
+
+  document.getElementById('resultStars').textContent = stars;
+  document.getElementById('resultScore').textContent = pct + '%';
+  document.getElementById('resultSub').textContent   = msg;
+
+  const wc       = document.getElementById('resultWrongCount');
+  const retryBtn = document.getElementById('btnRetryWrong');
+  if (wrongList.length > 0) {
+    wc.textContent     = `${wrongList.length} Vokabel${wrongList.length > 1 ? 'n' : ''} falsch beantwortet`;
+    retryBtn.disabled  = false;
+  } else {
+    wc.textContent    = 'Alles richtig – perfekte Runde! 🎉';
+    retryBtn.disabled = true;
+  }
+}
+</script>
+</body>
+</html>

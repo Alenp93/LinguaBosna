@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/1_Startseite/Style_2_Vokabeln.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaBosna – Vokabeln</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  <script src="/Code/LB_main.js"></script>
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <main>
+    <h1>Vokabeln</h1>
+    <p id="loadingMsg" style="color:#5a5a5a;text-align:center;padding:2rem 0;">Kategorien werden geladen…</p>
+    <div class="vocab-grid" id="vocabGrid"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    // Pfad zur JSON-Datei — ggf. anpassen
+    const JSON_PATH = "/Code/2_Vokabeln/vokabeln_flat.json";
+
+    // Pfad zur Master-Vokabelseite
+    const MASTER_PAGE = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
+
+    async function loadCategories() {
+      try {
+        const res = await fetch(JSON_PATH);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+
+        // Eindeutige Kapitel in der richtigen Reihenfolge ermitteln
+        const seen = new Map();
+        data.forEach(entry => {
+          if (!seen.has(entry.Kapitel)) {
+            seen.set(entry.Kapitel, {
+              kapitel:     entry.Kapitel,
+              kapitelname: entry.Kapitelname
+            });
+          }
+        });
+
+        const grid = document.getElementById('vocabGrid');
+        grid.innerHTML = '';
+
+        seen.forEach(({ kapitel, kapitelname }) => {
+          const a = document.createElement('a');
+          a.href      = `${MASTER_PAGE}?kapitel=${kapitel}`;
+          a.className = 'vocab-card';
+          a.textContent = kapitelname;
+          grid.appendChild(a);
+        });
+
+        document.getElementById('loadingMsg').style.display = 'none';
+
+      } catch (e) {
+        document.getElementById('loadingMsg').textContent =
+          '⚠️ Kategorien konnten nicht geladen werden. Bitte prüfe den JSON-Pfad.';
+        document.getElementById('loadingMsg').style.color = '#b03030';
+      }
+    }
+
+    loadCategories();
+  </script>
+
+</body>
+</html>

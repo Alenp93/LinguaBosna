@@ -15,10 +15,24 @@
       font-family: 'Open Sans', sans-serif;
     }
 
+    html, body {
+    height: 100%;
+    }
+
     body {
       background-color: var(--bg-light);
       color: var(--primary);
       line-height: 1.6;
+      
+      /* NEU: Flexbox aktivieren */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;  /* mindestens die volle Bildschirmhöhe */
+    }
+
+    /* 2. main soll den verfügbaren Platz ausfüllen */
+    main {
+      flex: 1;  /* nimmt den gesamten verbleibenden Platz ein */
     }
 
     a {
@@ -110,7 +124,7 @@
       color: var(--accent);
     }
 
-    /* Responsive */
+  /* Responsive */
     @media(max-width: 768px){
       nav ul {
         gap: 15px;
@@ -127,4 +141,4 @@
       .features, .course-grid, .culture-grid {
         flex-direction: column;
       }
-    }
+    } 

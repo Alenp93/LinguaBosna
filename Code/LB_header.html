@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-        <!-- Header -->
+
+  <!-- Header -->
   <header>
-    <div class="logo"   >
+
+    <!-- Logo -->
+    <div class="logo">
       <a href="/Code/1_Startseite/LB_1_Startseite.html">
-      <img src="/Bilder/logo/Logo-Version2_height-150px.png" alt="" height="32px" style="display: inline-block; vertical-align: top;">
+        <img src="/Bilder/logo/Logo-Version2_height-150px.png" alt="LinguaBosna Logo" height="32px"
+             style="display: inline-block; vertical-align: top;">
       </a>
     </div>
-    <nav> 
+
+    <!-- Hamburger-Button: nur auf Mobilgeräten sichtbar -->
+    <!-- aria-label erklärt Screenreadern was der Button macht -->
+    <button class="hamburger" id="hamburger" aria-label="Navigation öffnen" aria-expanded="false">
+      <!-- Drei Striche = klassisches Hamburger-Symbol -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <!-- id="nav-menu" wird vom JS angesteuert -->
+    <nav id="nav-menu">
       <ul>
         <li><a href="/Code/1_Startseite/LB_1_Startseite.html">Start</a></li>
         <li><a href="/Code/2_Vokabeln/LB_2_Vokabeln.html">Vokabeln</a></li>
         <li><a href="/Code/1_Startseite/LB_3_Grammatik.html">Grammatik</a></li>
-        <!-- <li><a href="/Code/1_Startseite/LB_4_Lernen.html">Lernen</a></li> -->
         <li><a href="/Code/1_Startseite/LB_5_Kultur.html">Kultur</a></li>
         <li><a href="/Code/1_Startseite/LB_6_Blog.html">Blog</a></li>
-        <!--<li><a class="cta-btn" href="#">Login</a></li> -->
       </ul>
     </nav>
   </header>
-  
 </body>
 </html>

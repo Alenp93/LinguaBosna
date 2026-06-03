@@ -1,147 +1,165 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <link rel="stylesheet" href="/Code/Style.css">
-  <link rel="stylesheet" href="/Code/1_Startseite/Style_1_Startseite.css">
-  <script src="/Code/LB_main.js" ></script>
+  <!-- ── Zeichensatz & Viewport ─────────────────────────────────── -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LinguaBosna</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
- </head>
+
+  <!-- ── SEO ────────────────────────────────────────────────────── -->
+  <title>LinguaBosna – Bosnisch lernen für Anfänger & Fortgeschrittene</title>
+  <meta name="description"
+        content="Lerne Bosnisch kostenlos mit Vokabeln, Grammatik, Kultur und interaktiven Übungen. Für Diaspora, Deutschsprachige und alle, die Bosnisch entdecken möchten.">
+  <meta name="keywords"
+        content="Bosnisch lernen, Bosnische Sprache, Vokabeln Bosnisch, Grammatik Bosnisch, LinguaBosna">
+  <meta name="author" content="LinguaBosna">
+
+  <!-- ── Open Graph (für Social-Media-Vorschau) ─────────────────── -->
+  <meta property="og:title"       content="LinguaBosna – Bosnisch lernen">
+  <meta property="og:description" content="Kostenlos Bosnisch lernen – Vokabeln, Grammatik, Kultur und mehr.">
+  <meta property="og:type"        content="website">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Stylesheets ────────────────────────────────────────────── -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/1_Startseite/Style_1_Startseite.css">
+
+  <!-- ── Google Fonts ───────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+  <!-- ── FontAwesome (zuverlässige CDN-Version) ─────────────────── -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Header/Footer dynamisch einbinden ─────────────────────── -->
+  <script src="/Code/LB_main.js"></script>
+</head>
 <body>
 
+  <!-- Platzhalter für dynamischen Header -->
   <div id="header"></div>
 
-
-
-  
-   <!-- Hero -->
-  <section class="hero">
-    <h1>Sprich Bosnisch</h1>
-    <p>Lebe die Kultur.</p>
-    <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn">Starte jetzt!</a>
+  <!-- ════════════════════════════════════════════════════════════
+       HERO-SECTION
+       ════════════════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Willkommen bei LinguaBosna">
+    <!-- Overlay für bessere Lesbarkeit des Textes -->
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Sprich Bosnisch.</h1>
+      <p class="hero-subtitle">Lebe die Kultur.</p>
+      <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn btn-hero">
+        Jetzt starten <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
   </section>
 
-  <!-- So funktioniert's -->
-  <section class="features">
-    <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="feature">
-      <div >
-        <i class="fas fa-book"></i>
+  <!-- ════════════════════════════════════════════════════════════
+       FEATURES – „So funktioniert's"
+       ════════════════════════════════════════════════════════════ -->
+  <section class="features" aria-label="Was du bei LinguaBosna lernst">
+    <div class="section-intro">
+      <h2>Alles, was du brauchst</h2>
+      <p>Kompakt, kostenlos und für jeden Lerntyp geeignet.</p>
+    </div>
+
+    <div class="features-grid">
+
+      <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="feature">
+        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
         <h3>Vokabeln</h3>
-        <p>Die wichtigsten Vokabeln für den Beginn</p> 
-      </div>
-    </a>
-    <a href="/Code/1_Startseite/LB_3_Grammatik.html" class="feature">
-      <div >
-        <i class="fas fa-users"></i>
+        <p>Die wichtigsten Wörter – geordnet nach Themen und Kapiteln.</p>
+      </a>
+
+      <a href="/Code/1_Startseite/LB_3_Grammatik.html" class="feature">
+        <div class="feature-icon"><i class="fas fa-pen-nib"></i></div>
         <h3>Grammatik</h3>
-        <p>Schaue dir die Grundregeln der Grammatik an.</p>
-      </div>
-    </a>
-<!--     <a href="/Code/1_Startseite/LB_4_Lernen.html" class="feature">
-      <div >
-        <i class="fas fa-chart-line"></i>
-        <h3>Lernen</h3>
-        <p>Behalte deine Lernfortschritte mit interaktiven Tools.</p>
-      </div>
-    </a> -->
-    <a href="/Code/1_Startseite/LB_5_Kultur.html" class="feature">
-      <div >
-        <i class="fas fa-music"></i>
+        <p>Grundregeln verständlich erklärt – von Alphabet bis Satzbau.</p>
+      </a>
+
+      <a href="/Code/1_Startseite/LB_5_Kultur.html" class="feature">
+        <div class="feature-icon"><i class="fas fa-mosque"></i></div>
         <h3>Kultur</h3>
         <p>Entdecke Musik, Essen und Traditionen Bosniens.</p>
-      </div>
-    </a>
-    
-    
-    
-    <!--<div class="feature">
-      <i class="fas fa-chart-line"></i>
-      <h3>Fortschritt</h3>
-      <p>Behalte deine Lernfortschritte mit interaktiven Tools.</p>
-    </div>-->
+      </a>
 
+    </div>
   </section>
 
-  <!-- Kursübersicht -->
-  <!-- <section class="courses">
-    <h2>Kursübersicht</h2>
-    <div class="course-grid">
-      <div class="course-card">A1 – Anfänger</div>
-      <div class="course-card">A2 – Grundkenntnisse</div>
-      <div class="course-card">B1 – Mittelstufe</div>
-      <div class="course-card">B2 – Fortgeschritten</div>
-      <div class="course-card">C1 – Oberstufe</div>
-      <div class="course-card">C2 – Profi</div>
-    </div>
-  </section> -->
-
-  <!-- Kulturecke -->
-  <!-- <section class="culture">
-    <h2>Kulturecke</h2>
-    <div class="culture-grid">
-      <div class="culture-card">Bosnisches Essen entdecken</div>
-      <div class="culture-card">Musik & Instrumente</div>
-      <div class="culture-card">Redewendungen & Sprichwörter</div>
-      <div class="culture-card">Traditionelle Feste</div>
-    </div>
-  </section> -->
-
-  <!-- Community -->
-  <!--<section class="community">
-    <h2>Community & Austausch</h2>
-    <div class="community-preview">
-      Vorschau auf Forum / Chat: Tritt mit anderen Lernenden in Kontakt.
-    </div>
-  </section>-->
-
- 
-<!-- Blog Sektion -->
-<section class="home-blog">
-  <h2>Neu im Blog</h2>
-  <p class="subtitle">Bleib informiert über Sprache, Kultur & Updates.</p>
-
-  <div class="blog-grid">
-    <div class="blog-card">
-      <img src="images/blog1.jpg" alt="Artikel Bild">
-      <div class="blog-content">
-        <div class="date">31. August 2025</div>
-        <h3>Neue Vokabeltrainer-Funktion</h3>
-        <p>Wir haben unseren Vokabeltrainer überarbeitet, damit du noch effektiver lernen kannst.</p>
-        <a href="/Code/6_Blog/Template_Blog.html" class="btn">Weiterlesen</a>
-      </div>
+  <!-- ════════════════════════════════════════════════════════════
+       BLOG-VORSCHAU
+       ════════════════════════════════════════════════════════════ -->
+  <section class="home-blog" aria-label="Aktuelle Blogartikel">
+    <div class="section-intro">
+      <h2>Neu im Blog</h2>
+      <p class="subtitle">Bleib informiert über Sprache, Kultur &amp; Updates.</p>
     </div>
 
-    <div class="blog-card">
-      <img src="images/blog2.jpg" alt="Artikel Bild">
-      <div class="blog-content">
-        <div class="date">20. August 2025</div>
-        <h3>Kulinarische Redewendungen</h3>
-        <p>In Bosnien dreht sich vieles ums Essen – auch die Sprache. Entdecke typische Ausdrücke!</p>
-        <a href="/Code/6_Blog/Template_Blog.html" class="btn">Weiterlesen</a>
-      </div>
+    <div class="blog-grid">
+
+      <article class="blog-card">
+        <!-- Kein Bild-Tag, da Bild-Pfade noch nicht korrekt gesetzt sind.
+             Ersetze src="..." mit deinem echten Bildpfad, z.B. /Bilder/blog/blog1.jpg -->
+        <div class="blog-card-img" aria-hidden="true">
+          <img src="/Bilder/blog/blog1.jpg"
+               alt="Vokabeltrainer Artikel"
+               onerror="this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="blog-content">
+          <div class="date">
+            <i class="fas fa-calendar-alt"></i> 31. August 2025
+          </div>
+          <h3>Neue Vokabeltrainer-Funktion</h3>
+          <p>Wir haben unseren Vokabeltrainer überarbeitet, damit du noch effektiver lernen kannst.</p>
+          <a href="/Code/6_Blog/Template_Blog.html" class="btn btn-outline">Weiterlesen</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-img" aria-hidden="true">
+          <img src="/Bilder/blog/blog2.jpg"
+               alt="Kulinarische Redewendungen Artikel"
+               onerror="this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="blog-content">
+          <div class="date">
+            <i class="fas fa-calendar-alt"></i> 20. August 2025
+          </div>
+          <h3>Kulinarische Redewendungen</h3>
+          <p>In Bosnien dreht sich vieles ums Essen – auch die Sprache. Entdecke typische Ausdrücke!</p>
+          <a href="/Code/6_Blog/Template_Blog.html" class="btn btn-outline">Weiterlesen</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-img" aria-hidden="true">
+          <img src="/Bilder/blog/blog3.jpg"
+               alt="Community Forum Artikel"
+               onerror="this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="blog-content">
+          <div class="date">
+            <i class="fas fa-calendar-alt"></i> 10. August 2025
+          </div>
+          <h3>Community-Forum gestartet</h3>
+          <p>Ab jetzt kannst du dich mit anderen Sprachlernenden direkt austauschen.</p>
+          <a href="/Code/6_Blog/Template_Blog.html" class="btn btn-outline">Weiterlesen</a>
+        </div>
+      </article>
+
     </div>
 
-    <div class="blog-card">
-      <img src="images/blog3.jpg" alt="Artikel Bild">
-      <div class="blog-content">
-        <div class="date">10. August 2025</div>
-        <h3>Community-Forum gestartet</h3>
-        <p>Ab jetzt kannst du dich mit anderen Sprachlernenden direkt austauschen.</p>
-        <a href="/Code/6_Blog/Template_Blog.html" class="btn">Weiterlesen</a>
-      </div>
+    <div class="more-blog">
+      <a href="/Code/1_Startseite/LB_6_Blog.html" class="btn btn-primary">
+        Alle Artikel ansehen <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
-  </div>
+  </section>
 
-  <div class="more-blog">
-    <a href="/Code/1_Startseite/LB_6_Blog.html" class="btn">Alle Artikel ansehen</a>
-  </div>
-</section>
-
+  <!-- Platzhalter für dynamischen Footer -->
   <div id="footer"></div>
 
-  <!-- Icons (FontAwesome) -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

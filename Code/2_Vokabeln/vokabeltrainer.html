@@ -1,551 +1,578 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <link rel="stylesheet" href="/Code/Style.css">
-  <link rel="stylesheet" href="/Code/2_Vokabeln/Style_Vokabeltrainer.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interaktiver Bosnisch-Vokabeltrainer mit Karteikarten und Multiple-Choice-Quiz. Kostenlos und ohne Anmeldung auf LinguaBosna.">
   <title>LinguaBosna – Vokabeltrainer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="/Code/LB_main.js"></script>
-  <style>
 
-  </style>
+  <!-- Google Fonts (Pflicht laut Designvorgabe — mit preconnect) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht laut Designvorgabe — neuer cdnjs-Link) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/2_Vokabeln/Style_Vokabeltrainer.css">
+
+  <!-- Shared Header/Footer JS -->
+  <script src="/Code/LB_main.js"></script>
 </head>
 <body>
 
-<div id="header"></div>
+  <!-- Header (dynamisch per LB_main.js) -->
+  <div id="header"></div>
 
+  <main>
+    <div class="page-title">
+      <h1>Vokabeltrainer</h1>
+      <div class="category-badge" id="categoryBadge">Wird geladen…</div>
+      <p id="categoryDesc"></p>
+    </div>
 
+    <!-- Lade-/Fehlerzustand -->
+    <div id="stateMsg" class="state-msg">⏳ Vokabeln werden geladen…</div>
 
-<main>
-  <div class="page-title">
-    <h1>Vokabeltrainer</h1>
-    <div class="category-badge" id="categoryBadge">Wird geladen…</div>
-    <p id="categoryDesc"></p>
-  </div>
+    <!-- Trainer-UI (erst sichtbar, wenn Daten geladen sind) -->
+    <div id="trainerUI" class="hidden">
 
-  <!-- Loading / Error states -->
-  <div id="stateMsg" class="state-msg">⏳ Vokabeln werden geladen…</div>
+      <!-- LERNEINHEITS-AUSWAHL (Teil 1, Teil 2, …) -->
+      <div class="selector-wrap" id="unitSelector"></div>
 
-  <!-- Trainer UI (hidden until data loaded) -->
-  <div id="trainerUI" class="hidden">
-
-    <!-- UNIT SELECTOR -->
-    <div class="selector-wrap" id="unitSelector"></div>
-
-    <!-- DIRECTION -->
-    <div class="direction-wrap">
-      <div class="direction-toggle">
-        <button class="dir-btn active" id="dirBosDE" onclick="setDirection('bos-de')">🇧🇦 Bosnisch → Deutsch</button>
-        <button class="dir-btn"        id="dirDeBS"  onclick="setDirection('de-bos')">🇩🇪 Deutsch → Bosnisch</button>
+      <!-- RICHTUNG: Bosnisch → Deutsch / Deutsch → Bosnisch -->
+      <div class="direction-wrap">
+        <div class="direction-toggle">
+          <button class="dir-btn active" id="dirBosDE" onclick="setDirection('bos-de')">🇧🇦 Bosnisch → Deutsch</button>
+          <button class="dir-btn"        id="dirDeBS"  onclick="setDirection('de-bos')">🇩🇪 Deutsch → Bosnisch</button>
+        </div>
       </div>
-    </div>
 
-    <!-- MODE -->
-    <div class="mode-row">
-      <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')">🃏 Karteikarte</button>
-      <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')">🧠 Multiple Choice</button>
-      <button class="mode-btn"        id="modeList"  onclick="setMode('list')">📋 Übersicht</button>
-    </div>
-
-    <!-- PROGRESS -->
-    <div class="progress-wrap" id="progressWrap">
-      <div class="progress-info">
-        <span id="progressText">Vokabel 1 von 15</span>
-        <span id="progressPct">0%</span>
+      <!-- MODUS: Karteikarte / Multiple Choice / Übersicht -->
+      <div class="mode-row">
+        <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')">🃏 Karteikarte</button>
+        <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')">🧠 Multiple Choice</button>
+        <button class="mode-btn"        id="modeList"  onclick="setMode('list')">📋 Übersicht</button>
       </div>
-      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
-    </div>
 
-    <!-- SCORE -->
-    <div class="score-row" id="scoreRow">
-      <div class="score-badge correct">✓ <span id="scoreCorrect">0</span> Richtig</div>
-      <div class="score-badge wrong">✗ <span id="scoreWrong">0</span> Falsch</div>
-      <div class="score-badge remaining">◉ <span id="scoreRem">15</span> Übrig</div>
-    </div>
+      <!-- FORTSCHRITTSBALKEN -->
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-info">
+          <span id="progressText">Vokabel 1 von 15</span>
+          <span id="progressPct">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+        </div>
+      </div>
 
-    <!-- FLASH MODE -->
-    <div id="flashMode">
-      <div class="card-shell">
-        <div class="card-wrap" id="cardWrap" onclick="flipCard()">
-          <div class="card-inner preparing" id="cardInner">
-            <div class="card-face card-front">
-              <div class="card-label" id="cardFrontLabel">Bosnisch</div>
-              <div class="card-word" id="cardFrontWord"></div>
-              <div class="card-type" id="cardFrontType"></div>
-              <div class="card-hint">Klicke um die Übersetzung zu sehen</div>
-              <button class="card-audio-btn" onclick="speakWord(event)">🔊 Anhören</button>
-            </div>
-            <div class="card-face card-back">
-              <div class="card-label" id="cardBackLabel">Deutsch</div>
-              <div class="card-word" id="cardBackWord"></div>
-              <div class="card-type" id="cardBackType"></div>
-              <div class="card-hint" id="cardBackHint"></div>
+      <!-- PUNKTE-ANZEIGE -->
+      <div class="score-row" id="scoreRow">
+        <div class="score-badge correct">✓ <span id="scoreCorrect">0</span> Richtig</div>
+        <div class="score-badge wrong">✗ <span id="scoreWrong">0</span> Falsch</div>
+        <div class="score-badge remaining">◉ <span id="scoreRem">15</span> Übrig</div>
+      </div>
+
+      <!-- ─── KARTEIKARTEN-MODUS ────────────────────────── -->
+      <div id="flashMode">
+        <div class="card-shell">
+          <!-- Klick auf die Karte dreht sie um (flipCard) -->
+          <div class="card-wrap" id="cardWrap" onclick="flipCard()">
+            <div class="card-inner preparing" id="cardInner">
+              <!-- VORDERSEITE -->
+              <div class="card-face card-front">
+                <div class="card-label" id="cardFrontLabel">Bosnisch</div>
+                <div class="card-word"  id="cardFrontWord"></div>
+                <div class="card-type"  id="cardFrontType"></div>
+                <div class="card-hint">Klicke um die Übersetzung zu sehen</div>
+                <button class="card-audio-btn" onclick="speakWord(event)">🔊 Anhören</button>
+              </div>
+              <!-- RÜCKSEITE -->
+              <div class="card-face card-back">
+                <div class="card-label" id="cardBackLabel">Deutsch</div>
+                <div class="card-word"  id="cardBackWord"></div>
+                <div class="card-type"  id="cardBackType"></div>
+                <div class="card-hint"  id="cardBackHint"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="flip-hint" id="flipHint">⬆ Karte erst umdrehen, um zu bewerten</div>
-      <div class="feedback-toast" id="feedbackToast"></div>
+        <div class="flip-hint" id="flipHint">⬆ Karte erst umdrehen, um zu bewerten</div>
+        <div class="feedback-toast" id="feedbackToast"></div>
 
-      <div class="answer-row">
-        <button class="ans-btn wrong-btn"   id="btnWrong"   onclick="answer(false)" disabled>✗ Falsch</button>
-        <button class="ans-btn skip-btn"    id="btnSkip"    onclick="skipCard()">→ Überspringen</button>
-        <button class="ans-btn correct-btn" id="btnCorrect" onclick="answer(true)"  disabled>✓ Richtig</button>
-      </div>
-    </div>
-
-    <!-- QUIZ MODE -->
-    <div id="quizMode" class="hidden">
-      <div class="card-shell" style="height:auto">
-        <div style="background:var(--white);border:2px solid var(--gray);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;text-align:center;margin-bottom:1.5rem;">
-          <div class="card-label" id="quizLabel">Was bedeutet auf Deutsch …</div>
-          <div class="card-word" id="quizWord" style="color:var(--blue)"></div>
-          <div class="card-type" id="quizType"></div>
+        <!-- Bewertungs-Buttons (erst aktiv nach Umdrehen) -->
+        <div class="answer-row">
+          <button class="ans-btn wrong-btn"   id="btnWrong"   onclick="answer(false)" disabled>✗ Falsch</button>
+          <button class="ans-btn skip-btn"    id="btnSkip"    onclick="skipCard()">→ Überspringen</button>
+          <button class="ans-btn correct-btn" id="btnCorrect" onclick="answer(true)"  disabled>✓ Richtig</button>
         </div>
       </div>
-      <div class="quiz-options" id="quizOptions"></div>
-      <div class="feedback-toast" id="quizFeedback"></div>
-    </div>
 
-    <!-- LIST MODE -->
-    <div id="listMode" class="hidden">
-      <div class="word-list-grid" id="wordListGrid"></div>
-    </div>
-
-    <!-- RESULT -->
-    <div id="resultScreen" class="result-screen hidden">
-      <div class="result-stars" id="resultStars">⭐⭐⭐</div>
-      <h2>Lerneinheit abgeschlossen!</h2>
-      <div class="result-big" id="resultScore">—</div>
-      <div class="result-sub" id="resultSub"></div>
-      <div class="result-wrong-count" id="resultWrongCount"></div>
-      <div class="result-btns">
-        <button class="restart-btn primary"   onclick="restart()">🔄 Alle Karten wiederholen</button>
-        <button class="restart-btn secondary" id="btnRetryWrong" onclick="retryWrong()">✗ Nur falsche Karten</button>
+      <!-- ─── MULTIPLE-CHOICE-MODUS ─────────────────────── -->
+      <div id="quizMode" class="hidden">
+        <div class="card-shell" style="height:auto">
+          <div style="background:var(--white);border:2px solid var(--gray);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;text-align:center;margin-bottom:1.5rem;">
+            <div class="card-label" id="quizLabel">Was bedeutet auf Deutsch …</div>
+            <div class="card-word"  id="quizWord" style="color:var(--blue)"></div>
+            <div class="card-type"  id="quizType"></div>
+          </div>
+        </div>
+        <div class="quiz-options"   id="quizOptions"></div>
+        <div class="feedback-toast" id="quizFeedback"></div>
       </div>
-    </div>
 
-  </div><!-- /trainerUI -->
-</main>
+      <!-- ─── ÜBERSICHTS-MODUS ───────────────────────────── -->
+      <div id="listMode" class="hidden">
+        <div class="word-list-grid" id="wordListGrid"></div>
+      </div>
 
-<div id="footer"></div>
+      <!-- ─── ERGEBNIS-BILDSCHIRM ───────────────────────── -->
+      <div id="resultScreen" class="result-screen hidden">
+        <div class="result-stars" id="resultStars">⭐⭐⭐</div>
+        <h2>Lerneinheit abgeschlossen!</h2>
+        <div class="result-big"        id="resultScore">—</div>
+        <div class="result-sub"        id="resultSub"></div>
+        <div class="result-wrong-count" id="resultWrongCount"></div>
+        <div class="result-btns">
+          <button class="restart-btn primary"   onclick="restart()">🔄 Alle Karten wiederholen</button>
+          <button class="restart-btn secondary" id="btnRetryWrong" onclick="retryWrong()">✗ Nur falsche Karten</button>
+        </div>
+      </div>
 
-<script>
-// ─────────────────────────────────────────────
-// CONFIG — adjust path to your JSON file
-// ─────────────────────────────────────────────
-const JSON_PATH = 'vokabeln_flat.json';
+    </div><!-- /trainerUI -->
+  </main>
 
-// ─────────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────────
-let allVocab   = [];   // full JSON data
-let allInCat   = [];   // all entries for current Kapitel
-let unitVocab  = [];   // entries for the selected unit (Teil 1 / Teil 2)
-let queue      = [];
-let current    = 0;
-let correct    = 0;
-let wrong      = 0;
-let wrongList  = [];
-let isFlipped  = false;
-let answered   = false;
-let mode       = 'flash';
-let direction  = 'bos-de';
-let activeKapitel = 1;
-let activeUnit    = 0;   // 0 = Teil 1, 1 = Teil 2
+  <!-- Footer (dynamisch per LB_main.js) -->
+  <div id="footer"></div>
 
-// ─────────────────────────────────────────────
-// BOOT — read URL param ?kapitel=1
-// ─────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', async () => {
-  const params = new URLSearchParams(window.location.search);
-  activeKapitel = parseInt(params.get('kapitel') || '1', 10);
-  await loadVocab();
-});
+  <script>
+    // ─────────────────────────────────────────────────────────
+    // KONFIGURATION — Pfad zur JSON-Datei ggf. anpassen
+    // ─────────────────────────────────────────────────────────
+    const JSON_PATH = '/Code/2_Vokabeln/vokabeln_flat.json';
 
-async function loadVocab() {
-  try {
-    const res = await fetch(JSON_PATH);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    allVocab = await res.json();
-    initCategory();
-  } catch(e) {
-    document.getElementById('stateMsg').textContent = '⚠️ Fehler beim Laden der Vokabeln. Stelle sicher, dass vokabeln_flat.json im gleichen Ordner liegt.';
-    document.getElementById('stateMsg').classList.add('error');
-  }
-}
+    // ─────────────────────────────────────────────────────────
+    // ZUSTAND (State-Variablen)
+    // ─────────────────────────────────────────────────────────
+    let allVocab   = [];   // komplette JSON-Daten
+    let allInCat   = [];   // alle Einträge für das aktuelle Kapitel
+    let unitVocab  = [];   // Einträge für die gewählte Lerneinheit (à 15 Vokabeln)
+    let queue      = [];   // aktuell zu lernende Karten (gemischt)
+    let current    = 0;
+    let correct    = 0;
+    let wrong      = 0;
+    let wrongList  = [];
+    let isFlipped  = false;
+    let answered   = false;
+    let mode       = 'flash';       // 'flash' | 'quiz' | 'list'
+    let direction  = 'bos-de';      // 'bos-de' | 'de-bos'
+    let activeKapitel = 1;
+    let activeUnit    = 0;          // Index der Lerneinheit (0 = Teil 1)
 
-function getWortart(entry) {
-  return entry['Wortart'] || entry['Wortart (Genus)'] || '';
-}
-
-function initCategory() {
-  allInCat = allVocab.filter(e => e.Kapitel === activeKapitel);
-  if (!allInCat.length) {
-    document.getElementById('stateMsg').textContent = `⚠️ Keine Vokabeln für Kapitel ${activeKapitel} gefunden.`;
-    document.getElementById('stateMsg').classList.add('error');
-    return;
-  }
-
-  const kapitelname = allInCat[0].Kapitelname;
-  document.getElementById('categoryBadge').textContent = `Kapitel ${activeKapitel}: ${kapitelname}`;
-  document.getElementById('categoryDesc').textContent  = `${allInCat.length} Vokabeln · aufgeteilt in Lerneinheiten à 15`;
-  document.title = `LinguaBosna – ${kapitelname}`;
-
-  document.getElementById('stateMsg').classList.add('hidden');
-  document.getElementById('trainerUI').classList.remove('hidden');
-
-  buildUnitSelector();
-  selectUnit(0);
-}
-
-// ─────────────────────────────────────────────
-// UNIT SELECTOR
-// ─────────────────────────────────────────────
-function buildUnitSelector() {
-  const wrap = document.getElementById('unitSelector');
-  wrap.innerHTML = '';
-  const chunkSize = 15;
-  const chunks = Math.ceil(allInCat.length / chunkSize);
-  for (let i = 0; i < chunks; i++) {
-    const from = i * chunkSize + 1;
-    const to   = Math.min((i + 1) * chunkSize, allInCat.length);
-    const btn  = document.createElement('button');
-    btn.className = 'unit-btn' + (i === 0 ? ' active' : '');
-    btn.textContent = `Teil ${i + 1}  (${from}–${to})`;
-    btn.onclick = () => selectUnit(i);
-    wrap.appendChild(btn);
-  }
-}
-
-function selectUnit(idx) {
-  activeUnit = idx;
-  document.querySelectorAll('.unit-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
-  const chunkSize = 15;
-  unitVocab = allInCat.slice(idx * chunkSize, (idx + 1) * chunkSize);
-  restart();
-}
-
-// ─────────────────────────────────────────────
-// MODE & DIRECTION
-// ─────────────────────────────────────────────
-function setMode(m) {
-  mode = m;
-  ['Flash','Quiz','List'].forEach(n => document.getElementById('mode'+n).classList.remove('active'));
-  document.getElementById('mode' + m.charAt(0).toUpperCase() + m.slice(1)).classList.add('active');
-  restart();
-}
-
-function setDirection(dir) {
-  direction = dir;
-  document.getElementById('dirBosDE').classList.toggle('active', dir === 'bos-de');
-  document.getElementById('dirDeBS').classList.toggle('active',  dir === 'de-bos');
-  restart();
-}
-
-// ─────────────────────────────────────────────
-// HELPERS
-// ─────────────────────────────────────────────
-function frontText(v) { return direction === 'bos-de' ? v.Bosnisch : v.Deutsch; }
-function backText(v)  { return direction === 'bos-de' ? v.Deutsch  : v.Bosnisch; }
-function frontLang()  { return direction === 'bos-de' ? 'Bosnisch' : 'Deutsch'; }
-function backLang()   { return direction === 'bos-de' ? 'Deutsch'  : 'Bosnisch'; }
-
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-// ─────────────────────────────────────────────
-// RESTART / RETRY
-// ─────────────────────────────────────────────
-function restart() {
-  queue     = shuffle([...unitVocab]);
-  current   = 0; correct = 0; wrong = 0; wrongList = [];
-  isFlipped = false; answered = false;
-
-  document.getElementById('resultScreen').classList.add('hidden');
-  document.getElementById('progressWrap').classList.remove('hidden');
-  document.getElementById('scoreRow').classList.remove('hidden');
-
-  if (mode === 'list') {
-    showListMode();
-  } else if (mode === 'quiz') {
-    document.getElementById('flashMode').classList.add('hidden');
-    document.getElementById('quizMode').classList.remove('hidden');
-    document.getElementById('listMode').classList.add('hidden');
-    showQuizCard();
-  } else {
-    document.getElementById('flashMode').classList.remove('hidden');
-    document.getElementById('quizMode').classList.add('hidden');
-    document.getElementById('listMode').classList.add('hidden');
-    showCard();
-  }
-  updateProgress();
-}
-
-function retryWrong() {
-  if (!wrongList.length) return;
-  queue     = shuffle([...wrongList]);
-  current   = 0; correct = 0; wrong = 0; wrongList = [];
-  isFlipped = false; answered = false;
-
-  document.getElementById('resultScreen').classList.add('hidden');
-  document.getElementById('progressWrap').classList.remove('hidden');
-  document.getElementById('scoreRow').classList.remove('hidden');
-
-  if (mode === 'quiz') {
-    document.getElementById('flashMode').classList.add('hidden');
-    document.getElementById('quizMode').classList.remove('hidden');
-    document.getElementById('listMode').classList.add('hidden');
-    showQuizCard();
-  } else {
-    document.getElementById('flashMode').classList.remove('hidden');
-    document.getElementById('quizMode').classList.add('hidden');
-    document.getElementById('listMode').classList.add('hidden');
-    showCard();
-  }
-  updateProgress();
-}
-
-// ─────────────────────────────────────────────
-// FLASHCARD
-// ─────────────────────────────────────────────
-function showCard() {
-  if (current >= queue.length) { showResult(); return; }
-  const v     = queue[current];
-  const inner = document.getElementById('cardInner');
-
-  // 1. Immediately reset to front (no animation), hide back face visually
-  inner.classList.add('preparing');      // back face: visibility:hidden
-  inner.style.transition = 'none';
-  inner.classList.remove('flipped');
-
-  // 2. Update DOM content while back is invisible
-  document.getElementById('cardFrontLabel').textContent = frontLang();
-  document.getElementById('cardFrontWord').textContent  = frontText(v);
-  document.getElementById('cardFrontType').textContent  = getWortart(v);
-  document.getElementById('cardBackLabel').textContent  = backLang();
-  document.getElementById('cardBackWord').textContent   = backText(v);
-  document.getElementById('cardBackType').textContent   = getWortart(v);
-  document.getElementById('cardBackHint').textContent   = backLang() + ': ' + backText(v);
-
-  // 3. After one paint, restore transition and un-hide back face
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      inner.style.transition = '';
-      inner.classList.remove('preparing');
+    // ─────────────────────────────────────────────────────────
+    // INITIALISIERUNG — Kapitel aus URL-Parameter lesen
+    // ─────────────────────────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      activeKapitel = parseInt(params.get('kapitel') || '1', 10);
+      await loadVocab();
     });
-  });
 
-  isFlipped = false;
-  answered  = false;
+    async function loadVocab() {
+      try {
+        const res = await fetch(JSON_PATH);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        allVocab = await res.json();
+        initCategory();
+      } catch(e) {
+        const msg = document.getElementById('stateMsg');
+        msg.textContent = '⚠️ Fehler beim Laden der Vokabeln. Stelle sicher, dass vokabeln_flat.json erreichbar ist.';
+        msg.classList.add('error');
+      }
+    }
 
-  document.getElementById('btnWrong').disabled   = true;
-  document.getElementById('btnCorrect').disabled = true;
-  document.getElementById('btnSkip').disabled    = false;
+    // Liest Wortart aus — JSON hat zwei mögliche Feldnamen
+    function getWortart(entry) {
+      return entry['Wortart'] || entry['Wortart (Genus)'] || '';
+    }
 
-  const hint = document.getElementById('flipHint');
-  hint.textContent = '⬆ Karte erst umdrehen, um zu bewerten';
-  hint.classList.remove('visible');
+    function initCategory() {
+      allInCat = allVocab.filter(e => e.Kapitel === activeKapitel);
+      if (!allInCat.length) {
+        document.getElementById('stateMsg').textContent = `⚠️ Keine Vokabeln für Kapitel ${activeKapitel} gefunden.`;
+        document.getElementById('stateMsg').classList.add('error');
+        return;
+      }
 
-  document.getElementById('feedbackToast').textContent = '';
-  document.getElementById('feedbackToast').className = 'feedback-toast';
-}
+      const kapitelname = allInCat[0].Kapitelname;
+      document.getElementById('categoryBadge').textContent = `Kapitel ${activeKapitel}: ${kapitelname}`;
+      document.getElementById('categoryDesc').textContent  = `${allInCat.length} Vokabeln · aufgeteilt in Lerneinheiten à 15`;
+      document.title = `LinguaBosna – Vokabeltrainer: ${kapitelname}`;
 
-function flipCard() {
-  if (answered) return;
-  const inner = document.getElementById('cardInner');
-  inner.classList.toggle('flipped');
-  isFlipped = !isFlipped;
+      document.getElementById('stateMsg').classList.add('hidden');
+      document.getElementById('trainerUI').classList.remove('hidden');
 
-  const hint = document.getElementById('flipHint');
-  if (isFlipped) {
-    document.getElementById('btnWrong').disabled   = false;
-    document.getElementById('btnCorrect').disabled = false;
-    hint.textContent = '👇 Wie gut hast du es gewusst?';
-    hint.classList.add('visible');
-  } else {
-    document.getElementById('btnWrong').disabled   = true;
-    document.getElementById('btnCorrect').disabled = true;
-    hint.textContent = '⬆ Karte erst umdrehen, um zu bewerten';
-    hint.classList.remove('visible');
-  }
-}
+      buildUnitSelector();
+      selectUnit(0);
+    }
 
-function answer(isCorrect) {
-  if (answered || !isFlipped) return;
-  answered = true;
+    // ─────────────────────────────────────────────────────────
+    // LERNEINHEITS-AUSWAHL
+    // ─────────────────────────────────────────────────────────
+    function buildUnitSelector() {
+      const wrap = document.getElementById('unitSelector');
+      wrap.innerHTML = '';
+      const chunkSize = 15;
+      const chunks = Math.ceil(allInCat.length / chunkSize);
+      for (let i = 0; i < chunks; i++) {
+        const from = i * chunkSize + 1;
+        const to   = Math.min((i + 1) * chunkSize, allInCat.length);
+        const btn  = document.createElement('button');
+        btn.className = 'unit-btn' + (i === 0 ? ' active' : '');
+        btn.textContent = `Teil ${i + 1}  (${from}–${to})`;
+        btn.onclick = () => selectUnit(i);
+        wrap.appendChild(btn);
+      }
+    }
 
-  if (isCorrect) { correct++; }
-  else           { wrong++; wrongList.push(queue[current]); }
+    function selectUnit(idx) {
+      activeUnit = idx;
+      document.querySelectorAll('.unit-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+      const chunkSize = 15;
+      unitVocab = allInCat.slice(idx * chunkSize, (idx + 1) * chunkSize);
+      restart();
+    }
 
-  document.getElementById('btnWrong').disabled   = true;
-  document.getElementById('btnCorrect').disabled = true;
-  document.getElementById('btnSkip').disabled    = true;
+    // ─────────────────────────────────────────────────────────
+    // MODUS & RICHTUNG
+    // ─────────────────────────────────────────────────────────
+    function setMode(m) {
+      mode = m;
+      ['Flash','Quiz','List'].forEach(n => document.getElementById('mode'+n).classList.remove('active'));
+      document.getElementById('mode' + m.charAt(0).toUpperCase() + m.slice(1)).classList.add('active');
+      restart();
+    }
 
-  const toast = document.getElementById('feedbackToast');
-  toast.textContent = isCorrect ? '✓ Super gemacht!' : '✗ Nicht ganz — übe weiter!';
-  toast.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
-  document.getElementById('flipHint').textContent = '';
+    function setDirection(dir) {
+      direction = dir;
+      document.getElementById('dirBosDE').classList.toggle('active', dir === 'bos-de');
+      document.getElementById('dirDeBS').classList.toggle('active',  dir === 'de-bos');
+      restart();
+    }
 
-  updateScores();
-  setTimeout(() => { current++; showCard(); updateProgress(); }, 900);
-}
+    // ─────────────────────────────────────────────────────────
+    // HILFSFUNKTIONEN
+    // ─────────────────────────────────────────────────────────
+    function frontText(v) { return direction === 'bos-de' ? v.Bosnisch : v.Deutsch; }
+    function backText(v)  { return direction === 'bos-de' ? v.Deutsch  : v.Bosnisch; }
+    function frontLang()  { return direction === 'bos-de' ? 'Bosnisch' : 'Deutsch'; }
+    function backLang()   { return direction === 'bos-de' ? 'Deutsch'  : 'Bosnisch'; }
 
-function skipCard() {
-  queue.push(queue[current]);
-  current++;
-  showCard();
-  updateProgress();
-}
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
 
-function speakWord(e) {
-  e.stopPropagation();
-  const v = queue[current];
-  if (!v) return;
-  const word = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
-  if ('speechSynthesis' in window) {
-    const u = new SpeechSynthesisUtterance(word);
-    u.lang = direction === 'bos-de' ? 'bs-BA' : 'de-DE';
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  }
-}
+    // ─────────────────────────────────────────────────────────
+    // NEUSTART & WIEDERHOLEN
+    // ─────────────────────────────────────────────────────────
+    function restart() {
+      queue     = shuffle([...unitVocab]);
+      current   = 0; correct = 0; wrong = 0; wrongList = [];
+      isFlipped = false; answered = false;
 
-// ─────────────────────────────────────────────
-// QUIZ
-// ─────────────────────────────────────────────
-function showQuizCard() {
-  if (current >= queue.length) { showResult(); return; }
-  const v    = queue[current];
-  const opts = getQuizOptions(v);
+      document.getElementById('resultScreen').classList.add('hidden');
+      document.getElementById('progressWrap').classList.remove('hidden');
+      document.getElementById('scoreRow').classList.remove('hidden');
 
-  document.getElementById('quizLabel').textContent = direction === 'bos-de'
-    ? 'Was bedeutet auf Deutsch …' : 'Wie heißt auf Bosnisch …';
-  document.getElementById('quizWord').textContent = frontText(v);
-  document.getElementById('quizType').textContent = getWortart(v);
+      if (mode === 'list') {
+        showListMode();
+      } else if (mode === 'quiz') {
+        document.getElementById('flashMode').classList.add('hidden');
+        document.getElementById('quizMode').classList.remove('hidden');
+        document.getElementById('listMode').classList.add('hidden');
+        showQuizCard();
+      } else {
+        document.getElementById('flashMode').classList.remove('hidden');
+        document.getElementById('quizMode').classList.add('hidden');
+        document.getElementById('listMode').classList.add('hidden');
+        showCard();
+      }
+      updateProgress();
+    }
 
-  const container = document.getElementById('quizOptions');
-  container.innerHTML = '';
-  opts.forEach(opt => {
-    const btn = document.createElement('button');
-    btn.className   = 'quiz-opt';
-    btn.textContent = backText(opt);
-    btn.onclick     = () => selectQuizOpt(btn, opt, v);
-    container.appendChild(btn);
-  });
-  document.getElementById('quizFeedback').textContent = '';
-  document.getElementById('quizFeedback').className = 'feedback-toast';
-}
+    function retryWrong() {
+      if (!wrongList.length) return;
+      queue     = shuffle([...wrongList]);
+      current   = 0; correct = 0; wrong = 0; wrongList = [];
+      isFlipped = false; answered = false;
 
-function getQuizOptions(correctV) {
-  // Use all vocab in the category as distractor pool for better variety
-  const pool = allInCat.filter(v => v !== correctV);
-  return shuffle([correctV, ...shuffle(pool).slice(0, 3)]);
-}
+      document.getElementById('resultScreen').classList.add('hidden');
+      document.getElementById('progressWrap').classList.remove('hidden');
+      document.getElementById('scoreRow').classList.remove('hidden');
 
-function selectQuizOpt(btn, opt, correctV) {
-  document.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
-  const isCorrect = opt === correctV;
-  if (isCorrect) {
-    btn.classList.add('selected-correct');
-    correct++;
-  } else {
-    btn.classList.add('selected-wrong');
-    wrong++;
-    wrongList.push(correctV);
-    const correctAnswer = backText(correctV);
-    document.querySelectorAll('.quiz-opt').forEach(b => {
-      if (b.textContent === correctAnswer) b.classList.add('reveal-correct');
-    });
-  }
-  const fb = document.getElementById('quizFeedback');
-  fb.textContent = isCorrect ? '✓ Richtig!' : '✗ Falsch — die Antwort war: ' + backText(correctV);
-  fb.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
-  updateScores();
-  setTimeout(() => { current++; showQuizCard(); updateProgress(); }, 1100);
-}
+      if (mode === 'quiz') {
+        document.getElementById('flashMode').classList.add('hidden');
+        document.getElementById('quizMode').classList.remove('hidden');
+        document.getElementById('listMode').classList.add('hidden');
+        showQuizCard();
+      } else {
+        document.getElementById('flashMode').classList.remove('hidden');
+        document.getElementById('quizMode').classList.add('hidden');
+        document.getElementById('listMode').classList.add('hidden');
+        showCard();
+      }
+      updateProgress();
+    }
 
-// ─────────────────────────────────────────────
-// LIST
-// ─────────────────────────────────────────────
-function showListMode() {
-  document.getElementById('flashMode').classList.add('hidden');
-  document.getElementById('quizMode').classList.add('hidden');
-  document.getElementById('listMode').classList.remove('hidden');
-  document.getElementById('progressWrap').classList.add('hidden');
-  document.getElementById('scoreRow').classList.add('hidden');
+    // ─────────────────────────────────────────────────────────
+    // KARTEIKARTE
+    // ─────────────────────────────────────────────────────────
+    function showCard() {
+      if (current >= queue.length) { showResult(); return; }
+      const v     = queue[current];
+      const inner = document.getElementById('cardInner');
 
-  const grid = document.getElementById('wordListGrid');
-  grid.innerHTML = '';
-  unitVocab.forEach(v => {
-    const chip = document.createElement('div');
-    chip.className = 'word-chip';
-    const first  = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
-    const second = direction === 'bos-de' ? v.Deutsch  : v.Bosnisch;
-    chip.innerHTML = `<div><div class="bos">${first}</div><div class="de">${second}</div></div><div class="tag">${getWortart(v)}</div>`;
-    grid.appendChild(chip);
-  });
-}
+      // Reset zur Vorderseite ohne Flip-Animation (verhindert Flackern)
+      inner.classList.add('preparing');   // Rückseite temporär unsichtbar
+      inner.style.transition = 'none';
+      inner.classList.remove('flipped');
 
-// ─────────────────────────────────────────────
-// PROGRESS & SCORES
-// ─────────────────────────────────────────────
-function updateProgress() {
-  const total = queue.length;
-  const done  = Math.min(current, total);
-  const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
-  document.getElementById('progressText').textContent = `Vokabel ${Math.min(done + 1, total)} von ${unitVocab.length}`;
-  document.getElementById('progressPct').textContent  = pct + '%';
-  document.getElementById('progressFill').style.width = pct + '%';
-  updateScores();
-}
+      // Inhalte aktualisieren während Rückseite versteckt ist
+      document.getElementById('cardFrontLabel').textContent = frontLang();
+      document.getElementById('cardFrontWord').textContent  = frontText(v);
+      document.getElementById('cardFrontType').textContent  = getWortart(v);
+      document.getElementById('cardBackLabel').textContent  = backLang();
+      document.getElementById('cardBackWord').textContent   = backText(v);
+      document.getElementById('cardBackType').textContent   = getWortart(v);
+      document.getElementById('cardBackHint').textContent   = backLang() + ': ' + backText(v);
 
-function updateScores() {
-  document.getElementById('scoreCorrect').textContent = correct;
-  document.getElementById('scoreWrong').textContent   = wrong;
-  document.getElementById('scoreRem').textContent     = Math.max(0, unitVocab.length - current);
-}
+      // Nach einem Frame: Transition wiederherstellen & Rückseite zeigen
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          inner.style.transition = '';
+          inner.classList.remove('preparing');
+        });
+      });
 
-// ─────────────────────────────────────────────
-// RESULT
-// ─────────────────────────────────────────────
-function showResult() {
-  document.getElementById('flashMode').classList.add('hidden');
-  document.getElementById('quizMode').classList.add('hidden');
-  document.getElementById('progressWrap').classList.add('hidden');
-  document.getElementById('scoreRow').classList.add('hidden');
-  document.getElementById('resultScreen').classList.remove('hidden');
+      isFlipped = false;
+      answered  = false;
 
-  const total = unitVocab.length;
-  const pct   = total > 0 ? Math.round((correct / total) * 100) : 0;
-  const stars = pct >= 90 ? '⭐⭐⭐' : pct >= 60 ? '⭐⭐' : '⭐';
-  const msg   = pct >= 90 ? 'Ausgezeichnet – du bist ein Bosnisch-Profi!'
-              : pct >= 60 ? 'Gut gemacht! Noch etwas Übung und du hast es!'
-              : 'Nicht aufgeben – Wiederholung macht den Meister!';
+      document.getElementById('btnWrong').disabled   = true;
+      document.getElementById('btnCorrect').disabled = true;
+      document.getElementById('btnSkip').disabled    = false;
 
-  document.getElementById('resultStars').textContent = stars;
-  document.getElementById('resultScore').textContent = pct + '%';
-  document.getElementById('resultSub').textContent   = msg;
+      const hint = document.getElementById('flipHint');
+      hint.textContent = '⬆ Karte erst umdrehen, um zu bewerten';
+      hint.classList.remove('visible');
 
-  const wc       = document.getElementById('resultWrongCount');
-  const retryBtn = document.getElementById('btnRetryWrong');
-  if (wrongList.length > 0) {
-    wc.textContent     = `${wrongList.length} Vokabel${wrongList.length > 1 ? 'n' : ''} falsch beantwortet`;
-    retryBtn.disabled  = false;
-  } else {
-    wc.textContent    = 'Alles richtig – perfekte Runde! 🎉';
-    retryBtn.disabled = true;
-  }
-}
-</script>
+      document.getElementById('feedbackToast').textContent = '';
+      document.getElementById('feedbackToast').className = 'feedback-toast';
+    }
+
+    function flipCard() {
+      if (answered) return;
+      const inner = document.getElementById('cardInner');
+      inner.classList.toggle('flipped');
+      isFlipped = !isFlipped;
+
+      const hint = document.getElementById('flipHint');
+      if (isFlipped) {
+        document.getElementById('btnWrong').disabled   = false;
+        document.getElementById('btnCorrect').disabled = false;
+        hint.textContent = '👇 Wie gut hast du es gewusst?';
+        hint.classList.add('visible');
+      } else {
+        document.getElementById('btnWrong').disabled   = true;
+        document.getElementById('btnCorrect').disabled = true;
+        hint.textContent = '⬆ Karte erst umdrehen, um zu bewerten';
+        hint.classList.remove('visible');
+      }
+    }
+
+    function answer(isCorrect) {
+      if (answered || !isFlipped) return;
+      answered = true;
+
+      if (isCorrect) { correct++; }
+      else           { wrong++; wrongList.push(queue[current]); }
+
+      document.getElementById('btnWrong').disabled   = true;
+      document.getElementById('btnCorrect').disabled = true;
+      document.getElementById('btnSkip').disabled    = true;
+
+      const toast = document.getElementById('feedbackToast');
+      toast.textContent = isCorrect ? '✓ Super gemacht!' : '✗ Nicht ganz — übe weiter!';
+      toast.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
+      document.getElementById('flipHint').textContent = '';
+
+      updateScores();
+      setTimeout(() => { current++; showCard(); updateProgress(); }, 900);
+    }
+
+    function skipCard() {
+      // Karte ans Ende der Warteschlange schieben
+      queue.push(queue[current]);
+      current++;
+      showCard();
+      updateProgress();
+    }
+
+    // Text-to-Speech für das bosnische/deutsche Wort
+    function speakWord(e) {
+      e.stopPropagation(); // Verhindert gleichzeitiges Umdrehen der Karte
+      const v = queue[current];
+      if (!v) return;
+      const word = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(word);
+        u.lang = direction === 'bos-de' ? 'bs-BA' : 'de-DE';
+        speechSynthesis.cancel();
+        speechSynthesis.speak(u);
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // MULTIPLE CHOICE
+    // ─────────────────────────────────────────────────────────
+    function showQuizCard() {
+      if (current >= queue.length) { showResult(); return; }
+      const v    = queue[current];
+      const opts = getQuizOptions(v);
+
+      document.getElementById('quizLabel').textContent = direction === 'bos-de'
+        ? 'Was bedeutet auf Deutsch …' : 'Wie heißt auf Bosnisch …';
+      document.getElementById('quizWord').textContent = frontText(v);
+      document.getElementById('quizType').textContent = getWortart(v);
+
+      const container = document.getElementById('quizOptions');
+      container.innerHTML = '';
+      opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className   = 'quiz-opt';
+        btn.textContent = backText(opt);
+        btn.onclick     = () => selectQuizOpt(btn, opt, v);
+        container.appendChild(btn);
+      });
+      document.getElementById('quizFeedback').textContent = '';
+      document.getElementById('quizFeedback').className = 'feedback-toast';
+    }
+
+    function getQuizOptions(correctV) {
+      // Alle Vokabeln des Kapitels als Ablenkerpool verwenden (mehr Vielfalt)
+      const pool = allInCat.filter(v => v !== correctV);
+      return shuffle([correctV, ...shuffle(pool).slice(0, 3)]);
+    }
+
+    function selectQuizOpt(btn, opt, correctV) {
+      document.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+      const isCorrect = opt === correctV;
+      if (isCorrect) {
+        btn.classList.add('selected-correct');
+        correct++;
+      } else {
+        btn.classList.add('selected-wrong');
+        wrong++;
+        wrongList.push(correctV);
+        // Korrekte Antwort grün markieren
+        const correctAnswer = backText(correctV);
+        document.querySelectorAll('.quiz-opt').forEach(b => {
+          if (b.textContent === correctAnswer) b.classList.add('reveal-correct');
+        });
+      }
+      const fb = document.getElementById('quizFeedback');
+      fb.textContent = isCorrect ? '✓ Richtig!' : '✗ Falsch — die Antwort war: ' + backText(correctV);
+      fb.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
+      updateScores();
+      setTimeout(() => { current++; showQuizCard(); updateProgress(); }, 1100);
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // ÜBERSICHTS-MODUS
+    // ─────────────────────────────────────────────────────────
+    function showListMode() {
+      document.getElementById('flashMode').classList.add('hidden');
+      document.getElementById('quizMode').classList.add('hidden');
+      document.getElementById('listMode').classList.remove('hidden');
+      document.getElementById('progressWrap').classList.add('hidden');
+      document.getElementById('scoreRow').classList.add('hidden');
+
+      const grid = document.getElementById('wordListGrid');
+      grid.innerHTML = '';
+      unitVocab.forEach(v => {
+        const chip = document.createElement('div');
+        chip.className = 'word-chip';
+        const first  = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
+        const second = direction === 'bos-de' ? v.Deutsch  : v.Bosnisch;
+        chip.innerHTML = `
+          <div>
+            <div class="bos">${first}</div>
+            <div class="de">${second}</div>
+          </div>
+          <div class="tag">${getWortart(v)}</div>
+        `;
+        grid.appendChild(chip);
+      });
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // FORTSCHRITT & PUNKTE
+    // ─────────────────────────────────────────────────────────
+    function updateProgress() {
+      const total = queue.length;
+      const done  = Math.min(current, total);
+      const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+      document.getElementById('progressText').textContent = `Vokabel ${Math.min(done + 1, total)} von ${unitVocab.length}`;
+      document.getElementById('progressPct').textContent  = pct + '%';
+      document.getElementById('progressFill').style.width = pct + '%';
+      updateScores();
+    }
+
+    function updateScores() {
+      document.getElementById('scoreCorrect').textContent = correct;
+      document.getElementById('scoreWrong').textContent   = wrong;
+      document.getElementById('scoreRem').textContent     = Math.max(0, unitVocab.length - current);
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // ERGEBNIS-BILDSCHIRM
+    // ─────────────────────────────────────────────────────────
+    function showResult() {
+      document.getElementById('flashMode').classList.add('hidden');
+      document.getElementById('quizMode').classList.add('hidden');
+      document.getElementById('progressWrap').classList.add('hidden');
+      document.getElementById('scoreRow').classList.add('hidden');
+      document.getElementById('resultScreen').classList.remove('hidden');
+
+      const total = unitVocab.length;
+      const pct   = total > 0 ? Math.round((correct / total) * 100) : 0;
+      const stars = pct >= 90 ? '⭐⭐⭐' : pct >= 60 ? '⭐⭐' : '⭐';
+      const msg   = pct >= 90 ? 'Ausgezeichnet – du bist ein Bosnisch-Profi!'
+                  : pct >= 60 ? 'Gut gemacht! Noch etwas Übung und du hast es!'
+                  :             'Nicht aufgeben – Wiederholung macht den Meister!';
+
+      document.getElementById('resultStars').textContent = stars;
+      document.getElementById('resultScore').textContent = pct + '%';
+      document.getElementById('resultSub').textContent   = msg;
+
+      const wc       = document.getElementById('resultWrongCount');
+      const retryBtn = document.getElementById('btnRetryWrong');
+      if (wrongList.length > 0) {
+        wc.textContent    = `${wrongList.length} Vokabel${wrongList.length > 1 ? 'n' : ''} falsch beantwortet`;
+        retryBtn.disabled = false;
+      } else {
+        wc.textContent    = 'Alles richtig – perfekte Runde! 🎉';
+        retryBtn.disabled = true;
+      }
+    }
+  </script>
+
 </body>
 </html>

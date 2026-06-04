@@ -1,39 +1,245 @@
-    /* Hauptbereich */
-    main {
-      margin-top: 100px;
-      padding: 60px 5%;
-      text-align: center;
-    }
+/* ============================================================
+   Style_2_Vokabeln.css — Vokabeln-Übersichtsseite
+   ============================================================
+   Designvorgaben:
+   - Primärfarbe (Dunkelblau): var(--primary) / #0A3D62
+   - Akzentfarbe (Goldgelb):   var(--accent)  / #F4C542
+   - Sekundärfarbe (Grün):     var(--secondary)/ #2E5E2E
+   - Hintergrund:              var(--bg-light) / #F8F5F0
+   - Neutral Grau:             var(--neutral)  / #E6E6E6
+   ============================================================ */
 
-    main h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: var(--primary);
-      text-transform: uppercase;
-    }
 
-    .vocab-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
+/* ── Main-Bereich ──────────────────────────────────────────── */
+main {
+  /* Abstand nach oben, da der Header fixed (ca. 63 px hoch) ist */
+  margin-top: 70px;
+  padding: 70px 5%;
+}
 
-    .vocab-card {
-      background: #fff;
-      border: 1px solid var(--neutral);
-      border-radius: 10px;
-      padding: 30px 20px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      color: var(--primary);
-      transition: all 0.3s;
-      cursor: pointer;
-    }
 
-    .vocab-card:hover {
-      transform: translateY(-8px);
-      background: var(--accent);
-      color: #fff;
-    }
+/* ── Section-Intro Block ───────────────────────────────────── */
+/* Pflicht-Struktur laut Designvorgabe für alle Sections */
+.section-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-intro h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  text-transform: uppercase;     /* Großbuchstaben bei Haupttiteln */
+  letter-spacing: 0.5px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.section-intro p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--secondary);
+}
+
+
+/* ── Lade-Meldung ──────────────────────────────────────────── */
+.loading-msg {
+  text-align: center;
+  color: #5a5a5a;
+  padding: 2rem 0;
+  font-size: 1rem;
+}
+
+
+/* ── Karten-Grid ───────────────────────────────────────────── */
+/* auto-fill: füllt so viele Spalten wie möglich ein */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+
+/* ── Einzelne Vokabel-Karte ────────────────────────────────── */
+.vocab-card {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 12px;
+  padding: 30px 20px 24px;
+  text-align: center;
+  text-decoration: none;         /* kein Unterstrich da <a>-Element */
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  /* Hover-Animation vorbereiten (Designvorgabe) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Karten-Hover (Designvorgabe: translateY(-6px) + stärkerer Schatten) */
+.vocab-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+
+/* Icon-Kreis mit Goldgelb-Hintergrund */
+.vocab-card-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+
+  /* Animation beim Hover mitziehen */
+  transition: background-color 0.3s ease;
+}
+
+.vocab-card-icon i {
+  font-size: 1.4rem;
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+/* Hover: Icon-Kreis wechselt zu Dunkelblau */
+.vocab-card:hover .vocab-card-icon {
+  background-color: var(--primary);
+}
+
+.vocab-card:hover .vocab-card-icon i {
+  color: var(--accent);
+}
+
+
+/* Kapitel-Nummer (z.B. "Kapitel 1") */
+.vocab-card-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+
+/* Kapitel-Name (z.B. "Begrüßung & Alltagssprache") */
+.vocab-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--primary);
+  line-height: 1.35;
+  margin: 4px 0 8px;
+}
+
+
+/* Vokabelanzahl-Pill */
+.vocab-card-count {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #777;
+  background: var(--bg-light);
+  border-radius: 20px;
+  padding: 3px 12px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.vocab-card:hover .vocab-card-count {
+  background-color: #e8f2fb;
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   Breakpoints laut Vorgabe: 900px / 768px / 480px
+   ============================================================ */
+
+/* ── Tablet ≤ 900px ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+
+  .section-intro h1 {
+    font-size: 2rem;
+  }
+
+  .section-intro p {
+    font-size: 1rem;
+  }
+}
+
+
+/* ── Mobil ≤ 768px ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  main {
+    padding: 50px 5%;
+  }
+
+  .section-intro {
+    margin-bottom: 35px;
+  }
+
+  .section-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Kleinere Mindestbreite für Karten auf Mobil */
+  .vocab-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .vocab-card {
+    padding: 22px 14px 18px;
+  }
+
+  .vocab-card-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .vocab-card-icon i {
+    font-size: 1.2rem;
+  }
+
+  .vocab-card-title {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ── Sehr kleine Screens ≤ 480px ────────────────────────────── */
+@media (max-width: 480px) {
+
+  main {
+    padding: 40px 4%;
+  }
+
+  .section-intro h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Genau 2 Spalten auf kleinen Bildschirmen */
+  .vocab-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .vocab-card {
+    padding: 18px 10px 14px;
+  }
+
+  .vocab-card-title {
+    font-size: 0.82rem;
+  }
+
+  .vocab-card-count {
+    font-size: 0.72rem;
+  }
+}

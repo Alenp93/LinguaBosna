@@ -1,32 +1,72 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <link rel="stylesheet" href="/Code/Style.css">
-  <link rel="stylesheet" href="/Code/1_Startseite/Style_2_Vokabeln.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lerne bosnische Vokabeln – von Begrüßung bis Gesundheit. 10 Kapitel mit interaktivem Vokabeltrainer für Anfänger bis Fortgeschrittene.">
   <title>LinguaBosna – Vokabeln</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/2_Vokabeln/Style_2_Vokabeln.css">
+
+  <!-- Shared Header/Footer JS -->
   <script src="/Code/LB_main.js"></script>
 </head>
 <body>
 
+  <!-- Header (dynamisch eingebunden per LB_main.js) -->
   <div id="header"></div>
 
   <main>
-    <h1>Vokabeln</h1>
-    <p id="loadingMsg" style="color:#5a5a5a;text-align:center;padding:2rem 0;">Kategorien werden geladen…</p>
+
+    <!-- Section-Intro Block (Designvorgabe: jede Section verwendet diesen Block) -->
+    <div class="section-intro">
+      <h1>Vokabeln</h1>
+      <p>Wähle ein Kapitel und starte deine Lerneinheit</p>
+    </div>
+
+    <!-- Lade-Meldung (wird per JS ausgeblendet) -->
+    <p id="loadingMsg" class="loading-msg">
+      <i class="fa-solid fa-spinner fa-spin"></i> Kategorien werden geladen…
+    </p>
+
+    <!-- Karten-Grid (wird komplett per JS befüllt) -->
     <div class="vocab-grid" id="vocabGrid"></div>
+
   </main>
 
+  <!-- Footer (dynamisch eingebunden per LB_main.js) -->
   <div id="footer"></div>
 
   <script>
-    // Pfad zur JSON-Datei — ggf. anpassen
-    const JSON_PATH = "/Code/2_Vokabeln/vokabeln_flat.json";
-
-    // Pfad zur Master-Vokabelseite
+    // ── Pfade ────────────────────────────────────────────────────────
+    const JSON_PATH   = "/Code/2_Vokabeln/vokabeln_flat.json";
     const MASTER_PAGE = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
+    // ────────────────────────────────────────────────────────────────
+
+    // FontAwesome-Icons je Kapitel-Nummer
+    // Wird beim Rendern der Karten verwendet
+    const KAPITEL_ICONS = {
+      1:  'fa-solid fa-comments',        // Begrüßung & Alltagssprache
+      2:  'fa-solid fa-people-group',    // Familie & Freunde
+      3:  'fa-solid fa-hashtag',         // Zahlen & Mengen
+      4:  'fa-solid fa-calendar-days',   // Zeit & Datum
+      5:  'fa-solid fa-utensils',        // Essen & Trinken
+      6:  'fa-solid fa-earth-europe',    // Natur & Länder
+      7:  'fa-solid fa-plane',           // Reisen & Verkehr
+      8:  'fa-solid fa-shirt',           // Kleidung & Aussehen
+      9:  'fa-solid fa-masks-theater',   // Kultur & Gesellschaft
+      10: 'fa-solid fa-heart-pulse',     // Gesundheit & Medizin
+    };
 
     async function loadCategories() {
       try {
@@ -34,34 +74,50 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
 
-        // Eindeutige Kapitel in der richtigen Reihenfolge ermitteln
+        // Eindeutige Kapitel in der richtigen Reihenfolge sammeln
+        // Gleichzeitig Vokabelanzahl je Kapitel zählen
         const seen = new Map();
         data.forEach(entry => {
           if (!seen.has(entry.Kapitel)) {
             seen.set(entry.Kapitel, {
               kapitel:     entry.Kapitel,
-              kapitelname: entry.Kapitelname
+              kapitelname: entry.Kapitelname,
+              count:       0
             });
           }
+          seen.get(entry.Kapitel).count++;
         });
 
         const grid = document.getElementById('vocabGrid');
         grid.innerHTML = '';
 
-        seen.forEach(({ kapitel, kapitelname }) => {
+        seen.forEach(({ kapitel, kapitelname, count }) => {
+          // Icon aus Map, Fallback auf generisches Buch-Icon
+          const iconClass = KAPITEL_ICONS[kapitel] || 'fa-solid fa-book';
+
+          // Karte als <a>-Element erstellen (klickbar + barrierefrei)
           const a = document.createElement('a');
           a.href      = `${MASTER_PAGE}?kapitel=${kapitel}`;
           a.className = 'vocab-card';
-          a.textContent = kapitelname;
+          a.setAttribute('aria-label', `Kapitel ${kapitel}: ${kapitelname}`);
+          a.innerHTML = `
+            <div class="vocab-card-icon">
+              <i class="${iconClass}" aria-hidden="true"></i>
+            </div>
+            <div class="vocab-card-num">Kapitel ${kapitel}</div>
+            <h2 class="vocab-card-title">${kapitelname}</h2>
+            <div class="vocab-card-count">${count} Vokabeln</div>
+          `;
           grid.appendChild(a);
         });
 
+        // Lade-Meldung ausblenden, sobald Grid befüllt ist
         document.getElementById('loadingMsg').style.display = 'none';
 
       } catch (e) {
-        document.getElementById('loadingMsg').textContent =
-          '⚠️ Kategorien konnten nicht geladen werden. Bitte prüfe den JSON-Pfad.';
-        document.getElementById('loadingMsg').style.color = '#b03030';
+        const msg = document.getElementById('loadingMsg');
+        msg.innerHTML = '⚠️ Kategorien konnten nicht geladen werden. Bitte prüfe den JSON-Pfad.';
+        msg.style.color = '#b03030';
       }
     }
 

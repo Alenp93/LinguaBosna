@@ -1,58 +1,92 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <link rel="stylesheet" href="/Code/Style.css">
-  <link rel="stylesheet" href="/Code/2_Vokabeln/Style_Vokabelnkategorien.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Dynamischer Titel & Description werden per JS gesetzt -->
+  <meta name="description" content="Bosnische Vokabeln mit deutscher Übersetzung und Aussprache – für jedes Kapitel auf LinguaBosna.">
   <title>LinguaBosna – Vokabeln</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/2_Vokabeln/Style_Vokabelnkategorien.css">
+
+  <!-- Shared Header/Footer -->
   <script src="/Code/LB_main.js"></script>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header (dynamisch) -->
   <div id="header"></div>
 
-  <!-- Main -->
   <main>
 
-    <!-- Seitentitel wird dynamisch gesetzt -->
-   
-    <h1 id="pageTitle">Vokabeln</h1>
-
-    <!-- Lade-/Fehlerzustand -->
-    <p id="stateMsg" style="color:#5a5a5a;text-align:center;padding:2rem 0;">
-      Vokabeln werden geladen…
-    </p>
-
-    <!-- Aktionsleiste (erst sichtbar, wenn Daten geladen) -->
-    <div class="actions" id="actions" style="display:none;">
-      <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn">← Zurück zur Übersicht</a>
-      <a id="trainerLink" href="#" class="btn">Zum Vokabeltrainer</a>
-      <button onclick="window.print()" class="btn">Tabelle drucken</button>
+    <!-- Seitentitel-Block (wird per JS mit Kapitel-Daten befüllt) -->
+    <div class="page-header">
+      <h1 id="pageTitle">Vokabeln</h1>
+      <p id="pageSubtitle" class="page-subtitle"></p>
     </div>
 
-    <!-- Vokabeltabelle -->
-    <table id="vocabTable" style="display:none;">
-      <thead>
-        <tr>
-          <th>Bosnisch</th>
-          <th>Deutsch</th>
-          <th>Wortart</th>
-        </tr>
-      </thead>
-      <tbody id="vocabBody"></tbody>
-    </table>
+    <!-- Lade-/Fehlermeldung -->
+    <p id="stateMsg" class="state-msg">
+      <i class="fa-solid fa-spinner fa-spin"></i> Vokabeln werden geladen…
+    </p>
+
+    <!-- Aktionsleiste — erst nach erfolgreichem Laden sichtbar -->
+    <!-- Button-System laut Designvorgabe: btn-outline und btn-primary -->
+    <div class="actions" id="actions" style="display:none;">
+
+      <!-- Zurück-Button: outline (sekundäre Aktion) -->
+      <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn btn-outline">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Zurück zur Übersicht
+      </a>
+
+      <!-- Trainer-Button: primary (Hauptaktion) -->
+      <a id="trainerLink" href="#" class="btn btn-primary">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        Zum Vokabeltrainer
+      </a>
+
+      <!-- Drucken-Button: outline (sekundäre Aktion) -->
+      <button onclick="window.print()" class="btn btn-outline">
+        <i class="fa-solid fa-print" aria-hidden="true"></i>
+        Tabelle drucken
+      </button>
+
+    </div>
+
+    <!-- Tabellen-Wrapper (mit Scrollbar auf Mobil) -->
+    <div class="table-wrap">
+      <table id="vocabTable" style="display:none;">
+        <thead>
+          <tr>
+            <th>Bosnisch</th>
+            <th>Deutsch</th>
+            <th>Wortart</th>
+          </tr>
+        </thead>
+        <tbody id="vocabBody"></tbody>
+      </table>
+    </div>
 
     <!-- Vokabelanzahl -->
     <div class="count" id="countWrap" style="display:none;">
-      Anzahl der Vokabeln: <span id="vocabCount"></span>
+      <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+      Anzahl der Vokabeln in diesem Kapitel: <strong id="vocabCount"></strong>
     </div>
 
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (dynamisch) -->
   <div id="footer"></div>
 
   <script>
@@ -61,17 +95,18 @@
     const TRAINER_PATH = '/Code/2_Vokabeln/vokabeltrainer.html';
     // ──────────────────────────────────────────────────────────────────
 
+    // Liest Wortart aus — JSON hat zwei mögliche Feldnamen je Kapitel
     function getWortart(entry) {
       return entry['Wortart'] || entry['Wortart (Genus)'] || '';
     }
 
-    // Audio abspielen (MP3-Dateien müssen vorhanden sein)
+    // Audio abspielen — MP3-Dateien müssen im Ordner "audio/" vorhanden sein
     function playAudio(word) {
       const audio = new Audio('audio/' + word + '.mp3');
-      audio.play().catch(() => {/* Datei noch nicht vorhanden */});
+      audio.play().catch(() => { /* Datei noch nicht vorhanden — kein Fehler anzeigen */ });
     }
 
-    // Bosnisches Wort in einen URL-sicheren Audio-Schlüssel umwandeln
+    // Bosnisches Wort → URL-sicherer Datei-Schlüssel für MP3-Pfade
     function toAudioKey(word) {
       return word
         .toLowerCase()
@@ -83,6 +118,7 @@
     }
 
     async function loadVocab() {
+      // Kapitel-Nummer aus der URL lesen (?kapitel=1)
       const params  = new URLSearchParams(window.location.search);
       const kapitel = parseInt(params.get('kapitel') || '1', 10);
 
@@ -91,27 +127,27 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const all = await res.json();
 
-        // Einträge für dieses Kapitel filtern
+        // Nur die Einträge für das aktuelle Kapitel herausfiltern
         const entries = all.filter(e => e.Kapitel === kapitel);
 
         if (!entries.length) {
-          document.getElementById('stateMsg').textContent =
-            `⚠️ Keine Vokabeln für Kapitel ${kapitel} gefunden.`;
-          document.getElementById('stateMsg').style.color = '#b03030';
+          const msg = document.getElementById('stateMsg');
+          msg.innerHTML = `⚠️ Keine Vokabeln für Kapitel ${kapitel} gefunden.`;
+          msg.style.color = '#b03030';
           return;
         }
 
         const kapitelname = entries[0].Kapitelname;
 
-        // Seitentitel & Browser-Tab
-        document.getElementById('pageTitle').textContent = kapitelname;
+        // Seitentitel, Untertitel und Browser-Tab aktualisieren
+        document.getElementById('pageTitle').textContent    = kapitelname;
+        document.getElementById('pageSubtitle').textContent = `Kapitel ${kapitel} · ${entries.length} Vokabeln`;
         document.title = `LinguaBosna – Vokabeln: ${kapitelname}`;
 
-        // Vokabeltrainer-Link mit passendem Parameter
-        document.getElementById('trainerLink').href =
-          `${TRAINER_PATH}?kapitel=${kapitel}`;
+        // Vokabeltrainer-Link mit passendem Kapitel-Parameter setzen
+        document.getElementById('trainerLink').href = `${TRAINER_PATH}?kapitel=${kapitel}`;
 
-        // Tabellenzeilen befüllen
+        // Tabellenzeilen dynamisch erstellen
         const tbody = document.getElementById('vocabBody');
         tbody.innerHTML = '';
 
@@ -119,25 +155,35 @@
           const audioKey = toAudioKey(entry.Bosnisch);
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td>${entry.Bosnisch} <button class="speaker-btn" onclick="playAudio('${audioKey}')">🔊</button></td>
+            <td>
+              ${entry.Bosnisch}
+              <button
+                class="speaker-btn"
+                onclick="playAudio('${audioKey}')"
+                title="Aussprache anhören"
+                aria-label="Aussprache von ${entry.Bosnisch}">
+                <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+              </button>
+            </td>
             <td>${entry.Deutsch}</td>
-            <td>${getWortart(entry)}</td>`;
+            <td><span class="wortart-badge">${getWortart(entry)}</span></td>
+          `;
           tbody.appendChild(tr);
         });
 
-        // Vokabelanzahl
+        // Anzahl setzen
         document.getElementById('vocabCount').textContent = entries.length;
 
-        // UI einblenden
-        document.getElementById('stateMsg').style.display  = 'none';
-        document.getElementById('actions').style.display   = '';
+        // Alle UI-Elemente einblenden
+        document.getElementById('stateMsg').style.display   = 'none';
+        document.getElementById('actions').style.display    = 'flex';  /* flex für Button-Reihe */
         document.getElementById('vocabTable').style.display = '';
         document.getElementById('countWrap').style.display  = '';
 
       } catch (e) {
-        document.getElementById('stateMsg').textContent =
-          '⚠️ Vokabeln konnten nicht geladen werden. Bitte prüfe den JSON-Pfad.';
-        document.getElementById('stateMsg').style.color = '#b03030';
+        const msg = document.getElementById('stateMsg');
+        msg.innerHTML = '⚠️ Vokabeln konnten nicht geladen werden. Bitte prüfe den JSON-Pfad.';
+        msg.style.color = '#b03030';
       }
     }
 

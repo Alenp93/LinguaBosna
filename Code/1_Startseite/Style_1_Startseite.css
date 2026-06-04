@@ -109,7 +109,7 @@
 
 .hero {
   /* Hintergrundbild – Fallback: Dunkelblau-Farbverlauf falls kein Bild vorhanden */
-  background-image: url('/Bilder/Hintergrundbild_Mostar.jpg');
+  background-image: url('/Bilder/Hintergrundbild_Mostar_neu.jpg');
   background-color: var(--primary);       /* Fallback-Farbe */
   background-size: cover;
   background-position: center center;

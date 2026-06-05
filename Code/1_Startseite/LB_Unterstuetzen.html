@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Unterstützen</title>
+  <meta name="description" content="Unterstütze LinguaBosna und hilf uns, kostenlose Bosnisch-Lernmaterialien für alle zugänglich zu halten. Jeder Beitrag zählt!">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Globale Styles -->
+  <link rel="stylesheet" href="/Code/Style.css">
+
+  <!-- Seiten-eigene Styles -->
+  <style>
+
+    /* =====================================================
+       HERO-BEREICH
+       ===================================================== */
+    .hero-unterstuetzen {
+      background: linear-gradient(135deg, var(--primary) 0%, #0d4f7c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 120px 5% 80px; /* oben extra Platz wegen fixem Header */
+    }
+
+    /* Kleines Herz-Icon über der Überschrift */
+    .hero-unterstuetzen .hero-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: block;
+      /* Sanfte Puls-Animation */
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.12); }
+    }
+
+    .hero-unterstuetzen h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero-unterstuetzen p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.15rem;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.8;
+      opacity: 0.92;
+    }
+
+
+    /* =====================================================
+       WARUM-UNTERSTÜTZEN — 3 KARTEN
+       ===================================================== */
+    .why-section {
+      padding: 70px 5%;
+      background: var(--bg-light);
+      text-align: center;
+    }
+
+    /* section-intro: Standard-Block aus dem Design-System */
+    .section-intro h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-intro p {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--secondary);
+      font-size: 1.05rem;
+      margin-bottom: 50px;
+    }
+
+    /* 3-Spalten-Raster für die Karten */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--neutral);
+      border-radius: 10px;
+      padding: 36px 28px;
+      text-align: center;
+      /* Hover-Effekt aus dem Design-System */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.13);
+    }
+
+    .why-card .card-icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .why-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       KO-FI SPENDEN-BEREICH
+       ===================================================== */
+    .kofi-section {
+      padding: 70px 5%;
+      background: #fff;
+      text-align: center;
+    }
+
+    /* Goldene Trennlinie über dem Bereich */
+    .kofi-section::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 0 auto 50px;
+    }
+
+    .kofi-box {
+      background: var(--bg-light);
+      border: 2px solid var(--neutral);
+      border-radius: 14px;
+      padding: 50px 40px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Ko-fi Logo-Emoji */
+    .kofi-box .kofi-emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .kofi-box h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .kofi-box p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.97rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    /* Ko-fi Button — goldgelb, Montserrat Bold */
+    .btn-kofi {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-kofi:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    /* Kleiner Hinweis unter dem Button */
+    .kofi-note {
+      margin-top: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.82rem;
+      color: #888;
+    }
+
+
+    /* =====================================================
+       TRANSPARENZ-BEREICH
+       ===================================================== */
+    .transparency-section {
+      padding: 60px 5%;
+      background: var(--bg-light);
+      text-align: center;
+    }
+
+    .transparency-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    /* 2-Spalten-Liste für Verwendungszwecke */
+    .transparency-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      max-width: 700px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    .transparency-list li {
+      background: #fff;
+      border: 1px solid var(--neutral);
+      border-radius: 8px;
+      padding: 12px 22px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.93rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .transparency-list li i {
+      color: var(--secondary);
+      font-size: 1rem;
+    }
+
+
+    /* =====================================================
+       DANKESCHÖN-BANNER (ganz unten, vor Footer)
+       ===================================================== */
+    .thankyou-banner {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 50px 5%;
+    }
+
+    .thankyou-banner p {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .thankyou-banner span {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.97rem;
+      opacity: 0.85;
+    }
+
+    /* Bosnisches Wort als Akzent */
+    .thankyou-banner .bosanski {
+      display: block;
+      color: var(--accent);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE — TABLET (max. 768px)
+       ===================================================== */
+    @media (max-width: 768px) {
+      .hero-unterstuetzen {
+        padding: 100px 5% 60px;
+      }
+
+      .hero-unterstuetzen h1 {
+        font-size: 1.9rem;
+      }
+
+      .why-section,
+      .kofi-section,
+      .transparency-section {
+        padding: 50px 5%;
+      }
+
+      /* 3 Karten → 1 Spalte */
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kofi-box {
+        padding: 36px 24px;
+      }
+    }
+
+
+    /* =====================================================
+       RESPONSIVE — SEHR KLEIN (max. 480px)
+       ===================================================== */
+    @media (max-width: 480px) {
+      .hero-unterstuetzen {
+        padding: 90px 4% 50px;
+      }
+
+      .hero-unterstuetzen h1 {
+        font-size: 1.55rem;
+      }
+
+      .why-section,
+      .kofi-section,
+      .transparency-section {
+        padding: 40px 4%;
+      }
+
+      .kofi-box {
+        padding: 28px 18px;
+      }
+
+      .btn-kofi {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header wird per JS eingebunden -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── HERO ──────────────────────────────────────────── -->
+    <section class="hero-unterstuetzen">
+      <i class="fas fa-heart hero-icon"></i>
+      <h1>Halte LinguaBosna am Leben</h1>
+      <p>
+        LinguaBosna ist kostenlos — für alle. Keine Anmeldung, keine Bezahlschranken.
+        Wer möchte, kann uns mit einem kleinen Beitrag helfen, das so zu halten.
+      </p>
+    </section>
+
+
+    <!-- ── WARUM UNTERSTÜTZEN ────────────────────────────── -->
+    <section class="why-section">
+      <div class="section-intro">
+        <h2>Wofür steht LinguaBosna?</h2>
+        <p>Euer Beitrag macht den Unterschied — direkt und transparent.</p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Kostenlose Inhalte</h3>
+          <p>
+            Vokabeln, Grammatik, Kultur — alles gratis. Mit eurer Unterstützung können
+            wir regelmäßig neue Lernmaterialien veröffentlichen.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <h3>Community-Projekt</h3>
+          <p>
+            LinguaBosna wird mit viel Herzblut betrieben. Eure Unterstützung zeigt,
+            dass dieses Projekt gebraucht wird — das motiviert uns enorm.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-globe"></i></div>
+          <h3>Für alle zugänglich</h3>
+          <p>
+            Ob Diaspora-Kind, Deutschsprachige*r oder Fortgeschrittene — LinguaBosna
+            soll für jeden offen bleiben, ohne Ausnahme.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── KO-FI BUTTON ──────────────────────────────────── -->
+    <section class="kofi-section">
+      <div class="kofi-box">
+        <span class="kofi-emoji">☕</span>
+
+        <h2>Einen Kaffee spenden</h2>
+        <p>
+          Schon ein kleiner Beitrag hilft uns, LinguaBosna weiterzuentwickeln und
+          kostenlos zu halten. Jede Unterstützung — egal wie groß — bedeutet uns viel.
+        </p>
+
+        <!--
+          Ko-fi Button:
+          → Ersetze "linguabosna" durch deinen echten Ko-fi-Benutzernamen
+            sobald du ein Konto erstellt hast (ko-fi.com)
+        -->
+        <a href="https://ko-fi.com/linguabosna" target="_blank" rel="noopener" class="btn-kofi">
+          <i class="fas fa-mug-hot"></i>&nbsp; Jetzt unterstützen
+        </a>
+
+        <p class="kofi-note">
+          Du wirst zu Ko-fi weitergeleitet — sicher, ohne Konto möglich, ab 3 €.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ── TRANSPARENZ ───────────────────────────────────── -->
+    <section class="transparency-section">
+      <div class="section-intro">
+        <h2>Wohin fließt euer Beitrag?</h2>
+        <p>Wir sind transparent darüber, wofür wir Spenden verwenden.</p>
+      </div>
+
+      <ul class="transparency-list">
+        <li><i class="fas fa-server"></i> Hosting & Domain</li>
+        <li><i class="fas fa-microphone"></i> Audio-Aufnahmen</li>
+        <li><i class="fas fa-pencil-alt"></i> Neue Lerninhalte</li>
+        <li><i class="fas fa-paint-brush"></i> Design & Grafiken</li>
+        <li><i class="fas fa-tools"></i> Technische Weiterentwicklung</li>
+        <li><i class="fas fa-graduation-cap"></i> Pädagogische Beratung</li>
+      </ul>
+    </section>
+
+
+    <!-- ── DANKESCHÖN-BANNER ─────────────────────────────── -->
+    <div class="thankyou-banner">
+      <p>Hvala vam iz srca.</p>
+      <span>Danke von Herzen für eure Unterstützung.</span>
+      <span class="bosanski">Hvala! ❤️</span>
+    </div>
+
+  </main>
+
+  <!-- Footer wird per JS eingebunden -->
+  <div id="footer"></div>
+
+  <!-- Header & Footer dynamisch laden -->
+  <script src="/Code/LB_main.js"></script>
+
+</body>
+</html>

@@ -140,16 +140,16 @@
 
 
     /* =====================================================
-       KO-FI SPENDEN-BEREICH
+       PAYPAL SPENDEN-BEREICH
        ===================================================== */
-    .kofi-section {
+    .paypal-section {
       padding: 70px 5%;
       background: #fff;
       text-align: center;
     }
 
     /* Goldene Trennlinie über dem Bereich */
-    .kofi-section::before {
+    .paypal-section::before {
       content: '';
       display: block;
       width: 60px;
@@ -159,7 +159,7 @@
       margin: 0 auto 50px;
     }
 
-    .kofi-box {
+    .paypal-box {
       background: var(--bg-light);
       border: 2px solid var(--neutral);
       border-radius: 14px;
@@ -168,14 +168,15 @@
       margin: 0 auto;
     }
 
-    /* Ko-fi Logo-Emoji */
-    .kofi-box .kofi-emoji {
+    /* PayPal Icon */
+    .paypal-box .paypal-icon {
       font-size: 3rem;
+      color: #003087; /* PayPal Blau */
       display: block;
       margin-bottom: 18px;
     }
 
-    .kofi-box h2 {
+    .paypal-box h2 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       font-size: 1.5rem;
@@ -183,7 +184,7 @@
       margin-bottom: 14px;
     }
 
-    .kofi-box p {
+    .paypal-box p {
       font-family: 'Open Sans', sans-serif;
       font-size: 0.97rem;
       color: #555;
@@ -191,8 +192,8 @@
       margin-bottom: 32px;
     }
 
-    /* Ko-fi Button — goldgelb, Montserrat Bold */
-    .btn-kofi {
+    /* PayPal Button — goldgelb, Montserrat Bold */
+    .btn-paypal {
       display: inline-block;
       background-color: var(--accent);
       color: var(--primary);
@@ -205,13 +206,13 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    .btn-kofi:hover {
+    .btn-paypal:hover {
       background-color: var(--primary);
       color: #fff;
     }
 
     /* Kleiner Hinweis unter dem Button */
-    .kofi-note {
+    .paypal-note {
       margin-top: 18px;
       font-family: 'Open Sans', sans-serif;
       font-size: 0.82rem;
@@ -317,7 +318,7 @@
       }
 
       .why-section,
-      .kofi-section,
+      .paypal-section,
       .transparency-section {
         padding: 50px 5%;
       }
@@ -327,7 +328,7 @@
         grid-template-columns: 1fr;
       }
 
-      .kofi-box {
+      .paypal-box {
         padding: 36px 24px;
       }
     }
@@ -346,16 +347,16 @@
       }
 
       .why-section,
-      .kofi-section,
+      .paypal-section,
       .transparency-section {
         padding: 40px 4%;
       }
 
-      .kofi-box {
+      .paypal-box {
         padding: 28px 18px;
       }
 
-      .btn-kofi {
+      .btn-paypal {
         width: 100%;
         text-align: center;
       }
@@ -421,28 +422,31 @@
     </section>
 
 
-    <!-- ── KO-FI BUTTON ──────────────────────────────────── -->
-    <section class="kofi-section">
-      <div class="kofi-box">
-        <span class="kofi-emoji">☕</span>
+    <!-- ── PAYPAL BUTTON ─────────────────────────────────── -->
+    <section class="paypal-section">
+      <div class="paypal-box">
+        <i class="fab fa-paypal paypal-icon"></i>
 
-        <h2>Einen Kaffee spenden</h2>
+        <h2>Per PayPal spenden</h2>
         <p>
           Schon ein kleiner Beitrag hilft uns, LinguaBosna weiterzuentwickeln und
           kostenlos zu halten. Jede Unterstützung — egal wie groß — bedeutet uns viel.
         </p>
 
         <!--
-          Ko-fi Button:
-          → Ersetze "linguabosna" durch deinen echten Ko-fi-Benutzernamen
-            sobald du ein Konto erstellt hast (ko-fi.com)
+          PayPal-Spendenlink:
+          → Ersetze "DEINE_PAYPAL_EMAIL" durch deine echte PayPal-E-Mail-Adresse.
+          → Oder erstelle einen offiziellen Spendenbutton unter:
+             paypal.com → Werkzeuge → Schaltflächen → Spenden
+             und ersetze die gesamte href mit dem generierten Link.
         -->
-        <a href="https://ko-fi.com/linguabosna" target="_blank" rel="noopener" class="btn-kofi">
-          <i class="fas fa-mug-hot"></i>&nbsp; Jetzt unterstützen
+        <a href="https://www.paypal.com/donate?business=DEINE_PAYPAL_EMAIL&currency_code=EUR"
+           target="_blank" rel="noopener" class="btn-paypal">
+          <i class="fab fa-paypal"></i>&nbsp; Jetzt unterstützen
         </a>
 
-        <p class="kofi-note">
-          Du wirst zu Ko-fi weitergeleitet — sicher, ohne Konto möglich, ab 3 €.
+        <p class="paypal-note">
+          Du wirst zu PayPal weitergeleitet — sicher, auch ohne PayPal-Konto möglich.
         </p>
       </div>
     </section>

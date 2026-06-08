@@ -1,11 +1,11 @@
 /* ======================================================
    Style_3_Grammatik.css
    Grammatik-Übersichtsseite — LinguaBosna
-   Version 3.0
+   Version 4.0
 
    Design orientiert sich an:
    - Style_1_Startseite.css (Feature-Karten, Icons)
-   - Style_2_Vokabeln.css (Karten-Grid, Layout)
+   - Style_2_Vokabeln.css (Karten-Layout)
 
    Farbpalette: NUR die 5 Projektfarben
    --primary, --accent, --secondary, --bg-light, --neutral
@@ -13,20 +13,19 @@
    Aufbau:
    1.  Hauptbereich & Seitentitel
    2.  Niveau-Auswahl (Tab-Buttons)
-   3.  Karten-Grid
+   3.  Karten-Layout (Flexbox)
    4.  Einzelne Karten (aktiv)
-   5.  Coming-Soon Karten (A2–C2)
+   5.  Coming-Soon Karten (Demnächst)
    6.  Hilfklassen
    7.  Responsive (900px / 768px / 480px)
    ====================================================== */
 
 
 /* ── 1. Hauptbereich & Seitentitel ───────────────────── */
-/* Identisch mit Style_2_Vokabeln.css für einheitliches Erscheinungsbild */
 
 main {
-  margin-top: 100px;              /* gleicher Abstand wie Vokabel-Seite */
-  padding: 60px 5%;               /* Desktop-Padding */
+  margin-top: 100px;                   /* gleich wie Vokabel-Seite */
+  padding: 60px 5%;
   text-align: center;
 }
 
@@ -36,37 +35,33 @@ main h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: var(--primary);
-  text-transform: uppercase;       /* Designvorgabe: Großbuchstaben */
+  text-transform: uppercase;
 }
 
-/* Untertitel unter der Hauptüberschrift */
 .subtitle {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
-  color: var(--secondary);          /* Dunkelgrün */
+  color: var(--secondary);
   margin-bottom: 35px;
 }
 
 
 /* ── 2. Niveau-Auswahl (Tab-Buttons) ────────────────── */
-/* Horizontale Reihe von 6 Buttons (A1–C2)               */
-/* Beim Klick wird nur das zugehörige Grid angezeigt      */
 
 .level-selector {
   display: flex;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;                  /* bei wenig Platz umbrechen */
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
-/* Einzelner Level-Button (inaktiv) */
 .level-btn {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
   padding: 10px 20px;
-  border-radius: 6px;              /* Designvorgabe: 6px wie alle Buttons */
+  border-radius: 6px;
   border: 2px solid var(--primary);
   background: #fff;
   color: var(--primary);
@@ -74,38 +69,40 @@ main h1 {
   transition: all 0.3s ease;
 }
 
-/* Level-Button: Hover */
 .level-btn:hover {
   background: var(--primary);
   color: #fff;
 }
 
-/* Level-Button: aktiv (ausgewählt) */
 .level-btn.active {
-  background: var(--accent);        /* Goldgelb — hebt sich klar ab */
+  background: var(--accent);
   color: var(--primary);
   border-color: var(--accent);
   font-weight: 700;
 }
 
 
-/* ── 3. Karten-Grid ──────────────────────────────────── */
-/* Gleiches Grid-System wie Vokabel-Übersichtsseite       */
+/* ── 3. Karten-Layout (Flexbox) ──────────────────────── */
+/* Flexbox statt Grid, damit einzelne Karten in der       */
+/* letzten Zeile zentriert statt linksbündig dargestellt   */
+/* werden (z.B. bei A2 mit 7 Karten: 3 + 3 + 1 mittig)   */
 
 .grammar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
 }
 
 
-/* ── 4. Einzelne Karten (aktive Karten mit Link) ─────── */
-/* Design identisch mit .vocab-card und .feature          */
+/* ── 4. Einzelne Karten (aktiv) ──────────────────────── */
 
 .grammar-card {
+  /* Breite: 3 Spalten pro Zeile, abzüglich 2 Lücken à 25px */
+  width: calc((100% - 50px) / 3);
   background: #fff;
   border: 1px solid var(--neutral);
-  border-radius: 10px;              /* wie .vocab-card und .feature */
+  border-radius: 10px;
   padding: 30px 20px;
   text-align: center;
   text-decoration: none;
@@ -114,17 +111,16 @@ main h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover-Effekt für aktive Karten (wie Designvorgabe) */
+/* Hover für aktive Karten */
 .grammar-card:not(.coming-soon):hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
 }
 
-/* FontAwesome-Icon auf der Karte
-   → Design wie .feature i auf der Startseite */
-.grammar-card i {
-  font-size: 2.5rem;               /* gleiche Größe wie Startseite */
-  color: var(--accent);             /* Goldgelb */
+/* FontAwesome-Icon — wie .feature i auf der Startseite */
+.grammar-card > i {
+  font-size: 2.5rem;
+  color: var(--accent);
   margin-bottom: 15px;
   display: block;
 }
@@ -148,17 +144,13 @@ main h1 {
 }
 
 
-/* ── 5. Coming-Soon Karten (A2 – C2) ────────────────── */
-/* Abgedimmt, kein Link, „Demnächst"-Badge                */
+/* ── 5. Coming-Soon Karten ───────────────────────────── */
 
 .grammar-card.coming-soon {
   opacity: 0.55;
   cursor: default;
 }
 
-/* Kein Hover-Effekt für coming-soon (wird in Zeile 78 ausgeschlossen) */
-
-/* „Demnächst"-Badge oben rechts auf der Karte */
 .soon-badge {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
@@ -171,16 +163,15 @@ main h1 {
 }
 
 .soon-badge i {
-  font-size: 0.65rem;              /* kleines Schloss-Icon */
-  color: #999;                      /* überschreibt die accent-Farbe des Karten-Icons */
-  margin-bottom: 0;                 /* kein Extra-Abstand beim kleinen Icon */
-  display: inline;                  /* inline neben dem Text „Demnächst" */
+  font-size: 0.65rem;
+  color: #999;
+  margin-bottom: 0;
+  display: inline;
 }
 
 
 /* ── 6. Hilfklassen ──────────────────────────────────── */
 
-/* Grid ausblenden (wird per JS gesetzt/entfernt) */
 .hidden {
   display: none;
 }
@@ -188,7 +179,6 @@ main h1 {
 
 /* ======================================================
    7. RESPONSIVE DESIGN
-   Drei Breakpoints laut Designvorgabe
    ====================================================== */
 
 
@@ -201,10 +191,6 @@ main h1 {
 
   main h1 {
     font-size: 2rem;
-  }
-
-  .grammar-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   .level-btn {
@@ -232,7 +218,7 @@ main h1 {
     margin-bottom: 25px;
   }
 
-  /* Level-Buttons: 3er-Grid auf Mobile */
+  /* Level-Buttons: 3er-Grid */
   .level-selector {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -246,17 +232,17 @@ main h1 {
     text-align: center;
   }
 
-  /* Karten: 2-spaltig */
+  /* Karten: 2 Spalten, 1 Lücke à 16px */
   .grammar-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 
   .grammar-card {
+    width: calc((100% - 16px) / 2);
     padding: 24px 16px;
   }
 
-  .grammar-card i {
+  .grammar-card > i {
     font-size: 2rem;
     margin-bottom: 10px;
   }
@@ -278,15 +264,14 @@ main h1 {
     font-size: 1.4rem;
   }
 
-  /* Level-Buttons: weiterhin 3er-Grid, aber kompakter */
   .level-btn {
     font-size: 0.75rem;
     padding: 8px 4px;
     border-width: 1.5px;
   }
 
-  /* Karten: 1-spaltig auf sehr kleinen Screens */
-  .grammar-grid {
-    grid-template-columns: 1fr;
+  /* Karten: 1 Spalte */
+  .grammar-card {
+    width: 100%;
   }
 }

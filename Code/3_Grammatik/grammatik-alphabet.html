@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       grammatik-alphabet.html
+       Grammatik-Erklärseite: Alphabet & Aussprache (A1)
+       
+       Diese Seite dient als REFERENZ-VORLAGE für alle
+       weiteren Grammatik-Erklärseiten.
+       
+       Aufbau (6 Blöcke):
+       1. Einstieg — kurzer Alltagsbezug
+       2. Beispiele — Muster selbst entdecken
+       3. Regel — Tabelle / Erklärung
+       4. Vergleich — Deutsch ↔ Bosnisch
+       5. Üben — interaktives Quiz (reines JS)
+       6. Spickzettel — kompakte Zusammenfassung
+       ====================================================== -->
+
+  <!-- Basisstyles + Grammatik-Detail-Styles -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/3_Grammatik/Style_3_Grammatik_Detail.css">
+  <script src="/Code/LB_main.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Alphabet & Aussprache</title>
+  <meta name="description" content="Das bosnische Alphabet: 30 Buchstaben, keine Ausnahmen. Lerne Aussprache, Sonderbuchstaben und vergleiche mit dem Deutschen.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Breadcrumb-Navigation ─────────────────────── -->
+    <nav class="breadcrumb" aria-label="Brotkrümel-Navigation">
+      <a href="/Code/1_Startseite/LB_3_Grammatik.html">Grammatik</a>
+      <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
+      <span>A1 – Grundlagen</span>
+      <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
+      <span class="breadcrumb-current">Alphabet & Aussprache</span>
+    </nav>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Alphabet & Aussprache</h1>
+    <p class="subtitle">30 Buchstaben, null Ausnahmen – Bosnisch ist eine der logischsten Sprachen der Welt.</p>
+
+    <!-- ── Fortschrittsanzeige (6 Schritte) ──────────── -->
+    <div class="progress-steps">
+      <div class="step" data-step="1"><span class="step-num">1</span><span class="step-label">Einstieg</span></div>
+      <div class="step" data-step="2"><span class="step-num">2</span><span class="step-label">Beispiele</span></div>
+      <div class="step" data-step="3"><span class="step-num">3</span><span class="step-label">Regel</span></div>
+      <div class="step" data-step="4"><span class="step-num">4</span><span class="step-label">Vergleich</span></div>
+      <div class="step" data-step="5"><span class="step-num">5</span><span class="step-label">Üben</span></div>
+      <div class="step" data-step="6"><span class="step-num">6</span><span class="step-label">Spickzettel</span></div>
+    </div>
+
+
+    <!-- =====================================================
+         BLOCK 1 — EINSTIEG
+         Kurzer Alltagsbezug, der Neugier weckt
+         ===================================================== -->
+    <section class="grammar-section" id="block-1">
+      <div class="section-heading">
+        <span class="section-number">1</span>
+        <h2>Einstieg</h2>
+      </div>
+
+      <div class="intro-box">
+        <p class="intro-scenario">
+          Stell dir vor, du liest ein bosnisches Wort zum ersten Mal – und du kannst es <strong>sofort richtig aussprechen</strong>.
+          Kein Rätselraten, keine Ausnahmen, keine stummen Buchstaben.
+        </p>
+        <p class="intro-scenario">
+          Im Deutschen brauchst du für den Laut „sch" drei Buchstaben.
+          Im Bosnischen? <strong>Nur einen: Š.</strong>
+        </p>
+        <p class="intro-hook">
+          <i class="fas fa-lightbulb"></i>
+          Das bosnische Alphabet hat eine goldene Regel: <strong>Ein Buchstabe = ein Laut. Immer.</strong>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 2 — BEISPIELE ZUERST
+         Muster selbst entdecken lassen
+         ===================================================== -->
+    <section class="grammar-section" id="block-2">
+      <div class="section-heading">
+        <span class="section-number">2</span>
+        <h2>Beispiele</h2>
+      </div>
+
+      <p class="section-instruction">Schau dir diese bosnischen Wörter an. Zähle die Buchstaben – und dann die Laute:</p>
+
+      <div class="example-cards">
+
+        <div class="example-card">
+          <div class="example-word"><span class="highlight">š</span>kola</div>
+          <div class="example-translation">Schule</div>
+          <div class="example-detail">5 Buchstaben → 5 Laute</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word">ku<span class="highlight">ć</span>a</div>
+          <div class="example-translation">Haus</div>
+          <div class="example-detail">4 Buchstaben → 4 Laute</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word"><span class="highlight">dž</span>ep</div>
+          <div class="example-translation">Tasche</div>
+          <div class="example-detail">3 Buchstaben → 3 Laute</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word"><span class="highlight">lj</span>ubav</div>
+          <div class="example-translation">Liebe</div>
+          <div class="example-detail">5 Buchstaben → 5 Laute</div>
+        </div>
+
+      </div>
+
+      <div class="pattern-hint">
+        <i class="fas fa-search"></i>
+        <p>Erkennst du das Muster? Egal wie lang das Wort ist – die Anzahl der Buchstaben entspricht <strong>immer</strong> der Anzahl der Laute. Auch <em>dž</em> und <em>lj</em> sind jeweils nur <strong>ein</strong> Buchstabe!</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 3 — DIE REGEL
+         Das Alphabet in 3 Gruppen erklärt
+         ===================================================== -->
+    <section class="grammar-section" id="block-3">
+      <div class="section-heading">
+        <span class="section-number">3</span>
+        <h2>Die Regel</h2>
+      </div>
+
+      <p>Das bosnische Alphabet hat <strong>30 Buchstaben</strong>. Wir teilen sie in drei Gruppen – so wird es übersichtlich:</p>
+
+      <!-- Gruppe 1: Bekannte Buchstaben -->
+      <h3 class="group-title"><i class="fas fa-check-circle"></i> Gruppe 1: Das kennst du schon</h3>
+      <p class="group-desc">Diese 22 Buchstaben funktionieren genauso oder sehr ähnlich wie im Deutschen:</p>
+      <div class="letter-cloud">
+        <span>A a</span><span>B b</span><span>D d</span><span>E e</span>
+        <span>F f</span><span>G g</span><span>H h</span><span>I i</span>
+        <span>J j</span><span>K k</span><span>L l</span><span>M m</span>
+        <span>N n</span><span>O o</span><span>P p</span><span>R r</span>
+        <span>S s</span><span>T t</span><span>U u</span><span>V v</span>
+        <span>Z z</span><span>C c</span>
+      </div>
+      <div class="mini-note">
+        <strong>Achtung bei drei Buchstaben:</strong>
+        <em>C</em> = „ts" (wie dt. „Z" in „Zug"),
+        <em>V</em> = wie dt. „W" (in „Wasser"),
+        <em>H</em> = wird immer hörbar gesprochen, nie stumm.
+      </div>
+
+      <!-- Gruppe 2: Sonderbuchstaben -->
+      <h3 class="group-title"><i class="fas fa-star"></i> Gruppe 2: Die 8 Sonderbuchstaben</h3>
+      <p class="group-desc">Das sind die Buchstaben, die es im Deutschen nicht gibt – und die Bosnisch besonders machen:</p>
+
+      <div class="letter-table-wrap">
+        <table class="letter-table">
+          <thead>
+            <tr>
+              <th>Buchstabe</th>
+              <th>Aussprache</th>
+              <th>Vergleich</th>
+              <th>Beispiel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="letter-cell">Č č</td>
+              <td>hartes „tsch"</td>
+              <td>wie dt. <em>Deutsch</em></td>
+              <td><strong>č</strong>aj = Tee</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Ć ć</td>
+              <td>weiches „tsch"</td>
+              <td>weicher, mit der Zungenspitze am Gaumen</td>
+              <td><strong>ć</strong>evapi = Ćevapi</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Dž dž</td>
+              <td>hartes „dsch"</td>
+              <td>wie engl. <em>J</em> in „Jungle"</td>
+              <td><strong>dž</strong>ep = Tasche</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Đ đ</td>
+              <td>weiches „dsch"</td>
+              <td>wie engl. <em>J</em> in „Jeep", aber weicher</td>
+              <td><strong>đ</strong>ak = Schüler</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Lj lj</td>
+              <td>weiches „lj"</td>
+              <td>wie ital. „gli" in <em>famiglia</em></td>
+              <td><strong>lj</strong>ubav = Liebe</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Nj nj</td>
+              <td>weiches „nj"</td>
+              <td>wie span. „ñ" in <em>España</em></td>
+              <td><strong>nj</strong>emačka = Deutschland</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Š š</td>
+              <td>„sch"</td>
+              <td>wie dt. <em>Sch</em>ule</td>
+              <td><strong>š</strong>kola = Schule</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Ž ž</td>
+              <td>stimmhaftes „sch"</td>
+              <td>wie frz. „J" in <em>Journal</em></td>
+              <td><strong>ž</strong>ena = Frau</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gruppe 3: Was es nicht gibt -->
+      <h3 class="group-title"><i class="fas fa-times-circle"></i> Gruppe 3: Diese Buchstaben gibt es nicht</h3>
+      <p class="group-desc">Im Bosnischen existieren weder <strong>Q, W, X, Y</strong> noch die deutschen Umlaute <strong>Ä, Ö, Ü</strong> oder das <strong>ß</strong>.</p>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 4 — DEUTSCH ↔ BOSNISCH
+         Gemeinsamkeiten und Unterschiede
+         ===================================================== -->
+    <section class="grammar-section" id="block-4">
+      <div class="section-heading">
+        <span class="section-number">4</span>
+        <h2>Deutsch ↔ Bosnisch</h2>
+      </div>
+
+      <div class="comparison-grid">
+
+        <div class="comparison-card">
+          <div class="comp-label comp-de">Deutsch</div>
+          <p>„<strong>Sch</strong>ule" → <strong>3</strong> Buchstaben für <strong>1</strong> Laut</p>
+          <p>„Deu<strong>tsch</strong>" → <strong>4</strong> Buchstaben für <strong>1</strong> Laut</p>
+          <p>Stumme Buchstaben: „<strong>h</strong>" in „Reh" wird nicht gesprochen</p>
+        </div>
+
+        <div class="comparison-card">
+          <div class="comp-label comp-ba">Bosnisch</div>
+          <p>„<strong>Š</strong>kola" → <strong>1</strong> Buchstabe für <strong>1</strong> Laut</p>
+          <p>„Njema<strong>č</strong>ka" → <strong>1</strong> Buchstabe für <strong>1</strong> Laut</p>
+          <p>Stumme Buchstaben? <strong>Gibt es nicht.</strong> Jeder Buchstabe wird gesprochen.</p>
+        </div>
+
+      </div>
+
+      <div class="comparison-summary">
+        <i class="fas fa-balance-scale"></i>
+        <p><strong>Der große Vorteil:</strong> Wenn du ein bosnisches Wort lesen kannst, kannst du es auch aussprechen. Es gibt keine versteckten Regeln und keine Ausnahmen.</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 5 — ÜBEN
+         Interaktives Quiz (reines JavaScript, kein Backend)
+         ===================================================== -->
+    <section class="grammar-section" id="block-5">
+      <div class="section-heading">
+        <span class="section-number">5</span>
+        <h2>Üben</h2>
+      </div>
+
+      <p>Teste dein Wissen mit 5 kurzen Fragen:</p>
+
+      <!-- Quiz-Container -->
+      <div class="quiz-container" id="quizContainer">
+
+        <!-- Fortschritt im Quiz -->
+        <div class="quiz-progress">
+          <span id="quizProgress">Frage 1 von 5</span>
+          <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBarFill"></div></div>
+        </div>
+
+        <!-- Frage -->
+        <div class="quiz-question" id="quizQuestion"></div>
+
+        <!-- Antwort-Buttons -->
+        <div class="quiz-options" id="quizOptions"></div>
+
+        <!-- Feedback (richtig/falsch) -->
+        <div class="quiz-feedback hidden" id="quizFeedback"></div>
+
+        <!-- Weiter-Button -->
+        <button class="quiz-next-btn hidden" id="quizNextBtn">Nächste Frage →</button>
+      </div>
+
+      <!-- Ergebnis (nach dem Quiz) -->
+      <div class="quiz-result hidden" id="quizResult">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <button class="quiz-retry-btn" id="quizRetryBtn">Quiz wiederholen</button>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 6 — SPICKZETTEL
+         Kompakte Zusammenfassung auf einen Blick
+         ===================================================== -->
+    <section class="grammar-section" id="block-6">
+      <div class="section-heading">
+        <span class="section-number">6</span>
+        <h2>Spickzettel</h2>
+      </div>
+
+      <div class="cheatsheet">
+        <h3><i class="fas fa-sticky-note"></i> Das Wichtigste auf einen Blick</h3>
+
+        <div class="cheatsheet-item">
+          <strong>Goldene Regel:</strong> Ein Buchstabe = ein Laut. Immer. Keine Ausnahmen.
+        </div>
+        <div class="cheatsheet-item">
+          <strong>30 Buchstaben:</strong> 22 bekannte + 8 Sonderbuchstaben (Č, Ć, Dž, Đ, Lj, Nj, Š, Ž).
+        </div>
+        <div class="cheatsheet-item">
+          <strong>Gibt es nicht:</strong> Q, W, X, Y, Ä, Ö, Ü, ß.
+        </div>
+        <div class="cheatsheet-item">
+          <strong>Digraphen:</strong> Dž, Lj und Nj werden mit zwei Zeichen geschrieben, sind aber jeweils <em>ein</em> Buchstabe.
+        </div>
+        <div class="cheatsheet-item">
+          <strong>Vorteil für dich:</strong> Was du liest, sprichst du auch – keine stummen Buchstaben, keine Doppelbelegungen.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Seiten-Navigation (vorherige / nächste Lektion) ── -->
+    <nav class="page-nav">
+      <a href="/Code/1_Startseite/LB_3_Grammatik.html" class="page-nav-btn nav-back">
+        <i class="fas fa-arrow-left"></i> Zurück zur Übersicht
+      </a>
+      <a href="grammatik-geschlecht.html" class="page-nav-btn nav-next">
+        Nächstes Thema: Geschlecht der Substantive <i class="fas fa-arrow-right"></i>
+      </a>
+    </nav>
+
+  </main>
+
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Quiz-Logik
+       ====================================================== -->
+  <script>
+    /* ── Quiz-Daten ──────────────────────────────────────
+       Jede Frage hat:
+       - question: die Fragestellung
+       - options: Array mit 3 Antworten
+       - correct: Index der richtigen Antwort (0, 1 oder 2)
+       - explanation: Erklärung nach Beantwortung
+       ──────────────────────────────────────────────────── */
+    var quizData = [
+      {
+        question: 'Wie wird der Buchstabe „Š" ausgesprochen?',
+        options: ['Wie „ss"', 'Wie „sch"', 'Wie „ch"'],
+        correct: 1,
+        explanation: 'Š klingt wie „sch" in „Schule" — ein Buchstabe statt drei!'
+      },
+      {
+        question: 'Wie viele Buchstaben hat das bosnische Alphabet?',
+        options: ['26', '30', '33'],
+        correct: 1,
+        explanation: 'Das bosnische Alphabet hat genau 30 Buchstaben — einschließlich Dž, Lj und Nj.'
+      },
+      {
+        question: 'Welche Buchstaben gibt es im Bosnischen NICHT?',
+        options: ['Č, Ž, Đ', 'Q, W, X, Y', 'A, E, I, O'],
+        correct: 1,
+        explanation: 'Q, W, X und Y existieren im bosnischen Alphabet nicht.'
+      },
+      {
+        question: 'Was ist die goldene Regel der bosnischen Aussprache?',
+        options: [
+          'Jeder Buchstabe hat mehrere Laute',
+          'Ein Buchstabe = ein Laut, immer',
+          'Stumme Buchstaben sind häufig'
+        ],
+        correct: 1,
+        explanation: 'Die goldene Regel: Ein Buchstabe = ein Laut. Keine Ausnahmen!'
+      },
+      {
+        question: 'Wie wird „C" im Bosnischen ausgesprochen?',
+        options: ['Wie deutsches „K"', 'Wie englisches „S"', 'Wie deutsches „Z" (ts)'],
+        correct: 2,
+        explanation: 'C im Bosnischen = „ts", wie das deutsche „Z" in „Zug".'
+      }
+    ];
+
+
+    /* ── Quiz-Variablen ──────────────────────────────── */
+    var currentQuestion = 0;
+    var score = 0;
+    var answered = false;
+
+
+    /* ── Quiz starten / Frage anzeigen ───────────────── */
+    function showQuestion() {
+      var q = quizData[currentQuestion];
+
+      // Fortschritt aktualisieren
+      document.getElementById('quizProgress').textContent =
+        'Frage ' + (currentQuestion + 1) + ' von ' + quizData.length;
+      document.getElementById('quizBarFill').style.width =
+        ((currentQuestion / quizData.length) * 100) + '%';
+
+      // Frage anzeigen
+      document.getElementById('quizQuestion').textContent = q.question;
+
+      // Antwort-Buttons erstellen
+      var optionsDiv = document.getElementById('quizOptions');
+      optionsDiv.innerHTML = '';
+
+      q.options.forEach(function(option, index) {
+        var btn = document.createElement('button');
+        btn.className = 'quiz-option-btn';
+        btn.textContent = option;
+        btn.addEventListener('click', function() {
+          checkAnswer(index);
+        });
+        optionsDiv.appendChild(btn);
+      });
+
+      // Feedback und Weiter-Button verstecken
+      document.getElementById('quizFeedback').classList.add('hidden');
+      document.getElementById('quizNextBtn').classList.add('hidden');
+      answered = false;
+    }
+
+
+    /* ── Antwort prüfen ──────────────────────────────── */
+    function checkAnswer(selected) {
+      // Doppelklick verhindern
+      if (answered) return;
+      answered = true;
+
+      var q = quizData[currentQuestion];
+      var buttons = document.querySelectorAll('.quiz-option-btn');
+      var feedback = document.getElementById('quizFeedback');
+
+      // Richtige Antwort grün markieren
+      buttons[q.correct].classList.add('correct');
+
+      if (selected === q.correct) {
+        score++;
+        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Richtig! ' + q.explanation;
+        feedback.className = 'quiz-feedback feedback-correct';
+      } else {
+        // Falsche Antwort rot markieren
+        buttons[selected].classList.add('wrong');
+        feedback.innerHTML = '<i class="fas fa-times-circle"></i> Leider falsch. ' + q.explanation;
+        feedback.className = 'quiz-feedback feedback-wrong';
+      }
+
+      // Alle Buttons deaktivieren
+      buttons.forEach(function(btn) {
+        btn.disabled = true;
+      });
+
+      // Weiter-Button anzeigen (oder Ergebnis)
+      if (currentQuestion < quizData.length - 1) {
+        document.getElementById('quizNextBtn').classList.remove('hidden');
+      } else {
+        // Quiz beendet — Ergebnis nach kurzer Pause zeigen
+        setTimeout(showResult, 1200);
+      }
+    }
+
+
+    /* ── Nächste Frage ───────────────────────────────── */
+    document.getElementById('quizNextBtn').addEventListener('click', function() {
+      currentQuestion++;
+      showQuestion();
+    });
+
+
+    /* ── Ergebnis anzeigen ───────────────────────────── */
+    function showResult() {
+      document.getElementById('quizContainer').classList.add('hidden');
+      var result = document.getElementById('quizResult');
+      result.classList.remove('hidden');
+
+      document.getElementById('resultScore').textContent =
+        score + ' von ' + quizData.length + ' richtig';
+
+      // Motivierender Text je nach Ergebnis
+      var text = '';
+      if (score === quizData.length) {
+        text = 'Perfekt! Du hast das bosnische Alphabet bereits verinnerlicht! 🎉';
+      } else if (score >= 3) {
+        text = 'Gut gemacht! Du hast die Grundlagen verstanden. Schau dir den Spickzettel nochmal an für die Details.';
+      } else {
+        text = 'Kein Problem – lies dir die Lektion nochmal in Ruhe durch und versuche es erneut!';
+      }
+      document.getElementById('resultText').textContent = text;
+    }
+
+
+    /* ── Quiz wiederholen ────────────────────────────── */
+    document.getElementById('quizRetryBtn').addEventListener('click', function() {
+      currentQuestion = 0;
+      score = 0;
+      document.getElementById('quizResult').classList.add('hidden');
+      document.getElementById('quizContainer').classList.remove('hidden');
+      showQuestion();
+    });
+
+
+    /* ── Quiz beim Laden starten ─────────────────────── */
+    showQuestion();
+  </script>
+
+</body>
+</html>

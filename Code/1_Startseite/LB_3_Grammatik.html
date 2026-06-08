@@ -4,21 +4,14 @@
 
   <!-- ======================================================
        LB_3_Grammatik.html — Grammatik-Übersichtsseite
-       LinguaBosna | Version 3.0
+       LinguaBosna | Version 4.0
        
-       Funktionsweise:
-       - Oben: 6 Buttons (A1–C2) als Niveau-Auswahl
-       - Beim Klick auf einen Button werden NUR die Karten
-         dieses Niveaus angezeigt (alle anderen ausgeblendet)
-       - A1 ist beim Laden vorausgewählt
-       - Nur A1-Karten sind verlinkt (alle anderen: „Demnächst")
+       35 Kategorien auf 6 Niveaus (A1–C2)
+       Tab-System: Nur das gewählte Niveau sichtbar
        ====================================================== -->
 
-  <!-- Basisstyles (Farben, Header, Footer, Schriften) -->
   <link rel="stylesheet" href="/Code/Style.css">
-  <!-- Seiten-spezifische Styles -->
   <link rel="stylesheet" href="/Code/1_Startseite/Style_3_Grammatik.css">
-  <!-- LB_main.js lädt Header und Footer dynamisch ein -->
   <script src="/Code/LB_main.js"></script>
 
   <meta charset="UTF-8">
@@ -28,32 +21,27 @@
   <title>LinguaBosna – Grammatik</title>
   <meta name="description" content="Bosnische Grammatik von A1 bis C2: Alphabet, Fälle, Verben, Verbalaspekt und mehr – übersichtlich nach Sprachniveau sortiert.">
 
-  <!-- Google Fonts (Pflicht auf jeder Seite) -->
+  <!-- Google Fonts (Pflicht) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- FontAwesome für Icons (Pflicht auf jeder Seite) -->
+  <!-- FontAwesome (Pflicht) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 <body>
 
-  <!-- Header wird dynamisch per JS eingebunden -->
   <div id="header"></div>
 
   <main>
 
-    <!-- ── Seitentitel (wie Vokabel-Übersichtsseite) ─── -->
+    <!-- ── Seitentitel ───────────────────────────────── -->
     <h1>Grammatik</h1>
     <p class="subtitle">Wähle dein Sprachniveau und lerne Schritt für Schritt.</p>
 
 
-    <!-- ── Niveau-Auswahl (Tab-Buttons) ────────────────
-         Beim Klick auf einen Button wird das jeweilige
-         data-level-Grid eingeblendet und alle anderen
-         ausgeblendet. JavaScript ganz unten auf der Seite.
-         ────────────────────────────────────────────────── -->
+    <!-- ── Niveau-Auswahl (Tab-Buttons) ──────────────── -->
     <div class="level-selector" role="tablist" aria-label="Sprachniveau auswählen">
       <button class="level-btn active" data-level="a1" role="tab" aria-selected="true">A1 – Grundlagen</button>
       <button class="level-btn" data-level="a2" role="tab" aria-selected="false">A2 – Aufbau</button>
@@ -65,196 +53,280 @@
 
 
     <!-- =====================================================
-         A1 – GRUNDLAGEN (standardmäßig sichtbar)
-         Einziges Niveau mit aktiven Links (kein „Demnächst")
-         ===================================================== -->
-       
-    <!-- <div class="grammar-grid" data-level="a1"> -->
-
-      <!-- Karte 1: Alphabet & Aussprache -->
-<!--       <a href="grammatik-alphabet.html" class="grammar-card">
-        <i class="fas fa-font"></i>
-        <h3>Alphabet & Aussprache</h3>
-        <p>Das bosnische Alphabet und die korrekte Aussprache aller Buchstaben.</p>
-      </a> -->
-
-      <!-- Karte 2: Geschlecht der Substantive -->
-<!--       <a href="grammatik-geschlecht.html" class="grammar-card">
-        <i class="fas fa-venus-mars"></i>
-        <h3>Geschlecht der Substantive</h3>
-        <p>Maskulin, feminin oder neutrum – Genus im Bosnischen erkennen.</p>
-      </a> -->
-
-      <!-- Karte 3: Verneinung & Fragen -->
-<!--       <a href="grammatik-verneinung.html" class="grammar-card">
-        <i class="fas fa-question-circle"></i>
-        <h3>Verneinung & Fragen</h3>
-        <p>Wie du Verneinungen bildest und einfache Fragen stellst.</p>
-      </a>
-
-    </div>
-              -->     
-
-
-    <!-- =====================================================
-         A1 – GRUNDLAGEN (standardmäßig sichtbar)
+         A1 – ABSOLUTE GRUNDLAGEN (6 Kategorien)
          ===================================================== -->
     <div class="grammar-grid" data-level="a1">
 
-      <!-- Karte 1: Alphabet & Aussprache -->
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+      <!-- 1. Alphabet & Aussprache — AKTIV -->
+      <a href="/Code/3_Grammatik/grammatik-alphabet.html" class="grammar-card">
         <i class="fas fa-font"></i>
         <h3>Alphabet & Aussprache</h3>
         <p>Das bosnische Alphabet und die korrekte Aussprache aller Buchstaben.</p>
-      </div>
+      </a>
 
-      <!-- Karte 2: Geschlecht der Substantive -->
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+      <!-- 2. Geschlecht der Substantive -->
+      <a href="/Code/3_Grammatik/grammatik-geschlecht.html" class="grammar-card">
         <i class="fas fa-venus-mars"></i>
         <h3>Geschlecht der Substantive</h3>
         <p>Maskulin, feminin oder neutrum – Genus im Bosnischen erkennen.</p>
-      </div>
+      </a>
 
-      <!-- Karte 3: Verneinung & Fragen -->
+      <!-- 3. Das Verb „biti" & Verneinung -->
+      <a href="/Code/3_Grammatik/grammatik-biti.html" class="grammar-card">
+        <i class="fas fa-comment-dots"></i>
+        <h3>Das Verb „biti" & Verneinung</h3>
+        <p>Das wichtigste Verb: sein. Und wie man Sätze verneint.</p>
+      </a>
+
+      <!-- 4. Fragen & Fragewörter -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
         <i class="fas fa-question-circle"></i>
-        <h3>Verneinung & Fragen</h3>
-        <p>Wie du Verneinungen bildest und einfache Fragen stellst.</p>
+        <h3>Fragen & Fragewörter</h3>
+        <p>Fragen mit „li" bilden und die wichtigsten Fragewörter lernen.</p>
       </div>
 
-    </div>
-
-
-    <!-- =====================================================
-         A2 – AUFBAU (ausgeblendet bis angeklickt)
-         ===================================================== -->
-    <div class="grammar-grid hidden" data-level="a2">
-
+      <!-- 5. Regelmäßiges Präsens -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-user"></i>
-        <h3>Personalpronomen</h3>
-        <p>Ich, du, er/sie/es – Pronomen und ihre Formen im Bosnischen.</p>
+        <i class="fas fa-pen"></i>
+        <h3>Regelmäßiges Präsens</h3>
+        <p>Die drei Konjugationsklassen: a-, e- und i-Klasse.</p>
       </div>
 
+      <!-- 6. Die 7 Fälle – Überblick -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
         <i class="fas fa-layer-group"></i>
         <h3>Die 7 Fälle – Überblick</h3>
-        <p>Nominativ bis Instrumental – das Herzstück der bosnischen Grammatik.</p>
-      </div>
-
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-book"></i>
-        <h3>Substantive & Plural</h3>
-        <p>Pluralbildung und Deklinationsgruppen der bosnischen Nomen.</p>
-      </div>
-
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-sort-amount-up"></i>
-        <h3>Adjektive & Steigerung</h3>
-        <p>Eigenschaften ausdrücken und steigern: gut – besser – am besten.</p>
+        <p>Was sind Fälle und wofür braucht man sie im Bosnischen?</p>
       </div>
 
     </div>
 
 
     <!-- =====================================================
-         B1 – MITTELSTUFE
+         A2 – ERWEITERTE GRUNDLAGEN (7 Kategorien)
          ===================================================== -->
-    <div class="grammar-grid hidden" data-level="b1">
+    <div class="grammar-grid hidden" data-level="a2">
 
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-pen"></i>
-        <h3>Verben & Konjugation</h3>
-        <p>Verben im Präsens, ihre Gruppen und Konjugationsregeln.</p>
-      </div>
-
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-exchange-alt"></i>
-        <h3>Verbalaspekt</h3>
-        <p>Perfektiv & imperfektiv – das wichtigste Merkmal slawischer Sprachen.</p>
-      </div>
-
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-map-signs"></i>
-        <h3>Präpositionen & Kasusrektion</h3>
-        <p>Welche Präposition welchen Fall verlangt – mit Beispielen.</p>
-      </div>
-
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-redo"></i>
-        <h3>Modalverben & Reflexive Verben</h3>
-        <p>Können, müssen, wollen – und Verben mit se/si.</p>
-      </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         B2 – FORTGESCHRITTEN
-         ===================================================== -->
-    <div class="grammar-grid hidden" data-level="b2">
-
-      <div class="grammar-card coming-soon">
-        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-clock"></i>
-        <h3>Zeitformen</h3>
-        <p>Perfekt, Futur und Konditional im Bosnischen richtig einsetzen.</p>
-      </div>
-
+      <!-- 7. Satzbau & Wortstellung -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
         <i class="fas fa-align-left"></i>
         <h3>Satzbau & Wortstellung</h3>
-        <p>Wie Sätze im Bosnischen strukturiert und Wörter geordnet werden.</p>
+        <p>Wie bosnische Sätze grundlegend aufgebaut werden.</p>
       </div>
 
+      <!-- 8. Nominativ -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-link"></i>
-        <h3>Nebensätze & Konjunktionen</h3>
-        <p>Haupt- und Nebensätze mit den richtigen Konjunktionen verbinden.</p>
+        <i class="fas fa-user"></i>
+        <h3>Nominativ</h3>
+        <p>Der Wer-Fall: Subjekte benennen und deklinieren.</p>
       </div>
 
+      <!-- 9. Akkusativ -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-hashtag"></i>
-        <h3>Numeralia & Zählen</h3>
-        <p>Zahlen, Ordinalzahlen und ihre besonderen Deklinationsregeln.</p>
+        <i class="fas fa-bullseye"></i>
+        <h3>Akkusativ</h3>
+        <p>Der Wen-Fall: direkte Objekte im Bosnischen.</p>
+      </div>
+
+      <!-- 10. Lokativ -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Lokativ</h3>
+        <p>Der Wo-Fall: Ortsangaben mit u und na.</p>
+      </div>
+
+      <!-- 11. Personalpronomen -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-users"></i>
+        <h3>Personalpronomen</h3>
+        <p>Ich, du, er/sie/es – alle Formen in allen Fällen.</p>
+      </div>
+
+      <!-- 12. Modalverben & Imperativ -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-exclamation"></i>
+        <h3>Modalverben & Imperativ</h3>
+        <p>Können, müssen, wollen – und die Befehlsform.</p>
+      </div>
+
+      <!-- 13. Adjektive & Angleichung -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-sliders-h"></i>
+        <h3>Adjektive & Angleichung</h3>
+        <p>Adjektive an Geschlecht, Zahl und Fall anpassen.</p>
       </div>
 
     </div>
 
 
     <!-- =====================================================
-         C1 – OBERSTUFE
+         B1 – MITTELSTUFE (8 Kategorien)
          ===================================================== -->
-    <div class="grammar-grid hidden" data-level="c1">
+    <div class="grammar-grid hidden" data-level="b1">
 
+      <!-- 14. Perfekt -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
         <i class="fas fa-history"></i>
-        <h3>Aorist & Imperfekt</h3>
-        <p>Historische Zeitformen in bosnischer Literatur und Medien.</p>
+        <h3>Perfekt</h3>
+        <p>Über die Vergangenheit sprechen mit dem L-Partizip.</p>
       </div>
 
+      <!-- 15. Futur I -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-forward"></i>
+        <h3>Futur I</h3>
+        <p>Die Zukunft ausdrücken mit Kurzformen von htjeti.</p>
+      </div>
+
+      <!-- 16. Reflexive Verben -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-redo"></i>
+        <h3>Reflexive Verben</h3>
+        <p>Verben mit der Partikel se: sich waschen, sich freuen.</p>
+      </div>
+
+      <!-- 17. Genitiv -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-key"></i>
+        <h3>Genitiv</h3>
+        <p>Der Wessen-Fall: Besitz, Herkunft und Mengenangaben.</p>
+      </div>
+
+      <!-- 18. Dativ & Instrumentalis -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-hands-helping"></i>
+        <h3>Dativ & Instrumentalis</h3>
+        <p>Der Wem-Fall und der Womit-Fall im Bosnischen.</p>
+      </div>
+
+      <!-- 19. Possessiv- & Demonstrativpronomen -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-hand-point-right"></i>
+        <h3>Possessiv- & Demonstrativpronomen</h3>
+        <p>Mein, dein, sein – und dieser, jener.</p>
+      </div>
+
+      <!-- 20. Komparation -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-sort-amount-up"></i>
+        <h3>Komparation</h3>
+        <p>Adjektive steigern: gut – besser – am besten.</p>
+      </div>
+
+      <!-- 21. Der Vokativ -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-bullhorn"></i>
+        <h3>Der Vokativ</h3>
+        <p>Die direkte Anrede: Brate!, Mama!, Profesore!</p>
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         B2 – FORTGESCHRITTEN (6 Kategorien)
+         ===================================================== -->
+    <div class="grammar-grid hidden" data-level="b2">
+
+      <!-- 22. Verbalaspekt -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-exchange-alt"></i>
+        <h3>Verbalaspekt</h3>
+        <p>Perfektiv und imperfektiv – das Herzstück slawischer Verben.</p>
+      </div>
+
+      <!-- 23. Zahlen & Numeralia -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-hashtag"></i>
+        <h3>Zahlen & Numeralia</h3>
+        <p>Zahlensonderregeln und ihre Auswirkung auf den Fall.</p>
+      </div>
+
+      <!-- 24. Konditional I -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-code-branch"></i>
+        <h3>Konditional I</h3>
+        <p>Die Möglichkeitsform: Ich würde, du würdest...</p>
+      </div>
+
+      <!-- 25. Passiv -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
         <i class="fas fa-user-slash"></i>
-        <h3>Passiv & unpersönliche Konstruktionen</h3>
-        <p>Passivkonstruktionen und unpersönliche Ausdrücke im Bosnischen.</p>
+        <h3>Passiv</h3>
+        <p>Zustandspassiv und reflexives Passiv im Bosnischen.</p>
       </div>
 
+      <!-- 26. Nebensätze & Konjunktionen -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-link"></i>
+        <h3>Nebensätze & Konjunktionen</h3>
+        <p>Final-, Kausal-, Konzessiv- und Konditionalsätze.</p>
+      </div>
+
+      <!-- 27. Enklitika & Wortstellung -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-puzzle-piece"></i>
+        <h3>Enklitika & Wortstellung</h3>
+        <p>Unbetonte Wörter und die Wackernagel-Position.</p>
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         C1 – OBERSTUFE (4 Kategorien)
+         ===================================================== -->
+    <div class="grammar-grid hidden" data-level="c1">
+
+      <!-- 28. Konditional II & Futur II -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-clock"></i>
+        <h3>Konditional II & Futur II</h3>
+        <p>Bedingungsform der Vergangenheit und Vorzukunft.</p>
+      </div>
+
+      <!-- 29. Adverbiale Partizipien -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-stream"></i>
+        <h3>Adverbiale Partizipien</h3>
+        <p>Glagolski prilog: schauend, nachdem er beendet hatte.</p>
+      </div>
+
+      <!-- 30. Kasusfeinheiten & Wortbildung -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-microscope"></i>
+        <h3>Kasusfeinheiten & Wortbildung</h3>
+        <p>Genitivus Partitivus und abstrakte Nomen bilden.</p>
+      </div>
+
+      <!-- 31. Formelle Sprache & Stilistik -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
         <i class="fas fa-pen-fancy"></i>
@@ -266,68 +338,66 @@
 
 
     <!-- =====================================================
-         C2 – PROFI
+         C2 – PROFI (4 Kategorien)
          ===================================================== -->
     <div class="grammar-grid hidden" data-level="c2">
 
+      <!-- 32. Aorist & Imperfekt -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
-        <i class="fas fa-map-marked-alt"></i>
-        <h3>Dialekte & regionale Unterschiede</h3>
-        <p>Von Sarajevo bis Banja Luka – regionale Sprachunterschiede.</p>
+        <i class="fas fa-book-open"></i>
+        <h3>Aorist & Imperfekt</h3>
+        <p>Historische Zeitformen in Literatur und Medien.</p>
       </div>
 
+      <!-- 33. Plusquamperfekt -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-backward"></i>
+        <h3>Plusquamperfekt</h3>
+        <p>Die Vorvergangenheit: bio sam radio / bijah radio.</p>
+      </div>
+
+      <!-- 34. Inversion, Emphase & Ellipsen -->
+      <div class="grammar-card coming-soon">
+        <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
+        <i class="fas fa-italic"></i>
+        <h3>Inversion, Emphase & Ellipsen</h3>
+        <p>Wortstellung für dramatische und poetische Effekte.</p>
+      </div>
+
+      <!-- 35. Dialekte & Bosnisch im Vergleich (BKS) -->
       <div class="grammar-card coming-soon">
         <span class="soon-badge"><i class="fas fa-lock"></i> Demnächst</span>
         <i class="fas fa-language"></i>
-        <h3>Bosnisch im Vergleich (BKS)</h3>
-        <p>Gemeinsamkeiten und Unterschiede zu Kroatisch und Serbisch.</p>
+        <h3>Dialekte & Bosnisch im Vergleich</h3>
+        <p>Regionale Unterschiede und der Vergleich mit Kroatisch und Serbisch.</p>
       </div>
 
     </div>
 
   </main>
 
-  <!-- Footer wird dynamisch per JS eingebunden -->
   <div id="footer"></div>
 
 
-  <!-- ======================================================
-       JavaScript: Niveau-Auswahl (Tab-Logik)
-       ====================================================== -->
+  <!-- ── JavaScript: Tab-Logik ───────────────────────── -->
   <script>
-    // Alle Level-Buttons und alle Karten-Grids sammeln
-    const levelButtons = document.querySelectorAll('.level-btn');
-    const grids        = document.querySelectorAll('.grammar-grid');
+    var levelButtons = document.querySelectorAll('.level-btn');
+    var grids        = document.querySelectorAll('.grammar-grid');
 
-    /**
-     * showLevel() — Blendet das gewählte Niveau ein
-     * @param {string} level — z.B. "a1", "b2", "c1"
-     *
-     * 1. Alle Grids ausblenden (Klasse "hidden" setzen)
-     * 2. Nur das Grid mit passendem data-level einblenden
-     * 3. Aktiven Button hervorheben
-     */
     function showLevel(level) {
-
-      // Alle Grids verstecken
       grids.forEach(function(grid) {
         grid.classList.add('hidden');
       });
-
-      // Grid für gewähltes Level einblenden
       var target = document.querySelector('.grammar-grid[data-level="' + level + '"]');
       if (target) {
         target.classList.remove('hidden');
       }
-
-      // Aktiven Button hervorheben
       levelButtons.forEach(function(btn) {
         btn.classList.remove('active');
         btn.setAttribute('aria-selected', 'false');
       });
-
-      // Geklickten Button als aktiv markieren
       var activeBtn = document.querySelector('.level-btn[data-level="' + level + '"]');
       if (activeBtn) {
         activeBtn.classList.add('active');
@@ -335,14 +405,11 @@
       }
     }
 
-    // Klick-Event auf jeden Button setzen
     levelButtons.forEach(function(btn) {
       btn.addEventListener('click', function() {
         showLevel(this.getAttribute('data-level'));
       });
     });
-
-    // Beim Laden: A1 anzeigen (ist im HTML bereits aktiv + sichtbar)
   </script>
 
 </body>

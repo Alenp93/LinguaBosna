@@ -67,19 +67,19 @@
      vertical-align: top;
     }
 
-    nav ul {
+    header nav ul {
       display: flex;
       list-style: none;
       gap: 25px;
       align-items: center;
     }
 
-    nav ul li a {
+    header nav ul li a {
       font-weight: 600;
       transition: color 0.3s;
     }
 
-    nav ul li a:hover {
+    header nav ul li a:hover {
       color: var(--accent);
     }
 
@@ -138,7 +138,7 @@
 
   /* Responsive */
     @media(max-width: 768px){
-      nav ul {
+      header nav ul {
         gap: 15px;
       }
 
@@ -212,7 +212,10 @@
   }
 
   /* Navigation standardmäßig verstecken */
-  nav {
+  /* WICHTIG: nur der Header-Nav (Hamburger-Menü) wird zusammengeklappt,
+     NICHT andere <nav>-Elemente wie Breadcrumb oder Seiten-Navigation.
+     Deshalb "header nav" statt nur "nav".                              */
+  header nav {
     /* absolute: Menü klappt UNTER den Header */
     position: absolute;
     top: 63px;          /* Höhe des Headers */
@@ -231,19 +234,19 @@
   }
 
   /* Navigation aufgeklappt (Klasse "open" wird per JS gesetzt) */
-  nav.open {
+  header nav.open {
     max-height: 400px;   /* groß genug für alle Menüpunkte */
   }
 
   /* Menüpunkte untereinander statt nebeneinander */
-  nav ul {
+  header nav ul {
     flex-direction: column;
     gap: 0;
     padding: 8px 0;
   }
 
   /* Einzelner Menüpunkt — groß und touch-freundlich */
-  nav ul li a {
+  header nav ul li a {
     display: block;
     padding: 14px 24px;   /* großes Touch-Ziel (mind. 44px Höhe) */
     font-size: 1rem;
@@ -251,14 +254,14 @@
     transition: background 0.2s, color 0.2s;
   }
 
-  nav ul li a:hover,
-  nav ul li a:active {
+  header nav ul li a:hover,
+  header nav ul li a:active {
     background-color: var(--bg-light);
     color: var(--accent);
   }
 
   /* Letzter Menüpunkt ohne untere Linie */
-  nav ul li:last-child a {
+  header nav ul li:last-child a {
     border-bottom: none;
   }
 

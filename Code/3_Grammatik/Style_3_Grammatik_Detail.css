@@ -23,6 +23,49 @@
    ====================================================== */
 
 
+/* ── 0. Mobile-Schutz: kein horizontaler Überlauf ────── */
+/* Lange deutsche Komposita (z.B. „Entscheidungsfragen",
+   „Fragewörter") oder lange bosnische Sätze können auf
+   schmalen Handys über den rechten Rand hinausragen und
+   so unerwünschtes seitliches Scrollen verursachen.
+   Die folgenden Regeln erlauben, dass ein zu langes Wort
+   notfalls umbricht. Sie ändern NICHTS am Desktop-Layout,
+   weil sie nur dann greifen, wenn ein Wort sonst zu breit
+   für seinen Platz wäre.                                   */
+
+main h1,
+.subtitle,
+.section-heading h2,
+.group-title,
+.group-desc,
+.grammar-section > p,
+.section-instruction,
+.intro-scenario,
+.intro-hook,
+.quiz-question,
+.quiz-option-btn,
+.comparison-card p,
+.cheatsheet-item,
+.mini-note,
+.breadcrumb,
+.example-translation,
+.example-detail {
+  overflow-wrap: break-word;   /* langes Wort darf am Rand umbrechen */
+  word-break: break-word;      /* Fallback für ältere Browser        */
+}
+
+/* Flex-Kinder müssen schrumpfen DÜRFEN. Standardmäßig hat ein
+   Flex-Element min-width:auto – dadurch sprengt ein einziges
+   langes Wort die ganze Zeile und erzeugt seitlichen Überlauf.
+   Mit min-width:0 darf der Text-Bereich kleiner werden als sein
+   längstes Wort und bricht stattdessen sauber um.              */
+.section-heading h2,
+.pattern-hint p,
+.comparison-summary p {
+  min-width: 0;
+}
+
+
 /* ── 1. Hauptbereich & Seitentitel ───────────────────── */
 
 main {
@@ -50,8 +93,14 @@ main h1 {
   margin-bottom: 30px;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 
 /* ── 2. Breadcrumb-Navigation ────────────────────────── */
+
+
 
 .breadcrumb {
   font-family: 'Open Sans', sans-serif;
@@ -767,9 +816,9 @@ main h1 {
 @media (max-width: 768px) {
 
   main {
-    margin-top: 63px;
-    padding: 30px 5% 50px;
-  }
+      margin-top: 90px;
+      padding: 30px 5% 50px;
+    }
 
   main h1 {
     font-size: 1.5rem;
@@ -817,12 +866,15 @@ main h1 {
 
   /* Seiten-Navigation: untereinander */
   .page-nav {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .page-nav-btn {
-    width: 100%;
+    width: auto;
     text-align: center;
+    word-break: break-word;
   }
 
   /* Quiz: kompaktere Abstände */

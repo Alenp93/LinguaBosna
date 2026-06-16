@@ -1,4 +1,4 @@
-    fetch('../LB_header.html')
+    fetch('/Code/LB_header.html')
         .then(response => response.text())
         .then(html => {
             // Suchen Sie einen Platzhalter im aktuellen HTML-Dokument
@@ -38,7 +38,7 @@
         // ────────────────────────────────────────────────────────────
     });
     
-    fetch('../LB_footer.html')
+    fetch('/Code/LB_footer.html')
         .then(response => response.text())
         .then(html => {
             // Suchen Sie einen Platzhalter im aktuellen HTML-Dokument

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       grammatik-satzbau.html
+       Grammatik-Erklärseite: Satzbau & Wortstellung (A2)
+
+       Aufbau (6 Blöcke):
+       1. Einstieg — In welcher Reihenfolge baue ich einen Satz?
+       2. Beispiele — Reihenfolgen und feste Regeln entdecken
+       3. Regel — Grundreihenfolge SVO, freie Stellung dank Fälle,
+                   feste Regeln (Adjektiv, ne, kurze Wörter)
+       4. Vergleich — Deutsch ↔ Bosnisch
+       5. Üben — 10-Fragen-Quiz
+       6. Spickzettel — Kompakte Zusammenfassung
+
+       Hinweis: Die tiefe Klitika-/Wackernagel-Theorie ist ein
+       eigenes C1-Kapitel. Hier nur der praktische Einstieg.
+       ====================================================== -->
+
+  <!-- Basisstyles + Grammatik-Detail-Styles -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/3_Grammatik/Style_3_Grammatik_Detail.css">
+  <script src="/Code/LB_main.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Satzbau & Wortstellung</title>
+  <meta name="description" content="Bosnischer Satzbau einfach erklärt: die Grundreihenfolge Subjekt-Verb-Objekt, die freie Wortstellung dank der Fälle und wo kurze Wörter wie li und se stehen.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Breadcrumb-Navigation ─────────────────────── -->
+    <nav class="breadcrumb" aria-label="Brotkrümel-Navigation">
+      <a href="/Code/1_Startseite/LB_3_Grammatik.html">Grammatik</a>
+      <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
+      <span>A2 – Aufbau</span>
+      <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
+      <span class="breadcrumb-current">Satzbau & Wortstellung</span>
+    </nav>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Satzbau & Wortstellung</h1>
+    <p class="subtitle">Wie bosnische Sätze aufgebaut werden – und warum die Reihenfolge freier ist als im Deutschen.</p>
+
+    <!-- ── Fortschrittsanzeige (6 Schritte) ──────────── -->
+    <div class="progress-steps">
+      <div class="step"><span class="step-num">1</span><span class="step-label">Einstieg</span></div>
+      <div class="step"><span class="step-num">2</span><span class="step-label">Beispiele</span></div>
+      <div class="step"><span class="step-num">3</span><span class="step-label">Regel</span></div>
+      <div class="step"><span class="step-num">4</span><span class="step-label">Vergleich</span></div>
+      <div class="step"><span class="step-num">5</span><span class="step-label">Üben</span></div>
+      <div class="step"><span class="step-num">6</span><span class="step-label">Spickzettel</span></div>
+    </div>
+
+
+    <!-- =====================================================
+         BLOCK 1 — EINSTIEG
+         Kurzer Alltagsbezug, der Neugier weckt
+         ===================================================== -->
+    <section class="grammar-section" id="block-1">
+      <div class="section-heading">
+        <span class="section-number">1</span>
+        <h2>Einstieg</h2>
+      </div>
+
+      <div class="intro-box">
+        <p class="intro-scenario">
+          Du kennst die Wörter: <strong>Ana</strong>, <strong>čita</strong> (liest), <strong>knjigu</strong> (ein Buch).
+          Aber in welcher <strong>Reihenfolge</strong> sagst du sie? „Ana čita knjigu"? „Knjigu čita Ana"?
+        </p>
+        <p class="intro-scenario">
+          Überraschung: Im Bosnischen sind <strong>beide richtig</strong> – und bedeuten dasselbe.
+          Möglich macht das, was du gerade über die <strong>Fälle</strong> gelernt hast: Die Endungen zeigen,
+          wer was tut – also ist die Reihenfolge flexibel.
+        </p>
+        <p class="intro-hook">
+          <i class="fas fa-lightbulb"></i>
+          Für Deutschsprachige ist das eher eine Befreiung: weniger starre Regeln. Nur ein paar kleine Dinge sitzen fest.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 2 — BEISPIELE ZUERST
+         Muster selbst entdecken lassen
+         ===================================================== -->
+    <section class="grammar-section" id="block-2">
+      <div class="section-heading">
+        <span class="section-number">2</span>
+        <h2>Beispiele</h2>
+      </div>
+
+      <p class="section-instruction">Manches an der Reihenfolge ist <strong>frei</strong>, manches ist <strong>fest</strong>. Schau, was sich verschieben lässt – und was nicht:</p>
+
+      <div class="example-cards">
+
+        <div class="example-card">
+          <div class="example-word">Ana <span class="highlight">čita</span> knjigu.</div>
+          <div class="example-translation">Ana liest ein Buch.</div>
+          <div class="example-detail">neutral: Subjekt–Verb–Objekt</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word"><span class="highlight">Knjigu</span> čita Ana.</div>
+          <div class="example-translation">Ana liest ein Buch.</div>
+          <div class="example-detail">frei: Betonung auf dem Buch</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word"><span class="highlight">velika</span> kuća</div>
+          <div class="example-translation">ein großes Haus</div>
+          <div class="example-detail">fest: Adjektiv vor dem Nomen</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word"><span class="highlight">Ne</span> znam.</div>
+          <div class="example-translation">Ich weiß (es) nicht.</div>
+          <div class="example-detail">fest: „ne" vor dem Verb</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word">Kako <span class="highlight">se</span> zoveš?</div>
+          <div class="example-translation">Wie heißt du?</div>
+          <div class="example-detail">fest: „se" an zweiter Stelle</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-word">Ja <span class="highlight">sam</span> umoran.</div>
+          <div class="example-translation">Ich bin müde.</div>
+          <div class="example-detail">fest: „sam" an zweiter Stelle</div>
+        </div>
+
+      </div>
+
+      <div class="pattern-hint">
+        <i class="fas fa-search"></i>
+        <p>Zwei Gruppen werden sichtbar: Die <strong>großen Bausteine</strong> (Subjekt, Verb, Objekt)
+        kannst du verschieben. Aber ein paar Dinge stehen <strong>fest</strong>: das Adjektiv vor dem Nomen,
+        „ne" vor dem Verb und die kurzen Wörter (se, sam, li) an zweiter Stelle.</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 3 — DIE REGEL
+         Grundreihenfolge, freie Stellung, feste Regeln
+         ===================================================== -->
+    <section class="grammar-section" id="block-3">
+      <div class="section-heading">
+        <span class="section-number">3</span>
+        <h2>Die Regel</h2>
+      </div>
+
+      <!-- Gruppe 1: Grundreihenfolge SVO -->
+      <h3 class="group-title"><i class="fas fa-arrow-right-long"></i> Gruppe 1: Die neutrale Grundreihenfolge</h3>
+      <p class="group-desc">Wenn du nichts besonders betonen willst, gilt – wie oft im Deutschen – <strong>Subjekt → Verb → Objekt</strong>:</p>
+
+      <div class="letter-table-wrap">
+        <table class="letter-table">
+          <thead>
+            <tr>
+              <th>Subjekt</th>
+              <th>Verb</th>
+              <th>Objekt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="letter-cell">Ana</td>
+              <td>čita</td>
+              <td>knjigu. <span style="color:#777;">(Ana liest ein Buch.)</span></td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Dijete</td>
+              <td>pije</td>
+              <td>mlijeko. <span style="color:#777;">(Das Kind trinkt Milch.)</span></td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Ja</td>
+              <td>učim</td>
+              <td>bosanski. <span style="color:#777;">(Ich lerne Bosnisch.)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mini-note">
+        <strong>Tipp für den Anfang:</strong> Solange du unsicher bist, bleib einfach bei S–V–O.
+        Das ist immer richtig und klingt neutral – genau wie im Deutschen.
+      </div>
+
+      <!-- Gruppe 2: Freie Wortstellung dank Fälle -->
+      <h3 class="group-title"><i class="fas fa-shuffle"></i> Gruppe 2: Frei verschiebbar – dank der Fälle</h3>
+      <p class="group-desc">Die Fall-Endungen verraten, wer Subjekt und wer Objekt ist. Darum darfst du umstellen – die <strong>Bedeutung bleibt gleich</strong>, nur die Betonung ändert sich:</p>
+
+      <div class="letter-table-wrap">
+        <table class="letter-table">
+          <thead>
+            <tr>
+              <th>Bosnischer Satz</th>
+              <th>Betonung liegt auf …</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="letter-cell">Ana čita knjigu.</td>
+              <td>neutral – einfache Aussage</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Knjigu čita Ana.</td>
+              <td>dem Buch (gerade <em>das</em> liest sie)</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Ana knjigu čita.</td>
+              <td>der Handlung (sie <em>liest</em> es, tut nichts anderes)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mini-note">
+        <strong>Der Schlüssel:</strong> Alle drei Sätze heißen „Ana liest ein Buch." Die Endung <em>-u</em> in
+        <em>knjigu</em> macht das Wort eindeutig zum Objekt – egal, an welcher Stelle es steht.
+        Genau dafür sind die Fälle da.
+      </div>
+
+      <!-- Gruppe 3: Was fest steht -->
+      <h3 class="group-title"><i class="fas fa-thumbtack"></i> Gruppe 3: Was NICHT frei ist</h3>
+      <p class="group-desc">Ein paar Dinge haben eine feste Position. Die meisten kennst du schon aus früheren Kapiteln:</p>
+
+      <div class="letter-table-wrap">
+        <table class="letter-table">
+          <thead>
+            <tr>
+              <th>Regel</th>
+              <th>Beispiel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="letter-cell">Adjektiv steht <strong>vor</strong> dem Substantiv</td>
+              <td>velika kuća (großes Haus) – nicht „kuća velika"</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">„ne" steht <strong>vor</strong> dem Verb</td>
+              <td>ne radim (ich arbeite nicht)</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Fragewort steht am <strong>Satzanfang</strong></td>
+              <td>Gdje si? (Wo bist du?)</td>
+            </tr>
+            <tr>
+              <td class="letter-cell">Kurze Wörter (li, se, sam, je …) an <strong>2. Stelle</strong></td>
+              <td>Govoriš li …?, Kako se zoveš?, Ja sam …</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mini-note">
+        <strong>Schon mehrfach gesehen:</strong> Das „li" aus dem Fragen-Kapitel, das „se" in „Kako se zoveš?"
+        und die kurzen Formen von <em>biti</em> (sam, je …) folgen alle <strong>derselben Regel</strong>:
+        Sie stehen an zweiter Stelle, direkt nach dem ersten betonten Wort.
+      </div>
+
+      <div class="mini-note">
+        <strong>Für später:</strong> Wenn mehrere kurze Wörter zusammentreffen, gibt es eine feste Reihenfolge unter ihnen.
+        Das ist aber ein Thema für C1 – auf A2 reicht die einfache Regel „kurzes Wort an zweite Stelle" völlig.
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 4 — DEUTSCH ↔ BOSNISCH
+         Gemeinsamkeiten und Unterschiede
+         ===================================================== -->
+    <section class="grammar-section" id="block-4">
+      <div class="section-heading">
+        <span class="section-number">4</span>
+        <h2>Deutsch ↔ Bosnisch</h2>
+      </div>
+
+      <div class="comparison-grid">
+
+        <div class="comparison-card">
+          <div class="comp-label comp-de">Deutsch</div>
+          <p>Im Hauptsatz steht das Verb <strong>an zweiter Stelle</strong>: „Heute <strong>lese</strong> ich ein Buch."</p>
+          <p>Im Nebensatz wandert das Verb <strong>ans Ende</strong>: „…, weil ich ein Buch <strong>lese</strong>."</p>
+          <p>Die Wortstellung ist insgesamt eher <strong>fest</strong>.</p>
+        </div>
+
+        <div class="comparison-card">
+          <div class="comp-label comp-ba">Bosnisch</div>
+          <p>Kein striktes „Verb an zweiter Stelle" – die großen Bausteine sind <strong>verschiebbar</strong>.</p>
+          <p>Im Nebensatz bleibt das Verb an gewohnter Stelle: „…, jer <strong>čitam</strong> knjigu." (nicht am Ende)</p>
+          <p>Die Reihenfolge ist <strong>frei</strong> – die Fälle übernehmen die Arbeit.</p>
+        </div>
+
+      </div>
+
+      <div class="comparison-summary">
+        <i class="fas fa-balance-scale"></i>
+        <p><strong>Der größte Unterschied:</strong> Im Deutschen steuert die <strong>Wortstellung</strong> die Bedeutung,
+        deshalb ist sie streng geregelt (Verb-zweit, Verb-Ende im Nebensatz). Im Bosnischen übernehmen die
+        <strong>Fall-Endungen</strong> diese Aufgabe – darum darfst du die Bausteine viel freier anordnen.</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 5 — ÜBEN
+         Interaktives Quiz (10 Fragen, reines JavaScript)
+         ===================================================== -->
+    <section class="grammar-section" id="block-5">
+      <div class="section-heading">
+        <span class="section-number">5</span>
+        <h2>Üben</h2>
+      </div>
+
+      <p>Teste dein Wissen mit 10 Fragen:</p>
+
+      <!-- Quiz-Container -->
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <span id="quizProgress">Frage 1 von 10</span>
+          <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBarFill"></div></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback hidden" id="quizFeedback"></div>
+        <button class="quiz-next-btn hidden" id="quizNextBtn">Nächste Frage →</button>
+      </div>
+
+      <!-- Ergebnis (nach dem Quiz) -->
+      <div class="quiz-result hidden" id="quizResult">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <button class="quiz-retry-btn" id="quizRetryBtn">Quiz wiederholen</button>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 6 — SPICKZETTEL
+         Kompakte Zusammenfassung auf einen Blick
+         ===================================================== -->
+    <section class="grammar-section" id="block-6">
+      <div class="section-heading">
+        <span class="section-number">6</span>
+        <h2>Spickzettel</h2>
+      </div>
+
+      <div class="cheatsheet">
+        <h3><i class="fas fa-sticky-note"></i> Das Wichtigste auf einen Blick</h3>
+
+        <div class="cheatsheet-item">
+          <strong>Grundreihenfolge:</strong> Subjekt – Verb – Objekt. „Ana čita knjigu." Im Zweifel immer richtig.
+        </div>
+        <div class="cheatsheet-item">
+          <strong>Frei verschiebbar:</strong> Dank der Fälle bleibt die Bedeutung gleich, nur die Betonung ändert sich: „Knjigu čita Ana."
+        </div>
+        <div class="cheatsheet-item">
+          <strong>Adjektiv vor dem Nomen:</strong> velika kuća – nie „kuća velika".
+        </div>
+        <div class="cheatsheet-item">
+          <strong>„ne" vor dem Verb:</strong> ne radim (ich arbeite nicht).
+        </div>
+        <div class="cheatsheet-item">
+          <strong>Kurze Wörter an 2. Stelle:</strong> li, se, sam, je … – „Govoriš li …?", „Kako se zoveš?", „Ja sam …".
+        </div>
+        <div class="cheatsheet-item">
+          <strong>Unterschied zum Deutschen:</strong> Kein Verb-zweit, kein Verb am Nebensatz-Ende – die Endungen steuern die Bedeutung, nicht die Position.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Seiten-Navigation (vorherige / nächste Lektion) ── -->
+    <nav class="page-nav">
+      <a href="grammatik-faelle.html" class="page-nav-btn nav-back">
+        <i class="fas fa-arrow-left"></i> Die 7 Fälle – Überblick
+      </a>
+      <a href="grammatik-nominativ.html" class="page-nav-btn nav-next">
+        Nächstes Thema: Nominativ <i class="fas fa-arrow-right"></i>
+      </a>
+    </nav>
+
+  </main>
+
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Quiz-Logik (10 Fragen)
+
+       Jede Frage hat:
+       - question:    die Fragestellung
+       - options:     Array mit 3 Antworten
+       - correct:     Index der richtigen Antwort (0, 1 oder 2)
+       - explanation: Erklärung nach dem Antworten
+       ====================================================== -->
+  <script>
+    var quizData = [
+      {
+        question: 'Was ist die neutrale Grundreihenfolge im bosnischen Satz?',
+        options: ['Verb – Subjekt – Objekt', 'Objekt – Verb – Subjekt', 'Subjekt – Verb – Objekt'],
+        correct: 2,
+        explanation: 'Neutral ist Subjekt–Verb–Objekt: „Ana čita knjigu." Dank der Fälle sind aber auch andere Reihenfolgen möglich.'
+      },
+      {
+        question: 'Warum ist die Wortstellung im Bosnischen relativ frei?',
+        options: ['Weil die Fall-Endungen zeigen, wer was tut', 'Weil es Artikel gibt', 'Weil es keine Objekte gibt'],
+        correct: 0,
+        explanation: 'Die Endungen markieren Subjekt und Objekt – deshalb ist die Reihenfolge flexibel.'
+      },
+      {
+        question: '„Knjigu čita Ana." und „Ana čita knjigu." – was ist der Unterschied?',
+        options: ['Gleiche Bedeutung, andere Betonung', 'Völlig verschiedene Bedeutung', 'Der erste Satz ist falsch'],
+        correct: 0,
+        explanation: 'Beide heißen „Ana liest ein Buch." Die Endung -u (knjigu) macht das Objekt eindeutig – die Stellung ändert nur die Betonung.'
+      },
+      {
+        question: 'Wo steht das Adjektiv im Bosnischen?',
+        options: ['nach dem Substantiv: kuća velika', 'vor dem Substantiv: velika kuća', 'das ist völlig frei'],
+        correct: 1,
+        explanation: 'Das Adjektiv steht fest vor dem Substantiv: velika kuća (großes Haus).'
+      },
+      {
+        question: 'Wo steht die Verneinung „ne"?',
+        options: ['vor dem Verb: ne znam', 'nach dem Verb: znam ne', 'am Satzende'],
+        correct: 0,
+        explanation: 'Wie im Präsens-Kapitel: „ne" steht direkt vor dem Verb. Ne znam = Ich weiß es nicht.'
+      },
+      {
+        question: '„Kako ___ zoveš?" (Wie heißt du?) – wohin gehört das kurze Wort „se"?',
+        options: ['ans Ende: Kako zoveš se?', 'an den Anfang: Se kako zoveš?', 'an zweite Stelle: Kako se zoveš?'],
+        correct: 2,
+        explanation: 'Kurze Wörter stehen an zweiter Stelle, direkt nach dem ersten betonten Wort: Kako se zoveš?'
+      },
+      {
+        question: 'Im deutschen Hauptsatz steht das Verb …',
+        options: ['an zweiter Stelle', 'immer ganz am Ende', 'immer am Anfang'],
+        correct: 0,
+        explanation: 'Deutsch hat die Verb-zweit-Regel: „Heute lese ich ein Buch." Bosnisch hat diese Regel nicht.'
+      },
+      {
+        question: 'Bosnischer Nebensatz „…, jer čitam knjigu" (weil ich ein Buch lese): Wo steht das Verb „čitam"?',
+        options: ['ganz am Satzende, wie im Deutschen', 'gleich nach „jer", nicht am Ende', 'noch vor „jer"'],
+        correct: 1,
+        explanation: 'Anders als im Deutschen wandert das Verb im Nebensatz NICHT ans Ende – es bleibt an gewohnter Stelle.'
+      },
+      {
+        question: 'Welcher Fragesatz ist korrekt?',
+        options: ['Li govoriš bosanski?', 'Govoriš li bosanski?', 'Govoriš bosanski li?'],
+        correct: 1,
+        explanation: '„li" ist ein kurzes Wort und steht an zweiter Stelle – direkt nach dem Verb.'
+      },
+      {
+        question: '„Ich bin müde." – welche Stellung von „sam" ist neutral und korrekt?',
+        options: ['Sam ja umoran.', 'Ja sam umoran.', 'Ja umoran sam.'],
+        correct: 1,
+        explanation: 'Das kurze „sam" steht an zweiter Stelle: „Ja sam umoran." (Auch „Umoran sam." ist möglich.)'
+      }
+    ];
+
+    var currentQuestion = 0;
+    var score = 0;
+    var answered = false;
+
+
+    /* ── Frage anzeigen ──────────────────────────────── */
+    function showQuestion() {
+      var q = quizData[currentQuestion];
+
+      // Fortschritt aktualisieren
+      document.getElementById('quizProgress').textContent =
+        'Frage ' + (currentQuestion + 1) + ' von ' + quizData.length;
+      document.getElementById('quizBarFill').style.width =
+        ((currentQuestion / quizData.length) * 100) + '%';
+
+      // Frage anzeigen
+      document.getElementById('quizQuestion').textContent = q.question;
+
+      // Antwort-Buttons erstellen
+      var optionsDiv = document.getElementById('quizOptions');
+      optionsDiv.innerHTML = '';
+      q.options.forEach(function(option, index) {
+        var btn = document.createElement('button');
+        btn.className = 'quiz-option-btn';
+        btn.textContent = option;
+        btn.addEventListener('click', function() { checkAnswer(index); });
+        optionsDiv.appendChild(btn);
+      });
+
+      // Feedback und Weiter-Button verstecken
+      document.getElementById('quizFeedback').classList.add('hidden');
+      document.getElementById('quizNextBtn').classList.add('hidden');
+      answered = false;
+    }
+
+
+    /* ── Antwort prüfen ──────────────────────────────── */
+    function checkAnswer(selected) {
+      if (answered) return;   // Doppelklick verhindern
+      answered = true;
+
+      var q = quizData[currentQuestion];
+      var buttons = document.querySelectorAll('.quiz-option-btn');
+      var feedback = document.getElementById('quizFeedback');
+
+      // Richtige Antwort grün markieren
+      buttons[q.correct].classList.add('correct');
+
+      if (selected === q.correct) {
+        score++;
+        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Richtig! ' + q.explanation;
+        feedback.className = 'quiz-feedback feedback-correct';
+      } else {
+        buttons[selected].classList.add('wrong');
+        feedback.innerHTML = '<i class="fas fa-times-circle"></i> Leider falsch. ' + q.explanation;
+        feedback.className = 'quiz-feedback feedback-wrong';
+      }
+
+      // Alle Buttons deaktivieren
+      buttons.forEach(function(btn) { btn.disabled = true; });
+
+      // Weiter-Button anzeigen – oder am Ende das Ergebnis
+      if (currentQuestion < quizData.length - 1) {
+        document.getElementById('quizNextBtn').classList.remove('hidden');
+      } else {
+        setTimeout(showResult, 1200);
+      }
+    }
+
+
+    /* ── Nächste Frage ───────────────────────────────── */
+    document.getElementById('quizNextBtn').addEventListener('click', function() {
+      currentQuestion++;
+      showQuestion();
+    });
+
+
+    /* ── Ergebnis anzeigen ───────────────────────────── */
+    function showResult() {
+      document.getElementById('quizContainer').classList.add('hidden');
+      var result = document.getElementById('quizResult');
+      result.classList.remove('hidden');
+
+      document.getElementById('resultScore').textContent =
+        score + ' von ' + quizData.length + ' richtig';
+
+      var text = '';
+      if (score >= 9) {
+        text = 'Ausgezeichnet! Du hast den bosnischen Satzbau wirklich verstanden! 🎉';
+      } else if (score >= 7) {
+        text = 'Sehr gut! Das Prinzip sitzt. Schau dir die festen Regeln in Block 3 nochmal an.';
+      } else if (score >= 5) {
+        text = 'Guter Anfang! Geh besonders den Unterschied „frei vs. fest" nochmal durch.';
+      } else {
+        text = 'Kein Problem – lies dir die Lektion in Ruhe nochmal durch und versuch es erneut!';
+      }
+      document.getElementById('resultText').textContent = text;
+    }
+
+
+    /* ── Quiz wiederholen ────────────────────────────── */
+    document.getElementById('quizRetryBtn').addEventListener('click', function() {
+      currentQuestion = 0;
+      score = 0;
+      document.getElementById('quizResult').classList.add('hidden');
+      document.getElementById('quizContainer').classList.remove('hidden');
+      showQuestion();
+    });
+
+
+    /* ── Quiz beim Laden starten ─────────────────────── */
+    showQuestion();
+  </script>
+
+</body>
+</html>

@@ -1,4 +1,22 @@
-    fetch('/Code/LB_header.html')
+   // ── GoatCounter Webanalyse ──────────────────────────────────
+// Läuft auf JEDER Seite, weil LB_main.js überall eingebunden ist.
+// Wir erzeugen das <script>-Element per JS und hängen es an den
+// <body> an. Wichtig: Ein per innerHTML eingefügtes <script> würde
+// NICHT ausgeführt – deshalb dieser Weg über createElement/appendChild.
+(function () {
+    var gc = document.createElement('script');          // neues <script> erzeugen
+    gc.async = true;                                    // blockiert das Laden der Seite nicht
+    gc.src = '//gc.zgo.at/count.js';                    // das Zähl-Script von GoatCounter
+
+    gc.setAttribute('data-goatcounter',
+                    'https://linguabosna.goatcounter.com/count');
+    document.body.appendChild(gc);                      // ins DOM einfügen → wird ausgeführt
+})();
+// ────────────────────────────────────────────────────────────
+   
+
+//Header//
+   fetch('/Code/LB_header.html')
         .then(response => response.text())
         .then(html => {
             // Suchen Sie einen Platzhalter im aktuellen HTML-Dokument
@@ -37,7 +55,8 @@
         }
         // ────────────────────────────────────────────────────────────
     });
-    
+
+//Footer//
     fetch('/Code/LB_footer.html')
         .then(response => response.text())
         .then(html => {

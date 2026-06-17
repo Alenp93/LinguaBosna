@@ -1,5 +1,4 @@
 
-
 //Header//
    fetch('/Code/LB_header.html')
         .then(response => response.text())
@@ -54,9 +53,7 @@
                 document.body.insertAdjacentHTML('afterbegin', html);
             }
         });
-        
-
-   // ── GoatCounter Webanalyse ──────────────────────────────────
+    // ── GoatCounter Webanalyse ──────────────────────────────────
 // Läuft auf JEDER Seite, weil LB_main.js überall eingebunden ist.
 // Wir erzeugen das <script>-Element per JS und hängen es an den
 // <body> an. Wichtig: Ein per innerHTML eingefügtes <script> würde
@@ -83,13 +80,14 @@
 // Bosnisch klingt aber wie Kroatisch/Serbisch und wird lateinisch
 // "wie geschrieben" gelesen → wir suchen eine kroatische/serbische
 // Stimme. Zwei typische Stolpersteine, die hier abgefangen werden:
-//   1) Die Stimmenliste ist anfangs LEER und füllt sich erst verzögert.
-//   2) In Edge gibt es kroatische ONLINE-Stimmen, die oft erst NACH
-//      dem ersten Sprechversuch auftauchen ("Aufwärm"-Trick unten).
+//   1) Die Stimmenliste ist anfangs LEER und füllt sich erst verzögert
+//      → wir fragen sie ab Seitenstart mehrmals im Hintergrund ab.
+//   2) WICHTIG für Handys: speak() muss DIREKT im Tipp/Klick starten,
+//      sonst blockieren mobile Browser den Ton. Darum KEINE Timer/Tricks
+//      vor dem Sprechen – wir sprechen sofort.
 (function () {
 
   let verfuegbareStimmen = [];   // gemerkte Stimmenliste
-  let aufgewaermt        = false; // wurde der Edge-Aufwärmruf schon gemacht?
 
   function stimmenLaden() {
     if ('speechSynthesis' in window) {
@@ -174,28 +172,21 @@
   // Öffentliche Funktion: auf jeder Seite als LB_speak(...) aufrufbar.
   //   text    = Wort MIT Sonderzeichen (č, ć, š, ž, đ)
   //   sprache = 'bos' (Standard) oder 'de'
+  //
+  // WICHTIG (Handy!): speak() MUSS DIREKT aus dem Tipp/Klick heraus
+  // starten. Mobile Browser BLOCKIEREN jede Sprachausgabe, die per
+  // setTimeout o. Ä. verzögert beginnt. Darum sprechen wir hier SOFORT –
+  // kein Timer, kein vorgeschalteter stummer "Aufwärm"-Ruf. Edges
+  // Online-Stimmen werden stattdessen schon ab dem Seitenstart im
+  // Hintergrund geladen (siehe poll oben), sodass sie beim Tippen
+  // meistens bereitstehen.
   window.LB_speak = function (text, sprache) {
     if (!text) return;
     if (!('speechSynthesis' in window)) { hinweisZeigen(); return; }
-    sprache = sprache || 'bos';
-
-    // EDGE-AUFWÄRM-TRICK: Beim allerersten Klick einen unhörbaren
-    // Mini-Ruf abgeben. Das bewegt Edge dazu, seine Online-Stimmen zu
-    // laden. Das echte Wort kommt 300 ms später – dann ist die kroatische
-    // Stimme meist verfügbar. Ab dem 2. Klick direkt sprechen.
-    if (!aufgewaermt) {
-      aufgewaermt = true;
-      try {
-        const warm = new SpeechSynthesisUtterance(' ');
-        warm.volume = 0; // unhörbar
-        window.speechSynthesis.speak(warm);
-      } catch (e) { /* egal */ }
-      setTimeout(() => aussprechen(text, sprache), 300);
-      return;
-    }
-
-    aussprechen(text, sprache);
+    aussprechen(text, sprache || 'bos');
   };
 
 })();
 // ────────────────────────────────────────────────────────────
+
+       

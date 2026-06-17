@@ -53,7 +53,8 @@
                 document.body.insertAdjacentHTML('afterbegin', html);
             }
         });
-    // ── GoatCounter Webanalyse ──────────────────────────────────
+
+// ── GoatCounter Webanalyse ──────────────────────────────────
 // Läuft auf JEDER Seite, weil LB_main.js überall eingebunden ist.
 // Wir erzeugen das <script>-Element per JS und hängen es an den
 // <body> an. Wichtig: Ein per innerHTML eingefügtes <script> würde
@@ -72,121 +73,50 @@
 
 // ── Aussprache / Sprachausgabe (Text-to-Speech) ─────────────
 // Liegt HIER in LB_main.js, weil die Funktion auf mehreren Seiten
-// gebraucht wird (Vokabel-Tabelle UND Vokabeltrainer). So gibt es
-// nur EINE Stelle, die gepflegt werden muss.
+// gebraucht wird (Vokabel-Tabelle UND Vokabeltrainer).
 //
-// HINTERGRUND ZUR AUSSPRACHE:
-// Eine echte BOSNISCHE Computerstimme ("bs-BA") gibt es fast nirgends.
-// Bosnisch klingt aber wie Kroatisch/Serbisch und wird lateinisch
-// "wie geschrieben" gelesen → wir suchen eine kroatische/serbische
-// Stimme. Zwei typische Stolpersteine, die hier abgefangen werden:
-//   1) Die Stimmenliste ist anfangs LEER und füllt sich erst verzögert
-//      → wir fragen sie ab Seitenstart mehrmals im Hintergrund ab.
-//   2) WICHTIG für Handys: speak() muss DIREKT im Tipp/Klick starten,
-//      sonst blockieren mobile Browser den Ton. Darum KEINE Timer/Tricks
-//      vor dem Sprechen – wir sprechen sofort.
+// Eine echte BOSNISCHE Stimme ("bs-BA") gibt es fast nirgends. Bosnisch
+// klingt aber wie Kroatisch/Serbisch und wird lateinisch "wie geschrieben"
+// gelesen. Darum sprechen wir mit kroatischer Sprache (hr-HR) und nehmen,
+// falls vorhanden, eine kroatische/serbische Stimme des Geräts.
+//
+// WICHTIG (Handy): speak() MUSS direkt im Antippen laufen – ohne Timer,
+// ohne Verzögerung, sonst blockieren mobile Browser den Ton.
 (function () {
 
-  let verfuegbareStimmen = [];   // gemerkte Stimmenliste
-
-  function stimmenLaden() {
-    if ('speechSynthesis' in window) {
-      verfuegbareStimmen = window.speechSynthesis.getVoices() || [];
-    }
-  }
-
+  // Manche Browser füllen die Stimmenliste verzögert – Laden anstoßen.
   if ('speechSynthesis' in window) {
-    stimmenLaden();
-    // Feuert, sobald (mehr) Stimmen bereitstehen
-    window.speechSynthesis.onvoiceschanged = stimmenLaden;
-    // Online-Stimmen laden manchmal sekundenlang → mehrmals nachfragen
-    let versuche = 0;
-    const poll = setInterval(() => {
-      stimmenLaden();
-      if (versuche++ > 12) clearInterval(poll);
-    }, 500);
+    window.speechSynthesis.getVoices();
   }
 
-  // Sucht die beste Stimme. Für Bosnisch in der Reihenfolge der
-  // Sprachverwandtschaft: bosnisch → kroatisch → serbisch →
-  // slowenisch → mazedonisch (alle näher an Bosnisch als Deutsch).
+  // Liefert – falls vorhanden – eine passende Stimme des Geräts zurück.
   function findeStimme(sprache) {
-    stimmenLaden();
+    const stimmen = window.speechSynthesis.getVoices() || [];
     if (sprache === 'de') {
-      return verfuegbareStimmen.find(s => s.lang.toLowerCase().startsWith('de')) || null;
+      return stimmen.find(s => s.lang.toLowerCase().startsWith('de'));
     }
-    for (const code of ['bs', 'hr', 'sr', 'sl', 'mk']) {
-      const treffer = verfuegbareStimmen.find(s => s.lang.toLowerCase().startsWith(code));
-      if (treffer) return treffer;
-    }
-    return null;
+    // bosnisch → kroatisch → serbisch (gleiche Aussprache)
+    return stimmen.find(s => /^(bs|hr|sr)/.test(s.lang.toLowerCase()));
   }
 
-  // Spricht das Wort tatsächlich aus.
-  function aussprechen(text, sprache) {
-    window.speechSynthesis.cancel(); // evtl. laufende Ausgabe stoppen
+  // Öffentliche Funktion: LB_speak('riječ', 'bos')  oder  LB_speak('Wort', 'de')
+  //   text = das Wort MIT Sonderzeichen (č, ć, š, ž, đ)
+  window.LB_speak = function (text, sprache) {
+    if (!text || !('speechSynthesis' in window)) return;
+    sprache = sprache || 'bos';
 
-    const u      = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.cancel();                 // evtl. Laufendes stoppen
+    const u = new SpeechSynthesisUtterance(text);
+
     const stimme = findeStimme(sprache);
-
-    if (stimme) {
-      u.voice = stimme;
-      u.lang  = stimme.lang;
-    } else {
-      // Keine Stimme gelistet → trotzdem die Sprache angeben. Edge nutzt
-      // dann ggf. eine Online-Stimme. Klappt das nicht, fängt onerror es ab.
-      u.lang = (sprache === 'de') ? 'de-DE' : 'hr-HR';
-    }
-    u.rate = 0.9; // etwas langsamer = besser zum Mitlernen
-
-    // Schlägt die Ausgabe fehl (z. B. keine passende Stimme vorhanden),
-    // zeigen wir einen kurzen Hinweis statt einfach stumm zu bleiben.
-    u.onerror = (e) => {
-      if (e.error && e.error !== 'interrupted' && e.error !== 'canceled') {
-        hinweisZeigen();
-      }
-    };
+    if (stimme) u.voice = stimme;                    // passende Stimme, wenn vorhanden
+    u.lang = stimme ? stimme.lang                    // sonst wenigstens die Sprache
+                    : (sprache === 'de' ? 'de-DE' : 'hr-HR');
+    u.rate = 0.9;                                    // etwas langsamer zum Mitlernen
 
     window.speechSynthesis.speak(u);
-  }
-
-  // Kleine, unaufdringliche Einblendung am unteren Bildschirmrand.
-  function hinweisZeigen() {
-    let t = document.getElementById('lb-speak-hint');
-    if (!t) {
-      t = document.createElement('div');
-      t.id = 'lb-speak-hint';
-      t.style.cssText =
-        'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);' +
-        'background:#0A3D62;color:#fff;padding:10px 16px;border-radius:8px;' +
-        'font:14px/1.4 "Open Sans",system-ui,sans-serif;z-index:9999;' +
-        'max-width:90%;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:opacity .4s';
-      document.body.appendChild(t);
-    }
-    t.textContent = '🔇 Auf diesem Gerät ist keine passende Stimme installiert – Aussprache nicht verfügbar.';
-    t.style.opacity = '1';
-    clearTimeout(t._timer);
-    t._timer = setTimeout(() => { t.style.opacity = '0'; }, 3500);
-  }
-
-  // Öffentliche Funktion: auf jeder Seite als LB_speak(...) aufrufbar.
-  //   text    = Wort MIT Sonderzeichen (č, ć, š, ž, đ)
-  //   sprache = 'bos' (Standard) oder 'de'
-  //
-  // WICHTIG (Handy!): speak() MUSS DIREKT aus dem Tipp/Klick heraus
-  // starten. Mobile Browser BLOCKIEREN jede Sprachausgabe, die per
-  // setTimeout o. Ä. verzögert beginnt. Darum sprechen wir hier SOFORT –
-  // kein Timer, kein vorgeschalteter stummer "Aufwärm"-Ruf. Edges
-  // Online-Stimmen werden stattdessen schon ab dem Seitenstart im
-  // Hintergrund geladen (siehe poll oben), sodass sie beim Tippen
-  // meistens bereitstehen.
-  window.LB_speak = function (text, sprache) {
-    if (!text) return;
-    if (!('speechSynthesis' in window)) { hinweisZeigen(); return; }
-    aussprechen(text, sprache || 'bos');
   };
 
 })();
 // ────────────────────────────────────────────────────────────
 
-       

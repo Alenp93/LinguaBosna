@@ -100,22 +100,8 @@
       return entry['Wortart'] || entry['Wortart (Genus)'] || '';
     }
 
-    // Audio abspielen — MP3-Dateien müssen im Ordner "audio/" vorhanden sein
-    function playAudio(word) {
-      const audio = new Audio('audio/' + word + '.mp3');
-      audio.play().catch(() => { /* Datei noch nicht vorhanden — kein Fehler anzeigen */ });
-    }
-
-    // Bosnisches Wort → URL-sicherer Datei-Schlüssel für MP3-Pfade
-    function toAudioKey(word) {
-      return word
-        .toLowerCase()
-        .replace(/č/g, 'c').replace(/ć/g, 'c')
-        .replace(/š/g, 's').replace(/ž/g, 'z')
-        .replace(/đ/g, 'dj').replace(/ð/g, 'dj')
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9\-]/g, '');
-    }
+    // Audio läuft jetzt über LB_speak (Sprachausgabe) aus LB_main.js –
+    // keine MP3-Dateien und kein audio/-Ordner mehr nötig.
 
     async function loadVocab() {
       // Kapitel-Nummer aus der URL lesen (?kapitel=1)
@@ -152,22 +138,35 @@
         tbody.innerHTML = '';
 
         entries.forEach(entry => {
-          const audioKey = toAudioKey(entry.Bosnisch);
           const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>
-              ${entry.Bosnisch}
-              <button
-                class="speaker-btn"
-                onclick="playAudio('${audioKey}')"
-                title="Aussprache anhören"
-                aria-label="Aussprache von ${entry.Bosnisch}">
-                <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
-              </button>
-            </td>
-            <td>${entry.Deutsch}</td>
-            <td><span class="wortart-badge">${getWortart(entry)}</span></td>
-          `;
+
+          // ── Zelle 1: Bosnisch + Lautsprecher-Button ──────────────
+          const tdBos = document.createElement('td');
+          tdBos.textContent = entry.Bosnisch + ' ';
+
+          const btn = document.createElement('button');
+          btn.className = 'speaker-btn';
+          btn.title     = 'Aussprache anhören';
+          btn.setAttribute('aria-label', 'Aussprache von ' + entry.Bosnisch);
+          btn.innerHTML = '<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';
+
+          // WICHTIG: das ECHTE Wort (mit č, ć, š, ž, đ) übergeben –
+          // diese Buchstaben braucht die Stimme für die korrekte
+          // Aussprache. LB_speak kommt aus LB_main.js.
+          btn.addEventListener('click', () => LB_speak(entry.Bosnisch, 'bos'));
+          tdBos.appendChild(btn);
+
+          // ── Zelle 2: Deutsch ─────────────────────────────────────
+          const tdDe = document.createElement('td');
+          tdDe.textContent = entry.Deutsch;
+
+          // ── Zelle 3: Wortart ─────────────────────────────────────
+          const tdWa = document.createElement('td');
+          tdWa.innerHTML = `<span class="wortart-badge">${getWortart(entry)}</span>`;
+
+          tr.appendChild(tdBos);
+          tr.appendChild(tdDe);
+          tr.appendChild(tdWa);
           tbody.appendChild(tr);
         });
 

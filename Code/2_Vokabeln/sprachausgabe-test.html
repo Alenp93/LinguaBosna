@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaBosna – Sprachausgabe-Test</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 0 auto;
+           padding: 24px; color: #0A3D62; background: #F8F5F0; }
+    h1 { font-size: 1.3rem; } h2 { font-size: 1.05rem; }
+    button { font-size: 1rem; padding: 10px 16px; margin: 4px 6px 4px 0;
+             border: 0; border-radius: 6px; background: #0A3D62; color: #fff; cursor: pointer; }
+    button.gold { background: #F4C542; color: #0A3D62; }
+    input { font-size: 1rem; padding: 8px; width: 200px; }
+    #status { margin: 16px 0; padding: 12px; border-radius: 6px; background: #fff;
+              border: 1px solid #E6E6E6; min-height: 1.4em; }
+    .ok { color: #2E5E2E; font-weight: bold; } .bad { color: #b03030; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; background:#fff; }
+    th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid #E6E6E6; font-size: .9rem; }
+    .hit { background: #FFF7DA; }
+  </style>
+</head>
+<body>
+
+  <h1>🔊 Sprachausgabe-Test (LinguaBosna)</h1>
+  <p>Schritt 1: Auf <b>„Online-Stimmen wecken"</b> tippen (wichtig für Edge!). Kurz warten.<br>
+     Schritt 2: Auf <b>„Vorlesen"</b> tippen und hören, ob Ton kommt.</p>
+
+  <div>
+    <input id="wort" value="doviđenja">
+    <button onclick="wecken()">🌐 Online-Stimmen wecken</button>
+    <button class="gold" onclick="testSprechen()">▶ Vorlesen (beste Stimme)</button>
+  </div>
+
+  <div id="status">Stimmen werden geladen …</div>
+
+  <h2>Verfügbare Stimmen auf diesem Gerät</h2>
+  <p id="zusammenfassung"></p>
+  <table id="tabelle">
+    <thead><tr><th>Name</th><th>Sprachcode</th><th>Typ</th><th>Test</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    let stimmen = [];
+
+    function stimmenLaden() {
+      stimmen = window.speechSynthesis ? (window.speechSynthesis.getVoices() || []) : [];
+      anzeigen();
+    }
+
+    if ('speechSynthesis' in window) {
+      stimmenLaden();
+      window.speechSynthesis.onvoiceschanged = stimmenLaden;
+      // Online-Stimmen kommen oft verzögert → einige Sekunden nachfragen
+      let n = 0; const poll = setInterval(() => { stimmenLaden(); if (n++ > 12) clearInterval(poll); }, 500);
+    } else {
+      document.getElementById('status').innerHTML =
+        '<span class="bad">Dieser Browser unterstützt KEINE Sprachausgabe.</span>';
+    }
+
+    // bs → hr → sr → sl → mk (alle näher an Bosnisch als Deutsch)
+    function besteStimme() {
+      for (const c of ['bs','hr','sr','sl','mk']) {
+        const t = stimmen.find(s => s.lang.toLowerCase().startsWith(c));
+        if (t) return t;
+      }
+      return null;
+    }
+
+    // Edge zum Laden seiner Online-Stimmen bewegen: ein unhörbarer Mini-Ruf
+    function wecken() {
+      if (!('speechSynthesis' in window)) return;
+      const warm = new SpeechSynthesisUtterance(' ');
+      warm.volume = 0;
+      window.speechSynthesis.speak(warm);
+      document.getElementById('status').textContent = '⏳ Wecke Online-Stimmen … 2 Sekunden warten, dann Liste prüfen.';
+      setTimeout(stimmenLaden, 2000);
+    }
+
+    function anzeigen() {
+      const tbody = document.querySelector('#tabelle tbody');
+      tbody.innerHTML = '';
+      stimmen.forEach(s => {
+        const code = s.lang.toLowerCase();
+        const treffer = ['bs','hr','sr','sl','mk'].some(c => code.startsWith(c));
+        const tr = document.createElement('tr');
+        if (treffer) tr.className = 'hit';
+        tr.innerHTML = `<td>${s.name}</td><td>${s.lang}</td>` +
+                       `<td>${s.localService ? 'Lokal' : 'Online'}</td>`;
+        const td = document.createElement('td');
+        const b = document.createElement('button');
+        b.textContent = 'Test';
+        b.onclick = () => sprechen(document.getElementById('wort').value, s);
+        td.appendChild(b); tr.appendChild(td); tbody.appendChild(tr);
+      });
+
+      const beste = besteStimme();
+      const z = document.getElementById('zusammenfassung');
+      if (!stimmen.length) {
+        z.innerHTML = '<span class="bad">Noch keine Stimmen gemeldet – „Online-Stimmen wecken" tippen.</span>';
+      } else if (beste) {
+        z.innerHTML = `<span class="ok">✓ Passende Stimme:</span> ${beste.name} (${beste.lang}, ${beste.localService ? 'Lokal' : 'Online'}).`;
+      } else {
+        z.innerHTML = '<span class="bad">✗ Noch keine kroat./serb. Stimme gelistet.</span> Erst „wecken", dann trotzdem „Vorlesen" testen – Edge kann auch ohne Listung sprechen.';
+      }
+    }
+
+    function sprechen(wort, stimme) {
+      const status = document.getElementById('status');
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(wort);
+      if (stimme) { u.voice = stimme; u.lang = stimme.lang; } else { u.lang = 'hr-HR'; }
+      u.rate = 0.9;
+      u.onstart = () => status.innerHTML = `<span class="ok">▶ Spreche „${wort}" mit ${stimme ? stimme.name : 'Standard (hr-HR)'} …</span>`;
+      u.onend   = () => status.innerHTML += ' <span class="ok">(fertig – kam Ton?)</span>';
+      u.onerror = (e) => status.innerHTML = `<span class="bad">Fehler: ${e.error}</span> – auf diesem Gerät kein Ton möglich.`;
+      window.speechSynthesis.speak(u);
+    }
+
+    function testSprechen() { sprechen(document.getElementById('wort').value, besteStimme()); }
+  </script>
+
+</body>
+</html>

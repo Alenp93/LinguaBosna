@@ -100,10 +100,35 @@
       return entry['Wortart'] || entry['Wortart (Genus)'] || '';
     }
 
+    // ── Beste verfügbare BKS-Stimme ermitteln ───────────────────────────
+    // BKS = Bosnisch / Kroatisch / Serbisch (+ Montenegrinisch). Alle vier
+    // klingen phonetisch praktisch gleich. Wir nehmen die erste Stimme, die
+    // das Gerät tatsächlich anbietet – in dieser Wunschreihenfolge:
+    // Bosnisch → Kroatisch → Serbisch → Montenegrinisch.
+    const BKS_LANGS = ['bs-BA', 'bs', 'hr-HR', 'hr', 'sr-RS', 'sr', 'cnr-ME', 'cnr'];
+    let bksVoice = null;
+
+    function pickBksVoice() {
+      const voices = window.speechSynthesis.getVoices();   // verfügbare Stimmen abfragen
+      for (const lang of BKS_LANGS) {                       // Wunschreihenfolge durchgehen
+        const treffer = voices.find(v =>
+          v.lang && v.lang.toLowerCase().startsWith(lang.toLowerCase())
+        );
+        if (treffer) { bksVoice = treffer; break; }         // erste passende Stimme merken
+      }
+    }
+
+    // Stimmen werden teils verzögert geladen – deshalb sofort UND beim
+    // Nachladen ermitteln. Läuft beim Seitenstart (lange vor dem ersten
+    // Klick) und blockiert daher nichts auf Mobilgeräten.
+    if ('speechSynthesis' in window) {
+      pickBksVoice();
+      window.speechSynthesis.addEventListener('voiceschanged', pickBksVoice);
+    }
+
     // ── Aussprache per Browser-Stimme (Web Speech API) ──────────────────
     // Erzeugt die Aussprache live im Browser – es werden KEINE Tondateien
-    // mehr benötigt. Das löst das alte Problem: vorher wurde nach MP3-Dateien
-    // gesucht, die es nie gab, und ein verstecktes catch() schluckte den Fehler.
+    // benötigt.
     function speakWord(word) {
       // 1) Unterstützt der Browser Sprachausgabe überhaupt? (sehr ältere Browser nicht)
       if (!('speechSynthesis' in window)) return;
@@ -116,10 +141,14 @@
       //    Sonderzeichen (č, ć, š, ž, đ), damit die Aussprache korrekt klingt.
       const utterance = new SpeechSynthesisUtterance(word);
 
-      // 4) Kroatisch (hr-HR) als phonetisch nahezu identischer Ersatz für
-      //    Bosnisch. Bosnisch (bs-BA) wird auf fast keinem Gerät unterstützt;
-      //    Kroatisch klingt praktisch gleich und ist viel breiter verfügbar.
-      utterance.lang = 'hr-HR';
+      // 4) Gefundene BKS-Stimme verwenden; falls keine erkannt wurde,
+      //    Kroatisch als sicherer Standard-Fallback (phonetisch ≈ Bosnisch).
+      if (bksVoice) {
+        utterance.voice = bksVoice;
+        utterance.lang  = bksVoice.lang;
+      } else {
+        utterance.lang  = 'hr-HR';
+      }
 
       // 5) Etwas langsamer als normal – angenehmer zum Mit- und Nachsprechen.
       utterance.rate = 0.9;

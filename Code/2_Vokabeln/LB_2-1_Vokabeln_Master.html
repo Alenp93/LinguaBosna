@@ -100,22 +100,46 @@
       return entry['Wortart'] || entry['Wortart (Genus)'] || '';
     }
 
-    // Audio abspielen — MP3-Dateien müssen im Ordner "audio/" vorhanden sein
-    function playAudio(word) {
-      const audio = new Audio('audio/' + word + '.mp3');
-      audio.play().catch(() => { /* Datei noch nicht vorhanden — kein Fehler anzeigen */ });
+    // ── Aussprache per Browser-Stimme (Web Speech API) ──────────────────
+    // Erzeugt die Aussprache live im Browser – es werden KEINE Tondateien
+    // mehr benötigt. Das löst das alte Problem: vorher wurde nach MP3-Dateien
+    // gesucht, die es nie gab, und ein verstecktes catch() schluckte den Fehler.
+    function speakWord(word) {
+      // 1) Unterstützt der Browser Sprachausgabe überhaupt? (sehr ältere Browser nicht)
+      if (!('speechSynthesis' in window)) return;
+
+      // 2) Eventuell noch laufende Ausgabe stoppen – verhindert Überlappung,
+      //    wenn schnell hintereinander auf mehrere Buttons getippt wird.
+      window.speechSynthesis.cancel();
+
+      // 3) Sprachobjekt mit dem ORIGINAL-Wort erstellen – wichtig: MIT den
+      //    Sonderzeichen (č, ć, š, ž, đ), damit die Aussprache korrekt klingt.
+      const utterance = new SpeechSynthesisUtterance(word);
+
+      // 4) Kroatisch (hr-HR) als phonetisch nahezu identischer Ersatz für
+      //    Bosnisch. Bosnisch (bs-BA) wird auf fast keinem Gerät unterstützt;
+      //    Kroatisch klingt praktisch gleich und ist viel breiter verfügbar.
+      utterance.lang = 'hr-HR';
+
+      // 5) Etwas langsamer als normal – angenehmer zum Mit- und Nachsprechen.
+      utterance.rate = 0.9;
+
+      // 6) Sofort & synchron abspielen. WICHTIG für Mobilgeräte: speak() muss
+      //    direkt im Klick-Event aufgerufen werden. Jede Verzögerung
+      //    (setTimeout o. Ä.) würde den Ton auf dem Handy blockieren.
+      window.speechSynthesis.speak(utterance);
     }
 
-    // Bosnisches Wort → URL-sicherer Datei-Schlüssel für MP3-Pfade
-    function toAudioKey(word) {
-      return word
-        .toLowerCase()
-        .replace(/č/g, 'c').replace(/ć/g, 'c')
-        .replace(/š/g, 's').replace(/ž/g, 'z')
-        .replace(/đ/g, 'dj').replace(/ð/g, 'dj')
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9\-]/g, '');
-    }
+    // Klicks auf ALLE Lautsprecher-Buttons zentral über die Tabelle abfangen
+    // (sogenannte "Event-Delegation"). Vorteile gegenüber einem onclick pro Button:
+    //  • funktioniert auch für Zeilen, die erst später dynamisch erzeugt werden
+    //  • keine Escaping-Probleme mit Sonderzeichen/Apostrophen im Wort
+    // Das gesuchte Wort steht jeweils im data-Attribut "data-wort" des Buttons.
+    document.getElementById('vocabBody').addEventListener('click', (e) => {
+      const btn = e.target.closest('.speaker-btn');  // wurde ein Lautsprecher getroffen?
+      if (!btn) return;                               // Klick daneben → ignorieren
+      speakWord(btn.dataset.wort);                    // Wort vorlesen lassen
+    });
 
     async function loadVocab() {
       // Kapitel-Nummer aus der URL lesen (?kapitel=1)
@@ -152,14 +176,15 @@
         tbody.innerHTML = '';
 
         entries.forEach(entry => {
-          const audioKey = toAudioKey(entry.Bosnisch);
           const tr = document.createElement('tr');
+          // Hinweis: Das Wort wird im data-Attribut "data-wort" gespeichert –
+          // MIT Sonderzeichen, damit speakWord() korrekt aussprechen kann.
           tr.innerHTML = `
             <td>
               ${entry.Bosnisch}
               <button
                 class="speaker-btn"
-                onclick="playAudio('${audioKey}')"
+                data-wort="${entry.Bosnisch}"
                 title="Aussprache anhören"
                 aria-label="Aussprache von ${entry.Bosnisch}">
                 <i class="fa-solid fa-volume-high" aria-hidden="true"></i>

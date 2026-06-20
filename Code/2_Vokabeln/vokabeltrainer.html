@@ -425,21 +425,20 @@
       updateProgress();
     }
 
-    // Text-to-Speech für das bosnische/deutsche Wort.
-    // Nutzt jetzt die gemeinsame Funktion LB_speak aus LB_main.js,
-    // die gezielt eine kroatische/serbische Stimme wählt (korrekte
-    // bosnische Aussprache) statt des nicht existierenden "bs-BA".
+// Text-to-Speech für das bosnische/deutsche Wort
     function speakWord(e) {
       e.stopPropagation(); // Verhindert gleichzeitiges Umdrehen der Karte
       const v = queue[current];
       if (!v) return;
-
-      if (direction === 'bos-de') {
-        LB_speak(v.Bosnisch, 'bos'); // Vorderseite zeigt Bosnisch
-      } else {
-        LB_speak(v.Deutsch, 'de');   // Vorderseite zeigt Deutsch
+      const word = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(word);
+        u.lang = direction === 'bos-de' ? 'bs-BA' : 'de-DE';
+        speechSynthesis.cancel();
+        speechSynthesis.speak(u);
       }
     }
+
 
     // ─────────────────────────────────────────────────────────
     // MULTIPLE CHOICE

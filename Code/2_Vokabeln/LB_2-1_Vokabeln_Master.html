@@ -77,9 +77,10 @@
       <table id="vocabTable" style="display:none;">
         <thead>
           <tr>
+            <!-- Wortart-Spalte entfernt: Genus erscheint jetzt direkt
+                 hinter dem bosnischen Wort, z.B. "vjera (f)" -->
             <th>Bosnisch</th>
             <th>Deutsch</th>
-            <th>Wortart</th>
           </tr>
         </thead>
         <tbody id="vocabBody"></tbody>
@@ -92,6 +93,29 @@
       Anzahl der Vokabeln in diesem Kapitel: <strong id="vocabCount"></strong>
     </div>
 
+    <!-- ── Kapitel-Navigation (vorheriges / nächstes Kapitel) ──────────
+         Steht am Ende der Seite unter der Tabelle. Wird per JS befüllt
+         und nur eingeblendet, wenn ein Vorgänger/Nachfolger existiert. -->
+    <nav class="chapter-nav" id="chapterNav" style="display:none;" aria-label="Kapitel-Navigation">
+
+      <!-- Vorheriges Kapitel: outline (sekundäre Aktion) -->
+      <a id="prevChapter" class="btn btn-outline chapter-btn" href="#">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span class="chapter-btn-text">
+          <span class="chapter-btn-name" id="prevChapterName"></span>
+        </span>
+      </a>
+
+      <!-- Nächstes Kapitel: primary (Hauptaktion) -->
+      <a id="nextChapter" class="btn btn-primary chapter-btn" href="#">
+        <span class="chapter-btn-text">
+          <span class="chapter-btn-name" id="nextChapterName"></span>
+        </span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+
+    </nav>
+
   </main>
 
   <!-- Footer (dynamisch) -->
@@ -101,11 +125,32 @@
     // ── Pfade ──────────────────────────────────────────────────────────
     const JSON_PATH    = '/Code/2_Vokabeln/vokabeln_flat.json';
     const TRAINER_PATH = '/Code/2_Vokabeln/vokabeltrainer.html';
+    // Absoluter Pfad zur Master-Seite selbst — für die Kapitel-Navigation.
+    // (Absolute Pfade laut Projektprinzip, damit Links auch in Unterordnern
+    //  zuverlässig funktionieren.)
+    const MASTER_PATH  = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
     // ──────────────────────────────────────────────────────────────────
 
     // Liest Wortart aus — JSON hat zwei mögliche Feldnamen je Kapitel
     function getWortart(entry) {
       return entry['Wortart'] || entry['Wortart (Genus)'] || '';
+    }
+
+    // ── Genus-Zusatz für Substantive ermitteln ──────────────────────────
+    // Aus z.B. "Substantiv (f)" wird " (f)", aus "Substantiv (f, Pl.)" wird
+    // " (f, Pl.)". Dieser Zusatz wird direkt hinter das bosnische Wort
+    // gesetzt. Für alle anderen Wortarten (Verb, Adjektiv, Phrase, …) gibt
+    // die Funktion einen leeren String zurück – dort erscheint also nichts.
+    function getGenusSuffix(entry) {
+      const wortart = getWortart(entry);             // z.B. "Substantiv (f)"
+      // Nur bei Substantiven den Inhalt der Klammer übernehmen
+      if (wortart.startsWith('Substantiv')) {
+        const treffer = wortart.match(/\(([^)]+)\)/); // Text zwischen ( … ) suchen
+        if (treffer) {
+          return ' (' + treffer[1] + ')';            // z.B. " (f)" oder " (f, Pl.)"
+        }
+      }
+      return '';                                      // kein Zusatz
     }
 
     // ── Beste verfügbare BKS-Stimme ermitteln ───────────────────────────
@@ -178,6 +223,53 @@
       speakWord(btn.dataset.wort);                    // Wort vorlesen lassen
     });
 
+    // ── Kapitel-Navigation aufbauen ─────────────────────────────────────
+    // Bekommt die komplette JSON-Liste und das aktuelle Kapitel und richtet
+    // die Buttons "Vorheriges/Nächstes Kapitel" ein.
+    function setupChapterNav(all, kapitel) {
+      // 1) Alle vorhandenen Kapitel-Nummern eindeutig & sortiert sammeln
+      const chapters = [...new Set(all.map(e => e.Kapitel))].sort((a, b) => a - b);
+
+      // 2) Zu jeder Nummer den Kapitelnamen merken (erstes Vorkommen genügt)
+      const names = {};
+      all.forEach(e => {
+        if (!(e.Kapitel in names)) names[e.Kapitel] = e.Kapitelname;
+      });
+
+      // 3) Position des aktuellen Kapitels in der Liste finden
+      const idx     = chapters.indexOf(kapitel);
+      const prevNum = idx > 0 ? chapters[idx - 1] : null;                       // null = kein Vorgänger
+      const nextNum = idx < chapters.length - 1 ? chapters[idx + 1] : null;     // null = kein Nachfolger
+
+      const prevBtn = document.getElementById('prevChapter');
+      const nextBtn = document.getElementById('nextChapter');
+
+      // 4) Vorheriges Kapitel einrichten oder ausblenden
+      if (prevNum !== null) {
+        prevBtn.href = `${MASTER_PATH}?kapitel=${prevNum}`;
+        document.getElementById('prevChapterName').textContent =
+          `Kapitel ${prevNum}: ${names[prevNum]}`;
+        prevBtn.style.display = '';
+      } else {
+        prevBtn.style.display = 'none';
+      }
+
+      // 5) Nächstes Kapitel einrichten oder ausblenden
+      if (nextNum !== null) {
+        nextBtn.href = `${MASTER_PATH}?kapitel=${nextNum}`;
+        document.getElementById('nextChapterName').textContent =
+          `Kapitel ${nextNum}: ${names[nextNum]}`;
+        nextBtn.style.display = '';
+      } else {
+        nextBtn.style.display = 'none';
+      }
+
+      // 6) Navigationsleiste einblenden (außer es gibt weder Vor- noch Nachfolger)
+      if (prevNum !== null || nextNum !== null) {
+        document.getElementById('chapterNav').style.display = 'flex';
+      }
+    }
+
     async function loadVocab() {
       // Kapitel-Nummer aus der URL lesen (?kapitel=1)
       const params  = new URLSearchParams(window.location.search);
@@ -214,20 +306,21 @@
 
         entries.forEach(entry => {
           const tr = document.createElement('tr');
-          // Hinweis: Das Wort wird im data-Attribut "data-wort" gespeichert –
-          // MIT Sonderzeichen, damit speakWord() korrekt aussprechen kann.
+          // Bosnisches Wort + (bei Substantiven) Genus-Zusatz in Klammern.
+          // Beispiel-Ausgabe: "vjera (f)" oder "cipele (f, Pl.)".
+          // Die Wortart selbst wird NICHT mehr angezeigt (nur noch im JSON).
           tr.innerHTML = `
-            <td>
-              ${entry.Bosnisch}
-            </td>
+            <td>${entry.Bosnisch}<span class="genus">${getGenusSuffix(entry)}</span></td>
             <td>${entry.Deutsch}</td>
-            <td><span class="wortart-badge">${getWortart(entry)}</span></td>
           `;
           tbody.appendChild(tr);
         });
 
         // Anzahl setzen
         document.getElementById('vocabCount').textContent = entries.length;
+
+        // Kapitel-Navigation (Vor/Zurück) aufbauen
+        setupChapterNav(all, kapitel);
 
         // Alle UI-Elemente einblenden
         document.getElementById('stateMsg').style.display   = 'none';

@@ -53,12 +53,16 @@ main {
 
 
 /* ── Aktionsleiste ─────────────────────────────────────────── */
+/* justify-content: center  → Buttons werden horizontal zentriert
+   max-width + margin: auto  → gleiche Breite wie die Tabelle, mittig */
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;     /* oben 0, unten 30px, links/rechts auto = zentriert */
+  max-width: 800px;        /* kompakter auf großen Bildschirmen */
   align-items: center;
+  justify-content: center; /* Buttons mittig statt linksbündig */
 }
 
 
@@ -107,28 +111,44 @@ main {
 
 
 /* ── Tabellen-Wrapper ──────────────────────────────────────── */
-/* Wrapper ermöglicht horizontales Scrollen auf kleinen Bildschirmen */
+/* Wrapper ermöglicht horizontales Scrollen auf kleinen Bildschirmen.
+   max-width hält die Tabelle auf großen Monitoren kompakt, margin: auto
+   zentriert sie mittig im Bildschirm. */
 .table-wrap {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;                    /* rundet auch Tabellen-Ecken ab */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-  margin-bottom: 20px;
+  margin: 0 auto 20px;                 /* zentriert + Abstand nach unten */
+  max-width: 800px;                    /* nicht mehr überdimensional breit */
+  width: 100%;
 }
 
 
 /* ── Tabelle ───────────────────────────────────────────────── */
+/* table-layout: fixed → beide Spalten teilen sich die Breite exakt 50/50,
+   unabhängig von der Wortlänge. Das sorgt für ein ruhiges, gleichmäßiges
+   Bild statt unterschiedlich breiter Spalten. */
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
+/* Beide Spalten exakt gleich breit */
+th, td {
+  width: 50%;
+}
+
+/* Zellen zentriert statt linksbündig → Text sitzt mittig in seiner
+   Spalthälfte und wirkt ausgewogen (kein "Kleben" am linken Rand). */
 th, td {
   padding: 13px 16px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid var(--neutral);
   font-family: 'Open Sans', sans-serif;
   font-size: 0.97rem;
+  word-break: break-word;   /* lange Einträge dürfen umbrechen */
 }
 
 /* Tabellenkopf: Dunkelblau mit weißer Schrift */
@@ -152,7 +172,21 @@ tbody tr:last-child td {
 }
 
 
-/* ── Wortart-Badge ─────────────────────────────────────────── */
+/* ── Genus-Zusatz hinter dem bosnischen Wort ───────────────────
+   Zeigt bei Substantiven das Geschlecht, z.B. "vjera (f)" oder
+   "cipele (f, Pl.)". Dezent in Grau gehalten, damit das Wort
+   selbst im Vordergrund bleibt. Bei Nicht-Substantiven ist der
+   span leer und damit unsichtbar. */
+.genus {
+  color: #7a7a7a;
+  font-size: 0.9em;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 2px;
+}
+
+
+/* ── Wortart-Badge (nicht mehr in der Tabelle verwendet,
+      bleibt für eventuelle spätere Nutzung erhalten) ─────────── */
 .wortart-badge {
   display: inline-block;
   background: var(--bg-light);
@@ -191,14 +225,69 @@ tbody tr:last-child td {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   color: var(--secondary);
-  margin-top: 20px;
+  margin: 20px auto 0;     /* zentriert, gleiche Breite wie Tabelle */
+  max-width: 800px;
   display: flex;
   align-items: center;
+  justify-content: center; /* Text mittig unter der Tabelle */
   gap: 8px;
   font-size: 0.95rem;
 }
 .count i {
   color: var(--accent);
+}
+
+
+/* ── Kapitel-Navigation (vorheriges / nächstes Kapitel) ────────
+   Liegt am Seitenende unter der Tabelle. Linker Button = zurück,
+   rechter Button = vor. Per "margin-left:auto" sitzt der
+   Nächstes-Button immer rechts – auch wenn der Zurück-Button
+   ausgeblendet ist (z.B. im ersten Kapitel). */
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 40px auto 0;     /* zentriert, gleiche Breite wie Tabelle */
+  max-width: 800px;
+}
+
+/* Der "Nächstes"-Button wird immer nach rechts geschoben */
+#nextChapter {
+  margin-left: auto;
+}
+
+/* Etwas höhere Buttons, damit Richtung + Kapitelname Platz haben */
+.chapter-btn {
+  align-items: center;
+  padding: 12px 20px;
+}
+
+/* Textblock im Button: zwei Zeilen (Richtung + Kapitelname) */
+.chapter-btn-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+/* "Vorheriges/Nächstes Kapitel" — kleine, dezente Zeile */
+.chapter-btn-dir {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+
+/* Beim Zurück-Button rechtsbündig, beim Vor-Button linksbündig –
+   wirkt zusammen mit der Pfeilrichtung stimmiger */
+#prevChapter .chapter-btn-text { text-align: left; }
+#nextChapter .chapter-btn-text { text-align: right; }
+
+/* Kapitelname — etwas größer und kräftiger */
+.chapter-btn-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: normal;   /* langer Name darf umbrechen */
 }
 
 
@@ -238,17 +327,38 @@ tbody tr:last-child td {
     text-align: center;
   }
 
-  /* Tabelle wird horizontal scrollbar */
+  /* Tabelle passt sich jetzt der Bildschirmbreite an (kein
+     horizontales Scrollen mehr). Da nur noch zwei Spalten
+     (Bosnisch / Deutsch) vorhanden sind, ist genug Platz. */
   .table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+    overflow-x: hidden;
   }
   table {
-    min-width: 480px;                  /* verhindert zu starkes Zusammenquetschen */
+    min-width: 0;       /* kein erzwungenes Mindestmaß → bricht auf Handybreite um */
+    width: 100%;
+    table-layout: fixed; /* beide Spalten teilen sich die Breite gleichmäßig */
   }
   th, td {
     font-size: 0.88rem;
     padding: 10px 12px;
+    word-break: break-word;  /* lange Wörter dürfen umbrechen statt zu überlaufen */
+  }
+
+  /* Kapitel-Navigation: Buttons untereinander, volle Breite */
+  .chapter-nav {
+    flex-direction: column;
+  }
+  #nextChapter {
+    margin-left: 0;     /* kein automatischer Rechtsschub mehr beim Stapeln */
+  }
+  .chapter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  /* Beim Stapeln Text wieder zentrieren (sieht in voller Breite besser aus) */
+  #prevChapter .chapter-btn-text,
+  #nextChapter .chapter-btn-text {
+    text-align: center;
   }
 }
 

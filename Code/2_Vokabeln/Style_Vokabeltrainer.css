@@ -67,6 +67,35 @@ main {
   margin-top: 0.5rem;
 }
 
+/* ── Zurück-Button (oben) ──────────────────────────────────────
+   Einheitlicher Button-System-Look (outline): 6px-Ecken, Montserrat
+   Bold, beim Hover wechselt er auf Dunkelblau mit weißer Schrift.
+   So passt er zur "Zurück zur Übersicht"-Schaltfläche der Tabellenseite. */
+.trainer-topbar {
+  margin-bottom: 1.25rem;
+  text-align: center;   /* Zurück-Button zentriert (über "Vokabeltrainer") */
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--blue);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.back-btn:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
 /* ── Lade-/Fehlermeldung ───────────────────────────────────── */
 .state-msg {
   text-align: center;
@@ -400,19 +429,26 @@ main {
   gap: 0.6rem;
   margin-top: 1.5rem;
 }
+/* Karten in der Übersicht: Inhalt zentriert (Wort über Übersetzung).
+   flex-direction: column + center → beides mittig untereinander. */
 .word-chip {
   background: var(--white);
   border: 1.5px solid var(--gray);
   border-radius: var(--radius);
-  padding: 0.65rem 1rem;
+  padding: 0.75rem 1rem;
   font-size: 0.85rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  text-align: center;
+  gap: 0.2rem;
 }
 .word-chip .bos { font-weight: 700; color: var(--blue); }
 .word-chip .de  { color: var(--muted); font-size: 0.8rem; }
+
+/* Wortart-Tag wird nicht mehr verwendet (Geschlecht steht jetzt direkt
+   hinter dem bosnischen Wort). Stil bleibt für mögliche spätere Nutzung. */
 .word-chip .tag {
   font-size: 0.68rem;
   font-weight: 600;
@@ -421,6 +457,81 @@ main {
   background: var(--blue-lt);
   color: var(--blue);
   white-space: nowrap;
+}
+
+/* ── Genus-Zusatz hinter dem bosnischen Wort ────────────────────
+   Dezent (grau, etwas kleiner, normale Schriftstärke), damit das
+   Wort selbst im Vordergrund bleibt. Auf der blauen Karten-Rückseite
+   wird es heller dargestellt, damit es lesbar bleibt. */
+.genus {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85em;
+}
+.card-back .genus {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Kategorie-Navigation (ganz unten) ─────────────────────────
+   Linker Button = vorherige Kategorie (outline), rechter Button =
+   nächste Kategorie (gefüllt). "margin-left:auto" hält den
+   Nächste-Button immer rechts – auch wenn links nichts steht. */
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 2.5rem;
+}
+.category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  border: 2px solid var(--blue);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+/* Vorherige Kategorie: outline → Hover dunkelblau gefüllt */
+.category-btn.prev {
+  background: transparent;
+  color: var(--blue);
+}
+.category-btn.prev:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+/* Nächste Kategorie: gefüllt, immer rechts */
+.category-btn.next {
+  background: var(--blue);
+  color: var(--white);
+  margin-left: auto;
+}
+.category-btn.next:hover {
+  background: var(--blue-md);
+  border-color: var(--blue-md);
+}
+/* Zweizeiliger Text: Richtung (klein) + Kapitelname */
+.category-btn-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.category-btn-dir {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+.category-btn.prev .category-btn-text { text-align: left; }
+.category-btn.next .category-btn-text { text-align: right; }
+.category-btn-name {
+  font-size: 0.88rem;
+  font-weight: 700;
 }
 
 /* Hilfklasse zum Ein-/Ausblenden */
@@ -436,6 +547,13 @@ main {
 @media (max-width: 900px) {
   .page-title h1 { font-size: 1.6rem; }
   .card-word     { font-size: 1.7rem; }
+
+  /* Kategorie-Navigation: Buttons untereinander, volle Breite */
+  .category-nav { flex-direction: column; }
+  .category-btn { width: 100%; justify-content: center; }
+  .category-btn.next { margin-left: 0; }
+  .category-btn.prev .category-btn-text,
+  .category-btn.next .category-btn-text { text-align: center; }
 }
 
 /* ── Mobil ≤ 768px ──────────────────────────────────────────── */

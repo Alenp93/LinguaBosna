@@ -3,6 +3,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "zdravo",
     "Deutsch": "hallo",
     "Wortart": "Phrase"
@@ -11,6 +12,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "dobar dan",
     "Deutsch": "guten Tag",
     "Wortart": "Phrase"
@@ -19,6 +21,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "dobro jutro",
     "Deutsch": "guten Morgen",
     "Wortart": "Phrase"
@@ -27,6 +30,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "dobro veče",
     "Deutsch": "guten Abend",
     "Wortart": "Phrase"
@@ -35,6 +39,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "laku noć",
     "Deutsch": "gute Nacht",
     "Wortart": "Phrase"
@@ -43,6 +48,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "doviđenja",
     "Deutsch": "auf Wiedersehen",
     "Wortart": "Phrase"
@@ -51,6 +57,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "hvala",
     "Deutsch": "danke",
     "Wortart": "Phrase"
@@ -59,6 +66,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "molim",
     "Deutsch": "bitte",
     "Wortart": "Phrase"
@@ -67,6 +75,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "izvoli",
     "Deutsch": "bitte sehr (beim Geben)",
     "Wortart": "Phrase"
@@ -75,14 +84,16 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "oprostite",
     "Deutsch": "entschuldigen Sie",
-    "Wortart": "Verb"
+    "Wortart": "Phrase"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "kako si?",
     "Deutsch": "wie geht’s dir?",
     "Wortart": "Phrase"
@@ -91,46 +102,54 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "dobro",
     "Deutsch": "gut",
-    "Wortart": "Adjektiv"
+    "Wortart": "Adverb"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "loše",
     "Deutsch": "schlecht",
-    "Wortart": "Adjektiv"
+    "Wortart": "Adverb"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "tako-tako",
     "Deutsch": "so lala",
-    "Wortart": "Adjektiv"
+    "Wortart": "Adverb"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "može",
-    "Deutsch": "geht",
-    "Wortart": "Verb"
+    "Deutsch": "geht (in Ordnung)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "ne može",
     "Deutsch": "geht nicht",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "naravno",
     "Deutsch": "natürlich",
     "Wortart": "Adverb"
@@ -139,6 +158,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "u redu",
     "Deutsch": "in Ordnung",
     "Wortart": "Phrase"
@@ -147,6 +167,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "gdje je …?",
     "Deutsch": "wo ist …?",
     "Wortart": "Phrase"
@@ -155,6 +176,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "ponovi, molim te",
     "Deutsch": "wiederhole bitte",
     "Wortart": "Phrase"
@@ -163,22 +185,27 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "razumijem",
     "Deutsch": "ich verstehe",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "ne razumijem",
     "Deutsch": "ich verstehe nicht",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "da",
     "Deutsch": "ja",
     "Wortart": "Partikel"
@@ -187,6 +214,7 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "ne",
     "Deutsch": "nein",
     "Wortart": "Partikel"
@@ -195,270 +223,334 @@
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "biti",
     "Deutsch": "sein",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "imati",
     "Deutsch": "haben",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "moći",
     "Deutsch": "können",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "htjeti",
     "Deutsch": "wollen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "trebati",
     "Deutsch": "brauchen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 1",
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
     "Bosnisch": "govoriti",
     "Deutsch": "sprechen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "porodica",
     "Deutsch": "Familie",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "roditelji",
     "Deutsch": "Eltern",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "majka",
     "Deutsch": "Mutter",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "otac",
     "Deutsch": "Vater",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "brat",
     "Deutsch": "Bruder",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "sestra",
     "Deutsch": "Schwester",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "sin",
     "Deutsch": "Sohn",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "kćerka",
     "Deutsch": "Tochter",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "dijete",
     "Deutsch": "Kind",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "djeca",
     "Deutsch": "Kinder",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "muž",
     "Deutsch": "Ehemann",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "supruga",
     "Deutsch": "Ehefrau",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "baka",
     "Deutsch": "Oma",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "djed",
     "Deutsch": "Opa",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
-    "Bosnisch": "ujak",
-    "Deutsch": "Onkel (mütterl.)",
-    "Wortart": "Substantiv (m)"
+    "Niveau": "A1",
+    "Bosnisch": "amidža",
+    "Deutsch": "Onkel (väterl., bosn.)",
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
+    "Bosnisch": "daidža",
+    "Deutsch": "Onkel (mütterl., bosn.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 2",
+    "Kapitel": 2,
+    "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "stric",
     "Deutsch": "Onkel (väterl.)",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
+    "Bosnisch": "ujak",
+    "Deutsch": "Onkel (mütterl.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 2",
+    "Kapitel": 2,
+    "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "tetka",
     "Deutsch": "Tante",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "prijatelj",
     "Deutsch": "Freund",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "prijateljica",
     "Deutsch": "Freundin",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "komšija",
     "Deutsch": "Nachbar",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "komšinica",
     "Deutsch": "Nachbarin",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "voljeti",
-    "Deutsch": "lieben",
-    "Wortart": "Verb"
+    "Deutsch": "lieben; gern haben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "mrziti",
     "Deutsch": "hassen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "posjetiti",
     "Deutsch": "besuchen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "pričati",
     "Deutsch": "erzählen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "pomoći",
     "Deutsch": "helfen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "živjeti",
     "Deutsch": "leben",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "blizak",
     "Deutsch": "nahestehend",
     "Wortart": "Adjektiv"
@@ -467,6 +559,7 @@
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "drag",
     "Deutsch": "lieb",
     "Wortart": "Adjektiv"
@@ -475,6 +568,7 @@
     "kategorie": "Kapitel 2",
     "Kapitel": 2,
     "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
     "Bosnisch": "sretan",
     "Deutsch": "glücklich",
     "Wortart": "Adjektiv"
@@ -483,6 +577,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "nula",
     "Deutsch": "null",
     "Wortart": "Zahl"
@@ -491,6 +586,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "jedan",
     "Deutsch": "eins",
     "Wortart": "Zahl"
@@ -499,6 +595,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "dva",
     "Deutsch": "zwei",
     "Wortart": "Zahl"
@@ -507,6 +604,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "tri",
     "Deutsch": "drei",
     "Wortart": "Zahl"
@@ -515,6 +613,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "četiri",
     "Deutsch": "vier",
     "Wortart": "Zahl"
@@ -523,6 +622,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "pet",
     "Deutsch": "fünf",
     "Wortart": "Zahl"
@@ -531,6 +631,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "šest",
     "Deutsch": "sechs",
     "Wortart": "Zahl"
@@ -539,6 +640,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "sedam",
     "Deutsch": "sieben",
     "Wortart": "Zahl"
@@ -547,6 +649,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "osam",
     "Deutsch": "acht",
     "Wortart": "Zahl"
@@ -555,6 +658,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "devet",
     "Deutsch": "neun",
     "Wortart": "Zahl"
@@ -563,6 +667,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "deset",
     "Deutsch": "zehn",
     "Wortart": "Zahl"
@@ -571,6 +676,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "sto",
     "Deutsch": "hundert",
     "Wortart": "Zahl"
@@ -579,6 +685,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "hiljada",
     "Deutsch": "tausend",
     "Wortart": "Zahl"
@@ -587,30 +694,37 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "brojati",
     "Deutsch": "zählen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "dodati",
     "Deutsch": "hinzufügen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "oduzeti",
     "Deutsch": "subtrahieren",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "mnogo",
     "Deutsch": "viel",
     "Wortart": "Adverb"
@@ -619,6 +733,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "malo",
     "Deutsch": "wenig",
     "Wortart": "Adverb"
@@ -627,6 +742,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "više",
     "Deutsch": "mehr",
     "Wortart": "Adverb"
@@ -635,6 +751,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "manje",
     "Deutsch": "weniger",
     "Wortart": "Adverb"
@@ -643,6 +760,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "dovoljno",
     "Deutsch": "genug",
     "Wortart": "Adverb"
@@ -651,14 +769,16 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "polovina",
     "Deutsch": "Hälfte",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "prazan",
     "Deutsch": "leer",
     "Wortart": "Adjektiv"
@@ -667,6 +787,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "pun",
     "Deutsch": "voll",
     "Wortart": "Adjektiv"
@@ -675,6 +796,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "mali",
     "Deutsch": "klein",
     "Wortart": "Adjektiv"
@@ -683,6 +805,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "velik",
     "Deutsch": "groß",
     "Wortart": "Adjektiv"
@@ -691,6 +814,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "jednak",
     "Deutsch": "gleich",
     "Wortart": "Adjektiv"
@@ -699,6 +823,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "različit",
     "Deutsch": "unterschiedlich",
     "Wortart": "Adjektiv"
@@ -707,6 +832,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "nekoliko",
     "Deutsch": "einige",
     "Wortart": "Pronomen"
@@ -715,6 +841,7 @@
     "kategorie": "Kapitel 3",
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
     "Bosnisch": "sve",
     "Deutsch": "alles",
     "Wortart": "Pronomen"
@@ -723,222 +850,250 @@
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "dan",
     "Deutsch": "Tag",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "noć",
     "Deutsch": "Nacht",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "jutro",
     "Deutsch": "Morgen",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "veče",
     "Deutsch": "Abend",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "podne",
     "Deutsch": "Mittag",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "sedmica",
     "Deutsch": "Woche",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "mjesec",
     "Deutsch": "Monat",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "godina",
     "Deutsch": "Jahr",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "ponedjeljak",
     "Deutsch": "Montag",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "utorak",
     "Deutsch": "Dienstag",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "srijeda",
     "Deutsch": "Mittwoch",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "četvrtak",
     "Deutsch": "Donnerstag",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "petak",
     "Deutsch": "Freitag",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "subota",
     "Deutsch": "Samstag",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "nedjelja",
     "Deutsch": "Sonntag",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "januar",
     "Deutsch": "Januar",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "februar",
     "Deutsch": "Februar",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "mart",
     "Deutsch": "März",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "april",
     "Deutsch": "April",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "maj",
     "Deutsch": "Mai",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "juni",
     "Deutsch": "Juni",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "juli",
     "Deutsch": "Juli",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "august",
     "Deutsch": "August",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "septembar",
     "Deutsch": "September",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "oktobar",
     "Deutsch": "Oktober",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "novembar",
     "Deutsch": "November",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "decembar",
     "Deutsch": "Dezember",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "sada",
     "Deutsch": "jetzt",
     "Wortart": "Adverb"
@@ -947,6 +1102,7 @@
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "jučer",
     "Deutsch": "gestern",
     "Wortart": "Adverb"
@@ -955,6 +1111,16 @@
     "kategorie": "Kapitel 4",
     "Kapitel": 4,
     "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
+    "Bosnisch": "danas",
+    "Deutsch": "heute",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 4",
+    "Kapitel": 4,
+    "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
     "Bosnisch": "sutra",
     "Deutsch": "morgen",
     "Wortart": "Adverb"
@@ -963,198 +1129,262 @@
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "hljeb",
     "Deutsch": "Brot",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "voda",
     "Deutsch": "Wasser",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
-    "Bosnisch": "kafa",
+    "Niveau": "A1",
+    "Bosnisch": "kahva",
     "Deutsch": "Kaffee",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "čaj",
     "Deutsch": "Tee",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
+    "Bosnisch": "mlijeko",
+    "Deutsch": "Milch",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 5",
+    "Kapitel": 5,
+    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
+    "Bosnisch": "sir",
+    "Deutsch": "Käse",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 5",
+    "Kapitel": 5,
+    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
+    "Bosnisch": "jaje",
+    "Deutsch": "Ei",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 5",
+    "Kapitel": 5,
+    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
+    "Bosnisch": "šećer",
+    "Deutsch": "Zucker",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 5",
+    "Kapitel": 5,
+    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
+    "Bosnisch": "so",
+    "Deutsch": "Salz",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 5",
+    "Kapitel": 5,
+    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "meso",
     "Deutsch": "Fleisch",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "riba",
     "Deutsch": "Fisch",
-    "Wortart": "Substantiv (f)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "povrće",
     "Deutsch": "Gemüse",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "voće",
     "Deutsch": "Obst",
-    "Wortart": "Substantiv (n)"
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "burek",
     "Deutsch": "Burek",
-    "Wortart": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "ćevapi",
-    "Deutsch": "Ćevapčići",
-    "Wortart": "Substantiv (m)"
+    "Deutsch": "Ćevapi",
+    "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "jesti",
     "Deutsch": "essen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "piti",
     "Deutsch": "trinken",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "kuhati",
     "Deutsch": "kochen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "peći",
     "Deutsch": "backen/braten",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "miješati",
     "Deutsch": "mischen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "rezati",
     "Deutsch": "schneiden",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "probati",
     "Deutsch": "probieren",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
-    "Bosnisch": "servirati",
-    "Deutsch": "servieren",
-    "Wortart": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 5",
-    "Kapitel": 5,
-    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "naručiti",
     "Deutsch": "bestellen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "platiti",
     "Deutsch": "bezahlen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "spremati",
     "Deutsch": "zubereiten",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
-    "Bosnisch": "uzimati",
-    "Deutsch": "nehmen",
-    "Wortart": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 5",
-    "Kapitel": 5,
-    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "kupovati",
     "Deutsch": "kaufen",
-    "Wortart": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
-    "Bosnisch": "voljeti",
-    "Deutsch": "mögen",
-    "Wortart": "Verb"
+    "Niveau": "A1",
+    "Bosnisch": "sviđati se",
+    "Deutsch": "gefallen / mögen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "ukusan",
     "Deutsch": "lecker",
     "Wortart": "Adjektiv"
@@ -1163,6 +1393,7 @@
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "sladak",
     "Deutsch": "süß",
     "Wortart": "Adjektiv"
@@ -1171,6 +1402,7 @@
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "kiseo",
     "Deutsch": "sauer",
     "Wortart": "Adjektiv"
@@ -1179,6 +1411,7 @@
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "slan",
     "Deutsch": "salzig",
     "Wortart": "Adjektiv"
@@ -1187,6 +1420,7 @@
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "gorak",
     "Deutsch": "bitter",
     "Wortart": "Adjektiv"
@@ -1195,6 +1429,7 @@
     "kategorie": "Kapitel 5",
     "Kapitel": 5,
     "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
     "Bosnisch": "svjež",
     "Deutsch": "frisch",
     "Wortart": "Adjektiv"
@@ -1203,6 +1438,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "planina",
     "Deutsch": "Berg",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1211,6 +1447,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "dolina",
     "Deutsch": "Tal",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1219,6 +1456,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "rijeka",
     "Deutsch": "Fluss",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1227,6 +1465,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "jezero",
     "Deutsch": "See",
     "Wortart (Genus)": "Substantiv (n)"
@@ -1235,6 +1474,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "more",
     "Deutsch": "Meer",
     "Wortart (Genus)": "Substantiv (n)"
@@ -1243,6 +1483,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "šuma",
     "Deutsch": "Wald",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1251,6 +1492,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "livada",
     "Deutsch": "Wiese",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1259,6 +1501,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "polje",
     "Deutsch": "Feld",
     "Wortart (Genus)": "Substantiv (n)"
@@ -1267,6 +1510,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "grad",
     "Deutsch": "Stadt",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1275,6 +1519,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "selo",
     "Deutsch": "Dorf",
     "Wortart (Genus)": "Substantiv (n)"
@@ -1283,14 +1528,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
-    "Bosnisch": "otok",
-    "Deutsch": "Insel",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 6",
-    "Kapitel": 6,
-    "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "brdo",
     "Deutsch": "Hügel",
     "Wortart (Genus)": "Substantiv (n)"
@@ -1299,6 +1537,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "pećina",
     "Deutsch": "Höhle",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1307,7 +1546,8 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
-    "Bosnisch": "slap",
+    "Niveau": "A1",
+    "Bosnisch": "vodopad",
     "Deutsch": "Wasserfall",
     "Wortart (Genus)": "Substantiv (m)"
   },
@@ -1315,6 +1555,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "nebo",
     "Deutsch": "Himmel",
     "Wortart (Genus)": "Substantiv (n)"
@@ -1323,6 +1564,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "sunce",
     "Deutsch": "Sonne",
     "Wortart (Genus)": "Substantiv (n)"
@@ -1331,6 +1573,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "obala",
     "Deutsch": "Küste",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1339,6 +1582,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "zvijezda",
     "Deutsch": "Stern",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1347,6 +1591,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Bosna i Hercegovina",
     "Deutsch": "Bosnien und Herzegowina",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1355,6 +1600,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Hrvatska",
     "Deutsch": "Kroatien",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1363,6 +1609,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Srbija",
     "Deutsch": "Serbien",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1371,6 +1618,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Crna Gora",
     "Deutsch": "Montenegro",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1379,6 +1627,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Slovenija",
     "Deutsch": "Slowenien",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1387,14 +1636,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
-    "Bosnisch": "Italija",
-    "Deutsch": "Italien",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 6",
-    "Kapitel": 6,
-    "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Njemačka",
     "Deutsch": "Deutschland",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1403,6 +1645,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Austrija",
     "Deutsch": "Österreich",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1411,14 +1654,7 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
-    "Bosnisch": "Sjedinjene Američke Države (SAD) / Amerika",
-    "Deutsch": "USA / Amerika",
-    "Wortart (Genus)": "Substantiv (f, Pl.)"
-  },
-  {
-    "kategorie": "Kapitel 6",
-    "Kapitel": 6,
-    "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Švicarska",
     "Deutsch": "Schweiz",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1427,6 +1663,16 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
+    "Bosnisch": "Italija",
+    "Deutsch": "Italien",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 6",
+    "Kapitel": 6,
+    "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Turska",
     "Deutsch": "Türkei",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1435,6 +1681,16 @@
     "kategorie": "Kapitel 6",
     "Kapitel": 6,
     "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
+    "Bosnisch": "Amerika",
+    "Deutsch": "Amerika / USA",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 6",
+    "Kapitel": 6,
+    "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
     "Bosnisch": "Saudijska Arabija",
     "Deutsch": "Saudi-Arabien",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1443,6 +1699,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "put",
     "Deutsch": "Weg",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1451,6 +1708,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "cesta",
     "Deutsch": "Straße",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1459,6 +1717,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "autoput",
     "Deutsch": "Autobahn",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1467,6 +1726,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "voz",
     "Deutsch": "Zug",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1475,6 +1735,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "autobus",
     "Deutsch": "Bus",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1483,6 +1744,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "avion",
     "Deutsch": "Flugzeug",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1491,6 +1753,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "brod",
     "Deutsch": "Schiff",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1499,6 +1762,34 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
+    "Bosnisch": "stanica",
+    "Deutsch": "Haltestelle / Bahnhof",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 7",
+    "Kapitel": 7,
+    "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
+    "Bosnisch": "aerodrom",
+    "Deutsch": "Flughafen",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 7",
+    "Kapitel": 7,
+    "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
+    "Bosnisch": "kofer",
+    "Deutsch": "Koffer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 7",
+    "Kapitel": 7,
+    "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "vozač",
     "Deutsch": "Fahrer",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1507,6 +1798,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "karta",
     "Deutsch": "Fahrkarte",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1515,6 +1807,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "pasoš",
     "Deutsch": "Reisepass",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1523,6 +1816,7 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "granica",
     "Deutsch": "Grenze",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1531,150 +1825,172 @@
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "ići",
     "Deutsch": "gehen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "voziti",
     "Deutsch": "fahren",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "stići",
     "Deutsch": "ankommen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "polaziti",
     "Deutsch": "abfahren",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "kasniti",
     "Deutsch": "sich verspäten",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "čekati",
     "Deutsch": "warten",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
-    "Bosnisch": "nositi",
-    "Deutsch": "tragen",
-    "Wortart (Genus)": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 7",
-    "Kapitel": 7,
-    "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "spakovati",
     "Deutsch": "packen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "putovati",
     "Deutsch": "reisen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "istraživati",
     "Deutsch": "erkunden",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "pronaći",
     "Deutsch": "finden",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "izgubiti",
     "Deutsch": "verlieren",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "rezervisati",
     "Deutsch": "reservieren",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "dvovidni"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "brz",
     "Deutsch": "schnell",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "spor",
     "Deutsch": "langsam",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "blizu",
     "Deutsch": "nah",
-    "Wortart (Genus)": "Adjektiv/Adverb"
+    "Wortart": "Adverb"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "daleko",
     "Deutsch": "weit",
-    "Wortart (Genus)": "Adjektiv/Adverb"
+    "Wortart": "Adverb"
   },
   {
     "kategorie": "Kapitel 7",
     "Kapitel": 7,
     "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
     "Bosnisch": "siguran",
     "Deutsch": "sicher",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "majica",
     "Deutsch": "T-Shirt",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1683,6 +1999,7 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "košulja",
     "Deutsch": "Hemd",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1691,6 +2008,7 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "pantalone",
     "Deutsch": "Hose",
     "Wortart (Genus)": "Substantiv (f, Pl.)"
@@ -1699,6 +2017,7 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "jakna",
     "Deutsch": "Jacke",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1707,6 +2026,7 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "haljina",
     "Deutsch": "Kleid",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1715,6 +2035,16 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
+    "Bosnisch": "suknja",
+    "Deutsch": "Rock",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 8",
+    "Kapitel": 8,
+    "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "cipele",
     "Deutsch": "Schuhe",
     "Wortart (Genus)": "Substantiv (f, Pl.)"
@@ -1723,6 +2053,16 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
+    "Bosnisch": "čarape",
+    "Deutsch": "Socken",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 8",
+    "Kapitel": 8,
+    "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "kapa",
     "Deutsch": "Mütze",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1731,6 +2071,7 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "rukavice",
     "Deutsch": "Handschuhe",
     "Wortart (Genus)": "Substantiv (f, Pl.)"
@@ -1739,166 +2080,197 @@
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
+    "Bosnisch": "naočale",
+    "Deutsch": "Brille",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 8",
+    "Kapitel": 8,
+    "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "nositi",
     "Deutsch": "tragen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "obući",
     "Deutsch": "anziehen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "skinuti",
     "Deutsch": "ausziehen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "prati",
     "Deutsch": "waschen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "sušiti",
     "Deutsch": "trocknen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "kupiti",
     "Deutsch": "kaufen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
-    "Bosnisch": "voljeti",
-    "Deutsch": "mögen",
-    "Wortart (Genus)": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 8",
-    "Kapitel": 8,
-    "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "izgledati",
     "Deutsch": "aussehen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "birati",
     "Deutsch": "auswählen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "zakopčati",
     "Deutsch": "zuknöpfen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "otkopčati",
     "Deutsch": "aufknöpfen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "lijep",
     "Deutsch": "schön",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "čist",
     "Deutsch": "sauber",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "prljav",
     "Deutsch": "schmutzig",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "nov",
     "Deutsch": "neu",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "star",
     "Deutsch": "alt",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "udoban",
     "Deutsch": "bequem",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "neudoban",
     "Deutsch": "unbequem",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "topao",
     "Deutsch": "warm",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 8",
     "Kapitel": 8,
     "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
     "Bosnisch": "hladan",
     "Deutsch": "kalt",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "rat",
     "Deutsch": "Krieg",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1907,6 +2279,7 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "mir",
     "Deutsch": "Frieden",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1915,6 +2288,7 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "sloboda",
     "Deutsch": "Freiheit",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1923,6 +2297,16 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
+    "Bosnisch": "narod",
+    "Deutsch": "Volk",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 9",
+    "Kapitel": 9,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "tradicija",
     "Deutsch": "Tradition",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1931,6 +2315,7 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "običaj",
     "Deutsch": "Brauch",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1939,6 +2324,16 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
+    "Bosnisch": "praznik",
+    "Deutsch": "Feiertag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 9",
+    "Kapitel": 9,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "vjera",
     "Deutsch": "Glaube",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1947,6 +2342,7 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "džamija",
     "Deutsch": "Moschee",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1955,6 +2351,7 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "crkva",
     "Deutsch": "Kirche",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1963,6 +2360,7 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "muzej",
     "Deutsch": "Museum",
     "Wortart (Genus)": "Substantiv (m)"
@@ -1971,6 +2369,25 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
+    "Bosnisch": "umjetnost",
+    "Deutsch": "Kunst",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 9",
+    "Kapitel": 9,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
+    "Bosnisch": "historija",
+    "Deutsch": "Geschichte",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 9",
+    "Kapitel": 9,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "pjesma",
     "Deutsch": "Lied",
     "Wortart (Genus)": "Substantiv (f)"
@@ -1979,166 +2396,181 @@
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "pjevati",
     "Deutsch": "singen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "plesati",
     "Deutsch": "tanzen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "slaviti",
     "Deutsch": "feiern",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "obilježavati",
-    "Deutsch": "begehen",
-    "Wortart (Genus)": "Verb"
+    "Deutsch": "begehen (gedenken)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
-    "Bosnisch": "pričati",
-    "Deutsch": "erzählen",
-    "Wortart (Genus)": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 9",
-    "Kapitel": 9,
-    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "čitati",
     "Deutsch": "lesen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "pisati",
     "Deutsch": "schreiben",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "gledati",
     "Deutsch": "schauen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "učiti",
     "Deutsch": "lernen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "slikati",
     "Deutsch": "malen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "graditi",
     "Deutsch": "bauen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "čuvati",
     "Deutsch": "bewahren",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "ponositi se",
     "Deutsch": "stolz sein",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "poznat",
     "Deutsch": "bekannt",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
-    "Bosnisch": "star",
-    "Deutsch": "alt",
-    "Wortart (Genus)": "Adjektiv"
-  },
-  {
-    "kategorie": "Kapitel 9",
-    "Kapitel": 9,
-    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "važan",
     "Deutsch": "wichtig",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
-    "Bosnisch": "lijep",
-    "Deutsch": "schön",
-    "Wortart (Genus)": "Adjektiv"
-  },
-  {
-    "kategorie": "Kapitel 9",
-    "Kapitel": 9,
-    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "bogat",
     "Deutsch": "reich",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 9",
     "Kapitel": 9,
     "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A1",
     "Bosnisch": "siromašan",
     "Deutsch": "arm",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "doktor",
-    "Deutsch": "Arzt",
+    "Niveau": "A1",
+    "Bosnisch": "ljekar",
+    "Deutsch": "Arzt (Standard)",
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "doktor",
+    "Deutsch": "Arzt (ugs.) / Doktor",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "bolnica",
     "Deutsch": "Krankenhaus",
     "Wortart (Genus)": "Substantiv (f)"
@@ -2147,6 +2579,7 @@
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "apoteka",
     "Deutsch": "Apotheke",
     "Wortart (Genus)": "Substantiv (f)"
@@ -2155,6 +2588,7 @@
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "lijek",
     "Deutsch": "Medikament",
     "Wortart (Genus)": "Substantiv (m)"
@@ -2163,6 +2597,25 @@
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "tableta",
+    "Deutsch": "Tablette",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "recept",
+    "Deutsch": "Rezept",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "bol",
     "Deutsch": "Schmerz",
     "Wortart (Genus)": "Substantiv (m)"
@@ -2171,200 +2624,1701 @@
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "rana",
+    "Deutsch": "Wunde",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "groznica",
+    "Deutsch": "Fieber",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "prehlada",
+    "Deutsch": "Erkältung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "gripa",
+    "Deutsch": "Grippe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "zdravlje",
+    "Deutsch": "Gesundheit",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
+    "Bosnisch": "bolest",
+    "Deutsch": "Krankheit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 10",
+    "Kapitel": 10,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "biti bolestan",
     "Deutsch": "krank sein",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Phrase"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "biti zdrav",
     "Deutsch": "gesund sein",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Phrase"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "ozlijediti se",
     "Deutsch": "sich verletzen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "pomoći",
-    "Deutsch": "helfen",
-    "Wortart (Genus)": "Verb"
+    "Niveau": "A1",
+    "Bosnisch": "liječiti",
+    "Deutsch": "behandeln / heilen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "nazvati",
     "Deutsch": "anrufen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "čekati",
-    "Deutsch": "warten",
-    "Wortart (Genus)": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 10",
-    "Kapitel": 10,
-    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "otići",
-    "Deutsch": "gehen",
-    "Wortart (Genus)": "Verb"
+    "Deutsch": "gehen (weggehen)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "osjećati se",
     "Deutsch": "sich fühlen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "disati",
     "Deutsch": "atmen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "kašljati",
     "Deutsch": "husten",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "kihati",
     "Deutsch": "niesen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "mjeriti",
     "Deutsch": "messen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "odmarati se",
     "Deutsch": "sich ausruhen",
-    "Wortart (Genus)": "Verb"
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "piti",
-    "Deutsch": "trinken",
-    "Wortart (Genus)": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 10",
-    "Kapitel": 10,
-    "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "jesti",
-    "Deutsch": "essen",
-    "Wortart (Genus)": "Verb"
-  },
-  {
-    "kategorie": "Kapitel 10",
-    "Kapitel": 10,
-    "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "važan",
-    "Deutsch": "wichtig",
-    "Wortart (Genus)": "Adjektiv"
-  },
-  {
-    "kategorie": "Kapitel 10",
-    "Kapitel": 10,
-    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "hitan",
     "Deutsch": "dringend",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "bolan",
     "Deutsch": "schmerzhaft",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "slab",
     "Deutsch": "schwach",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "jak",
     "Deutsch": "stark",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "umoran",
     "Deutsch": "müde",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 10",
     "Kapitel": 10,
     "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A1",
     "Bosnisch": "opasan",
     "Deutsch": "gefährlich",
-    "Wortart (Genus)": "Adjektiv"
+    "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 10",
-    "Kapitel": 10,
-    "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "siguran",
-    "Deutsch": "sicher",
-    "Wortart (Genus)": "Adjektiv"
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "tijelo",
+    "Deutsch": "Körper",
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 10",
-    "Kapitel": 10,
-    "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "čist",
-    "Deutsch": "sauber",
-    "Wortart (Genus)": "Adjektiv"
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "glava",
+    "Deutsch": "Kopf",
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 10",
-    "Kapitel": 10,
-    "Kapitelname": "Gesundheit & Medizin",
-    "Bosnisch": "prljav",
-    "Deutsch": "schmutzig",
-    "Wortart (Genus)": "Adjektiv"
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "kosa",
+    "Deutsch": "Haar",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "lice",
+    "Deutsch": "Gesicht",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "oko",
+    "Deutsch": "Auge",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "oči",
+    "Deutsch": "Augen",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "uho",
+    "Deutsch": "Ohr",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "nos",
+    "Deutsch": "Nase",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "usta",
+    "Deutsch": "Mund",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "zub",
+    "Deutsch": "Zahn",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "jezik",
+    "Deutsch": "Zunge; Sprache",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "vrat",
+    "Deutsch": "Hals",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "rame",
+    "Deutsch": "Schulter",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "ruka",
+    "Deutsch": "Arm / Hand",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "prst",
+    "Deutsch": "Finger",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "noga",
+    "Deutsch": "Bein / Fuß",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "koljeno",
+    "Deutsch": "Knie",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "leđa",
+    "Deutsch": "Rücken",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "stomak",
+    "Deutsch": "Bauch",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "srce",
+    "Deutsch": "Herz",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "pluća",
+    "Deutsch": "Lunge",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "kost",
+    "Deutsch": "Knochen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "koža",
+    "Deutsch": "Haut",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "krv",
+    "Deutsch": "Blut",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "mozak",
+    "Deutsch": "Gehirn",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "brada",
+    "Deutsch": "Kinn / Bart",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "obraz",
+    "Deutsch": "Wange",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "stopalo",
+    "Deutsch": "Fuß",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "trbuh",
+    "Deutsch": "Bauch (Standard)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 11",
+    "Kapitel": 11,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Bosnisch": "zdrav",
+    "Deutsch": "gesund",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "kuća",
+    "Deutsch": "Haus",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "stan",
+    "Deutsch": "Wohnung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "soba",
+    "Deutsch": "Zimmer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "kuhinja",
+    "Deutsch": "Küche",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "kupatilo",
+    "Deutsch": "Badezimmer",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "spavaća soba",
+    "Deutsch": "Schlafzimmer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "dnevni boravak",
+    "Deutsch": "Wohnzimmer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "hodnik",
+    "Deutsch": "Flur",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "balkon",
+    "Deutsch": "Balkon",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "vrata",
+    "Deutsch": "Tür",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "prozor",
+    "Deutsch": "Fenster",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "zid",
+    "Deutsch": "Wand",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "pod",
+    "Deutsch": "Boden",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "krov",
+    "Deutsch": "Dach",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "stepenice",
+    "Deutsch": "Treppe",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "sto (stol)",
+    "Deutsch": "Tisch",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "stolica",
+    "Deutsch": "Stuhl",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "krevet",
+    "Deutsch": "Bett",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "ormar",
+    "Deutsch": "Schrank",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "polica",
+    "Deutsch": "Regal",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "lampa",
+    "Deutsch": "Lampe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "ogledalo",
+    "Deutsch": "Spiegel",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "tepih",
+    "Deutsch": "Teppich",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "ključ",
+    "Deutsch": "Schlüssel",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "frižider",
+    "Deutsch": "Kühlschrank",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "šporet",
+    "Deutsch": "Herd",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "namještaj",
+    "Deutsch": "Möbel",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "stanovati",
+    "Deutsch": "wohnen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "useliti se",
+    "Deutsch": "einziehen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 12",
+    "Kapitel": 12,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "iseliti se",
+    "Deutsch": "ausziehen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "boja",
+    "Deutsch": "Farbe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "crven",
+    "Deutsch": "rot",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "plav",
+    "Deutsch": "blau",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "žut",
+    "Deutsch": "gelb",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "zelen",
+    "Deutsch": "grün",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "crn",
+    "Deutsch": "schwarz",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "bijel",
+    "Deutsch": "weiß",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "siv",
+    "Deutsch": "grau",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "smeđ",
+    "Deutsch": "braun",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "narandžast",
+    "Deutsch": "orange",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "ružičast",
+    "Deutsch": "rosa",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "ljubičast",
+    "Deutsch": "lila",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "svijetao",
+    "Deutsch": "hell",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "taman",
+    "Deutsch": "dunkel",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "oblik",
+    "Deutsch": "Form",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "krug",
+    "Deutsch": "Kreis",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "kvadrat",
+    "Deutsch": "Quadrat",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "trougao",
+    "Deutsch": "Dreieck",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "linija",
+    "Deutsch": "Linie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 13",
+    "Kapitel": 13,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Bosnisch": "tačka",
+    "Deutsch": "Punkt",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "životinja",
+    "Deutsch": "Tier",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "pas",
+    "Deutsch": "Hund",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "mačka",
+    "Deutsch": "Katze",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "konj",
+    "Deutsch": "Pferd",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "krava",
+    "Deutsch": "Kuh",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "ovca",
+    "Deutsch": "Schaf",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "koza",
+    "Deutsch": "Ziege",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "svinja",
+    "Deutsch": "Schwein",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "kokoš",
+    "Deutsch": "Huhn",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "pijetao",
+    "Deutsch": "Hahn",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "patka",
+    "Deutsch": "Ente",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "ptica",
+    "Deutsch": "Vogel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "miš",
+    "Deutsch": "Maus",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "zec",
+    "Deutsch": "Hase",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "lisica",
+    "Deutsch": "Fuchs",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "vuk",
+    "Deutsch": "Wolf",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "medvjed",
+    "Deutsch": "Bär",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "lav",
+    "Deutsch": "Löwe",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "slon",
+    "Deutsch": "Elefant",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "majmun",
+    "Deutsch": "Affe",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "zmija",
+    "Deutsch": "Schlange",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "žaba",
+    "Deutsch": "Frosch",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "pčela",
+    "Deutsch": "Biene",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "leptir",
+    "Deutsch": "Schmetterling",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "pauk",
+    "Deutsch": "Spinne",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "insekt",
+    "Deutsch": "Insekt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "krilo",
+    "Deutsch": "Flügel",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "rep",
+    "Deutsch": "Schwanz",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "perje",
+    "Deutsch": "Federn",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 14",
+    "Kapitel": 14,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Bosnisch": "krzno",
+    "Deutsch": "Fell",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "vrijeme",
+    "Deutsch": "Wetter",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "kiša",
+    "Deutsch": "Regen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "snijeg",
+    "Deutsch": "Schnee",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "oblak",
+    "Deutsch": "Wolke",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "vjetar",
+    "Deutsch": "Wind",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "magla",
+    "Deutsch": "Nebel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "grmljavina",
+    "Deutsch": "Donner",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "munja",
+    "Deutsch": "Blitz",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "led",
+    "Deutsch": "Eis",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "duga",
+    "Deutsch": "Regenbogen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "temperatura",
+    "Deutsch": "Temperatur",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "prognoza",
+    "Deutsch": "Wettervorhersage",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "sunčano",
+    "Deutsch": "sonnig",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "oblačno",
+    "Deutsch": "bewölkt",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "vjetrovito",
+    "Deutsch": "windig",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "toplo",
+    "Deutsch": "warm",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "hladno",
+    "Deutsch": "kalt",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "vruće",
+    "Deutsch": "heiß",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "padati",
+    "Deutsch": "fallen (regnen/schneien)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 15",
+    "Kapitel": 15,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Bosnisch": "sijati",
+    "Deutsch": "scheinen (Sonne)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "raditi",
+    "Deutsch": "arbeiten / machen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "spavati",
+    "Deutsch": "schlafen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "ustati",
+    "Deutsch": "aufstehen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "sjesti",
+    "Deutsch": "sich setzen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "stajati",
+    "Deutsch": "stehen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "hodati",
+    "Deutsch": "gehen / laufen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "trčati",
+    "Deutsch": "rennen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "doći",
+    "Deutsch": "kommen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "dolaziti",
+    "Deutsch": "kommen (wiederholt)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "otvoriti",
+    "Deutsch": "öffnen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "zatvoriti",
+    "Deutsch": "schließen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "dati",
+    "Deutsch": "geben",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "uzeti",
+    "Deutsch": "nehmen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "staviti",
+    "Deutsch": "stellen / legen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "reći",
+    "Deutsch": "sagen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "pitati",
+    "Deutsch": "fragen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "odgovoriti",
+    "Deutsch": "antworten",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "znati",
+    "Deutsch": "wissen / können",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "misliti",
+    "Deutsch": "denken",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "vidjeti",
+    "Deutsch": "sehen",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "čuti",
+    "Deutsch": "hören",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "slušati",
+    "Deutsch": "zuhören",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "pokazati",
+    "Deutsch": "zeigen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "pokušati",
+    "Deutsch": "versuchen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "početi",
+    "Deutsch": "anfangen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "završiti",
+    "Deutsch": "beenden",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "ostati",
+    "Deutsch": "bleiben",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "vratiti se",
+    "Deutsch": "zurückkehren",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "otvarati",
+    "Deutsch": "öffnen (wiederholt)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Bosnisch": "raditi se",
+    "Deutsch": "sich handeln um",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
   }
 ]

@@ -35,6 +35,16 @@
   <div id="header"></div>
 
   <main>
+
+    <!-- Zurück-Button zur Vokabeltabelle des aktuellen Kapitels.
+         Das href wird per JS gesetzt (sobald das Kapitel bekannt ist). -->
+    <div class="trainer-topbar">
+      <a id="backToTable" class="back-btn" href="#">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Zurück zur Vokabeltabelle
+      </a>
+    </div>
+
     <div class="page-title">
       <h1>Vokabeltrainer</h1>
       <div class="category-badge" id="categoryBadge">Wird geladen…</div>
@@ -93,14 +103,12 @@
               <div class="card-face card-front">
                 <div class="card-label" id="cardFrontLabel">Bosnisch</div>
                 <div class="card-word"  id="cardFrontWord"></div>
-                <div class="card-type"  id="cardFrontType"></div>
                 <div class="card-hint">Klicke um die Übersetzung zu sehen</div>
               </div>
               <!-- RÜCKSEITE -->
               <div class="card-face card-back">
                 <div class="card-label" id="cardBackLabel">Deutsch</div>
                 <div class="card-word"  id="cardBackWord"></div>
-                <div class="card-type"  id="cardBackType"></div>
                 <div class="card-hint"  id="cardBackHint"></div>
               </div>
             </div>
@@ -124,7 +132,6 @@
           <div style="background:var(--white);border:2px solid var(--gray);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;text-align:center;margin-bottom:1.5rem;">
             <div class="card-label" id="quizLabel">Was bedeutet auf Deutsch …</div>
             <div class="card-word"  id="quizWord" style="color:var(--blue)"></div>
-            <div class="card-type"  id="quizType"></div>
           </div>
         </div>
         <div class="quiz-options"   id="quizOptions"></div>
@@ -149,6 +156,26 @@
         </div>
       </div>
 
+      <!-- ─── KATEGORIE-NAVIGATION (vorheriges / nächstes Kapitel) ───
+           Liegt ganz unten. Die Links werden per JS gesetzt; im ersten
+           bzw. letzten Kapitel wird der jeweilige Button ausgeblendet. -->
+      <nav class="category-nav" id="categoryNav" aria-label="Kategorie-Navigation">
+        <a id="prevCategory" class="category-btn prev" href="#">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          <span class="category-btn-text">
+            <span class="category-btn-dir">Vorherige Kategorie</span>
+            <span class="category-btn-name" id="prevCategoryName"></span>
+          </span>
+        </a>
+        <a id="nextCategory" class="category-btn next" href="#">
+          <span class="category-btn-text">
+            <span class="category-btn-dir">Nächste Kategorie</span>
+            <span class="category-btn-name" id="nextCategoryName"></span>
+          </span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </nav>
+
     </div><!-- /trainerUI -->
   </main>
 
@@ -161,12 +188,20 @@
     // ─────────────────────────────────────────────────────────
     const JSON_PATH = '/Code/2_Vokabeln/vokabeln_flat.json';
 
+    // Pfad zur Vokabeltabellen-Seite (für den Zurück-Button). Absoluter
+    // Pfad, damit der Link auch aus Unterordnern zuverlässig funktioniert.
+    const TABLE_PATH = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
+
+    // Pfad zum Vokabeltrainer selbst (für die Kategorie-Navigation unten).
+    const TRAINER_PATH = '/Code/2_Vokabeln/vokabeltrainer.html';
+
     // ─────────────────────────────────────────────────────────
     // ZUSTAND (State-Variablen)
     // ─────────────────────────────────────────────────────────
     let allVocab   = [];   // komplette JSON-Daten
     let allInCat   = [];   // alle Einträge für das aktuelle Kapitel
-    let unitVocab  = [];   // Einträge für die gewählte Lerneinheit (à 15 Vokabeln)
+    let units      = [];   // die zwei Lerneinheiten (Teil 1 / Teil 2)
+    let unitVocab  = [];   // Einträge für die aktuell gewählte Lerneinheit
     let queue      = [];   // aktuell zu lernende Karten (gemischt)
     let current    = 0;
     let correct    = 0;
@@ -206,6 +241,42 @@
       return entry['Wortart'] || entry['Wortart (Genus)'] || '';
     }
 
+    // ─────────────────────────────────────────────────────────
+    // GENUS-ANZEIGE (genau wie bei den Vokabeltabellen)
+    // Aus "Substantiv (f)" wird " (f)", aus "Substantiv (f, Pl.)" wird
+    // " (f, Pl.)". Bei allen anderen Wortarten (Verb, Adjektiv, …) gibt
+    // es keinen Zusatz. Das Geschlecht erscheint so direkt hinter dem
+    // bosnischen Wort.
+    // ─────────────────────────────────────────────────────────
+    function genusSuffix(entry) {
+      const w = getWortart(entry);
+      if (w.startsWith('Substantiv')) {
+        const treffer = w.match(/\(([^)]+)\)/);   // Inhalt der Klammer suchen
+        if (treffer) return ' (' + treffer[1] + ')';
+      }
+      return '';
+    }
+
+    // Kleine Sicherheits-Funktion: wandelt Sonderzeichen in sicheren Text um
+    // (wir setzen unten innerHTML, damit das Genus dezent gestylt werden kann).
+    function escapeHTML(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    // Liefert das Wort als HTML. Ist es ein bosnisches Wort, wird das
+    // Geschlecht dezent (grau, kleiner) als <span class="genus"> angehängt.
+    function wordHTML(text, entry, istBosnisch) {
+      const sicher = escapeHTML(text);
+      if (istBosnisch) {
+        const g = genusSuffix(entry);
+        if (g) return sicher + '<span class="genus">' + escapeHTML(g) + '</span>';
+      }
+      return sicher;
+    }
+
     function initCategory() {
       allInCat = allVocab.filter(e => e.Kapitel === activeKapitel);
       if (!allInCat.length) {
@@ -216,8 +287,17 @@
 
       const kapitelname = allInCat[0].Kapitelname;
       document.getElementById('categoryBadge').textContent = `Kapitel ${activeKapitel}: ${kapitelname}`;
-      document.getElementById('categoryDesc').textContent  = `${allInCat.length} Vokabeln · aufgeteilt in Lerneinheiten à 15`;
+      document.getElementById('categoryDesc').textContent  = `${allInCat.length} Vokabeln · aufgeteilt in 2 Lerneinheiten`;
       document.title = `LinguaBosna – Vokabeltrainer: ${kapitelname}`;
+
+      // Zurück-Button auf die Vokabeltabelle des aktuellen Kapitels zeigen lassen
+      document.getElementById('backToTable').href = `${TABLE_PATH}?kapitel=${activeKapitel}`;
+
+      // Vokabeln in genau ZWEI gleich große Teile aufteilen
+      units = splitIntoTwo(allInCat);
+
+      // Navigation zu vorheriger/nächster Kategorie einrichten
+      setupCategoryNav();
 
       document.getElementById('stateMsg').classList.add('hidden');
       document.getElementById('trainerUI').classList.remove('hidden');
@@ -227,30 +307,81 @@
     }
 
     // ─────────────────────────────────────────────────────────
+    // AUFTEILUNG IN ZWEI TEILE
+    // Immer genau zwei Teile mit möglichst gleichem Anteil. Bei ungerader
+    // Anzahl bekommt der ERSTE Teil eine Vokabel mehr.
+    // Beispiel: 31 Vokabeln → Teil 1 = 16, Teil 2 = 15.
+    // (Bei 0 oder 1 Vokabel gibt es nur einen Teil.)
+    // ─────────────────────────────────────────────────────────
+    function splitIntoTwo(arr) {
+      const total = arr.length;
+      if (total <= 1) return [arr];
+      const split = Math.ceil(total / 2);   // erster Teil ggf. eine mehr
+      return [arr.slice(0, split), arr.slice(split)];
+    }
+
+    // ─────────────────────────────────────────────────────────
     // LERNEINHEITS-AUSWAHL
     // ─────────────────────────────────────────────────────────
     function buildUnitSelector() {
       const wrap = document.getElementById('unitSelector');
       wrap.innerHTML = '';
-      const chunkSize = 15;
-      const chunks = Math.ceil(allInCat.length / chunkSize);
-      for (let i = 0; i < chunks; i++) {
-        const from = i * chunkSize + 1;
-        const to   = Math.min((i + 1) * chunkSize, allInCat.length);
+      let start = 1;   // laufende Vokabelnummer (für die Beschriftung "von–bis")
+      units.forEach((part, i) => {
+        const from = start;
+        const to   = start + part.length - 1;
+        start = to + 1;
         const btn  = document.createElement('button');
         btn.className = 'unit-btn' + (i === 0 ? ' active' : '');
         btn.textContent = `Teil ${i + 1}  (${from}–${to})`;
         btn.onclick = () => selectUnit(i);
         wrap.appendChild(btn);
-      }
+      });
     }
 
     function selectUnit(idx) {
       activeUnit = idx;
       document.querySelectorAll('.unit-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
-      const chunkSize = 15;
-      unitVocab = allInCat.slice(idx * chunkSize, (idx + 1) * chunkSize);
+      unitVocab = units[idx];
       restart();
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // KATEGORIE-NAVIGATION (vorheriges / nächstes Kapitel)
+    // Baut die Buttons ganz unten anhand der in der JSON vorhandenen
+    // Kapitel auf. Im ersten Kapitel wird "Vorherige", im letzten
+    // "Nächste" Kategorie ausgeblendet.
+    // ─────────────────────────────────────────────────────────
+    function setupCategoryNav() {
+      // Alle Kapitel-Nummern eindeutig & sortiert sammeln
+      const chapters = [...new Set(allVocab.map(e => e.Kapitel))].sort((a, b) => a - b);
+
+      // Kapitelname je Nummer merken (erstes Vorkommen genügt)
+      const names = {};
+      allVocab.forEach(e => { if (!(e.Kapitel in names)) names[e.Kapitel] = e.Kapitelname; });
+
+      const idx     = chapters.indexOf(activeKapitel);
+      const prevNum = idx > 0 ? chapters[idx - 1] : null;
+      const nextNum = idx < chapters.length - 1 ? chapters[idx + 1] : null;
+
+      const prevBtn = document.getElementById('prevCategory');
+      const nextBtn = document.getElementById('nextCategory');
+
+      if (prevNum !== null) {
+        prevBtn.href = `${TRAINER_PATH}?kapitel=${prevNum}`;
+        document.getElementById('prevCategoryName').textContent = names[prevNum];
+        prevBtn.style.display = '';
+      } else {
+        prevBtn.style.display = 'none';
+      }
+
+      if (nextNum !== null) {
+        nextBtn.href = `${TRAINER_PATH}?kapitel=${nextNum}`;
+        document.getElementById('nextCategoryName').textContent = names[nextNum];
+        nextBtn.style.display = '';
+      } else {
+        nextBtn.style.display = 'none';
+      }
     }
 
     // ─────────────────────────────────────────────────────────
@@ -352,14 +483,17 @@
       inner.style.transition = 'none';
       inner.classList.remove('flipped');
 
-      // Inhalte aktualisieren während Rückseite versteckt ist
+      // Welche Seite zeigt das bosnische Wort? (für den Genus-Zusatz)
+      const frontIstBos = direction === 'bos-de';   // Vorderseite bosnisch?
+      const backIstBos  = !frontIstBos;             // Rückseite bosnisch?
+
+      // Inhalte aktualisieren während Rückseite versteckt ist.
+      // Das Geschlecht wird nur hinter dem bosnischen Wort angezeigt.
       document.getElementById('cardFrontLabel').textContent = frontLang();
-      document.getElementById('cardFrontWord').textContent  = frontText(v);
-      document.getElementById('cardFrontType').textContent  = getWortart(v);
+      document.getElementById('cardFrontWord').innerHTML    = wordHTML(frontText(v), v, frontIstBos);
       document.getElementById('cardBackLabel').textContent  = backLang();
-      document.getElementById('cardBackWord').textContent   = backText(v);
-      document.getElementById('cardBackType').textContent   = getWortart(v);
-      document.getElementById('cardBackHint').textContent   = backLang() + ': ' + backText(v);
+      document.getElementById('cardBackWord').innerHTML     = wordHTML(backText(v), v, backIstBos);
+      document.getElementById('cardBackHint').innerHTML     = backLang() + ': ' + wordHTML(backText(v), v, backIstBos);
 
       // Nach einem Frame: Transition wiederherstellen & Rückseite zeigen
       requestAnimationFrame(() => {
@@ -457,16 +591,23 @@
 
       document.getElementById('quizLabel').textContent = direction === 'bos-de'
         ? 'Was bedeutet auf Deutsch …' : 'Wie heißt auf Bosnisch …';
-      document.getElementById('quizWord').textContent = frontText(v);
-      document.getElementById('quizType').textContent = getWortart(v);
+
+      // Frage-Wort: Genus nur, wenn die Frage ein bosnisches Wort ist (bos→de)
+      const frageIstBos = direction === 'bos-de';
+      document.getElementById('quizWord').innerHTML = wordHTML(frontText(v), v, frageIstBos);
+
+      // Antwortoptionen: bei Richtung de→bos sind die Optionen bosnische
+      // Wörter → dann bekommen sie das Genus angehängt.
+      const optionIstBos = direction === 'de-bos';
 
       const container = document.getElementById('quizOptions');
       container.innerHTML = '';
       opts.forEach(opt => {
         const btn = document.createElement('button');
-        btn.className   = 'quiz-opt';
-        btn.textContent = backText(opt);
-        btn.onclick     = () => selectQuizOpt(btn, opt, v);
+        btn.className = 'quiz-opt';
+        btn.innerHTML = wordHTML(backText(opt), opt, optionIstBos);
+        btn._vocab    = opt;   // Vokabel-Objekt am Button merken (für robuste Auswertung)
+        btn.onclick   = () => selectQuizOpt(btn, opt, v);
         container.appendChild(btn);
       });
       document.getElementById('quizFeedback').textContent = '';
@@ -489,14 +630,17 @@
         btn.classList.add('selected-wrong');
         wrong++;
         wrongList.push(correctV);
-        // Korrekte Antwort grün markieren
-        const correctAnswer = backText(correctV);
+        // Korrekte Antwort grün markieren — über die Objekt-Referenz am Button
+        // (zuverlässiger als ein Textvergleich, falls Texte gleich aussehen).
         document.querySelectorAll('.quiz-opt').forEach(b => {
-          if (b.textContent === correctAnswer) b.classList.add('reveal-correct');
+          if (b._vocab === correctV) b.classList.add('reveal-correct');
         });
       }
+      // Im Feedback die richtige Antwort nennen; bei bosnischer Antwort mit Genus
+      const richtigeAntwort = backText(correctV)
+        + (direction === 'de-bos' ? genusSuffix(correctV) : '');
       const fb = document.getElementById('quizFeedback');
-      fb.textContent = isCorrect ? '✓ Richtig!' : '✗ Falsch — die Antwort war: ' + backText(correctV);
+      fb.textContent = isCorrect ? '✓ Richtig!' : '✗ Falsch — die Antwort war: ' + richtigeAntwort;
       fb.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
       updateScores();
       setTimeout(() => { current++; showQuizCard(); updateProgress(); }, 1100);
@@ -517,14 +661,16 @@
       unitVocab.forEach(v => {
         const chip = document.createElement('div');
         chip.className = 'word-chip';
-        const first  = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
-        const second = direction === 'bos-de' ? v.Deutsch  : v.Bosnisch;
+
+        // Reihenfolge je nach Richtung; Genus immer nur am bosnischen Wort.
+        const erstesIstBos = direction === 'bos-de';
+        const erstes  = wordHTML(erstesIstBos ? v.Bosnisch : v.Deutsch,  v, erstesIstBos);
+        const zweites = wordHTML(erstesIstBos ? v.Deutsch  : v.Bosnisch, v, !erstesIstBos);
+
+        // Kein Wortart-Tag mehr — nur Wort + Übersetzung, zentriert (siehe CSS).
         chip.innerHTML = `
-          <div>
-            <div class="bos">${first}</div>
-            <div class="de">${second}</div>
-          </div>
-          <div class="tag">${getWortart(v)}</div>
+          <div class="bos">${erstes}</div>
+          <div class="de">${zweites}</div>
         `;
         grid.appendChild(chip);
       });

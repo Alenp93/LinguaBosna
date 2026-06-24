@@ -291,7 +291,7 @@ main {
 .card-back .card-type { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
 
 .card-hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
-.card-back .card-hint { color: rgba(255,255,255,0.55); }
+.card-back .card-hint { color: var(--blue); }
 
 .card-audio-btn {
   margin-top: 0.9rem;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lerne bosnische Vokabeln – von Begrüßung bis Gesundheit. 10 Kapitel mit interaktivem Vokabeltrainer für Anfänger bis Fortgeschrittene.">
+  <meta name="description" content="Lerne bosnische Vokabeln von A1 bis C2 – über 70 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.">
   <title>LinguaBosna – Vokabeln</title>
 
   <!-- Google Fonts -->
@@ -39,16 +39,20 @@
     <!-- Section-Intro Block (Designvorgabe: jede Section verwendet diesen Block) -->
     <div class="section-intro">
       <h1>Vokabeln</h1>
-      <p>Wähle ein Kapitel und starte deine Lerneinheit</p>
+      <p>Wähle dein Sprachniveau und starte deine Lerneinheit</p>
     </div>
+
+    <!-- ── Niveau-Auswahl (Tab-Buttons) ──────────────────────────
+         Wird per JS mit den tatsächlich vorhandenen Niveaus befüllt. -->
+    <div class="level-selector" id="levelSelector" role="tablist" aria-label="Sprachniveau auswählen"></div>
 
     <!-- Lade-Meldung (wird per JS ausgeblendet) -->
     <p id="loadingMsg" class="loading-msg">
       <i class="fa-solid fa-spinner fa-spin"></i> Kategorien werden geladen…
     </p>
 
-    <!-- Karten-Grid (wird komplett per JS befüllt) -->
-    <div class="vocab-grid" id="vocabGrid"></div>
+    <!-- Container für die Karten-Grids je Niveau (komplett per JS befüllt) -->
+    <div id="levelGrids"></div>
 
   </main>
 
@@ -61,20 +65,99 @@
     const MASTER_PAGE = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
     // ────────────────────────────────────────────────────────────────
 
-    // FontAwesome-Icons je Kapitel-Nummer
-    // Wird beim Rendern der Karten verwendet
-    const KAPITEL_ICONS = {
-      1:  'fa-solid fa-comments',        // Begrüßung & Alltagssprache
-      2:  'fa-solid fa-people-group',    // Familie & Freunde
-      3:  'fa-solid fa-hashtag',         // Zahlen & Mengen
-      4:  'fa-solid fa-calendar-days',   // Zeit & Datum
-      5:  'fa-solid fa-utensils',        // Essen & Trinken
-      6:  'fa-solid fa-earth-europe',    // Natur & Länder
-      7:  'fa-solid fa-plane',           // Reisen & Verkehr
-      8:  'fa-solid fa-shirt',           // Kleidung & Aussehen
-      9:  'fa-solid fa-masks-theater',   // Kultur & Gesellschaft
-      10: 'fa-solid fa-heart-pulse',     // Gesundheit & Medizin
+    // Feste Reihenfolge & Beschriftung der Niveaus (wie auf der Grammatikseite)
+    const LEVEL_ORDER  = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    const LEVEL_LABELS = {
+      'A1': 'A1 – Grundlagen',
+      'A2': 'A2 – Aufbau',
+      'B1': 'B1 – Mittelstufe',
+      'B2': 'B2 – Fortgeschritten',
+      'C1': 'C1 – Oberstufe',
+      'C2': 'C2 – Profi'
     };
+
+    // ── Themen-Icons ────────────────────────────────────────────────
+    // Statt fester Kapitelnummern wird das Icon anhand von Stichwörtern im
+    // Kapitelnamen gewählt. Das bleibt auch dann korrekt, wenn sich
+    // Kapitelnummern künftig verschieben oder neue Kapitel dazukommen.
+    // Die Reihenfolge ist wichtig: spezifischere Begriffe stehen oben.
+    const ICON_RULES = [
+      [/begrüßung|alltagssprache/i,            'fa-comments'],
+      [/routine/i,                             'fa-arrows-rotate'],
+      [/zahlen|mengen/i,                       'fa-hashtag'],
+      [/farben|formen/i,                       'fa-palette'],
+      [/körper/i,                              'fa-person'],
+      [/familie|freunde/i,                     'fa-people-group'],
+      [/verben|handlungen/i,                   'fa-person-running'],
+      [/essen|trinken/i,                       'fa-utensils'],
+      [/\bzeit\b|datum/i,                      'fa-calendar-days'],
+      [/haus|wohnen/i,                         'fa-house'],
+      [/kleidung|aussehen/i,                   'fa-shirt'],
+      [/tiere/i,                               'fa-paw'],
+      [/wetter/i,                              'fa-cloud-sun'],
+      [/natur|länder/i,                        'fa-earth-europe'],
+      [/reisen|verkehr/i,                      'fa-plane'],
+      [/stadt|wegbeschreibung/i,               'fa-map-location-dot'],
+      [/einkaufen/i,                           'fa-cart-shopping'],
+      [/hobbys|freizeit/i,                     'fa-futbol'],
+      [/berufe|arbeit|karriere/i,              'fa-briefcase'],
+      [/schule/i,                              'fa-school'],
+      [/literatur/i,                           'fa-book-open'],
+      [/studium|bildung/i,                     'fa-graduation-cap'],
+      [/technik|internet/i,                    'fa-microchip'],
+      [/medizin/i,                             'fa-stethoscope'],
+      [/symptome/i,                            'fa-notes-medical'],
+      [/gesundheit/i,                          'fa-heart-pulse'],
+      [/persönlichkeit/i,                      'fa-fingerprint'],
+      [/beziehungen/i,                         'fa-heart'],
+      [/gefühle|emotion|haltung|charakter/i,   'fa-face-smile'],
+      [/kommunikation/i,                       'fa-tower-broadcast'],
+      [/öffentlichkeit/i,                      'fa-tv'],
+      [/medien/i,                              'fa-newspaper'],
+      [/meinung|diskussion/i,                  'fa-comment-dots'],
+      [/konnektoren/i,                         'fa-link'],
+      [/redemittel/i,                          'fa-comment-dots'],
+      [/redewendungen|idiome|idiomatik/i,      'fa-quote-right'],
+      [/orientalizmi|kulturlexik/i,            'fa-star-and-crescent'],
+      [/sevdah|kulturerbe/i,                   'fa-music'],
+      [/gesellschaft|soziales/i,               'fa-people-roof'],
+      [/kultur/i,                              'fa-masks-theater'],
+      [/politik|staat/i,                       'fa-landmark-dome'],
+      [/umwelt|klima/i,                        'fa-leaf'],
+      [/wirtschaft|finanzen/i,                 'fa-chart-line'],
+      [/geld/i,                                'fa-money-bill-wave'],
+      [/wissenschaft|forschung/i,              'fa-flask'],
+      [/synonyme|nuancen/i,                    'fa-arrow-right-arrow-left'],
+      [/gehobene|lexik/i,                      'fa-feather-pointed'],
+      [/abstrakte|konzepte|begriffe/i,         'fa-lightbulb'],
+      [/kollokationen|wendungen/i,             'fa-puzzle-piece'],
+      [/formell/i,                             'fa-file-signature'],
+      [/behörden/i,                            'fa-landmark'],
+      [/justiz|verwaltung|recht|gericht/i,     'fa-gavel'],
+      [/umgangssprache|bosnizismen/i,          'fa-comment'],
+      [/sprichwörter|sprichwort/i,             'fa-quote-left'],
+      [/archaismen|feierliche/i,               'fa-scroll'],
+      [/regionalismen|dialekt|partikeln/i,     'fa-language']
+    ];
+
+    function iconFor(name) {
+      for (const [regex, icon] of ICON_RULES) {
+        if (regex.test(name)) return 'fa-solid ' + icon;
+      }
+      return 'fa-solid fa-book';   // Fallback
+    }
+
+    // ── Tab-Logik: nur das gewählte Niveau anzeigen ─────────────────
+    function showLevel(level) {
+      document.querySelectorAll('#levelGrids .vocab-grid').forEach(grid => {
+        grid.classList.toggle('hidden', grid.dataset.level !== level);
+      });
+      document.querySelectorAll('.level-btn').forEach(btn => {
+        const aktiv = btn.dataset.level === level;
+        btn.classList.toggle('active', aktiv);
+        btn.setAttribute('aria-selected', aktiv ? 'true' : 'false');
+      });
+    }
 
     async function loadCategories() {
       try {
@@ -82,44 +165,68 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
 
-        // Eindeutige Kapitel in der richtigen Reihenfolge sammeln
-        // Gleichzeitig Vokabelanzahl je Kapitel zählen
-        const seen = new Map();
+        // Gruppieren: Niveau → Kapitel → { name, count }
+        // (Reihenfolge der Kapitel ergibt sich aus dem ersten Auftreten.)
+        const byLevel = new Map();
         data.forEach(entry => {
-          if (!seen.has(entry.Kapitel)) {
-            seen.set(entry.Kapitel, {
+          const niv = entry.Niveau;
+          if (!byLevel.has(niv)) byLevel.set(niv, new Map());
+          const kaps = byLevel.get(niv);
+          if (!kaps.has(entry.Kapitel)) {
+            kaps.set(entry.Kapitel, {
               kapitel:     entry.Kapitel,
               kapitelname: entry.Kapitelname,
               count:       0
             });
           }
-          seen.get(entry.Kapitel).count++;
+          kaps.get(entry.Kapitel).count++;
         });
 
-        const grid = document.getElementById('vocabGrid');
-        grid.innerHTML = '';
+        // Nur tatsächlich vorhandene Niveaus, in fester Reihenfolge
+        const levels = LEVEL_ORDER.filter(l => byLevel.has(l));
 
-        seen.forEach(({ kapitel, kapitelname, count }) => {
-          // Icon aus Map, Fallback auf generisches Buch-Icon
-          const iconClass = KAPITEL_ICONS[kapitel] || 'fa-solid fa-book';
-
-          // Karte als <a>-Element erstellen (klickbar + barrierefrei)
-          const a = document.createElement('a');
-          a.href      = `${MASTER_PAGE}?kapitel=${kapitel}`;
-          a.className = 'vocab-card';
-          a.setAttribute('aria-label', `Kapitel ${kapitel}: ${kapitelname}`);
-          a.innerHTML = `
-            <div class="vocab-card-icon">
-              <i class="${iconClass}" aria-hidden="true"></i>
-            </div>
-            <div class="vocab-card-num">Kapitel ${kapitel}</div>
-            <h2 class="vocab-card-title">${kapitelname}</h2>
-            <div class="vocab-card-count">${count} Vokabeln</div>
-          `;
-          grid.appendChild(a);
+        // 1) Tab-Buttons bauen
+        const selector = document.getElementById('levelSelector');
+        selector.innerHTML = '';
+        levels.forEach((lvl, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'level-btn' + (i === 0 ? ' active' : '');
+          btn.dataset.level = lvl;
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+          btn.textContent = LEVEL_LABELS[lvl] || lvl;
+          btn.addEventListener('click', () => showLevel(lvl));
+          selector.appendChild(btn);
         });
 
-        // Lade-Meldung ausblenden, sobald Grid befüllt ist
+        // 2) Karten-Grids je Niveau bauen (erstes sichtbar, Rest versteckt)
+        const gridsWrap = document.getElementById('levelGrids');
+        gridsWrap.innerHTML = '';
+        levels.forEach((lvl, i) => {
+          const grid = document.createElement('div');
+          grid.className = 'vocab-grid' + (i === 0 ? '' : ' hidden');
+          grid.dataset.level = lvl;
+
+          byLevel.get(lvl).forEach(({ kapitel, kapitelname, count }) => {
+            const a = document.createElement('a');
+            a.href      = `${MASTER_PAGE}?kapitel=${kapitel}`;
+            a.className = 'vocab-card';
+            a.setAttribute('aria-label', `Kapitel ${kapitel}: ${kapitelname}`);
+            a.innerHTML = `
+              <div class="vocab-card-icon">
+                <i class="${iconFor(kapitelname)}" aria-hidden="true"></i>
+              </div>
+              <div class="vocab-card-num">Kapitel ${kapitel}</div>
+              <h2 class="vocab-card-title">${kapitelname}</h2>
+              <div class="vocab-card-count">${count} Vokabeln</div>
+            `;
+            grid.appendChild(a);
+          });
+
+          gridsWrap.appendChild(grid);
+        });
+
+        // Lade-Meldung ausblenden
         document.getElementById('loadingMsg').style.display = 'none';
 
       } catch (e) {

@@ -7,6 +7,11 @@
    - Sekundärfarbe (Grün):     var(--secondary)/ #2E5E2E
    - Hintergrund:              var(--bg-light) / #F8F5F0
    - Neutral Grau:             var(--neutral)  / #E6E6E6
+
+   Aufbau: Vokabeln nach Sprachniveau (A1–C2) gegliedert.
+   Tab-System wie auf der Grammatik-Übersichtsseite: oben die
+   Niveau-Auswahl, darunter je Niveau ein Karten-Grid – nur das
+   aktive Niveau ist sichtbar.
    ============================================================ */
 
 
@@ -22,7 +27,7 @@ main {
 /* Pflicht-Struktur laut Designvorgabe für alle Sections */
 .section-intro {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 .section-intro h1 {
@@ -42,6 +47,39 @@ main {
 }
 
 
+/* ── Niveau-Auswahl (Tab-Buttons) ──────────────────────────── */
+.level-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 45px;
+}
+
+.level-btn {
+  padding: 10px 22px;
+  border-radius: 50px;                 /* Pill-Form */
+  border: 2px solid var(--primary);
+  background: #fff;
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;          /* Hover-Effekt immer vorhanden */
+}
+
+.level-btn:hover {
+  background: #e8f2fb;                  /* dezentes Hellblau beim Überfahren */
+}
+
+/* Aktives Niveau: dunkelblau gefüllt mit weißer Schrift */
+.level-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+
 /* ── Lade-Meldung ──────────────────────────────────────────── */
 .loading-msg {
   text-align: center;
@@ -57,6 +95,11 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 25px;
+}
+
+/* Nicht aktives Niveau ausblenden */
+.hidden {
+  display: none;
 }
 
 
@@ -182,11 +225,21 @@ main {
   }
 
   .section-intro {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
   }
 
   .section-intro h1 {
     font-size: 1.8rem;
+  }
+
+  /* Niveau-Buttons kompakter */
+  .level-selector {
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .level-btn {
+    padding: 8px 16px;
+    font-size: 0.82rem;
   }
 
   /* Kleinere Mindestbreite für Karten auf Mobil */
@@ -223,6 +276,12 @@ main {
 
   .section-intro h1 {
     font-size: 1.5rem;
+  }
+
+  /* Niveau-Buttons noch kompakter, damit sie gut umbrechen */
+  .level-btn {
+    padding: 7px 13px;
+    font-size: 0.76rem;
   }
 
   /* Genau 2 Spalten auf kleinen Bildschirmen */

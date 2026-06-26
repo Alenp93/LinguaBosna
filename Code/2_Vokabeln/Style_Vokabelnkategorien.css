@@ -185,6 +185,20 @@ tbody tr:last-child td {
 }
 
 
+/* ── Aspekt-Badge hinter Verben ────────────────────────────────
+   Zeigt den Verbalaspekt als grünes Kürzel in eckigen Klammern,
+   z.B. "raditi [nesvrš.]". Unterscheidet sich bewusst klar vom
+   Genus-Label der Substantive (das in runden Klammern OHNE
+   Hintergrund steht): grünes Badge in eckigen Klammern. */
+.aspekt-tag {
+  color: #7a7a7a;
+  font-size: 0.9em;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+
 /* ── Wortart-Badge (nicht mehr in der Tabelle verwendet,
       bleibt für eventuelle spätere Nutzung erhalten) ─────────── */
 .wortart-badge {

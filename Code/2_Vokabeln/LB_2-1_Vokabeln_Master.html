@@ -153,6 +153,23 @@
       return '';                                      // kein Zusatz
     }
 
+    // ── Aspekt-Kürzel für Verben ────────────────────────────────────────
+    // Verben haben ein Feld "aspekt" mit den Werten "svršeni", "nesvršeni"
+    // oder "dvovidni". Daraus wird ein kleines grünes Badge in eckigen
+    // Klammern erzeugt, das hinter dem bosnischen Wort steht.
+    // Fehlt das Feld (z.B. bei Substantiven), wird ein leerer String
+    // zurückgegeben – es bricht also nichts und es erscheint nichts.
+    function getAspektBadge(entry) {
+      const KUERZEL = {
+        'svršeni':   'svrš.',
+        'nesvršeni': 'nesvrš.',
+        'dvovidni':  'dvov.'
+      };
+      const kuerzel = KUERZEL[entry.aspekt];           // undefined, wenn kein/unbekannter Aspekt
+      if (!kuerzel) return '';                          // nichts anhängen
+      return ` <span class="aspekt-tag">[${kuerzel}]</span>`;
+    }
+
     // ── Beste verfügbare BKS-Stimme ermitteln ───────────────────────────
     // BKS = Bosnisch / Kroatisch / Serbisch (+ Montenegrinisch). Alle vier
     // klingen phonetisch praktisch gleich. Wir nehmen die erste Stimme, die
@@ -306,11 +323,12 @@
 
         entries.forEach(entry => {
           const tr = document.createElement('tr');
-          // Bosnisches Wort + (bei Substantiven) Genus-Zusatz in Klammern.
-          // Beispiel-Ausgabe: "vjera (f)" oder "cipele (f, Pl.)".
-          // Die Wortart selbst wird NICHT mehr angezeigt (nur noch im JSON).
+          // Bosnisches Wort + (bei Substantiven) Genus-Zusatz in runden
+          // Klammern + (bei Verben) Aspekt-Badge in eckigen Klammern.
+          // Beispiele: "vjera (f)", "cipele (f, Pl.)", "raditi [nesvrš.]".
+          // Die Wortart selbst wird NICHT angezeigt (nur noch im JSON).
           tr.innerHTML = `
-            <td>${entry.Bosnisch}<span class="genus">${getGenusSuffix(entry)}</span></td>
+            <td>${entry.Bosnisch}<span class="genus">${getGenusSuffix(entry)}</span>${getAspektBadge(entry)}</td>
             <td>${entry.Deutsch}</td>
           `;
           tbody.appendChild(tr);

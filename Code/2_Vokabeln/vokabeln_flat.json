@@ -1354,7 +1354,8 @@
     "Bosnisch": "hodati",
     "Deutsch": "gehen / laufen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap05"
   },
   {
     "kategorie": "Kapitel 6",
@@ -1374,7 +1375,8 @@
     "Bosnisch": "doći",
     "Deutsch": "kommen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap03"
   },
   {
     "kategorie": "Kapitel 6",
@@ -1384,7 +1386,8 @@
     "Bosnisch": "dolaziti",
     "Deutsch": "kommen (wiederholt)",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap03"
   },
   {
     "kategorie": "Kapitel 6",
@@ -1394,7 +1397,8 @@
     "Bosnisch": "otvoriti",
     "Deutsch": "öffnen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap04"
   },
   {
     "kategorie": "Kapitel 6",
@@ -1584,7 +1588,8 @@
     "Bosnisch": "otvarati",
     "Deutsch": "öffnen (wiederholt)",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap04"
   },
   {
     "kategorie": "Kapitel 6",
@@ -1839,7 +1844,8 @@
     "Bosnisch": "kupovati",
     "Deutsch": "kaufen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap02"
   },
   {
     "kategorie": "Kapitel 7",
@@ -2614,7 +2620,8 @@
     "Bosnisch": "kupiti",
     "Deutsch": "kaufen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap02"
   },
   {
     "kategorie": "Kapitel 10",
@@ -2634,7 +2641,8 @@
     "Bosnisch": "birati",
     "Deutsch": "auswählen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap01"
   },
   {
     "kategorie": "Kapitel 10",
@@ -3776,7 +3784,8 @@
     "Bosnisch": "probuditi se",
     "Deutsch": "aufwachen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap06"
   },
   {
     "kategorie": "Kapitel 15",
@@ -3786,7 +3795,8 @@
     "Bosnisch": "buditi se",
     "Deutsch": "aufwachen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap06"
   },
   {
     "kategorie": "Kapitel 15",
@@ -3846,7 +3856,8 @@
     "Bosnisch": "čistiti",
     "Deutsch": "putzen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap09"
   },
   {
     "kategorie": "Kapitel 15",
@@ -3856,7 +3867,8 @@
     "Bosnisch": "počistiti",
     "Deutsch": "putzen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap09"
   },
   {
     "kategorie": "Kapitel 15",
@@ -3896,7 +3908,8 @@
     "Bosnisch": "oblačiti se",
     "Deutsch": "sich anziehen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap11"
   },
   {
     "kategorie": "Kapitel 15",
@@ -3906,7 +3919,8 @@
     "Bosnisch": "obući se",
     "Deutsch": "sich anziehen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap11"
   },
   {
     "kategorie": "Kapitel 15",
@@ -3936,7 +3950,8 @@
     "Bosnisch": "odmoriti se",
     "Deutsch": "sich ausruhen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap12"
   },
   {
     "kategorie": "Kapitel 15",
@@ -4583,7 +4598,8 @@
     "Bosnisch": "izabrati",
     "Deutsch": "auswählen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap01"
   },
   {
     "kategorie": "Kapitel 19",
@@ -4683,7 +4699,8 @@
     "Bosnisch": "prodati",
     "Deutsch": "verkaufen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap14"
   },
   {
     "kategorie": "Kapitel 19",
@@ -4693,7 +4710,8 @@
     "Bosnisch": "prodavati",
     "Deutsch": "verkaufen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap14"
   },
   {
     "kategorie": "Kapitel 19",
@@ -4713,7 +4731,8 @@
     "Bosnisch": "trošiti",
     "Deutsch": "ausgeben",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap07"
   },
   {
     "kategorie": "Kapitel 19",
@@ -4723,7 +4742,8 @@
     "Bosnisch": "potrošiti",
     "Deutsch": "ausgeben",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap07"
   },
   {
     "kategorie": "Kapitel 19",
@@ -5262,7 +5282,8 @@
     "Bosnisch": "zarađivati",
     "Deutsch": "verdienen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap13"
   },
   {
     "kategorie": "Kapitel 22",
@@ -5272,7 +5293,8 @@
     "Bosnisch": "zaraditi",
     "Deutsch": "verdienen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap13"
   },
   {
     "kategorie": "Kapitel 22",
@@ -5690,7 +5712,8 @@
     "Bosnisch": "naučiti",
     "Deutsch": "lernen / beibringen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap08"
   },
   {
     "kategorie": "Kapitel 24",
@@ -5720,7 +5743,8 @@
     "Bosnisch": "ponavljati",
     "Deutsch": "wiederholen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap15"
   },
   {
     "kategorie": "Kapitel 24",
@@ -5944,7 +5968,8 @@
     "Bosnisch": "otići",
     "Deutsch": "gehen (weggehen)",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap05"
   },
   {
     "kategorie": "Kapitel 25",
@@ -6004,7 +6029,8 @@
     "Bosnisch": "odmarati se",
     "Deutsch": "sich ausruhen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap12"
   },
   {
     "kategorie": "Kapitel 25",
@@ -6580,7 +6606,8 @@
     "Bosnisch": "poslati",
     "Deutsch": "senden",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap10"
   },
   {
     "kategorie": "Kapitel 27",
@@ -6590,7 +6617,8 @@
     "Bosnisch": "slati",
     "Deutsch": "senden",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap10"
   },
   {
     "kategorie": "Kapitel 27",
@@ -6876,7 +6904,8 @@
     "Bosnisch": "učiti",
     "Deutsch": "lernen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap08"
   },
   {
     "kategorie": "Kapitel 28",
@@ -7357,7 +7386,8 @@
     "Bosnisch": "razvijati",
     "Deutsch": "entwickeln",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap16"
   },
   {
     "kategorie": "Kapitel 30",
@@ -7367,7 +7397,8 @@
     "Bosnisch": "razviti",
     "Deutsch": "entwickeln",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap16"
   },
   {
     "kategorie": "Kapitel 31",
@@ -7523,7 +7554,8 @@
     "Bosnisch": "ponoviti",
     "Deutsch": "wiederholen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap15"
   },
   {
     "kategorie": "Kapitel 31",
@@ -8394,7 +8426,8 @@
     "Bosnisch": "oporaviti se",
     "Deutsch": "sich erholen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap17"
   },
   {
     "kategorie": "Kapitel 36",
@@ -8404,7 +8437,8 @@
     "Bosnisch": "liječiti se",
     "Deutsch": "sich behandeln lassen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap17"
   },
   {
     "kategorie": "Kapitel 36",
@@ -11055,7 +11089,8 @@
     "Bosnisch": "suočiti se",
     "Deutsch": "sich konfrontieren",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap24"
   },
   {
     "kategorie": "Kapitel 47",
@@ -12149,7 +12184,8 @@
     "Bosnisch": "izvještavati",
     "Deutsch": "berichten",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap18"
   },
   {
     "kategorie": "Kapitel 51",
@@ -12159,7 +12195,8 @@
     "Bosnisch": "prenijeti",
     "Deutsch": "übertragen / melden",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap18"
   },
   {
     "kategorie": "Kapitel 51",
@@ -12396,7 +12433,8 @@
     "Bosnisch": "osuditi",
     "Deutsch": "verurteilen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap19"
   },
   {
     "kategorie": "Kapitel 52",
@@ -12406,7 +12444,8 @@
     "Bosnisch": "osloboditi",
     "Deutsch": "freisprechen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap20"
   },
   {
     "kategorie": "Kapitel 52",
@@ -12426,7 +12465,8 @@
     "Bosnisch": "suditi",
     "Deutsch": "richten / urteilen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap19"
   },
   {
     "kategorie": "Kapitel 52",
@@ -12436,7 +12476,8 @@
     "Bosnisch": "braniti",
     "Deutsch": "verteidigen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap20"
   },
   {
     "kategorie": "Kapitel 53",
@@ -13979,7 +14020,8 @@
     "Bosnisch": "nastojati",
     "Deutsch": "sich bemühen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap25"
   },
   {
     "kategorie": "Kapitel 58",
@@ -13989,7 +14031,8 @@
     "Bosnisch": "razmotriti",
     "Deutsch": "erwägen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap25"
   },
   {
     "kategorie": "Kapitel 58",
@@ -13999,7 +14042,8 @@
     "Bosnisch": "promišljati",
     "Deutsch": "reflektieren",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap23"
   },
   {
     "kategorie": "Kapitel 58",
@@ -14069,7 +14113,8 @@
     "Bosnisch": "proizlaziti",
     "Deutsch": "sich ergeben / hervorgehen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap26"
   },
   {
     "kategorie": "Kapitel 58",
@@ -14099,7 +14144,8 @@
     "Bosnisch": "preispitati",
     "Deutsch": "hinterfragen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap23"
   },
   {
     "kategorie": "Kapitel 58",
@@ -14109,7 +14155,8 @@
     "Bosnisch": "proisteći",
     "Deutsch": "resultieren",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap26"
   },
   {
     "kategorie": "Kapitel 59",
@@ -15292,7 +15339,8 @@
     "Bosnisch": "zboriti",
     "Deutsch": "sprechen (poet./gehoben)",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap27"
   },
   {
     "kategorie": "Kapitel 63",
@@ -15302,7 +15350,8 @@
     "Bosnisch": "kazivati",
     "Deutsch": "erzählen / vortragen (geh.)",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap22"
   },
   {
     "kategorie": "Kapitel 63",
@@ -15312,7 +15361,8 @@
     "Bosnisch": "motriti",
     "Deutsch": "beobachten (geh.)",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap21"
   },
   {
     "kategorie": "Kapitel 63",
@@ -15332,7 +15382,8 @@
     "Bosnisch": "ugledati",
     "Deutsch": "erblicken",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap21"
   },
   {
     "kategorie": "Kapitel 63",
@@ -15352,7 +15403,8 @@
     "Bosnisch": "obznaniti",
     "Deutsch": "verkünden",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap27"
   },
   {
     "kategorie": "Kapitel 63",
@@ -15382,7 +15434,8 @@
     "Bosnisch": "iznijeti",
     "Deutsch": "darlegen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap22"
   },
   {
     "kategorie": "Kapitel 63",
@@ -15432,7 +15485,8 @@
     "Bosnisch": "suočavati se",
     "Deutsch": "sich auseinandersetzen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap24"
   },
   {
     "kategorie": "Kapitel 63",

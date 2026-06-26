@@ -109,7 +109,7 @@
               <div class="card-face card-back">
                 <div class="card-label" id="cardBackLabel">Deutsch</div>
                 <div class="card-word"  id="cardBackWord"></div>
-                <div class="card-hint"  id="cardBackHint"></div>
+                <div class="card-hint" id="cardBackHint">&nbsp;</div>
               </div>
             </div>
           </div>
@@ -493,7 +493,7 @@
       document.getElementById('cardFrontWord').innerHTML    = wordHTML(frontText(v), v, frontIstBos);
       document.getElementById('cardBackLabel').textContent  = backLang();
       document.getElementById('cardBackWord').innerHTML     = wordHTML(backText(v), v, backIstBos);
-      document.getElementById('cardBackHint').innerHTML     = backLang() + ': ' + wordHTML(backText(v), v, backIstBos);
+      document.getElementById('cardBackHint').innerHTML     = backLang() + ': ';
 
       // Nach einem Frame: Transition wiederherstellen & Rückseite zeigen
       requestAnimationFrame(() => {

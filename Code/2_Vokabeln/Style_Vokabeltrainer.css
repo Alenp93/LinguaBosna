@@ -472,6 +472,21 @@ main {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* ── Aspekt-Kürzel hinter Verben ────────────────────────────────
+   Gleiches dezentes Grau wie das Genus – nur in eckigen Klammern
+   (die Klammern stehen im JS). Auf der blauen Karten-Rückseite
+   heller, damit es lesbar bleibt. */
+.aspekt-tag {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85em;
+  margin-left: 5px;
+  white-space: nowrap;
+}
+.card-back .aspekt-tag {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 /* ── Kategorie-Navigation (ganz unten) ─────────────────────────
    Linker Button = vorherige Kategorie (outline), rechter Button =
    nächste Kategorie (gefüllt). "margin-left:auto" hält den

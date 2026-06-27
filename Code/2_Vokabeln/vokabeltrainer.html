@@ -200,6 +200,7 @@
     // ─────────────────────────────────────────────────────────
     let allVocab   = [];   // komplette JSON-Daten
     let allInCat   = [];   // alle Einträge für das aktuelle Kapitel
+    let allItemsInCat = [];// allInCat gruppiert in Lern-Items (Einzel + Paare)
     let units      = [];   // die zwei Lerneinheiten (Teil 1 / Teil 2)
     let unitVocab  = [];   // Einträge für die aktuell gewählte Lerneinheit
     let queue      = [];   // aktuell zu lernende Karten (gemischt)
@@ -257,6 +258,24 @@
       return '';
     }
 
+    // ─────────────────────────────────────────────────────────
+    // ASPEKT-ANZEIGE (genau wie bei den Vokabeltabellen)
+    // Verben haben ein Feld "aspekt": "svršeni" → [svrš.],
+    // "nesvršeni" → [nesvrš.], "dvovidni" → [dvov.]. Fehlt das Feld
+    // (z.B. bei Substantiven) oder ist der Wert unbekannt, wird nichts
+    // angehängt – es bricht also nichts.
+    // ─────────────────────────────────────────────────────────
+    function aspektBadgeHTML(entry) {
+      const KUERZEL = {
+        'svršeni':   'svrš.',
+        'nesvršeni': 'nesvrš.',
+        'dvovidni':  'dvov.'
+      };
+      const kuerzel = KUERZEL[entry.aspekt];
+      if (!kuerzel) return '';
+      return ' <span class="aspekt-tag">[' + kuerzel + ']</span>';
+    }
+
     // Kleine Sicherheits-Funktion: wandelt Sonderzeichen in sicheren Text um
     // (wir setzen unten innerHTML, damit das Genus dezent gestylt werden kann).
     function escapeHTML(s) {
@@ -266,15 +285,100 @@
         .replace(/>/g, '&gt;');
     }
 
-    // Liefert das Wort als HTML. Ist es ein bosnisches Wort, wird das
-    // Geschlecht dezent (grau, kleiner) als <span class="genus"> angehängt.
+    // Liefert das Wort als HTML. Ist es ein bosnisches Wort, werden – wie in
+    // der Vokabeltabelle – das Genus (bei Substantiven) und das Aspekt-Kürzel
+    // (bei Verben) dezent angehängt. Bei deutschen Wörtern erscheint nichts.
     function wordHTML(text, entry, istBosnisch) {
       const sicher = escapeHTML(text);
       if (istBosnisch) {
         const g = genusSuffix(entry);
-        if (g) return sicher + '<span class="genus">' + escapeHTML(g) + '</span>';
+        const genusHTML = g ? '<span class="genus">' + escapeHTML(g) + '</span>' : '';
+        return sicher + genusHTML + aspektBadgeHTML(entry);
       }
       return sicher;
+    }
+
+    // ═════════════════════════════════════════════════════════
+    // ASPEKTPAARE: GRUPPIERUNG (Variante 1)
+    // ═════════════════════════════════════════════════════════
+    // Aus einer Vokabelliste werden "Lern-Items" gebaut. Ein Item ist
+    // entweder ein normaler Einzeleintrag (das Vokabel-Objekt selbst,
+    // völlig unverändert) ODER ein Aspektpaar-Objekt:
+    //   { __pair:true, nesv, sv, Deutsch, items:[nesv, sv] }
+    //
+    // Ein Paar entsteht NUR, wenn beide Partner (gleiche par_id) im
+    // geladenen Datensatz (= dieselbe Liste) vorhanden sind. Liegt der
+    // Partner in einem nicht geladenen Kapitel, bleibt das Verb ein
+    // Einzeleintrag. Verben ohne par_id sind immer Einzeleinträge.
+    // Da der Trainer immer den kompletten geladenen Datensatz gruppiert,
+    // erscheint jedes Paar genau EINMAL.
+    function buildItems(list) {
+      const consumed = new Set();
+      const items    = [];
+
+      // par_id → Einträge in dieser Liste (für schnelle Partnersuche)
+      const byPid = new Map();
+      list.forEach(e => {
+        if (e.par_id) {
+          if (!byPid.has(e.par_id)) byPid.set(e.par_id, []);
+          byPid.get(e.par_id).push(e);
+        }
+      });
+
+      list.forEach(entry => {
+        if (consumed.has(entry)) return;             // schon als Partner verbraucht
+
+        const pid = entry.par_id;
+        if (pid) {
+          const gruppe  = byPid.get(pid) || [];
+          const partner = gruppe.find(o => o !== entry);   // Partner im SELBEN Datensatz?
+          if (partner) {
+            // nesvršeni-Partner zuerst, svršeni danach; Deutsch vom nesvršeni-Partner
+            const nesv = entry.aspekt === 'nesvršeni' ? entry
+                       : partner.aspekt === 'nesvršeni' ? partner
+                       : entry;                       // Fallback, falls Aspekt fehlt
+            const sv   = (nesv === entry) ? partner : entry;
+            items.push({ __pair: true, nesv, sv, Deutsch: nesv.Deutsch, items: [nesv, sv] });
+            consumed.add(entry);
+            consumed.add(partner);
+            return;
+          }
+          // kein Partner im geladenen Datensatz → wie Einzeleintrag behandeln
+        }
+        items.push(entry);                            // Einzeleintrag (unverändert)
+      });
+
+      return items;
+    }
+
+    // ── Item-Anzeige-Helfer ─────────────────────────────────────────
+    // Ein "Item" ist entweder ein Einzeleintrag (Vokabel-Objekt) oder ein
+    // Aspektpaar (__pair). Diese Helfer liefern die jeweilige Seite.
+    function isPair(item) { return !!(item && item.__pair); }
+
+    // Bosnische Seite als HTML (inkl. Genus/Aspekt). Paar: beide Formen.
+    function bosSideHTML(item) {
+      if (isPair(item)) {
+        return wordHTML(item.nesv.Bosnisch, item.nesv, true)
+             + ' / '
+             + wordHTML(item.sv.Bosnisch,  item.sv,  true);
+      }
+      return wordHTML(item.Bosnisch, item, true);
+    }
+    // Deutsche Seite als HTML (escaped, ohne Zusätze; bei Paaren nur EINMAL).
+    function deSideHTML(item) {
+      return escapeHTML(item.Deutsch);
+    }
+    // Vorder-/Rückseite je nach Richtung (identisch zur bisherigen Logik).
+    function frontSideHTML(item) {
+      return direction === 'bos-de' ? bosSideHTML(item) : deSideHTML(item);
+    }
+    function backSideHTML(item) {
+      return direction === 'bos-de' ? deSideHTML(item)  : bosSideHTML(item);
+    }
+    // Plain-Text der bosnischen Seite (für Feedback/Sprachausgabe).
+    function bosSidePlain(item) {
+      return isPair(item) ? (item.nesv.Bosnisch + ' / ' + item.sv.Bosnisch) : item.Bosnisch;
     }
 
     function initCategory() {
@@ -293,8 +397,11 @@
       // Zurück-Button auf die Vokabeltabelle des aktuellen Kapitels zeigen lassen
       document.getElementById('backToTable').href = `${TABLE_PATH}?kapitel=${activeKapitel}`;
 
-      // Vokabeln in genau ZWEI gleich große Teile aufteilen
-      units = splitIntoTwo(allInCat);
+      // Vokabeln zuerst in Lern-Items gruppieren (Aspektpaare zusammenfassen),
+      // DANN die Items in genau ZWEI gleich große Teile aufteilen. So bleibt
+      // ein Paar immer eine Einheit und erscheint genau einmal.
+      allItemsInCat = buildItems(allInCat);
+      units = splitIntoTwo(allItemsInCat);
 
       // Navigation zu vorheriger/nächster Kategorie einrichten
       setupCategoryNav();
@@ -475,7 +582,7 @@
     // ─────────────────────────────────────────────────────────
     function showCard() {
       if (current >= queue.length) { showResult(); return; }
-      const v     = queue[current];
+      const v     = queue[current];   // v ist jetzt ein Item (Einzel ODER Paar)
       const inner = document.getElementById('cardInner');
 
       // Reset zur Vorderseite ohne Flip-Animation (verhindert Flackern)
@@ -483,16 +590,13 @@
       inner.style.transition = 'none';
       inner.classList.remove('flipped');
 
-      // Welche Seite zeigt das bosnische Wort? (für den Genus-Zusatz)
-      const frontIstBos = direction === 'bos-de';   // Vorderseite bosnisch?
-      const backIstBos  = !frontIstBos;             // Rückseite bosnisch?
-
       // Inhalte aktualisieren während Rückseite versteckt ist.
-      // Das Geschlecht wird nur hinter dem bosnischen Wort angezeigt.
+      // frontSideHTML/backSideHTML berücksichtigen Richtung, Genus, Aspekt
+      // und stellen Aspektpaare als "Form1 / Form2" dar.
       document.getElementById('cardFrontLabel').textContent = frontLang();
-      document.getElementById('cardFrontWord').innerHTML    = wordHTML(frontText(v), v, frontIstBos);
+      document.getElementById('cardFrontWord').innerHTML    = frontSideHTML(v);
       document.getElementById('cardBackLabel').textContent  = backLang();
-      document.getElementById('cardBackWord').innerHTML     = wordHTML(backText(v), v, backIstBos);
+      document.getElementById('cardBackWord').innerHTML     = backSideHTML(v);
       document.getElementById('cardBackHint').innerHTML     = backLang() + ': ';
 
       // Nach einem Frame: Transition wiederherstellen & Rückseite zeigen
@@ -571,7 +675,7 @@
       e.stopPropagation(); // Verhindert gleichzeitiges Umdrehen der Karte
       const v = queue[current];
       if (!v) return;
-      const word = direction === 'bos-de' ? v.Bosnisch : v.Deutsch;
+      const word = direction === 'bos-de' ? bosSidePlain(v) : v.Deutsch;
       if ('speechSynthesis' in window) {
         const u = new SpeechSynthesisUtterance(word);
         u.lang = direction === 'bos-de' ? 'bs-BA' : 'de-DE';
@@ -586,27 +690,22 @@
     // ─────────────────────────────────────────────────────────
     function showQuizCard() {
       if (current >= queue.length) { showResult(); return; }
-      const v    = queue[current];
+      const v    = queue[current];        // Item (Einzel ODER Paar)
       const opts = getQuizOptions(v);
 
       document.getElementById('quizLabel').textContent = direction === 'bos-de'
         ? 'Was bedeutet auf Deutsch …' : 'Wie heißt auf Bosnisch …';
 
-      // Frage-Wort: Genus nur, wenn die Frage ein bosnisches Wort ist (bos→de)
-      const frageIstBos = direction === 'bos-de';
-      document.getElementById('quizWord').innerHTML = wordHTML(frontText(v), v, frageIstBos);
-
-      // Antwortoptionen: bei Richtung de→bos sind die Optionen bosnische
-      // Wörter → dann bekommen sie das Genus angehängt.
-      const optionIstBos = direction === 'de-bos';
+      // Frage-Wort = Vorderseite des Items (Paar erscheint als "Form1 / Form2")
+      document.getElementById('quizWord').innerHTML = frontSideHTML(v);
 
       const container = document.getElementById('quizOptions');
       container.innerHTML = '';
       opts.forEach(opt => {
         const btn = document.createElement('button');
         btn.className = 'quiz-opt';
-        btn.innerHTML = wordHTML(backText(opt), opt, optionIstBos);
-        btn._vocab    = opt;   // Vokabel-Objekt am Button merken (für robuste Auswertung)
+        btn.innerHTML = backSideHTML(opt);   // Antwort = Rückseite des Items
+        btn._vocab    = opt;   // Item am Button merken (für robuste Auswertung)
         btn.onclick   = () => selectQuizOpt(btn, opt, v);
         container.appendChild(btn);
       });
@@ -615,8 +714,8 @@
     }
 
     function getQuizOptions(correctV) {
-      // Alle Vokabeln des Kapitels als Ablenkerpool verwenden (mehr Vielfalt)
-      const pool = allInCat.filter(v => v !== correctV);
+      // Ablenkerpool aus den Items des Kapitels (Paare zählen als ein Item)
+      const pool = allItemsInCat.filter(it => it !== correctV);
       return shuffle([correctV, ...shuffle(pool).slice(0, 3)]);
     }
 
@@ -636,9 +735,10 @@
           if (b._vocab === correctV) b.classList.add('reveal-correct');
         });
       }
-      // Im Feedback die richtige Antwort nennen; bei bosnischer Antwort mit Genus
-      const richtigeAntwort = backText(correctV)
-        + (direction === 'de-bos' ? genusSuffix(correctV) : '');
+      // Im Feedback die richtige Antwort nennen (Rückseite als Klartext)
+      const richtigeAntwort = direction === 'bos-de'
+        ? correctV.Deutsch
+        : bosSidePlain(correctV);
       const fb = document.getElementById('quizFeedback');
       fb.textContent = isCorrect ? '✓ Richtig!' : '✗ Falsch — die Antwort war: ' + richtigeAntwort;
       fb.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
@@ -658,14 +758,13 @@
 
       const grid = document.getElementById('wordListGrid');
       grid.innerHTML = '';
-      unitVocab.forEach(v => {
+      unitVocab.forEach(item => {
         const chip = document.createElement('div');
         chip.className = 'word-chip';
 
-        // Reihenfolge je nach Richtung; Genus immer nur am bosnischen Wort.
-        const erstesIstBos = direction === 'bos-de';
-        const erstes  = wordHTML(erstesIstBos ? v.Bosnisch : v.Deutsch,  v, erstesIstBos);
-        const zweites = wordHTML(erstesIstBos ? v.Deutsch  : v.Bosnisch, v, !erstesIstBos);
+        // Vorder-/Rückseite je nach Richtung; Aspektpaare als "Form1 / Form2".
+        const erstes  = frontSideHTML(item);
+        const zweites = backSideHTML(item);
 
         // Kein Wortart-Tag mehr — nur Wort + Übersetzung, zentriert (siehe CSS).
         chip.innerHTML = `

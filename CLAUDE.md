@@ -1,0 +1,192 @@
+# LinguaBosna – Projektkontext für Claude Code
+
+## Über das Projekt
+
+LinguaBosna (linguabosna.com) ist eine kostenlose Lernwebseite für die bosnische Sprache und Kultur,
+primär für deutschsprachige Lerner und die bosnische Diaspora im DACH-Raum. Sprachniveau A1–C2.
+
+**Wichtigste Prämisse: Kosten sehr gering halten.** Kein Backend, keine Paid-Services.
+Reines HTML/CSS/JavaScript, kein Framework. Statisches Hosting über GitHub Pages.
+
+**Kommunikationssprache:** Deutsch (auch in dieser Datei und in allen Sessions).
+
+## Kenntnisstand des Projektinhabers
+
+Alen hat nur Grundkenntnisse in Webdesign/Programmierung.
+- Code ausreichend kommentieren.
+- Lösungen verständlich erklären, nicht nur Ergebnisse liefern.
+- Bei Dateiersatz: **denselben Dateinamen wie die alte Datei übernehmen.**
+- Vor jedem Git-Commit/Push die Änderungen zeigen und explizit bestätigen lassen –
+  besonders bei sprachlichen Inhalten (siehe unten).
+
+## Tech-Stack & Repository
+
+- Repository: github.com/Alenp93/LinguaBosna
+- Lokal unter: `C:\Website\LinguaBosna`
+- Hosting: GitHub Pages
+- Analytics: GoatCounter (privacy-safe, DSGVO-konform, cookielos) – injiziert via `createElement`/`appendChild`
+- Domain & E-Mail-Weiterleitung: Namecheap (WhoisGuard aktiv)
+- Header/Footer werden dynamisch per JS eingebunden (`LB_main.js`), nicht statisch pro Seite kopiert
+- **Alle Fetch-Pfade und Asset-Referenzen sind absolute Pfade** (z. B. `/Code/LB_header.html`),
+  da relative Pfade bei verschachtelten Unterordnern brechen. Absolute Pfade benötigen einen
+  Webserver-Kontext (kein `file://`-Testen im Browser ohne lokalen Server).
+
+## Zielgruppe & Sprachliche Ausrichtung
+
+- Diaspora, Deutschsprachige, Kinder/Jugendliche/Erwachsene, Fortgeschrittene
+- **Bosnisch-Standard:** konsequent ijekavisch, bosnisch-spezifische Varianten statt
+  kroatischer/serbischer Alternativen. Turzismen werden als authentische Sprachmarker behandelt,
+  nicht vermieden.
+- BKS-Grammatik (Bosnisch/Kroatisch/Serbisch) wird als gemeinsame Basis betrachtet –
+  kroatische und serbische Grammatikquellen dürfen als Referenz herangezogen werden, wo sinnvoll.
+- **Diaspora-first-Vokabular:** Registerpaare, Bosnismen, Verwaltungs-/Rechtsbegriffe sind bei
+  B1–C2 bewusst eingewoben.
+- ⚠️ Sprachliche Inhalte (Grammatikerklärungen, Übersetzungen, Vokabeln) sind fehleranfällig
+  bei ijekavischer Form und Register. Erstentwürfe sind ok, aber vor Veröffentlichung
+  gemeinsam mit Alen prüfen, nicht automatisch committen.
+
+## Design-System (verbindlich für jede Seite)
+
+**Farben:**
+- Dunkelblau `#0A3D62` (Primär – Header, Buttons, Überschriften)
+- Goldgelb `#F4C542` (Akzent – Highlights, Icons, CTAs)
+- Dunkelgrün `#2E5E2E` (Sekundär – Slogan, Untertitel, Zitate)
+- Hintergrund hell `#F8F5F0`
+- Neutral Grau `#E6E6E6` (Linien, Rahmen, Boxen)
+
+**Typografie:**
+- Überschriften: Montserrat SemiBold/700, Großbuchstaben bei Haupttiteln, `letter-spacing: 0.5px`
+- Fließtext: Open Sans Regular
+- Zentrale CTAs: Montserrat Bold
+- Google Fonts Pflichtblock im `<head>` jeder Seite (Montserrat 400/600/700 + Open Sans 400/600)
+
+**Button-System (einheitlich):**
+- `.btn-hero` – Goldgelb, Hero-Bereiche
+- `.btn-outline` – nur Umrandung, sekundäre Aktionen
+- `.btn-primary` – Dunkelblau, Hauptaktionen
+- Alle: `border-radius: 6px`, Montserrat Bold, Hover-Effekt Goldgelb → Dunkelblau mit weißer Schrift
+
+**Section-Intro-Block:**
+```html
+<div class="section-intro">
+  <h2>Titel</h2>
+  <p>Untertitel</p>
+</div>
+```
+
+**Karten-Hover (Feature/Blog/Vokabel/Grammatik-Karten):**
+```css
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Hover: */
+transform: translateY(-6px);
+box-shadow: 0 12px 30px rgba(0,0,0,0.13);
+```
+
+**Abstände (Padding):**
+- Desktop: `70px 5%`
+- Tablet (≤900px): Schriftgrößen reduzieren
+- Mobile (≤768px): `50px 5%`, 1-spaltige Layouts
+- Sehr klein (≤480px): `40px 4%`
+- Button-Stacking-Breakpoint bei 900px (nicht 768px), 44px Mindest-Touch-Targets
+
+**FontAwesome:** 6.5.0 via cdnjs — `https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css`
+(NICHT den alten Kit-Link verwenden)
+
+**SEO-Pflicht pro Seite:**
+- `<meta name="description" content="...">` (~150 Zeichen)
+- `<title>LinguaBosna – [Seitenname]</title>`
+
+**Favicon-Pflicht (B1+ Seiten, mandatory 6-Einträge-Block):** `/Bilder/favicon/`
+
+## Referenzseite
+
+`LB_1_Startseite.html` + `Style_1_Startseite.css` sind die fertige Designreferenz für alle weiteren Seiten.
+
+## Grammatikseiten erstellen – IMMER zuerst diese Dateien lesen
+
+Für Grammatikseiten gibt es eine vollständige, verbindliche Arbeitsgrundlage im Repo selbst.
+**Bevor du eine neue Grammatikseite erstellst oder änderst, lies zuerst:**
+
+1. `WORKFLOW_Grammatikseiten.md` – enthält alle festen Regeln (Dateinamen, 6-Block-Struktur,
+   exakte Quiz-IDs, Antwortverteilung, Pfade, Kapitel-Taxonomie A1–C2, Didaktik-Checkliste,
+   Ablageorte im Repo, Antwortformat der Auslieferung)
+2. `TEMPLATE_Grammatik_Detailseite.html` – Boilerplate mit `[ECKIGE KLAMMERN]`-Platzhaltern
+3. `test_grammatikseite.py` – Pflicht-Validierung nach jeder neuen/geänderten Seite
+   (Aufruf: `python3 test_grammatikseite.py grammatik-[thema].html`; findet Repo-Root und
+   CSS-Dateien automatisch, prüft Mobile-Overflow, Struktur, Quiz-IDs und mehr)
+
+Diese Datei hier dupliziert diese Regeln bewusst **nicht** – WORKFLOW_Grammatikseiten.md ist
+die Quelle der Wahrheit, damit nichts auseinanderdriftet. Nach jeder neuen Seite: entsprechende
+Karte in `LB_3_Grammatik.html` von „Demnächst" auf aktiven Link umstellen (siehe Workflow-Doku).
+
+**Aktueller Stand:** A1–B1 (Kapitel 1–23) vollständig. Nächstes Kapitel: B2 Kapitel 24 – Verbalaspekt
+(`grammatik-verbalaspekt.html`).
+
+## Vokabular-System
+
+- Kanonische Datei: `vokabeln_flat.json` – ca. 1.943 Einträge über 72 Kapitel (A1–C2)
+- JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
+  **diese Konvention darf nicht gebrochen werden**
+- Verben: `aspekt`-Feld, 27 Aspektpaare über `par_id` (`ap01`–`ap27`) verlinkt
+- **Kapitelgrößen-Regel (fix):** kein Kapitel über 35 Einträge. Größere Themen werden thematisch
+  in nummerierte Teile gesplittet (z. B. "Umgangssprache & Bosnizismen 1 / 2")
+
+**Build-Pipeline (sequentiell, Reihenfolge beachten):**
+```
+build_a1.py → build_a2.py → build_order.py → build_b1.py → build_b1_expand.py →
+build_b1_split.py → build_b2.py → build_resplit.py → build_c1.py → build_c2.py → build_parid.py
+```
+`build_resplit.py` enthält die autoritative MASTER-Kapitelliste und globale Neunummerierung –
+diese Datei ist am kritischsten für Konsistenz.
+
+## Bekannte Lösungen / Fallstricke (nicht wiederholen)
+
+- **Mobile Overflow:** Ursache war fehlendes `width: 100%` bei `main` in
+  `Style_3_Grammatik_Detail.css` (Flex-Shrink-Verhalten) – overflow-x-Fixes an html/body/main
+  beheben nicht die Ursache.
+- **Scripts via innerHTML laufen nicht:** GoatCounter und Hamburger-Menü-Logik müssen über
+  `createElement`/`appendChild` in `LB_main.js` eingebunden werden, nicht in
+  `LB_header.html`/`LB_footer.html`.
+- **Quiz-Antwortabgleich:** über Objektreferenzen (`btn._vocab === correctV`), nicht Textvergleich.
+- **Flashcard-Flicker:** über `visibility: hidden` mit `.preparing`-Klasse + doppeltes
+  `requestAnimationFrame`.
+- **Mobile Audio:** `speak()` muss direkt innerhalb einer User-Geste aufgerufen werden –
+  kein Warm-up/setTimeout-Wrapper (bricht Android-Audio).
+- **Hamburger-Init:** muss innerhalb des `.then()`-Callbacks in `LB_main.js` laufen,
+  nachdem der Header-HTML ins DOM injiziert wurde.
+- **Audio-Feature:** aktuell pausiert, kompletter Audio-Code aus
+  `LB_2-1_Vokabeln_Master.html` entfernt. Geplant: vorgenerierte MP3s (Google Cloud TTS)
+  als primäre Lösung + Web Speech API als Fallback (Reihenfolge: `bs-BA` → `hr-HR` → `sr-RS` → `cnr-ME`).
+
+## Validierungs-Workflow
+
+Nach jeder neuen/geänderten Grammatikseite `test_grammatikseite.py` ausführen (Details siehe
+`WORKFLOW_Grammatikseiten.md`, Abschnitt 5) und das Ergebnis zeigen, bevor committed wird.
+
+**Einmalige lokale Einrichtung (falls noch nicht geschehen):** Das Skript braucht Playwright.
+Falls der Testlauf mit „Playwright nicht installiert" fehlschlägt, einmalig ausführen:
+```
+pip install playwright --break-system-packages
+playwright install chromium
+```
+
+## Pausierte / auskommentierte Bereiche
+
+Kultur- und Blog-Navigationslinks in `LB_header.html` sowie die Kultur-Feature-Karte in
+`LB_1_Startseite.html` sind bewusst auskommentiert (Inhalte noch nicht fertig) – nicht
+versehentlich reaktivieren.
+
+## Roadmap (zur Priorisierung, falls relevant)
+
+- B2–C2 Grammatikkapitel (interne Kommentarnummern 24–37 in `LB_3_Grammatik.html`)
+- SEO: Google Search Console, sitemap.xml, robots.txt, schema.org, Long-Tail-Keywords
+- Audio-Feature reaktivieren (Google Cloud TTS Free Tier)
+- Mögliche zukünftige englische Version (nach Phase 3; JSON hat bereits English-Feldgrundlage)
+- Kultur-/Blog-Sektionen aktivieren, sobald Grammatik weiter fortgeschritten ist
+
+## Arbeitsweise
+
+- Ein Thema/eine Seite pro Session (kein Vermischen mehrerer Grammatikkapitel in einem Auftrag)
+- Vollständige Ersatzdateien bevorzugt gegenüber manuellen Patches – bei Claude Code heißt das:
+  klare, überprüfbare Diffs statt vieler kleiner Einzeländerungen
+- Mobile-first-Denken bei jeder CSS-Änderung

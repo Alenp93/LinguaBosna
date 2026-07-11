@@ -3,16 +3,40 @@
 <head>
 
   <!-- ======================================================
-       grammatik-vokativ.html
-       Grammatik-Erklärseite: Der Vokativ (B1)
+       TEMPLATE_Grammatik_Detailseite.html
+       Vorlage für alle Grammatik-Erklärseiten | LinguaBosna
 
-       Aufbau (6 Blöcke):
-       1. Einstieg — Der Anrede-Fall, den Deutsch nicht hat
-       2. Beispiele — die Anredeform entdecken
-       3. Regel — Aufgabe, Bildung (Sg), Besonderheiten
-       4. Vergleich — Deutsch ↔ Bosnisch
-       5. Üben — 10-Fragen-Quiz
-       6. Spickzettel — Kompakte Zusammenfassung
+       ────────────────────────────────────────────────────
+       SO WIRD DAS TEMPLATE BENUTZT
+       ────────────────────────────────────────────────────
+       1. Datei kopieren und umbenennen:
+          grammatik-[thema].html (klein, mit Bindestrichen)
+
+       2. Alle Stellen mit [ECKIGEN KLAMMERN] ersetzen.
+          Suche nach "[" um keine zu übersehen.
+
+       3. Die 6 Blöcke füllen (Struktur NICHT verändern):
+          1 Einstieg   – Alltags-Hook, 2-3 Absätze + Glühbirne
+          2 Beispiele  – genau 6 example-cards
+          3 Regel      – 2-4 Gruppen mit Tabellen + mini-notes
+          4 Vergleich  – Deutsch-Karte, Bosnisch-Karte, Summary
+          5 Üben       – Quiz-HTML NICHT anfassen
+          6 Spickzettel – genau 6 cheatsheet-items
+
+       4. Im Script-Bereich unten quizData füllen:
+          - GENAU 10 Fragen
+          - correct-Verteilung ca. 3/4/3 über 0/1/2 streuen
+          - KEINE ASCII-Apostrophe (') in Strings verwenden,
+            nur typografische Zeichen („ " ' –)
+
+       5. Ergebnistexte (score >= 9 / 7 / 5) thematisch anpassen.
+
+       FESTE REGELN (nie ändern):
+       - Quiz-IDs (quizContainer, quizQuestion, ...) 
+       - Pfade beginnen mit /Code/ bzw. /Bilder/ (absolut!)
+       - Breadcrumb-Level: "A1 – Grundlagen", "A2 – Aufbau",
+         "B1 – Mittelstufe", "B2 – Fortgeschritten",
+         "C1 – Oberstufe", "C2 – Profi"
        ====================================================== -->
 
   <!-- Basisstyles + Grammatik-Detail-Styles -->
@@ -24,8 +48,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>LinguaBosna – Vokativ</title>
-  <meta name="description" content="Der Vokativ im Bosnischen: der Anrede-Fall, den das Deutsche nicht kennt. Maskulin -e/-u (Ivane, prijatelju), Feminin -o (majko, gospođo). Mit Beispielen erklärt.">
+  <title>LinguaBosna – [THEMA]</title>
+  <meta name="description" content="[SEO-BESCHREIBUNG: ca. 150 Zeichen. Nennt das Thema, 1-2 Kernpunkte und Beispielwörter.]">
 
   <!-- Google Fonts (Pflicht) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,16 +78,16 @@
     <nav class="breadcrumb" aria-label="Brotkrümel-Navigation">
       <a href="/Code/1_Startseite/LB_3_Grammatik.html">Grammatik</a>
       <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-      <span>B1 – Mittelstufe</span>
+      <span>[NIVEAU-LABEL, z.B. B2 – Fortgeschritten]</span>
       <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-      <span class="breadcrumb-current">Vokativ</span>
+      <span class="breadcrumb-current">[THEMA]</span>
     </nav>
 
     <!-- ── Seitentitel ───────────────────────────────── -->
-    <h1>Der Vokativ</h1>
-    <p class="subtitle">Die direkte Anrede – der siebte Fall, den es im Deutschen gar nicht gibt.</p>
+    <h1>[THEMA]</h1>
+    <p class="subtitle">[UNTERTITEL: 1 Satz, der neugierig macht und den Kern des Themas nennt.]</p>
 
-    <!-- ── Fortschrittsanzeige (6 Schritte) ──────────── -->
+    <!-- ── Fortschrittsanzeige (6 Schritte) — NICHT ÄNDERN ── -->
     <div class="progress-steps">
       <div class="step"><span class="step-num">1</span><span class="step-label">Einstieg</span></div>
       <div class="step"><span class="step-num">2</span><span class="step-label">Beispiele</span></div>
@@ -76,7 +100,9 @@
 
     <!-- =====================================================
          BLOCK 1 — EINSTIEG
-         Kurzer Alltagsbezug, der Neugier weckt
+         Alltags-Hook: Warum ist das Thema spannend/nützlich?
+         Ideal: ein Aha-Moment, ein bekannter Satz, ein
+         Callback zu früheren Kapiteln.
          ===================================================== -->
     <section class="grammar-section" id="block-1">
       <div class="section-heading">
@@ -86,17 +112,15 @@
 
       <div class="intro-box">
         <p class="intro-scenario">
-          Wenn du im Deutschen jemanden rufst, änderst du am Namen nichts: „<strong>Ivan</strong>, komm her!"
-          Im Bosnischen bekommt der Name bei der Anrede eine eigene Form: „<strong>Ivane</strong>, dođi!"
+          [ABSATZ 1: Alltagssituation oder bekanntes Beispiel, das zum Thema hinführt.
+          Wichtige Wörter mit <strong>...</strong> hervorheben.]
         </p>
         <p class="intro-scenario">
-          Das ist der <strong>Vokativ</strong> – der Fall der direkten Anrede. Du benutzt ihn, wenn du jemanden
-          <strong>ansprichst, rufst</strong> oder ausrufst. Es ist der siebte und letzte Fall – und der einzige,
-          den das Deutsche <strong>gar nicht</strong> hat.
+          [ABSATZ 2: Der Kern des Themas / der Aha-Moment in einfachen Worten.]
         </p>
         <p class="intro-hook">
           <i class="fas fa-lightbulb"></i>
-          Damit ist dein Fall-System komplett. Der Vokativ ist dazu einer der einfachsten – meist nur eine kleine Endung.
+          [MUTMACHER: 1 Satz – was ist leicht daran, was ist der Gewinn?]
         </p>
       </div>
     </section>
@@ -104,7 +128,9 @@
 
     <!-- =====================================================
          BLOCK 2 — BEISPIELE ZUERST
-         Muster selbst entdecken lassen
+         Genau 6 example-cards. Muster entdecken lassen,
+         BEVOR die Regel erklärt wird. Die relevante Endung /
+         das relevante Wort mit <span class="highlight"> markieren.
          ===================================================== -->
     <section class="grammar-section" id="block-2">
       <div class="section-heading">
@@ -112,60 +138,65 @@
         <h2>Beispiele</h2>
       </div>
 
-      <p class="section-instruction">Achte auf die <strong>Endung</strong> bei der Anrede – sie unterscheidet sich vom normalen Wort:</p>
+      <p class="section-instruction">[HINWEIS: Worauf soll der Lernende beim Betrachten achten?]</p>
 
       <div class="example-cards">
 
+        <!-- 6x diese Karte. highlight = die entscheidende Stelle -->
         <div class="example-card">
-          <div class="example-word">Ivan → Ivan<span class="highlight">e</span>!</div>
-          <div class="example-translation">Ivan!</div>
-          <div class="example-detail">maskuliner Name: -e</div>
+          <div class="example-word">[BOSNISCH mit <span class="highlight">markierter Stelle</span>]</div>
+          <div class="example-translation">[DEUTSCHE ÜBERSETZUNG]</div>
+          <div class="example-detail">[KURZLABEL, z.B. „Feminin: -a" oder „nach Präposition"]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">Dobar dan, gospodin<span class="highlight">e</span>!</div>
-          <div class="example-translation">Guten Tag, mein Herr!</div>
-          <div class="example-detail">höfliche Anrede</div>
+          <div class="example-word">[BEISPIEL 2]</div>
+          <div class="example-translation">[ÜBERSETZUNG 2]</div>
+          <div class="example-detail">[LABEL 2]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">Dobar dan, gospođ<span class="highlight">o</span>!</div>
-          <div class="example-translation">Guten Tag, meine Dame!</div>
-          <div class="example-detail">Feminin: -o</div>
+          <div class="example-word">[BEISPIEL 3]</div>
+          <div class="example-translation">[ÜBERSETZUNG 3]</div>
+          <div class="example-detail">[LABEL 3]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">Majk<span class="highlight">o</span>!</div>
-          <div class="example-translation">Mutter!</div>
-          <div class="example-detail">Feminin: -o</div>
+          <div class="example-word">[BEISPIEL 4]</div>
+          <div class="example-translation">[ÜBERSETZUNG 4]</div>
+          <div class="example-detail">[LABEL 4]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">Prijatelj<span class="highlight">u</span>!</div>
-          <div class="example-translation">Freund!</div>
-          <div class="example-detail">weicher Stamm: -u</div>
+          <div class="example-word">[BEISPIEL 5]</div>
+          <div class="example-translation">[ÜBERSETZUNG 5]</div>
+          <div class="example-detail">[LABEL 5]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word"><span class="highlight">Bože</span> moj!</div>
-          <div class="example-translation">Mein Gott!</div>
-          <div class="example-detail">Ausruf (Bog → Bože)</div>
+          <div class="example-word">[BEISPIEL 6]</div>
+          <div class="example-translation">[ÜBERSETZUNG 6]</div>
+          <div class="example-detail">[LABEL 6]</div>
         </div>
 
       </div>
 
       <div class="pattern-hint">
         <i class="fas fa-search"></i>
-        <p>Erkennst du das Muster? Maskuline Wörter bekommen meist <strong>-e</strong> (Ivane, gospodine),
-        manche <strong>-u</strong> (prijatelju). Feminine Wörter auf -a bekommen <strong>-o</strong> (gospođo, majko).
-        Der Vokativ steht immer da, wo du jemanden direkt ansprichst.</p>
+        <p>[MUSTER-ZUSAMMENFASSUNG: Was sollte der Lernende in den Beispielen entdeckt haben?
+        Die Kernregel hier schon andeuten, mit <strong>...</strong> für die wichtigen Formen.]</p>
       </div>
     </section>
 
 
     <!-- =====================================================
          BLOCK 3 — DIE REGEL
-         Aufgabe, Bildung Singular, Besonderheiten
+         2 bis 4 Gruppen, je nach Thema. Pro Gruppe:
+         group-title (mit passendem FontAwesome-Icon),
+         group-desc, eine Tabelle im letter-table-wrap,
+         danach 1-2 mini-notes für Hinweise/Stolperfallen.
+
+         Bei Bedarf ganze Gruppen duplizieren oder löschen.
          ===================================================== -->
     <section class="grammar-section" id="block-3">
       <div class="section-heading">
@@ -173,85 +204,86 @@
         <h2>Die Regel</h2>
       </div>
 
-      <!-- Gruppe 1: Wofür der Vokativ? -->
-      <h3 class="group-title"><i class="fas fa-comment-dots"></i> Gruppe 1: Wofür steht der Vokativ?</h3>
-      <p class="group-desc">Der Vokativ hat nur eine Aufgabe – aber eine sehr häufige: die <strong>direkte Anrede</strong>.</p>
+      <!-- Gruppe 1 -->
+      <h3 class="group-title"><i class="fas fa-[ICON-1]"></i> Gruppe 1: [GRUPPEN-TITEL 1]</h3>
+      <p class="group-desc">[KURZE EINLEITUNG: Was zeigt diese Gruppe?]</p>
 
       <div class="letter-table-wrap">
         <table class="letter-table">
           <thead>
             <tr>
-              <th>Situation</th>
-              <th>Beispiel</th>
+              <th>[SPALTE 1]</th>
+              <th>[SPALTE 2]</th>
+              <th>[SPALTE 3 — Spalte löschen, wenn 2 reichen]</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="letter-cell">jemanden rufen / ansprechen</td><td>Ivane! – Ivan!</td></tr>
-            <tr><td class="letter-cell">höfliche Anrede</td><td>Dobar dan, gospodine! – Guten Tag, mein Herr!</td></tr>
-            <tr><td class="letter-cell">Familie / vertraut</td><td>Majko! – Mutter! / Brate! – Bruder!</td></tr>
-            <tr><td class="letter-cell">Ausruf</td><td>Bože moj! – Mein Gott!</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Gruppe 2: Bildung -->
-      <h3 class="group-title"><i class="fas fa-pen-to-square"></i> Gruppe 2: So bildest du den Vokativ (Singular)</h3>
-      <p class="group-desc">Die Endung hängt vom Geschlecht ab. Das Neutrum bleibt sogar unverändert:</p>
-
-      <div class="letter-table-wrap">
-        <table class="letter-table">
-          <thead>
-            <tr>
-              <th>Geschlecht</th>
-              <th>Endung</th>
-              <th>Beispiele</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="letter-cell">Maskulin (harter Stamm)</td><td><strong>-e</strong></td><td>Ivan → Ivane, profesor → profesore, brat → brate</td></tr>
-            <tr><td class="letter-cell">Maskulin (weicher Stamm)</td><td><strong>-u</strong></td><td>prijatelj → prijatelju, muž → mužu</td></tr>
-            <tr><td class="letter-cell">Feminin auf -a</td><td>-a → <strong>-o</strong></td><td>žena → ženo, majka → majko, gospođa → gospođo</td></tr>
-            <tr><td class="letter-cell">Neutrum</td><td>keine Änderung</td><td>dijete → dijete, selo → selo</td></tr>
+            <tr><td class="letter-cell">[ZEILE 1]</td><td>[...]</td><td>[...]</td></tr>
+            <tr><td class="letter-cell">[ZEILE 2]</td><td>[...]</td><td>[...]</td></tr>
+            <tr><td class="letter-cell">[ZEILE 3]</td><td>[...]</td><td>[...]</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="mini-note">
-        <strong>Kein eigener Plural:</strong> Im Plural (und beim Neutrum) benutzt man einfach den Nominativ.
-        Der Vokativ hat also nur im Singular eigene Formen – das macht ihn besonders leicht.
+        <strong>[STICHWORT]:</strong> [HINWEIS, MERKREGEL ODER STOLPERFALLE zur Gruppe 1.]
       </div>
 
-      <!-- Gruppe 3: Besonderheiten -->
-      <h3 class="group-title"><i class="fas fa-triangle-exclamation"></i> Gruppe 3: Zwei Besonderheiten</h3>
-      <p class="group-desc">Bei manchen maskulinen Wörtern ändert sich vor dem -e noch ein Laut (wie beim Dativ „majka → majci"):</p>
+      <!-- Gruppe 2 -->
+      <h3 class="group-title"><i class="fas fa-[ICON-2]"></i> Gruppe 2: [GRUPPEN-TITEL 2]</h3>
+      <p class="group-desc">[EINLEITUNG GRUPPE 2]</p>
 
       <div class="letter-table-wrap">
         <table class="letter-table">
           <thead>
             <tr>
-              <th>Nominativ</th>
-              <th>Vokativ</th>
+              <th>[SPALTE 1]</th>
+              <th>[SPALTE 2]</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="letter-cell">Bog (Gott)</td><td>Bo<strong>ž</strong>e</td></tr>
-            <tr><td class="letter-cell">čovjek (Mensch)</td><td>čovje<strong>č</strong>e</td></tr>
-            <tr><td class="letter-cell">drug (Kamerad)</td><td>dru<strong>ž</strong>e</td></tr>
+            <tr><td class="letter-cell">[ZEILE 1]</td><td>[...]</td></tr>
+            <tr><td class="letter-cell">[ZEILE 2]</td><td>[...]</td></tr>
+            <tr><td class="letter-cell">[ZEILE 3]</td><td>[...]</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="mini-note">
-        <strong>Moderner Gebrauch:</strong> Bei weiblichen Vornamen lässt man den Vokativ heute oft weg
-        (man hört „Ana!" statt „Ano!"). Bei Anreden (gospodine, gospođo, profesore) und männlichen Namen
-        ist er dagegen sehr lebendig.
+        <strong>[STICHWORT]:</strong> [HINWEIS ZUR GRUPPE 2.]
+      </div>
+
+      <!-- Gruppe 3 — löschen, wenn 2 Gruppen reichen;
+           duplizieren, wenn eine 4. Gruppe gebraucht wird -->
+      <h3 class="group-title"><i class="fas fa-[ICON-3]"></i> Gruppe 3: [GRUPPEN-TITEL 3]</h3>
+      <p class="group-desc">[EINLEITUNG GRUPPE 3]</p>
+
+      <div class="letter-table-wrap">
+        <table class="letter-table">
+          <thead>
+            <tr>
+              <th>[SPALTE 1]</th>
+              <th>[SPALTE 2]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="letter-cell">[ZEILE 1]</td><td>[...]</td></tr>
+            <tr><td class="letter-cell">[ZEILE 2]</td><td>[...]</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mini-note">
+        <strong>[STICHWORT]:</strong> [HINWEIS ZUR GRUPPE 3.]
       </div>
     </section>
 
 
     <!-- =====================================================
          BLOCK 4 — DEUTSCH ↔ BOSNISCH
-         Gemeinsamkeiten und Unterschiede
+         Kontrastiver Vergleich: je 2 kurze Absätze pro Karte,
+         dann eine Zusammenfassung mit der Kernbotschaft
+         (Was ist vertraut? Was ist neu? Was ist leichter?).
          ===================================================== -->
     <section class="grammar-section" id="block-4">
       <div class="section-heading">
@@ -263,30 +295,30 @@
 
         <div class="comparison-card">
           <div class="comp-label comp-de">Deutsch</div>
-          <p>Es gibt <strong>keinen</strong> Vokativ. Bei der Anrede nimmt man den Nominativ: „Ivan, komm!"</p>
-          <p>Der Name bleibt gleich – egal, ob du über ihn sprichst oder ihn rufst.</p>
+          <p>[WIE FUNKTIONIERT ES IM DEUTSCHEN? Punkt 1.]</p>
+          <p>[PUNKT 2.]</p>
         </div>
 
         <div class="comparison-card">
           <div class="comp-label comp-ba">Bosnisch</div>
-          <p>Es gibt eine <strong>eigene Anredeform</strong>: „Ivane, dođi!"</p>
-          <p>Maskulin -e/-u, Feminin -o, Neutrum unverändert.</p>
+          <p>[WIE FUNKTIONIERT ES IM BOSNISCHEN? Punkt 1 – parallel zur DE-Karte formuliert.]</p>
+          <p>[PUNKT 2.]</p>
         </div>
 
       </div>
 
       <div class="comparison-summary">
         <i class="fas fa-balance-scale"></i>
-        <p><strong>Ein ganz neues Konzept:</strong> Der Vokativ ist der einzige Fall ohne deutsche Entsprechung –
-        aber gerade deshalb leicht zu merken, weil er nur eine Aufgabe hat. Achte künftig einfach darauf: Sprichst du
-        jemanden <em>direkt</em> an, kommt die Vokativ-Endung dran.</p>
+        <p><strong>[KERNBOTSCHAFT]:</strong> [2-3 Sätze: Was kennt der Lernende schon, was ist wirklich neu,
+        und warum ist es machbar?]</p>
       </div>
     </section>
 
 
     <!-- =====================================================
          BLOCK 5 — ÜBEN
-         Interaktives Quiz (10 Fragen, reines JavaScript)
+         Quiz-Infrastruktur — HTML NICHT VERÄNDERN.
+         Die Fragen werden unten im Script-Bereich in quizData gepflegt.
          ===================================================== -->
     <section class="grammar-section" id="block-5">
       <div class="section-heading">
@@ -320,7 +352,8 @@
 
     <!-- =====================================================
          BLOCK 6 — SPICKZETTEL
-         Kompakte Zusammenfassung auf einen Blick
+         Genau 6 cheatsheet-items: die kompakteste
+         Zusammenfassung der Seite. Reihenfolge = Wichtigkeit.
          ===================================================== -->
     <section class="grammar-section" id="block-6">
       <div class="section-heading">
@@ -332,22 +365,22 @@
         <h3><i class="fas fa-sticky-note"></i> Das Wichtigste auf einen Blick</h3>
 
         <div class="cheatsheet-item">
-          <strong>Aufgabe:</strong> der Anrede-Fall – wenn du jemanden direkt ansprichst, rufst oder ausrufst.
+          <strong>[STICHWORT 1]:</strong> [KERNAUSSAGE 1.]
         </div>
         <div class="cheatsheet-item">
-          <strong>Neu für Deutschsprachige:</strong> Das Deutsche hat keinen Vokativ (nutzt den Nominativ).
+          <strong>[STICHWORT 2]:</strong> [KERNAUSSAGE 2.]
         </div>
         <div class="cheatsheet-item">
-          <strong>Maskulin:</strong> meist -e (Ivane, gospodine, brate), weicher Stamm -u (prijatelju).
+          <strong>[STICHWORT 3]:</strong> [KERNAUSSAGE 3.]
         </div>
         <div class="cheatsheet-item">
-          <strong>Feminin auf -a:</strong> -o (ženo, majko, gospođo).
+          <strong>[STICHWORT 4]:</strong> [KERNAUSSAGE 4.]
         </div>
         <div class="cheatsheet-item">
-          <strong>Neutrum & Plural:</strong> keine Änderung (= Nominativ).
+          <strong>[STICHWORT 5]:</strong> [KERNAUSSAGE 5.]
         </div>
         <div class="cheatsheet-item">
-          <strong>Lautwandel möglich:</strong> Bog → Bože, čovjek → čovječe. Weibliche Namen heute oft ohne Vokativ.
+          <strong>[STICHWORT 6]:</strong> [KERNAUSSAGE 6.]
         </div>
       </div>
     </section>
@@ -355,11 +388,11 @@
 
     <!-- ── Seiten-Navigation (vorherige / nächste Lektion) ── -->
     <nav class="page-nav">
-      <a href="grammatik-komparation.html" class="page-nav-btn nav-back">
-        <i class="fas fa-arrow-left"></i> Komparation
+      <a href="grammatik-[VORHERIGES-THEMA].html" class="page-nav-btn nav-back">
+        <i class="fas fa-arrow-left"></i> [VORHERIGES THEMA]
       </a>
-      <a href="../Grammatik_B2/grammatik-verbalaspekt.html" class="page-nav-btn nav-next">
-        Nächstes Thema: Verbalaspekt (B2) <i class="fas fa-arrow-right"></i>
+      <a href="grammatik-[NAECHSTES-THEMA].html" class="page-nav-btn nav-next">
+        Nächstes Thema: [NÄCHSTES THEMA] <i class="fas fa-arrow-right"></i>
       </a>
     </nav>
 
@@ -371,73 +404,82 @@
   <!-- ======================================================
        JavaScript: Quiz-Logik (10 Fragen)
 
+       NUR quizData und die Ergebnistexte anpassen —
+       die Funktionen darunter NICHT verändern.
+
        Jede Frage hat:
        - question:    die Fragestellung
        - options:     Array mit 3 Antworten
        - correct:     Index der richtigen Antwort (0, 1 oder 2)
        - explanation: Erklärung nach dem Antworten
+
+       REGELN:
+       - GENAU 10 Fragen
+       - correct-Werte streuen: ca. 3x 0, 4x 1, 3x 2 (oder ähnlich)
+       - KEINE ASCII-Apostrophe (') in den Strings!
+         Stattdessen: „ " ' – (typografische Zeichen)
        ====================================================== -->
   <script>
     var quizData = [
       {
-        question: 'Wofür ist der Vokativ da?',
-        options: ['für den Besitz', 'für den Ort', 'für die direkte Anrede'],
-        correct: 2,
-        explanation: 'Der Vokativ ist der Fall der direkten Anrede – wenn du jemanden rufst oder ansprichst.'
-      },
-      {
-        question: 'Gibt es den Vokativ auch im Deutschen?',
-        options: ['ja, dieselbe Form wie im Bosnischen', 'nein, Deutsch nutzt den Nominativ', 'ja, immer mit -e'],
-        correct: 1,
-        explanation: 'Nein. Das Deutsche kennt keinen Vokativ – man nutzt den Nominativ. Deshalb ist er für dich neu.'
-      },
-      {
-        question: 'Wie lautet der Vokativ von „Ivan" (maskuliner Name)?',
-        options: ['Ivanu', 'Ivano', 'Ivane'],
-        correct: 2,
-        explanation: 'Maskuline Namen bekommen meist -e: Ivan → Ivane!'
-      },
-      {
-        question: 'Wie lautet der Vokativ von „žena" (Frau)?',
-        options: ['ženo', 'ženu', 'ženi'],
+        question: '[FRAGE 1]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
         correct: 0,
-        explanation: 'Feminin auf -a wird im Vokativ zu -o: žena → ženo.'
+        explanation: '[ERKLÄRUNG: Warum ist das richtig? Mit Beispiel.]'
       },
       {
-        question: 'Wie heißt „Guten Tag, mein Herr!" (gospodin)?',
-        options: ['Dobar dan, gospodinu!', 'Dobar dan, gospodine!', 'Dobar dan, gospodina!'],
+        question: '[FRAGE 2]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
         correct: 1,
-        explanation: '„gospodin" (mein Herr) → gospodine: Dobar dan, gospodine! (Guten Tag, mein Herr!)'
+        explanation: '[ERKLÄRUNG 2]'
       },
       {
-        question: 'Wie lautet der Vokativ von „majka" (Mutter)?',
-        options: ['majci', 'majko', 'majku'],
-        correct: 1,
-        explanation: '„majka" (Mutter) → majko (feminin -a → -o).'
-      },
-      {
-        question: 'Welche Endung bekommen harte maskuline Wörter im Vokativ?',
-        options: ['-o', '-u', '-e'],
+        question: '[FRAGE 3]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
         correct: 2,
-        explanation: 'Harte maskuline Wörter bekommen im Vokativ -e: Ivane, gospodine, brate.'
+        explanation: '[ERKLÄRUNG 3]'
       },
       {
-        question: 'Welche Endung bekommen feminine Wörter auf -a im Vokativ?',
-        options: ['-o', '-e', '-i'],
+        question: '[FRAGE 4]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
         correct: 0,
-        explanation: 'Feminine Wörter auf -a bekommen -o: ženo, majko, sestro.'
+        explanation: '[ERKLÄRUNG 4]'
       },
       {
-        question: 'Was passiert mit dem Neutrum im Vokativ?',
-        options: ['keine Änderung (wie Nominativ)', 'immer -e', 'immer -o'],
-        correct: 0,
-        explanation: 'Neutrum (und der Plural) hat keine eigene Vokativform – man nutzt den Nominativ.'
-      },
-      {
-        question: 'Wie lautet der Vokativ von „prijatelj" (Freund)?',
-        options: ['prijatelje', 'prijatelju', 'prijatelji'],
+        question: '[FRAGE 5]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
         correct: 1,
-        explanation: '„prijatelj" (Freund) endet weich → -u: prijatelju!'
+        explanation: '[ERKLÄRUNG 5]'
+      },
+      {
+        question: '[FRAGE 6]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
+        correct: 2,
+        explanation: '[ERKLÄRUNG 6]'
+      },
+      {
+        question: '[FRAGE 7]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
+        correct: 1,
+        explanation: '[ERKLÄRUNG 7]'
+      },
+      {
+        question: '[FRAGE 8]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
+        correct: 0,
+        explanation: '[ERKLÄRUNG 8]'
+      },
+      {
+        question: '[FRAGE 9]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
+        correct: 2,
+        explanation: '[ERKLÄRUNG 9]'
+      },
+      {
+        question: '[FRAGE 10]',
+        options: ['[OPTION A]', '[OPTION B]', '[OPTION C]'],
+        correct: 1,
+        explanation: '[ERKLÄRUNG 10]'
       }
     ];
 
@@ -529,11 +571,11 @@
 
       var text = '';
       if (score >= 9) {
-        text = 'Ausgezeichnet! Der Vokativ sitzt – und damit alle sieben Fälle! 🎉';
+        text = '[ERGEBNIS TOP: themenspezifisches Lob] 🎉';
       } else if (score >= 7) {
-        text = 'Sehr gut! Die Anredeformen hast du drauf. Präg dir noch den Lautwandel ein.';
+        text = '[ERGEBNIS GUT: Lob + 1 konkreter Übungstipp]';
       } else if (score >= 5) {
-        text = 'Guter Anfang! Schau dir die Bildungstabelle in Block 3 nochmal an.';
+        text = '[ERGEBNIS MITTEL: Ermutigung + Verweis auf Block 3]';
       } else {
         text = 'Kein Problem – lies dir die Lektion in Ruhe nochmal durch und versuch es erneut!';
       }

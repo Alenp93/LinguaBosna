@@ -1,0 +1,427 @@
+/* ======================================================
+   Style_4_Lernen.css
+   CSS für die Lern-Übungen (Menüpunkt „Lernen")
+   LinguaBosna
+
+   Diese Datei ergänzt das globale Style.css (Farben,
+   Header, Footer, Hamburger-Menü). Hier stehen nur die
+   Styles, die speziell die Übungsseite betreffen.
+
+   Aufbau:
+   1.  Hauptbereich & Seitentitel
+   2.  Button-System (.btn-primary / .btn-outline / .btn-hero)
+   3.  Startschirm: Themen-Auswahl (Karten)
+   4.  Übungsbereich (Lückentext-Quiz)
+   5.  Ergebnisbereich
+   6.  Responsive Design (900px / 768px / 480px)
+   ====================================================== */
+
+
+/* ── 0. Mobile-Schutz: kein horizontaler Überlauf ────── */
+/* Lange bosnische/deutsche Wörter dürfen notfalls
+   umbrechen, statt seitliches Scrollen zu erzeugen.      */
+body {
+  overflow-x: hidden;
+}
+
+main h1,
+.subtitle,
+.thema-card p,
+.uebung-satz,
+.wortbank-btn,
+.uebung-feedback {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+
+/* ── 1. Hauptbereich & Seitentitel ───────────────────── */
+
+main {
+  margin-top: 90px;                    /* Platz für den festen Header */
+  padding: 40px 5% 70px;
+  max-width: 760px;                    /* lese-optimierte Breite */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  color: var(--secondary);
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+/* Hilfsklasse: Element komplett ausblenden.
+   Das JavaScript blendet damit die drei Bildschirme
+   (Start / Übung / Ergebnis) nacheinander ein und aus. */
+.hidden {
+  display: none !important;
+}
+
+
+/* ── 2. Button-System ────────────────────────────────── */
+/* Einheitlich mit dem Design-System: border-radius 6px,
+   Montserrat Bold, Hover-Effekt Goldgelb → Dunkelblau.    */
+
+.btn-primary,
+.btn-outline,
+.btn-hero {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+}
+
+/* Hauptaktion: Dunkelblau */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  color: var(--primary);
+  border-color: var(--accent);
+}
+
+/* Sekundäre Aktion: nur Umrandung */
+.btn-outline {
+  background: #fff;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Hero-Aktion: Goldgelb */
+.btn-hero {
+  background: var(--accent);
+  color: var(--primary);
+  border-color: var(--accent);
+}
+.btn-hero:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+
+/* ── 3. Startschirm: Themen-Auswahl ──────────────────── */
+
+/* Einleitungsblock über der Themen-Auswahl */
+.section-intro {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.section-intro h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.section-intro p {
+  color: #555;
+  font-size: 0.98rem;
+}
+
+/* Raster der Themen-Karten (aktuell nur Akkusativ) */
+.thema-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Eine Themen-Karte = anklickbarer Button */
+.thema-card {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 24px 22px;
+  cursor: pointer;
+  text-align: left;
+  /* Karten-Hover-Effekt (Design-System) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.thema-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+.thema-card .thema-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.thema-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+/* Kleines Niveau-Etikett (z. B. „A2") */
+.thema-card .thema-niveau {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--secondary);
+  background: #eaf2ea;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+
+.thema-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* ── 4. Übungsbereich (Lückentext-Quiz) ──────────────── */
+
+.uebung-container {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 30px 28px;
+}
+
+/* Fortschrittsanzeige „Aufgabe X von Y" */
+.uebung-progress {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* Fortschrittsbalken */
+.uebung-bar {
+  height: 4px;
+  background: var(--neutral);
+  border-radius: 3px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.uebung-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* Der Satz mit der Lücke */
+.uebung-satz {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Die Lücke selbst (die gestrichelte Box im Satz) */
+.luecke {
+  display: inline-block;
+  min-width: 60px;
+  padding: 0 10px;
+  border-bottom: 3px dashed var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+/* Wenn die Lücke nach der Antwort gefüllt wird */
+.luecke.gefuellt {
+  border-bottom-style: solid;
+  color: var(--primary);
+}
+
+/* Grundform-Hinweis in Klammern, z. B. „(žena)" */
+.grundform-hinweis {
+  display: block;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #999;
+  margin-bottom: 22px;
+}
+
+/* Die Wortbank: die anklickbaren Antwort-Optionen */
+.wortbank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.wortbank-btn {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: 2px solid var(--neutral);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.wortbank-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: #f8f8f8;
+}
+/* Richtige Antwort: grün */
+.wortbank-btn.correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e7e46;
+}
+/* Falsch gewählte Antwort: rot */
+.wortbank-btn.wrong {
+  border-color: #c0392b;
+  background: #fdecea;
+  color: #922b21;
+}
+.wortbank-btn:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+/* Feedback-Kasten nach der Antwort */
+.uebung-feedback {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.92rem;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  line-height: 1.55;
+}
+.uebung-feedback i {
+  margin-right: 6px;
+}
+.uebung-feedback .feedback-uebersetzung {
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+  opacity: 0.85;
+}
+.feedback-correct {
+  background: #eafaf1;
+  color: #1e7e46;
+  border: 1px solid #a3dfbb;
+}
+.feedback-wrong {
+  background: #fdecea;
+  color: #922b21;
+  border: 1px solid #f0a0a0;
+}
+
+/* „Nächste Aufgabe"-Button, rechts ausgerichtet */
+.uebung-next-wrap {
+  text-align: right;
+}
+
+
+/* ── 5. Ergebnisbereich ──────────────────────────────── */
+
+.uebung-result {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 40px 28px;
+  text-align: center;
+}
+.uebung-result > i {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.result-score {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.result-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+/* Buttons am Ende (Wiederholen / Anderes Thema) */
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+
+/* ── 6. Responsive Design ────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 900px) {
+  main h1 { font-size: 1.7rem; }
+  .uebung-satz { font-size: 1.1rem; }
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+  main {
+    margin-top: 80px;
+    padding: 30px 5% 50px;
+  }
+  .uebung-container {
+    padding: 24px 18px;
+  }
+  /* Antwort-Buttons füllen die Breite → große Touch-Ziele */
+  .wortbank {
+    flex-direction: column;
+  }
+  .wortbank-btn {
+    width: 100%;
+    min-height: 44px;      /* Mindest-Touch-Target */
+  }
+  .result-actions .btn-primary,
+  .result-actions .btn-outline {
+    width: 100%;
+  }
+}
+
+/* Sehr kleine Geräte */
+@media (max-width: 480px) {
+  main {
+    padding: 24px 4% 40px;
+  }
+  .uebung-satz { font-size: 1.05rem; }
+}

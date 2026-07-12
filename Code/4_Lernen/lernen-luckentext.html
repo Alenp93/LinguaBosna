@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       lernen-luckentext.html
+       Übungsart: „Lückentext mit Wortbank"
+       LinguaBosna | Menüpunkt „Lernen"
+
+       Ein bosnischer Satz mit einer Lücke wird gezeigt,
+       dazu 3–4 anklickbare Wörter (genau eines richtig).
+       Der Lernende wählt die richtige Form.
+
+       Die Seite hat 3 Bildschirme (per JavaScript umgeschaltet):
+       1. Startschirm  – Themen-Auswahl
+       2. Übung        – eine Aufgabe nach der anderen
+       3. Ergebnis     – Punktzahl + Wiederholen
+
+       Die Aufgaben kommen aus luckentext_data.json.
+       ====================================================== -->
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Lückentext üben</title>
+  <meta name="description" content="Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform aus der Wortbank ein. Grammatik und Vokabeln spielerisch kombiniert – z. B. Akkusativ.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Lückentext üben</h1>
+    <p class="subtitle">Wähle die richtige Wortform aus der Wortbank.</p>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 1 — STARTSCHIRM (Themen-Auswahl)
+         Wird ausgeblendet, sobald ein Thema startet.
+         ===================================================== -->
+    <section id="startScreen">
+      <div class="section-intro">
+        <h2>Womit möchtest du üben?</h2>
+        <p>Wähle ein Grammatikthema. Pro Durchgang bekommst du 10 Sätze.</p>
+      </div>
+
+      <!-- Hier fügt das JavaScript die Themen-Karten ein -->
+      <div class="thema-grid" id="themaGrid"></div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 2 — ÜBUNG (Lückentext)
+         Standardmäßig versteckt (Klasse "hidden").
+         ===================================================== -->
+    <section id="uebungScreen" class="hidden">
+      <div class="uebung-container">
+
+        <!-- Fortschritt -->
+        <div class="uebung-progress" id="uebungProgress">Aufgabe 1 von 10</div>
+        <div class="uebung-bar"><div class="uebung-bar-fill" id="uebungBarFill"></div></div>
+
+        <!-- Der Satz mit der Lücke (vom JS gefüllt) -->
+        <div class="uebung-satz" id="uebungSatz"></div>
+        <!-- Der Grundform-Hinweis in Klammern, z. B. „(žena)" -->
+        <div class="grundform-hinweis" id="uebungGrundform"></div>
+
+        <!-- Die Wortbank (Antwort-Buttons, vom JS erstellt) -->
+        <div class="wortbank" id="wortbank"></div>
+
+        <!-- Feedback nach der Antwort (versteckt bis zur Auswahl) -->
+        <div class="uebung-feedback hidden" id="uebungFeedback"></div>
+
+        <!-- „Nächste Aufgabe"-Button (versteckt bis zur Auswahl) -->
+        <div class="uebung-next-wrap">
+          <button class="btn-primary hidden" id="nextBtn">Nächste Aufgabe →</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 3 — ERGEBNIS
+         Standardmäßig versteckt.
+         ===================================================== -->
+    <section id="ergebnisScreen" class="hidden">
+      <div class="uebung-result">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <div class="result-actions">
+          <button class="btn-primary" id="retryBtn">Wiederholen</button>
+          <button class="btn-outline" id="otherBtn">Anderes Thema</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Lückentext-Logik
+
+       Ablauf:
+       - JSON laden → Themen-Karten anzeigen
+       - Thema starten → 10 Aufgaben mischen → erste zeigen
+       - Antwort prüfen → Feedback → nächste Aufgabe
+       - Am Ende: Ergebnis
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  /* ── Einstellungen ───────────────────────────────────── */
+  var AUFGABEN_PRO_RUNDE = 10;   // wie viele Sätze ein Durchgang hat
+
+  /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
+  var alleThemen   = [];    // alle Themen aus der JSON
+  var aktivThema   = null;  // das gerade gewählte Thema
+  var aufgaben     = [];    // die 10 Aufgaben dieses Durchgangs (zufällig gewählt)
+  var aktuelleNr   = 0;     // Index der aktuellen Aufgabe (0-basiert)
+  var punkte       = 0;     // richtig beantwortete Aufgaben
+  var beantwortet  = false; // verhindert Doppelklick auf die Wortbank
+
+  /* Kurzschreibweise für document.getElementById */
+  function $(id) { return document.getElementById(id); }
+
+
+  /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
+  /* Fisher-Yates-Verfahren: sorgt dafür, dass die Aufgaben
+     und die Antwort-Optionen in zufälliger Reihenfolge
+     erscheinen. Es verändert das übergebene Array direkt.  */
+  function mischen(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+
+  /* ── 1. JSON laden ───────────────────────────────────── */
+  /* Absolute Pfade (mit führendem /), wie im Projekt üblich.
+     Läuft nur über einen Webserver, nicht per file:// .     */
+  fetch('/Code/4_Lernen/luckentext_data.json')
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      alleThemen = data.themen;
+      zeigeThemenKarten();
+
+      // Falls die Seite mit ?thema=akkusativ aufgerufen wurde
+      // (z. B. über den „Jetzt üben"-Button der Grammatikseite),
+      // starten wir dieses Thema direkt.
+      var params = new URLSearchParams(window.location.search);
+      var wunschThema = params.get('thema');
+      if (wunschThema) {
+        var gefunden = alleThemen.find(function (t) { return t.id === wunschThema; });
+        if (gefunden) { starteThema(gefunden); }
+      }
+    })
+    .catch(function (fehler) {
+      $('themaGrid').innerHTML =
+        '<p>Die Übungen konnten nicht geladen werden. Bitte lade die Seite neu.</p>';
+      console.error('Fehler beim Laden der Lückentext-Daten:', fehler);
+    });
+
+
+  /* ── 2. Themen-Karten auf dem Startschirm anzeigen ───── */
+  function zeigeThemenKarten() {
+    var grid = $('themaGrid');
+    grid.innerHTML = '';
+
+    alleThemen.forEach(function (thema) {
+      // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
+      var karte = document.createElement('button');
+      karte.className = 'thema-card';
+      karte.innerHTML =
+        '<div class="thema-icon"><i class="fas fa-pen-to-square"></i></div>' +
+        '<span class="thema-niveau">' + thema.niveau + '</span>' +
+        '<h3>' + thema.titel + '</h3>' +
+        '<p>' + thema.beschreibung + '</p>';
+
+      // Klick startet das jeweilige Thema
+      karte.addEventListener('click', function () { starteThema(thema); });
+      grid.appendChild(karte);
+    });
+  }
+
+
+  /* ── 3. Ein Thema starten ────────────────────────────── */
+  function starteThema(thema) {
+    aktivThema = thema;
+
+    // Zufällige Auswahl aus dem großen Satz-Pool:
+    // 1. thema.aufgaben.slice() macht eine Kopie (Original bleibt unangetastet).
+    // 2. mischen(...) würfelt die Reihenfolge der Kopie mit Math.random() durch.
+    // 3. slice(0, AUFGABEN_PRO_RUNDE) schneidet die ersten 10 heraus.
+    // Weil wir aus einer gemischten Liste die ersten 10 nehmen, sind es
+    // 10 verschiedene Sätze (keine Wiederholung), und bei jedem Durchgang
+    // eine andere Auswahl. Hat ein Thema weniger als 10 Sätze, kommen
+    // automatisch einfach alle vorhandenen dran.
+    var gemischt = mischen(thema.aufgaben.slice());
+    aufgaben = gemischt.slice(0, AUFGABEN_PRO_RUNDE);
+
+    aktuelleNr = 0;
+    punkte = 0;
+
+    // Bildschirm wechseln: Start ausblenden, Übung einblenden
+    $('startScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.remove('hidden');
+
+    zeigeAufgabe();
+  }
+
+
+  /* ── 4. Eine Aufgabe anzeigen ────────────────────────── */
+  function zeigeAufgabe() {
+    var aufgabe = aufgaben[aktuelleNr];
+    beantwortet = false;
+
+    // Fortschritt aktualisieren
+    $('uebungProgress').textContent =
+      'Aufgabe ' + (aktuelleNr + 1) + ' von ' + aufgaben.length;
+    $('uebungBarFill').style.width =
+      ((aktuelleNr / aufgaben.length) * 100) + '%';
+
+    // Satz mit Lücke aufbauen: das „___" wird durch eine
+    // gestrichelte Box ersetzt. .split/.join trennt den Satz
+    // an der Lücke und setzt die Box dazwischen.
+    var satzHtml = aufgabe.satz.split('___').join(
+      '<span class="luecke" id="lueckeBox">?</span>'
+    );
+    $('uebungSatz').innerHTML = satzHtml;
+
+    // Grundform-Hinweis, z. B. „(žena)"
+    $('uebungGrundform').textContent = '(' + aufgabe.grundform + ')';
+
+    // Optionen zusammenstellen: richtige Lösung + Distraktoren,
+    // dann mischen, damit die richtige nicht immer vorne steht.
+    var optionen = aufgabe.distraktoren.slice();   // Kopie der Falschen
+    optionen.push(aufgabe.loesung);                // die Richtige dazu
+    mischen(optionen);
+
+    // Wortbank-Buttons erstellen
+    var bank = $('wortbank');
+    bank.innerHTML = '';
+    optionen.forEach(function (wort) {
+      var btn = document.createElement('button');
+      btn.className = 'wortbank-btn';
+      btn.textContent = wort;
+
+      // Wir markieren am Button selbst, ob er die richtige Antwort
+      // ist (Vergleich später über diese Markierung statt über Text).
+      btn.dataset.correct = (wort === aufgabe.loesung) ? 'true' : 'false';
+
+      btn.addEventListener('click', function () { pruefeAntwort(btn); });
+      bank.appendChild(btn);
+    });
+
+    // Feedback und „Weiter"-Button verstecken
+    $('uebungFeedback').classList.add('hidden');
+    $('nextBtn').classList.add('hidden');
+  }
+
+
+  /* ── 5. Antwort prüfen ───────────────────────────────── */
+  function pruefeAntwort(btn) {
+    if (beantwortet) { return; }   // schon beantwortet → ignorieren
+    beantwortet = true;
+
+    var aufgabe  = aufgaben[aktuelleNr];
+    var buttons  = document.querySelectorAll('.wortbank-btn');
+    var feedback = $('uebungFeedback');
+    var istRichtig = (btn.dataset.correct === 'true');
+
+    // Alle Buttons durchgehen: richtige grün, gewählte falsche rot
+    buttons.forEach(function (b) {
+      if (b.dataset.correct === 'true') { b.classList.add('correct'); }
+      b.disabled = true;   // nach der Antwort nicht mehr klickbar
+    });
+    if (!istRichtig) { btn.classList.add('wrong'); }
+
+    // Die Lücke im Satz mit der richtigen Lösung füllen
+    var lueckeBox = $('lueckeBox');
+    if (lueckeBox) {
+      lueckeBox.textContent = aufgabe.loesung;
+      lueckeBox.classList.add('gefuellt');
+    }
+
+    // Feedback-Text zusammenbauen (Erklärung + Übersetzung)
+    if (istRichtig) {
+      punkte++;
+      feedback.innerHTML =
+        '<i class="fas fa-check-circle"></i> Richtig! ' + aufgabe.erklaerung +
+        '<span class="feedback-uebersetzung">' + aufgabe.uebersetzung + '</span>';
+      feedback.className = 'uebung-feedback feedback-correct';
+    } else {
+      feedback.innerHTML =
+        '<i class="fas fa-times-circle"></i> Leider falsch. Richtig ist „' +
+        aufgabe.loesung + '". ' + aufgabe.erklaerung +
+        '<span class="feedback-uebersetzung">' + aufgabe.uebersetzung + '</span>';
+      feedback.className = 'uebung-feedback feedback-wrong';
+    }
+    feedback.classList.remove('hidden');
+
+    // Weiter-Button zeigen (oder am Ende direkt das Ergebnis vorbereiten)
+    $('nextBtn').classList.remove('hidden');
+    // Beschriftung am letzten Item anpassen
+    if (aktuelleNr === aufgaben.length - 1) {
+      $('nextBtn').textContent = 'Ergebnis anzeigen →';
+    } else {
+      $('nextBtn').textContent = 'Nächste Aufgabe →';
+    }
+  }
+
+
+  /* ── 6. Nächste Aufgabe / Ergebnis ───────────────────── */
+  $('nextBtn').addEventListener('click', function () {
+    if (aktuelleNr < aufgaben.length - 1) {
+      aktuelleNr++;
+      zeigeAufgabe();
+    } else {
+      zeigeErgebnis();
+    }
+  });
+
+
+  /* ── 7. Ergebnis anzeigen ────────────────────────────── */
+  function zeigeErgebnis() {
+    $('uebungScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.remove('hidden');
+
+    $('resultScore').textContent = punkte + ' von ' + aufgaben.length + ' richtig';
+
+    // Aufmunternder Text je nach Punktzahl
+    var text = '';
+    var anzahl = aufgaben.length;
+    if (punkte === anzahl) {
+      text = 'Perfekt! Alle Formen sitzen. 🎉';
+    } else if (punkte >= anzahl * 0.7) {
+      text = 'Sehr gut! Nur wenige Ausrutscher – weiter so.';
+    } else if (punkte >= anzahl * 0.5) {
+      text = 'Guter Anfang! Geh die Endungen noch einmal in Ruhe durch.';
+    } else {
+      text = 'Kein Problem – schau dir die Erklärseite noch einmal an und versuch es erneut!';
+    }
+    $('resultText').textContent = text;
+  }
+
+
+  /* ── 8. Buttons im Ergebnis-Bildschirm ───────────────── */
+
+  // „Wiederholen" → dasselbe Thema erneut (neu gemischt)
+  $('retryBtn').addEventListener('click', function () {
+    starteThema(aktivThema);
+  });
+
+  // „Anderes Thema" → zurück zum Startschirm
+  $('otherBtn').addEventListener('click', function () {
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  });
+
+  </script>
+
+</body>
+</html>

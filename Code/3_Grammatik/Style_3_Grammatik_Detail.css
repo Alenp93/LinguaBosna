@@ -706,6 +706,45 @@ body {
   color: #fff;
 }
 
+/* Aufruf zur weiterführenden Übung (Lückentext) unter dem Quiz */
+.uebung-cta-box {
+  margin-top: 22px;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px dashed var(--accent);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.uebung-cta-box p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.uebung-cta {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 26px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--primary);
+  border: 2px solid var(--accent);
+  transition: all 0.25s ease;
+}
+
+.uebung-cta:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.uebung-cta i {
+  margin-right: 6px;
+}
+
 
 /* ── 10. Block 6: Spickzettel ────────────────────────── */
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       lernen-uebersicht.html
+       Übersichtsseite für den Menüpunkt „Lernen"
+       LinguaBosna
+
+       Zeigt alle interaktiven Übungen als Karten an. Von hier
+       aus gelangt der Lernende zu den einzelnen Übungstypen.
+       Neue Übungen werden einfach als weitere Karte im Raster
+       „uebung-grid" ergänzt.
+       ====================================================== -->
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Lernen</title>
+  <meta name="description" content="Interaktive Übungen zum Bosnischlernen: Lückentexte mit Wortbank und Aspektpaar-Zuordnung. Grammatik und Vokabeln spielerisch trainieren – kostenlos.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Lernen</h1>
+    <p class="subtitle">Wähle eine interaktive Übung und trainiere Grammatik und Vokabeln.</p>
+
+    <div class="section-intro">
+      <h2>Übungen</h2>
+      <p>Alle Übungen sind kostenlos und funktionieren direkt im Browser – auch auf dem Handy.</p>
+    </div>
+
+    <!-- Raster mit einer Karte pro Übung.
+         Die Karten sind Links (<a>) und nutzen dieselbe
+         Karten-Optik wie die Startschirme der Übungen. -->
+    <div class="thema-grid uebung-grid">
+
+      <!-- Übung 1: Lückentext -->
+      <a class="thema-card" href="/Code/4_Lernen/lernen-luckentext.html">
+        <div class="thema-icon"><i class="fas fa-pen-to-square"></i></div>
+        <span class="thema-niveau">A2 · Akkusativ</span>
+        <h3>Lückentext üben</h3>
+        <p>Setze im Satz die richtige Wortform aus der Wortbank ein – Grammatik und Vokabeln kombiniert.</p>
+      </a>
+
+      <!-- Übung 2: Aspektpaare -->
+      <a class="thema-card" href="/Code/4_Lernen/lernen-aspektpaare.html">
+        <div class="thema-icon"><i class="fas fa-right-left"></i></div>
+        <span class="thema-niveau">A1–C1 · Verben</span>
+        <h3>Aspektpaare üben</h3>
+        <p>Finde zu jedem Verb seinen Aspektpartner – unvollendet (nesvršeni) ↔ vollendet (svršeni).</p>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+</body>
+</html>

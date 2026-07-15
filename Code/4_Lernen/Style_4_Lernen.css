@@ -152,14 +152,22 @@ main h1 {
   gap: 18px;
 }
 
-/* Eine Themen-Karte = anklickbarer Button */
+/* Eine Themen-/Übungs-Karte = anklickbarer Button ODER Link.
+   Auf der Übersichtsseite (lernen-uebersicht.html) sind die
+   Karten <a>-Links; die folgenden Angaben (Blockdarstellung,
+   keine Unterstreichung) sorgen dafür, dass sie dort genauso
+   aussehen wie die Button-Karten in den Übungen.              */
 .thema-card {
+  display: block;
+  width: 100%;
   background: #fff;
   border: 1px solid var(--neutral);
   border-radius: 10px;
   padding: 24px 22px;
   cursor: pointer;
   text-align: left;
+  text-decoration: none;
+  font-family: inherit;
   /* Karten-Hover-Effekt (Design-System) */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -387,12 +395,83 @@ main h1 {
 }
 
 
+/* ── 4b. Aspektpaar-Übung (lernen-aspektpaare.html) ──── */
+/* Ergänzt den Übungsbereich um die Elemente, die speziell
+   die Aspektpaar-Zuordnung braucht. Wortbank, Feedback,
+   Fortschritt usw. werden aus Abschnitt 4 mitbenutzt.      */
+
+/* Kleine Zusatzzeile auf den Set-Karten („12 Aspektpaare") */
+.thema-anzahl {
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Block mit dem vorgegebenen Verb + Aspekt-Etikett */
+.aspekt-prompt {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* Das vorgegebene Verb, groß und prominent */
+.aspekt-verb {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Aspekt-Etikett unter dem Verb (z. B. „nesvršeni · unvollendet") */
+.aspekt-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  border-radius: 4px;
+  padding: 3px 10px;
+}
+/* Unvollendet (nesvršeni): grüner Ton (Sekundärfarbe) */
+.badge-nes {
+  color: var(--secondary);
+  background: #eaf2ea;
+}
+/* Vollendet (svršeni): blauer Ton (Primärfarbe) */
+.badge-svr {
+  color: var(--primary);
+  background: #e4eef5;
+}
+
+/* Die eigentliche Frage („Welches Verb ist der … Partner?") */
+.aspekt-frage {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* Die Paar-Auflösung im Feedback („x ↔ y – Bedeutung") */
+.feedback-paar {
+  display: block;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+
 /* ── 6. Responsive Design ────────────────────────────── */
 
 /* Tablet */
 @media (max-width: 900px) {
   main h1 { font-size: 1.7rem; }
   .uebung-satz { font-size: 1.1rem; }
+  .aspekt-verb { font-size: 1.6rem; }
 }
 
 /* Mobil */
@@ -424,4 +503,5 @@ main h1 {
     padding: 24px 4% 40px;
   }
   .uebung-satz { font-size: 1.05rem; }
+  .aspekt-verb { font-size: 1.45rem; }
 }

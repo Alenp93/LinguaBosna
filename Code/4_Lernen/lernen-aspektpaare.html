@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       lernen-aspektpaare.html
+       Übungsart: „Aspektpaar-Zuordnung"
+       LinguaBosna | Menüpunkt „Lernen"
+
+       Gezeigt wird ein Verb (z. B. „čitati"), gesucht ist sein
+       Aspektpartner der jeweils anderen Aspektform
+       (z. B. „pročitati"). Es gibt 3–4 anklickbare Optionen,
+       genau eine ist richtig.
+
+       Warum das schwer ist: Im Deutschen gibt es die Opposition
+       „unvollendet (nesvršeni) ↔ vollendet (svršeni)" nicht.
+       Deshalb wird bewusst KEINE deutsche Übersetzung in der
+       Frage gezeigt – man soll den Partner am Wortstamm erkennen,
+       nicht an der Bedeutung. Die Übersetzung folgt im Feedback.
+
+       Die Seite hat 3 Bildschirme (per JavaScript umgeschaltet):
+       1. Startschirm  – Auswahl des Übungssets (nach Niveau)
+       2. Übung        – eine Frage nach der anderen
+       3. Ergebnis     – Punktzahl + Wiederholen
+
+       Die Daten kommen direkt aus der kanonischen Vokabeldatei
+       vokabeln_flat.json: Alle Einträge mit gesetztem "par_id"
+       bilden ein Aspektpaar (aktuell ap01–ap27).
+       ====================================================== -->
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Aspektpaare üben</title>
+  <meta name="description" content="Interaktive Bosnisch-Übung: Ordne unvollendeten und vollendeten Verben (nesvršeni ↔ svršeni) ihren Aspektpartner zu – eines der schwierigsten BKS-Themen, spielerisch trainiert.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Aspektpaare üben</h1>
+    <p class="subtitle">Finde zu jedem Verb seinen Aspektpartner – unvollendet (nesvršeni) ↔ vollendet (svršeni).</p>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 1 — STARTSCHIRM (Set-Auswahl)
+         Wird ausgeblendet, sobald ein Set startet.
+         ===================================================== -->
+    <section id="startScreen">
+      <div class="section-intro">
+        <h2>Womit möchtest du üben?</h2>
+        <p>Wähle ein Set. Pro Durchgang bekommst du 10 Verben.</p>
+      </div>
+
+      <!-- Hier fügt das JavaScript die Set-Karten ein -->
+      <div class="thema-grid" id="themaGrid"></div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 2 — ÜBUNG (Aspektpaar-Zuordnung)
+         Standardmäßig versteckt (Klasse "hidden").
+         ===================================================== -->
+    <section id="uebungScreen" class="hidden">
+      <div class="uebung-container">
+
+        <!-- Fortschritt -->
+        <div class="uebung-progress" id="uebungProgress">Frage 1 von 10</div>
+        <div class="uebung-bar"><div class="uebung-bar-fill" id="uebungBarFill"></div></div>
+
+        <!-- Das vorgegebene Verb + sein Aspekt-Etikett (vom JS gefüllt) -->
+        <div class="aspekt-prompt" id="aspektPrompt">
+          <span class="aspekt-verb" id="promptVerb"></span>
+          <span class="aspekt-badge" id="promptBadge"></span>
+        </div>
+
+        <!-- Die Frage, z. B. „Welches Verb ist der vollendete Partner?" -->
+        <div class="aspekt-frage" id="aspektFrage"></div>
+
+        <!-- Die Optionen (Antwort-Buttons, vom JS erstellt) -->
+        <div class="wortbank" id="wortbank"></div>
+
+        <!-- Feedback nach der Antwort (versteckt bis zur Auswahl) -->
+        <div class="uebung-feedback hidden" id="uebungFeedback"></div>
+
+        <!-- „Nächste Frage"-Button (versteckt bis zur Auswahl) -->
+        <div class="uebung-next-wrap">
+          <button class="btn-primary hidden" id="nextBtn">Nächste Frage →</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 3 — ERGEBNIS
+         Standardmäßig versteckt.
+         ===================================================== -->
+    <section id="ergebnisScreen" class="hidden">
+      <div class="uebung-result">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <div class="result-actions">
+          <button class="btn-primary" id="retryBtn">Wiederholen</button>
+          <button class="btn-outline" id="otherBtn">Anderes Set</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Aspektpaar-Logik
+
+       Ablauf:
+       - vokabeln_flat.json laden → Paare nach par_id bilden
+       - Set-Karten anzeigen (nach Niveau)
+       - Set starten → 10 Paare zufällig wählen → erste Frage zeigen
+       - Antwort prüfen → Feedback → nächste Frage
+       - Am Ende: Ergebnis
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  /* ── Einstellungen ───────────────────────────────────── */
+  var FRAGEN_PRO_RUNDE = 10;   // wie viele Verben ein Durchgang hat
+  var ANZAHL_OPTIONEN  = 4;    // 1 richtige + 3 Distraktoren
+
+  /* Aspekt-Werte, exakt wie in der JSON geschrieben (ijekavisch) */
+  var NESVRSENI = 'nesvršeni'; // unvollendet / imperfektiv
+  var SVRSENI   = 'svršeni';   // vollendet / perfektiv
+
+  /* Deutsche Klartext-Bezeichnungen für die Anzeige */
+  var LABEL = {};
+  LABEL[NESVRSENI] = 'unvollendet';
+  LABEL[SVRSENI]   = 'vollendet';
+
+  /* Die Übungssets: filtern die Paare nach Niveau.
+     "niveaus: null" bedeutet „alle Niveaus". */
+  var SETS = [
+    {
+      id: 'leicht',
+      titel: 'Grundstufe',
+      niveauLabel: 'A1–A2',
+      beschreibung: 'Häufige Alltagsverben. Der ideale Einstieg in das Aspektsystem.',
+      niveaus: ['A1', 'A2']
+    },
+    {
+      id: 'schwer',
+      titel: 'Aufbaustufe',
+      niveauLabel: 'B1–C1',
+      beschreibung: 'Anspruchsvollere und gehobene Verben für Fortgeschrittene.',
+      niveaus: ['B1', 'B2', 'C1', 'C2']
+    },
+    {
+      id: 'alle',
+      titel: 'Alle Niveaus gemischt',
+      niveauLabel: 'A1–C1',
+      beschreibung: 'Alle Aspektpaare bunt gemischt – die volle Herausforderung.',
+      niveaus: null
+    }
+  ];
+
+  /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
+  var allePaare  = [];    // alle Aspektpaare aus der JSON: {parId, nes, svr, ...}
+  var aktivSet   = null;  // das gerade gewählte Set
+  var fragen     = [];    // die 10 Fragen dieses Durchgangs
+  var aktuelleNr = 0;     // Index der aktuellen Frage (0-basiert)
+  var punkte     = 0;     // richtig beantwortete Fragen
+  var beantwortet = false; // verhindert Doppelklick auf die Optionen
+
+  /* Kurzschreibweise für document.getElementById */
+  function $(id) { return document.getElementById(id); }
+
+
+  /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
+  /* Fisher-Yates-Verfahren: mischt das übergebene Array
+     direkt mit Math.random() – wie beim Lückentext.        */
+  function mischen(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+
+  /* ── 1. JSON laden und Aspektpaare bilden ────────────── */
+  /* Absolute Pfade (mit führendem /), wie im Projekt üblich.
+     Läuft nur über einen Webserver, nicht per file:// .     */
+  fetch('/Code/2_Vokabeln/vokabeln_flat.json')
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      allePaare = bildePaare(data);
+      zeigeSetKarten();
+
+      // Falls die Seite mit ?set=leicht (o. Ä.) aufgerufen wurde
+      // – z. B. über einen „Jetzt üben"-Button der Grammatikseite –
+      // starten wir dieses Set direkt.
+      var params = new URLSearchParams(window.location.search);
+      var wunschSet = params.get('set');
+      if (wunschSet) {
+        var gefunden = SETS.find(function (s) { return s.id === wunschSet; });
+        if (gefunden) { starteSet(gefunden); }
+      }
+    })
+    .catch(function (fehler) {
+      $('themaGrid').innerHTML =
+        '<p>Die Übung konnte nicht geladen werden. Bitte lade die Seite neu.</p>';
+      console.error('Fehler beim Laden der Vokabeldaten:', fehler);
+    });
+
+
+  /* ── Aus der flachen Vokabelliste die Aspektpaare bauen ─ */
+  /* Jeder Eintrag mit "par_id" gehört zu einem Paar. Wir
+     gruppieren nach par_id und ordnen pro Gruppe das
+     unvollendete (nesvršeni) und das vollendete (svršeni)
+     Verb zu. Nur vollständige Paare (beide Formen vorhanden)
+     werden übernommen.                                       */
+  function bildePaare(data) {
+    var gruppen = {};   // par_id → { nes: Eintrag, svr: Eintrag }
+
+    data.forEach(function (eintrag) {
+      var pid = eintrag.par_id;
+      if (!pid) { return; }                 // kein Aspektpaar → überspringen
+      if (!gruppen[pid]) { gruppen[pid] = {}; }
+
+      if (eintrag.aspekt === NESVRSENI) {
+        gruppen[pid].nes = eintrag;
+      } else if (eintrag.aspekt === SVRSENI) {
+        gruppen[pid].svr = eintrag;
+      }
+    });
+
+    // In eine saubere Liste umwandeln, nur vollständige Paare behalten
+    var liste = [];
+    Object.keys(gruppen).forEach(function (pid) {
+      var g = gruppen[pid];
+      if (g.nes && g.svr) {
+        liste.push({
+          parId:   pid,
+          nes:     g.nes.Bosnisch,     // unvollendetes Verb
+          svr:     g.svr.Bosnisch,     // vollendetes Verb
+          deutsch: g.nes.Deutsch,      // Bedeutung (bei beiden gleich)
+          niveau:  g.nes.Niveau,
+          kapitel: g.nes.Kapitel
+        });
+      }
+    });
+    return liste;
+  }
+
+
+  /* ── 2. Set-Karten auf dem Startschirm anzeigen ──────── */
+  function zeigeSetKarten() {
+    var grid = $('themaGrid');
+    grid.innerHTML = '';
+
+    SETS.forEach(function (set) {
+      // Wie viele Paare enthält dieses Set? (nur zur Info auf der Karte)
+      var anzahl = paareFuerSet(set).length;
+
+      // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
+      var karte = document.createElement('button');
+      karte.className = 'thema-card';
+      karte.innerHTML =
+        '<div class="thema-icon"><i class="fas fa-right-left"></i></div>' +
+        '<span class="thema-niveau">' + set.niveauLabel + '</span>' +
+        '<h3>' + set.titel + '</h3>' +
+        '<p>' + set.beschreibung + '</p>' +
+        '<p class="thema-anzahl">' + anzahl + ' Aspektpaare</p>';
+
+      // Klick startet das jeweilige Set
+      karte.addEventListener('click', function () { starteSet(set); });
+      grid.appendChild(karte);
+    });
+  }
+
+
+  /* Liefert alle Paare, die zum gewählten Set (Niveau) passen. */
+  function paareFuerSet(set) {
+    if (!set.niveaus) { return allePaare.slice(); }   // „alle"
+    return allePaare.filter(function (p) {
+      return set.niveaus.indexOf(p.niveau) !== -1;
+    });
+  }
+
+
+  /* ── 3. Ein Set starten ──────────────────────────────── */
+  function starteSet(set) {
+    aktivSet = set;
+
+    // Zufällige Auswahl aus dem passenden Paar-Pool:
+    // mischen(...) würfelt mit Math.random() durch, slice(0, 10)
+    // schneidet 10 heraus. Hat ein Set weniger als 10 Paare,
+    // kommen automatisch alle vorhandenen dran.
+    var pool = mischen(paareFuerSet(set));
+    var gewaehlt = pool.slice(0, FRAGEN_PRO_RUNDE);
+
+    // Zu jedem gewählten Paar eine konkrete Frage bauen
+    fragen = gewaehlt.map(function (paar) {
+      return baueFrage(paar);
+    });
+
+    aktuelleNr = 0;
+    punkte = 0;
+
+    // Bildschirm wechseln: Start ausblenden, Übung einblenden
+    $('startScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.remove('hidden');
+
+    zeigeFrage();
+  }
+
+
+  /* ── Aus einem Paar eine Frage mit Optionen bauen ────── */
+  /* Wir würfeln die Richtung:
+     - Variante A: unvollendetes Verb zeigen, vollendeten Partner suchen
+     - Variante B: vollendetes Verb zeigen, unvollendeten Partner suchen
+     Die Distraktoren haben IMMER dieselbe Aspektform wie die
+     richtige Antwort (also z. B. alle vollendet) und stammen aus
+     ANDEREN Paaren – so ist genau eine Option korrekt.        */
+  function baueFrage(paar) {
+    // Richtung zufällig festlegen
+    var zeigeUnvollendet = (Math.random() < 0.5);
+
+    var promptWort, promptAspekt, loesung, zielAspekt;
+    if (zeigeUnvollendet) {
+      promptWort   = paar.nes;
+      promptAspekt = NESVRSENI;
+      loesung      = paar.svr;
+      zielAspekt   = SVRSENI;     // gesucht: der vollendete Partner
+    } else {
+      promptWort   = paar.svr;
+      promptAspekt = SVRSENI;
+      loesung      = paar.nes;
+      zielAspekt   = NESVRSENI;   // gesucht: der unvollendete Partner
+    }
+
+    var distraktoren = waehleDistraktoren(paar, loesung, zielAspekt);
+
+    return {
+      paar:         paar,
+      promptWort:   promptWort,
+      promptAspekt: promptAspekt,
+      loesung:      loesung,
+      zielAspekt:   zielAspekt,
+      distraktoren: distraktoren
+    };
+  }
+
+
+  /* ── Distraktoren wählen (plausibel, aber eindeutig falsch) ─ */
+  /* Auswahl NUR aus Verben derselben Aspektform (zielAspekt) und
+     aus ANDEREN Paaren. Bewertet werden Kandidaten danach, wie
+     „plausibel" sie sind:
+       +3  gleiches Anfangs-Präfix wie die Lösung (z. B. beide „po…")
+           → zwingt dazu, auf den Wortstamm statt nur das Präfix zu achten
+       +2  gleiches Kapitel (thematisch verwandt)
+       +1  gleiches Niveau
+     Ein kleiner Zufallswert sorgt für Abwechslung bei Gleichstand.  */
+  function waehleDistraktoren(richtigesPaar, loesung, zielAspekt) {
+    var loesungPrefix = loesung.slice(0, 2);   // grobe Präfix-Näherung
+
+    // Kandidatenliste: pro anderem Paar das Verb der Zielaspektform
+    var kandidaten = [];
+    allePaare.forEach(function (p) {
+      if (p.parId === richtigesPaar.parId) { return; }  // nicht dasselbe Paar
+      var wort = (zielAspekt === SVRSENI) ? p.svr : p.nes;
+      if (wort === loesung) { return; }                 // Sicherheitsnetz
+
+      var punkte = Math.random();  // Zufalls-Tiebreak (0…1)
+      if (wort.slice(0, 2) === loesungPrefix) { punkte += 3; }
+      if (p.kapitel === richtigesPaar.kapitel) { punkte += 2; }
+      if (p.niveau === richtigesPaar.niveau)   { punkte += 1; }
+
+      kandidaten.push({ wort: wort, score: punkte });
+    });
+
+    // Nach Score absteigend sortieren und die besten drei nehmen
+    kandidaten.sort(function (a, b) { return b.score - a.score; });
+
+    var anzahlDistraktoren = ANZAHL_OPTIONEN - 1;   // 3
+    var ausgewaehlt = [];
+    for (var i = 0; i < kandidaten.length && ausgewaehlt.length < anzahlDistraktoren; i++) {
+      // Doppelte Wörter (falls zwei Paare dasselbe Verb teilen) vermeiden
+      if (ausgewaehlt.indexOf(kandidaten[i].wort) === -1) {
+        ausgewaehlt.push(kandidaten[i].wort);
+      }
+    }
+    return ausgewaehlt;
+  }
+
+
+  /* ── 4. Eine Frage anzeigen ──────────────────────────── */
+  function zeigeFrage() {
+    var frage = fragen[aktuelleNr];
+    beantwortet = false;
+
+    // Fortschritt aktualisieren
+    $('uebungProgress').textContent =
+      'Frage ' + (aktuelleNr + 1) + ' von ' + fragen.length;
+    $('uebungBarFill').style.width =
+      ((aktuelleNr / fragen.length) * 100) + '%';
+
+    // Vorgegebenes Verb + Aspekt-Etikett anzeigen.
+    // Das Etikett bekommt eine Farbklasse je nach Aspekt.
+    $('promptVerb').textContent = frage.promptWort;
+    var badge = $('promptBadge');
+    badge.textContent = frage.promptAspekt + ' · ' + LABEL[frage.promptAspekt];
+    badge.className = 'aspekt-badge ' +
+      (frage.promptAspekt === SVRSENI ? 'badge-svr' : 'badge-nes');
+
+    // Frage-Text: nach der jeweils anderen (Ziel-)Aspektform fragen.
+    // LABEL liefert „unvollendet"/„vollendet"; für die Adjektivstellung
+    // vor „Aspektpartner" hängen wir die Endung „e" an → „unvollendete".
+    $('aspektFrage').textContent =
+      'Welches Verb ist der ' + LABEL[frage.zielAspekt] + 'e' +
+      ' (' + frage.zielAspekt + ') Aspektpartner?';
+
+    // Optionen zusammenstellen: richtige Lösung + Distraktoren, mischen
+    var optionen = frage.distraktoren.slice();
+    optionen.push(frage.loesung);
+    mischen(optionen);
+
+    // Options-Buttons erstellen (dieselbe .wortbank-Optik wie beim Lückentext)
+    var bank = $('wortbank');
+    bank.innerHTML = '';
+    optionen.forEach(function (wort) {
+      var btn = document.createElement('button');
+      btn.className = 'wortbank-btn';
+      btn.textContent = wort;
+
+      // Richtige Antwort am Button markieren (Vergleich später über
+      // diese Markierung statt über Textvergleich).
+      btn.dataset.correct = (wort === frage.loesung) ? 'true' : 'false';
+
+      btn.addEventListener('click', function () { pruefeAntwort(btn); });
+      bank.appendChild(btn);
+    });
+
+    // Feedback und „Weiter"-Button verstecken
+    $('uebungFeedback').classList.add('hidden');
+    $('nextBtn').classList.add('hidden');
+  }
+
+
+  /* ── 5. Antwort prüfen ───────────────────────────────── */
+  function pruefeAntwort(btn) {
+    if (beantwortet) { return; }   // schon beantwortet → ignorieren
+    beantwortet = true;
+
+    var frage    = fragen[aktuelleNr];
+    var buttons  = document.querySelectorAll('.wortbank-btn');
+    var feedback = $('uebungFeedback');
+    var istRichtig = (btn.dataset.correct === 'true');
+
+    // Alle Buttons durchgehen: richtige grün, gewählte falsche rot
+    buttons.forEach(function (b) {
+      if (b.dataset.correct === 'true') { b.classList.add('correct'); }
+      b.disabled = true;   // nach der Antwort nicht mehr klickbar
+    });
+    if (!istRichtig) { btn.classList.add('wrong'); }
+
+    // Das Paar in der Anzeige unter dem Feedback aufbauen:
+    // „unvollendet ↔ vollendet – Bedeutung"
+    var paar = frage.paar;
+    var paarHtml =
+      '<span class="feedback-paar">' +
+        '<strong>' + paar.nes + '</strong> (unvollendet) ↔ ' +
+        '<strong>' + paar.svr + '</strong> (vollendet) – ' + paar.deutsch +
+      '</span>';
+
+    if (istRichtig) {
+      punkte++;
+      feedback.innerHTML =
+        '<i class="fas fa-check-circle"></i> Richtig! ' + paarHtml;
+      feedback.className = 'uebung-feedback feedback-correct';
+    } else {
+      feedback.innerHTML =
+        '<i class="fas fa-times-circle"></i> Leider falsch. Der Aspektpartner von „' +
+        frage.promptWort + '" ist „' + frage.loesung + '". ' + paarHtml;
+      feedback.className = 'uebung-feedback feedback-wrong';
+    }
+    feedback.classList.remove('hidden');
+
+    // Weiter-Button zeigen; Beschriftung am letzten Item anpassen
+    $('nextBtn').classList.remove('hidden');
+    if (aktuelleNr === fragen.length - 1) {
+      $('nextBtn').textContent = 'Ergebnis anzeigen →';
+    } else {
+      $('nextBtn').textContent = 'Nächste Frage →';
+    }
+  }
+
+
+  /* ── 6. Nächste Frage / Ergebnis ─────────────────────── */
+  $('nextBtn').addEventListener('click', function () {
+    if (aktuelleNr < fragen.length - 1) {
+      aktuelleNr++;
+      zeigeFrage();
+    } else {
+      zeigeErgebnis();
+    }
+  });
+
+
+  /* ── 7. Ergebnis anzeigen ────────────────────────────── */
+  function zeigeErgebnis() {
+    $('uebungScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.remove('hidden');
+
+    $('resultScore').textContent = punkte + ' von ' + fragen.length + ' richtig';
+
+    // Aufmunternder Text je nach Punktzahl
+    var text = '';
+    var anzahl = fragen.length;
+    if (punkte === anzahl) {
+      text = 'Perfekt! Du erkennst die Aspektpartner sicher. 🎉';
+    } else if (punkte >= anzahl * 0.7) {
+      text = 'Sehr gut! Nur wenige Ausrutscher – weiter so.';
+    } else if (punkte >= anzahl * 0.5) {
+      text = 'Guter Anfang! Achte auf Präfixe und Wortstämme.';
+    } else {
+      text = 'Kein Problem – der Aspekt ist knifflig. Schau dir die Verbalaspekt-Seite an und versuch es erneut!';
+    }
+    $('resultText').textContent = text;
+  }
+
+
+  /* ── 8. Buttons im Ergebnis-Bildschirm ───────────────── */
+
+  // „Wiederholen" → dasselbe Set erneut (neu gemischt)
+  $('retryBtn').addEventListener('click', function () {
+    starteSet(aktivSet);
+  });
+
+  // „Anderes Set" → zurück zum Startschirm
+  $('otherBtn').addEventListener('click', function () {
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  });
+
+  </script>
+
+</body>
+</html>

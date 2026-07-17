@@ -114,13 +114,31 @@ Für Grammatikseiten gibt es eine vollständige, verbindliche Arbeitsgrundlage i
 3. `test_grammatikseite.py` – Pflicht-Validierung nach jeder neuen/geänderten Seite
    (Aufruf: `python3 test_grammatikseite.py grammatik-[thema].html`; findet Repo-Root und
    CSS-Dateien automatisch, prüft Mobile-Overflow, Struktur, Quiz-IDs und mehr)
+4. `.claude/agents/bosnisch-pruefer.md` – Subagent für die unabhängige sprachliche
+   Zweitprüfung (ijekavisch, Bosnisch vs. kroatisch/serbisch, Turzismen, Register,
+   Konsistenz mit `vokabeln_flat.json`). MUSS nach jeder neuen/geänderten Grammatikseite
+   aufgerufen werden, zusätzlich zu `test_grammatikseite.py` – prüft Sprache, nicht Struktur.
+   Nur Leserechte (Read/Grep/Glob/WebSearch), korrigiert nichts selbst, liefert nur eine
+   ✓/⚠-Liste zur Entscheidung durch Alen.
 
 Diese Datei hier dupliziert diese Regeln bewusst **nicht** – WORKFLOW_Grammatikseiten.md ist
 die Quelle der Wahrheit, damit nichts auseinanderdriftet. Nach jeder neuen Seite: entsprechende
 Karte in `LB_3_Grammatik.html` von „Demnächst" auf aktiven Link umstellen (siehe Workflow-Doku).
 
-**Aktueller Stand:** A1–B1 (Kapitel 1–23) vollständig. Nächstes Kapitel: B2 Kapitel 24 – Verbalaspekt
-(`grammatik-verbalaspekt.html`).
+## Lernen-Bereich erstellen – IMMER zuerst diese Datei lesen
+
+Für den „Lernen"-Bereich (Übungsaufgaben zu Grammatik + Vokabeln, ergänzend zu den
+Grammatik-Erklärseiten und dem Vokabeltrainer) gibt es eine eigene Arbeitsgrundlage,
+analog zu WORKFLOW_Grammatikseiten.md:
+
+1. `WORKFLOW_Lernen.md` – enthält feste Regeln je Übungstyp (Dateinamen, Ablageorte,
+   Interaktionsmuster, Datenquellen-Prinzip, Pool-Größen-Richtwerte, Status-Übersicht
+   aller Übungstypen, Validierungs- und Auslieferungs-Workflow)
+
+**Bevor du eine neue Lernen-Übung erstellst oder änderst, lies zuerst
+`WORKFLOW_Lernen.md`.** Diese Datei hier dupliziert die dortigen Regeln bewusst
+nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geänderten
+Übung: Status-Tabelle in `WORKFLOW_Lernen.md` aktualisieren.
 
 ## Vokabular-System
 
@@ -160,8 +178,19 @@ diese Datei ist am kritischsten für Konsistenz.
 
 ## Validierungs-Workflow
 
-Nach jeder neuen/geänderten Grammatikseite `test_grammatikseite.py` ausführen (Details siehe
-`WORKFLOW_Grammatikseiten.md`, Abschnitt 5) und das Ergebnis zeigen, bevor committed wird.
+Nach jeder neuen/geänderten Grammatikseite zwei getrennte Prüfungen durchführen, bevor
+committed wird:
+
+1. **Struktur:** `test_grammatikseite.py` ausführen (Details siehe
+   `WORKFLOW_Grammatikseiten.md`, Abschnitt 5)
+2. **Sprache:** `bosnisch-pruefer`-Subagent aufrufen (siehe oben)
+
+Beide Ergebnisse Alen zeigen, bevor committed wird. Ein grüner Struktur-Test bedeutet nur
+„technisch sauber", nicht „sprachlich korrekt" – beide Prüfungen sind nötig, keine ersetzt
+die andere.
+
+Für Lernen-Übungen gilt der Sprach-Check (bosnisch-pruefer) ebenso; die Struktur-Prüfung
+ist dort noch offen (siehe `WORKFLOW_Lernen.md`, Abschnitt 6).
 
 **Einmalige lokale Einrichtung (falls noch nicht geschehen):** Das Skript braucht Playwright.
 Falls der Testlauf mit „Playwright nicht installiert" fehlschlägt, einmalig ausführen:
@@ -172,13 +201,18 @@ playwright install chromium
 
 ## Pausierte / auskommentierte Bereiche
 
-Kultur- und Blog-Navigationslinks in `LB_header.html` sowie die Kultur-Feature-Karte in
-`LB_1_Startseite.html` sind bewusst auskommentiert (Inhalte noch nicht fertig) – nicht
-versehentlich reaktivieren.
+Kultur- und Blog-Navigationslinks in `LB_header.html` sind bewusst auskommentiert
+(Inhalte noch nicht fertig) – nicht versehentlich reaktivieren. Ebenso die
+Kultur-Feature-Karte in `LB_1_Startseite.html`.
+
+Der „Lernen"-Menüpunkt ist dagegen **aktiv** (`LB_header.html`, verlinkt auf
+`/Code/4_Lernen/lernen-uebersicht.html`), seit die ersten Übungen (Lückentext,
+Aspektpaare) fertig sind.
 
 ## Roadmap (zur Priorisierung, falls relevant)
 
 - B2–C2 Grammatikkapitel (interne Kommentarnummern 24–37 in `LB_3_Grammatik.html`)
+- Lernen-Bereich: weitere Übungstypen (siehe `WORKFLOW_Lernen.md`, Status-Übersicht)
 - SEO: Google Search Console, sitemap.xml, robots.txt, schema.org, Long-Tail-Keywords
 - Audio-Feature reaktivieren (Google Cloud TTS Free Tier)
 - Mögliche zukünftige englische Version (nach Phase 3; JSON hat bereits English-Feldgrundlage)

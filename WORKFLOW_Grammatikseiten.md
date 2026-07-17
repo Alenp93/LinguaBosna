@@ -128,6 +128,8 @@ auf die gefixten Versionen in `/mnt/user-data/outputs/`
 
 ---
 
+Wenn die Prüfung erfolgreich durchgeführt wurde, dann die jeweilige Karte in LB_3_Grammatik.html von „Demnächst" auf aktiven Link umstellen
+
 ## 6. Antwortformat der Auslieferung
 
 - Kurzer didaktischer Vorspann (Hook + Konzept) VOR der Dateierstellung

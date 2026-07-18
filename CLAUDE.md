@@ -159,9 +159,14 @@ diese Datei ist am kritischsten für Konsistenz.
 
 ## Bekannte Lösungen / Fallstricke (nicht wiederholen)
 
-- **Mobile Overflow:** Ursache war fehlendes `width: 100%` bei `main` in
-  `Style_3_Grammatik_Detail.css` (Flex-Shrink-Verhalten) – overflow-x-Fixes an html/body/main
-  beheben nicht die Ursache.
+- **Mobile Overflow (Grammatik-Tabellen):** Ursache ist der Auto-Layout-Algorithmus der
+  `.letter-table`: ein langes, nicht umbrechbares Wort in einer Zelle (z. B. „Umgangssprachlich")
+  setzt die Spalten-min-content hoch und bläht die `width:100%`-Tabelle über den Viewport.
+  Fix: `table-layout: fixed` + `overflow-wrap: break-word` auf `.letter-table` in
+  `Style_3_Grammatik_Detail.css` (feste Spaltenbreiten → lange Wörter brechen um).
+  Empirisch bestätigt (alle Grammatikseiten, Breakpoints 900–320 px, 0 Überlauf): `min-width:0`
+  bzw. `width:100%` an `main` und overflow-x-Fixes an html/body/main beheben das **nicht** –
+  entgegen der früheren Annahme, die Ursache sei das Flex-`main`.
 - **Scripts via innerHTML laufen nicht:** GoatCounter und Hamburger-Menü-Logik müssen über
   `createElement`/`appendChild` in `LB_main.js` eingebunden werden, nicht in
   `LB_header.html`/`LB_footer.html`.

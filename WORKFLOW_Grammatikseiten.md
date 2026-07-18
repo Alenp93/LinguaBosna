@@ -54,9 +54,20 @@ Quiz, Validierung, Mobiltest, Datei-Auslieferung.
 - Nach jeder neuen Seite: entsprechende Karte in der Übersicht von
   „Demnächst" (`div.coming-soon`) auf aktiven Link (`a.grammar-card`) umstellen.
 
+### Seiten-Navigation (Vor/Zurück) – Konvention
+
+- **Zurück-Link:** zeigt auf das vorige Kapitel. Innerhalb desselben Ordners relativ
+  (`grammatik-[thema].html`); über Niveau-/Ordnergrenzen hinweg **absolut**
+  (`/Code/3_Grammatik/Grammatik_[LEVEL]/grammatik-[thema].html`).
+- **Weiter-Link (Grenzseite):** Existiert das nächste Kapitel noch nicht, zeigt „weiter"
+  auf die Übersicht (`/Code/1_Startseite/LB_3_Grammatik.html`), Label = Titel des geplanten
+  nächsten Kapitels.
+- **Nachziehen:** Beim Anlegen des Folgekapitels den Weiter-Link der Vorgängerseite von der
+  Übersicht auf die neue Seite umbiegen (sonst endet die Kette in der Übersicht).
+
 ---
 
-## 3. Kapitel-Taxonomie (37 Kapitel, Stand: B1 komplett)
+## 3. Kapitel-Taxonomie (37 Kapitel, Stand: C1 komplett)
 
 **A1 (1–6):** 1 Alphabet & Aussprache · 2 Geschlecht der Substantive ·
 3 biti & Verneinung · 4 Fragen & Fragewörter · 5 Regelmäßiges Präsens ·
@@ -110,6 +121,9 @@ Testskript ausführen (liegt als `test_grammatikseite.py` bereit):
 ```
 python3 test_grammatikseite.py grammatik-[thema].html
 ```
+
+> **Windows:** `python` statt `python3` verwenden (`python3` startet dort den
+> Microsoft-Store-Platzhalter). Die UTF-8-Konsolenausgabe stellt das Skript selbst ein.
 
 Das Skript prüft automatisch:
 - **Mobiltest** (Playwright/Chromium) bei 900/628/480/360/320 px:

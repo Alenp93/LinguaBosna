@@ -276,27 +276,38 @@ else:
                         e => e.scrollWidth > e.clientWidth + 1);
                     let culprits = [];
                     if (ov > 0) {
-                        // Kleinste Elemente finden, deren EIGENER Inhalt
-                        // (nicht nur ererbte Kindbreite) die Seite sprengt —
-                        // sortiert nach Tiefe im DOM (tiefste zuerst = genauste Ursache).
-                        const vw = window.innerWidth;
-                        const all = [...document.querySelectorAll('main *')]
-                            .filter(e => e.scrollWidth > vw + 1)
-                            .map(e => {
+                        // Verursacher per Ausblenden bestimmen: jedes Element
+                        // kurz auf display:none setzen und prüfen, ob die
+                        // Dokumentbreite dadurch schrumpft. Das findet auch
+                        // Ursachen, die selbst NICHT breiter als der Viewport
+                        // sind (z. B. ein langes Wort in einer Zelle, das nur
+                        // die Spalte/Tabelle aufbläht) — anders als eine reine
+                        // scrollWidth-Messung.
+                        const base = document.documentElement.scrollWidth;
+                        const cand = [];
+                        document.querySelectorAll('main *').forEach(e => {
+                            const prev = e.style.display;
+                            e.style.display = 'none';
+                            const drop = base - document.documentElement.scrollWidth;
+                            e.style.display = prev;
+                            if (drop > 0) {
                                 let depth = 0, p = e;
                                 while (p) { depth++; p = p.parentElement; }
-                                return {
-                                    depth,
+                                cand.push({
+                                    depth, drop,
                                     tag: e.tagName,
                                     cls: (typeof e.className === 'string'
                                           ? e.className : ''),
-                                    sw: e.scrollWidth,
                                     text: (e.textContent || '')
                                         .replace(/\\s+/g, ' ').trim().slice(0, 40)
-                                };
-                            });
-                        all.sort((a, b) => b.depth - a.depth);
-                        culprits = all.slice(0, 3);
+                                });
+                            }
+                        });
+                        // tiefstes Element zuerst (genaueste Ursache),
+                        // bei Gleichstand der mit dem größten Effekt.
+                        cand.sort((a, b) => (b.depth - a.depth)
+                                            || (b.drop - a.drop));
+                        culprits = cand.slice(0, 3);
                     }
                     return {ov: Math.round(ov), wraps, culprits};
                 }""")
@@ -309,7 +320,7 @@ else:
                         cls = f".{c['cls']}" if c['cls'] else ""
                         print(f"      → Verursacher-Kandidat: "
                               f"<{c['tag'].lower()}{cls}> "
-                              f"(scrollWidth {c['sw']}px) „{c['text']}…"
+                              f"(entfernt −{c['drop']}px Breite) „{c['text']}…"
                               f"\"")
                 pg.close()
             browser.close()

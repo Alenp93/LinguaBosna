@@ -25,6 +25,12 @@ import sys
 import pathlib
 import tempfile
 
+# Windows-Konsolen nutzen oft cp1252, das an ═/✓/✗/⚠ unten scheitert
+# (UnicodeEncodeError) und das Skript vor dem ersten Test abbrechen lässt.
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 # ── Konfiguration ────────────────────────────────────────────────
 VIEWPORTS = [900, 628, 480, 360, 320]
 
@@ -268,13 +274,43 @@ else:
                     const wraps = [...document.querySelectorAll(
                         '.letter-table-wrap')].map(
                         e => e.scrollWidth > e.clientWidth + 1);
-                    return {ov: Math.round(ov), wraps};
+                    let culprits = [];
+                    if (ov > 0) {
+                        // Kleinste Elemente finden, deren EIGENER Inhalt
+                        // (nicht nur ererbte Kindbreite) die Seite sprengt —
+                        // sortiert nach Tiefe im DOM (tiefste zuerst = genauste Ursache).
+                        const vw = window.innerWidth;
+                        const all = [...document.querySelectorAll('main *')]
+                            .filter(e => e.scrollWidth > vw + 1)
+                            .map(e => {
+                                let depth = 0, p = e;
+                                while (p) { depth++; p = p.parentElement; }
+                                return {
+                                    depth,
+                                    tag: e.tagName,
+                                    cls: (typeof e.className === 'string'
+                                          ? e.className : ''),
+                                    sw: e.scrollWidth,
+                                    text: (e.textContent || '')
+                                        .replace(/\\s+/g, ' ').trim().slice(0, 40)
+                                };
+                            });
+                        all.sort((a, b) => b.depth - a.depth);
+                        culprits = all.slice(0, 3);
+                    }
+                    return {ov: Math.round(ov), wraps, culprits};
                 }""")
                 intern = ("Tabellen scrollen intern: " + str(r["wraps"]))
                 if r["ov"] <= 0:
                     ok(f"{width}px: kein Überlauf | {intern}")
                 else:
                     fail(f"{width}px: ÜBERLAUF {r['ov']}px | {intern}")
+                    for c in r["culprits"]:
+                        cls = f".{c['cls']}" if c['cls'] else ""
+                        print(f"      → Verursacher-Kandidat: "
+                              f"<{c['tag'].lower()}{cls}> "
+                              f"(scrollWidth {c['sw']}px) „{c['text']}…"
+                              f"\"")
                 pg.close()
             browser.close()
     except ImportError:

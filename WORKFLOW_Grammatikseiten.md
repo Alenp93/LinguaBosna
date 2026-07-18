@@ -32,6 +32,7 @@ Quiz, Validierung, Mobiltest, Datei-Auslieferung.
 | Quiz-Strings | KEINE ASCII-Apostrophe (') — nur typografische Zeichen („ " ' –) |
 | Quiz-Ergebnisschwellen | >=9 / >=7 / >=5 / else — Texte themenspezifisch |
 | Quiz-IDs | quizContainer, quizProgress, quizBarFill, quizQuestion, quizOptions, quizFeedback, quizNextBtn, quizResult, resultScore, resultText, quizRetryBtn — nie ändern |
+| Tabellenköpfe/-zellen (Block 3) | kurz halten, möglichst 1 Wort pro `<th>`/`<td>` — lange Köpfe wie „Form (Nominativ)" können bei 320px zu Seitenüberlauf führen. Zusatzinfo lieber in `group-desc` oder `mini-note` statt in die Zelle |
 | Pfade | immer absolut (`/Code/...`, `/Bilder/...`) — relative Pfade brechen in Unterordnern |
 | Favicon-Block | Pflicht auf jeder neuen Seite (6 Zeilen, `/Bilder/favicon/...`) |
 | CSS | `/Code/Style.css` + `/Code/3_Grammatik/Style_3_Grammatik_Detail.css` |
@@ -119,6 +120,10 @@ Das Skript prüft automatisch:
 - Vorhandensein aller Quiz-IDs
 - Vor/Zurück-Navigation (Linkziele werden angezeigt)
 - ASCII-Apostrophe im Script-Bereich (muss 0 sein)
+
+Bei Seitenüberlauf nennt das Skript zusätzlich bis zu 3 Verursacher-Kandidaten
+(Tag/Klasse/Textanfang) direkt unter der Fehlermeldung — meist reicht das, um
+das zu breite Element ohne weitere Handarbeit zu finden.
 
 Danach: `present_files` mit der fertigen Datei.
 

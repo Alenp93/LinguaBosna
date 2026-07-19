@@ -239,7 +239,7 @@
               <td>Nacht</td>
               <td>maskulin (Kons.)</td>
               <td><strong>feminin</strong></td>
-              <td>Abstrakte Nomen auf -ć/-st sind oft feminin</td>
+              <td>Viele feminine Nomen enden auf -ć/-st (i-Deklination)</td>
             </tr>
             <tr>
               <td class="letter-cell">stvar</td>
@@ -316,7 +316,7 @@
       <!-- Quiz-Container -->
       <div class="quiz-container" id="quizContainer">
         <div class="quiz-progress">
-          <span id="quizProgress">Frage 1 von 5</span>
+          <span id="quizProgress">Frage 1 von 10</span>
           <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBarFill"></div></div>
         </div>
         <div class="quiz-question" id="quizQuestion"></div>
@@ -420,6 +420,36 @@
         options: ['Maskulin', 'Feminin', 'Neutrum'],
         correct: 2,
         explanation: '„More" endet auf -e → neutrum (srednji rod).'
+      },
+      {
+        question: 'Welches Geschlecht hat „student" (Student)?',
+        options: ['Maskulin', 'Feminin', 'Neutrum'],
+        correct: 0,
+        explanation: '„Student" endet auf einen Konsonanten → maskulin (muški rod).'
+      },
+      {
+        question: 'Welches Geschlecht hat „knjiga" (Buch)?',
+        options: ['Maskulin', 'Feminin', 'Neutrum'],
+        correct: 1,
+        explanation: '„Knjiga" endet auf -a → feminin (ženski rod).'
+      },
+      {
+        question: 'Welches Geschlecht hat „mlijeko" (Milch)?',
+        options: ['Maskulin', 'Feminin', 'Neutrum'],
+        correct: 2,
+        explanation: '„Mlijeko" endet auf -o → neutrum (srednji rod).'
+      },
+      {
+        question: '„Sudija" (Richter) endet auf -a. Welches Geschlecht hat es?',
+        options: ['Maskulin, weil es eine männliche Person bezeichnet', 'Feminin, weil es auf -a endet', 'Neutrum'],
+        correct: 0,
+        explanation: 'Ausnahme! „Sudija" endet zwar auf -a, bezeichnet aber traditionell eine männliche Person → maskulin.'
+      },
+      {
+        question: 'Welches Geschlecht hat „noć" (Nacht)?',
+        options: ['Maskulin', 'Feminin', 'Neutrum'],
+        correct: 1,
+        explanation: 'Ausnahme! „Noć" endet auf einen Konsonanten, ist aber feminin – wie viele Nomen auf -ć/-st (i-Deklination).'
       }
     ];
 
@@ -493,10 +523,12 @@
         score + ' von ' + quizData.length + ' richtig';
 
       var text = '';
-      if (score === quizData.length) {
+      if (score >= 9) {
         text = 'Perfekt! Du kannst das Geschlecht bosnischer Nomen sicher bestimmen! 🎉';
-      } else if (score >= 3) {
-        text = 'Gut gemacht! Die Grundregeln sitzen. Schau dir die Ausnahmen im Spickzettel nochmal an.';
+      } else if (score >= 7) {
+        text = 'Sehr gut! Die Endungsregeln sitzen – schau dir nur die Ausnahmen (tata, sudija, noć) nochmal an.';
+      } else if (score >= 5) {
+        text = 'Gut gemacht! Die Grundregeln sitzen. Wiederhole die Ausnahmen im Spickzettel und versuch es nochmal.';
       } else {
         text = 'Kein Problem – lies dir die drei Endungsregeln nochmal durch und versuche es erneut!';
       }

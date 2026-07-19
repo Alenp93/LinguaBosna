@@ -166,7 +166,13 @@ diese Datei ist am kritischsten für Konsistenz.
   - `.letter-table { table-layout: auto }` + `overflow-wrap: normal; word-break: normal;
     hyphens: none` auf `th`/`td` → Spalten nach Inhalt, Wörter bleiben komplett.
   - `.letter-table-wrap { overflow-x: auto; max-width: 100% }` → der **Wrapper** scrollt,
-    nicht die Seite; ein Rand-Fade (CSS-Gradient, kein JS) signalisiert den Überlauf.
+    nicht die Seite. Ein **richtungsabhängiger Scroll-Schatten** signalisiert, wohin man
+    scrollen kann: Das Modul „Tabellen-Scroll-Schatten" in `LB_main.js` setzt je nach
+    Scroll-Position die Klassen `.lb-scroll-left` / `.lb-scroll-right`; das CSS zeigt den
+    Schatten nur auf der jeweiligen Seite. Folge: kein Überlauf → kein Schatten; am Anschlag
+    → kein Schatten auf der Anschlagseite. (Der frühere reine CSS-Fade mit
+    `background-attachment: local` maskierte auf manchen Mobilbrowsern nicht sauber –
+    daher der JS-Weg.)
   - **Schlüssel-Fix (ohne den scrollt der Wrapper NICHT):** `main { width: 100% }`. `main` ist
     ein Flex-Item (`body` ist `display:flex; flex-direction:column`, `main` hat `flex:1`).
     Ohne feste Breite schrumpft `main` auf **Inhaltsbreite** und wird von einer breiten Tabelle

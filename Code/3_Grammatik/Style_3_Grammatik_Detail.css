@@ -409,20 +409,38 @@ body {
   overflow-x: auto;    /* eigener Scroll-Container: die Tabelle scrollt, nicht die Seite */
   max-width: 100%;     /* nie breiter als der Elternraum → Tabelle scrollt statt Seite */
   margin-bottom: 20px;
-  /* Rand-Fade als Scroll-Hinweis (Details siehe Block-Kommentar unten):
-     Zwei „Abdeckungen" in Seitenfarbe scrollen mit dem Inhalt mit (local),
-     zwei Schatten bleiben am jeweiligen Rand stehen (scroll). Liegt ein
-     Schatten frei, geht es dort noch weiter – Signal, dass man die Tabelle
-     seitlich schieben kann. Reine CSS-Lösung, kein JS. Erscheint automatisch
-     nur bei Überlauf; auf breiten Viewports (kein Überlauf) unsichtbar. */
-  background:
-    linear-gradient(to right, var(--bg-light), rgba(248, 245, 240, 0)) left center,
-    linear-gradient(to left,  var(--bg-light), rgba(248, 245, 240, 0)) right center,
-    linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0)) left center,
-    linear-gradient(to left,  rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0)) right center;
+  /* Scroll-Schatten als Hinweis, dass es seitlich noch weitergeht.
+     Gesteuert per JS (LB_main.js, Modul „Tabellen-Scroll-Schatten"): die Klassen
+     .lb-scroll-left / .lb-scroll-right werden NUR gesetzt, wenn man in genau diese
+     Richtung noch scrollen kann. Daraus folgt automatisch:
+       • kein Überlauf         → keine Klasse → kein Schatten
+       • am linken/rechten Anschlag → Schatten auf DER Seite verschwindet
+     Der Schatten selbst ist ein Hintergrund-Gradient mit background-attachment:scroll
+     (Default) – er klebt am sichtbaren Rand des Scroll-Containers, nicht am Inhalt.
+     Ohne JS erscheinen einfach keine Schatten (die Tabelle scrollt trotzdem). */
   background-repeat: no-repeat;
-  background-size: 34px 100%, 34px 100%, 22px 100%, 22px 100%;
-  background-attachment: local, local, scroll, scroll;
+  background-position: left center, right center;
+  background-size: 22px 100%, 22px 100%;
+  background-image: none, none;   /* Standard: keine Schatten */
+}
+
+/* Es geht nach LINKS noch weiter → Schatten am linken Rand */
+.letter-table-wrap.lb-scroll-left {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0)),
+    none;
+}
+/* Es geht nach RECHTS noch weiter → Schatten am rechten Rand */
+.letter-table-wrap.lb-scroll-right {
+  background-image:
+    none,
+    linear-gradient(to left, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
+}
+/* Beide Richtungen scrollbar → beide Schatten */
+.letter-table-wrap.lb-scroll-left.lb-scroll-right {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0)),
+    linear-gradient(to left,  rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
 }
 
 .letter-table {
@@ -484,7 +502,8 @@ body {
      (Mehrwortige Zellen – z. B. ganze Sätze – brechen weiterhin normal
      zwischen den Wörtern um.)
    • Wird die Tabelle breiter als der Bildschirm, scrollt der Wrapper
-     horizontal statt die Seite; ein Rand-Fade signalisiert den Überlauf.
+     horizontal statt die Seite; ein per JS gesteuerter Scroll-Schatten
+     (.lb-scroll-left/-right, siehe oben) signalisiert die Scroll-Richtung.
 
    Sollte einmal eine einzelne Tabelle das ALTE feste Layout brauchen
    (Spalten gleich breit, lange Wörter umbrechen), kann man ihr gezielt

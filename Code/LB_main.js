@@ -54,6 +54,56 @@
             }
         });
 
+// ── Tabellen-Scroll-Schatten ────────────────────────────────
+// Setzt an jedem .letter-table-wrap die Klassen .lb-scroll-left /
+// .lb-scroll-right – aber NUR, wenn man in diese Richtung noch scrollen
+// kann. Das CSS (Style_3_Grammatik_Detail.css) zeigt den Schatten dann
+// nur auf der jeweiligen Seite. Ergebnis:
+//   • kein Überlauf            → keine Klasse → kein Schatten
+//   • am Anschlag (links/rechts) → Schatten auf DER Seite verschwindet
+// Läuft auf jeder Seite, weil LB_main.js überall eingebunden ist.
+(function () {
+    // Schatten-Klassen für EIN Wrap-Element anhand der Scroll-Position setzen
+    function update(wrap) {
+        var max = wrap.scrollWidth - wrap.clientWidth; // max. scrollbare Strecke
+        var overflow = max > 1;                         // gibt es überhaupt Überlauf?
+        var x = wrap.scrollLeft;
+        // links scrollbar, wenn nicht am linken Anschlag (x > 0)
+        wrap.classList.toggle('lb-scroll-left',  overflow && x > 1);
+        // rechts scrollbar, wenn nicht am rechten Anschlag (x < max)
+        wrap.classList.toggle('lb-scroll-right', overflow && x < max - 1);
+    }
+
+    function init() {
+        var wraps = document.querySelectorAll('.letter-table-wrap');
+        wraps.forEach(function (wrap) {
+            var run = function () { update(wrap); };
+            run();                                          // Anfangszustand
+            wrap.addEventListener('scroll', run, { passive: true });
+            // Neu berechnen, wenn sich die Wrap-Breite ändert (Drehen, Reflow)
+            if (window.ResizeObserver) {
+                new ResizeObserver(run).observe(wrap);
+            }
+        });
+        // Fallback ohne ResizeObserver: bei Fensteränderung alle neu prüfen
+        window.addEventListener('resize', function () {
+            document.querySelectorAll('.letter-table-wrap').forEach(update);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    // Schriften können Spaltenbreiten nachträglich ändern → nach vollständigem
+    // Laden noch einmal prüfen, damit der Anfangszustand stimmt.
+    window.addEventListener('load', function () {
+        document.querySelectorAll('.letter-table-wrap').forEach(update);
+    });
+})();
+// ────────────────────────────────────────────────────────────
+
 // ── GoatCounter Webanalyse ──────────────────────────────────
 // Läuft auf JEDER Seite, weil LB_main.js überall eingebunden ist.
 // Wir erzeugen das <script>-Element per JS und hängen es an den

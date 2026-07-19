@@ -71,7 +71,17 @@ main h1,
 main {
   margin-top: 90px;
   padding: 40px 5% 70px;
-  max-width: 860px;                    /* Lese-optimierte Breite */
+  width: 100%;                         /* WICHTIG: main ist ein Flex-Item (body ist
+                                          flex-column, main hat flex:1). Ohne feste
+                                          Breite schrumpft es auf INHALTSBREITE –
+                                          eine breite Tabelle bläht es dann über den
+                                          Viewport hinaus, statt dass der Tabellen-
+                                          Wrapper scrollt. width:100% bindet main an
+                                          die Container-/Viewport-Breite; der Wrapper
+                                          kann dann intern scrollen. (box-sizing:
+                                          border-box ist global gesetzt → die 5%-
+                                          Paddings bleiben in den 100% enthalten.) */
+  max-width: 860px;                    /* Lese-optimierte Breite (cappt den Desktop) */
   margin-left: auto;
   margin-right: auto;
 }
@@ -394,20 +404,36 @@ body {
   margin-bottom: 10px;
 }
 
-/* Buchstaben-Tabelle (Sonderbuchstaben) */
+/* Buchstaben-Tabelle (Sonderbuchstaben) – gilt für ALLE Grammatik-Tabellen */
 .letter-table-wrap {
-  overflow-x: auto;                    /* horizontales Scrollen auf Mobile */
+  overflow-x: auto;    /* eigener Scroll-Container: die Tabelle scrollt, nicht die Seite */
+  max-width: 100%;     /* nie breiter als der Elternraum → Tabelle scrollt statt Seite */
   margin-bottom: 20px;
+  /* Rand-Fade als Scroll-Hinweis (Details siehe Block-Kommentar unten):
+     Zwei „Abdeckungen" in Seitenfarbe scrollen mit dem Inhalt mit (local),
+     zwei Schatten bleiben am jeweiligen Rand stehen (scroll). Liegt ein
+     Schatten frei, geht es dort noch weiter – Signal, dass man die Tabelle
+     seitlich schieben kann. Reine CSS-Lösung, kein JS. Erscheint automatisch
+     nur bei Überlauf; auf breiten Viewports (kein Überlauf) unsichtbar. */
+  background:
+    linear-gradient(to right, var(--bg-light), rgba(248, 245, 240, 0)) left center,
+    linear-gradient(to left,  var(--bg-light), rgba(248, 245, 240, 0)) right center,
+    linear-gradient(to right, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0)) left center,
+    linear-gradient(to left,  rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0)) right center;
+  background-repeat: no-repeat;
+  background-size: 34px 100%, 34px 100%, 22px 100%, 22px 100%;
+  background-attachment: local, local, scroll, scroll;
 }
 
 .letter-table {
-  width: 100%;
-  /* Feste Spaltenbreiten: die Spalten richten sich nach der Tabellenbreite
-     (100 % des Wrappers), nicht nach dem Inhalt. Dadurch bläht ein langes,
-     nicht umbrechbares Wort (z. B. „Umgangssprachlich") die Tabelle nicht mehr
-     auf, sondern bricht per overflow-wrap um. Behebt den Mobile-Overflow bei
-     schmalen Viewports an der Wurzel (siehe CLAUDE.md, Bekannte Lösungen). */
-  table-layout: fixed;
+  width: 100%;          /* füllt breite Viewports; darf bei Bedarf überlaufen */
+  /* Spaltenbreite nach INHALT (auto), nicht nach fester Tabellenbreite.
+     So bleiben ganze Wörter komplett in einer Zeile – sie brechen nicht mehr
+     mitten im Wort um (früher: table-layout: fixed + overflow-wrap: break-word).
+     Wird die Tabelle dadurch breiter als der Bildschirm, scrollt der Wrapper
+     horizontal (overflow-x: auto oben) – für Lernende deutlich lesbarer als
+     zerhackte Wörter. Ein Überlauf ist gewollt und wird per Rand-Fade signalisiert. */
+  table-layout: auto;
   border-collapse: collapse;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9rem;
@@ -426,7 +452,9 @@ body {
   letter-spacing: 0.4px;
   padding: 12px 14px;
   text-align: left;
-  overflow-wrap: break-word;   /* lange Wörter in der festen Spalte umbrechen */
+  overflow-wrap: normal;   /* Wörter bleiben komplett in einer Zeile */
+  word-break: normal;
+  hyphens: none;
 }
 
 .letter-table td {
@@ -434,12 +462,34 @@ body {
   border-bottom: 1px solid var(--neutral);
   color: #444;
   vertical-align: top;
-  overflow-wrap: break-word;   /* lange Wörter in der festen Spalte umbrechen */
+  overflow-wrap: normal;   /* Wörter bleiben komplett in einer Zeile */
+  word-break: normal;
+  hyphens: none;
 }
 
 .letter-table tbody tr:hover {
   background: #fdf9f0;
 }
+
+
+/* ============================================================
+   Tabellen-Verhalten (jetzt GLOBAL – Standard für alle Grammatik-Tabellen)
+   ------------------------------------------------------------
+   Das frühere Gegenmodell mit der Zusatzklasse .table-scroll wurde in die
+   Basis-Regeln oben (.letter-table-wrap / .letter-table) hochgezogen und gilt
+   damit für JEDE Tabelle, ohne dass im HTML eine Extra-Klasse nötig ist:
+
+   • Spalten richten sich nach dem Inhalt (table-layout: auto) → ganze Wörter
+     bleiben komplett in einer Zeile und brechen nicht mehr mitten im Wort um.
+     (Mehrwortige Zellen – z. B. ganze Sätze – brechen weiterhin normal
+     zwischen den Wörtern um.)
+   • Wird die Tabelle breiter als der Bildschirm, scrollt der Wrapper
+     horizontal statt die Seite; ein Rand-Fade signalisiert den Überlauf.
+
+   Sollte einmal eine einzelne Tabelle das ALTE feste Layout brauchen
+   (Spalten gleich breit, lange Wörter umbrechen), kann man ihr gezielt
+   `table-layout: fixed; overflow-wrap: break-word;` per Extra-Klasse geben.
+   ============================================================ */
 
 /* Buchstabe in der Tabelle hervorgehoben */
 .letter-cell {

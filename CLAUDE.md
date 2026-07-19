@@ -159,14 +159,26 @@ diese Datei ist am kritischsten für Konsistenz.
 
 ## Bekannte Lösungen / Fallstricke (nicht wiederholen)
 
-- **Mobile Overflow (Grammatik-Tabellen):** Ursache ist der Auto-Layout-Algorithmus der
-  `.letter-table`: ein langes, nicht umbrechbares Wort in einer Zelle (z. B. „Umgangssprachlich")
-  setzt die Spalten-min-content hoch und bläht die `width:100%`-Tabelle über den Viewport.
-  Fix: `table-layout: fixed` + `overflow-wrap: break-word` auf `.letter-table` in
-  `Style_3_Grammatik_Detail.css` (feste Spaltenbreiten → lange Wörter brechen um).
-  Empirisch bestätigt (alle Grammatikseiten, Breakpoints 900–320 px, 0 Überlauf): `min-width:0`
-  bzw. `width:100%` an `main` und overflow-x-Fixes an html/body/main beheben das **nicht** –
-  entgegen der früheren Annahme, die Ursache sei das Flex-`main`.
+- **Mobile Overflow (Grammatik-Tabellen) – aktuelle Lösung (Juli 2026):** Tabellen sollen
+  auf schmalen Viewports **ganze Wörter behalten** und bei Bedarf **horizontal scrollen**
+  (statt Wörter mitten im Wort umzubrechen – für Lernende schlecht lesbar). Verbindlich in
+  `Style_3_Grammatik_Detail.css`, global für alle `.letter-table`:
+  - `.letter-table { table-layout: auto }` + `overflow-wrap: normal; word-break: normal;
+    hyphens: none` auf `th`/`td` → Spalten nach Inhalt, Wörter bleiben komplett.
+  - `.letter-table-wrap { overflow-x: auto; max-width: 100% }` → der **Wrapper** scrollt,
+    nicht die Seite; ein Rand-Fade (CSS-Gradient, kein JS) signalisiert den Überlauf.
+  - **Schlüssel-Fix (ohne den scrollt der Wrapper NICHT):** `main { width: 100% }`. `main` ist
+    ein Flex-Item (`body` ist `display:flex; flex-direction:column`, `main` hat `flex:1`).
+    Ohne feste Breite schrumpft `main` auf **Inhaltsbreite** und wird von einer breiten Tabelle
+    über den Viewport gebläht; `body { overflow-x:hidden }` klippt den Überlauf dann unsichtbar
+    (weder Seite noch Wrapper scrollen). `width:100%` bindet `main` an die Viewport-Breite,
+    erst dadurch greift `overflow-x:auto` am Wrapper. (`box-sizing:border-box` ist global.)
+  - Empirisch mit `test_grammatikseite.py` (Playwright, 320–900 px) bestätigt: 0 Seiten-Überlauf,
+    breite Tabellen scrollen intern. **Achtung:** `min-width:0` an `main` allein behebt das
+    **nicht** – nur `width:100%` wirkt. Diese Regel gilt für **alle** Tabellen der Seite.
+  - *Historie:* Bis Juli 2026 war der Fix `table-layout: fixed` + `overflow-wrap: break-word`
+    (feste Spalten, lange Wörter brachen um). Das ist bewusst umgekehrt worden – nicht
+    versehentlich auf `table-layout: fixed` zurücksetzen.
 - **Scripts via innerHTML laufen nicht:** GoatCounter und Hamburger-Menü-Logik müssen über
   `createElement`/`appendChild` in `LB_main.js` eingebunden werden, nicht in
   `LB_header.html`/`LB_footer.html`.

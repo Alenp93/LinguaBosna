@@ -1,0 +1,7 @@
+# robots.txt für linguabosna.com
+# Alle Suchmaschinen dürfen die komplette Seite crawlen.
+User-agent: *
+Allow: /
+
+# Verweis auf die Sitemap (hilft Google, alle Seiten zu finden)
+Sitemap: https://linguabosna.com/sitemap.xml

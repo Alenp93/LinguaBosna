@@ -1,0 +1,104 @@
+<!-- © LinguaBosna – Alle Inhalte urheberrechtlich geschützt -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <!-- ── Zeichensatz & Viewport ─────────────────────────────────── -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ────────────────────────────────────────────────────── -->
+  <title>LinguaBosna – Seite nicht gefunden (404)</title>
+  <link rel="canonical" href="https://linguabosna.com/404.html">
+  <meta name="description"
+        content="Diese Seite existiert nicht oder wurde verschoben. Zurück zur Startseite von LinguaBosna – kostenlos Bosnisch lernen.">
+  <!-- 404-Seiten sollen nicht indexiert werden -->
+  <meta name="robots" content="noindex, follow">
+
+  <!-- ── Stylesheets ────────────────────────────────────────────── -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/1_Startseite/Style_1_Startseite.css">
+
+  <!-- ── Google Fonts ───────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+  <!-- ── FontAwesome ────────────────────────────────────────────── -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon ────────────────────────────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+  <!-- ── Header/Footer dynamisch einbinden ─────────────────────── -->
+  <script src="/Code/LB_main.js" defer></script>
+
+  <!-- Kleine, seitenspezifische Zentrierung (nur für diese 404-Seite) -->
+  <style>
+    .error-404 {
+      text-align: center;
+      padding: 90px 5%;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .error-404 .code {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: clamp(64px, 18vw, 120px);
+      color: #F4C542;              /* Goldgelb-Akzent */
+      line-height: 1;
+      margin: 0;
+    }
+    .error-404 h1 {
+      color: #0A3D62;             /* Dunkelblau */
+      margin: 12px 0 8px;
+    }
+    .error-404 p {
+      color: #2E5E2E;             /* Dunkelgrün */
+      margin-bottom: 28px;
+    }
+    .error-404 .btn-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Platzhalter für dynamischen Header -->
+  <div id="header"></div>
+
+  <main>
+    <section class="error-404" aria-label="Seite nicht gefunden">
+      <p class="code">404</p>
+      <h1>Diese Seite gibt es leider nicht</h1>
+      <p>Der Link ist vielleicht veraltet oder falsch geschrieben.
+         Kein Problem – hier geht es zurück:</p>
+
+      <div class="btn-row">
+        <a href="/index.html" class="btn btn-primary">
+          <i class="fas fa-house"></i> Zur Startseite
+        </a>
+        <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn btn-outline">
+          Vokabeln
+        </a>
+        <a href="/Code/1_Startseite/LB_3_Grammatik.html" class="btn btn-outline">
+          Grammatik
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Platzhalter für dynamischen Footer -->
+  <div id="footer"></div>
+
+</body>
+</html>

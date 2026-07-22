@@ -35,8 +35,10 @@ Quiz, Validierung, Mobiltest, Datei-Auslieferung.
 | Tabellenköpfe/-zellen (Block 3) | kurz halten, möglichst 1 Wort pro `<th>`/`<td>` — lange Köpfe wie „Form (Nominativ)" können bei 320px zu Seitenüberlauf führen. Zusatzinfo lieber in `group-desc` oder `mini-note` statt in die Zelle |
 | Pfade | immer absolut (`/Code/...`, `/Bilder/...`) — relative Pfade brechen in Unterordnern |
 | Favicon-Block | Pflicht auf jeder neuen Seite (6 Zeilen, `/Bilder/favicon/...`) |
+| SEO-Block | Pflicht: Canonical, Open Graph (og:title/description/url/image), Twitter Card **und** JSON-LD (`LearningResource` + `BreadcrumbList`) — alles im Template vorbereitet. Alle `[THEMA]`/`[NIVEAU-…]`/`[SEO-BESCHREIBUNG]`-Platzhalter ersetzen (kommen mehrfach vor) |
+| Head-Reihenfolge | `<meta charset>` + `viewport` als **erstes** im `<head>` (vor CSS/JS) |
 | CSS | `/Code/Style.css` + `/Code/3_Grammatik/Style_3_Grammatik_Detail.css` |
-| JS-Einbindung | `/Code/LB_main.js` im head; Header/Footer via `<div id="header">` / `<div id="footer">` |
+| JS-Einbindung | `/Code/LB_main.js` im head **mit `defer`**; Header/Footer via `<div id="header">` / `<div id="footer">` |
 
 ### Breadcrumb-Level-Labels (exakter Wortlaut)
 
@@ -130,6 +132,8 @@ Das Skript prüft automatisch:
   kein Seitenüberlauf; internes Scrollen von Tabellen ist OK
 - 10 Quizfragen, 6 Blöcke, 6 example-cards, 6 cheatsheet-items
 - Head-Pflichten (Fonts, FontAwesome, description, viewport) + Favicon
+- **SEO-Block:** Canonical, Open Graph, Twitter Card, JSON-LD, Description-Länge
+  sowie eine Prüfung auf **vergessene `[PLATZHALTER]`** (häufigster Auslieferungsfehler)
 - Antwortverteilung der correct-Indizes
 - Vorhandensein aller Quiz-IDs
 - Vor/Zurück-Navigation (Linkziele werden angezeigt)

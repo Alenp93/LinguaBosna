@@ -33,8 +33,9 @@ Selbstkontrolle direkt nach dem Lesen) ist der Lernen-Bereich auf
 | Design-System | wie überall im Projekt (siehe CLAUDE.md) – hier nicht dupliziert |
 | Pfade | immer absolut (`/Code/...`, `/Bilder/...`) |
 | Favicon-Block | Pflicht auf jeder neuen Seite |
+| SEO-Block | Pflicht wie bei Grammatikseiten: eindeutiger `<title>`, `description`, **Canonical**, Open Graph (og:title/description/url/image), Twitter Card. JSON-LD optional (`LearningResource`). `<meta charset>`+`viewport` als erstes im Head |
 | Menüpunkt „Lernen" | **aktiv** in `LB_header.html` (Zeile 37): `<li><a href="/Code/4_Lernen/lernen-uebersicht.html">Lernen</a></li>`. Kultur/Blog bleiben weiter auskommentiert. ⚠️ Hinweis: CLAUDE.md („Pausierte Bereiche") beschreibt den Lernen-Menüpunkt noch als auskommentiert – dort ggf. nachziehen |
-| JS-Einbindung | `/Code/LB_main.js` im head; Header/Footer via `<div id="header">` / `<div id="footer">` |
+| JS-Einbindung | `/Code/LB_main.js` im head **mit `defer`**; Header/Footer via `<div id="header">` / `<div id="footer">` |
 
 ---
 

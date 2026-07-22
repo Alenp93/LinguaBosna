@@ -11,6 +11,8 @@ Prüft (siehe WORKFLOW_Grammatikseiten.md, Abschnitt 5):
   1. Mobiltest via Playwright bei 900/628/480/360/320 px (kein Seitenüberlauf)
   2. Strukturzählungen: 10 Quizfragen, 6 Blöcke, 6 example-cards, 6 cheatsheet-items
   3. Head-Pflichten (Fonts, FontAwesome, description, viewport) + Favicon-Block
+  3b. SEO-Block: Canonical, Open Graph, Twitter Card, JSON-LD,
+      offene [PLATZHALTER], Description-Länge
   4. Antwortverteilung der correct-Indizes (sollte ~3/4/3 sein)
   5. Alle Pflicht-Quiz-IDs vorhanden
   6. Vor/Zurück-Navigation (Linkziele werden angezeigt)
@@ -180,6 +182,40 @@ n_favicon = html.count("favicon")
 (ok if n_favicon >= 5 else fail)(
     f"Favicon-Block: {n_favicon} Treffer" if n_favicon >= 5
     else f"Favicon-Block unvollständig ({n_favicon} Treffer, soll >=5)")
+
+# ── 2b. SEO-Pflichtblock (Canonical, Open Graph, Twitter, JSON-LD) ──
+print("\n[2b] SEO-Block")
+
+seo_checks = {
+    "Canonical-Link": 'rel="canonical"',
+    "Open Graph og:title": 'property="og:title"',
+    "Open Graph og:description": 'property="og:description"',
+    "Open Graph og:image": 'property="og:image"',
+    "Open Graph og:url": 'property="og:url"',
+    "Twitter Card": 'name="twitter:card"',
+    "JSON-LD (schema.org)": "application/ld+json",
+}
+for label, needle in seo_checks.items():
+    (ok if needle in html else fail)(
+        f"{label} vorhanden" if needle in html else f"{label} FEHLT")
+
+# Vergessene Template-Platzhalter aufspüren (häufigster Auslieferungsfehler)
+leftovers = re.findall(
+    r"\[(?:THEMA|NIVEAU[^\]]*|SEO-BESCHREIBUNG[^\]]*|UNTERTITEL[^\]]*)\]", html)
+if leftovers:
+    fail(f"{len(leftovers)} nicht ersetzte Platzhalter gefunden: "
+         f"{', '.join(sorted(set(leftovers))[:5])} …")
+else:
+    ok("Keine offenen [PLATZHALTER] mehr im Head/Body")
+
+# Länge der Meta-Description (Google zeigt grob 120–160 Zeichen)
+desc_m = re.search(r'name="description"\s+content="([^"]*)"', html)
+if desc_m:
+    dlen = len(desc_m.group(1))
+    if 110 <= dlen <= 170:
+        ok(f"Description-Länge: {dlen} Zeichen")
+    else:
+        warn(f"Description-Länge: {dlen} Zeichen (ideal ~120–160)")
 
 # Absolute Pfade: relative CSS/JS-Verweise wären ein Fehler
 if re.search(r'href="\.\./', html) or re.search(r'src="\.\./', html):

@@ -226,6 +226,10 @@ ist dort noch offen (siehe `WORKFLOW_Lernen.md`, Abschnitt 6).
   `noindex`/Fragmente/Vorlage ausgeschlossen, `lastmod` aus dem letzten Git-Commit).
   **Nach jeder neuen Seite ausführen und mitcommitten.** `python3 build_sitemap.py --check`
   meldet nur, ob die Sitemap veraltet ist (Exit 1), ohne zu schreiben.
+- `.claude/agents/seo-pruefer.md` – **optionaler** Subagent für die *redaktionelle* SEO-Qualität
+  (Title-/Description-Güte, Keyword-Ausrichtung, interne Verlinkung, Dubletten). Nur Leserechte,
+  korrigiert nichts, liefert eine ✓/⚠-Liste. Prüft QUALITÄT, nicht Vorhandensein (das macht
+  `test_seo.py`). Sparsam einsetzen (Token-Kosten) – bei rein technischen Änderungen nicht nötig.
 
 **Einmalige lokale Einrichtung (falls noch nicht geschehen):** Das Skript braucht Playwright.
 Falls der Testlauf mit „Playwright nicht installiert" fehlschlägt, einmalig ausführen:

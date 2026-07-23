@@ -44,6 +44,51 @@
 
   <!-- Shared Header/Footer JS -->
   <script src="/Code/LB_main.js" defer></script>
+
+  <!-- ── Strukturierte Daten (schema.org) ─────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Vokabeln",
+        "description": "Lerne bosnische Vokabeln von A1 bis C2 – über 70 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.",
+        "url": "https://linguabosna.com/Code/2_Vokabeln/LB_2_Vokabeln.html",
+        "inLanguage": "de",
+        "learningResourceType": "Themenübersicht",
+        "teaches": "Bosnischer Wortschatz",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Bosnisch lernen",
+          "url": "https://linguabosna.com/"
+        },
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Start",
+            "item": "https://linguabosna.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Vokabeln"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

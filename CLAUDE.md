@@ -215,6 +215,18 @@ die andere.
 Für Lernen-Übungen gilt der Sprach-Check (bosnisch-pruefer) ebenso; die Struktur-Prüfung
 ist dort noch offen (siehe `WORKFLOW_Lernen.md`, Abschnitt 6).
 
+**SEO-Prüfung (seitentyp-unabhängig, ergänzend):**
+- `python3 test_seo.py [datei]` oder `python3 test_seo.py --all` prüft die SEO-Grundausstattung
+  **jeder** Seite (nicht nur Grammatik): Canonical, Open Graph, Twitter Card, gültiges JSON-LD,
+  Description-Länge, offene `[PLATZHALTER]`, `defer`. Fragmente/Vorlage werden übersprungen,
+  `noindex`-Seiten (Impressum/Datenschutz/404) nur mit Basis-Checks. Für Grammatikseiten bleibt
+  `test_grammatikseite.py` (Struktur + Mobile) die maßgebliche Prüfung – `test_seo.py` deckt
+  zusätzlich alle anderen Seitentypen ab.
+- `python3 build_sitemap.py` erzeugt `sitemap.xml` neu (alle indexierbaren Seiten automatisch,
+  `noindex`/Fragmente/Vorlage ausgeschlossen, `lastmod` aus dem letzten Git-Commit).
+  **Nach jeder neuen Seite ausführen und mitcommitten.** `python3 build_sitemap.py --check`
+  meldet nur, ob die Sitemap veraltet ist (Exit 1), ohne zu schreiben.
+
 **Einmalige lokale Einrichtung (falls noch nicht geschehen):** Das Skript braucht Playwright.
 Falls der Testlauf mit „Playwright nicht installiert" fehlschlägt, einmalig ausführen:
 ```
@@ -236,7 +248,9 @@ Aspektpaare) fertig sind.
 
 - B2–C2 Grammatikkapitel (interne Kommentarnummern 24–37 in `LB_3_Grammatik.html`)
 - Lernen-Bereich: weitere Übungstypen (siehe `WORKFLOW_Lernen.md`, Status-Übersicht)
-- SEO: Google Search Console, sitemap.xml, robots.txt, schema.org, Long-Tail-Keywords
+- SEO-Grundausbau erledigt (sitemap.xml via `build_sitemap.py`, robots.txt, Canonicals,
+  Open Graph/Twitter, schema.org-JSON-LD, Prüfung via `test_seo.py`). Offen: Google Search
+  Console einrichten, Long-Tail-Keywords, dediziertes 1200×630-OG-Bild
 - Audio-Feature reaktivieren (Google Cloud TTS Free Tier)
 - Mögliche zukünftige englische Version (nach Phase 3; JSON hat bereits English-Feldgrundlage)
 - Kultur-/Blog-Sektionen aktivieren, sobald Grammatik weiter fortgeschritten ist

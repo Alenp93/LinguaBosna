@@ -153,6 +153,17 @@ auf die gefixten Versionen in `/mnt/user-data/outputs/`
 
 Wenn die Prüfung erfolgreich durchgeführt wurde, dann die jeweilige Karte in LB_3_Grammatik.html von „Demnächst" auf aktiven Link umstellen
 
+**Danach Sitemap aktualisieren (Pflicht, sonst fehlt die neue Seite bei Google):**
+
+```
+python3 build_sitemap.py
+```
+
+Das Skript sammelt alle indexierbaren Seiten selbst ein und schreibt `sitemap.xml` neu –
+die neue Grammatikseite ist damit automatisch enthalten. Die geänderte `sitemap.xml`
+mitcommitten. Optional zusätzlich `python3 test_seo.py <datei>` für die reine SEO-Grund-
+ausstattung (Canonical, OG, JSON-LD, offene Platzhalter) – ergänzt den Struktur-Test.
+
 ## 6. Antwortformat der Auslieferung
 
 - Kurzer didaktischer Vorspann (Hook + Konzept) VOR der Dateierstellung

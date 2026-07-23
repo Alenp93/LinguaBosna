@@ -95,11 +95,15 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 - **Sprache:** `bosnisch-pruefer`-Subagent auch für Lernen-Inhalte aufrufen
   (Distraktoren eingeschlossen – auch falsche Optionen müssen sprachlich
   sauber sein, nicht nur die korrekte Lösung).
-- **Struktur:** ⚠️ Offene Entscheidung (durch Alen) – aktuell existiert **kein**
-  `test_grammatikseite.py`-Äquivalent für Lernen-Seiten in `Code/4_Lernen/`.
-  Zu klären: eigenes Testskript bauen oder wegen des einfacheren Aufbaus eine
-  manuelle Mobilprüfung genügen lassen? Bis dahin: neue/geänderte Übungen
-  mindestens manuell auf Mobilgeräten (Overflow, Touch-Targets) prüfen.
+- **SEO:** `python3 test_seo.py <datei>` prüft die SEO-Grundausstattung auch für
+  Lernen-Seiten (Canonical, Open Graph, Twitter, gültiges JSON-LD, Description-Länge,
+  offene `[PLATZHALTER]`, `defer`). Nach einer neuen Übung zusätzlich
+  `python3 build_sitemap.py` ausführen und die aktualisierte `sitemap.xml` mitcommitten.
+- **Struktur (Mobile/Layout):** ⚠️ Weiterhin offen – es existiert **kein**
+  `test_grammatikseite.py`-Äquivalent (Mobile-Overflow/Touch-Targets) für Lernen-Seiten.
+  `test_seo.py` deckt nur die SEO-Metadaten ab, nicht das Layout. Bis ein eigenes
+  Struktur-Skript existiert: neue/geänderte Übungen mindestens manuell auf Mobilgeräten
+  (Overflow, Touch-Targets) prüfen.
 - Wie bei Grammatikseiten: Vor jedem Commit Alen die Änderungen zeigen und
   explizit bestätigen lassen, besonders bei neuen Beispielsätzen/Distraktoren.
 

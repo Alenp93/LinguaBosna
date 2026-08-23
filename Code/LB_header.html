@@ -37,8 +37,68 @@
         <li><a href="/Code/4_Lernen/lernen-uebersicht.html">Lernen</a></li>
 <!--         <li><a href="/Code/1_Startseite/LB_5_Kultur.html">Kultur</a></li>
         <li><a href="/Code/1_Startseite/LB_6_Blog.html">Blog</a></li> -->
+
+        <!-- Such-Icon: liegt bewusst IM <ul>, damit es sowohl in der
+             Desktop-Leiste (neben den Links) als auch im aufgeklappten
+             Hamburger-Menü (untereinander) automatisch mitangezeigt wird.
+             Es ist ein <button>, kein Link, weil es kein Ziel öffnet,
+             sondern nur das Such-Overlay auf-/zuklappt.
+             aria-expanded = Zustand (auf/zu), aria-haspopup = "öffnet Dialog". -->
+        <li class="nav-search-item">
+          <button type="button" id="search-toggle" class="nav-search-btn"
+                  aria-label="Wörterbuch durchsuchen" aria-expanded="false"
+                  aria-haspopup="dialog" aria-controls="search-overlay">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <!-- Textlabel nur im Mobil-Menü sichtbar (per CSS) -->
+            <span class="nav-search-label">Suche</span>
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
+
+  <!-- =========================================================
+       SUCH-OVERLAY (Wörterbuch)
+       Statisches Markup – die Logik (Öffnen, Live-Suche, Rendern)
+       steckt bewusst in LB_main.js, NICHT hier als <script>, weil
+       ein per innerHTML eingefügtes <script> vom Browser nicht
+       ausgeführt würde.
+       Startet mit dem Attribut "hidden" → unsichtbar, bis das JS
+       es öffnet. role="dialog" + aria-modal für Screenreader.
+       ========================================================= -->
+  <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true"
+       aria-label="Wörterbuch-Suche" hidden>
+
+    <!-- Das eigentliche Panel (Desktop: Dropdown, Mobil: Vollbild) -->
+    <div class="search-panel">
+
+      <!-- Kopfzeile: Eingabefeld + Schließen-Button -->
+      <div class="search-panel-header">
+        <input type="search" id="search-input" class="search-input"
+               placeholder="Deutsch oder Bosnisch suchen …"
+               autocomplete="off" spellcheck="false"
+               aria-label="Suchbegriff eingeben">
+
+        <!-- Schließen-Button (X). Auf Mobil große Touch-Fläche (per CSS). -->
+        <button type="button" id="search-close" class="search-close"
+                aria-label="Suche schließen">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- Ergebnisliste. aria-live="polite" = Screenreader liest neue
+           Treffer vor, ohne den Nutzer zu unterbrechen. -->
+      <div id="search-results" class="search-results" aria-live="polite"></div>
+
+      <!-- dict.cc-Fallback: IMMER sichtbar, nicht nur bei 0 Treffern.
+           href wird vom JS bei jeder Eingabe aktualisiert. -->
+      <a id="search-dictcc" class="search-dictcc"
+         href="https://m.dict.cc/deutsch-bosnisch/"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        Nicht gefunden? Bei dict.cc nachschlagen
+      </a>
+    </div>
+  </div>
 </body>
 </html>

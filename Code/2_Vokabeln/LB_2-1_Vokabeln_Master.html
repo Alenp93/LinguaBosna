@@ -113,8 +113,10 @@
     <!-- Button-System laut Designvorgabe: btn-outline und btn-primary -->
     <div class="actions" id="actions" style="display:none;">
 
-      <!-- Zurück-Button: outline (sekundäre Aktion) -->
-      <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn btn-outline">
+      <!-- Zurück-Button: outline (sekundäre Aktion)
+           Das Niveau wird per JS als ?niveau=… angehängt, damit die Übersicht
+           wieder im richtigen Niveau-Tab öffnet (z.B. B2 statt immer A1). -->
+      <a id="backLink" href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn btn-outline">
         <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
         Zurück zur Übersicht
       </a>
@@ -377,6 +379,16 @@
 
         // Vokabeltrainer-Link mit passendem Kapitel-Parameter setzen
         document.getElementById('trainerLink').href = `${TRAINER_PATH}?kapitel=${kapitel}`;
+
+        // Zurück-Link um das Niveau ergänzen (z.B. "?niveau=B2").
+        // Ein Kapitel gehört laut Projektregel immer zu genau einem Niveau,
+        // deshalb reicht der erste Eintrag als Quelle. Die Übersichtsseite
+        // öffnet damit direkt den passenden Niveau-Tab.
+        const niveau = entries[0].Niveau;
+        if (niveau) {
+          const backLink = document.getElementById('backLink');
+          backLink.href = `${backLink.getAttribute('href')}?niveau=${encodeURIComponent(niveau)}`;
+        }
 
         // Tabellenzeilen dynamisch erstellen
         const tbody = document.getElementById('vocabBody');

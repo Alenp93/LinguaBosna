@@ -225,7 +225,10 @@
     }
 
     // ── Tab-Logik: nur das gewählte Niveau anzeigen ─────────────────
-    function showLevel(level) {
+    // updateUrl=true schreibt das Niveau in die Adresszeile (?niveau=B2),
+    // ohne einen neuen History-Eintrag zu erzeugen. Dadurch landet man auch
+    // über den Browser-Zurück-Button wieder im richtigen Tab.
+    function showLevel(level, updateUrl = true) {
       document.querySelectorAll('#levelGrids .vocab-grid').forEach(grid => {
         grid.classList.toggle('hidden', grid.dataset.level !== level);
       });
@@ -234,6 +237,12 @@
         btn.classList.toggle('active', aktiv);
         btn.setAttribute('aria-selected', aktiv ? 'true' : 'false');
       });
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('niveau', level);
+        history.replaceState(null, '', url);
+      }
     }
 
     async function loadCategories() {
@@ -265,26 +274,34 @@
         // Nur tatsächlich vorhandene Niveaus, in fester Reihenfolge
         const levels = LEVEL_ORDER.filter(l => byLevel.has(l));
 
+        // Startniveau aus der URL lesen (?niveau=B2). Kommt man von einer
+        // Kapitelseite über "Zurück zur Übersicht" zurück, ist das Niveau
+        // dort angehängt – so öffnet wieder der passende Tab statt immer A1.
+        // Unbekannte oder fehlende Werte fallen auf das erste Niveau zurück.
+        const urlLevel   = (new URLSearchParams(window.location.search).get('niveau') || '').toUpperCase();
+        const startLevel = levels.includes(urlLevel) ? urlLevel : levels[0];
+
         // 1) Tab-Buttons bauen
         const selector = document.getElementById('levelSelector');
         selector.innerHTML = '';
-        levels.forEach((lvl, i) => {
+        levels.forEach(lvl => {
+          const aktiv = lvl === startLevel;
           const btn = document.createElement('button');
-          btn.className = 'level-btn' + (i === 0 ? ' active' : '');
+          btn.className = 'level-btn' + (aktiv ? ' active' : '');
           btn.dataset.level = lvl;
           btn.setAttribute('role', 'tab');
-          btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+          btn.setAttribute('aria-selected', aktiv ? 'true' : 'false');
           btn.textContent = LEVEL_LABELS[lvl] || lvl;
           btn.addEventListener('click', () => showLevel(lvl));
           selector.appendChild(btn);
         });
 
-        // 2) Karten-Grids je Niveau bauen (erstes sichtbar, Rest versteckt)
+        // 2) Karten-Grids je Niveau bauen (Startniveau sichtbar, Rest versteckt)
         const gridsWrap = document.getElementById('levelGrids');
         gridsWrap.innerHTML = '';
-        levels.forEach((lvl, i) => {
+        levels.forEach(lvl => {
           const grid = document.createElement('div');
-          grid.className = 'vocab-grid' + (i === 0 ? '' : ' hidden');
+          grid.className = 'vocab-grid' + (lvl === startLevel ? '' : ' hidden');
           grid.dataset.level = lvl;
 
           byLevel.get(lvl).forEach(({ kapitel, kapitelname, count }) => {

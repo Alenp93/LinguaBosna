@@ -467,7 +467,11 @@
 
       var punkte = Math.random();  // Zufalls-Tiebreak (0…1)
       if (wort.slice(0, 2) === loesungPrefix) { punkte += 3; }
-      if (p.kapitel === richtigesPaar.kapitel) { punkte += 2; }
+      // Paare, deren nesvršeni-Partner ein reiner Wörterbuch-Eintrag ist,
+      // haben gar kein Kapitel. Ohne diese Prüfung würden sie sich über
+      // "undefined === undefined" gegenseitig als thematisch verwandt werten.
+      if (richtigesPaar.kapitel !== undefined &&
+          p.kapitel === richtigesPaar.kapitel) { punkte += 2; }
       if (p.niveau === richtigesPaar.niveau)   { punkte += 1; }
 
       kandidaten.push({ wort: wort, score: punkte });

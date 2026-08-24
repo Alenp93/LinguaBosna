@@ -142,10 +142,24 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 
 ## Vokabular-System
 
-- Kanonische Datei: `vokabeln_flat.json` – ca. 2.608 Einträge über 90 Kapitel (A1–C2)
+- Kanonische Datei: `vokabeln_flat.json` – ca. 2.659 Einträge über 90 Kapitel (A1–C2)
 - JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
   **diese Konvention darf nicht gebrochen werden**
-- Verben: `aspekt`-Feld, 44 Aspektpaare über `par_id` (`ap01`–`ap45`, `ap41` unbelegt) verlinkt
+- Verben: `aspekt`-Feld, 84 Aspektpaare über `par_id` (`ap01`–`ap84`, lückenlos belegt) verlinkt
+- ⚠️ **Nur echte Aspektpaare verlinken** – gleicher Stamm, gleiche Grundbedeutung, der
+  Unterschied liegt allein im Aspekt. Im August 2026 mussten elf Bestandspaare repariert
+  werden, in denen nur thematisch benachbarte Verben eines Kapitels verlinkt waren
+  (`braniti`/`osloboditi`, `nastojati`/`razmotriti` …). Das ist nicht kosmetisch: Die Übung
+  zeigt die Bedeutung des `nesvršeni`-Partners für das ganze Paar an und lehrte dadurch
+  „osloboditi = verteidigen". Imperfectiva tantum (`hodati`, `nastojati`, `zboriti`) haben
+  gar keinen Partner und bleiben bewusst ohne `par_id`.
+- **Aspektpartner werden als `nur_woerterbuch`-Einträge angelegt**, nicht als Kapiteleinträge.
+  So sprengt kein Kapitel die 35er-Grenze, der Vokabeltrainer zeigt weiterhin nur das
+  Kapitelverb (der Partner fehlt im geladenen Datensatz, das Verb bleibt dort Einzeleintrag),
+  und `lernen-aspektpaare.html` findet trotzdem beide, weil es nur auf `par_id` filtert.
+  ⚠️ Die Übung nimmt Bedeutung **und** Niveau immer vom `nesvršeni`-Partner
+  (`deutsch: g.nes.Deutsch`, `niveau: g.nes.Niveau`) – ist der neue Eintrag der nesvršeni,
+  muss er die neutrale Grundbedeutung tragen, sonst steht sie falsch in der Übung.
 - **Kapitelgrößen-Regel (fix):** kein Kapitel über 35 Einträge. Größere Themen werden thematisch
   in nummerierte Teile gesplittet (z. B. "Umgangssprache & Bosnizismen 1 / 2")
 - **Ein Kapitel = genau ein Niveau (fix).** Gilt im gesamten Bestand ausnahmslos und ist

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lerne bosnische Vokabeln von A1 bis C2 – über 70 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.">
+  <meta name="description" content="Lerne bosnische Vokabeln von A1 bis C2 – 90 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.">
   <title>LinguaBosna – Vokabeln</title>
   <link rel="canonical" href="https://linguabosna.com/Code/2_Vokabeln/LB_2_Vokabeln.html">
 
   <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="LinguaBosna – Vokabeln">
-  <meta property="og:description" content="Lerne bosnische Vokabeln von A1 bis C2 – über 70 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.">
+  <meta property="og:description" content="Lerne bosnische Vokabeln von A1 bis C2 – 90 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.">
   <meta property="og:url"         content="https://linguabosna.com/Code/2_Vokabeln/LB_2_Vokabeln.html">
   <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
   <meta property="og:site_name"   content="LinguaBosna">
@@ -19,7 +19,7 @@
   <!-- ── Twitter Card ───────────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="LinguaBosna – Vokabeln">
-  <meta name="twitter:description" content="Lerne bosnische Vokabeln von A1 bis C2 – über 70 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.">
+  <meta name="twitter:description" content="Lerne bosnische Vokabeln von A1 bis C2 – 90 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.">
   <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
 
   <!-- Google Fonts -->
@@ -53,7 +53,7 @@
       {
         "@type": "LearningResource",
         "name": "Vokabeln",
-        "description": "Lerne bosnische Vokabeln von A1 bis C2 – über 70 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.",
+        "description": "Lerne bosnische Vokabeln von A1 bis C2 – 90 thematische Kapitel mit interaktivem Vokabeltrainer, sortiert nach Sprachniveau.",
         "url": "https://linguabosna.com/Code/2_Vokabeln/LB_2_Vokabeln.html",
         "inLanguage": "de",
         "learningResourceType": "Themenübersicht",
@@ -160,19 +160,33 @@
       [/bauvertrag|abrechnung/i,               'fa-file-invoice'],
       [/baukultur/i,                           'fa-mosque'],
       [/begrüßung|alltagssprache/i,            'fa-comments'],
+      [/höflichkeit|anlässe/i,                 'fa-hand-holding-heart'],
       [/routine/i,                             'fa-arrows-rotate'],
       [/zahlen|mengen/i,                       'fa-hashtag'],
       [/farben|formen/i,                       'fa-palette'],
       [/körper/i,                              'fa-person'],
       [/familie|freunde/i,                     'fa-people-group'],
+      [/verwandtschaft|lebensphasen/i,         'fa-children'],
       [/verben|handlungen/i,                   'fa-person-running'],
+      // Funktionswörter: gleiches Icon wie "Regionalismen & Diskurspartikeln"
+      // weiter unten – beide Kapitel liegen in verschiedenen Niveau-Tabs und
+      // sind nie gleichzeitig sichtbar.
+      [/adverbien/i,                           'fa-language'],
+      [/obst|gemüse/i,                         'fa-apple-whole'],
+      [/mahlzeiten|geschirr/i,                 'fa-plate-wheat'],
       [/essen|trinken/i,                       'fa-utensils'],
+      // "uhrzeit"/"jahreszeiten" vor der Datums-Regel: dort steht \bzeit\b,
+      // was in "Uhrzeit" und "Jahreszeiten" gerade nicht greifen würde.
+      [/uhrzeit|jahreszeiten/i,                'fa-clock'],
       [/\bzeit\b|datum/i,                      'fa-calendar-days'],
       [/haus|wohnen/i,                         'fa-house'],
       [/kleidung|aussehen/i,                   'fa-shirt'],
       [/tiere/i,                               'fa-paw'],
       [/wetter/i,                              'fa-cloud-sun'],
       [/natur|länder/i,                        'fa-earth-europe'],
+      // "verkehrsmittel" muss vor /reisen|verkehr/ stehen, sonst erbt das
+      // Nahverkehrs-Kapitel das Flugzeug-Icon der Reise-Kapitel.
+      [/verkehrsmittel/i,                      'fa-bus'],
       [/reisen|verkehr/i,                      'fa-plane'],
       [/stadt|wegbeschreibung/i,               'fa-map-location-dot'],
       [/einkaufen/i,                           'fa-cart-shopping'],

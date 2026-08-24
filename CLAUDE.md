@@ -142,10 +142,24 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 
 ## Vokabular-System
 
-- Kanonische Datei: `vokabeln_flat.json` – ca. 2.289 Einträge über 82 Kapitel (A1–C2)
+- Kanonische Datei: `vokabeln_flat.json` – ca. 2.659 Einträge über 90 Kapitel (A1–C2)
 - JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
   **diese Konvention darf nicht gebrochen werden**
-- Verben: `aspekt`-Feld, 44 Aspektpaare über `par_id` (`ap01`–`ap45`, `ap41` unbelegt) verlinkt
+- Verben: `aspekt`-Feld, 84 Aspektpaare über `par_id` (`ap01`–`ap84`, lückenlos belegt) verlinkt
+- ⚠️ **Nur echte Aspektpaare verlinken** – gleicher Stamm, gleiche Grundbedeutung, der
+  Unterschied liegt allein im Aspekt. Im August 2026 mussten elf Bestandspaare repariert
+  werden, in denen nur thematisch benachbarte Verben eines Kapitels verlinkt waren
+  (`braniti`/`osloboditi`, `nastojati`/`razmotriti` …). Das ist nicht kosmetisch: Die Übung
+  zeigt die Bedeutung des `nesvršeni`-Partners für das ganze Paar an und lehrte dadurch
+  „osloboditi = verteidigen". Imperfectiva tantum (`hodati`, `nastojati`, `zboriti`) haben
+  gar keinen Partner und bleiben bewusst ohne `par_id`.
+- **Aspektpartner werden als `nur_woerterbuch`-Einträge angelegt**, nicht als Kapiteleinträge.
+  So sprengt kein Kapitel die 35er-Grenze, der Vokabeltrainer zeigt weiterhin nur das
+  Kapitelverb (der Partner fehlt im geladenen Datensatz, das Verb bleibt dort Einzeleintrag),
+  und `lernen-aspektpaare.html` findet trotzdem beide, weil es nur auf `par_id` filtert.
+  ⚠️ Die Übung nimmt Bedeutung **und** Niveau immer vom `nesvršeni`-Partner
+  (`deutsch: g.nes.Deutsch`, `niveau: g.nes.Niveau`) – ist der neue Eintrag der nesvršeni,
+  muss er die neutrale Grundbedeutung tragen, sonst steht sie falsch in der Übung.
 - **Kapitelgrößen-Regel (fix):** kein Kapitel über 35 Einträge. Größere Themen werden thematisch
   in nummerierte Teile gesplittet (z. B. "Umgangssprache & Bosnizismen 1 / 2")
 - **Ein Kapitel = genau ein Niveau (fix).** Gilt im gesamten Bestand ausnahmslos und ist
@@ -170,6 +184,14 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
   Ohne diese Klammer werden Bosnismus und Standardform in der Rückrichtung ununterscheidbar.
 - **Datei bleibt nach Kapitelnummer sortiert.** Die Reihenfolge der Kapitel innerhalb eines
   Niveaus ergibt sich in der Übersicht aus dem ersten Auftreten in der JSON.
+- **Eigennamen nur, wenn das Deutsche anders lautet.** Entscheidend ist, ob es überhaupt
+  etwas zu lernen gibt: `Beč` = Wien, `Jadransko more` = Adriatisches Meer, `Njemačka` =
+  Deutschland – solche Exonyme gehören in den Bestand. Namen, die im Deutschen gleich lauten
+  (Sarajevo, Mostar, Neretva, Bjelašnica …), gehören **nicht** in den Vokabeltrainer: sie sind
+  Landeskunde, kein abfragbarer Wortschatz. Ein A1-Kapitel „Bosnien & Herzegowina – Geografie"
+  wurde im August 2026 genau deshalb wieder entfernt; von seinen 32 Einträgen blieben nur
+  `zemlja`, `glavni grad`, `stanovnik` und `Jadransko more` erhalten und wanderten in
+  Bestandskapitel.
 
 **Build-Pipeline (sequentiell, Reihenfolge beachten):**
 ```
@@ -180,10 +202,21 @@ build_b1_split.py → build_b2.py → build_resplit.py → build_c1.py → build
 diese Datei ist am kritischsten für Konsistenz.
 
 ⚠️ **Stand August 2026: Diese Build-Skripte liegen nicht im Repository** (nur `build_sitemap.py`
-ist vorhanden). Die Kapitel 73–82 wurden deshalb direkt in `vokabeln_flat.json` geschrieben,
-nicht über die Pipeline erzeugt. Wer neue Kapitel anlegt, arbeitet also an der JSON selbst –
-und muss die Regeln oben (Kapitelgröße, ein Niveau je Kapitel, Wortart-Konvention,
+ist vorhanden). Die Kapitel 81–90 (ehemals 73–82) wurden deshalb direkt in `vokabeln_flat.json`
+geschrieben, nicht über die Pipeline erzeugt. Wer neue Kapitel anlegt, arbeitet also an der JSON
+selbst – und muss die Regeln oben (Kapitelgröße, ein Niveau je Kapitel, Wortart-Konvention,
 Sortierung nach Kapitelnummer) von Hand einhalten. Ein Validierungsskript dafür fehlt bisher.
+
+⚠️ **Globale Neunummerierung im August 2026:** Beim Auffüllen von A1 sind acht neue Kapitel
+thematisch zwischen die bestehenden einsortiert worden. Dadurch hat sich **jede** Kapitelnummer
+ab dem alten Kapitel 2 verschoben (A1 ist jetzt 1–22, alles ab dem alten Kapitel 15 wanderte
+um +8 auf 23–90). Das war unkritisch, weil **keine Datei Kapitelnummern fest verdrahtet**:
+die Icons in `LB_2_Vokabeln.html` werden über Stichwörter im Kapitelnamen gewählt, die
+Kapitel-Navigation sortiert die vorhandenen Nummern dynamisch, und `vokabel_ref` in
+`luckentext_data.json` verweist auf Wörter, nicht auf Nummern. **Diese Eigenschaft bitte
+erhalten** – sie ist der Grund, warum eine Neunummerierung überhaupt möglich war.
+Einziger Nebeneffekt: alte `?kapitel=N`-Links (Lesezeichen, Google-Index) zeigen jetzt auf
+ein anderes Kapitel.
 
 ## Bekannte Lösungen / Fallstricke (nicht wiederholen)
 

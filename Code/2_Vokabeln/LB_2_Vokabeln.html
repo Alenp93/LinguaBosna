@@ -143,6 +143,22 @@
     // Kapitelnummern künftig verschieben oder neue Kapitel dazukommen.
     // Die Reihenfolge ist wichtig: spezifischere Begriffe stehen oben.
     const ICON_RULES = [
+      // Hausbau-Kapitel zuerst: "Hausbau: …" würde sonst von der
+      // allgemeinen Regel /haus|wohnen/ weiter unten abgefangen,
+      // "Haustechnik" zusätzlich von /technik|internet/ und
+      // "Traditionelle Baukultur" von /kultur/.
+      [/fundament|mauerwerk/i,                 'fa-trowel-bricks'],
+      [/dach|gebäudeteile/i,                   'fa-house-chimney'],
+      [/werkzeug|baustelle/i,                  'fa-screwdriver-wrench'],
+      [/handwerker|gewerke/i,                  'fa-helmet-safety'],
+      [/einrichtung|möbel/i,                   'fa-couch'],
+      // "haustechnik" muss vor "ausbau" stehen: in "H-ausbau-technik"
+      // steckt die Zeichenfolge "ausbau" mit drin.
+      [/haustechnik/i,                         'fa-plug'],
+      [/ausbau|oberflächen/i,                  'fa-paint-roller'],
+      [/grundstück|baugenehmigung/i,           'fa-map-location-dot'],
+      [/bauvertrag|abrechnung/i,               'fa-file-invoice'],
+      [/baukultur/i,                           'fa-mosque'],
       [/begrüßung|alltagssprache/i,            'fa-comments'],
       [/routine/i,                             'fa-arrows-rotate'],
       [/zahlen|mengen/i,                       'fa-hashtag'],
@@ -228,8 +244,11 @@
 
         // Gruppieren: Niveau → Kapitel → { name, count }
         // (Reihenfolge der Kapitel ergibt sich aus dem ersten Auftreten.)
+        // Einträge mit "nur_woerterbuch" gehören zu keinem Kapitel – sie
+        // sind ausschließlich über die Wörterbuch-Suche im Header erreichbar.
+        // Ohne diesen Filter entstünde hier eine leere "Kapitel undefined"-Karte.
         const byLevel = new Map();
-        data.forEach(entry => {
+        data.filter(e => !e.nur_woerterbuch).forEach(entry => {
           const niv = entry.Niveau;
           if (!byLevel.has(niv)) byLevel.set(niv, new Map());
           const kaps = byLevel.get(niv);

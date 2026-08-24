@@ -702,7 +702,7 @@
     "Kapitelname": "Farben & Formen",
     "Niveau": "A1",
     "Bosnisch": "kvadrat",
-    "Deutsch": "Quadrat",
+    "Deutsch": "Quadrat (geometrische Form)",
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
@@ -2451,7 +2451,8 @@
     "Bosnisch": "useliti se",
     "Deutsch": "einziehen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap45"
   },
   {
     "kategorie": "Kapitel 9",
@@ -6925,7 +6926,8 @@
     "Bosnisch": "graditi",
     "Deutsch": "bauen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap28"
   },
   {
     "kategorie": "Kapitel 28",
@@ -6982,6 +6984,51 @@
     "Bosnisch": "siromašan",
     "Deutsch": "arm",
     "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 28",
+    "Kapitel": 28,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A2",
+    "Bosnisch": "spomenik",
+    "Deutsch": "Denkmal",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 28",
+    "Kapitel": 28,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A2",
+    "Bosnisch": "tvrđava",
+    "Deutsch": "Festung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 28",
+    "Kapitel": 28,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A2",
+    "Bosnisch": "kula",
+    "Deutsch": "Turm",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 28",
+    "Kapitel": 28,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A2",
+    "Bosnisch": "groblje",
+    "Deutsch": "Friedhof",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 28",
+    "Kapitel": 28,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A2",
+    "Bosnisch": "sinagoga",
+    "Deutsch": "Synagoge",
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 29",
@@ -10293,7 +10340,7 @@
     "Kapitelname": "Behörden & Recht – Einstieg",
     "Niveau": "B1",
     "Bosnisch": "kriv",
-    "Deutsch": "schuldig",
+    "Deutsch": "schuldig (rechtl.)",
     "Wortart": "Adjektiv"
   },
   {
@@ -10599,6 +10646,33 @@
     "Bosnisch": "sevdah",
     "Deutsch": "Sehnsuchtsmelancholie (Kulturbegriff)",
     "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 45",
+    "Kapitel": 45,
+    "Kapitelname": "Umgangssprache & Bosnizismen 1",
+    "Niveau": "B1",
+    "Bosnisch": "odžak",
+    "Deutsch": "Schornstein (ugs.; Standard: dimnjak)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 45",
+    "Kapitel": 45,
+    "Kapitelname": "Umgangssprache & Bosnizismen 1",
+    "Niveau": "B1",
+    "Bosnisch": "ćošak",
+    "Deutsch": "Ecke (ugs.; Standard: ugao)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 45",
+    "Kapitel": 45,
+    "Kapitelname": "Umgangssprache & Bosnizismen 1",
+    "Niveau": "B1",
+    "Bosnisch": "taraba",
+    "Deutsch": "Bretterzaun (Oberbegriff: ograda)",
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 46",
@@ -17900,5 +17974,3039 @@
     "Deutsch": "fahren / tragen (ugs.)",
     "Wortart": "Verb",
     "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "gradilište",
+    "Deutsch": "Baustelle",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "iskop",
+    "Deutsch": "Aushub",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "zemljani radovi",
+    "Deutsch": "Erdarbeiten",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "bager",
+    "Deutsch": "Bagger",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "temelj",
+    "Deutsch": "Fundament",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "temeljna ploča",
+    "Deutsch": "Bodenplatte",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "beton",
+    "Deutsch": "Beton",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "armirani beton",
+    "Deutsch": "Stahlbeton",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "armatura",
+    "Deutsch": "Bewehrung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "oplata",
+    "Deutsch": "Schalung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "cement",
+    "Deutsch": "Zement",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "pijesak",
+    "Deutsch": "Sand",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "šljunak",
+    "Deutsch": "Kies",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "tucanik",
+    "Deutsch": "Schotter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "malter",
+    "Deutsch": "Mörtel",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "cigla",
+    "Deutsch": "Ziegel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "blok",
+    "Deutsch": "Hohlblockstein",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "nosivi zid",
+    "Deutsch": "tragende Wand",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "pregradni zid",
+    "Deutsch": "Trennwand",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "stub",
+    "Deutsch": "Stütze / Säule",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "serklaž",
+    "Deutsch": "Ringanker",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "greda",
+    "Deutsch": "Unterzug / Balken",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "međuspratna ploča",
+    "Deutsch": "Geschossdecke",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "podrum",
+    "Deutsch": "Keller",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "grubi radovi",
+    "Deutsch": "Rohbauarbeiten",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "izgraditi",
+    "Deutsch": "erbauen / fertig bauen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap28"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "zidati",
+    "Deutsch": "mauern",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap29"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "sazidati",
+    "Deutsch": "aufmauern / fertig mauern",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap29"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "kopati",
+    "Deutsch": "graben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap30"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "iskopati",
+    "Deutsch": "ausheben",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap30"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "betonirati",
+    "Deutsch": "betonieren",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "nosiv",
+    "Deutsch": "tragend",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "čvrst",
+    "Deutsch": "fest / stabil",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Bosnisch": "iz temelja",
+    "Deutsch": "von Grund auf",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "prizemlje",
+    "Deutsch": "Erdgeschoss",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "sprat",
+    "Deutsch": "Stockwerk / Etage",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "potkrovlje",
+    "Deutsch": "Dachgeschoss (ausgebaut)",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "tavan",
+    "Deutsch": "Dachboden (unausgebaut)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "stubište",
+    "Deutsch": "Treppenhaus",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "krovna konstrukcija",
+    "Deutsch": "Dachstuhl",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "crijep",
+    "Deutsch": "Dachziegel",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "oluk",
+    "Deutsch": "Dachrinne",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "dimnjak",
+    "Deutsch": "Schornstein",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "skela",
+    "Deutsch": "Gerüst",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "mješalica",
+    "Deutsch": "Betonmischer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "šut",
+    "Deutsch": "Bauschutt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "potporni zid",
+    "Deutsch": "Stützmauer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "nadstrešnica",
+    "Deutsch": "Vordach / Carport",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "montažna kuća",
+    "Deutsch": "Fertighaus",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "terasa",
+    "Deutsch": "Terrasse",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "garaža",
+    "Deutsch": "Garage",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "dvorište",
+    "Deutsch": "Hof",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "ograda",
+    "Deutsch": "Zaun",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "bašta",
+    "Deutsch": "Garten",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "behaton",
+    "Deutsch": "Pflasterstein (Verbundstein)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "popločavanje",
+    "Deutsch": "Pflasterung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "prilazni put",
+    "Deutsch": "Zufahrt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "rušiti",
+    "Deutsch": "abreißen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap33"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "srušiti",
+    "Deutsch": "abreißen (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap33"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "montažni",
+    "Deutsch": "Fertig- / Montage- (nur bestimmte Form)",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "armiran",
+    "Deutsch": "bewehrt / Stahl-",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "trošan",
+    "Deutsch": "baufällig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Bosnisch": "kapija",
+    "Deutsch": "Hoftor",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "alat",
+    "Deutsch": "Werkzeug",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "čekić",
+    "Deutsch": "Hammer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "ekser",
+    "Deutsch": "Nagel (in BiH üblich; normativ auch čavao)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "čavao",
+    "Deutsch": "Nagel",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "šaraf",
+    "Deutsch": "Schraube (Germ.; Standard: vijak)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "vijak",
+    "Deutsch": "Schraube",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "odvijač",
+    "Deutsch": "Schraubenzieher",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "bušilica",
+    "Deutsch": "Bohrmaschine",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "burgija",
+    "Deutsch": "Bohrer (ugs.; Standard: svrdlo)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "svrdlo",
+    "Deutsch": "Bohrer (Einsatz)",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "mistrija",
+    "Deutsch": "Maurerkelle",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "libela",
+    "Deutsch": "Wasserwaage",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "metar",
+    "Deutsch": "Zollstock / Bandmaß (Werkzeug)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "pila",
+    "Deutsch": "Säge",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "lopata",
+    "Deutsch": "Schaufel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "kliješta",
+    "Deutsch": "Zange",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "kolica",
+    "Deutsch": "Schubkarre",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "kanta",
+    "Deutsch": "Eimer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "četka",
+    "Deutsch": "Bürste / (Maler-)Pinsel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "ljestve",
+    "Deutsch": "Leiter",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "zaštitna kaciga",
+    "Deutsch": "Schutzhelm",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "vreća",
+    "Deutsch": "Sack (Zement)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "bušiti",
+    "Deutsch": "bohren",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap43"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "probušiti",
+    "Deutsch": "durchbohren (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap43"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "popravljati",
+    "Deutsch": "reparieren",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap36"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "popraviti",
+    "Deutsch": "reparieren (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap36"
+  },
+  {
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Bosnisch": "po kvadratu",
+    "Deutsch": "pro Quadratmeter",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "izvođač radova",
+    "Deutsch": "Bauunternehmer / Auftragnehmer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "majstor",
+    "Deutsch": "Handwerker / Meister",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "zanatlija",
+    "Deutsch": "Handwerker (Gewerbe)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "građevinski radnik",
+    "Deutsch": "Bauarbeiter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "zidar",
+    "Deutsch": "Maurer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "poslovođa",
+    "Deutsch": "Polier",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "tesar",
+    "Deutsch": "Zimmerer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "krovopokrivač",
+    "Deutsch": "Dachdecker",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "limar",
+    "Deutsch": "Spengler / Klempner",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "keramičar",
+    "Deutsch": "Fliesenleger",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "moler",
+    "Deutsch": "Maler",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "stolar",
+    "Deutsch": "Tischler",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "bravar",
+    "Deutsch": "Schlosser",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "vodoinstalater",
+    "Deutsch": "Installateur",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "radionica",
+    "Deutsch": "Werkstatt",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "ponuda za radove",
+    "Deutsch": "Angebot (für Arbeiten)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "satnica",
+    "Deutsch": "Stundenlohn (auch: Zeitplan)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "nadnica",
+    "Deutsch": "Tagelohn",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "kvadrat",
+    "Deutsch": "Quadratmeter (ugs., Fläche)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "kubik",
+    "Deutsch": "Kubikmeter (ugs.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "kvalitetan",
+    "Deutsch": "hochwertig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "Koliko košta kvadrat?",
+    "Deutsch": "Was kostet der Quadratmeter?",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "Kada počinju radovi?",
+    "Deutsch": "Wann beginnen die Arbeiten?",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "Radovi kasne.",
+    "Deutsch": "Die Arbeiten verzögern sich.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "na crno",
+    "Deutsch": "schwarz / ohne Anmeldung",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "na rate",
+    "Deutsch": "in Raten",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Bosnisch": "ključ u ruke",
+    "Deutsch": "schlüsselfertig",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "dnevna soba",
+    "Deutsch": "Wohnzimmer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "ostava",
+    "Deutsch": "Abstellraum / Speisekammer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "soba za goste",
+    "Deutsch": "Gästezimmer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "dječija soba",
+    "Deutsch": "Kinderzimmer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "gostinjski WC",
+    "Deutsch": "Gäste-WC",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "prostorija za veš",
+    "Deutsch": "Hauswirtschaftsraum",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "vešeraj",
+    "Deutsch": "Hauswirtschaftsraum (Germ.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "kuhinja po mjeri",
+    "Deutsch": "Einbauküche nach Maß",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "radna ploča",
+    "Deutsch": "Arbeitsplatte",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "plakar",
+    "Deutsch": "Einbauschrank",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "kauč",
+    "Deutsch": "Sofa",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "trosjed",
+    "Deutsch": "Dreisitzer-Sofa",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "lavabo",
+    "Deutsch": "Waschbecken",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "tuš kabina",
+    "Deutsch": "Duschkabine",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "kada",
+    "Deutsch": "Badewanne (nicht: kada = wann)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "WC šolja",
+    "Deutsch": "WC-Becken",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "slavina",
+    "Deutsch": "Armatur / Wasserhahn",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "zavjesa",
+    "Deutsch": "Vorhang",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "luster",
+    "Deutsch": "Kronleuchter / Hängeleuchte",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "tapeta",
+    "Deutsch": "Tapete",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "jastuk",
+    "Deutsch": "Kissen",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "namještati",
+    "Deutsch": "einrichten (Möbel)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap37"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "namjestiti",
+    "Deutsch": "einrichten (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap37"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "uređivati",
+    "Deutsch": "herrichten / gestalten",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap38"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "urediti",
+    "Deutsch": "herrichten (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap38"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "useljavati se",
+    "Deutsch": "einziehen (Vorgang)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap45"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "prostran",
+    "Deutsch": "geräumig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Bosnisch": "namješten",
+    "Deutsch": "möbliert",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "završni radovi",
+    "Deutsch": "Ausbauarbeiten",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "unutrašnji malter",
+    "Deutsch": "Innenputz",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "gletovanje",
+    "Deutsch": "Spachteln / Glätten",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "cementna košuljica",
+    "Deutsch": "Estrich",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "fasada",
+    "Deutsch": "Fassade",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "demit fasada",
+    "Deutsch": "WDVS / Vollwärmeschutz",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "stiropor",
+    "Deutsch": "Styropor",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "gips-karton",
+    "Deutsch": "Trockenbau / Gipskarton",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "stolarija",
+    "Deutsch": "Fenster/Türen (Gewerk)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "roletna",
+    "Deutsch": "Rollladen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "prozorska klupica",
+    "Deutsch": "Fensterbank",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "pločice",
+    "Deutsch": "Fliesen",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "fuge",
+    "Deutsch": "Fugen",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "parket",
+    "Deutsch": "Parkett",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "laminat",
+    "Deutsch": "Laminat",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "podloga",
+    "Deutsch": "Untergrund / Unterlage",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "postavljati",
+    "Deutsch": "verlegen / anbringen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap31"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "postaviti",
+    "Deutsch": "verlegen (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap31"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "farbati",
+    "Deutsch": "streichen (mit Farbe)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap34"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "ofarbati",
+    "Deutsch": "anstreichen (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap34"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "krečiti",
+    "Deutsch": "weißen / kalken (mit kreč)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap35"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "okrečiti",
+    "Deutsch": "weißen (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap35"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "renovirati",
+    "Deutsch": "renovieren",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "adaptirati",
+    "Deutsch": "umbauen / umgestalten",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "useljiv",
+    "Deutsch": "bezugsfertig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "gotov",
+    "Deutsch": "fertiggestellt (Bauzustand)",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "nedovršen",
+    "Deutsch": "unfertig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "vlažan",
+    "Deutsch": "feucht",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "suh",
+    "Deutsch": "trocken",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "gladak",
+    "Deutsch": "glatt",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "malterisati",
+    "Deutsch": "verputzen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap42"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "omalterisati",
+    "Deutsch": "verputzen (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap42"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "impregnacija",
+    "Deutsch": "Imprägnierung / Tiefengrund (saugreduzierender Voranstrich)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 78",
+    "Kapitel": 78,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Bosnisch": "temeljni premaz",
+    "Deutsch": "Grundierung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "termoizolacija",
+    "Deutsch": "Wärmedämmung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "hidroizolacija",
+    "Deutsch": "Abdichtung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "parna brana",
+    "Deutsch": "Dampfsperre",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "zvučna izolacija",
+    "Deutsch": "Schallschutz",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "izolirati",
+    "Deutsch": "dämmen / isolieren",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "elektroinstalacije",
+    "Deutsch": "Elektroinstallation",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "utičnica",
+    "Deutsch": "Steckdose",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "prekidač",
+    "Deutsch": "Lichtschalter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "razvodna tabla",
+    "Deutsch": "Sicherungskasten",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "uzemljenje",
+    "Deutsch": "Erdung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "vodoinstalacije",
+    "Deutsch": "Sanitärinstallation",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "cijev",
+    "Deutsch": "Rohr",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "kanalizacija",
+    "Deutsch": "Abwasser / Kanalisation",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "septička jama",
+    "Deutsch": "Klärgrube",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "priključci",
+    "Deutsch": "Anschlüsse (Wasser, Strom, Kanal)",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "grijanje",
+    "Deutsch": "Heizung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "podno grijanje",
+    "Deutsch": "Fußbodenheizung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "radijator",
+    "Deutsch": "Heizkörper",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "kotao",
+    "Deutsch": "Heizkessel",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "kamin",
+    "Deutsch": "Kamin",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "peć na drva",
+    "Deutsch": "Holzofen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "klima uređaj",
+    "Deutsch": "Klimaanlage",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "ventilacija",
+    "Deutsch": "Lüftung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "energetski certifikat",
+    "Deutsch": "Energieausweis (FBiH; RS: energetski sertifikat)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "ugradnja",
+    "Deutsch": "Einbau / Montage",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "ugrađivati",
+    "Deutsch": "einbauen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap32"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "ugraditi",
+    "Deutsch": "einbauen (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap32"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "kriv",
+    "Deutsch": "schief / krumm",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 79",
+    "Kapitel": 79,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Bosnisch": "ravan",
+    "Deutsch": "eben / gerade",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "parcela",
+    "Deutsch": "Parzelle / Grundstück",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "zemljište",
+    "Deutsch": "Grundstück / Boden",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "građevinsko zemljište",
+    "Deutsch": "Bauland",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "katastarska čestica",
+    "Deutsch": "Katasterparzelle (k.č.)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "zemljišna knjiga",
+    "Deutsch": "Grundbuch",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "zemljišnoknjižni izvadak",
+    "Deutsch": "Grundbuchauszug (ZK izvadak)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "vlasnički list",
+    "Deutsch": "Eigentumsblatt (kroat./ugs. Variante zu ZK izvadak)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "posjedovni list",
+    "Deutsch": "Besitzblatt (Kataster)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "uknjižba",
+    "Deutsch": "Grundbucheintragung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "vlasnik",
+    "Deutsch": "Eigentümer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "geometar",
+    "Deutsch": "Vermesser",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "premjer",
+    "Deutsch": "Vermessung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "međa",
+    "Deutsch": "Grundstücksgrenze",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "kupoprodajni ugovor",
+    "Deutsch": "Kaufvertrag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "notar",
+    "Deutsch": "Notar",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "ovjera",
+    "Deutsch": "Beglaubigung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "kapara",
+    "Deutsch": "Angeld / verfallbare Anzahlung (Reugeld)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "porez na promet nekretnina",
+    "Deutsch": "Grunderwerbsteuer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "urbanistička saglasnost",
+    "Deutsch": "Bauvorbescheid (FBiH; RS: lokacijski uslovi)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "građevinska dozvola",
+    "Deutsch": "Baugenehmigung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "upotrebna dozvola",
+    "Deutsch": "Nutzungsgenehmigung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "regulacioni plan",
+    "Deutsch": "Bebauungsplan",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "glavni projekat",
+    "Deutsch": "Hauptprojekt (Planunterlagen)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "statički proračun",
+    "Deutsch": "statische Berechnung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "arhitekta",
+    "Deutsch": "Architekt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "građevinski inženjer",
+    "Deutsch": "Bauingenieur",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "nadzorni organ",
+    "Deutsch": "Bauaufsicht (Person)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "građevinska inspekcija",
+    "Deutsch": "Bauaufsicht (Behörde)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "bespravna gradnja",
+    "Deutsch": "Schwarzbau",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "odobravati",
+    "Deutsch": "genehmigen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap39"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "odobriti",
+    "Deutsch": "genehmigen (erteilen)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap39"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "bespravan",
+    "Deutsch": "schwarzgebaut / ohne Genehmigung",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 80",
+    "Kapitel": 80,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Bosnisch": "uknjižen",
+    "Deutsch": "im Grundbuch eingetragen",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "predmjer radova",
+    "Deutsch": "Leistungsverzeichnis",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "predmjer i predračun",
+    "Deutsch": "Kostenvoranschlag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "aneks ugovora",
+    "Deutsch": "Nachtrag (Vertrag)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "faktura",
+    "Deutsch": "Rechnung (kaufmännisch)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "avansna uplata",
+    "Deutsch": "Vorschusszahlung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "privremena situacija",
+    "Deutsch": "Abschlagsrechnung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "okončana situacija",
+    "Deutsch": "Schlussrechnung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "građevinski dnevnik",
+    "Deutsch": "Bautagebuch",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "građevinska knjiga",
+    "Deutsch": "Aufmaßbuch",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "tehnički pregled",
+    "Deutsch": "technische Abnahme (ugs. auch: tehnički prijem)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "primopredaja",
+    "Deutsch": "Übergabe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "nedostaci",
+    "Deutsch": "Mängel",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "garancija",
+    "Deutsch": "Gewährleistung / Garantie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "garantni rok",
+    "Deutsch": "Gewährleistungsfrist",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "ugovorna kazna",
+    "Deutsch": "Vertragsstrafe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "komunalno opremanje",
+    "Deutsch": "kommunale Erschließung (Vorgang)",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "naknada za uređenje građevinskog zemljišta",
+    "Deutsch": "Erschließungsbeitrag (einmalig beim Bauen)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "komunalna naknada",
+    "Deutsch": "laufende kommunale Abgabe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "PDV",
+    "Deutsch": "Mehrwertsteuer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "uplaćivati",
+    "Deutsch": "einzahlen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap40"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "uplatiti",
+    "Deutsch": "einzahlen (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap40"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "privremen",
+    "Deutsch": "provisorisch",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 81",
+    "Kapitel": 81,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Bosnisch": "ugovor o građenju",
+    "Deutsch": "Bauvertrag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "musandera",
+    "Deutsch": "hölzerne Einbauwand mit Nischen (Waschnische, Bettzeugfach)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "sećija",
+    "Deutsch": "niedrige Polsterbank entlang der Wand",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "divanhana",
+    "Deutsch": "offene Halle im Obergeschoss",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "hajat",
+    "Deutsch": "offener Eingangsbereich im Erdgeschoss",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "doksat",
+    "Deutsch": "Erker (vorkragender Raumteil)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "čardak",
+    "Deutsch": "große Stube im Obergeschoss (Haustyp: čardaklija)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "ćerpič",
+    "Deutsch": "Lehmziegel (luftgetrocknet)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "halvat",
+    "Deutsch": "privater Wohnraum im Obergeschoss",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "mutvak",
+    "Deutsch": "Küche im traditionellen Haus",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "magaza",
+    "Deutsch": "gewölbter Vorrats- und Lagerraum",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "kamerija",
+    "Deutsch": "offener, unverglaster Söller zum Hof hin",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "mušebak",
+    "Deutsch": "hölzernes Gitterwerk vor dem Fenster (Sichtschutz)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "šadrvan",
+    "Deutsch": "Brunnen mit Wasserspiel (Moscheehof)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "česma",
+    "Deutsch": "öffentlicher Trinkbrunnen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "bondruk",
+    "Deutsch": "Fachwerkkonstruktion",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "hatula",
+    "Deutsch": "Holzringbalken im Mauerwerk",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "šindra",
+    "Deutsch": "Holzschindel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "kreč",
+    "Deutsch": "Kalk",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "dunđer",
+    "Deutsch": "traditioneller Baumeister / Zimmermann",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "neimar",
+    "Deutsch": "Baumeister (gehoben)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "klesar",
+    "Deutsch": "Steinmetz",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "munara",
+    "Deutsch": "Minarett",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "medresa",
+    "Deutsch": "Medrese (islamische Hochschule)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "tekija",
+    "Deutsch": "Derwischkloster",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "turbe",
+    "Deutsch": "Mausoleum",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "hamam",
+    "Deutsch": "Badehaus",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "bezistan",
+    "Deutsch": "überdachte Markthalle",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "sahat-kula",
+    "Deutsch": "Uhrturm",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "stećak",
+    "Deutsch": "mittelalterlicher Grabstein (UNESCO-Welterbe)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "nišan",
+    "Deutsch": "islamischer Grabstein",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "samostan",
+    "Deutsch": "(Franziskaner-)Kloster",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "manastir",
+    "Deutsch": "orthodoxes Kloster",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "brvnara",
+    "Deutsch": "Blockhaus (aus Holzbalken)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "vakuf",
+    "Deutsch": "islamische Stiftung (Waqf); auch das gestiftete Vermögen",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 82",
+    "Kapitel": 82,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Bosnisch": "secesija",
+    "Deutsch": "Sezessionsstil / Jugendstil (Baustil der k.u.k.-Zeit in BiH)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "brusilica",
+    "Deutsch": "Winkelschleifer / Flex",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "ašov",
+    "Deutsch": "Spaten",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "krampa",
+    "Deutsch": "Spitzhacke (auch kramp; Standard: trnokop)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "valjak za farbanje",
+    "Deutsch": "Farbrolle",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "konopac",
+    "Deutsch": "Seil",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "folija",
+    "Deutsch": "Folie",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "paleta",
+    "Deutsch": "Palette",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "tona",
+    "Deutsch": "Tonne",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "testera",
+    "Deutsch": "Säge (regional; Standard: pila)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "fasader",
+    "Deutsch": "Fassadenbauer",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "parketar",
+    "Deutsch": "Parkettleger",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "armirač",
+    "Deutsch": "Bewehrungsflechter",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "lođa",
+    "Deutsch": "Loggia",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "badža",
+    "Deutsch": "Dachluke / Rauchabzug",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "bravarija",
+    "Deutsch": "Metallbau (Gewerk)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "estrih",
+    "Deutsch": "Estrich (Germ.; Standard: cementna košuljica)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "solbank",
+    "Deutsch": "Fensterbank (Germ., ugs.)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "prajmer",
+    "Deutsch": "Grundierung (ugs.)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "gruntovnica",
+    "Deutsch": "Grundbuch (ugs.; Standard: zemljišna knjiga)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "statika",
+    "Deutsch": "Statik",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "geodetsko snimanje",
+    "Deutsch": "geodätische Aufnahme",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "renta",
+    "Deutsch": "Baulandabgabe (Lagevorteil)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "docnja",
+    "Deutsch": "Verzug (rechtl.)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "manjkavosti",
+    "Deutsch": "Mängel / Unzulänglichkeiten",
+    "Wortart (Genus)": "Substantiv (f, Pl.)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "otvoreni dnevni boravak sa kuhinjom",
+    "Deutsch": "offener Wohnbereich mit Küche",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "ugradni ormar",
+    "Deutsch": "Einbauschrank",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "lijepiti",
+    "Deutsch": "kleben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap44",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "zalijepiti",
+    "Deutsch": "ankleben (fertig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap44",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "sanirati",
+    "Deutsch": "sanieren / instand setzen",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "projektirati",
+    "Deutsch": "planen / entwerfen",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "hrapav",
+    "Deutsch": "rau",
+    "Wortart": "Adjektiv",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "dotrajao",
+    "Deutsch": "abgenutzt",
+    "Wortart": "Adjektiv",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "vodootporan",
+    "Deutsch": "wasserfest",
+    "Wortart": "Adjektiv",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "vatrootporan",
+    "Deutsch": "feuerfest",
+    "Wortart": "Adjektiv",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "prizemni",
+    "Deutsch": "ebenerdig (nur bestimmte Form)",
+    "Wortart": "Adjektiv",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "ugradni",
+    "Deutsch": "Einbau- (nur bestimmte Form)",
+    "Wortart": "Adjektiv",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "Radovi su u toku.",
+    "Deutsch": "Die Arbeiten laufen.",
+    "Wortart": "Phrase",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "Radovi idu po planu.",
+    "Deutsch": "Die Arbeiten laufen termingerecht.",
+    "Wortart": "Phrase",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "Gradimo po projektu.",
+    "Deutsch": "Wir bauen nach den Planunterlagen.",
+    "Wortart": "Phrase",
+    "nur_woerterbuch": true
   }
 ]

@@ -142,12 +142,34 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 
 ## Vokabular-System
 
-- Kanonische Datei: `vokabeln_flat.json` – ca. 1.943 Einträge über 72 Kapitel (A1–C2)
+- Kanonische Datei: `vokabeln_flat.json` – ca. 2.289 Einträge über 82 Kapitel (A1–C2)
 - JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
   **diese Konvention darf nicht gebrochen werden**
-- Verben: `aspekt`-Feld, 27 Aspektpaare über `par_id` (`ap01`–`ap27`) verlinkt
+- Verben: `aspekt`-Feld, 44 Aspektpaare über `par_id` (`ap01`–`ap45`, `ap41` unbelegt) verlinkt
 - **Kapitelgrößen-Regel (fix):** kein Kapitel über 35 Einträge. Größere Themen werden thematisch
   in nummerierte Teile gesplittet (z. B. "Umgangssprache & Bosnizismen 1 / 2")
+- **Ein Kapitel = genau ein Niveau (fix).** Gilt im gesamten Bestand ausnahmslos und ist
+  technisch bindend: `LB_2_Vokabeln.html` gruppiert nach `Niveau → Kapitel`. Ein Kapitel mit
+  gemischten Niveaus erscheint in **zwei** Niveau-Tabs gleichzeitig, jeweils mit einer
+  Teilzählung. Neue Themen deshalb nach Niveau schneiden, nicht rein thematisch – auch wenn
+  dadurch mehr Kapitel entstehen (Beispiel: der Hausbau-Wortschatz wurde in vier B1-, drei B2-,
+  ein C1- und ein C2-Kapitel geteilt, statt in sechs thematische).
+- **Optionales Feld `"nur_woerterbuch": true`** – für Einträge, die **nur über die
+  Wörterbuch-Suche im Header** auffindbar sein sollen, aber zu keinem Kapitel gehören
+  (Fachvokabular, das ein Kapitel sprengen würde). Solche Einträge haben **kein**
+  `kategorie`/`Kapitel`/`Kapitelname`, nur `Niveau`, `Bosnisch`, `Deutsch`, Wortart und
+  stehen am Dateiende. Wirkung auf die Konsumenten:
+  - `LB_main.js` (Suche) findet sie – sie nutzt das Kapitel-Feld nicht
+  - `LB_2-1_Vokabeln_Master.html` und `vokabeltrainer.html` filtern auf
+    `e.Kapitel === …` und übergehen sie automatisch
+  - `lernen-aspektpaare.html` filtert auf `par_id` – Aspektpaare erscheinen dort **gewollt**
+  - `LB_2_Vokabeln.html` muss sie **aktiv herausfiltern**
+    (`data.filter(e => !e.nur_woerterbuch)`), sonst entsteht eine leere Geisterkarte
+- **Register-Kennzeichnung gehört ins Deutsch-Feld**, nicht in ein eigenes Feld – in Klammern,
+  z. B. `"Leiter (ugs.; Standard: ljestve)"`, `"Schraubenzieher (Germ.; Standard: odvijač)"`.
+  Ohne diese Klammer werden Bosnismus und Standardform in der Rückrichtung ununterscheidbar.
+- **Datei bleibt nach Kapitelnummer sortiert.** Die Reihenfolge der Kapitel innerhalb eines
+  Niveaus ergibt sich in der Übersicht aus dem ersten Auftreten in der JSON.
 
 **Build-Pipeline (sequentiell, Reihenfolge beachten):**
 ```
@@ -156,6 +178,12 @@ build_b1_split.py → build_b2.py → build_resplit.py → build_c1.py → build
 ```
 `build_resplit.py` enthält die autoritative MASTER-Kapitelliste und globale Neunummerierung –
 diese Datei ist am kritischsten für Konsistenz.
+
+⚠️ **Stand August 2026: Diese Build-Skripte liegen nicht im Repository** (nur `build_sitemap.py`
+ist vorhanden). Die Kapitel 73–82 wurden deshalb direkt in `vokabeln_flat.json` geschrieben,
+nicht über die Pipeline erzeugt. Wer neue Kapitel anlegt, arbeitet also an der JSON selbst –
+und muss die Regeln oben (Kapitelgröße, ein Niveau je Kapitel, Wortart-Konvention,
+Sortierung nach Kapitelnummer) von Hand einhalten. Ein Validierungsskript dafür fehlt bisher.
 
 ## Bekannte Lösungen / Fallstricke (nicht wiederholen)
 

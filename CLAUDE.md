@@ -142,7 +142,7 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 
 ## Vokabular-System
 
-- Kanonische Datei: `vokabeln_flat.json` – ca. 2.728 Einträge über 92 Kapitel (A1–C2)
+- Kanonische Datei: `vokabeln_flat.json` – ca. 2.752 Einträge über 93 Kapitel (A1–C2)
 - JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
   **diese Konvention darf nicht gebrochen werden**
 - Verben: `aspekt`-Feld, 84 Aspektpaare über `par_id` (`ap01`–`ap84`, lückenlos belegt) verlinkt

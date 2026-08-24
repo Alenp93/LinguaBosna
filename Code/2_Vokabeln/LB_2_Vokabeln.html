@@ -176,10 +176,13 @@
       [/mahlzeiten|geschirr/i,                 'fa-plate-wheat'],
       [/küche/i,                               'fa-bowl-food'],
       [/essen|trinken/i,                       'fa-utensils'],
+      // "feiertage" muss vor "religion" stehen, sonst bekämen beide
+      // A2-Kapitel dasselbe Icon.
+      [/feiertage|bräuche/i,                   'fa-gift'],
       // Bewusst fa-place-of-worship statt fa-mosque: das Kapitel ist
-      // multikonfessionell (Bajram, Božić, Uskrs, Rabbiner). fa-mosque ist
-      // schon für "Traditionelle Baukultur" vergeben.
-      [/religion|feiertage/i,                  'fa-place-of-worship'],
+      // multikonfessionell (Imam, Franziskaner, Ikone, Rabbiner). fa-mosque
+      // ist schon für "Traditionelle Baukultur" vergeben.
+      [/religion|glaube/i,                     'fa-place-of-worship'],
       // "uhrzeit"/"jahreszeiten" vor der Datums-Regel: dort steht \bzeit\b,
       // was in "Uhrzeit" und "Jahreszeiten" gerade nicht greifen würde.
       [/uhrzeit|jahreszeiten/i,                'fa-clock'],

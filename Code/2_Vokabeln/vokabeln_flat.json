@@ -4637,6 +4637,17 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
+    "kategorie": "Kapitel 16",
+    "Kapitel": 16,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Bosnisch": "useljavati se",
+    "Deutsch": "einziehen (Vorgang)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap45"
+  },
+  {
     "kategorie": "Kapitel 17",
     "Kapitel": 17,
     "Kapitelname": "Kleidung & Aussehen",
@@ -4918,6 +4929,17 @@
     "Bosnisch": "hladan",
     "Deutsch": "kalt",
     "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 17",
+    "Kapitel": 17,
+    "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
+    "Bosnisch": "izabrati",
+    "Deutsch": "auswählen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap01"
   },
   {
     "kategorie": "Kapitel 18",
@@ -6778,6 +6800,17 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
+    "kategorie": "Kapitel 24",
+    "Kapitel": 24,
+    "Kapitelname": "In der Stadt & Wegbeschreibung 1",
+    "Niveau": "A2",
+    "Bosnisch": "izgraditi",
+    "Deutsch": "erbauen / fertig bauen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap28"
+  },
+  {
     "kategorie": "Kapitel 25",
     "Kapitel": 25,
     "Kapitelname": "In der Stadt & Wegbeschreibung 2",
@@ -7144,17 +7177,6 @@
     "Deutsch": "zurückgeben",
     "Wortart": "Verb",
     "aspekt": "svršeni"
-  },
-  {
-    "kategorie": "Kapitel 26",
-    "Kapitel": 26,
-    "Kapitelname": "Einkaufen & Geld 1",
-    "Niveau": "A2",
-    "Bosnisch": "izabrati",
-    "Deutsch": "auswählen",
-    "Wortart": "Verb",
-    "aspekt": "svršeni",
-    "par_id": "ap01"
   },
   {
     "kategorie": "Kapitel 27",
@@ -8343,6 +8365,17 @@
     "aspekt": "svršeni"
   },
   {
+    "kategorie": "Kapitel 32",
+    "Kapitel": 32,
+    "Kapitelname": "Schule & Bildung",
+    "Niveau": "A2",
+    "Bosnisch": "ponoviti",
+    "Deutsch": "wiederholen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap15"
+  },
+  {
     "kategorie": "Kapitel 33",
     "Kapitel": 33,
     "Kapitelname": "Gesundheit & Medizin",
@@ -8641,6 +8674,15 @@
     "Niveau": "A2",
     "Bosnisch": "opasan",
     "Deutsch": "gefährlich",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 33",
+    "Kapitel": 33,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A2",
+    "Bosnisch": "bolestan",
+    "Deutsch": "krank",
     "Wortart": "Adjektiv"
   },
   {
@@ -10981,17 +11023,6 @@
     "Kapitel": 42,
     "Kapitelname": "Bildung & Studium 1",
     "Niveau": "B1",
-    "Bosnisch": "ponoviti",
-    "Deutsch": "wiederholen",
-    "Wortart": "Verb",
-    "aspekt": "svršeni",
-    "par_id": "ap15"
-  },
-  {
-    "kategorie": "Kapitel 42",
-    "Kapitel": 42,
-    "Kapitelname": "Bildung & Studium 1",
-    "Niveau": "B1",
     "Bosnisch": "koncentrisati se",
     "Deutsch": "sich konzentrieren",
     "Wortart": "Verb",
@@ -11674,15 +11705,6 @@
     "Bosnisch": "nesanica",
     "Deutsch": "Schlaflosigkeit",
     "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 46",
-    "Kapitel": 46,
-    "Kapitelname": "Gesundheit & Symptome 1",
-    "Niveau": "B1",
-    "Bosnisch": "bolestan",
-    "Deutsch": "krank",
-    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 46",
@@ -14512,17 +14534,6 @@
     "Kapitel": 58,
     "Kapitelname": "Hausbau: Fundament & Mauerwerk",
     "Niveau": "B1",
-    "Bosnisch": "izgraditi",
-    "Deutsch": "erbauen / fertig bauen",
-    "Wortart": "Verb",
-    "aspekt": "svršeni",
-    "par_id": "ap28"
-  },
-  {
-    "kategorie": "Kapitel 58",
-    "Kapitel": 58,
-    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
-    "Niveau": "B1",
     "Bosnisch": "zidati",
     "Deutsch": "mauern",
     "Wortart": "Verb",
@@ -15596,17 +15607,6 @@
     "Kapitel": 62,
     "Kapitelname": "Einrichtung & Möbel",
     "Niveau": "B1",
-    "Bosnisch": "useljavati se",
-    "Deutsch": "einziehen (Vorgang)",
-    "Wortart": "Verb",
-    "aspekt": "nesvršeni",
-    "par_id": "ap45"
-  },
-  {
-    "kategorie": "Kapitel 62",
-    "Kapitel": 62,
-    "Kapitelname": "Einrichtung & Möbel",
-    "Niveau": "B1",
     "Bosnisch": "prostran",
     "Deutsch": "geräumig",
     "Wortart": "Adjektiv"
@@ -15943,303 +15943,6 @@
   {
     "kategorie": "Kapitel 64",
     "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "nostrifikacija",
-    "Deutsch": "Nostrifikation / Anerkennung",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "priznavanje diplome",
-    "Deutsch": "Anerkennung des Abschlusses",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "sudski tumač",
-    "Deutsch": "vereidigter Dolmetscher",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "prijevod",
-    "Deutsch": "Übersetzung",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "ovjeren prijevod",
-    "Deutsch": "beglaubigte Übersetzung",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "apostil",
-    "Deutsch": "Apostille",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "matična knjiga",
-    "Deutsch": "Personenstandsregister",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "matični ured",
-    "Deutsch": "Standesamt",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "matičar",
-    "Deutsch": "Standesbeamter",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "izvod iz matične knjige rođenih",
-    "Deutsch": "Geburtsurkunde",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "vjenčani list",
-    "Deutsch": "Heiratsurkunde",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "smrtni list",
-    "Deutsch": "Sterbeurkunde",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "uvjerenje o državljanstvu",
-    "Deutsch": "Staatsbürgerschaftsnachweis",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "uvjerenje o nekažnjavanju",
-    "Deutsch": "Führungszeugnis",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "ovjera potpisa",
-    "Deutsch": "Beglaubigung der Unterschrift",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "javni bilježnik",
-    "Deutsch": "Notar (kroat.; in BiH: notar)",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "ovlaštenje",
-    "Deutsch": "Befugnis / Ermächtigung",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "nadležnost",
-    "Deutsch": "Zuständigkeit",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "šalter",
-    "Deutsch": "Schalter (Amt)",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "konzularna taksa",
-    "Deutsch": "Konsulargebühr",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "prebivalište",
-    "Deutsch": "Wohnsitz",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "boravište",
-    "Deutsch": "Aufenthaltsort",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "prijava prebivališta",
-    "Deutsch": "Wohnsitzanmeldung",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "odjava prebivališta",
-    "Deutsch": "Wohnsitzabmeldung",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "privremeni boravak",
-    "Deutsch": "vorübergehender Aufenthalt",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "stalni boravak",
-    "Deutsch": "Daueraufenthalt",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "dvojno državljanstvo",
-    "Deutsch": "doppelte Staatsbürgerschaft",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "otpust iz državljanstva",
-    "Deutsch": "Entlassung aus der Staatsbürgerschaft",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "zahtjev za vizu",
-    "Deutsch": "Visumantrag",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "rok važenja",
-    "Deutsch": "Gültigkeitsdauer",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "produženje",
-    "Deutsch": "Verlängerung",
-    "Wortart (Genus)": "Substantiv (n)"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "predati zahtjev",
-    "Deutsch": "einen Antrag einreichen",
-    "Wortart": "Phrase"
-  },
-  {
-    "kategorie": "Kapitel 64",
-    "Kapitel": 64,
-    "Kapitelname": "Amtliche Anerkennung & Papiere",
-    "Niveau": "B1",
-    "Bosnisch": "ovjeriti kod notara",
-    "Deutsch": "notariell beglaubigen lassen",
-    "Wortart": "Phrase"
-  },
-  {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "društvo",
@@ -16247,8 +15950,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "zajednica",
@@ -16256,8 +15959,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "stanovništvo",
@@ -16265,8 +15968,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "manjina",
@@ -16274,8 +15977,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "većina",
@@ -16283,8 +15986,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "jednakost",
@@ -16292,8 +15995,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "nejednakost",
@@ -16301,8 +16004,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "ljudska prava",
@@ -16310,8 +16013,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "diskriminacija",
@@ -16319,8 +16022,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "integracija",
@@ -16328,8 +16031,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "migracija",
@@ -16337,8 +16040,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "izbjeglica",
@@ -16346,8 +16049,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "useljenik",
@@ -16355,8 +16058,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "siromaštvo",
@@ -16364,8 +16067,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "blagostanje",
@@ -16373,8 +16076,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "sloj",
@@ -16382,8 +16085,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "generacija",
@@ -16391,8 +16094,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "solidarnost",
@@ -16400,8 +16103,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "nasilje",
@@ -16409,8 +16112,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "kriminal",
@@ -16418,8 +16121,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "korupcija",
@@ -16427,8 +16130,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "pripadnost",
@@ -16436,8 +16139,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "društveni",
@@ -16445,8 +16148,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "socijalni",
@@ -16454,8 +16157,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "ravnopravan",
@@ -16463,8 +16166,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "integrisati se",
@@ -16473,8 +16176,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "diskriminisati",
@@ -16483,8 +16186,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "pripadati",
@@ -16493,8 +16196,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "suočiti se",
@@ -16504,8 +16207,8 @@
     "par_id": "ap24"
   },
   {
-    "kategorie": "Kapitel 65",
-    "Kapitel": 65,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
     "Kapitelname": "Gesellschaft & Soziales",
     "Niveau": "B2",
     "Bosnisch": "riješiti",
@@ -16515,8 +16218,19 @@
     "par_id": "ap79"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 64",
+    "Kapitel": 64,
+    "Kapitelname": "Gesellschaft & Soziales",
+    "Niveau": "B2",
+    "Bosnisch": "suočavati se",
+    "Deutsch": "sich auseinandersetzen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap24"
+  },
+  {
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "politika",
@@ -16524,8 +16238,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "država",
@@ -16533,8 +16247,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "vlada",
@@ -16542,8 +16256,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "parlament",
@@ -16551,8 +16265,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "predsjednik",
@@ -16560,8 +16274,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "ministar",
@@ -16569,8 +16283,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "stranka",
@@ -16578,8 +16292,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "izbori",
@@ -16587,8 +16301,8 @@
     "Wortart (Genus)": "Substantiv (m, Pl.)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "glasanje",
@@ -16596,8 +16310,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "kampanja",
@@ -16605,8 +16319,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "demokratija",
@@ -16614,8 +16328,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "diktatura",
@@ -16623,8 +16337,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "ustav",
@@ -16632,8 +16346,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "opozicija",
@@ -16641,8 +16355,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "vlast",
@@ -16650,8 +16364,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "suverenitet",
@@ -16659,8 +16373,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "nezavisnost",
@@ -16668,8 +16382,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "zastava",
@@ -16677,8 +16391,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "himna",
@@ -16686,8 +16400,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "teritorija",
@@ -16695,8 +16409,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "pregovori",
@@ -16704,8 +16418,8 @@
     "Wortart (Genus)": "Substantiv (m, Pl.)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "sporazum",
@@ -16713,8 +16427,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "reforma",
@@ -16722,8 +16436,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "politički",
@@ -16731,8 +16445,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "državni",
@@ -16740,8 +16454,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "demokratski",
@@ -16749,8 +16463,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "nezavisan",
@@ -16758,8 +16472,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "glasati",
@@ -16768,8 +16482,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "vladati",
@@ -16778,8 +16492,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "pregovarati",
@@ -16788,8 +16502,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 66",
-    "Kapitel": 66,
+    "kategorie": "Kapitel 65",
+    "Kapitel": 65,
     "Kapitelname": "Politik & Staat",
     "Niveau": "B2",
     "Bosnisch": "protestovati",
@@ -16798,8 +16512,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "okoliš",
@@ -16807,8 +16521,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "okolina",
@@ -16816,8 +16530,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "klima",
@@ -16825,8 +16539,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "zagađenje",
@@ -16834,8 +16548,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "otpad",
@@ -16843,8 +16557,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "smeće",
@@ -16852,8 +16566,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "reciklaža",
@@ -16861,8 +16575,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "energija",
@@ -16870,8 +16584,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "obnovljiva energija",
@@ -16879,8 +16593,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "emisija",
@@ -16888,8 +16602,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "klimatske promjene",
@@ -16897,8 +16611,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "zagrijavanje",
@@ -16906,8 +16620,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "poplava",
@@ -16915,8 +16629,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "suša",
@@ -16924,8 +16638,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "vrsta",
@@ -16933,8 +16647,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "izumiranje",
@@ -16942,8 +16656,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "zaštita",
@@ -16951,8 +16665,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "održivost",
@@ -16960,8 +16674,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "ozonski omotač",
@@ -16969,8 +16683,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "fosilna goriva",
@@ -16978,8 +16692,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "prirodni resursi",
@@ -16987,8 +16701,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "ekološki",
@@ -16996,8 +16710,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "održiv",
@@ -17005,8 +16719,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "zagađen",
@@ -17014,8 +16728,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "obnovljiv",
@@ -17023,8 +16737,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "zagaditi",
@@ -17033,8 +16747,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "reciklirati",
@@ -17043,8 +16757,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "zaštititi",
@@ -17053,8 +16767,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "uništiti",
@@ -17063,8 +16777,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 67",
-    "Kapitel": 67,
+    "kategorie": "Kapitel 66",
+    "Kapitel": 66,
     "Kapitelname": "Umwelt & Klima",
     "Niveau": "B2",
     "Bosnisch": "obnoviti",
@@ -17073,8 +16787,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "ekonomija",
@@ -17082,8 +16796,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "finansije",
@@ -17091,8 +16805,8 @@
     "Wortart (Genus)": "Substantiv (f, Pl.)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "tržište",
@@ -17100,8 +16814,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "ponuda",
@@ -17109,8 +16823,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "potražnja",
@@ -17118,8 +16832,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "kapital",
@@ -17127,8 +16841,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "investicija",
@@ -17136,8 +16850,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "profit",
@@ -17145,8 +16859,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "gubitak",
@@ -17154,8 +16868,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "kredit",
@@ -17163,8 +16877,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "kamata",
@@ -17172,8 +16886,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "inflacija",
@@ -17181,8 +16895,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "kriza",
@@ -17190,8 +16904,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "budžet",
@@ -17199,8 +16913,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "dug",
@@ -17208,8 +16922,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "dionica",
@@ -17217,8 +16931,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "valuta",
@@ -17226,8 +16940,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "kurs",
@@ -17235,8 +16949,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "trgovina",
@@ -17244,8 +16958,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "izvoz",
@@ -17253,8 +16967,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "uvoz",
@@ -17262,8 +16976,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "proizvodnja",
@@ -17271,8 +16985,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "potrošač",
@@ -17280,8 +16994,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "konkurencija",
@@ -17289,8 +17003,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "rast",
@@ -17298,8 +17012,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "razvoj",
@@ -17307,8 +17021,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "ekonomski",
@@ -17316,8 +17030,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "finansijski",
@@ -17325,8 +17039,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "investirati",
@@ -17335,8 +17049,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 68",
-    "Kapitel": 68,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
     "Kapitelname": "Wirtschaft & Finanzen",
     "Niveau": "B2",
     "Bosnisch": "proizvoditi",
@@ -17345,8 +17059,44 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
+    "Kapitelname": "Wirtschaft & Finanzen",
+    "Niveau": "B2",
+    "Bosnisch": "doprinos",
+    "Deutsch": "Beitrag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
+    "Kapitelname": "Wirtschaft & Finanzen",
+    "Niveau": "B2",
+    "Bosnisch": "bruto",
+    "Deutsch": "brutto",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
+    "Kapitelname": "Wirtschaft & Finanzen",
+    "Niveau": "B2",
+    "Bosnisch": "neto",
+    "Deutsch": "netto",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 67",
+    "Kapitel": 67,
+    "Kapitelname": "Wirtschaft & Finanzen",
+    "Niveau": "B2",
+    "Bosnisch": "prihod",
+    "Deutsch": "Einnahme",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "mediji",
@@ -17354,8 +17104,8 @@
     "Wortart (Genus)": "Substantiv (m, Pl.)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "javnost",
@@ -17363,8 +17113,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "novinar",
@@ -17372,8 +17122,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "novinarstvo",
@@ -17381,8 +17131,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "izvještaj",
@@ -17390,8 +17140,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "članak",
@@ -17399,8 +17149,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "naslov",
@@ -17408,8 +17158,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "izvor",
@@ -17417,8 +17167,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "informacija",
@@ -17426,8 +17176,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "dezinformacija",
@@ -17435,8 +17185,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "propaganda",
@@ -17444,8 +17194,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "cenzura",
@@ -17453,8 +17203,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "sloboda govora",
@@ -17462,8 +17212,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "uticaj",
@@ -17471,8 +17221,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "objektivnost",
@@ -17480,8 +17230,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "pristrasnost",
@@ -17489,8 +17239,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "urednik",
@@ -17498,8 +17248,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "publika",
@@ -17507,8 +17257,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "emisija (TV)",
@@ -17516,8 +17266,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "dokumentarac",
@@ -17525,8 +17275,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "naslovnica",
@@ -17534,8 +17284,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "glasina",
@@ -17543,8 +17293,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "medijski",
@@ -17552,8 +17302,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "objektivan",
@@ -17561,8 +17311,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "pristran",
@@ -17570,8 +17320,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "javni",
@@ -17579,8 +17329,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "informisati",
@@ -17589,8 +17339,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "izvještavati",
@@ -17600,8 +17350,8 @@
     "par_id": "ap18"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "prenijeti",
@@ -17611,8 +17361,8 @@
     "par_id": "ap81"
   },
   {
-    "kategorie": "Kapitel 69",
-    "Kapitel": 69,
+    "kategorie": "Kapitel 68",
+    "Kapitel": 68,
     "Kapitelname": "Medien & Öffentlichkeit",
     "Niveau": "B2",
     "Bosnisch": "manipulisati",
@@ -17621,8 +17371,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "pravosuđe",
@@ -17630,8 +17380,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "tužilac",
@@ -17639,8 +17389,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "odbrana",
@@ -17648,8 +17398,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "optužba",
@@ -17657,8 +17407,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "optuženi",
@@ -17666,8 +17416,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "porota",
@@ -17675,8 +17425,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "saslušanje",
@@ -17684,8 +17434,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "izjava",
@@ -17693,8 +17443,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "iskaz",
@@ -17702,8 +17452,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "parnica",
@@ -17711,8 +17461,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "kazneno djelo",
@@ -17720,8 +17470,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "svjedočenje",
@@ -17729,8 +17479,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "zatvor",
@@ -17738,8 +17488,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "kazna zatvora",
@@ -17747,8 +17497,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "uslovna kazna",
@@ -17756,8 +17506,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "ustavni sud",
@@ -17765,8 +17515,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "pravni sistem",
@@ -17774,8 +17524,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "nadoknada",
@@ -17783,8 +17533,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "pravosudni",
@@ -17792,8 +17542,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "kazneni",
@@ -17801,8 +17551,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "nadležan",
@@ -17810,8 +17560,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "pravomoćan",
@@ -17819,8 +17569,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "osuđen",
@@ -17828,8 +17578,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "optužiti",
@@ -17838,8 +17588,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "osuditi",
@@ -17849,8 +17599,8 @@
     "par_id": "ap19"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "osloboditi",
@@ -17860,8 +17610,8 @@
     "par_id": "ap82"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "svjedočiti",
@@ -17870,8 +17620,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "suditi",
@@ -17880,8 +17630,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 70",
-    "Kapitel": 70,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
     "Kapitelname": "Recht & Justiz",
     "Niveau": "B2",
     "Bosnisch": "braniti",
@@ -17891,8 +17641,17 @@
     "par_id": "ap20"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 69",
+    "Kapitel": 69,
+    "Kapitelname": "Recht & Justiz",
+    "Niveau": "B2",
+    "Bosnisch": "inspekcija",
+    "Deutsch": "Inspektion",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "naučnik",
@@ -17900,8 +17659,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "istraživač",
@@ -17909,8 +17668,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "eksperiment",
@@ -17918,8 +17677,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "hipoteza",
@@ -17927,8 +17686,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "metoda",
@@ -17936,8 +17695,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "analiza",
@@ -17945,8 +17704,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "otkriće",
@@ -17954,8 +17713,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "izum",
@@ -17963,8 +17722,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "tehnika",
@@ -17972,8 +17731,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "formula",
@@ -17981,8 +17740,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "uzorak",
@@ -17990,8 +17749,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "mjerenje",
@@ -17999,8 +17758,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "pojava",
@@ -18008,8 +17767,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "svemir",
@@ -18017,8 +17776,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "atom",
@@ -18026,8 +17785,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "molekula",
@@ -18035,8 +17794,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "ćelija",
@@ -18044,8 +17803,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "gen",
@@ -18053,8 +17812,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "evolucija",
@@ -18062,8 +17821,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "gravitacija",
@@ -18071,8 +17830,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "materija",
@@ -18080,8 +17839,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "naučni",
@@ -18089,8 +17848,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "tehnološki",
@@ -18098,8 +17857,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "eksperimentalan",
@@ -18107,8 +17866,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "teorijski",
@@ -18116,8 +17875,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "precizan",
@@ -18125,8 +17884,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "otkriti",
@@ -18136,8 +17895,8 @@
     "par_id": "ap78"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "izmisliti",
@@ -18146,8 +17905,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "ispitati",
@@ -18156,8 +17915,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 71",
-    "Kapitel": 71,
+    "kategorie": "Kapitel 70",
+    "Kapitel": 70,
     "Kapitelname": "Wissenschaft & Forschung",
     "Niveau": "B2",
     "Bosnisch": "eksperimentisati",
@@ -18166,8 +17925,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "pojam",
@@ -18175,8 +17934,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "ideja",
@@ -18184,8 +17943,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "koncept",
@@ -18193,8 +17952,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "značenje",
@@ -18202,8 +17961,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "smisao",
@@ -18211,8 +17970,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "svrha",
@@ -18220,8 +17979,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "vrijednost",
@@ -18229,8 +17988,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "stvarnost",
@@ -18238,8 +17997,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "mogućnost",
@@ -18247,8 +18006,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "svijest",
@@ -18256,8 +18015,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "namjera",
@@ -18265,8 +18024,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "uslov",
@@ -18274,8 +18033,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "razlika",
@@ -18283,8 +18042,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "sličnost",
@@ -18292,8 +18051,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "suprotnost",
@@ -18301,8 +18060,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "utisak",
@@ -18310,8 +18069,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "pretpostavka",
@@ -18319,8 +18078,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "perspektiva",
@@ -18328,8 +18087,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "stanovište",
@@ -18337,8 +18096,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "apstraktan",
@@ -18346,8 +18105,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "konkretan",
@@ -18355,8 +18114,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "moguć",
@@ -18364,8 +18123,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "nemoguć",
@@ -18373,8 +18132,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "bitan",
@@ -18382,8 +18141,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "složen",
@@ -18391,8 +18150,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "opći",
@@ -18400,8 +18159,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "značiti",
@@ -18410,8 +18169,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "pretpostaviti",
@@ -18420,8 +18179,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "razlikovati",
@@ -18430,8 +18189,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 72",
-    "Kapitel": 72,
+    "kategorie": "Kapitel 71",
+    "Kapitel": 71,
     "Kapitelname": "Abstrakte Begriffe & Konzepte",
     "Niveau": "B2",
     "Bosnisch": "podrazumijevati",
@@ -18440,8 +18199,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "donijeti odluku",
@@ -18449,8 +18208,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "postaviti pitanje",
@@ -18458,8 +18217,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "voditi računa",
@@ -18467,8 +18226,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "imati pravo",
@@ -18476,8 +18235,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "igrati ulogu",
@@ -18485,8 +18244,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "obratiti pažnju",
@@ -18494,8 +18253,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "doći do zaključka",
@@ -18503,8 +18262,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "staviti na raspolaganje",
@@ -18512,8 +18271,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "uzeti u obzir",
@@ -18521,8 +18280,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "imati u vidu",
@@ -18530,8 +18289,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "na kraju krajeva",
@@ -18539,8 +18298,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "bez obzira na",
@@ -18548,8 +18307,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "u svakom slučaju",
@@ -18557,8 +18316,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "u principu",
@@ -18566,8 +18325,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "s vremena na vrijeme",
@@ -18575,8 +18334,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "prije ili kasnije",
@@ -18584,8 +18343,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "malo po malo",
@@ -18593,8 +18352,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "na prvi pogled",
@@ -18602,8 +18361,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "po svaku cijenu",
@@ -18611,8 +18370,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "držati riječ",
@@ -18620,8 +18379,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "pasti na pamet",
@@ -18629,8 +18388,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "ići na živce",
@@ -18638,8 +18397,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "vrijediti truda",
@@ -18647,8 +18406,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "imati smisla",
@@ -18656,8 +18415,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "voditi brigu",
@@ -18665,8 +18424,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "doći k sebi",
@@ -18674,8 +18433,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "pružiti ruku",
@@ -18683,8 +18442,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "stati na kraj",
@@ -18692,8 +18451,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "baciti se na posao",
@@ -18701,8 +18460,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 73",
-    "Kapitel": 73,
+    "kategorie": "Kapitel 72",
+    "Kapitel": 72,
     "Kapitelname": "Kollokationen & feste Wendungen",
     "Niveau": "B2",
     "Bosnisch": "držati se",
@@ -18710,8 +18469,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "obavijestiti",
@@ -18720,8 +18479,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "obratiti se",
@@ -18730,8 +18489,8 @@
     "aspekt": "svršeni"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "zahtijevati",
@@ -18740,8 +18499,8 @@
     "aspekt": "nesvršeni"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "poštovani",
@@ -18749,8 +18508,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "uvaženi",
@@ -18758,8 +18517,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "s poštovanjem",
@@ -18767,8 +18526,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "u prilogu",
@@ -18776,8 +18535,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "prilog",
@@ -18785,8 +18544,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "s tim u vezi",
@@ -18794,8 +18553,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "u vezi s",
@@ -18803,8 +18562,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "u pogledu",
@@ -18812,8 +18571,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "po pitanju",
@@ -18821,8 +18580,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "u skladu sa",
@@ -18830,8 +18589,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "pod uslovom da",
@@ -18839,8 +18598,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "s obzirom da",
@@ -18848,8 +18607,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "putem",
@@ -18857,8 +18616,8 @@
     "Wortart": "Präposition"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "shodno",
@@ -18866,8 +18625,8 @@
     "Wortart": "Präposition"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "ujedno",
@@ -18875,8 +18634,8 @@
     "Wortart": "Adverb"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "naknadno",
@@ -18884,8 +18643,8 @@
     "Wortart": "Adverb"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "prethodno",
@@ -18893,8 +18652,8 @@
     "Wortart": "Adverb"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "nadalje",
@@ -18902,8 +18661,8 @@
     "Wortart": "Adverb"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "navedeni",
@@ -18911,8 +18670,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "dotični",
@@ -18920,8 +18679,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "spomenuti",
@@ -18929,8 +18688,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "izvolite",
@@ -18938,8 +18697,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "imati čast",
@@ -18947,8 +18706,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "ljubazno",
@@ -18956,8 +18715,8 @@
     "Wortart": "Adverb"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "smatra se",
@@ -18965,8 +18724,8 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 74",
-    "Kapitel": 74,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
     "Kapitelname": "Formeller Sprachgebrauch",
     "Niveau": "B2",
     "Bosnisch": "napominjemo",
@@ -18974,8 +18733,17 @@
     "Wortart": "Phrase"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 73",
+    "Kapitel": 73,
+    "Kapitelname": "Formeller Sprachgebrauch",
+    "Niveau": "B2",
+    "Bosnisch": "čast",
+    "Deutsch": "Ehre",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "završni radovi",
@@ -18983,8 +18751,8 @@
     "Wortart (Genus)": "Substantiv (m, Pl.)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "unutrašnji malter",
@@ -18992,8 +18760,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "gletovanje",
@@ -19001,8 +18769,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "cementna košuljica",
@@ -19010,8 +18778,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "fasada",
@@ -19019,8 +18787,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "demit fasada",
@@ -19028,8 +18796,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "stiropor",
@@ -19037,8 +18805,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "gips-karton",
@@ -19046,8 +18814,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "stolarija",
@@ -19055,8 +18823,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "roletna",
@@ -19064,8 +18832,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "prozorska klupica",
@@ -19073,8 +18841,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "pločice",
@@ -19082,8 +18850,8 @@
     "Wortart (Genus)": "Substantiv (f, Pl.)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "fuge",
@@ -19091,8 +18859,8 @@
     "Wortart (Genus)": "Substantiv (f, Pl.)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "parket",
@@ -19100,8 +18868,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "laminat",
@@ -19109,8 +18877,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "podloga",
@@ -19118,8 +18886,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "postavljati",
@@ -19129,8 +18897,8 @@
     "par_id": "ap31"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "postaviti",
@@ -19140,8 +18908,8 @@
     "par_id": "ap31"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "farbati",
@@ -19151,8 +18919,8 @@
     "par_id": "ap34"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "ofarbati",
@@ -19162,8 +18930,8 @@
     "par_id": "ap34"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "krečiti",
@@ -19173,8 +18941,8 @@
     "par_id": "ap35"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "okrečiti",
@@ -19184,8 +18952,8 @@
     "par_id": "ap35"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "renovirati",
@@ -19194,8 +18962,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "adaptirati",
@@ -19204,8 +18972,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "useljiv",
@@ -19213,8 +18981,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "gotov",
@@ -19222,8 +18990,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "nedovršen",
@@ -19231,8 +18999,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "vlažan",
@@ -19240,8 +19008,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "suh",
@@ -19249,8 +19017,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "gladak",
@@ -19258,8 +19026,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "malterisati",
@@ -19269,8 +19037,8 @@
     "par_id": "ap42"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "omalterisati",
@@ -19280,8 +19048,8 @@
     "par_id": "ap42"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "impregnacija",
@@ -19289,8 +19057,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 75",
-    "Kapitel": 75,
+    "kategorie": "Kapitel 74",
+    "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
     "Bosnisch": "temeljni premaz",
@@ -19298,8 +19066,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "termoizolacija",
@@ -19307,8 +19075,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "hidroizolacija",
@@ -19316,8 +19084,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "parna brana",
@@ -19325,8 +19093,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "zvučna izolacija",
@@ -19334,8 +19102,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "izolirati",
@@ -19344,8 +19112,8 @@
     "aspekt": "dvovidni"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "elektroinstalacije",
@@ -19353,8 +19121,8 @@
     "Wortart (Genus)": "Substantiv (f, Pl.)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "utičnica",
@@ -19362,8 +19130,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "prekidač",
@@ -19371,8 +19139,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "razvodna tabla",
@@ -19380,8 +19148,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "uzemljenje",
@@ -19389,8 +19157,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "vodoinstalacije",
@@ -19398,8 +19166,8 @@
     "Wortart (Genus)": "Substantiv (f, Pl.)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "cijev",
@@ -19407,8 +19175,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "kanalizacija",
@@ -19416,8 +19184,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "septička jama",
@@ -19425,8 +19193,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "priključci",
@@ -19434,8 +19202,8 @@
     "Wortart (Genus)": "Substantiv (m, Pl.)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "grijanje",
@@ -19443,8 +19211,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "podno grijanje",
@@ -19452,8 +19220,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "radijator",
@@ -19461,8 +19229,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "kotao",
@@ -19470,8 +19238,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "kamin",
@@ -19479,8 +19247,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "peć na drva",
@@ -19488,8 +19256,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "klima uređaj",
@@ -19497,8 +19265,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "ventilacija",
@@ -19506,8 +19274,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "energetski certifikat",
@@ -19515,8 +19283,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "ugradnja",
@@ -19524,8 +19292,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "ugrađivati",
@@ -19535,8 +19303,8 @@
     "par_id": "ap32"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "ugraditi",
@@ -19546,8 +19314,8 @@
     "par_id": "ap32"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "kriv",
@@ -19555,8 +19323,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "ravan",
@@ -19564,8 +19332,8 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "vlaga",
@@ -19573,8 +19341,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "plijesan",
@@ -19582,8 +19350,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "buđ",
@@ -19591,8 +19359,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "prokišnjavanje",
@@ -19600,8 +19368,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "toplotni most",
@@ -19609,8 +19377,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 76",
-    "Kapitel": 76,
+    "kategorie": "Kapitel 75",
+    "Kapitel": 75,
     "Kapitelname": "Hausbau: Haustechnik & Dämmung",
     "Niveau": "B2",
     "Bosnisch": "provjetravanje",
@@ -19618,8 +19386,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "parcela",
@@ -19627,8 +19395,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "zemljište",
@@ -19636,8 +19404,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "građevinsko zemljište",
@@ -19645,8 +19413,8 @@
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "katastarska čestica",
@@ -19654,8 +19422,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "zemljišna knjiga",
@@ -19663,8 +19431,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "zemljišnoknjižni izvadak",
@@ -19672,8 +19440,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "vlasnički list",
@@ -19681,8 +19449,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "posjedovni list",
@@ -19690,8 +19458,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "uknjižba",
@@ -19699,8 +19467,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "vlasnik",
@@ -19708,8 +19476,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "geometar",
@@ -19717,8 +19485,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "premjer",
@@ -19726,8 +19494,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "međa",
@@ -19735,8 +19503,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "kupoprodajni ugovor",
@@ -19744,8 +19512,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "notar",
@@ -19753,8 +19521,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "ovjera",
@@ -19762,8 +19530,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "kapara",
@@ -19771,8 +19539,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "porez na promet nekretnina",
@@ -19780,8 +19548,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "urbanistička saglasnost",
@@ -19789,8 +19557,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "građevinska dozvola",
@@ -19798,8 +19566,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "upotrebna dozvola",
@@ -19807,8 +19575,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "regulacioni plan",
@@ -19816,8 +19584,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "glavni projekat",
@@ -19825,8 +19593,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "statički proračun",
@@ -19834,8 +19602,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "arhitekta",
@@ -19843,8 +19611,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "građevinski inženjer",
@@ -19852,8 +19620,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "nadzorni organ",
@@ -19861,8 +19629,8 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "građevinska inspekcija",
@@ -19870,8 +19638,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "bespravna gradnja",
@@ -19879,8 +19647,8 @@
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "odobravati",
@@ -19890,8 +19658,8 @@
     "par_id": "ap39"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "odobriti",
@@ -19901,8 +19669,8 @@
     "par_id": "ap39"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "bespravan",
@@ -19910,13 +19678,310 @@
     "Wortart": "Adjektiv"
   },
   {
-    "kategorie": "Kapitel 77",
-    "Kapitel": 77,
+    "kategorie": "Kapitel 76",
+    "Kapitel": 76,
     "Kapitelname": "Grundstück & Baugenehmigung",
     "Niveau": "B2",
     "Bosnisch": "uknjižen",
     "Deutsch": "im Grundbuch eingetragen",
     "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "nostrifikacija",
+    "Deutsch": "Nostrifikation / Anerkennung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "priznavanje diplome",
+    "Deutsch": "Anerkennung des Abschlusses",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "sudski tumač",
+    "Deutsch": "vereidigter Dolmetscher",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "prijevod",
+    "Deutsch": "Übersetzung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "ovjeren prijevod",
+    "Deutsch": "beglaubigte Übersetzung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "apostil",
+    "Deutsch": "Apostille",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "matična knjiga",
+    "Deutsch": "Personenstandsregister",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "matični ured",
+    "Deutsch": "Standesamt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "matičar",
+    "Deutsch": "Standesbeamter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "izvod iz matične knjige rođenih",
+    "Deutsch": "Geburtsurkunde",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "vjenčani list",
+    "Deutsch": "Heiratsurkunde",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "smrtni list",
+    "Deutsch": "Sterbeurkunde",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "uvjerenje o državljanstvu",
+    "Deutsch": "Staatsbürgerschaftsnachweis",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "uvjerenje o nekažnjavanju",
+    "Deutsch": "Führungszeugnis",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "ovjera potpisa",
+    "Deutsch": "Beglaubigung der Unterschrift",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "javni bilježnik",
+    "Deutsch": "Notar (kroat.; in BiH: notar)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "ovlaštenje",
+    "Deutsch": "Befugnis / Ermächtigung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "nadležnost",
+    "Deutsch": "Zuständigkeit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "šalter",
+    "Deutsch": "Schalter (Amt)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "konzularna taksa",
+    "Deutsch": "Konsulargebühr",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "prebivalište",
+    "Deutsch": "Wohnsitz",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "boravište",
+    "Deutsch": "Aufenthaltsort",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "prijava prebivališta",
+    "Deutsch": "Wohnsitzanmeldung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "odjava prebivališta",
+    "Deutsch": "Wohnsitzabmeldung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "privremeni boravak",
+    "Deutsch": "vorübergehender Aufenthalt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "stalni boravak",
+    "Deutsch": "Daueraufenthalt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "dvojno državljanstvo",
+    "Deutsch": "doppelte Staatsbürgerschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "otpust iz državljanstva",
+    "Deutsch": "Entlassung aus der Staatsbürgerschaft",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "zahtjev za vizu",
+    "Deutsch": "Visumantrag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "rok važenja",
+    "Deutsch": "Gültigkeitsdauer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "produženje",
+    "Deutsch": "Verlängerung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "predati zahtjev",
+    "Deutsch": "einen Antrag einreichen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 77",
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Bosnisch": "ovjeriti kod notara",
+    "Deutsch": "notariell beglaubigen lassen",
+    "Wortart": "Phrase"
   },
   {
     "kategorie": "Kapitel 78",
@@ -20202,8 +20267,8 @@
     "Kapitel": 78,
     "Kapitelname": "Versicherung, Steuer & Soziales",
     "Niveau": "B2",
-    "Bosnisch": "uplatiti doprinose",
-    "Deutsch": "Sozialabgaben einzahlen",
+    "Bosnisch": "plaćati doprinose",
+    "Deutsch": "Sozialabgaben zahlen",
     "Wortart": "Phrase"
   },
   {
@@ -21229,15 +21294,6 @@
     "Kapitel": 82,
     "Kapitelname": "Fachsprache: Recht & Verwaltung",
     "Niveau": "C1",
-    "Bosnisch": "inspekcija",
-    "Deutsch": "Inspektion",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 82",
-    "Kapitel": 82,
-    "Kapitelname": "Fachsprache: Recht & Verwaltung",
-    "Niveau": "C1",
     "Bosnisch": "zakonodavac",
     "Deutsch": "Gesetzgeber",
     "Wortart (Genus)": "Substantiv (m)"
@@ -21723,15 +21779,6 @@
     "Kapitel": 84,
     "Kapitelname": "Fachsprache: Wirtschaft",
     "Niveau": "C1",
-    "Bosnisch": "prihod",
-    "Deutsch": "Einnahme",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 84",
-    "Kapitel": 84,
-    "Kapitelname": "Fachsprache: Wirtschaft",
-    "Niveau": "C1",
     "Bosnisch": "rashod",
     "Deutsch": "Ausgabe",
     "Wortart (Genus)": "Substantiv (m)"
@@ -21867,15 +21914,6 @@
     "Kapitel": 84,
     "Kapitelname": "Fachsprache: Wirtschaft",
     "Niveau": "C1",
-    "Bosnisch": "doprinos",
-    "Deutsch": "Beitrag",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 84",
-    "Kapitel": 84,
-    "Kapitelname": "Fachsprache: Wirtschaft",
-    "Niveau": "C1",
     "Bosnisch": "subvencija",
     "Deutsch": "Subvention",
     "Wortart (Genus)": "Substantiv (f)"
@@ -21924,24 +21962,6 @@
     "Bosnisch": "devizni kurs",
     "Deutsch": "Devisenkurs",
     "Wortart": "Phrase"
-  },
-  {
-    "kategorie": "Kapitel 84",
-    "Kapitel": 84,
-    "Kapitelname": "Fachsprache: Wirtschaft",
-    "Niveau": "C1",
-    "Bosnisch": "bruto",
-    "Deutsch": "brutto",
-    "Wortart": "Adjektiv"
-  },
-  {
-    "kategorie": "Kapitel 84",
-    "Kapitel": 84,
-    "Kapitelname": "Fachsprache: Wirtschaft",
-    "Niveau": "C1",
-    "Bosnisch": "neto",
-    "Deutsch": "netto",
-    "Wortart": "Adjektiv"
   },
   {
     "kategorie": "Kapitel 84",
@@ -22441,17 +22461,6 @@
     "Deutsch": "Zuflucht nehmen",
     "Wortart": "Verb",
     "aspekt": "svršeni"
-  },
-  {
-    "kategorie": "Kapitel 86",
-    "Kapitel": 86,
-    "Kapitelname": "Gehobene Synonyme & Nuancen",
-    "Niveau": "C1",
-    "Bosnisch": "suočavati se",
-    "Deutsch": "sich auseinandersetzen",
-    "Wortart": "Verb",
-    "aspekt": "nesvršeni",
-    "par_id": "ap24"
   },
   {
     "kategorie": "Kapitel 86",
@@ -24838,15 +24847,6 @@
     "Niveau": "C2",
     "Bosnisch": "zakletva",
     "Deutsch": "Eid / Schwur",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 95",
-    "Kapitel": 95,
-    "Kapitelname": "Archaismen & feierliche Sprache",
-    "Niveau": "C2",
-    "Bosnisch": "čast",
-    "Deutsch": "Ehre",
     "Wortart (Genus)": "Substantiv (f)"
   },
   {

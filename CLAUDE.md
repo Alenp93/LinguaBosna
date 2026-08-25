@@ -184,6 +184,17 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
   Ohne diese Klammer werden Bosnismus und Standardform in der Rückrichtung ununterscheidbar.
 - **Datei bleibt nach Kapitelnummer sortiert.** Die Reihenfolge der Kapitel innerhalb eines
   Niveaus ergibt sich in der Übersicht aus dem ersten Auftreten in der JSON.
+- **Progression: Grundwort nie über dem Kompositum.** `bruto plata` stand auf B2, `bruto`
+  aber auf C1 – der Lernende trifft das zusammengesetzte Wort, bevor er den Baustein kennt.
+  Im August 2026 wurden neun solcher Inversionen aufgelöst. Prüfbar mit einem Abgleich
+  aller Mehrwortlemmata gegen die Einwortlemmata. **Ausnahmen sind in Ordnung**, wenn das
+  Grundwort eine *andere Bedeutung* trägt (`slava` = Ruhm vs. `krsna slava`, `organ` =
+  Organ vs. `nadzorni organ`, `postaviti` = verlegen vs. `postaviti sto`) oder wenn das
+  Mehrwortlemma eine feste Formel ist, die als Einheit gelernt wird (`sretan bajram`,
+  `vozačka dozvola`, `biti bolestan`).
+- **Aspektpaare stehen auf genau einem Niveau.** `lernen-aspektpaare.html` übernimmt
+  Bedeutung *und* Niveau vom `nesvršeni`-Partner; ein Paar über zwei Niveaus landet
+  deshalb im falschen Übungsset. Fünf solcher Fälle wurden im August 2026 angeglichen.
 - **Eigennamen nur, wenn das Deutsche anders lautet.** Entscheidend ist, ob es überhaupt
   etwas zu lernen gibt: `Beč` = Wien, `Jadransko more` = Adriatisches Meer, `Njemačka` =
   Deutschland – solche Exonyme gehören in den Bestand. Namen, die im Deutschen gleich lauten

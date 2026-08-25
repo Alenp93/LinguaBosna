@@ -8537,7 +8537,8 @@
     "Bosnisch": "liječiti",
     "Deutsch": "behandeln / heilen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap88"
   },
   {
     "kategorie": "Kapitel 33",
@@ -11887,9 +11888,10 @@
     "Kapitelname": "Gesundheit & Symptome 2",
     "Niveau": "B1",
     "Bosnisch": "liječiti se",
-    "Deutsch": "sich behandeln lassen",
+    "Deutsch": "sich behandeln lassen / genesen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap87"
   },
   {
     "kategorie": "Kapitel 47",
@@ -11918,6 +11920,16 @@
     "Niveau": "B1",
     "Bosnisch": "pregledati",
     "Deutsch": "untersuchen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 47",
+    "Kapitel": 47,
+    "Kapitelname": "Gesundheit & Symptome 2",
+    "Niveau": "B1",
+    "Bosnisch": "ozdraviti",
+    "Deutsch": "genesen / gesund werden (gebräuchlicher als izliječiti se)",
     "Wortart": "Verb",
     "aspekt": "svršeni"
   },
@@ -21188,7 +21200,8 @@
     "Bosnisch": "proisteći",
     "Deutsch": "resultieren",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap86"
   },
   {
     "kategorie": "Kapitel 82",
@@ -26346,6 +26359,33 @@
     "Wortart": "Verb",
     "aspekt": "nesvršeni",
     "par_id": "ap84",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "proisticati",
+    "Deutsch": "resultieren",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap86",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "izliječiti se",
+    "Deutsch": "genesen / ausheilen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap87",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "izliječiti",
+    "Deutsch": "heilen (vollständig)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap88",
     "nur_woerterbuch": true
   }
 ]

@@ -1,0 +1,7 @@
+# Python-Bytecode der Build- und Testskripte
+__pycache__/
+*.pyc
+
+# Persoenliche Claude-Code-Einstellungen (im Gegensatz zu .claude/agents/
+# und .claude/launch.json, die zum Projekt gehoeren)
+.claude/settings.local.json

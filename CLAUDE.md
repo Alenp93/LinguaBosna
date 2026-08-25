@@ -142,10 +142,10 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 
 ## Vokabular-System
 
-- Kanonische Datei: `vokabeln_flat.json` – ca. 2.885 Einträge über 97 Kapitel (A1–C2)
+- Kanonische Datei: `vokabeln_flat.json` – ca. 2.889 Einträge über 97 Kapitel (A1–C2)
 - JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
   **diese Konvention darf nicht gebrochen werden**
-- Verben: `aspekt`-Feld, 85 Aspektpaare über `par_id` (`ap01`–`ap85`, lückenlos belegt) verlinkt
+- Verben: `aspekt`-Feld, 88 Aspektpaare über `par_id` (`ap01`–`ap88`, lückenlos belegt) verlinkt
 - ⚠️ **Nur echte Aspektpaare verlinken** – gleicher Stamm, gleiche Grundbedeutung, der
   Unterschied liegt allein im Aspekt. Im August 2026 mussten elf Bestandspaare repariert
   werden, in denen nur thematisch benachbarte Verben eines Kapitels verlinkt waren

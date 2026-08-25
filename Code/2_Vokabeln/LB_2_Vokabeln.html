@@ -187,6 +187,9 @@
       // was in "Uhrzeit" und "Jahreszeiten" gerade nicht greifen würde.
       [/uhrzeit|jahreszeiten/i,                'fa-clock'],
       [/\bzeit\b|datum/i,                      'fa-calendar-days'],
+      // "Wohnen zur Miete" muss vor /haus|wohnen/ stehen, sonst bekommt es
+      // dasselbe Icon wie das A1-Kapitel "Haus & Wohnen".
+      [/miete|nebenkosten/i,                   'fa-key'],
       [/haus|wohnen/i,                         'fa-house'],
       [/kleidung|aussehen/i,                   'fa-shirt'],
       [/tiere/i,                               'fa-paw'],
@@ -219,10 +222,15 @@
       [/redewendungen|idiome|idiomatik/i,      'fa-quote-right'],
       [/orientalizmi|kulturlexik/i,            'fa-star-and-crescent'],
       [/sevdah|kulturerbe/i,                   'fa-music'],
+      // "Versicherung, Steuer & Soziales" muss vor /gesellschaft|soziales/
+      // stehen, sonst erbt es das Icon von "Gesellschaft & Soziales".
+      [/versicherung|steuer/i,                 'fa-shield-halved'],
       [/gesellschaft|soziales/i,               'fa-people-roof'],
       [/kultur/i,                              'fa-masks-theater'],
       [/politik|staat/i,                       'fa-landmark-dome'],
       [/umwelt|klima/i,                        'fa-leaf'],
+      // Ebenso "Bankgeschäfte & Finanzen" vor /wirtschaft|finanzen/.
+      [/bankgeschäfte/i,                       'fa-building-columns'],
       [/wirtschaft|finanzen/i,                 'fa-chart-line'],
       [/geld/i,                                'fa-money-bill-wave'],
       [/wissenschaft|forschung/i,              'fa-flask'],
@@ -231,6 +239,7 @@
       [/abstrakte|konzepte|begriffe/i,         'fa-lightbulb'],
       [/kollokationen|wendungen/i,             'fa-puzzle-piece'],
       [/formell/i,                             'fa-file-signature'],
+      [/anerkennung|papiere/i,                 'fa-stamp'],
       [/behörden/i,                            'fa-landmark'],
       [/justiz|verwaltung|recht|gericht/i,     'fa-gavel'],
       [/umgangssprache|bosnizismen/i,          'fa-comment'],

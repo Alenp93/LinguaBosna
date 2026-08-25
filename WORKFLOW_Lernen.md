@@ -85,7 +85,7 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
 | Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
-| Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) | 84 Paare (`ap01`–`ap84`, lückenlos), 3 Sets: A1–A2 (50) / B1–C1 (34) / alle (84) |
+| Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) | 85 Paare (`ap01`–`ap85`, lückenlos), 3 Sets: A1–A2 (51) / B1–C1 (34) / alle (85) |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | 📋 geplant | – | eigene JSON nötig | – |
 
 ---

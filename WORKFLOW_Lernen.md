@@ -143,8 +143,8 @@ Lernende beim Thema einsteigen, nicht bei der Übungsart.
   To-do gemeldet und beim Anlegen der Grammatikseite nachgezogen.
 
 Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext,
-`grammatik-enklitika.html` → Satzbau-Puzzle. Noch offen: Aspektpaare
-(Verbalaspekt-Kapitel).
+`grammatik-enklitika.html` → Satzbau-Puzzle,
+`grammatik-verbalaspekt.html` → Aspektpaare.
 
 ---
 

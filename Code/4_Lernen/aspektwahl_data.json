@@ -1,0 +1,219 @@
+{
+  "_hinweis": "Aufgaben-Datenbank fuer die Uebungsart 'Aspektwahl' (Verbalaspekt in der ANWENDUNG, im Gegensatz zu lernen-aspektpaare.html, das nur die Wortformen abfragt). Deutsche Feldnamen, damit die Datei leicht selbst erweiterbar ist. Aufbau: Top-Level 'sets', analog zu satzbau_data.json. Set 1 'signalwoerter' ist der Aufwaermer: Gezeigt wird ein Ausdruck (z. B. 'svaki dan'), der Lernende ordnet ihn einem von DREI Koerben zu - normalerweise nesvrseni / normalerweise svrseni / entscheidet nicht. Der dritte Korb ist didaktisch der wichtigste: Ohne ihn lernt der Nutzer eine Adverbien-Liste auswendig, statt zu denken. Jede Aufgabe: 'signal', 'deutsch', 'korb' (nesvrseni|svrseni|offen - mit Diakritika geschrieben, identisch zu den Werten im Feld 'aspekt' von vokabeln_flat.json, damit spaetere Sets direkt vergleichen koennen), 'kategorie' (fuer die Auswertung nach Regeltyp am Ende der Runde), 'beispiel' + 'beispiel_de', 'erklaerung', optional 'par_id' (Bezug zum Aspektpaar in vokabeln_flat.json). Koerbe vom Typ 'offen' haben zusaetzlich 'beispiel2' + 'beispiel2_de', weil dort erst der Kontrast ZWEIER Saetze zeigt, dass beide Aspekte moeglich sind und Verschiedenes bedeuten.",
+
+  "_didaktik_wichtig": "Die Fragestellung lautet bewusst 'Welcher Aspekt ist die NORMALE WAHL?' (Feld 'frage'), nicht 'Welcher Aspekt ist erzwungen?'. Grund: Das Bosnische kennt den habituellen svrseni-Praesens - wiederholte, jeweils abgeschlossene Einzelakte stehen regulaer im svrseni ('Svaki dan pogledam jednu epizodu.', 'Uvijek zatvorim vrata za sobom.'). Die Regel 'Wiederholung = nesvrseni' ist also eine Default-Erwartung, keine Grammatikregel. Genau EINE harte Regel steht im Set: die Phasenverben (poceti/prestati/nastaviti + Infinitiv) verlangen zwingend den nesvrseni-Infinitiv. Alle Erklaerungstexte sind entsprechend formuliert ('in der Regel', 'Standardwahl') - beim Ergaenzen neuer Eintraege bitte nicht in absolute Faustregeln zurueckfallen ('immer', 'verlaesslich', 'nie').",
+
+  "_hinweis_ziehung": "Die Koerbe sind ungleich gross (18 nesvrseni / 10 svrseni / 13 offen), weil schwache Signale bewusst nach 'offen' verschoben statt kuenstlich ausgeglichen wurden. Die Uebungsseite soll die 10 Fragen einer Runde deshalb STRATIFIZIERT ziehen (z. B. 4/3/3), nicht rein zufaellig aus dem Gesamtpool - sonst ist der svrseni-Korb in vielen Runden unterrepraesentiert.",
+
+  "_bewusst_weggelassen": "Diese haeufig als 'Signalwoerter' gelehrten Ausdruecke sind NICHT im Set, weil sie der Pruefung nicht standhalten: 'upravo' (mit Praesens nesvrseni voellig normal: 'Upravo citam'), 'jednom' (auch 'Jednom sam zivio u Becu'), 'tek' ('Tek ucim' = ich lerne gerade erst), 'dva puta' (je nach Bezug beides), 'napokon' (bedeutungsgleich mit 'konacno', und im Bosnischen eine Spur kroatisch-frequenter - redundanter Eintrag), 'nemoj' (die Regel 'nemoj immer nesvrseni' ist falsch: 'Nemoj zaboraviti!', 'Nemoj pasti!' sind Standard; belastbar ist nur die ANDERE Regel 'ne' + synthetischer Imperativ - 'Ne citaj to!', nicht *'Ne procitaj to!' - ein Kandidat fuer Set 2), 'dok' (zweideutig: 'waehrend' + nesvrseni vs. 'bis' + svrseni in 'Cekaj dok ne dodje' - kommt deshalb erst im Satzkontext von Set 2 vor). Im Korb 'offen' statt gestrichen, weil ihr Kontrast lehrreich ist: 'vec', 'odmah', 'potpuno', 'svaki put'.",
+
+  "kategorien": {
+    "wiederholung": "Wiederholung & Gewohnheit",
+    "dauer": "Dauer & Verlauf",
+    "phasenverb": "Phasenverben",
+    "ereignis": "Punktuelles Ereignis",
+    "abschluss": "Abschluss & Ergebnis",
+    "zeitrahmen": "Zeitrahmen",
+    "nebensatz_abfolge": "Nebensatz: Abfolge",
+    "offen": "Kein Signal – der Kontext entscheidet"
+  },
+
+  "sets": [
+    {
+      "id": "signalwoerter",
+      "titel": "Signalwörter",
+      "niveau": "B1",
+      "icon": "fa-satellite-dish",
+      "frage": "Welcher Aspekt ist nach diesem Ausdruck die normale Wahl?",
+      "beschreibung": "Welcher Ausdruck legt welchen Aspekt nahe? Ordne Zeit- und Häufigkeitsangaben dem unvollendeten oder dem vollendeten Verb zu – und erkenne die, die gar nichts entscheiden.",
+      "grammatik_url": "/Code/3_Grammatik/Grammatik_B2/grammatik-verbalaspekt.html",
+
+      "koerbe": [
+        { "id": "nesvršeni", "label": "meist unvollendet", "sublabel": "nesvršeni", "icon": "fa-arrows-rotate" },
+        { "id": "svršeni",   "label": "meist vollendet",   "sublabel": "svršeni",   "icon": "fa-flag-checkered" },
+        { "id": "offen",     "label": "entscheidet nicht", "sublabel": "beides normal", "icon": "fa-scale-balanced" }
+      ],
+
+      "aufgaben": [
+
+        { "signal": "svaki dan", "deutsch": "jeden Tag", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Svaki dan čitam novine.", "beispiel_de": "Jeden Tag lese ich Zeitung.",
+          "erklaerung": "Was jeden Tag geschieht, wird in der Regel als laufende Gewohnheit erzählt – Standardwahl ist der nesvršeni. Betonst du dagegen den einzelnen abgeschlossenen Akt, ist auch der svršeni möglich: „Svaki dan pročitam jedan članak.“ Das ist die Ausnahme, nicht die Regel – und der Grund, warum in dieser Übung nach der normalen Wahl gefragt wird.", "par_id": "ap70" },
+
+        { "signal": "često", "deutsch": "oft", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Često kuham za cijelu porodicu.", "beispiel_de": "Ich koche oft für die ganze Familie.",
+          "erklaerung": "„Oft“ zählt Wiederholungen und sagt nichts über einen einzelnen Abschluss aus. Die normale Wahl ist deshalb der nesvršeni.", "par_id": "ap47" },
+
+        { "signal": "obično", "deutsch": "gewöhnlich", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Obično pijem kahvu ujutro.", "beispiel_de": "Gewöhnlich trinke ich morgens Kaffee.",
+          "erklaerung": "„Gewöhnlich“ beschreibt eine Gewohnheit, keinen einzelnen Vorgang. Gewohnheiten stehen in der Regel im nesvršeni.", "par_id": "ap46" },
+
+        { "signal": "uvijek", "deutsch": "immer", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Uvijek zatvaram vrata za sobom.", "beispiel_de": "Ich schließe immer die Tür hinter mir.",
+          "erklaerung": "„Immer“ heißt: bei jeder Gelegenheit erneut – die reinste Form von Wiederholung. Standardwahl nesvršeni.", "par_id": "ap66" },
+
+        { "signal": "ponekad", "deutsch": "manchmal", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Ponekad putujem u Bosnu.", "beispiel_de": "Manchmal reise ich nach Bosnien.",
+          "erklaerung": "Auch seltene Wiederholung ist Wiederholung. „Manchmal“ meint mehrere Male, nicht ein abgeschlossenes Mal.", "par_id": "ap56" },
+
+        { "signal": "rijetko", "deutsch": "selten", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Rijetko gledamo televiziju.", "beispiel_de": "Wir schauen selten fern.",
+          "erklaerung": "„Selten“ ist eine Häufigkeitsangabe wie „oft“ – nur mit kleinerer Zahl. Häufigkeit legt den nesvršeni nahe.", "par_id": "ap72" },
+
+        { "signal": "stalno", "deutsch": "ständig", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Stalno ponavlja iste greške.", "beispiel_de": "Er wiederholt ständig dieselben Fehler.",
+          "erklaerung": "Achtung, „ständig“ heißt hier „immer wieder“, nicht „ohne Unterbrechung“: Jede einzelne Wiederholung ist durchaus abgeschlossen. Es wirkt also wie često – über die Iteration, nicht über die Dauer.", "par_id": "ap15" },
+
+        { "signal": "svake sedmice", "deutsch": "jede Woche", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Svake sedmice peremo auto.", "beispiel_de": "Jede Woche waschen wir das Auto.",
+          "erklaerung": "Angaben nach dem Muster „jeden/jede …“ (svaki dan, svake sedmice, svakog mjeseca) sind Wiederholungssignale und legen den nesvršeni nahe.", "par_id": "ap57" },
+
+        { "signal": "svakodnevno", "deutsch": "täglich", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Svakodnevno se odmaram poslije posla.", "beispiel_de": "Täglich ruhe ich mich nach der Arbeit aus.",
+          "erklaerung": "„Täglich“ ist das Ein-Wort-Gegenstück zu „svaki dan“ und wirkt genauso: Wiederholung → in der Regel nesvršeni.", "par_id": "ap12" },
+
+        { "signal": "vikendom", "deutsch": "an Wochenenden", "korb": "nesvršeni", "kategorie": "wiederholung",
+          "beispiel": "Vikendom se budim kasnije.", "beispiel_de": "An Wochenenden wache ich später auf.",
+          "erklaerung": "Der Instrumental von Zeitangaben (vikendom, subotom, ljeti) drückt regelmäßige Wiederholung aus – ein starkes, aber kein zwingendes nesvršeni-Signal.", "par_id": "ap06" },
+
+        { "signal": "dugo", "deutsch": "lange", "korb": "nesvršeni", "kategorie": "dauer",
+          "beispiel": "Dugo smo čekali autobus.", "beispiel_de": "Wir haben lange auf den Bus gewartet.",
+          "erklaerung": "Eine Dauer beschreibt normalerweise einen laufenden Vorgang – Standardwahl nesvršeni. Ausnahme sind verneinte Erfahrungssätze, wo „dugo“ ganz selbstverständlich mit dem svršeni steht: „Dugo te nisam vidio.“", "par_id": "ap54" },
+
+        { "signal": "godinama", "deutsch": "jahrelang", "korb": "nesvršeni", "kategorie": "dauer",
+          "beispiel": "Godinama je radio u Njemačkoj.", "beispiel_de": "Er hat jahrelang in Deutschland gearbeitet.",
+          "erklaerung": "„Jahrelang“ misst die Länge eines Vorgangs. Solche Instrumental-Angaben (godinama, satima, danima) verlangen den nesvršeni.", "par_id": "ap53" },
+
+        { "signal": "satima", "deutsch": "stundenlang", "korb": "nesvršeni", "kategorie": "dauer",
+          "beispiel": "Satima su pričali o politici.", "beispiel_de": "Sie haben stundenlang über Politik geredet.",
+          "erklaerung": "Wie godinama: Die Angabe füllt eine Zeitspanne, und gefüllt wird sie von einem laufenden Vorgang – nesvršeni.", "par_id": "ap59" },
+
+        { "signal": "cijeli dan", "deutsch": "den ganzen Tag", "korb": "nesvršeni", "kategorie": "dauer",
+          "beispiel": "Cijeli dan sam učio za ispit.", "beispiel_de": "Den ganzen Tag habe ich für die Prüfung gelernt.",
+          "erklaerung": "„Den ganzen Tag“ beschreibt, wie lange gelernt wurde – nicht, dass etwas fertig wurde. Deshalb učiti, nicht naučiti. (Eine kleine Gruppe von svršeni-Verben nimmt genau solche Dauerangaben doch an: „Cijeli dan sam proveo u gradu.“)", "par_id": "ap08" },
+
+        { "signal": "cijelo vrijeme", "deutsch": "die ganze Zeit", "korb": "nesvršeni", "kategorie": "dauer",
+          "beispiel": "Cijelo vrijeme nas je gledao.", "beispiel_de": "Die ganze Zeit hat er uns angeschaut.",
+          "erklaerung": "Eine ausgefüllte Zeitspanne braucht einen andauernden Vorgang – nesvršeni.", "par_id": "ap72" },
+
+        { "signal": "početi + Infinitiv", "deutsch": "anfangen zu …", "korb": "nesvršeni", "kategorie": "phasenverb",
+          "beispiel": "Počeo sam učiti bosanski.", "beispiel_de": "Ich habe angefangen, Bosnisch zu lernen.",
+          "erklaerung": "Das ist die einzige wirklich harte Regel in diesem Set: Ein Anfang setzt voraus, dass die Handlung danach weiterläuft. Nach početi steht deshalb zwingend der nesvršeni-Infinitiv – „Počeo sam naučiti“ ist nicht möglich.", "par_id": "ap08" },
+
+        { "signal": "prestati + Infinitiv", "deutsch": "aufhören zu …", "korb": "nesvršeni", "kategorie": "phasenverb",
+          "beispiel": "Prestala je pušiti prošle godine.", "beispiel_de": "Sie hat letztes Jahr aufgehört zu rauchen.",
+          "erklaerung": "Aufhören kann man nur mit etwas, das läuft. Wie bei početi und nastaviti folgt zwingend der nesvršeni-Infinitiv." },
+
+        { "signal": "nastaviti + Infinitiv", "deutsch": "weiter… / fortfahren", "korb": "nesvršeni", "kategorie": "phasenverb",
+          "beispiel": "Nastavili smo raditi do kasno.", "beispiel_de": "Wir haben bis spät weitergearbeitet.",
+          "erklaerung": "„Weitermachen“ heißt: der Vorgang läuft erneut weiter. Die drei Phasenverben početi, prestati, nastaviti verlangen alle den nesvršeni – und zwar ausnahmslos.", "par_id": "ap53" },
+
+        { "signal": "odjednom", "deutsch": "plötzlich", "korb": "svršeni", "kategorie": "ereignis",
+          "beispiel": "Odjednom me je pozvao šef.", "beispiel_de": "Plötzlich hat mich der Chef zu sich gerufen.",
+          "erklaerung": "„Plötzlich“ markiert einen Einschnitt: ein Moment, in dem etwas geschieht und sofort vorbei ist. Momente sind svršeni. (Nebenbedeutung „alle auf einmal“ – „Ne pričajte svi odjednom!“ – wirkt anders.)", "par_id": "ap80" },
+
+        { "signal": "iznenada", "deutsch": "unerwartet", "korb": "svršeni", "kategorie": "ereignis",
+          "beispiel": "Iznenada su otišli.", "beispiel_de": "Plötzlich sind sie aufgebrochen.",
+          "erklaerung": "Wie odjednom: ein einzelnes, überraschendes Ereignis mit klarem Ergebnis – svršeni.", "par_id": "ap05" },
+
+        { "signal": "konačno", "deutsch": "endlich / schließlich", "korb": "svršeni", "kategorie": "abschluss",
+          "beispiel": "Konačno smo popravili auto.", "beispiel_de": "Endlich haben wir das Auto repariert.",
+          "erklaerung": "Im Bericht über die Vergangenheit feiert „endlich“ ein erreichtes Ergebnis – das steckt im svršeni. Achtung bei der Gegenwart: Dort meint es oft einen endlich eingetretenen Zustand und steht dann im nesvršeni („Konačno radim ono što volim.“).", "par_id": "ap36" },
+
+        { "signal": "za pet minuta", "deutsch": "in fünf Minuten", "korb": "svršeni", "kategorie": "zeitrahmen",
+          "beispiel": "Za pet minuta sam pojeo cijeli sendvič.", "beispiel_de": "In fünf Minuten habe ich das ganze Sandwich aufgegessen.",
+          "erklaerung": "Achte auf die Präposition: „za pet minuta“ nennt die Zeit, INNERHALB derer etwas fertig wird → svršeni. Ohne „za“ ist es die Dauer → nesvršeni: „Pet minuta sam jeo.“ (In der zweiten Lesart „in fünf Minuten ab jetzt“ steht oft der nesvršeni-Präsens: „Za pet minuta dolazim.“)", "par_id": "ap41" },
+
+        { "signal": "do kraja", "deutsch": "bis zum Ende", "korb": "svršeni", "kategorie": "abschluss",
+          "beispiel": "Ispričao je priču do kraja.", "beispiel_de": "Er hat die Geschichte bis zum Ende erzählt.",
+          "erklaerung": "„Bis zum Ende“ benennt den Abschluss ausdrücklich und legt den svršeni nahe. Bei Verben ohne natürliches Ende dient es dagegen als Verstärker und steht beim nesvršeni: „Slušaj me do kraja!“", "par_id": "ap59" },
+
+        { "signal": "na kraju", "deutsch": "am Ende / letztlich", "korb": "svršeni", "kategorie": "abschluss",
+          "beispiel": "Na kraju su prodali kuću.", "beispiel_de": "Am Ende haben sie das Haus verkauft.",
+          "erklaerung": "„Am Ende“ berichtet, wie die Sache ausging – meist ein Ergebnis und damit svršeni. Beschreibt der Ausgang einen Zustand, geht auch der nesvršeni: „Na kraju je radio kao taksista.“", "par_id": "ap14" },
+
+        { "signal": "uspjeti + Infinitiv", "deutsch": "es schaffen zu …", "korb": "svršeni", "kategorie": "abschluss",
+          "beispiel": "Uspio sam popraviti mašinu.", "beispiel_de": "Ich habe es geschafft, die Maschine zu reparieren.",
+          "erklaerung": "„Es schaffen“ heißt: das Ziel ist erreicht – normalerweise svršeni. Bei Verben ohne Zielpunkt bleibt der nesvršeni möglich: „Uspio sam malo spavati.“", "par_id": "ap36" },
+
+        { "signal": "čim", "deutsch": "sobald", "korb": "svršeni", "kategorie": "nebensatz_abfolge",
+          "beispiel": "Čim sam ušao, svi su ustali.", "beispiel_de": "Sobald ich eintrat, standen alle auf.",
+          "erklaerung": "„Sobald“ heißt: erst ist A fertig, dann kommt B. Das gilt für den čim-Satz selbst – der Hauptsatz danach ist frei: „Čim sam ušao, svi su me gledali.“", "par_id": "ap68" },
+
+        { "signal": "nakon što", "deutsch": "nachdem", "korb": "svršeni", "kategorie": "nebensatz_abfolge",
+          "beispiel": "Nakon što smo pojeli, otišli smo u šetnju.", "beispiel_de": "Nachdem wir gegessen hatten, sind wir spazieren gegangen.",
+          "erklaerung": "„Nachdem“ setzt voraus, dass das Erste vorbei ist – im nakon-što-Satz steht deshalb meist der svršeni. Die Konjunktion ordnet aber nur die Reihenfolge; sie erzwingt keinen Aspekt: „Nakon što je godinama radio u Njemačkoj, vratio se.“", "par_id": "ap41" },
+
+        { "signal": "prije nego što", "deutsch": "bevor", "korb": "svršeni", "kategorie": "nebensatz_abfolge",
+          "beispiel": "Prije nego što je otišla, zatvorila je prozor.", "beispiel_de": "Bevor sie ging, schloss sie das Fenster.",
+          "erklaerung": "Auch „bevor“ ordnet zwei Ereignisse in eine Reihenfolge und legt damit den svršeni nahe – ohne ihn zu erzwingen.", "par_id": "ap66" },
+
+        { "signal": "jučer", "deutsch": "gestern", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Jučer sam čitao knjigu.", "beispiel_de": "Gestern habe ich in einem Buch gelesen. (Vorgang – ob fertig, bleibt offen)",
+          "beispiel2": "Jučer sam pročitao knjigu.", "beispiel2_de": "Gestern habe ich das Buch zu Ende gelesen. (Ergebnis)",
+          "erklaerung": "„Gestern“ sagt nur, WANN etwas war – nicht, WIE. Beide Aspekte sind korrekt und bedeuten Verschiedenes. Solche reinen Zeitpunkt-Angaben sind keine Signale.", "par_id": "ap70" },
+
+        { "signal": "sinoć", "deutsch": "gestern Abend", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Sinoć smo gledali film.", "beispiel_de": "Gestern Abend haben wir einen Film geschaut. (wir saßen davor)",
+          "beispiel2": "Sinoć smo pogledali film.", "beispiel2_de": "Gestern Abend haben wir uns den Film angesehen. (bis zum Ende)",
+          "erklaerung": "Wie jučer: ein Zeitpunkt entscheidet nichts. Du wählst den Aspekt danach, ob du den Abend oder das Ergebnis meinst.", "par_id": "ap72" },
+
+        { "signal": "danas", "deutsch": "heute", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Danas sam prao auto.", "beispiel_de": "Heute war ich mit dem Autowaschen beschäftigt.",
+          "beispiel2": "Danas sam oprao auto.", "beispiel2_de": "Heute habe ich das Auto fertig gewaschen.",
+          "erklaerung": "Derselbe Tag, zwei Aussagen: Beschäftigung oder erledigte Aufgabe. „Heute“ selbst legt nichts fest.", "par_id": "ap57" },
+
+        { "signal": "u ponedjeljak", "deutsch": "am Montag", "korb": "offen", "kategorie": "offen",
+          "beispiel": "U ponedjeljak sam pisao izvještaj.", "beispiel_de": "Am Montag habe ich am Bericht geschrieben.",
+          "beispiel2": "U ponedjeljak sam napisao izvještaj.", "beispiel2_de": "Am Montag habe ich den Bericht fertig geschrieben.",
+          "erklaerung": "Wochentage sind Zeitpunkte, keine Signale. Vorsicht bei der Verwechslung mit „ponedjeljkom“ (montags, regelmäßig) – DAS wäre ein nesvršeni-Signal.", "par_id": "ap71" },
+
+        { "signal": "prošle sedmice", "deutsch": "letzte Woche", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Prošle sedmice smo slavili rođendan.", "beispiel_de": "Letzte Woche haben wir Geburtstag gefeiert. (die Feier lief)",
+          "beispiel2": "Prošle sedmice smo proslavili rođendan.", "beispiel2_de": "Letzte Woche haben wir den Geburtstag gefeiert. (Anlass erledigt)",
+          "erklaerung": "„Letzte Woche“ grenzt nur den Zeitraum ein. Achtung auf den Unterschied zu „svake sedmice“ (jede Woche) – das ist ein echtes Wiederholungssignal.", "par_id": "ap76" },
+
+        { "signal": "ujutro", "deutsch": "morgens / heute Morgen", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Ujutro pijem kahvu.", "beispiel_de": "Morgens trinke ich Kaffee. (immer, Gewohnheit)",
+          "beispiel2": "Ujutro sam popio kahvu.", "beispiel2_de": "Heute Morgen habe ich einen Kaffee getrunken. (einmal, ausgetrunken)",
+          "erklaerung": "Ein Wort, zwei Bedeutungen: „morgens (immer)“ → nesvršeni, „heute Morgen (einmal)“ → svršeni. Erst der Satz drumherum entscheidet.", "par_id": "ap46" },
+
+        { "signal": "poslije posla", "deutsch": "nach der Arbeit", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Poslije posla sam se odmarao.", "beispiel_de": "Nach der Arbeit habe ich mich ausgeruht. (Vorgang)",
+          "beispiel2": "Poslije posla sam se odmorio.", "beispiel2_de": "Nach der Arbeit habe ich mich erholt. (mit Wirkung – ich war danach wieder fit)",
+          "erklaerung": "Anders als „nakon što“ + Satz ist „poslije“ + Substantiv nur eine Zeitangabe. Sie ordnet nichts an und entscheidet deshalb nichts.", "par_id": "ap12" },
+
+        { "signal": "svaki put", "deutsch": "jedes Mal", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Svaki put plaćam karticom.", "beispiel_de": "Jedes Mal zahle ich mit Karte. (so halte ich es eben – Gewohnheit)",
+          "beispiel2": "Svaki put platim karticom.", "beispiel2_de": "Jedes Mal zahle ich mit Karte. (jeder Bezahlvorgang für sich, abgeschlossen)",
+          "erklaerung": "Hier zeigt sich der habituelle svršeni: Auch eine regelmäßige Handlung darf als Folge einzelner abgeschlossener Akte erzählt werden. Beide Sätze sind normal – deshalb ist „svaki put“ trotz der Wiederholung kein sicheres nesvršeni-Signal.", "par_id": "ap67" },
+
+        { "signal": "odmah", "deutsch": "sofort", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Odmah dolazim!", "beispiel_de": "Ich komme sofort! (Zusage in der Gegenwart)",
+          "beispiel2": "Odmah je došao.", "beispiel2_de": "Er kam sofort. (Bericht über die Vergangenheit)",
+          "erklaerung": "„Sofort“ ist nur im Erzählsatz über die Vergangenheit ein svršeni-Signal. In der Gegenwart ist der nesvršeni die normale Wahl – „Odmah dolazim!“, „Odmah ti šaljem.“ Die Zeitform entscheidet, nicht das Adverb.", "par_id": "ap03" },
+
+        { "signal": "potpuno", "deutsch": "völlig / ganz", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Potpuno se slažem s tobom.", "beispiel_de": "Ich stimme dir völlig zu. (Zustand)",
+          "beispiel2": "Potpuno se oporavio od operacije.", "beispiel2_de": "Er hat sich völlig von der Operation erholt. (erreichtes Ergebnis)",
+          "erklaerung": "„Völlig“ verstärkt nur – entscheiden tut das Verb: slagati se beschreibt einen Zustand, oporaviti se ein erreichtes Ergebnis. Merke: Intensitätswörter sind keine Aspektsignale." },
+
+        { "signal": "nikada", "deutsch": "nie", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Nikada nisam čitao tu knjigu.", "beispiel_de": "Ich habe nie in diesem Buch gelesen. (die Tätigkeit überhaupt nicht)",
+          "beispiel2": "Nikada nisam pročitao tu knjigu.", "beispiel2_de": "Ich habe dieses Buch nie zu Ende gelesen. (das Ergebnis nie erreicht)",
+          "erklaerung": "Verneinte Erfahrung geht mit beiden: Der nesvršeni verneint die Tätigkeit an sich, der svršeni das Ergebnis.", "par_id": "ap70" },
+
+        { "signal": "brzo", "deutsch": "schnell", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Brzo je jeo.", "beispiel_de": "Er aß hastig. (Art des Vorgangs)",
+          "beispiel2": "Brzo je pojeo ručak.", "beispiel2_de": "Er hatte das Mittagessen schnell aufgegessen. (wie rasch das Ergebnis da war)",
+          "erklaerung": "„Schnell“ kann die Art eines laufenden Vorgangs beschreiben oder das Tempo bis zum Ergebnis. Beides ist möglich.", "par_id": "ap41" },
+
+        { "signal": "već", "deutsch": "schon / bereits", "korb": "offen", "kategorie": "offen",
+          "beispiel": "Već dugo čitam ovu knjigu.", "beispiel_de": "Ich lese dieses Buch schon lange. (läuft noch)",
+          "beispiel2": "Već sam pročitao tu knjigu.", "beispiel2_de": "Ich habe dieses Buch schon gelesen. (fertig)",
+          "erklaerung": "Häufig als Abschluss-Signal gelehrt – zu Unrecht. Mit einer Dauerangabe („već dugo“) verlangt „već“ sogar den nesvršeni. Merke: Es verstärkt, was der Satz ohnehin sagt, statt selbst zu entscheiden.", "par_id": "ap70" }
+
+      ]
+    }
+  ]
+}

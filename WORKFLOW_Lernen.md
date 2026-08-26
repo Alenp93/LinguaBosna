@@ -52,6 +52,17 @@ Selbstkontrolle direkt nach dem Lesen) ist der Lernen-Bereich auf
 - Neue Datendateien liegen unter `Code/4_Lernen/[typ]_data.json` (bestätigt,
   z. B. `Code/4_Lernen/luckentext_data.json`).
 
+**Vokabellücken beim Übungsbau → `VOKABEL_BACKLOG.md` (nicht nebenbei einbauen).**
+Beim Schreiben von Beispielsätzen fallen regelmäßig Wörter auf, die es im Bestand
+noch nicht gibt – vor allem Funktionswörter (Zeitadverbien, Konjunktionen), weil
+`vokabeln_flat.json` thematisch geschnitten ist. Solche Wörter werden **gesammelt,
+nicht spontan in die Vokabel-JSON geschrieben**: Ein Einzeleintrag würde entweder
+die 35er-Kapitelgrenze reißen oder in einem Kapitel mit falschem Niveau landen.
+Deshalb nach jedem neuen Set die verwendeten Wörter gegen `vokabeln_flat.json`
+abgleichen und die Fehlenden mit Niveau-Vorschlag in `VOKABEL_BACKLOG.md` eintragen.
+Umgekehrt gilt weiterhin: Wo der Bestand eine Form **hat**, ist sie verbindlich
+(`kahva` nicht `kafa`, `jučer` nicht `juče`, `sedmica` nicht `tjedan`).
+
 ---
 
 ## 4. Pool-Größen-Richtwerte
@@ -87,6 +98,37 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) | 88 Paare (`ap01`–`ap88`, lückenlos), 3 Sets: A1–A2 (52) / B1–C1 (36) / alle (88) |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
+| Aspektwahl (Verbalaspekt in der Anwendung) | 🔄 in Arbeit – Daten für Set 1 stehen und sind sprachlich geprüft, Seite fehlt noch | `Code/4_Lernen/lernen-aspektwahl.html` (geplant) | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen). Geplant: Set 2 „Aspektwahl im Satz", Set 3 „Situation → Satz", später Set 4 „Erzähltext" |
+
+> ⚠️ **Warum es zwei Aspekt-Übungen gibt (nicht zusammenlegen):**
+> `lernen-aspektpaare.html` prüft die **Wortform** (welches Verb ist der Partner von
+> `čitati`?) und wird über den Wortstamm gelöst. `lernen-aspektwahl.html` prüft die
+> **Anwendung** (wann verwende ich welchen?). Wer die erste Übung perfekt löst, weiß
+> immer noch nicht, ob „Čitao sam knjigu" oder „Pročitao sam knjigu" richtig ist.
+> Die beiden bilden einen Lernpfad: Stufe 1 Formen → Stufe 2 Anwendung.
+>
+> **Regel für das Set „Signalwörter" (aus dem Bau gelernt):** Es gibt einen dritten
+> Korb „entscheidet nicht", und er ist didaktisch der wichtigste. Ohne ihn lernt der
+> Nutzer eine Adverbien-Liste auswendig, statt den Aspekt zu verstehen – und mehrere
+> gängige „Signalwörter" halten der Prüfung ohnehin nicht stand (`upravo`, `jednom`,
+> `tek`, `već`, `dok`). Welche Ausdrücke warum ausgeschlossen wurden, steht im Feld
+> `_bewusst_weggelassen` am Anfang von `aspektwahl_data.json` – dort nachsehen, bevor
+> ein „fehlendes" Signalwort ergänzt wird.
+>
+> ⚠️ **Der habituelle svršeni-Präsens (Befund des `bosnisch-pruefer`, 2026-08-26) –
+> gilt für ALLE künftigen Aspekt-Sets:** Die verbreitete Faustregel „Wiederholung =
+> nesvršeni" ist eine Default-Erwartung, keine Grammatikregel. Wiederholte, jeweils
+> abgeschlossene Einzelakte stehen im Bosnischen regulär im svršeni: „Svaki dan
+> pogledam jednu epizodu.", „Uvijek zatvorim vrata za sobom.", „Svaki put platim
+> karticom." Konsequenzen, die im Set 1 bereits umgesetzt sind und beibehalten werden
+> müssen: (a) Die Fragestellung lautet „Welcher Aspekt ist die **normale Wahl**?"
+> (Feld `frage`), nicht „Welcher ist erzwungen?"; (b) die Korb-Labels heißen „meist
+> unvollendet"/„meist vollendet"; (c) Erklärungstexte formulieren „in der Regel" statt
+> „immer"/„nie"/„verlässlich". **Die einzige harte Regel im gesamten Set sind die
+> Phasenverben** (`početi`/`prestati`/`nastaviti` + Infinitiv → zwingend
+> nesvršeni-Infinitiv). Ebenfalls belastbar und ein guter Kandidat für Set 2:
+> `ne` + synthetischer Imperativ („Ne čitaj to!", nicht *„Ne pročitaj to!") – anders
+> als das oft gelehrte `nemoj`, das beide Aspekte verträgt.
 
 > ⚠️ **Regel für Satzbau-/Umstell-Übungen (aus dem Satzbau-Puzzle gelernt):**
 > Der **Satzanfang wird immer vorgegeben** und steht schon im Zielfeld. Grund: Die

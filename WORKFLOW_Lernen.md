@@ -131,10 +131,14 @@ Lernende beim Thema einsteigen, nicht bei der Übungsart.
   in `Style_3_Grammatik_Detail.css`, es ist kein neues CSS nötig. Exakter Wortlaut
   und Beispiel: `WORKFLOW_Grammatikseiten.md`, Abschnitt 2, „Übungs-Button am Ende
   von Block 5".
-- **Deep-Link:** Der Query-Parameter überspringt in der Übung die Auswahlseite
-  (`?thema=…` beim Lückentext, `?set=…` bei Aspektpaaren und Satzbau-Puzzle).
-  Jede neue Übung sollte so einen Parameter unterstützen – siehe die
-  `URLSearchParams`-Auswertung in `lernen-satzbau.html`.
+- **Deep-Link nur, wenn die Übung das Kapitel mit genau einem Thema/Set abdeckt**
+  (z. B. `?thema=akkusativ` beim Lückentext) – der Parameter überspringt dann die
+  Auswahlseite und startet direkt. Deckt die Übung das Kapitel mit **mehreren**
+  Sets ab (Satzbau-Puzzle: Zweitstellung/Kette/Fragen; Aspektpaare: Sets nach
+  Niveau statt nach Kapitel), verlinkt der Button **ohne** Parameter auf die
+  Set-Auswahl – der Lernende soll selbst wählen. Jede neue Übung sollte trotzdem
+  einen Parameter unterstützen, für den Fall, dass später von woanders direkt
+  verlinkt wird – siehe die `URLSearchParams`-Auswertung in `lernen-satzbau.html`.
 - **Gibt es noch keine passende Grammatikseite** (Übung kommt zuerst), wird das als
   To-do gemeldet und beim Anlegen der Grammatikseite nachgezogen.
 

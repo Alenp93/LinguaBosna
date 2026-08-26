@@ -66,15 +66,25 @@ Fester Baustein, Klassen kommen aus `Style_3_Grammatik_Detail.css`:
 ```html
 <div class="uebung-cta-box">
   <p>[Kurzer Aufhänger, eine Zeile]</p>
-  <a href="/Code/4_Lernen/lernen-[typ].html?[parameter]" class="uebung-cta">
+  <a href="/Code/4_Lernen/lernen-[typ].html[optional: ?parameter]" class="uebung-cta">
     <i class="fas fa-[icon]"></i> Jetzt üben: [Übungsname]
   </a>
 </div>
 ```
 
-Der Query-Parameter überspringt in der Übung die Auswahlseite und startet direkt
-(`?thema=…` beim Lückentext, `?set=…` bei Aspektpaaren und Satzbau-Puzzle). Vorbilder:
-`grammatik-akkusativ.html` (Lückentext), `grammatik-enklitika.html` (Satzbau-Puzzle).
+**Ob mit Query-Parameter verlinkt wird, hängt vom Verhältnis Kapitel ↔ Übung ab:**
+- Deckt die Übung das Kapitel mit **genau einem Thema/Set** ab, überspringt der
+  Parameter (`?thema=…`) die Auswahlseite und startet direkt – Vorbild:
+  `grammatik-akkusativ.html` → `lernen-luckentext.html?thema=akkusativ`.
+- Deckt die Übung das Kapitel mit **mehreren Sets/Untermustern** ab (z. B. das
+  Satzbau-Puzzle: Zweitstellung / Kette / Fragen), verlinkt der Button **ohne
+  Parameter** auf die Set-Auswahl der Übung – der Lernende soll selbst wählen,
+  statt ungefragt in ein Teilset zu springen. Vorbild: `grammatik-enklitika.html`
+  → `lernen-satzbau.html` (ohne `?set=…`).
+- Aspektpaare sind ein Sonderfall aus demselben Grund wie Satzbau: ihre Sets
+  richten sich nach Niveau, nicht nach Kapitel, daher ebenfalls ohne Parameter
+  verlinken, sobald diese Verlinkung nachgezogen wird (siehe `WORKFLOW_Lernen.md`,
+  Abschnitt 7).
 
 **Gegenrichtung:** Die Pflicht, diesen Button zu setzen, liegt bei der *Übung* –
 siehe `WORKFLOW_Lernen.md`, Abschnitt 7. Wer eine neue Lernen-Übung baut, trägt sie

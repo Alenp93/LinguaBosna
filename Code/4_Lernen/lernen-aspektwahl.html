@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       lernen-aspektwahl.html
+       Übungsart: „Aspektwahl" – Verbalaspekt in der ANWENDUNG
+       LinguaBosna | Menüpunkt „Lernen"
+
+       Abgrenzung zu lernen-aspektpaare.html:
+       Die Aspektpaar-Übung fragt die WORTFORM ab („Wie heißt der
+       Partner von čitati?") und wird über den Wortstamm gelöst.
+       Diese Übung hier fragt die ANWENDUNG ab („Wann nehme ich
+       welchen?"). Wer die erste Übung perfekt löst, weiß immer
+       noch nicht, ob „Čitao sam knjigu" oder „Pročitao sam knjigu"
+       richtig ist. Die beiden bilden einen Lernpfad:
+       Stufe 1 Formen → Stufe 2 Anwendung.
+
+       Set 1 „Signalwörter": Gezeigt wird ein Ausdruck (z. B.
+       „svaki dan"), der Lernende ordnet ihn einem von DREI Körben
+       zu – meist unvollendet / meist vollendet / entscheidet nicht.
+
+       WICHTIG zur Fragestellung: Gefragt wird nach der NORMALEN
+       WAHL, nicht nach einem Zwang. Grund ist der habituelle
+       svršeni-Präsens: „Svaki dan pogledam jednu epizodu" ist
+       idiomatisch. „Wiederholung = nesvršeni" ist also eine
+       Default-Erwartung, keine Grammatikregel. Der dritte Korb
+       ist didaktisch der wichtigste – ohne ihn lernt man eine
+       Adverbien-Liste auswendig, statt den Aspekt zu verstehen.
+
+       Die Seite hat 3 Bildschirme (per JavaScript umgeschaltet):
+       1. Startschirm – Auswahl des Übungssets
+       2. Übung       – eine Frage nach der anderen
+       3. Ergebnis    – Punktzahl + Auswertung nach Regeltyp
+
+       Daten: Code/4_Lernen/aspektwahl_data.json
+       ====================================================== -->
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js" defer></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Aspektwahl üben</title>
+  <link rel="canonical" href="https://linguabosna.com/Code/4_Lernen/lernen-aspektwahl.html">
+
+  <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="LinguaBosna – Aspektwahl üben">
+  <meta property="og:description" content="Bosnisch-Übung zum Verbalaspekt: Erkenne, welche Zeitangaben das unvollendete und welche das vollendete Verb verlangen – und welche gar nichts entscheiden.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/4_Lernen/lernen-aspektwahl.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Aspektwahl üben">
+  <meta name="twitter:description" content="Bosnisch-Übung zum Verbalaspekt: Erkenne, welche Zeitangaben das unvollendete und welche das vollendete Verb verlangen – und welche gar nichts entscheiden.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta name="description" content="Bosnisch-Übung zum Verbalaspekt: Erkenne, welche Zeitangaben das unvollendete und welche das vollendete Verb verlangen – und welche gar nichts entscheiden.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+  <!-- ── Strukturierte Daten (schema.org) ─────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Aspektwahl üben",
+        "description": "Bosnisch-Übung zum Verbalaspekt: Erkenne, welche Zeitangaben das unvollendete und welche das vollendete Verb verlangen – und welche gar nichts entscheiden.",
+        "url": "https://linguabosna.com/Code/4_Lernen/lernen-aspektwahl.html",
+        "inLanguage": "de",
+        "learningResourceType": "Interaktive Übung",
+        "teaches": "Bosnischer Verbalaspekt (Anwendung im Satz)",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Bosnisch lernen",
+          "url": "https://linguabosna.com/"
+        },
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Lernen",
+            "item": "https://linguabosna.com/Code/4_Lernen/lernen-uebersicht.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Aspektwahl üben"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Aspektwahl</h1>
+    <p class="subtitle">Wann steht das unvollendete, wann das vollendete Verb?</p>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 1 — STARTSCHIRM (Set-Auswahl)
+         ===================================================== -->
+    <section id="startScreen">
+      <div class="section-intro">
+        <h2>Womit möchtest du üben?</h2>
+        <p>Wähle ein Set. Pro Durchgang bekommst du 10 Aufgaben.</p>
+      </div>
+
+      <!-- Hier fügt das JavaScript die Set-Karten ein -->
+      <div class="thema-grid" id="themaGrid"></div>
+
+      <!-- Verweise auf Erklärseite und auf die Vorstufe -->
+      <p class="uebung-quelle">
+        Die Regeln dazu stehen in Kapitel 24:
+        <a href="/Code/3_Grammatik/Grammatik_B2/grammatik-verbalaspekt.html">Verbalaspekt</a><br>
+        Noch unsicher bei den Verbformen selbst? Übe zuerst die
+        <a href="/Code/4_Lernen/lernen-aspektpaare.html">Aspektpaare</a>.
+      </p>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 2 — ÜBUNG
+         Standardmäßig versteckt (Klasse "hidden").
+         ===================================================== -->
+    <section id="uebungScreen" class="hidden">
+      <div class="uebung-container">
+
+        <!-- Fortschritt -->
+        <div class="uebung-progress" id="uebungProgress">Aufgabe 1 von 10</div>
+        <div class="uebung-bar"><div class="uebung-bar-fill" id="uebungBarFill"></div></div>
+
+        <!-- Der gezeigte Ausdruck + seine deutsche Bedeutung -->
+        <div class="aspekt-prompt">
+          <span class="aspekt-verb" id="signalWort"></span>
+          <span class="signal-deutsch" id="signalDeutsch"></span>
+        </div>
+
+        <!-- Die Fragestellung (kommt aus dem Feld "frage" der JSON) -->
+        <p class="aspekt-frage" id="aspektFrage"></p>
+
+        <!-- Die drei Antwort-Körbe.
+             Reihenfolge bleibt bewusst IMMER gleich (nicht gemischt),
+             damit sich die Position einprägt: links unvollendet,
+             Mitte vollendet, rechts „entscheidet nicht". -->
+        <div class="korb-grid" id="korbGrid"></div>
+
+        <!-- Feedback nach der Antwort (versteckt bis dahin) -->
+        <div class="uebung-feedback hidden" id="uebungFeedback"></div>
+
+        <!-- „Nächste Aufgabe"-Button (versteckt bis zur Auswertung) -->
+        <div class="uebung-next-wrap">
+          <button class="btn-primary hidden" id="nextBtn">Nächste Aufgabe →</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 3 — ERGEBNIS
+         ===================================================== -->
+    <section id="ergebnisScreen" class="hidden">
+      <div class="uebung-result">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+
+        <!-- Auswertung nach Regeltyp: zeigt, WO die Fehler lagen -->
+        <div class="kategorie-auswertung hidden" id="katAuswertung"></div>
+
+        <div class="result-actions">
+          <button class="btn-primary" id="retryBtn">Wiederholen</button>
+          <button class="btn-outline" id="otherBtn">Anderes Set</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Aspektwahl-Logik
+
+       Ablauf:
+       - JSON laden → Set-Karten anzeigen
+       - Set starten → 10 Aufgaben ziehen → erste zeigen
+       - Korb anklicken → sofort auswerten → Feedback
+       - Am Ende: Ergebnis + Auswertung nach Regeltyp
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  /* ── Einstellungen ───────────────────────────────────── */
+  var FRAGEN_PRO_RUNDE = 10;   // wie viele Aufgaben ein Durchgang hat
+
+  /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
+  var alleSets    = [];    // alle Sets aus der JSON
+  var kategorien  = {};    // Kategorie-Kürzel → lesbarer Name
+  var aktivSet    = null;  // das gerade gewählte Set
+  var aufgaben    = [];    // die 10 Aufgaben dieses Durchgangs
+  var aktuelleNr  = 0;     // Index der aktuellen Aufgabe (0-basiert)
+  var punkte      = 0;     // richtig gelöste Aufgaben
+  var ausgewertet = false; // verhindert doppeltes Antworten
+  var statistik   = {};    // pro Kategorie: { richtig: n, gesamt: n }
+
+  /* Kurzschreibweise für document.getElementById */
+  function $(id) { return document.getElementById(id); }
+
+
+  /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
+  /* Fisher-Yates-Verfahren – wie in den anderen Übungen.   */
+  function mischen(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+
+  /* ── Hilfsfunktion: Text sicher einsetzen ────────────── */
+  /* Die Daten sind zwar projekteigen, aber wir bauen das
+     Feedback per innerHTML zusammen – deshalb werden alle
+     Textbausteine vorher entschärft.                        */
+  function sicher(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+
+  /* ── Stratifizierte Auswahl der Aufgaben ─────────────── */
+  /* WARUM nicht einfach zufällig aus dem Gesamtpool?
+     Die drei Körbe sind unterschiedlich groß (18 nesvršeni /
+     10 svršeni / 13 offen). Bei rein zufälliger Ziehung käme
+     der kleinste Korb in vielen Runden kaum vor, und der
+     Lernende könnte mit „immer unvollendet" gut abschneiden.
+
+     Deshalb Reihum-Verfahren: Erst je eine Aufgabe aus jedem
+     Korb, dann die zweite aus jedem Korb usw., bis 10 voll
+     sind. Ergebnis bei drei Körben: 4/3/3. Welcher Korb den
+     Extraplatz bekommt, entscheidet der Zufall.              */
+  function zieheAufgaben(set, anzahl) {
+    // 1. Aufgaben nach Korb gruppieren
+    var nachKorb = {};
+    set.aufgaben.forEach(function (a) {
+      if (!nachKorb[a.korb]) { nachKorb[a.korb] = []; }
+      nachKorb[a.korb].push(a);
+    });
+
+    // 2. Jede Gruppe für sich mischen
+    var gruppen = Object.keys(nachKorb).map(function (k) {
+      return mischen(nachKorb[k].slice());
+    });
+
+    // 3. Gruppen-Reihenfolge mischen, damit nicht immer derselbe
+    //    Korb den Extraplatz erhält
+    mischen(gruppen);
+
+    // 4. Reihum ziehen
+    var auswahl = [];
+    var runde = 0;
+    while (auswahl.length < anzahl) {
+      var etwasGenommen = false;
+      for (var i = 0; i < gruppen.length && auswahl.length < anzahl; i++) {
+        if (gruppen[i].length > runde) {
+          auswahl.push(gruppen[i][runde]);
+          etwasGenommen = true;
+        }
+      }
+      if (!etwasGenommen) { break; }   // Pool erschöpft
+      runde++;
+    }
+
+    // 5. Zum Schluss durchmischen, damit die Körbe nicht in
+    //    fester Reihenfolge abgefragt werden
+    return mischen(auswahl);
+  }
+
+
+  /* ── 1. JSON laden ───────────────────────────────────── */
+  /* Absolute Pfade (mit führendem /), wie im Projekt üblich.
+     Läuft nur über einen Webserver, nicht per file:// .     */
+  fetch('/Code/4_Lernen/aspektwahl_data.json')
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      alleSets = data.sets.slice();
+      kategorien = data.kategorien || {};
+
+      zeigeSetKarten();
+
+      // Falls die Seite mit ?set=signalwoerter aufgerufen wurde –
+      // z. B. über einen „Jetzt üben"-Button der Grammatikseite –
+      // starten wir dieses Set direkt.
+      var params = new URLSearchParams(window.location.search);
+      var wunschSet = params.get('set');
+      if (wunschSet) {
+        var gefunden = alleSets.find(function (s) { return s.id === wunschSet; });
+        if (gefunden) { starteSet(gefunden); }
+      }
+    })
+    .catch(function (fehler) {
+      $('themaGrid').innerHTML =
+        '<p>Die Übung konnte nicht geladen werden. Bitte lade die Seite neu.</p>';
+      console.error('Fehler beim Laden der Aspektwahl-Daten:', fehler);
+    });
+
+
+  /* ── 2. Set-Karten auf dem Startschirm anzeigen ──────── */
+  function zeigeSetKarten() {
+    var grid = $('themaGrid');
+    grid.innerHTML = '';
+
+    alleSets.forEach(function (set) {
+      // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
+      var karte = document.createElement('button');
+      karte.className = 'thema-card';
+      karte.innerHTML =
+        '<div class="thema-icon"><i class="fas ' + sicher(set.icon) + '"></i></div>' +
+        '<span class="thema-niveau">' + sicher(set.niveau) + '</span>' +
+        '<h3>' + sicher(set.titel) + '</h3>' +
+        '<p>' + sicher(set.beschreibung) + '</p>' +
+        '<p class="thema-anzahl">' + set.aufgaben.length + ' Ausdrücke</p>';
+
+      karte.addEventListener('click', function () { starteSet(set); });
+      grid.appendChild(karte);
+    });
+  }
+
+
+  /* ── 3. Ein Set starten ──────────────────────────────── */
+  function starteSet(set) {
+    aktivSet = set;
+    aufgaben = zieheAufgaben(set, FRAGEN_PRO_RUNDE);
+
+    aktuelleNr = 0;
+    punkte = 0;
+    statistik = {};
+
+    // Bildschirm wechseln: Start ausblenden, Übung einblenden
+    $('startScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.remove('hidden');
+
+    // Die Fragestellung steht im Set (Feld "frage")
+    $('aspektFrage').textContent =
+      set.frage || 'Welcher Aspekt ist nach diesem Ausdruck die normale Wahl?';
+
+    // Die Körbe sind für das ganze Set gleich – einmal bauen genügt.
+    baueKoerbe();
+    zeigeAufgabe();
+  }
+
+
+  /* ── 4. Eine Aufgabe anzeigen ────────────────────────── */
+  function zeigeAufgabe() {
+    var aufgabe = aufgaben[aktuelleNr];
+    ausgewertet = false;
+
+    // Fortschritt aktualisieren
+    $('uebungProgress').textContent =
+      'Aufgabe ' + (aktuelleNr + 1) + ' von ' + aufgaben.length;
+    $('uebungBarFill').style.width =
+      ((aktuelleNr / aufgaben.length) * 100) + '%';
+
+    // Den Ausdruck und seine Bedeutung anzeigen
+    $('signalWort').textContent = aufgabe.signal;
+    $('signalDeutsch').textContent = aufgabe.deutsch;
+
+    setzeKoerbeZurueck();
+
+    $('uebungFeedback').classList.add('hidden');
+    $('nextBtn').classList.add('hidden');
+  }
+
+
+  /* ── Farbmarkierung und Sperre der Körbe aufheben ────── */
+  /* Wird vor jeder neuen Aufgabe aufgerufen. Die Buttons
+     selbst bleiben bestehen (siehe baueKoerbe).              */
+  function setzeKoerbeZurueck() {
+    var buttons = $('korbGrid').querySelectorAll('.korb-btn');
+    buttons.forEach(function (btn) {
+      btn.classList.remove('correct', 'wrong');
+      btn.disabled = false;
+    });
+  }
+
+
+  /* ── Die drei Korb-Buttons aufbauen ──────────────────── */
+  /* Wird einmal je Set aufgerufen, nicht je Aufgabe: Die drei
+     Körbe sind über den ganzen Durchgang dieselben. Ihre
+     Reihenfolge kommt unverändert aus der JSON und bleibt
+     bewusst fest, damit sich die Position einprägt.           */
+  function baueKoerbe() {
+    var grid = $('korbGrid');
+    grid.innerHTML = '';
+
+    aktivSet.koerbe.forEach(function (korb) {
+      var btn = document.createElement('button');
+      btn.className = 'korb-btn';
+      btn.innerHTML =
+        '<span class="korb-icon"><i class="fas ' + sicher(korb.icon) + '"></i></span>' +
+        '<span class="korb-label">' + sicher(korb.label) + '</span>' +
+        '<span class="korb-sub">' + sicher(korb.sublabel) + '</span>';
+
+      // Die Korb-Kennung am Button merken – daran wird ausgewertet
+      btn._korbId = korb.id;
+      btn.addEventListener('click', function () { pruefeAntwort(btn); });
+      grid.appendChild(btn);
+    });
+  }
+
+
+  /* ── Beispielsätze für das Feedback aufbereiten ──────── */
+  /* Aufgaben im Korb „offen" haben ZWEI Beispielsätze –
+     erst ihr Kontrast zeigt, dass beide Aspekte möglich sind
+     und Verschiedenes bedeuten.                              */
+  function beispielHtml(aufgabe) {
+    var html =
+      '<span class="feedback-beispiel">' +
+        '<span class="feedback-satz">' + sicher(aufgabe.beispiel) + '</span>' +
+        '<span class="feedback-satz-de">' + sicher(aufgabe.beispiel_de) + '</span>' +
+      '</span>';
+
+    if (aufgabe.beispiel2) {
+      html +=
+        '<span class="feedback-beispiel">' +
+          '<span class="feedback-satz">' + sicher(aufgabe.beispiel2) + '</span>' +
+          '<span class="feedback-satz-de">' + sicher(aufgabe.beispiel2_de) + '</span>' +
+        '</span>';
+    }
+    return html;
+  }
+
+
+  /* ── 5. Antwort prüfen ───────────────────────────────── */
+  function pruefeAntwort(gewaehlterBtn) {
+    if (ausgewertet) { return; }
+    ausgewertet = true;
+
+    var aufgabe = aufgaben[aktuelleNr];
+    // Abgleich über die gemerkte Korb-Kennung, nicht über den
+    // Button-Text – so bleibt die Auswertung von der Beschriftung
+    // unabhängig (gleiches Prinzip wie im Vokabel-Quiz).
+    var istRichtig = (gewaehlterBtn._korbId === aufgabe.korb);
+
+    // Alle Buttons sperren und einfärben:
+    // der richtige Korb wird immer grün, der falsch gewählte rot.
+    var buttons = $('korbGrid').querySelectorAll('.korb-btn');
+    buttons.forEach(function (btn) {
+      btn.disabled = true;
+      if (btn._korbId === aufgabe.korb) {
+        btn.classList.add('correct');
+      } else if (btn === gewaehlterBtn) {
+        btn.classList.add('wrong');
+      }
+    });
+
+    // Statistik je Regeltyp mitführen (für die Auswertung am Ende)
+    var kat = aufgabe.kategorie;
+    if (!statistik[kat]) { statistik[kat] = { richtig: 0, gesamt: 0 }; }
+    statistik[kat].gesamt++;
+    if (istRichtig) { statistik[kat].richtig++; }
+
+    // Feedback zusammenbauen
+    var feedback = $('uebungFeedback');
+
+    if (istRichtig) {
+      punkte++;
+      feedback.innerHTML =
+        '<i class="fas fa-check-circle"></i> Richtig! ' +
+        sicher(aufgabe.erklaerung) +
+        beispielHtml(aufgabe);
+      feedback.className = 'uebung-feedback feedback-correct';
+    } else {
+      // Beschriftung des richtigen Korbs heraussuchen
+      var richtigerKorb = aktivSet.koerbe.find(function (k) {
+        return k.id === aufgabe.korb;
+      });
+      var korbName = richtigerKorb ? richtigerKorb.label : aufgabe.korb;
+
+      feedback.innerHTML =
+        '<i class="fas fa-times-circle"></i> Nicht ganz – richtig wäre „' +
+        sicher(korbName) + '“. ' + sicher(aufgabe.erklaerung) +
+        beispielHtml(aufgabe);
+      feedback.className = 'uebung-feedback feedback-wrong';
+    }
+    feedback.classList.remove('hidden');
+
+    // Weiter-Button zeigen; Beschriftung an der letzten Aufgabe anpassen
+    $('nextBtn').classList.remove('hidden');
+    if (aktuelleNr === aufgaben.length - 1) {
+      $('nextBtn').textContent = 'Ergebnis anzeigen →';
+    } else {
+      $('nextBtn').textContent = 'Nächste Aufgabe →';
+    }
+  }
+
+
+  /* ── 6. Nächste Aufgabe / Ergebnis ───────────────────── */
+  $('nextBtn').addEventListener('click', function () {
+    if (aktuelleNr < aufgaben.length - 1) {
+      aktuelleNr++;
+      zeigeAufgabe();
+    } else {
+      zeigeErgebnis();
+    }
+  });
+
+
+  /* ── 7. Ergebnis anzeigen ────────────────────────────── */
+  function zeigeErgebnis() {
+    $('uebungScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.remove('hidden');
+
+    $('resultScore').textContent = punkte + ' von ' + aufgaben.length + ' richtig';
+
+    // Aufmunternder Text je nach Punktzahl
+    var text = '';
+    var anzahl = aufgaben.length;
+    if (punkte === anzahl) {
+      text = 'Odlično! Du liest die Signale sicher – und erkennst auch die, die nichts entscheiden. 🎉';
+    } else if (punkte >= anzahl * 0.7) {
+      text = 'Sehr gut! Die Richtung stimmt – schau dir unten an, wo es noch hakt.';
+    } else if (punkte >= anzahl * 0.5) {
+      text = 'Guter Anfang! Merk dir die Grundfrage: Geht es um Wiederholung und Verlauf oder um ein Ergebnis?';
+    } else {
+      text = 'Kein Problem – der Aspekt ist das schwierigste Thema im Bosnischen. Lies Kapitel 24 noch einmal und versuch es erneut!';
+    }
+    $('resultText').textContent = text;
+
+    zeigeKategorieAuswertung();
+  }
+
+
+  /* ── 8. Auswertung nach Regeltyp ─────────────────────── */
+  /* Zeigt nicht nur WIE VIELE Fehler es gab, sondern WO sie
+     lagen – z. B. „Phasenverben 2/2, Kein Signal 1/3".
+     Aufgelistet werden nur Kategorien, die in dieser Runde
+     tatsächlich vorkamen.                                    */
+  function zeigeKategorieAuswertung() {
+    var box = $('katAuswertung');
+    var schluessel = Object.keys(statistik);
+
+    // Bei nur einer Kategorie lohnt die Aufschlüsselung nicht
+    if (schluessel.length < 2) {
+      box.classList.add('hidden');
+      return;
+    }
+
+    // Schwächste Kategorien zuerst – da lohnt das Nacharbeiten
+    schluessel.sort(function (a, b) {
+      var qa = statistik[a].richtig / statistik[a].gesamt;
+      var qb = statistik[b].richtig / statistik[b].gesamt;
+      return qa - qb;
+    });
+
+    var html = '<h3>Wo lagen die Fehler?</h3>';
+    schluessel.forEach(function (kat) {
+      var werte = statistik[kat];
+      var name = kategorien[kat] || kat;
+
+      // Farbe: alles richtig = grün, sonst rot markiert
+      var klasse = (werte.richtig === werte.gesamt) ? 'kat-alle' : 'kat-luecke';
+
+      html +=
+        '<div class="kat-zeile">' +
+          '<span class="kat-name">' + sicher(name) + '</span>' +
+          '<span class="kat-score ' + klasse + '">' +
+            werte.richtig + ' / ' + werte.gesamt +
+          '</span>' +
+        '</div>';
+    });
+
+    box.innerHTML = html;
+    box.classList.remove('hidden');
+  }
+
+
+  /* ── 9. Buttons im Ergebnis-Bildschirm ───────────────── */
+
+  // „Wiederholen" → dasselbe Set erneut (neu gezogen)
+  $('retryBtn').addEventListener('click', function () {
+    starteSet(aktivSet);
+  });
+
+  // „Anderes Set" → zurück zum Startschirm
+  $('otherBtn').addEventListener('click', function () {
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  });
+
+  </script>
+
+</body>
+</html>

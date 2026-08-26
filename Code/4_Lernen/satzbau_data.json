@@ -1,0 +1,110 @@
+{
+  "_hinweis": "Aufgaben-Datenbank fuer die Uebungsart 'Satzbau-Puzzle (Enklitika & Wortstellung)'. Deutsche Feldnamen, damit die Datei leicht selbst erweiterbar ist. Pro Set: Metadaten + Liste 'aufgaben'. Jede Aufgabe: 'start' (der Satzanfang, der dem Lernenden bereits vorgegeben wird - er traegt die Enklitika-Kette und legt die zweite Satzstelle fest), 'woerter' (alle uebrigen Bausteine in der RICHTIGEN Reihenfolge; ein Baustein darf mehrere Woerter enthalten, wenn deren Reihenfolge ohnehin fest ist, z. B. 'kod kuce'), 'satzzeichen' ('.' oder '?'), 'uebersetzung' (deutsche Vorgabe, nach der gebaut wird), 'erklaerung' (welche Regel den Satz loest), 'alternativen' (optional: weitere Reihenfolgen der Bausteine, die sprachlich ebenfalls korrekt sind - als Zeichenkette, Bausteine mit Leerzeichen getrennt, OHNE den Startbaustein). Warum der Startbaustein vorgegeben wird: Die Zweitstellungsregel ist immer relativ zum ersten betonten Wort. Ohne festen Anfang waeren im Bosnischen mehrere Topikalisierungen gleich richtig ('Ja sam ti to rekao' / 'Rekao sam ti to' / 'To sam ti rekao') und die Uebung wuerde korrekte Saetze als falsch werten. Beim Laden waehlt das JavaScript 10 Aufgaben zufaellig aus dem Pool des gewaehlten Sets. ACHTUNG: Die 63 Saetze sind ein sprachlicher Entwurf und vor Veroeffentlichung mit dem bosnisch-pruefer-Schema gegenzupruefen (ijekavisch, bosnisch-standardkonform).",
+
+  "sets": [
+    {
+      "id": "zweitstellung",
+      "titel": "Zweitstellung",
+      "niveau": "B2",
+      "icon": "fa-anchor",
+      "beschreibung": "Ein einziges Enklitikon: Es rückt direkt hinter das erste betonte Wort – nie weiter nach hinten.",
+      "grammatik_url": "/Code/3_Grammatik/Grammatik_B2/grammatik-enklitika.html",
+
+      "aufgaben": [
+
+        { "start": "Danas", "woerter": ["sam", "jako", "umoran"], "satzzeichen": ".", "uebersetzung": "Heute bin ich sehr müde.", "erklaerung": "„sam“ ist unbetont und rückt direkt hinter das erste betonte Wort (Danas). „Danas jako sam umoran“ wäre falsch." },
+        { "start": "Sutra", "woerter": ["ću", "rano", "ustati"], "satzzeichen": ".", "uebersetzung": "Morgen werde ich früh aufstehen.", "erklaerung": "Das Futur-Klitikon „ću“ rückt nach vorn zum ersten betonten Wort – nicht zum Infinitiv.", "alternativen": ["ću ustati rano", "rano ću ustati"] },
+        { "start": "Mi", "woerter": ["se", "dobro", "poznajemo"], "satzzeichen": ".", "uebersetzung": "Wir kennen uns gut.", "erklaerung": "Auch das reflexive „se“ ist ein Enklitikon und sitzt an zweiter Stelle – nicht direkt am Verb.", "alternativen": ["se poznajemo dobro"] },
+        { "start": "Kako", "woerter": ["se", "zoveš"], "satzzeichen": "?", "uebersetzung": "Wie heißt du?", "erklaerung": "Das Fragewort trägt die Kette: „se“ folgt sofort danach." },
+        { "start": "Ona", "woerter": ["je", "otišla", "kući"], "satzzeichen": ".", "uebersetzung": "Sie ist nach Hause gegangen.", "erklaerung": "Das kurze „je“ steht hinter dem ersten betonten Wort, das Partizip folgt danach.", "alternativen": ["je kući otišla"] },
+        { "start": "Nikada", "woerter": ["ga", "nisam", "vidio"], "satzzeichen": ".", "uebersetzung": "Ich habe ihn nie gesehen.", "erklaerung": "„nisam“ ist verneint und damit betont – also kein Enklitikon. Das Klitikon „ga“ nimmt die zweite Stelle ein und steht vor „nisam“." },
+        { "start": "Zovem", "woerter": ["se", "Amir"], "satzzeichen": ".", "uebersetzung": "Ich heiße Amir.", "erklaerung": "Steht das Verb vorn, hängt sich „se“ direkt daran – „Se zovem Amir“ ist unmöglich." },
+        { "start": "Roditelji", "woerter": ["mi", "žive", "u Njemačkoj"], "satzzeichen": ".", "uebersetzung": "Meine Eltern leben in Deutschland.", "erklaerung": "Das Dativ-Klitikon „mi“ drückt hier Besitz aus (= moji roditelji) und steht an zweiter Stelle.", "alternativen": ["mi u Njemačkoj žive"] },
+        { "start": "Knjigu", "woerter": ["sam", "ostavio", "kod kuće"], "satzzeichen": ".", "uebersetzung": "Das Buch habe ich zu Hause gelassen.", "erklaerung": "Auch ein vorangestelltes Objekt zählt als erstes Wort – die Kette hängt sich daran.", "alternativen": ["sam kod kuće ostavio"] },
+        { "start": "Jučer", "woerter": ["sam", "bio", "bolestan"], "satzzeichen": ".", "uebersetzung": "Gestern war ich krank.", "erklaerung": "Zeitangabe zuerst, dann das Klitikon „sam“, dann Partizip und Adjektiv." },
+        { "start": "Uvijek", "woerter": ["ti", "pomažem"], "satzzeichen": ".", "uebersetzung": "Ich helfe dir immer.", "erklaerung": "Das Dativ-Klitikon „ti“ rückt vor das Verb an die zweite Stelle." },
+        { "start": "Djeca", "woerter": ["se", "igraju", "u dvorištu"], "satzzeichen": ".", "uebersetzung": "Die Kinder spielen im Hof.", "erklaerung": "„se“ gehört zum Verb, steht aber trotzdem an zweiter Satzstelle.", "alternativen": ["se u dvorištu igraju"] },
+        { "start": "Nešto", "woerter": ["ti", "moram", "reći"], "satzzeichen": ".", "uebersetzung": "Ich muss dir etwas sagen.", "erklaerung": "„ti“ gehört inhaltlich zu „reći“, steht aber trotzdem an zweiter Stelle – „Nešto moram ti reći“ wäre falsch." },
+        { "start": "Ovdje", "woerter": ["se", "ne", "puši"], "satzzeichen": ".", "uebersetzung": "Hier wird nicht geraucht.", "erklaerung": "Das unpersönliche „se“ steht an zweiter Stelle, vor der Verneinung „ne puši“." },
+        { "start": "Njemu", "woerter": ["sam", "sve", "objasnio"], "satzzeichen": ".", "uebersetzung": "Ihm habe ich alles erklärt.", "erklaerung": "Die lange Form „njemu“ ist betont und kann deshalb den Satz eröffnen; das Klitikon „mu“ könnte das nie.", "alternativen": ["sam objasnio sve"] },
+        { "start": "Zašto", "woerter": ["mi", "ne", "vjeruješ"], "satzzeichen": "?", "uebersetzung": "Warum glaubst du mir nicht?", "erklaerung": "Nach dem Fragewort folgt sofort das Klitikon „mi“, erst danach die Verneinung." },
+        { "start": "Sestra", "woerter": ["mi", "studira", "u Beču"], "satzzeichen": ".", "uebersetzung": "Meine Schwester studiert in Wien.", "erklaerung": "Besitzanzeigendes „mi“ an zweiter Stelle – bei Verwandtschaftswörtern sehr gebräuchlich (statt „moja sestra“).", "alternativen": ["mi u Beču studira"] },
+        { "start": "Bosanski", "woerter": ["se", "uči", "polako"], "satzzeichen": ".", "uebersetzung": "Bosnisch lernt man langsam.", "erklaerung": "Unpersönliches „se“: Es folgt direkt auf das erste betonte Wort.", "alternativen": ["se polako uči"] },
+        { "start": "Kuću", "woerter": ["su", "prodali", "prošle godine"], "satzzeichen": ".", "uebersetzung": "Das Haus haben sie letztes Jahr verkauft.", "erklaerung": "Das vorangestellte Objekt „kuću“ trägt die Kette, „su“ folgt unmittelbar.", "alternativen": ["su prošle godine prodali"] },
+        { "start": "On", "woerter": ["se", "vratio", "iz Njemačke"], "satzzeichen": ".", "uebersetzung": "Er ist aus Deutschland zurückgekehrt.", "erklaerung": "Beim reflexiven Verb „vratiti se“ wandert „se“ an die zweite Stelle, weg vom Verb.", "alternativen": ["se iz Njemačke vratio"] }
+
+      ]
+    },
+
+    {
+      "id": "kette",
+      "titel": "Die Kette",
+      "niveau": "B2",
+      "icon": "fa-list-ol",
+      "beschreibung": "Mehrere Enklitika treffen sich: Hilfsverb → Dativ → Akkusativ → se, und „je“ ganz zum Schluss.",
+      "grammatik_url": "/Code/3_Grammatik/Grammatik_B2/grammatik-enklitika.html",
+
+      "aufgaben": [
+
+        { "start": "Dao", "woerter": ["mi", "ga", "je"], "satzzeichen": ".", "uebersetzung": "Er hat es mir gegeben.", "erklaerung": "Der Klassiker: Dativ (mi) vor Akkusativ (ga), und das kurze „je“ ganz zuletzt." },
+        { "start": "Ja", "woerter": ["sam", "ti", "to", "rekao"], "satzzeichen": ".", "uebersetzung": "Ich habe dir das gesagt.", "erklaerung": "Die Kette ist hier nur „sam ti“ (Hilfsverb → Dativ). „to“ ist betont und damit kein Enklitikon – es folgt erst nach der Kette.", "alternativen": ["sam ti rekao to"] },
+        { "start": "Rekao", "woerter": ["sam", "ti", "to"], "satzzeichen": ".", "uebersetzung": "Ich habe dir das gesagt.", "erklaerung": "Derselbe Satz ohne „ja“: Jetzt trägt das Partizip die Kette – die Reihenfolge darin bleibt gleich." },
+        { "start": "Jučer", "woerter": ["sam", "ga", "vidio"], "satzzeichen": ".", "uebersetzung": "Gestern habe ich ihn gesehen.", "erklaerung": "Hilfsverb (sam) vor Akkusativ (ga) – „Jučer ga sam vidio“ wäre falsch." },
+        { "start": "Ovaj film", "woerter": ["mi", "se", "sviđa"], "satzzeichen": ".", "uebersetzung": "Dieser Film gefällt mir.", "erklaerung": "Dativ (mi) steht vor „se“ – die feste Slot-Ordnung gilt auch hier." },
+        { "start": "Poslije posla", "woerter": ["ćemo", "se", "vidjeti"], "satzzeichen": ".", "uebersetzung": "Nach der Arbeit sehen wir uns.", "erklaerung": "Hilfsverb (ćemo) vor „se“ – beide sitzen zusammen an zweiter Stelle." },
+        { "start": "Amir", "woerter": ["mu", "je", "brat"], "satzzeichen": ".", "uebersetzung": "Amir ist sein Bruder.", "erklaerung": "Dativ (mu) vor dem kurzen „je“ – „je“ steht immer am Ende der Kette." },
+        { "start": "Pismo", "woerter": ["mi", "je", "stiglo", "danas"], "satzzeichen": ".", "uebersetzung": "Der Brief ist heute bei mir angekommen.", "erklaerung": "Erst der Dativ (mi), dann „je“ – nie umgekehrt.", "alternativen": ["mi je danas stiglo"] },
+        { "start": "Djed", "woerter": ["mi", "je", "iz Mostara"], "satzzeichen": ".", "uebersetzung": "Mein Großvater ist aus Mostar.", "erklaerung": "Besitzanzeigendes „mi“ vor dem Hilfsverb „je“, das die Kette abschließt." },
+        { "start": "Poslije", "woerter": ["ću", "ti", "objasniti"], "satzzeichen": ".", "uebersetzung": "Ich erkläre es dir später.", "erklaerung": "Hilfsverb (ću) vor Dativ (ti) – die Slots 2 und 3 in der richtigen Ordnung." },
+        { "start": "Ona", "woerter": ["mi", "se", "nije", "javila"], "satzzeichen": ".", "uebersetzung": "Sie hat sich bei mir nicht gemeldet.", "erklaerung": "„nije“ ist verneint und betont – die Klitika „mi se“ rücken davor an die zweite Stelle." },
+        { "start": "On", "woerter": ["joj", "je", "kupio", "prsten"], "satzzeichen": ".", "uebersetzung": "Er hat ihr einen Ring gekauft.", "erklaerung": "Dativ (joj) vor „je“; das Partizip folgt erst nach der Kette.", "alternativen": ["joj je prsten kupio"] },
+        { "start": "Knjigu", "woerter": ["sam", "mu", "već", "vratio"], "satzzeichen": ".", "uebersetzung": "Das Buch habe ich ihm schon zurückgegeben.", "erklaerung": "Hilfsverb (sam) vor Dativ (mu); „već“ steht erst nach der geschlossenen Kette." },
+        { "start": "To", "woerter": ["mi", "se", "ne", "sviđa"], "satzzeichen": ".", "uebersetzung": "Das gefällt mir nicht.", "erklaerung": "Dativ (mi) vor „se“, beide vor der Verneinung." },
+        { "start": "Zašto", "woerter": ["mi", "se", "ne", "javljaš"], "satzzeichen": "?", "uebersetzung": "Warum meldest du dich nicht bei mir?", "erklaerung": "Nach dem Fragewort kommt die vollständige Kette „mi se“ – Dativ vor se." },
+        { "start": "Sve", "woerter": ["sam", "im", "objasnio"], "satzzeichen": ".", "uebersetzung": "Ich habe ihnen alles erklärt.", "erklaerung": "Hilfsverb (sam) vor Dativ Plural (im)." },
+        { "start": "Nadam", "woerter": ["se", "da", "ću", "uspjeti"], "satzzeichen": ".", "uebersetzung": "Ich hoffe, dass ich es schaffe.", "erklaerung": "Im Nebensatz beginnt die Zählung neu: „da“ ist das erste Wort, „ću“ folgt an zweiter Stelle." },
+        { "start": "Roditelji", "woerter": ["su", "mi", "poslali", "paket"], "satzzeichen": ".", "uebersetzung": "Meine Eltern haben mir ein Paket geschickt.", "erklaerung": "Hilfsverb (su) vor Dativ (mi) – erst danach Partizip und Objekt.", "alternativen": ["su mi paket poslali"] },
+        { "start": "Ne", "woerter": ["mogu", "ti", "pomoći"], "satzzeichen": ".", "uebersetzung": "Ich kann dir nicht helfen.", "erklaerung": "„ne mogu“ bildet eine betonte Einheit und zählt als erstes Wort; „ti“ folgt danach." },
+        { "start": "Vidjeli", "woerter": ["smo", "se", "prošle sedmice"], "satzzeichen": ".", "uebersetzung": "Wir haben uns letzte Woche gesehen.", "erklaerung": "Hilfsverb (smo) vor „se“ – die Zeitangabe steht erst nach der Kette." },
+        { "start": "Hvala", "woerter": ["ti", "što", "si", "došao"], "satzzeichen": ".", "uebersetzung": "Danke, dass du gekommen bist.", "erklaerung": "Zwei Ketten in einem Satz: „ti“ hängt an „hvala“, „si“ an der Konjunktion „što“." },
+        { "start": "Kuća", "woerter": ["im", "se", "nalazi", "blizu rijeke"], "satzzeichen": ".", "uebersetzung": "Ihr Haus liegt in der Nähe des Flusses.", "erklaerung": "Dativ (im) vor „se“ – dieselbe Ordnung wie bei „mi se“.", "alternativen": ["im se blizu rijeke nalazi"] },
+        { "start": "Ja", "woerter": ["bih", "ti", "pomogao"], "satzzeichen": ".", "uebersetzung": "Ich würde dir helfen.", "erklaerung": "Auch das Konditional-Klitikon „bih“ besetzt den Hilfsverb-Slot – vor dem Dativ." },
+        { "start": "Oni", "woerter": ["su", "nam", "se", "javili"], "satzzeichen": ".", "uebersetzung": "Sie haben sich bei uns gemeldet.", "erklaerung": "Dreiergruppe in voller Ordnung: Hilfsverb (su) → Dativ (nam) → se." },
+        { "start": "Danas", "woerter": ["mi", "je", "rođendan"], "satzzeichen": ".", "uebersetzung": "Heute habe ich Geburtstag.", "erklaerung": "Dativ (mi) vor „je“ – wörtlich „heute ist mir Geburtstag“." }
+
+      ]
+    },
+
+    {
+      "id": "fragen",
+      "titel": "Fragen & Betonung",
+      "niveau": "B2",
+      "icon": "fa-bullhorn",
+      "beschreibung": "„li“ eröffnet die Kette, „je“ schließt sie – und wer betonen will, beginnt mit der langen Form.",
+      "grammatik_url": "/Code/3_Grammatik/Grammatik_B2/grammatik-enklitika.html",
+
+      "aufgaben": [
+
+        { "start": "Da", "woerter": ["li", "si", "mu", "pisao"], "satzzeichen": "?", "uebersetzung": "Hast du ihm geschrieben?", "erklaerung": "Slot 1 ist „li“, dann das Hilfsverb (si), dann der Dativ (mu)." },
+        { "start": "Jesi", "woerter": ["li", "ga", "vidio"], "satzzeichen": "?", "uebersetzung": "Hast du ihn gesehen?", "erklaerung": "Die betonte Langform „jesi“ eröffnet die Frage, „li“ folgt sofort, dann der Akkusativ." },
+        { "start": "Da", "woerter": ["li", "ti", "se", "sviđa", "Sarajevo"], "satzzeichen": "?", "uebersetzung": "Gefällt dir Sarajevo?", "erklaerung": "Nach „da li“ folgt die volle Kette: Dativ (ti) vor „se“.", "alternativen": ["li ti se Sarajevo sviđa"] },
+        { "start": "Je", "woerter": ["li", "ti", "hladno"], "satzzeichen": "?", "uebersetzung": "Ist dir kalt?", "erklaerung": "Die eine Ausnahme zur Regel „je steht zuletzt“: In der Kurzfrage „je li“ rückt das „je“ nach vorn, damit sich „li“ daran anlehnen kann. Danach folgt der Dativ." },
+        { "start": "Kada", "woerter": ["ćeš", "mi", "javiti"], "satzzeichen": "?", "uebersetzung": "Wann gibst du mir Bescheid?", "erklaerung": "Fragewort, dann Hilfsverb (ćeš), dann Dativ (mi)." },
+        { "start": "Mene", "woerter": ["je", "jučer", "vidio"], "satzzeichen": ".", "uebersetzung": "Mich hat er gestern gesehen.", "erklaerung": "Betonung verlangt die lange Form „mene“ – das Klitikon „me“ kann nicht am Satzanfang stehen.", "alternativen": ["je vidio jučer"] },
+        { "start": "Njega", "woerter": ["ne", "poznajem"], "satzzeichen": ".", "uebersetzung": "Ihn kenne ich nicht.", "erklaerung": "Am Satzanfang steht die lange Form „njega“; „Ga ne poznajem“ ist unmöglich." },
+        { "start": "Tebe", "woerter": ["sam", "tražio", "cijeli dan"], "satzzeichen": ".", "uebersetzung": "Dich habe ich den ganzen Tag gesucht.", "erklaerung": "Die betonte Langform „tebe“ eröffnet den Satz und trägt die Kette.", "alternativen": ["sam cijeli dan tražio"] },
+        { "start": "Pokazao", "woerter": ["mi", "ga", "je"], "satzzeichen": ".", "uebersetzung": "Er hat es mir gezeigt.", "erklaerung": "Dativ (mi) → Akkusativ (ga) → „je“ zuletzt – die vollständige Dreierkette." },
+        { "start": "Šta", "woerter": ["ti", "je"], "satzzeichen": "?", "uebersetzung": "Was ist mit dir los?", "erklaerung": "Auch in der kurzen Frage gilt: Dativ vor „je“." },
+        { "start": "Ko", "woerter": ["ti", "je", "to", "rekao"], "satzzeichen": "?", "uebersetzung": "Wer hat dir das gesagt?", "erklaerung": "Dativ (ti) vor „je“; das betonte „to“ steht erst nach der Kette." },
+        { "start": "Zar", "woerter": ["mu", "nisi", "rekao"], "satzzeichen": "?", "uebersetzung": "Hast du es ihm etwa nicht gesagt?", "erklaerung": "„nisi“ ist verneint und betont – der Dativ „mu“ rückt davor an die zweite Stelle." },
+        { "start": "Njoj", "woerter": ["sam", "sve", "poslao"], "satzzeichen": ".", "uebersetzung": "Ihr habe ich alles geschickt.", "erklaerung": "Lange Dativform „njoj“ zur Betonung – das Klitikon wäre „joj“.", "alternativen": ["sam poslao sve"] },
+        { "start": "Gdje", "woerter": ["ste", "se", "upoznali"], "satzzeichen": "?", "uebersetzung": "Wo habt ihr euch kennengelernt?", "erklaerung": "Fragewort, dann Hilfsverb (ste), dann „se“." },
+        { "start": "Da", "woerter": ["li", "ste", "mi", "donijeli", "papire"], "satzzeichen": "?", "uebersetzung": "Habt ihr mir die Papiere mitgebracht?", "erklaerung": "Volle Ordnung: li → Hilfsverb (ste) → Dativ (mi), erst danach Partizip und Objekt.", "alternativen": ["li ste mi papire donijeli"] },
+        { "start": "Vidio", "woerter": ["nas", "je"], "satzzeichen": ".", "uebersetzung": "Er hat uns gesehen.", "erklaerung": "Akkusativ (nas) vor „je“ – im Aussagesatz steht das kurze „je“ immer ganz am Ende der Kette (Ausnahme: die Frage „je li …“)." },
+        { "start": "Njemu", "woerter": ["to", "nisam", "rekao"], "satzzeichen": ".", "uebersetzung": "Ihm habe ich das nicht gesagt.", "erklaerung": "Betonte Langform „njemu“ am Anfang; „nisam“ ist verneint und deshalb kein Klitikon.", "alternativen": ["nisam to rekao"] },
+        { "start": "Zašto", "woerter": ["mi", "to", "nisi", "rekao"], "satzzeichen": "?", "uebersetzung": "Warum hast du mir das nicht gesagt?", "erklaerung": "Das Klitikon „mi“ rückt an die zweite Stelle, vor das betonte „to nisi rekao“.", "alternativen": ["mi nisi to rekao"] }
+
+      ]
+    }
+  ]
+}

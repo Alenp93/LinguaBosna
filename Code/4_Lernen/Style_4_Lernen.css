@@ -29,7 +29,10 @@ main h1,
 .thema-card p,
 .uebung-satz,
 .wortbank-btn,
-.uebung-feedback {
+.uebung-feedback,
+.satzbau-vorgabe,
+.satzbau-chip,
+.satzbau-tile {
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -465,6 +468,185 @@ main h1 {
 }
 
 
+/* ── 4c. Satzbau-Puzzle (lernen-satzbau.html) ────────── */
+/* Ergänzt den Übungsbereich um Zielfeld und Wortvorrat.
+   Fortschritt, Feedback und Ergebnis kommen aus Abschnitt 4
+   bzw. 5 und werden hier nur mitbenutzt.                    */
+
+/* Hinweis unter der Set-Auswahl (Link zur Erklärseite) */
+.uebung-quelle {
+  margin-top: 22px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+}
+.uebung-quelle a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Die deutsche Vorgabe, nach der gebaut wird */
+.satzbau-vorgabe {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #555;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* Das Zielfeld: hier sammeln sich die angetippten Bausteine */
+.satzbau-ziel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 64px;
+  padding: 14px 12px;
+  border: 2px dashed var(--neutral);
+  border-radius: 10px;
+  background: #fcfbf9;
+}
+
+/* Ein gesetzter Baustein im Zielfeld (antippbar zum Zurücknehmen) */
+.satzbau-chip {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 44px;               /* Mindest-Touch-Target */
+  padding: 10px 16px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.satzbau-chip:hover:not(:disabled) {
+  background: #f1f5f8;
+}
+.satzbau-chip:disabled {
+  cursor: default;
+}
+
+/* Der vorgegebene Satzanfang: fest, nicht antippbar */
+.satzbau-start {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  cursor: default;
+}
+
+/* Nach dem Prüfen: Baustein an richtiger / falscher Stelle */
+.satzbau-chip.chip-correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e7e46;
+}
+.satzbau-chip.chip-wrong {
+  border-color: #c0392b;
+  background: #fdecea;
+  color: #922b21;
+}
+
+/* Platzhalter, solange das Zielfeld leer ist */
+.satzbau-leer {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #bbb;
+  letter-spacing: 3px;
+}
+
+/* Das Satzzeichen am Ende des Zielfelds */
+.satzbau-zeichen {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+/* Kleiner Bedienhinweis unter dem Zielfeld */
+.satzbau-tipp {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+  margin: 10px 0 20px;
+  line-height: 1.45;
+}
+
+/* Der Wortvorrat: die noch nicht gesetzten Bausteine */
+.satzbau-vorrat {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.satzbau-tile {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 44px;               /* Mindest-Touch-Target */
+  padding: 10px 18px;
+  border: 2px solid var(--neutral);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+.satzbau-tile:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: #f8f8f8;
+}
+/* Bereits gesetzt: bleibt an Ort und Stelle, damit das Layout
+   beim Tippen nicht springt – nur ausgegraut.                */
+.satzbau-tile.benutzt {
+  opacity: 0.3;
+  cursor: default;
+  border-style: dashed;
+}
+.satzbau-tile:disabled {
+  cursor: default;
+}
+
+/* Steuerzeile: Rückgängig / Zurücksetzen / Prüfen */
+.satzbau-aktionen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+/* Etwas kompaktere Variante der Standard-Buttons */
+.btn-klein {
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  min-height: 44px;               /* Mindest-Touch-Target */
+}
+.btn-klein:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+/* Deaktivierte Buttons behalten ihre Ruhefarbe (kein Hover-Wechsel) */
+.btn-outline:disabled:hover {
+  background: #fff;
+  color: var(--primary);
+}
+.btn-primary:disabled:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+
 /* ── 6. Responsive Design ────────────────────────────── */
 
 /* Tablet */
@@ -472,6 +654,7 @@ main h1 {
   main h1 { font-size: 1.7rem; }
   .uebung-satz { font-size: 1.1rem; }
   .aspekt-verb { font-size: 1.6rem; }
+  .satzbau-vorgabe { font-size: 1rem; }
 }
 
 /* Mobil */
@@ -495,6 +678,24 @@ main h1 {
   .result-actions .btn-outline {
     width: 100%;
   }
+  /* Satzbau: Bausteine bleiben bewusst NEBENEINANDER (sonst wäre
+     die Reihenfolge nicht mehr erkennbar) – nur etwas kompakter.
+     Die 44px Mindesthöhe bleiben erhalten.                        */
+  .satzbau-tile,
+  .satzbau-chip {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+  .satzbau-ziel {
+    gap: 6px;
+    padding: 12px 8px;
+  }
+  .satzbau-vorrat { gap: 8px; }
+  /* Prüfen-Button volle Breite, die beiden Helfer daneben */
+  .satzbau-aktionen #pruefenBtn {
+    width: 100%;
+    order: 3;
+  }
 }
 
 /* Sehr kleine Geräte */
@@ -504,4 +705,11 @@ main h1 {
   }
   .uebung-satz { font-size: 1.05rem; }
   .aspekt-verb { font-size: 1.45rem; }
+  .satzbau-vorgabe { font-size: 0.95rem; }
+  .satzbau-tile,
+  .satzbau-chip {
+    padding: 10px 12px;
+    font-size: 0.92rem;
+  }
+  .satzbau-tipp { font-size: 0.8rem; }
 }

@@ -143,6 +143,14 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 ## Vokabular-System
 
 - Kanonische Datei: `vokabeln_flat.json` – ca. 2.889 Einträge über 97 Kapitel (A1–C2)
+- **`vokabeln_flat.json` ist die Referenz für die Wortform – projektweit, nicht nur
+  für den Vokabeltrainer.** Wo das Bosnische zulässige Dubletten kennt (`jučer`/`juče`,
+  `nikada`/`nikad`, `sviđati se`/`dopadati se`), gilt die Form aus der JSON – auch in
+  Grammatikseiten, Quizfragen und Lernen-Übungen. Beim Anlegen neuer Beispielsätze
+  deshalb die verwendeten Wörter gegen die JSON prüfen, nicht nach Gefühl wählen.
+  Steht ein Wort noch nicht im Bestand, ist die Formwahl frei – dann aber im ganzen
+  Projekt einheitlich. (Ausgenommen: feste Redewendungen wie „Bolje ikad nego nikad“,
+  die als Einheit überliefert sind.)
 - JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
   **diese Konvention darf nicht gebrochen werden**
 - Verben: `aspekt`-Feld, 88 Aspektpaare über `par_id` (`ap01`–`ap88`, lückenlos belegt) verlinkt

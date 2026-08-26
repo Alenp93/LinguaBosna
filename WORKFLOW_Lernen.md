@@ -86,7 +86,16 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
 | Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) | 88 Paare (`ap01`–`ap88`, lückenlos), 3 Sets: A1–A2 (52) / B1–C1 (36) / alle (88) |
-| Satzbau-Puzzle (Enklitika/Wortstellung) | 📋 geplant | – | eigene JSON nötig | – |
+| Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
+
+> ⚠️ **Regel für Satzbau-/Umstell-Übungen (aus dem Satzbau-Puzzle gelernt):**
+> Der **Satzanfang wird immer vorgegeben** und steht schon im Zielfeld. Grund: Die
+> Wortstellung im Bosnischen ist außerhalb der Enklitika-Kette frei – ohne festen
+> Anfang wären „Ja sam ti to rekao" und „Rekao sam ti to" beide richtig, und die Übung
+> würde korrekte Antworten als falsch werten. Zusätzlich hat jede Aufgabe ein optionales
+> Feld `alternativen` für weitere zulässige Reihenfolgen. Ein Baustein darf mehrere
+> Wörter enthalten (`"u Njemačkoj"`), wenn deren Reihenfolge ohnehin feststeht – das
+> nimmt weitere Mehrdeutigkeit heraus.
 
 ---
 
@@ -109,13 +118,39 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 
 ---
 
-## 7. Antwortformat der Auslieferung
+## 7. Pflicht-Verlinkung von der Grammatikseite (nicht vergessen)
+
+**Jede neue Lernen-Übung wird auf der zugehörigen Grammatik-Erklärseite verlinkt.**
+Das ist kein optionaler Zusatz: Ohne diesen Button findet die Übung praktisch
+niemand – die Übersichtsseite `lernen-uebersicht.html` allein reicht nicht, weil
+Lernende beim Thema einsteigen, nicht bei der Übungsart.
+
+- **Ort:** Block 5 („Üben") der Grammatikseite, direkt hinter dem Quiz-Ergebnis
+  (`div.quiz-result`), noch innerhalb der `<section>`.
+- **Baustein:** `div.uebung-cta-box` mit `a.uebung-cta` – die Klassen liegen bereits
+  in `Style_3_Grammatik_Detail.css`, es ist kein neues CSS nötig. Exakter Wortlaut
+  und Beispiel: `WORKFLOW_Grammatikseiten.md`, Abschnitt 2, „Übungs-Button am Ende
+  von Block 5".
+- **Deep-Link:** Der Query-Parameter überspringt in der Übung die Auswahlseite
+  (`?thema=…` beim Lückentext, `?set=…` bei Aspektpaaren und Satzbau-Puzzle).
+  Jede neue Übung sollte so einen Parameter unterstützen – siehe die
+  `URLSearchParams`-Auswertung in `lernen-satzbau.html`.
+- **Gibt es noch keine passende Grammatikseite** (Übung kommt zuerst), wird das als
+  To-do gemeldet und beim Anlegen der Grammatikseite nachgezogen.
+
+Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext,
+`grammatik-enklitika.html` → Satzbau-Puzzle. Noch offen: Aspektpaare
+(Verbalaspekt-Kapitel).
+
+---
+
+## 8. Antwortformat der Auslieferung
 
 Analog zu Grammatikseiten:
 - Kurzer didaktischer Vorspann vor der Dateierstellung (welches Thema,
   welche Untermuster werden abgedeckt)
 - Nach Fertigstellung: Zusammenfassung (Aufbau, Datenquelle, Pool-Größe,
   sprachlicher Hinweis auf bewusst Weggelassenes)
-- To-dos für Alen benennen (z. B. Übersichtskarte in `LB_4_Lernen.html`
-  aktivieren, Menüpunkt-Reaktivierung, Verlinkung von der passenden
+- To-dos für Alen benennen (z. B. Übersichtskarte in `lernen-uebersicht.html`
+  ergänzen, Menüpunkt-Reaktivierung, Verlinkung von der passenden
   Grammatikseite aus)

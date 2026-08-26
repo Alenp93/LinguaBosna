@@ -56,6 +56,30 @@ Quiz, Validierung, Mobiltest, Datei-Auslieferung.
 - Nach jeder neuen Seite: entsprechende Karte in der Übersicht von
   „Demnächst" (`div.coming-soon`) auf aktiven Link (`a.grammar-card`) umstellen.
 
+### Übungs-Button am Ende von Block 5 („Üben") – Konvention
+
+Gibt es im Lernen-Bereich eine Übung zu diesem Kapitel, bekommt die Grammatikseite
+**direkt hinter dem Quiz-Ergebnis** (`div.quiz-result`) einen Button dorthin. Das ist
+der einzige Weg vom Erklären ins Üben – ohne ihn findet die Übung praktisch niemand.
+Fester Baustein, Klassen kommen aus `Style_3_Grammatik_Detail.css`:
+
+```html
+<div class="uebung-cta-box">
+  <p>[Kurzer Aufhänger, eine Zeile]</p>
+  <a href="/Code/4_Lernen/lernen-[typ].html?[parameter]" class="uebung-cta">
+    <i class="fas fa-[icon]"></i> Jetzt üben: [Übungsname]
+  </a>
+</div>
+```
+
+Der Query-Parameter überspringt in der Übung die Auswahlseite und startet direkt
+(`?thema=…` beim Lückentext, `?set=…` bei Aspektpaaren und Satzbau-Puzzle). Vorbilder:
+`grammatik-akkusativ.html` (Lückentext), `grammatik-enklitika.html` (Satzbau-Puzzle).
+
+**Gegenrichtung:** Die Pflicht, diesen Button zu setzen, liegt bei der *Übung* –
+siehe `WORKFLOW_Lernen.md`, Abschnitt 7. Wer eine neue Lernen-Übung baut, trägt sie
+auf der passenden Grammatikseite nach.
+
 ### Seiten-Navigation (Vor/Zurück) – Konvention
 
 - **Zurück-Link:** zeigt auf das vorige Kapitel. Innerhalb desselben Ordners relativ

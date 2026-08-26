@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       lernen-satzbau.html
+       Übungsart: „Satzbau-Puzzle (Enklitika & Wortstellung)"
+       LinguaBosna | Menüpunkt „Lernen"
+
+       Der Lernende bekommt eine deutsche Vorgabe, den bereits
+       gesetzten Satzanfang und die übrigen Wortbausteine in
+       gemischter Reihenfolge. Durch Anklicken setzt er die
+       Bausteine nacheinander in das Zielfeld.
+
+       Warum der Satzanfang vorgegeben ist:
+       Die Zweitstellungsregel gilt immer relativ zum ersten
+       betonten Wort. Ohne festen Anfang wären im Bosnischen
+       mehrere Reihenfolgen gleich richtig („Ja sam ti to rekao"
+       / „Rekao sam ti to") – die Übung würde korrekte Sätze
+       als falsch werten. Mit festem Anfang prüft sie genau das,
+       was Kapitel 29 lehrt: Wo sitzt die Kette, und in welcher
+       Reihenfolge stehen die Enklitika darin?
+
+       KEIN Drag & Drop – alles klickbasiert (Mobiltauglichkeit,
+       siehe WORKFLOW_Lernen.md Abschnitt 2).
+
+       Die Seite hat 3 Bildschirme (per JavaScript umgeschaltet):
+       1. Startschirm  – Auswahl des Übungssets
+       2. Übung        – ein Satz nach dem anderen
+       3. Ergebnis     – Punktzahl + Wiederholen
+
+       Die Aufgaben kommen aus satzbau_data.json.
+       ====================================================== -->
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js" defer></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Satzbau-Puzzle</title>
+  <link rel="canonical" href="https://linguabosna.com/Code/4_Lernen/lernen-satzbau.html">
+
+  <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="LinguaBosna – Satzbau-Puzzle">
+  <meta property="og:description" content="Interaktive Bosnisch-Übung: Setze die Wörter per Klick zur richtigen Satzstellung zusammen und trainiere die Enklitika sam, ću, se, mu, ga an zweiter Stelle.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/4_Lernen/lernen-satzbau.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Satzbau-Puzzle">
+  <meta name="twitter:description" content="Interaktive Bosnisch-Übung: Setze die Wörter per Klick zur richtigen Satzstellung zusammen und trainiere die Enklitika sam, ću, se, mu, ga an zweiter Stelle.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta name="description" content="Interaktive Bosnisch-Übung: Setze die Wörter per Klick zur richtigen Satzstellung zusammen und trainiere die Enklitika sam, ću, se, mu, ga an zweiter Stelle.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+
+  <!-- ── Strukturierte Daten (schema.org) ─────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Satzbau-Puzzle",
+        "description": "Interaktive Bosnisch-Übung: Setze die Wörter per Klick zur richtigen Satzstellung zusammen und trainiere die Enklitika sam, ću, se, mu, ga an zweiter Stelle.",
+        "url": "https://linguabosna.com/Code/4_Lernen/lernen-satzbau.html",
+        "inLanguage": "de",
+        "learningResourceType": "Interaktive Übung",
+        "educationalLevel": "B2",
+        "teaches": "Bosnische Wortstellung: Enklitika (Übung)",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Bosnisch lernen",
+          "url": "https://linguabosna.com/"
+        },
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Lernen",
+            "item": "https://linguabosna.com/Code/4_Lernen/lernen-uebersicht.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Satzbau-Puzzle"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Satzbau-Puzzle</h1>
+    <p class="subtitle">Setze die Wörter in die richtige Reihenfolge – Enklitika an zweiter Stelle.</p>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 1 — STARTSCHIRM (Set-Auswahl)
+         Wird ausgeblendet, sobald ein Set startet.
+         ===================================================== -->
+    <section id="startScreen">
+      <div class="section-intro">
+        <h2>Womit möchtest du üben?</h2>
+        <p>Wähle ein Set. Pro Durchgang bekommst du 10 Sätze.</p>
+      </div>
+
+      <!-- Hier fügt das JavaScript die Set-Karten ein -->
+      <div class="thema-grid" id="themaGrid"></div>
+
+      <!-- Verweis auf die zugehörige Erklärseite -->
+      <p class="uebung-quelle">
+        Die Regeln dazu stehen in Kapitel 29:
+        <a href="/Code/3_Grammatik/Grammatik_B2/grammatik-enklitika.html">Enklitika &amp; Wortstellung</a>
+      </p>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 2 — ÜBUNG (Satzbau-Puzzle)
+         Standardmäßig versteckt (Klasse "hidden").
+         ===================================================== -->
+    <section id="uebungScreen" class="hidden">
+      <div class="uebung-container">
+
+        <!-- Fortschritt -->
+        <div class="uebung-progress" id="uebungProgress">Satz 1 von 10</div>
+        <div class="uebung-bar"><div class="uebung-bar-fill" id="uebungBarFill"></div></div>
+
+        <!-- Die deutsche Vorgabe: Das soll gebaut werden. -->
+        <div class="satzbau-vorgabe" id="satzbauVorgabe"></div>
+
+        <!-- Das Zielfeld: hier landen die angeklickten Bausteine.
+             Der Satzanfang steht schon fest und ist nicht klickbar. -->
+        <div class="satzbau-ziel" id="satzbauZiel"></div>
+        <p class="satzbau-tipp" id="satzbauTipp">
+          Der Satzanfang ist vorgegeben. Tippe die übrigen Bausteine in der richtigen Reihenfolge an.
+        </p>
+
+        <!-- Der Wortvorrat: die noch nicht gesetzten Bausteine -->
+        <div class="satzbau-vorrat" id="satzbauVorrat"></div>
+
+        <!-- Steuerung: letzten Baustein zurücknehmen / alles leeren / prüfen -->
+        <div class="satzbau-aktionen" id="satzbauAktionen">
+          <button class="btn-outline btn-klein" id="undoBtn">
+            <i class="fas fa-rotate-left"></i> Rückgängig
+          </button>
+          <button class="btn-outline btn-klein" id="resetBtn">
+            <i class="fas fa-eraser"></i> Zurücksetzen
+          </button>
+          <button class="btn-primary btn-klein" id="pruefenBtn" disabled>Prüfen</button>
+        </div>
+
+        <!-- Feedback nach dem Prüfen (versteckt bis dahin) -->
+        <div class="uebung-feedback hidden" id="uebungFeedback"></div>
+
+        <!-- „Nächster Satz"-Button (versteckt bis zur Auswertung) -->
+        <div class="uebung-next-wrap">
+          <button class="btn-primary hidden" id="nextBtn">Nächster Satz →</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 3 — ERGEBNIS
+         Standardmäßig versteckt.
+         ===================================================== -->
+    <section id="ergebnisScreen" class="hidden">
+      <div class="uebung-result">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <div class="result-actions">
+          <button class="btn-primary" id="retryBtn">Wiederholen</button>
+          <button class="btn-outline" id="otherBtn">Anderes Set</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Satzbau-Logik
+
+       Ablauf:
+       - JSON laden → Set-Karten anzeigen
+       - Set starten → 10 Sätze zufällig wählen → ersten zeigen
+       - Bausteine anklicken → Zielfeld füllen
+       - Prüfen → Feedback → nächster Satz
+       - Am Ende: Ergebnis
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  /* ── Einstellungen ───────────────────────────────────── */
+  var SAETZE_PRO_RUNDE = 10;   // wie viele Sätze ein Durchgang hat
+
+  /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
+  var alleSets   = [];    // alle Sets aus der JSON (+ das gemischte Set)
+  var aktivSet   = null;  // das gerade gewählte Set
+  var aufgaben   = [];    // die 10 Sätze dieses Durchgangs
+  var aktuelleNr = 0;     // Index des aktuellen Satzes (0-basiert)
+  var punkte     = 0;     // richtig gelöste Sätze
+  var gesetzt    = [];    // die bereits ins Zielfeld gesetzten Bausteine
+  var ausgewertet = false; // verhindert doppeltes Prüfen
+
+  /* Kurzschreibweise für document.getElementById */
+  function $(id) { return document.getElementById(id); }
+
+
+  /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
+  /* Fisher-Yates-Verfahren – wie in den anderen Übungen.   */
+  function mischen(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+
+  /* ── 1. JSON laden ───────────────────────────────────── */
+  /* Absolute Pfade (mit führendem /), wie im Projekt üblich.
+     Läuft nur über einen Webserver, nicht per file:// .     */
+  fetch('/Code/4_Lernen/satzbau_data.json')
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      alleSets = data.sets.slice();
+
+      // Zusätzlich ein viertes Set, das alle Sätze zusammenwirft.
+      // Es steht bewusst NICHT in der JSON, sondern wird hier
+      // berechnet – so wächst es automatisch mit, wenn jemand
+      // in einem der drei Sets Sätze ergänzt.
+      var alleAufgaben = [];
+      data.sets.forEach(function (s) {
+        alleAufgaben = alleAufgaben.concat(s.aufgaben);
+      });
+      alleSets.push({
+        id: 'alle',
+        titel: 'Alles gemischt',
+        niveau: 'B2',
+        icon: 'fa-shuffle',
+        beschreibung: 'Zweitstellung, Kettenreihenfolge und lange Formen bunt durcheinander.',
+        aufgaben: alleAufgaben
+      });
+
+      zeigeSetKarten();
+
+      // Falls die Seite mit ?set=kette (o. Ä.) aufgerufen wurde –
+      // z. B. über einen „Jetzt üben"-Button der Grammatikseite –
+      // starten wir dieses Set direkt.
+      var params = new URLSearchParams(window.location.search);
+      var wunschSet = params.get('set');
+      if (wunschSet) {
+        var gefunden = alleSets.find(function (s) { return s.id === wunschSet; });
+        if (gefunden) { starteSet(gefunden); }
+      }
+    })
+    .catch(function (fehler) {
+      $('themaGrid').innerHTML =
+        '<p>Die Übung konnte nicht geladen werden. Bitte lade die Seite neu.</p>';
+      console.error('Fehler beim Laden der Satzbau-Daten:', fehler);
+    });
+
+
+  /* ── 2. Set-Karten auf dem Startschirm anzeigen ──────── */
+  function zeigeSetKarten() {
+    var grid = $('themaGrid');
+    grid.innerHTML = '';
+
+    alleSets.forEach(function (set) {
+      // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
+      var karte = document.createElement('button');
+      karte.className = 'thema-card';
+      karte.innerHTML =
+        '<div class="thema-icon"><i class="fas ' + set.icon + '"></i></div>' +
+        '<span class="thema-niveau">' + set.niveau + '</span>' +
+        '<h3>' + set.titel + '</h3>' +
+        '<p>' + set.beschreibung + '</p>' +
+        '<p class="thema-anzahl">' + set.aufgaben.length + ' Sätze</p>';
+
+      // Klick startet das jeweilige Set
+      karte.addEventListener('click', function () { starteSet(set); });
+      grid.appendChild(karte);
+    });
+  }
+
+
+  /* ── 3. Ein Set starten ──────────────────────────────── */
+  function starteSet(set) {
+    aktivSet = set;
+
+    // Zufällige Auswahl aus dem Satz-Pool:
+    // 1. set.aufgaben.slice() macht eine Kopie (Original bleibt unangetastet).
+    // 2. mischen(...) würfelt die Reihenfolge der Kopie durch.
+    // 3. slice(0, 10) schneidet die ersten 10 heraus.
+    // Weil wir aus einer gemischten Liste die ersten 10 nehmen, sind es
+    // 10 verschiedene Sätze und bei jedem Durchgang eine andere Auswahl.
+    var gemischt = mischen(set.aufgaben.slice());
+    aufgaben = gemischt.slice(0, SAETZE_PRO_RUNDE);
+
+    aktuelleNr = 0;
+    punkte = 0;
+
+    // Bildschirm wechseln: Start ausblenden, Übung einblenden
+    $('startScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.remove('hidden');
+
+    zeigeAufgabe();
+  }
+
+
+  /* ── 4. Eine Aufgabe anzeigen ────────────────────────── */
+  function zeigeAufgabe() {
+    var aufgabe = aufgaben[aktuelleNr];
+    gesetzt = [];
+    ausgewertet = false;
+
+    // Fortschritt aktualisieren
+    $('uebungProgress').textContent =
+      'Satz ' + (aktuelleNr + 1) + ' von ' + aufgaben.length;
+    $('uebungBarFill').style.width =
+      ((aktuelleNr / aufgaben.length) * 100) + '%';
+
+    // Deutsche Vorgabe anzeigen
+    $('satzbauVorgabe').textContent = aufgabe.uebersetzung;
+
+    // Wortvorrat aufbauen: die Bausteine gemischt.
+    // Wichtig: Wir mischen eine KOPIE, damit aufgabe.woerter
+    // die Lösungsreihenfolge behält.
+    var vorrat = mischen(aufgabe.woerter.slice());
+
+    // Falls der Zufall genau die Lösungsreihenfolge ausgespuckt hat,
+    // einmal nachmischen – sonst müsste man nur von links nach rechts
+    // durchtippen. (Bei zwei Bausteinen einfach umdrehen.)
+    if (vorrat.join(' ') === aufgabe.woerter.join(' ') && vorrat.length > 1) {
+      vorrat.reverse();
+    }
+
+    baueVorrat(vorrat);
+    zeichneZiel();
+
+    // Steuerung zurücksetzen
+    $('satzbauAktionen').classList.remove('hidden');
+    $('satzbauTipp').classList.remove('hidden');
+    $('uebungFeedback').classList.add('hidden');
+    $('nextBtn').classList.add('hidden');
+    aktualisierePruefenBtn();
+  }
+
+
+  /* ── Den Wortvorrat als Buttons aufbauen ─────────────── */
+  /* Jeder Baustein ist ein Button. Angeklickte Bausteine
+     verschwinden nicht, sondern werden nur ausgegraut –
+     so springt das Layout beim Tippen nicht herum.          */
+  function baueVorrat(vorrat) {
+    var box = $('satzbauVorrat');
+    box.innerHTML = '';
+
+    vorrat.forEach(function (wort, index) {
+      var btn = document.createElement('button');
+      btn.className = 'satzbau-tile';
+      btn.textContent = wort;
+      // Jeder Baustein bekommt eine eigene Nummer. Damit können
+      // zwei gleiche Wörter im selben Satz sauber auseinander-
+      // gehalten werden (z. B. zweimal „je").
+      btn.dataset.slot = String(index);
+      btn.addEventListener('click', function () { setzeBaustein(btn); });
+      box.appendChild(btn);
+    });
+  }
+
+
+  /* ── Einen Baustein ins Zielfeld setzen ──────────────── */
+  function setzeBaustein(btn) {
+    if (ausgewertet) { return; }              // nach dem Prüfen gesperrt
+    if (btn.classList.contains('benutzt')) { return; }
+
+    btn.classList.add('benutzt');
+    btn.disabled = true;
+    gesetzt.push({ wort: btn.textContent, slot: btn.dataset.slot });
+
+    zeichneZiel();
+    aktualisierePruefenBtn();
+  }
+
+
+  /* ── Einen gesetzten Baustein wieder herausnehmen ────── */
+  /* position = Stelle im Zielfeld (0-basiert).
+     Der zugehörige Vorrats-Button wird wieder aktiviert.    */
+  function nimmZurueck(position) {
+    if (ausgewertet) { return; }
+    if (position < 0 || position >= gesetzt.length) { return; }
+
+    var eintrag = gesetzt.splice(position, 1)[0];
+
+    // Passenden Vorrats-Button über die Slot-Nummer wiederfinden
+    var btn = $('satzbauVorrat')
+      .querySelector('.satzbau-tile[data-slot="' + eintrag.slot + '"]');
+    if (btn) {
+      btn.classList.remove('benutzt');
+      btn.disabled = false;
+    }
+
+    zeichneZiel();
+    aktualisierePruefenBtn();
+  }
+
+
+  /* ── Das Zielfeld neu zeichnen ───────────────────────── */
+  /* Aufbau: fester Satzanfang + die gesetzten Bausteine +
+     das Satzzeichen. Solange nichts gesetzt ist, zeigt eine
+     gestrichelte Box an, wo die Wörter hinkommen.            */
+  function zeichneZiel(markierungen) {
+    var aufgabe = aufgaben[aktuelleNr];
+    var ziel = $('satzbauZiel');
+    ziel.innerHTML = '';
+
+    // 1. Der vorgegebene Satzanfang (nicht klickbar)
+    var start = document.createElement('span');
+    start.className = 'satzbau-chip satzbau-start';
+    start.textContent = aufgabe.start;
+    ziel.appendChild(start);
+
+    // 2. Die vom Lernenden gesetzten Bausteine
+    gesetzt.forEach(function (eintrag, position) {
+      var chip = document.createElement('button');
+      chip.className = 'satzbau-chip';
+      chip.textContent = eintrag.wort;
+
+      // Nach dem Prüfen: grün/rot je Position (siehe pruefeAntwort)
+      if (markierungen && markierungen[position]) {
+        chip.classList.add(markierungen[position]);
+        chip.disabled = true;
+      } else {
+        chip.title = 'Antippen, um diesen Baustein zurückzunehmen';
+        chip.addEventListener('click', function () { nimmZurueck(position); });
+      }
+      ziel.appendChild(chip);
+    });
+
+    // 3. Platzhalter, solange noch nichts gesetzt ist
+    if (gesetzt.length === 0) {
+      var leer = document.createElement('span');
+      leer.className = 'satzbau-leer';
+      leer.textContent = '…';
+      ziel.appendChild(leer);
+    }
+
+    // 4. Das Satzzeichen (Punkt oder Fragezeichen)
+    var zeichen = document.createElement('span');
+    zeichen.className = 'satzbau-zeichen';
+    zeichen.textContent = aufgabe.satzzeichen;
+    ziel.appendChild(zeichen);
+  }
+
+
+  /* ── „Prüfen"-Button aktivieren/deaktivieren ─────────── */
+  /* Geprüft werden kann erst, wenn alle Bausteine gesetzt sind. */
+  function aktualisierePruefenBtn() {
+    var aufgabe = aufgaben[aktuelleNr];
+    var vollstaendig = (gesetzt.length === aufgabe.woerter.length);
+    $('pruefenBtn').disabled = !vollstaendig || ausgewertet;
+    $('undoBtn').disabled    = (gesetzt.length === 0) || ausgewertet;
+    $('resetBtn').disabled   = (gesetzt.length === 0) || ausgewertet;
+  }
+
+
+  /* ── Alle akzeptierten Lösungen einer Aufgabe ────────── */
+  /* Das ist die Lösungsreihenfolge plus – falls vorhanden –
+     die Einträge aus „alternativen". Alternativen sind
+     Reihenfolgen, die sprachlich ebenfalls korrekt sind
+     (im Bosnischen ist die Stellung der betonten Wörter
+     freier als die der Enklitika).                          */
+  function akzeptierteLoesungen(aufgabe) {
+    var liste = [aufgabe.woerter.join(' ')];
+    if (aufgabe.alternativen) {
+      aufgabe.alternativen.forEach(function (alt) { liste.push(alt); });
+    }
+    return liste;
+  }
+
+
+  /* ── 5. Antwort prüfen ───────────────────────────────── */
+  function pruefeAntwort() {
+    if (ausgewertet) { return; }
+    var aufgabe = aufgaben[aktuelleNr];
+    if (gesetzt.length !== aufgabe.woerter.length) { return; }
+
+    ausgewertet = true;
+
+    var gebaut = gesetzt.map(function (e) { return e.wort; });
+    var gebautText = gebaut.join(' ');
+    var loesungen = akzeptierteLoesungen(aufgabe);
+    var istRichtig = (loesungen.indexOf(gebautText) !== -1);
+
+    // Farbige Markierung der einzelnen Bausteine:
+    // - Ist die Antwort richtig (auch als erlaubte Alternative),
+    //   sind alle Bausteine grün.
+    // - Sonst vergleichen wir Position für Position mit der
+    //   Hauptlösung, damit der Lernende sieht, was schon saß.
+    var markierungen = gebaut.map(function (wort, i) {
+      if (istRichtig) { return 'chip-correct'; }
+      return (wort === aufgabe.woerter[i]) ? 'chip-correct' : 'chip-wrong';
+    });
+    zeichneZiel(markierungen);
+
+    // Vorrat und Steuerung sperren
+    var tiles = document.querySelectorAll('.satzbau-tile');
+    tiles.forEach(function (t) { t.disabled = true; });
+    $('satzbauAktionen').classList.add('hidden');
+    $('satzbauTipp').classList.add('hidden');
+
+    // Feedback zusammenbauen
+    var feedback = $('uebungFeedback');
+    var richtigerSatz = aufgabe.start + ' ' +
+                        aufgabe.woerter.join(' ') + aufgabe.satzzeichen;
+
+    if (istRichtig) {
+      punkte++;
+      var zusatz = '';
+      // Hat der Lernende eine der Alternativen gebaut, sagen wir das dazu.
+      if (gebautText !== aufgabe.woerter.join(' ')) {
+        // Der Lösungssatz endet bereits mit Punkt/Fragezeichen –
+        // deshalb hinter dem Schlusszeichen kein weiterer Punkt.
+        zusatz = ' Auch diese Reihenfolge ist korrekt – ebenso geht: „' +
+                 richtigerSatz + '“';
+      }
+      feedback.innerHTML =
+        '<i class="fas fa-check-circle"></i> Richtig! ' +
+        aufgabe.erklaerung + zusatz +
+        '<span class="feedback-uebersetzung">' + aufgabe.uebersetzung + '</span>';
+      feedback.className = 'uebung-feedback feedback-correct';
+    } else {
+      feedback.innerHTML =
+        '<i class="fas fa-times-circle"></i> Noch nicht ganz. Richtig ist: „' +
+        richtigerSatz + '“ – ' + aufgabe.erklaerung +
+        '<span class="feedback-uebersetzung">' + aufgabe.uebersetzung + '</span>';
+      feedback.className = 'uebung-feedback feedback-wrong';
+    }
+    feedback.classList.remove('hidden');
+
+    // Weiter-Button zeigen; Beschriftung am letzten Satz anpassen
+    $('nextBtn').classList.remove('hidden');
+    if (aktuelleNr === aufgaben.length - 1) {
+      $('nextBtn').textContent = 'Ergebnis anzeigen →';
+    } else {
+      $('nextBtn').textContent = 'Nächster Satz →';
+    }
+  }
+
+
+  /* ── 6. Steuer-Buttons der Übung ─────────────────────── */
+
+  // „Rückgängig" → letzten gesetzten Baustein zurücknehmen
+  $('undoBtn').addEventListener('click', function () {
+    nimmZurueck(gesetzt.length - 1);
+  });
+
+  // „Zurücksetzen" → alle Bausteine zurück in den Vorrat
+  $('resetBtn').addEventListener('click', function () {
+    while (gesetzt.length > 0) { nimmZurueck(gesetzt.length - 1); }
+  });
+
+  // „Prüfen" → auswerten
+  $('pruefenBtn').addEventListener('click', pruefeAntwort);
+
+
+  /* ── 7. Nächster Satz / Ergebnis ─────────────────────── */
+  $('nextBtn').addEventListener('click', function () {
+    if (aktuelleNr < aufgaben.length - 1) {
+      aktuelleNr++;
+      zeigeAufgabe();
+    } else {
+      zeigeErgebnis();
+    }
+  });
+
+
+  /* ── 8. Ergebnis anzeigen ────────────────────────────── */
+  function zeigeErgebnis() {
+    $('uebungScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.remove('hidden');
+
+    $('resultScore').textContent = punkte + ' von ' + aufgaben.length + ' richtig';
+
+    // Aufmunternder Text je nach Punktzahl
+    var text = '';
+    var anzahl = aufgaben.length;
+    if (punkte === anzahl) {
+      text = 'Odlično! Die Enklitika sitzen bei dir genau da, wo sie hingehören. 🎉';
+    } else if (punkte >= anzahl * 0.7) {
+      text = 'Sehr gut! Nur wenige Ausrutscher – weiter so.';
+    } else if (punkte >= anzahl * 0.5) {
+      text = 'Guter Anfang! Präg dir die Reihenfolge ein: li → Hilfsverb → Dativ → Akkusativ → se → je.';
+    } else {
+      text = 'Kein Problem – die Wortstellung ist knifflig. Schau dir Kapitel 29 noch einmal an und versuch es erneut!';
+    }
+    $('resultText').textContent = text;
+  }
+
+
+  /* ── 9. Buttons im Ergebnis-Bildschirm ───────────────── */
+
+  // „Wiederholen" → dasselbe Set erneut (neu gemischt)
+  $('retryBtn').addEventListener('click', function () {
+    starteSet(aktivSet);
+  });
+
+  // „Anderes Set" → zurück zum Startschirm
+  $('otherBtn').addEventListener('click', function () {
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  });
+
+  </script>
+
+</body>
+</html>

@@ -724,9 +724,14 @@
     }
 
     function skipCard() {
-      // Karte ans Ende der Warteschlange schieben
-      queue.push(queue[current]);
-      current++;
+      // Karte ans Ende der Warteschlange ROTIEREN: aus der aktuellen Position
+      // herausnehmen und hinten wieder anhaengen. Wichtig: dadurch bleibt
+      // queue.length konstant = Anzahl der Karten dieser Runde. (Frueher wurde
+      // die Karte als Duplikat angehaengt und current erhoeht -- dann waechst
+      // queue.length bei jedem Ueberspringen und die Anzeige "von N" laeuft hoch.)
+      // current bleibt stehen, weil nach dem Herausnehmen die naechste Karte
+      // genau an diese Position nachrueckt.
+      queue.push(queue.splice(current, 1)[0]);
       showCard();
       updateProgress();
     }
@@ -843,7 +848,7 @@
       const total = queue.length;
       const done  = Math.min(current, total);
       const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
-      document.getElementById('progressText').textContent = `Vokabel ${Math.min(done + 1, total)} von ${unitVocab.length}`;
+      document.getElementById('progressText').textContent = `Vokabel ${Math.min(done + 1, total)} von ${total}`;
       document.getElementById('progressPct').textContent  = pct + '%';
       document.getElementById('progressFill').style.width = pct + '%';
       updateScores();
@@ -852,7 +857,9 @@
     function updateScores() {
       document.getElementById('scoreCorrect').textContent = correct;
       document.getElementById('scoreWrong').textContent   = wrong;
-      document.getElementById('scoreRem').textContent     = Math.max(0, unitVocab.length - current);
+      // Rest = verbleibende Karten der AKTUELLEN Runde (queue), nicht der ganzen
+      // Lerneinheit — sonst zeigt der Durchgang "nur falsche Karten" zu viele an.
+      document.getElementById('scoreRem').textContent     = Math.max(0, queue.length - current);
     }
 
     // ─────────────────────────────────────────────────────────
@@ -865,7 +872,10 @@
       document.getElementById('scoreRow').classList.add('hidden');
       document.getElementById('resultScreen').classList.remove('hidden');
 
-      const total = unitVocab.length;
+      // Bezugsgröße = die in DIESER Runde bewerteten Karten (richtig + falsch).
+      // Bei einer Wiederholung nur der falschen Karten ist das weniger als die
+      // ganze Lerneinheit; unitVocab.length wäre hier zu groß.
+      const total = correct + wrong;
       const pct   = total > 0 ? Math.round((correct / total) * 100) : 0;
       const stars = pct >= 90 ? '⭐⭐⭐' : pct >= 60 ? '⭐⭐' : '⭐';
       const msg   = pct >= 90 ? 'Ausgezeichnet – du bist ein Bosnisch-Profi!'

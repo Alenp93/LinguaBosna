@@ -729,6 +729,26 @@ main h1 {
 .korb-btn.wrong .korb-icon,
 .korb-btn.wrong .korb-label { color: #922b21; }
 
+/* Set 2 „Aspektwahl im Satz": Der Satz nutzt die vorhandenen
+   Lückentext-Klassen (.uebung-satz, .luecke) aus Abschnitt 4a.
+   Neu ist nur die Hervorhebung des entscheidenden Ausdrucks –
+   sie erscheint ERST nach der Antwort, sonst wäre sie die Lösung. */
+.signal-mark {
+  background: rgba(244, 197, 66, 0.35);   /* Goldgelb, transparent */
+  border-radius: 3px;
+  padding: 1px 4px;
+  color: inherit;
+  font-weight: 700;
+}
+
+/* Der aufgelöste Satz im Feedback (mit eingesetzter Form) */
+.feedback-loesungssatz {
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 /* Beispielsätze im Feedback.
    Bei den „offen"-Einträgen stehen hier ZWEI Sätze untereinander –
    erst ihr Kontrast zeigt, dass beide Aspekte möglich sind.        */

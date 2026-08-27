@@ -15,7 +15,11 @@
     "abschluss": "Abschluss & Ergebnis",
     "zeitrahmen": "Zeitrahmen",
     "nebensatz_abfolge": "Nebensatz: Abfolge",
-    "offen": "Kein Signal – der Kontext entscheidet"
+    "offen": "Kein Signal – der Kontext entscheidet",
+    "dok_gleichzeitig": "Nebensatz: Gleichzeitigkeit (dok)",
+    "hintergrund_ereignis": "Hintergrund & Ereignis im selben Satz",
+    "imperativ": "Verneinter Imperativ",
+    "praesens_jetzt": "Präsens: gerade jetzt"
   },
 
   "sets": [
@@ -212,6 +216,341 @@
           "beispiel": "Već dugo čitam ovu knjigu.", "beispiel_de": "Ich lese dieses Buch schon lange. (läuft noch)",
           "beispiel2": "Već sam pročitao tu knjigu.", "beispiel2_de": "Ich habe dieses Buch schon gelesen. (fertig)",
           "erklaerung": "Häufig als Abschluss-Signal gelehrt – zu Unrecht. Mit einer Dauerangabe („već dugo“) verlangt „već“ sogar den nesvršeni. Merke: Es verstärkt, was der Satz ohnehin sagt, statt selbst zu entscheiden.", "par_id": "ap70" }
+
+      ]
+    },
+
+    {
+      "id": "im_satz",
+      "titel": "Aspektwahl im Satz",
+      "niveau": "B2",
+      "icon": "fa-pen-fancy",
+      "typ": "satz",
+      "frage": "Welche Form passt in die Lücke?",
+      "beschreibung": "Setze im Satz die richtige Verbform ein. Beide Formen sind dasselbe Verb – sie unterscheiden sich nur im Aspekt. Der Kontext entscheidet.",
+      "grammatik_url": "/Code/3_Grammatik/Grammatik_B2/grammatik-verbalaspekt.html",
+
+      "aufgaben": [
+
+        { "satz": "Počeo sam ___ bosanski prije godinu dana.", "loesung": "učiti", "distraktor": "naučiti",
+          "signal": "Počeo sam", "kategorie": "phasenverb", "par_id": "ap08",
+          "uebersetzung": "Ich habe vor einem Jahr angefangen, Bosnisch zu lernen.",
+          "erklaerung": "Nach početi steht immer der nesvršeni-Infinitiv – ein Anfang setzt voraus, dass die Handlung danach weiterläuft." },
+
+        { "satz": "Prestali su ___ kuću jer je ponestalo novca.", "loesung": "graditi", "distraktor": "izgraditi",
+          "signal": "Prestali su", "kategorie": "phasenverb", "par_id": "ap28",
+          "uebersetzung": "Sie haben aufgehört, das Haus zu bauen, weil das Geld ausging.",
+          "erklaerung": "Aufhören kann man nur mit etwas, das läuft. Nach prestati folgt zwingend der nesvršeni." },
+
+        { "satz": "Nastavila je ___ pismo poslije pauze.", "loesung": "pisati", "distraktor": "napisati",
+          "signal": "Nastavila je", "kategorie": "phasenverb", "par_id": "ap71",
+          "uebersetzung": "Sie hat nach der Pause weiter am Brief geschrieben.",
+          "erklaerung": "„Weitermachen“ heißt: der Vorgang läuft erneut weiter – nach nastaviti steht der nesvršeni." },
+
+        { "satz": "Kad je počela ___ ručak, gosti su već stigli.", "loesung": "kuhati", "distraktor": "skuhati",
+          "signal": "počela", "kategorie": "phasenverb", "par_id": "ap47",
+          "uebersetzung": "Als sie anfing, das Mittagessen zu kochen, waren die Gäste schon da.",
+          "erklaerung": "Auch mitten im Satz gilt die Regel: nach početi immer der nesvršeni-Infinitiv." },
+
+        { "satz": "Prestao je ___ novac na gluposti.", "loesung": "trošiti", "distraktor": "potrošiti",
+          "signal": "Prestao je", "kategorie": "phasenverb", "par_id": "ap07",
+          "uebersetzung": "Er hat aufgehört, Geld für Unsinn auszugeben.",
+          "erklaerung": "prestati verlangt den nesvršeni – „Prestao je potrošiti“ ist nicht möglich." },
+
+        { "satz": "Počeli smo ___ stan prošle sedmice.", "loesung": "uređivati", "distraktor": "urediti",
+          "signal": "Počeli smo", "kategorie": "phasenverb", "par_id": "ap38",
+          "uebersetzung": "Wir haben letzte Woche angefangen, die Wohnung herzurichten.",
+          "erklaerung": "Die Zeitangabe ändert nichts: Nach početi steht der nesvršeni-Infinitiv." },
+
+        { "satz": "Nastavili su ___ o problemu do kasno u noć.", "loesung": "pričati", "distraktor": "ispričati",
+          "signal": "Nastavili su", "kategorie": "phasenverb", "par_id": "ap59",
+          "uebersetzung": "Sie haben bis spät in die Nacht weiter über das Problem geredet.",
+          "erklaerung": "nastaviti + nesvršeni. Zusätzlich passt „do kasno u noć“ nur zu einem laufenden Vorgang." },
+
+        { "satz": "Počeo je ___ auto, ali nije završio.", "loesung": "prati", "distraktor": "oprati",
+          "signal": "Počeo je", "kategorie": "phasenverb", "par_id": "ap57",
+          "uebersetzung": "Er hat angefangen, das Auto zu waschen, aber nicht fertig gemacht.",
+          "erklaerung": "Der Nachsatz macht es doppelt klar: Es wurde nichts abgeschlossen. Nach početi ohnehin nesvršeni." },
+
+        { "satz": "Dok sam ___ novine, zazvonio je telefon.", "loesung": "čitao", "distraktor": "pročitao",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap70",
+          "uebersetzung": "Während ich Zeitung las, klingelte das Telefon.",
+          "erklaerung": "„dok“ im Sinne von „während“ verlangt den nesvršeni: Der Vorgang muss laufen, damit etwas hineinplatzen kann." },
+
+        { "satz": "Dok je ona ___ ručak, ja sam postavio sto.", "loesung": "kuhala", "distraktor": "skuhala",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap47",
+          "uebersetzung": "Während sie das Mittagessen kochte, deckte ich den Tisch.",
+          "erklaerung": "Zwei gleichzeitige Vorgänge: Der dok-Satz beschreibt den laufenden Rahmen – nesvršeni." },
+
+        { "satz": "Dok smo ___ autobus, počela je kiša.", "loesung": "čekali", "distraktor": "sačekali",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap54",
+          "uebersetzung": "Während wir auf den Bus warteten, fing es an zu regnen.",
+          "erklaerung": "Das Warten dauert an, während etwas anderes beginnt. „dok“ = während → nesvršeni." },
+
+        { "satz": "Dok sam ___ auto, slušao sam muziku.", "loesung": "prao", "distraktor": "oprao",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap57",
+          "uebersetzung": "Während ich das Auto wusch, hörte ich Musik.",
+          "erklaerung": "Beide Handlungen laufen parallel – im dok-Satz steht deshalb der nesvršeni." },
+
+        { "satz": "Dok su ___ kuću, živjeli su kod rodbine.", "loesung": "gradili", "distraktor": "izgradili",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap28",
+          "uebersetzung": "Während sie das Haus bauten, wohnten sie bei Verwandten.",
+          "erklaerung": "Der dok-Satz spannt den Zeitrahmen auf, in dem etwas anderes geschah – nesvršeni." },
+
+        { "satz": "Dok su ___ film, neko je pokucao na vrata.", "loesung": "gledali", "distraktor": "pogledali",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap72",
+          "uebersetzung": "Während sie einen Film schauten, klopfte jemand an der Tür.",
+          "erklaerung": "Das Filmschauen läuft noch, als das Klopfen dazwischenkommt – nesvršeni." },
+
+        { "satz": "Dok sam ___ kahvu, čitao sam poruke.", "loesung": "pio", "distraktor": "popio",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap46",
+          "uebersetzung": "Während ich Kaffee trank, las ich Nachrichten.",
+          "erklaerung": "Gleichzeitigkeit zweier Vorgänge – beide im nesvršeni." },
+
+        { "satz": "Dok se ___ za posao, slušala je vijesti.", "loesung": "oblačila", "distraktor": "obukla",
+          "signal": "Dok", "kategorie": "dok_gleichzeitig", "par_id": "ap11",
+          "uebersetzung": "Während sie sich für die Arbeit anzog, hörte sie Nachrichten.",
+          "erklaerung": "Das Anziehen ist der laufende Rahmen für das Hören – nesvršeni." },
+
+        { "satz": "Obično ___ vijesti dok doručkujem.", "loesung": "slušam", "distraktor": "poslušam",
+          "signal": "dok", "kategorie": "dok_gleichzeitig", "par_id": "ap52",
+          "uebersetzung": "Gewöhnlich höre ich Nachrichten, während ich frühstücke.",
+          "erklaerung": "Hier entscheidet nicht „obično“, sondern „dok“: Die Gleichzeitigkeit zweier Vorgänge verlangt den nesvršeni. Eine Gewohnheit allein würde die Wahl offen lassen – auch „obično poslušam vijesti“ wäre möglich." },
+
+        { "satz": "Dok je padala kiša, ___ smo u kafić.", "loesung": "ušli", "distraktor": "ulazili",
+          "signal": "Dok je padala kiša", "kategorie": "hintergrund_ereignis", "par_id": "ap68",
+          "uebersetzung": "Während es regnete, gingen wir in ein Café.",
+          "erklaerung": "Der Regen läuft weiter (nesvršeni), das Hineingehen ist ein einzelner Schritt über die Schwelle (svršeni). „ulazili smo“ hieße: immer wieder hinein und hinaus." },
+
+        { "satz": "Dok su radili u bašti, odjednom je ___ kiša.", "loesung": "počela", "distraktor": "počinjala",
+          "signal": "odjednom", "kategorie": "hintergrund_ereignis", "par_id": "ap63",
+          "uebersetzung": "Während sie im Garten arbeiteten, fing plötzlich der Regen an.",
+          "erklaerung": "„odjednom“ macht es eindeutig: ein Einschnitt in den laufenden Hintergrund. Ein Anfang, der „plötzlich“ geschieht, kann nicht gleichzeitig andauern – svršeni." },
+
+        { "satz": "Dok smo čekali, odjednom su se ___ vrata.", "loesung": "otvorila", "distraktor": "otvarala",
+          "signal": "odjednom", "kategorie": "hintergrund_ereignis", "par_id": "ap04",
+          "uebersetzung": "Während wir warteten, ging plötzlich die Tür auf.",
+          "erklaerung": "Das Warten ist der Hintergrund, das Aufgehen der Tür der Moment darin. Ohne „odjednom“ wäre auch „otvarala su se“ denkbar – erst das Adverb macht die Sache eindeutig." },
+
+        { "satz": "Dok je govorila, on je u jednom trenutku ___ prozor.", "loesung": "zatvorio", "distraktor": "zatvarao",
+          "signal": "u jednom trenutku", "kategorie": "hintergrund_ereignis", "par_id": "ap66",
+          "uebersetzung": "Während sie sprach, schloss er in einem Moment das Fenster.",
+          "erklaerung": "„u jednom trenutku“ (in einem Moment) benennt einen Zeitpunkt, keine Spanne – das geht nur mit dem svršeni." },
+
+        { "satz": "Dok su svi gledali u ekran, ona je tiho ___ iz sobe.", "loesung": "izašla", "distraktor": "izlazila",
+          "signal": "Dok su svi gledali", "kategorie": "hintergrund_ereignis",
+          "uebersetzung": "Während alle auf den Bildschirm schauten, ging sie leise aus dem Zimmer.",
+          "erklaerung": "Das Verlassen des Raums ist ein einzelner Vorgang mit Ergebnis – sie ist danach draußen. „izlazila je“ würde wiederholtes Hinausgehen bedeuten." },
+
+        { "satz": "Dok su djeca spavala, majka je ___ cijelu kuću i legla.", "loesung": "počistila", "distraktor": "čistila",
+          "signal": "cijelu kuću i legla", "kategorie": "hintergrund_ereignis", "par_id": "ap09",
+          "uebersetzung": "Während die Kinder schliefen, machte die Mutter das ganze Haus sauber und legte sich hin.",
+          "erklaerung": "Zwei Dinge machen es eindeutig: „cijelu kuću“ (das ganze Haus, also fertig) und die anschließende Handlung – erst danach konnte sie sich hinlegen. Ohne diesen Nachsatz wäre auch „čistila je“ möglich." },
+
+        { "satz": "Nakon što sam ___ pismo, otišao sam na poštu.", "loesung": "napisao", "distraktor": "pisao",
+          "signal": "Nakon što", "kategorie": "nebensatz_abfolge", "par_id": "ap71",
+          "uebersetzung": "Nachdem ich den Brief geschrieben hatte, ging ich zur Post.",
+          "erklaerung": "Hier ist das Erste fertig, bevor das Zweite beginnt – svršeni. Beachte: Die Konjunktion ordnet nur die Reihenfolge, sie erzwingt den Aspekt nicht („Nakon što je godinama radio u Njemačkoj, vratio se.“)." },
+
+        { "satz": "Čim je ___ pismo, nazvala je majku.", "loesung": "pročitala", "distraktor": "čitala",
+          "signal": "Čim", "kategorie": "nebensatz_abfolge", "par_id": "ap70",
+          "uebersetzung": "Sobald sie den Brief gelesen hatte, rief sie ihre Mutter an.",
+          "erklaerung": "„Sobald“ ordnet zwei Ereignisse: erst A fertig, dann B. Im čim-Satz steht der svršeni." },
+
+        { "satz": "Prije nego što je ___ iz kuće, provjerila je prozore.", "loesung": "izašla", "distraktor": "izlazila",
+          "signal": "Prije nego što", "kategorie": "nebensatz_abfolge",
+          "uebersetzung": "Bevor sie aus dem Haus ging, kontrollierte sie die Fenster.",
+          "erklaerung": "„Bevor“ ordnet zwei abgeschlossene Ereignisse in eine Reihenfolge – svršeni." },
+
+        { "satz": "Nakon što su ___ kuću, uselili su se.", "loesung": "izgradili", "distraktor": "gradili",
+          "signal": "Nakon što", "kategorie": "nebensatz_abfolge", "par_id": "ap28",
+          "uebersetzung": "Nachdem sie das Haus gebaut hatten, zogen sie ein.",
+          "erklaerung": "Der Einzug setzt das fertige Haus voraus – die Reihenfolge macht den svršeni hier zwingend." },
+
+        { "satz": "Čim ___ posao, javit ću ti se.", "loesung": "završim", "distraktor": "završavam",
+          "signal": "Čim", "kategorie": "nebensatz_abfolge", "par_id": "ap64",
+          "uebersetzung": "Sobald ich die Arbeit beende, melde ich mich bei dir.",
+          "erklaerung": "Im čim-Satz steht der svršeni-Präsens – er meint hier nicht „gerade jetzt“, sondern den künftigen Abschluss." },
+
+        { "satz": "Nakon što je ___ auto, vozio ga je godinama.", "loesung": "kupio", "distraktor": "kupovao",
+          "signal": "Nakon što", "kategorie": "nebensatz_abfolge", "par_id": "ap02",
+          "uebersetzung": "Nachdem er das Auto gekauft hatte, fuhr er es jahrelang.",
+          "erklaerung": "Der Kauf ist abgeschlossen, bevor das Fahren beginnt – svršeni im Nebensatz." },
+
+        { "satz": "Prije nego što ___ pitanje, dobro razmisli.", "loesung": "postaviš", "distraktor": "postavljaš",
+          "signal": "Prije nego što", "kategorie": "nebensatz_abfolge",
+          "uebersetzung": "Bevor du die Frage stellst, denk gut nach.",
+          "erklaerung": "Auch im Präsens gilt die Abfolge: erst die eine abgeschlossene Handlung, dann die andere – svršeni." },
+
+        { "satz": "Čim su ___ u stan, osjetili su miris boje.", "loesung": "ušli", "distraktor": "ulazili",
+          "signal": "Čim", "kategorie": "nebensatz_abfolge", "par_id": "ap68",
+          "uebersetzung": "Sobald sie die Wohnung betreten hatten, rochen sie die Farbe.",
+          "erklaerung": "„Sobald“ setzt den abgeschlossenen Eintritt voraus – svršeni." },
+
+        { "satz": "Godinama je ___ pisma iz Njemačke.", "loesung": "slao", "distraktor": "poslao",
+          "signal": "Godinama", "kategorie": "dauer", "par_id": "ap10",
+          "uebersetzung": "Jahrelang hat er Briefe aus Deutschland geschickt.",
+          "erklaerung": "„Jahrelang“ misst die Länge eines Vorgangs – das geht nur mit dem nesvršeni. „poslao je“ wäre ein einzelner Brief." },
+
+        { "satz": "Satima smo ___ rezultate.", "loesung": "čekali", "distraktor": "sačekali",
+          "signal": "Satima", "kategorie": "dauer", "par_id": "ap54",
+          "uebersetzung": "Wir haben stundenlang auf die Ergebnisse gewartet.",
+          "erklaerung": "Instrumental-Angaben der Dauer (satima, danima, godinama) füllen eine Zeitspanne – nesvršeni." },
+
+        { "satz": "Cijeli dan je ___ za ispit.", "loesung": "učio", "distraktor": "naučio",
+          "signal": "Cijeli dan", "kategorie": "dauer", "par_id": "ap08",
+          "uebersetzung": "Den ganzen Tag hat er für die Prüfung gelernt.",
+          "erklaerung": "„Den ganzen Tag“ beschreibt, wie lange gelernt wurde – nicht, dass etwas fertig wurde." },
+
+        { "satz": "Dugo su ___ tu kuću, skoro tri godine.", "loesung": "gradili", "distraktor": "izgradili",
+          "signal": "Dugo", "kategorie": "dauer", "par_id": "ap28",
+          "uebersetzung": "Sie haben lange an diesem Haus gebaut, fast drei Jahre.",
+          "erklaerung": "Die Zeitangabe „skoro tri godine“ misst die Dauer des Vorgangs – nesvršeni." },
+
+        { "satz": "Cijelo vrijeme nas je ___ s prozora.", "loesung": "gledao", "distraktor": "pogledao",
+          "signal": "Cijelo vrijeme", "kategorie": "dauer", "par_id": "ap72",
+          "uebersetzung": "Die ganze Zeit hat er uns vom Fenster aus beobachtet.",
+          "erklaerung": "Eine ausgefüllte Zeitspanne braucht einen andauernden Vorgang – nesvršeni. „pogledao je“ wäre ein einzelner kurzer Blick." },
+
+        { "satz": "Mjesecima se ___ od operacije.", "loesung": "oporavljao", "distraktor": "oporavio",
+          "signal": "Mjesecima", "kategorie": "dauer", "par_id": "ap17",
+          "uebersetzung": "Er hat sich monatelang von der Operation erholt.",
+          "erklaerung": "„Monatelang“ misst den Verlauf der Genesung, nicht ihren Abschluss – nesvršeni." },
+
+        { "satz": "Sedmicama su ___ stan po cijelom gradu.", "loesung": "tražili", "distraktor": "potražili",
+          "signal": "Sedmicama", "kategorie": "dauer", "par_id": "ap73",
+          "uebersetzung": "Wochenlang haben sie in der ganzen Stadt eine Wohnung gesucht.",
+          "erklaerung": "Die Suche zieht sich über Wochen – ein laufender Vorgang, also nesvršeni." },
+
+        { "satz": "Za pola sata je ___ cijeli izvještaj.", "loesung": "napisao", "distraktor": "pisao",
+          "signal": "Za pola sata", "kategorie": "zeitrahmen", "par_id": "ap71",
+          "uebersetzung": "In einer halben Stunde hat er den ganzen Bericht geschrieben.",
+          "erklaerung": "„za“ + Zeitangabe nennt die Zeit, INNERHALB derer etwas fertig wird – svršeni. Ohne „za“ wäre es die Dauer." },
+
+        { "satz": "Za deset minuta je ___ svu supu.", "loesung": "pojeo", "distraktor": "jeo",
+          "signal": "Za deset minuta", "kategorie": "zeitrahmen", "par_id": "ap41",
+          "uebersetzung": "In zehn Minuten hat er die ganze Suppe aufgegessen.",
+          "erklaerung": "Der Zeitrahmen misst, wie schnell das Ergebnis erreicht war – svršeni." },
+
+        { "satz": "Za jedan dan su ___ cijeli stan.", "loesung": "počistili", "distraktor": "čistili",
+          "signal": "Za jedan dan", "kategorie": "zeitrahmen", "par_id": "ap09",
+          "uebersetzung": "An einem Tag haben sie die ganze Wohnung sauber gemacht.",
+          "erklaerung": "„za“ + Zeitangabe → abgeschlossenes Ergebnis innerhalb dieser Zeit – svršeni." },
+
+        { "satz": "Za godinu dana je ___ jezik.", "loesung": "naučio", "distraktor": "učio",
+          "signal": "Za godinu dana", "kategorie": "zeitrahmen", "par_id": "ap08",
+          "uebersetzung": "In einem Jahr hat er die Sprache gelernt.",
+          "erklaerung": "Vergleiche: „Godinu dana je učio“ (Dauer, nesvršeni) gegen „Za godinu dana je naučio“ (Ergebnis, svršeni). Die Präposition entscheidet." },
+
+        { "satz": "Za dva sata su ___ cijeli stan.", "loesung": "namjestili", "distraktor": "namještali",
+          "signal": "Za dva sata", "kategorie": "zeitrahmen", "par_id": "ap37",
+          "uebersetzung": "In zwei Stunden haben sie die ganze Wohnung eingerichtet.",
+          "erklaerung": "Zeitrahmen + „cijeli“ (die ganze) – beides zeigt auf ein erreichtes Ergebnis, also svršeni." },
+
+        { "satz": "Za pet minuta je ___ na sve poruke.", "loesung": "odgovorio", "distraktor": "odgovarao",
+          "signal": "Za pet minuta", "kategorie": "zeitrahmen", "par_id": "ap65",
+          "uebersetzung": "In fünf Minuten hat er auf alle Nachrichten geantwortet.",
+          "erklaerung": "Innerhalb von fünf Minuten war die Sache erledigt – svršeni." },
+
+        { "satz": "Konačno je ___ tu knjigu do kraja.", "loesung": "pročitao", "distraktor": "čitao",
+          "signal": "Konačno", "kategorie": "abschluss", "par_id": "ap70",
+          "uebersetzung": "Endlich hat er das Buch zu Ende gelesen.",
+          "erklaerung": "„Konačno“ plus „do kraja“ – zwei Hinweise auf ein erreichtes Ergebnis, also svršeni." },
+
+        { "satz": "Uspjeli su ___ krov prije zime.", "loesung": "popraviti", "distraktor": "popravljati",
+          "signal": "Uspjeli su", "kategorie": "abschluss", "par_id": "ap36",
+          "uebersetzung": "Sie haben es geschafft, das Dach vor dem Winter zu reparieren.",
+          "erklaerung": "„Es schaffen“ heißt: das Ziel wurde erreicht – bei einem zielgerichteten Verb wie popraviti also der svršeni. Anders als die Phasenverben ist uspjeti aber keine harte Regel." },
+
+        { "satz": "Na kraju su ___ stan i preselili se.", "loesung": "prodali", "distraktor": "prodavali",
+          "signal": "Na kraju", "kategorie": "abschluss", "par_id": "ap14",
+          "uebersetzung": "Am Ende haben sie die Wohnung verkauft und sind umgezogen.",
+          "erklaerung": "Eine Ereigniskette („und dann“) besteht aus abgeschlossenen Schritten – svršeni." },
+
+        { "satz": "Jučer sam ___ sve račune i zatvorio račun u banci.", "loesung": "platio", "distraktor": "plaćao",
+          "signal": "sve račune i zatvorio", "kategorie": "abschluss", "par_id": "ap67",
+          "uebersetzung": "Gestern habe ich alle Rechnungen bezahlt und das Konto bei der Bank geschlossen.",
+          "erklaerung": "Nicht „jučer“ entscheidet – das ist bloß ein Zeitpunkt. Entscheidend sind „sve“ (alle, also vollständig) und die anschließende Handlung: Erst nach dem Bezahlen konnte das Konto geschlossen werden." },
+
+        { "satz": "Uspio sam mu ___ pravo pitanje.", "loesung": "postaviti", "distraktor": "postavljati",
+          "signal": "Uspio sam", "kategorie": "abschluss",
+          "uebersetzung": "Ich habe es geschafft, ihm die richtige Frage zu stellen.",
+          "erklaerung": "Nach uspjeti steht bei zielgerichteten Verben der svršeni: Die Frage wurde tatsächlich gestellt. (Bei Verben ohne Zielpunkt bleibt der nesvršeni möglich – „Uspio sam malo spavati.“)" },
+
+        { "satz": "Konačno se ___ i vratio na posao.", "loesung": "oporavio", "distraktor": "oporavljao",
+          "signal": "Konačno", "kategorie": "abschluss", "par_id": "ap17",
+          "uebersetzung": "Endlich hat er sich erholt und ist zur Arbeit zurückgekehrt.",
+          "erklaerung": "Der zweite Teil („und ist zurückgekehrt“) zeigt: Die Genesung war abgeschlossen – svršeni." },
+
+        { "satz": "Sve smo ___ i onda smo krenuli.", "loesung": "počistili", "distraktor": "čistili",
+          "signal": "Sve", "kategorie": "abschluss", "par_id": "ap09",
+          "uebersetzung": "Wir haben alles sauber gemacht und sind dann losgegangen.",
+          "erklaerung": "„Sve“ plus die anschließende Handlung machen den Abschluss eindeutig – svršeni." },
+
+        { "satz": "Do kraja mjeseca su ___ sav namještaj i ispraznili stan.", "loesung": "prodali", "distraktor": "prodavali",
+          "signal": "sav namještaj i ispraznili", "kategorie": "abschluss", "par_id": "ap14",
+          "uebersetzung": "Bis Ende des Monats hatten sie alle Möbel verkauft und die Wohnung geräumt.",
+          "erklaerung": "Achtung: „do kraja mjeseca“ allein ist zweideutig – es kann auch „bis dahin fortlaufend“ heißen. Eindeutig wird es erst durch „sav“ und die abschließende zweite Handlung." },
+
+        { "satz": "Ne ___ to sada, nemamo vremena!", "loesung": "čitaj", "distraktor": "pročitaj",
+          "signal": "Ne", "kategorie": "imperativ", "par_id": "ap70",
+          "uebersetzung": "Lies das jetzt nicht, wir haben keine Zeit!",
+          "erklaerung": "Der verneinte Imperativ mit „ne“ steht in aller Regel im nesvršeni – „Ne pročitaj to“ ist nicht möglich. Anders als bei „nemoj“, das beide Aspekte verträgt. Ausnahme: Warnungen vor einem einmaligen Missgeschick („Ne zaboravi!“, „Ne padni!“)." },
+
+        { "satz": "Ne ___ prozor, hladno je!", "loesung": "otvaraj", "distraktor": "otvori",
+          "signal": "Ne", "kategorie": "imperativ", "par_id": "ap04",
+          "uebersetzung": "Mach das Fenster nicht auf, es ist kalt!",
+          "erklaerung": "„ne“ + Imperativ verlangt den nesvršeni. Der svršeni-Imperativ „otvori“ steht nur ohne Verneinung." },
+
+        { "satz": "Ne ___ tako brzo, bit će ti loše!", "loesung": "jedi", "distraktor": "pojedi",
+          "signal": "Ne", "kategorie": "imperativ", "par_id": "ap41",
+          "uebersetzung": "Iss nicht so schnell, sonst wird dir schlecht!",
+          "erklaerung": "Verneinter Imperativ mit „ne“ → nesvršeni. Hier wird eine laufende Tätigkeit untersagt, und genau dafür gilt die Regel am verlässlichsten." },
+
+        { "satz": "Ne ___ tuđe stvari!", "loesung": "uzimaj", "distraktor": "uzmi",
+          "signal": "Ne", "kategorie": "imperativ", "par_id": "ap61",
+          "uebersetzung": "Nimm keine fremden Sachen!",
+          "erklaerung": "„ne“ + Imperativ → nesvršeni: uzimaj. Der svršeni-Imperativ „uzmi“ steht nur in der Aufforderung ohne Verneinung („Uzmi jednu!“)." },
+
+        { "satz": "Ne ___ vrata, neko će još doći.", "loesung": "zatvaraj", "distraktor": "zatvori",
+          "signal": "Ne", "kategorie": "imperativ", "par_id": "ap66",
+          "uebersetzung": "Mach die Tür nicht zu, es kommt noch jemand.",
+          "erklaerung": "Verneinter Imperativ mit „ne“ → nesvršeni: zatvaraj, nicht zatvori." },
+
+        { "satz": "Ne ___ tu vodu, nije čista!", "loesung": "pij", "distraktor": "popij",
+          "signal": "Ne", "kategorie": "imperativ", "par_id": "ap46",
+          "uebersetzung": "Trink dieses Wasser nicht, es ist nicht sauber!",
+          "erklaerung": "„ne“ + Imperativ steht im nesvršeni – der svršeni „popij“ nur in der Aufforderung ohne Verneinung." },
+
+        { "satz": "Ne mogu sada, upravo ___ ručak.", "loesung": "kuham", "distraktor": "skuham",
+          "signal": "upravo", "kategorie": "praesens_jetzt", "par_id": "ap47",
+          "uebersetzung": "Ich kann jetzt nicht, ich koche gerade das Mittagessen.",
+          "erklaerung": "Für „gerade jetzt“ brauchst du den nesvršeni. Der svršeni-Präsens bezeichnet keine laufende Gegenwart – er steht für Künftiges oder im Nebensatz." },
+
+        { "satz": "Sad ne mogu razgovarati, ___ auto.", "loesung": "perem", "distraktor": "operem",
+          "signal": "Sad", "kategorie": "praesens_jetzt", "par_id": "ap57",
+          "uebersetzung": "Ich kann jetzt nicht reden, ich wasche das Auto.",
+          "erklaerung": "„Sad“ (jetzt) verlangt den nesvršeni. Der svršeni-Präsens „operem“ bezeichnet nie die laufende Gegenwart." },
+
+        { "satz": "Šta radiš? – ___ novine.", "loesung": "Čitam", "distraktor": "Pročitam",
+          "signal": "Šta radiš?", "kategorie": "praesens_jetzt", "par_id": "ap70",
+          "uebersetzung": "Was machst du? – Ich lese Zeitung.",
+          "erklaerung": "Die Antwort auf „Was machst du gerade?“ steht im nesvršeni. „Pročitam“ würde hier keine Gegenwart bezeichnen." },
+
+        { "satz": "Sačekaj malo, još ___ posao.", "loesung": "završavam", "distraktor": "završim",
+          "signal": "još", "kategorie": "praesens_jetzt", "par_id": "ap64",
+          "uebersetzung": "Warte kurz, ich bin noch dabei, die Arbeit zu beenden.",
+          "erklaerung": "„još“ (noch) zeigt an, dass der Vorgang läuft – nesvršeni." },
+
+        { "satz": "Vidiš onog čovjeka? On ___ našu kuću.", "loesung": "gleda", "distraktor": "pogleda",
+          "signal": "Vidiš", "kategorie": "praesens_jetzt", "par_id": "ap72",
+          "uebersetzung": "Siehst du den Mann da? Er schaut auf unser Haus.",
+          "erklaerung": "Etwas, das im Moment des Sprechens passiert, steht im nesvršeni." },
+
+        { "satz": "Ne smetaj mu, ___ za ispit.", "loesung": "uči", "distraktor": "nauči",
+          "signal": "Ne smetaj", "kategorie": "praesens_jetzt", "par_id": "ap08",
+          "uebersetzung": "Stör ihn nicht, er lernt für die Prüfung.",
+          "erklaerung": "Der laufende Vorgang in der Gegenwart verlangt den nesvršeni." }
 
       ]
     }

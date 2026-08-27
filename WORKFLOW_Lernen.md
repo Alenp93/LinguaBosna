@@ -98,19 +98,30 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) | 88 Paare (`ap01`–`ap88`, lückenlos), 3 Sets: A1–A2 (52) / B1–C1 (36) / alle (88) |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
-| Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1 + 2 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster). Geplant: Set 3 „Situation → Satz", später Set 4 „Erzähltext" |
+| Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–3 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster). Optional später: Set 4 „Erzähltext" |
 
-> **Die Seite kennt zwei Aufgabentypen**, gesteuert über das Feld `typ` im Set:
+> **Die Seite kennt drei Aufgabentypen**, gesteuert über das Feld `typ` im Set:
 > `typ` fehlt (= „signal") zeigt einen Ausdruck mit drei Korb-Buttons; `typ: "satz"`
-> zeigt einen Lückensatz mit zwei Verbformen zur Wahl. Beide teilen sich Fortschritt,
-> Feedback, Ergebnis und die Auswertung nach Regeltyp. Set 2 nutzt die vorhandenen
-> Lückentext-Klassen (`.uebung-satz`, `.luecke`, `.wortbank`) aus
-> `Style_4_Lernen.css` – neu ist dort nur `.signal-mark`.
+> zeigt einen Lückensatz mit zwei Verbformen; `typ: "situation"` zeigt eine deutsche
+> Absichtsbeschreibung mit zwei vollständigen bosnischen Sätzen. Alle drei teilen
+> sich Fortschritt, Feedback, Ergebnis und die Auswertung nach Regeltyp. Set 2 nutzt
+> die vorhandenen Lückentext-Klassen (`.uebung-satz`, `.luecke`, `.wortbank`) aus
+> `Style_4_Lernen.css`; neu sind nur `.signal-mark` (Set 2) sowie `.satzwahl` und
+> `.feedback-variante` (Set 3).
 >
-> **Stratifiziert gezogen wird in beiden Sets, aber nach unterschiedlichen Feldern:**
-> Set 1 nach `korb` (sonst wäre der kleinste Korb kaum vertreten), Set 2 nach
-> `kategorie` – bei 9 Regelmustern und 10 Fragen deckt so jeder Durchgang alle
-> Muster ab und liefert bei Wiederholung andere Sätze desselben Musters.
+> **Stratifiziert gezogen wird in allen Sets, aber nach unterschiedlichen Feldern:**
+> Set 1 nach `korb` (sonst wäre der kleinste Korb kaum vertreten), Set 2 und 3 nach
+> `kategorie` – bei 9 bzw. 7 Mustern und 10 Fragen deckt so jeder Durchgang alle
+> Muster ab und liefert bei Wiederholung andere Aufgaben desselben Musters.
+>
+> **Set 2 und Set 3 sind Spiegelbilder – das ist der Kern und darf nicht verwischen:**
+> In Set 2 macht der bosnische Kontext die andere Aspektform unmöglich; gefragt ist
+> die *grammatisch* richtige Form. In Set 3 sind **beide Sätze korrekt**, sie bedeuten
+> nur Verschiedenes; gefragt ist die *gemeinte* Form. Deshalb zeigt das Feedback in
+> Set 3 immer BEIDE Sätze mit ihrer Bedeutung (`loesung_de` / `distraktor_de`) – das
+> ist dort die eigentliche Lektion, nicht „richtig oder falsch". Aufgaben, die in
+> Set 2 an der Eindeutigkeit scheitern, gehören nach Set 3; Aufgaben, deren deutsche
+> Beschreibung die Wahl nicht determiniert, gehören in keins von beiden.
 >
 > ⚠️ **Designregel für Set 2 (und alle künftigen Satz-Sets):** Aufgenommen werden nur
 > Sätze mit **eindeutiger** Lösung – der Kontext muss die andere Aspektform
@@ -138,6 +149,17 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 > `tek`, `već`, `dok`). Welche Ausdrücke warum ausgeschlossen wurden, steht im Feld
 > `_bewusst_weggelassen` am Anfang von `aspektwahl_data.json` – dort nachsehen, bevor
 > ein „fehlendes" Signalwort ergänzt wird.
+>
+> ⚠️ **Wortwahl-Fallen, die der `bosnisch-pruefer` in den Aspekt-Sets gefunden hat
+> (2026-08-26/27) – beim Schreiben neuer Beispielsätze beachten:**
+> `pozvati` heißt **nicht „anrufen"**, sondern „herbeirufen / einladen“; die
+> Vokabel-JSON führt für „anrufen“ ein eigenes Verb (`nazvati`). `poslušati` heißt
+> nicht nur „zu Ende zuhören“, sondern vor allem **„auf jemanden hören, befolgen“**.
+> `otputovati` bezeichnet die **Abreise**, nicht die Reise als Ganzes. `uraditi` ist
+> nicht der Aspektpartner von `raditi` in der Bedeutung *arbeiten* (nur in *erledigen*).
+> `gledati koga preko ramena` heißt **„auf jemanden herabsehen“**, nicht „ihm über die
+> Schulter schauen“. Solche Fälle fallen bei einer reinen Aspekt-Prüfung durch, weil
+> die Aspektzuordnung stimmt – falsch ist die Bedeutung.
 >
 > ⚠️ **Der habituelle svršeni-Präsens (Befund des `bosnisch-pruefer`, 2026-08-26) –
 > gilt für ALLE künftigen Aspekt-Sets:** Die verbreitete Faustregel „Wiederholung =

@@ -184,6 +184,12 @@
           <p class="uebung-satz" id="satzText"></p>
         </div>
 
+        <!-- Aufgabentyp „situation" (Set 3): die deutsche Absicht,
+             nach der der passende bosnische Satz gewählt wird. -->
+        <div id="situationBereich" class="hidden">
+          <p class="situation-vorgabe" id="situationText"></p>
+        </div>
+
         <!-- Die Fragestellung (kommt aus dem Feld "frage" der JSON) -->
         <p class="aspekt-frage" id="aspektFrage"></p>
 
@@ -197,6 +203,9 @@
 
         <!-- Typ „satz": die beiden Verbformen zur Auswahl -->
         <div class="wortbank hidden" id="wortbank"></div>
+
+        <!-- Typ „situation": die beiden vollständigen Sätze zur Auswahl -->
+        <div class="satzwahl hidden" id="satzwahl"></div>
 
         <!-- Feedback nach der Antwort (versteckt bis dahin) -->
         <div class="uebung-feedback hidden" id="uebungFeedback"></div>
@@ -263,6 +272,15 @@
   function $(id) { return document.getElementById(id); }
 
 
+  /* ── Aufgabentyp des laufenden Sets ──────────────────── */
+  /* Drei Typen, siehe starteSet(). Fehlt das Feld „typ" in der
+     JSON, ist „signal" gemeint (so war Set 1 ursprünglich
+     angelegt, bevor es weitere Typen gab).                    */
+  function aufgabenTyp() {
+    return (aktivSet && aktivSet.typ) ? aktivSet.typ : 'signal';
+  }
+
+
   /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
   /* Fisher-Yates-Verfahren – wie in den anderen Übungen.   */
   function mischen(array) {
@@ -297,17 +315,18 @@
      kaum vor, und der Lernende könnte mit „immer unvollendet"
      gut abschneiden. Gruppiert wird deshalb nach „korb".
 
-     Set 2 („Aspektwahl im Satz"): Hier gibt es keine Körbe,
-     dafür zehn Regelmuster – bei zehn Fragen pro Runde also
-     genau eines je Muster. Gruppiert wird nach „kategorie",
-     dadurch deckt jeder Durchgang alle Muster ab und bei einer
-     Wiederholung kommen andere Sätze desselben Musters.
+     Set 2 und 3 („Aspektwahl im Satz", „Situation → Satz"): Hier
+     gibt es keine Körbe, dafür neun bzw. sieben Regelmuster – bei
+     zehn Fragen pro Runde also etwa eines je Muster. Gruppiert wird
+     nach „kategorie", dadurch deckt jeder Durchgang alle Muster ab
+     und bei einer Wiederholung kommen andere Aufgaben desselben
+     Musters.
 
-     Verfahren in beiden Fällen: reihum je eine Aufgabe aus
+     Verfahren in allen Fällen: reihum je eine Aufgabe aus
      jeder Gruppe, bis die gewünschte Anzahl voll ist.         */
   function zieheAufgaben(set, anzahl) {
     // Wonach gruppiert wird, hängt am Aufgabentyp des Sets
-    var feld = (set.typ === 'satz') ? 'kategorie' : 'korb';
+    var feld = (!set.typ || set.typ === 'signal') ? 'korb' : 'kategorie';
 
     // 1. Aufgaben nach diesem Feld gruppieren
     var nachKorb = {};
@@ -381,8 +400,10 @@
     grid.innerHTML = '';
 
     alleSets.forEach(function (set) {
-      // Je nach Aufgabentyp zählt die Karte Sätze oder Ausdrücke
-      var einheit = (set.typ === 'satz') ? 'Sätze' : 'Ausdrücke';
+      // Je nach Aufgabentyp zählt die Karte etwas anderes
+      var einheit = 'Ausdrücke';
+      if (set.typ === 'satz')      { einheit = 'Sätze'; }
+      if (set.typ === 'situation') { einheit = 'Situationen'; }
 
       // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
       var karte = document.createElement('button');
@@ -419,16 +440,20 @@
       set.frage || 'Welcher Aspekt ist nach diesem Ausdruck die normale Wahl?';
 
     // Je nach Aufgabentyp die passenden Bereiche einblenden:
-    // „signal" = Ausdruck + drei Körbe, „satz" = Lückensatz + Wortbank
-    var istSatz = (set.typ === 'satz');
-    $('signalBereich').classList.toggle('hidden', istSatz);
-    $('satzBereich').classList.toggle('hidden', !istSatz);
-    $('korbGrid').classList.toggle('hidden', istSatz);
-    $('wortbank').classList.toggle('hidden', !istSatz);
+    //   „signal"    = Ausdruck        + drei Körbe
+    //   „satz"      = Lückensatz      + zwei Verbformen
+    //   „situation" = deutsche Absicht + zwei ganze Sätze
+    var typ = aufgabenTyp();
+    $('signalBereich').classList.toggle('hidden',    typ !== 'signal');
+    $('satzBereich').classList.toggle('hidden',      typ !== 'satz');
+    $('situationBereich').classList.toggle('hidden', typ !== 'situation');
+    $('korbGrid').classList.toggle('hidden',         typ !== 'signal');
+    $('wortbank').classList.toggle('hidden',         typ !== 'satz');
+    $('satzwahl').classList.toggle('hidden',         typ !== 'situation');
 
     // Die Körbe sind für das ganze Set gleich – einmal bauen genügt.
-    // Die Wortbank dagegen wechselt je Aufgabe (andere Verbformen).
-    if (!istSatz) { baueKoerbe(); }
+    // Wortbank und Satzwahl wechseln dagegen je Aufgabe.
+    if (typ === 'signal') { baueKoerbe(); }
 
     zeigeAufgabe();
   }
@@ -445,11 +470,19 @@
     $('uebungBarFill').style.width =
       ((aktuelleNr / aufgaben.length) * 100) + '%';
 
-    if (aktivSet.typ === 'satz') {
+    var typ = aufgabenTyp();
+
+    if (typ === 'satz') {
       // Satz mit offener Lücke – das Signal wird hier bewusst NICHT
       // hervorgehoben, das wäre die Lösung. Erst im Feedback.
       $('satzText').innerHTML = baueSatzHtml(aufgabe, null, false);
       baueWortbank(aufgabe);
+
+    } else if (typ === 'situation') {
+      // Die deutsche Absicht vorgeben, dann die beiden Sätze
+      $('situationText').textContent = aufgabe.situation;
+      baueSatzwahl(aufgabe);
+
     } else {
       // Den Ausdruck und seine Bedeutung anzeigen
       $('signalWort').textContent = aufgabe.signal;
@@ -524,6 +557,43 @@
   }
 
 
+  /* ── Die beiden ganzen Sätze zur Auswahl stellen ─────── */
+  /* Anders als in Set 2 sind hier BEIDE Sätze korrektes Bosnisch –
+     sie bedeuten nur Verschiedenes. Deshalb stehen sie untereinander
+     und werden im Feedback beide mit ihrer Bedeutung gezeigt.        */
+  function baueSatzwahl(aufgabe) {
+    var box = $('satzwahl');
+    box.innerHTML = '';
+
+    var optionen = mischen([aufgabe.loesung, aufgabe.distraktor]);
+    optionen.forEach(function (satz) {
+      var btn = document.createElement('button');
+      btn.className = 'satzwahl-btn';
+      btn.textContent = satz;
+      btn._wert = satz;
+      btn.addEventListener('click', function () { pruefeAntwort(btn); });
+      box.appendChild(btn);
+    });
+  }
+
+
+  /* ── Gegenüberstellung beider Sätze fürs Feedback ────── */
+  /* Die eigentliche Lektion von Set 3 ist nicht „richtig oder
+     falsch", sondern: Das eine heißt DAS, das andere JENES.
+     Deshalb wird immer AUCH die nicht gewählte Variante mit
+     ihrer Bedeutung gezeigt.                                   */
+  function gegenueberstellung(aufgabe) {
+    return '<span class="feedback-variante variante-richtig">' +
+             '<span class="variante-satz">' + sicher(aufgabe.loesung) + '</span>' +
+             '<span class="variante-bedeutung">' + sicher(aufgabe.loesung_de) + '</span>' +
+           '</span>' +
+           '<span class="feedback-variante variante-andere">' +
+             '<span class="variante-satz">' + sicher(aufgabe.distraktor) + '</span>' +
+             '<span class="variante-bedeutung">' + sicher(aufgabe.distraktor_de) + '</span>' +
+           '</span>';
+  }
+
+
   /* ── Farbmarkierung und Sperre der Körbe aufheben ────── */
   /* Wird vor jeder neuen Aufgabe aufgerufen. Die Buttons
      selbst bleiben bestehen (siehe baueKoerbe).              */
@@ -589,12 +659,27 @@
     ausgewertet = true;
 
     var aufgabe = aufgaben[aktuelleNr];
+    var typ = aufgabenTyp();
     var istRichtig;
 
     // Abgleich immer über den am Button gemerkten Wert, nicht über
     // den Beschriftungstext – so bleibt die Auswertung von der
     // Darstellung unabhängig (Prinzip aus dem Vokabel-Quiz).
-    if (aktivSet.typ === 'satz') {
+    if (typ === 'situation') {
+      istRichtig = (gewaehlterBtn._wert === aufgabe.loesung);
+
+      // Beide Sätze sperren und einfärben
+      var satzBtns = $('satzwahl').querySelectorAll('.satzwahl-btn');
+      satzBtns.forEach(function (btn) {
+        btn.disabled = true;
+        if (btn._wert === aufgabe.loesung) {
+          btn.classList.add('correct');
+        } else if (btn === gewaehlterBtn) {
+          btn.classList.add('wrong');
+        }
+      });
+
+    } else if (typ === 'satz') {
       istRichtig = (gewaehlterBtn._wert === aufgabe.loesung);
 
       // Beide Formen sperren und einfärben
@@ -636,13 +721,20 @@
     statistik[kat].gesamt++;
     if (istRichtig) { statistik[kat].richtig++; }
 
-    // Feedback zusammenbauen.
-    // Bei Typ „satz" folgt die deutsche Übersetzung, bei Typ
-    // „signal" die Beispielsätze zum Ausdruck.
+    // Feedback zusammenbauen. Was unter der Erklärung steht,
+    // hängt am Aufgabentyp:
+    //   „signal"    → die Beispielsätze zum Ausdruck
+    //   „satz"      → die deutsche Übersetzung des Satzes
+    //   „situation" → beide Sätze mit ihren Bedeutungen
     var feedback = $('uebungFeedback');
-    var zusatz = (aktivSet.typ === 'satz')
-      ? '<span class="feedback-uebersetzung">' + sicher(aufgabe.uebersetzung) + '</span>'
-      : beispielHtml(aufgabe);
+    var zusatz;
+    if (typ === 'situation') {
+      zusatz = gegenueberstellung(aufgabe);
+    } else if (typ === 'satz') {
+      zusatz = '<span class="feedback-uebersetzung">' + sicher(aufgabe.uebersetzung) + '</span>';
+    } else {
+      zusatz = beispielHtml(aufgabe);
+    }
 
     if (istRichtig) {
       punkte++;
@@ -651,10 +743,10 @@
         sicher(aufgabe.erklaerung) + zusatz;
       feedback.className = 'uebung-feedback feedback-correct';
     } else {
-      // Was richtig gewesen wäre: bei Typ „satz" die Verbform,
-      // bei Typ „signal" die Beschriftung des richtigen Korbs.
+      // Was richtig gewesen wäre: bei „satz"/„situation" die Lösung
+      // selbst, bei „signal" die Beschriftung des richtigen Korbs.
       var richtigeAntwort;
-      if (aktivSet.typ === 'satz') {
+      if (typ === 'satz' || typ === 'situation') {
         richtigeAntwort = aufgabe.loesung;
       } else {
         var richtigerKorb = aktivSet.koerbe.find(function (k) {

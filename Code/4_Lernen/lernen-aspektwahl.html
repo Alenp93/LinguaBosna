@@ -171,20 +171,32 @@
         <div class="uebung-progress" id="uebungProgress">Aufgabe 1 von 10</div>
         <div class="uebung-bar"><div class="uebung-bar-fill" id="uebungBarFill"></div></div>
 
-        <!-- Der gezeigte Ausdruck + seine deutsche Bedeutung -->
-        <div class="aspekt-prompt">
+        <!-- Aufgabentyp „signal" (Set 1): der gezeigte Ausdruck
+             mit seiner deutschen Bedeutung -->
+        <div class="aspekt-prompt" id="signalBereich">
           <span class="aspekt-verb" id="signalWort"></span>
           <span class="signal-deutsch" id="signalDeutsch"></span>
+        </div>
+
+        <!-- Aufgabentyp „satz" (Set 2): der Satz mit der Lücke.
+             Nutzt dieselben Klassen wie der Lückentext. -->
+        <div id="satzBereich" class="hidden">
+          <p class="uebung-satz" id="satzText"></p>
         </div>
 
         <!-- Die Fragestellung (kommt aus dem Feld "frage" der JSON) -->
         <p class="aspekt-frage" id="aspektFrage"></p>
 
-        <!-- Die drei Antwort-Körbe.
-             Reihenfolge bleibt bewusst IMMER gleich (nicht gemischt),
-             damit sich die Position einprägt: links unvollendet,
-             Mitte vollendet, rechts „entscheidet nicht". -->
+        <!-- Antwortoptionen, je nach Aufgabentyp eine von beiden: -->
+
+        <!-- Typ „signal": die drei Körbe. Ihre Reihenfolge bleibt
+             bewusst IMMER gleich (nicht gemischt), damit sich die
+             Position einprägt: links unvollendet, Mitte vollendet,
+             rechts „entscheidet nicht". -->
         <div class="korb-grid" id="korbGrid"></div>
+
+        <!-- Typ „satz": die beiden Verbformen zur Auswahl -->
+        <div class="wortbank hidden" id="wortbank"></div>
 
         <!-- Feedback nach der Antwort (versteckt bis dahin) -->
         <div class="uebung-feedback hidden" id="uebungFeedback"></div>
@@ -278,21 +290,31 @@
 
   /* ── Stratifizierte Auswahl der Aufgaben ─────────────── */
   /* WARUM nicht einfach zufällig aus dem Gesamtpool?
-     Die drei Körbe sind unterschiedlich groß (18 nesvršeni /
-     10 svršeni / 13 offen). Bei rein zufälliger Ziehung käme
-     der kleinste Korb in vielen Runden kaum vor, und der
-     Lernende könnte mit „immer unvollendet" gut abschneiden.
 
-     Deshalb Reihum-Verfahren: Erst je eine Aufgabe aus jedem
-     Korb, dann die zweite aus jedem Korb usw., bis 10 voll
-     sind. Ergebnis bei drei Körben: 4/3/3. Welcher Korb den
-     Extraplatz bekommt, entscheidet der Zufall.              */
+     Set 1 („Signalwörter"): Die drei Körbe sind unterschiedlich
+     groß (18 nesvršeni / 10 svršeni / 13 offen). Bei rein
+     zufälliger Ziehung käme der kleinste Korb in vielen Runden
+     kaum vor, und der Lernende könnte mit „immer unvollendet"
+     gut abschneiden. Gruppiert wird deshalb nach „korb".
+
+     Set 2 („Aspektwahl im Satz"): Hier gibt es keine Körbe,
+     dafür zehn Regelmuster – bei zehn Fragen pro Runde also
+     genau eines je Muster. Gruppiert wird nach „kategorie",
+     dadurch deckt jeder Durchgang alle Muster ab und bei einer
+     Wiederholung kommen andere Sätze desselben Musters.
+
+     Verfahren in beiden Fällen: reihum je eine Aufgabe aus
+     jeder Gruppe, bis die gewünschte Anzahl voll ist.         */
   function zieheAufgaben(set, anzahl) {
-    // 1. Aufgaben nach Korb gruppieren
+    // Wonach gruppiert wird, hängt am Aufgabentyp des Sets
+    var feld = (set.typ === 'satz') ? 'kategorie' : 'korb';
+
+    // 1. Aufgaben nach diesem Feld gruppieren
     var nachKorb = {};
     set.aufgaben.forEach(function (a) {
-      if (!nachKorb[a.korb]) { nachKorb[a.korb] = []; }
-      nachKorb[a.korb].push(a);
+      var schluessel = a[feld];
+      if (!nachKorb[schluessel]) { nachKorb[schluessel] = []; }
+      nachKorb[schluessel].push(a);
     });
 
     // 2. Jede Gruppe für sich mischen
@@ -359,6 +381,9 @@
     grid.innerHTML = '';
 
     alleSets.forEach(function (set) {
+      // Je nach Aufgabentyp zählt die Karte Sätze oder Ausdrücke
+      var einheit = (set.typ === 'satz') ? 'Sätze' : 'Ausdrücke';
+
       // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
       var karte = document.createElement('button');
       karte.className = 'thema-card';
@@ -367,7 +392,7 @@
         '<span class="thema-niveau">' + sicher(set.niveau) + '</span>' +
         '<h3>' + sicher(set.titel) + '</h3>' +
         '<p>' + sicher(set.beschreibung) + '</p>' +
-        '<p class="thema-anzahl">' + set.aufgaben.length + ' Ausdrücke</p>';
+        '<p class="thema-anzahl">' + set.aufgaben.length + ' ' + einheit + '</p>';
 
       karte.addEventListener('click', function () { starteSet(set); });
       grid.appendChild(karte);
@@ -393,8 +418,18 @@
     $('aspektFrage').textContent =
       set.frage || 'Welcher Aspekt ist nach diesem Ausdruck die normale Wahl?';
 
+    // Je nach Aufgabentyp die passenden Bereiche einblenden:
+    // „signal" = Ausdruck + drei Körbe, „satz" = Lückensatz + Wortbank
+    var istSatz = (set.typ === 'satz');
+    $('signalBereich').classList.toggle('hidden', istSatz);
+    $('satzBereich').classList.toggle('hidden', !istSatz);
+    $('korbGrid').classList.toggle('hidden', istSatz);
+    $('wortbank').classList.toggle('hidden', !istSatz);
+
     // Die Körbe sind für das ganze Set gleich – einmal bauen genügt.
-    baueKoerbe();
+    // Die Wortbank dagegen wechselt je Aufgabe (andere Verbformen).
+    if (!istSatz) { baueKoerbe(); }
+
     zeigeAufgabe();
   }
 
@@ -410,14 +445,82 @@
     $('uebungBarFill').style.width =
       ((aktuelleNr / aufgaben.length) * 100) + '%';
 
-    // Den Ausdruck und seine Bedeutung anzeigen
-    $('signalWort').textContent = aufgabe.signal;
-    $('signalDeutsch').textContent = aufgabe.deutsch;
-
-    setzeKoerbeZurueck();
+    if (aktivSet.typ === 'satz') {
+      // Satz mit offener Lücke – das Signal wird hier bewusst NICHT
+      // hervorgehoben, das wäre die Lösung. Erst im Feedback.
+      $('satzText').innerHTML = baueSatzHtml(aufgabe, null, false);
+      baueWortbank(aufgabe);
+    } else {
+      // Den Ausdruck und seine Bedeutung anzeigen
+      $('signalWort').textContent = aufgabe.signal;
+      $('signalDeutsch').textContent = aufgabe.deutsch;
+      setzeKoerbeZurueck();
+    }
 
     $('uebungFeedback').classList.add('hidden');
     $('nextBtn').classList.add('hidden');
+  }
+
+
+  /* ── Den Lückensatz zusammenbauen (Typ „satz") ───────── */
+  /* form            = Wort für die Lücke, oder null für „___"
+     markiereSignal  = true blendet die goldene Hervorhebung des
+                       entscheidenden Ausdrucks ein (nur nach der
+                       Antwort – vorher wäre sie die Lösung).      */
+  function baueSatzHtml(aufgabe, form, markiereSignal) {
+    var teile = aufgabe.satz.split('___');
+    var vor  = sicher(teile[0]);
+    var nach = sicher(teile.length > 1 ? teile[1] : '');
+
+    if (markiereSignal && aufgabe.signal) {
+      var sig = sicher(aufgabe.signal);
+      // Nur das erste Vorkommen markieren – je nachdem, ob der
+      // Ausdruck vor oder hinter der Lücke steht.
+      if (vor.indexOf(sig) !== -1) {
+        vor = markiereText(vor, sig);
+      } else {
+        nach = markiereText(nach, sig);
+      }
+    }
+
+    var luecke = form
+      ? '<span class="luecke gefuellt">' + sicher(form) + '</span>'
+      : '<span class="luecke">___</span>';
+
+    return vor + luecke + nach;
+  }
+
+
+  /* ── Einen Textabschnitt im Satz hervorheben ─────────── */
+  function markiereText(text, signal) {
+    var pos = text.indexOf(signal);
+    if (pos === -1) { return text; }
+    return text.slice(0, pos) +
+           '<mark class="signal-mark">' + signal + '</mark>' +
+           text.slice(pos + signal.length);
+  }
+
+
+  /* ── Die beiden Verbformen zur Auswahl stellen ───────── */
+  /* Beide Formen sind dasselbe Verb in derselben Person und
+     Zeit – sie unterscheiden sich nur im Aspekt. Die Reihen-
+     folge wird gemischt, damit die Lösung nicht immer links
+     steht.                                                    */
+  function baueWortbank(aufgabe) {
+    var box = $('wortbank');
+    box.innerHTML = '';
+
+    var optionen = mischen([aufgabe.loesung, aufgabe.distraktor]);
+    optionen.forEach(function (wort) {
+      var btn = document.createElement('button');
+      btn.className = 'wortbank-btn';
+      btn.textContent = wort;
+      // Wert am Button merken – daran wird ausgewertet, nicht
+      // am Beschriftungstext (gleiches Prinzip wie bei den Körben)
+      btn._wert = wort;
+      btn.addEventListener('click', function () { pruefeAntwort(btn); });
+      box.appendChild(btn);
+    });
   }
 
 
@@ -486,22 +589,46 @@
     ausgewertet = true;
 
     var aufgabe = aufgaben[aktuelleNr];
-    // Abgleich über die gemerkte Korb-Kennung, nicht über den
-    // Button-Text – so bleibt die Auswertung von der Beschriftung
-    // unabhängig (gleiches Prinzip wie im Vokabel-Quiz).
-    var istRichtig = (gewaehlterBtn._korbId === aufgabe.korb);
+    var istRichtig;
 
-    // Alle Buttons sperren und einfärben:
-    // der richtige Korb wird immer grün, der falsch gewählte rot.
-    var buttons = $('korbGrid').querySelectorAll('.korb-btn');
-    buttons.forEach(function (btn) {
-      btn.disabled = true;
-      if (btn._korbId === aufgabe.korb) {
-        btn.classList.add('correct');
-      } else if (btn === gewaehlterBtn) {
-        btn.classList.add('wrong');
-      }
-    });
+    // Abgleich immer über den am Button gemerkten Wert, nicht über
+    // den Beschriftungstext – so bleibt die Auswertung von der
+    // Darstellung unabhängig (Prinzip aus dem Vokabel-Quiz).
+    if (aktivSet.typ === 'satz') {
+      istRichtig = (gewaehlterBtn._wert === aufgabe.loesung);
+
+      // Beide Formen sperren und einfärben
+      var wortBtns = $('wortbank').querySelectorAll('.wortbank-btn');
+      wortBtns.forEach(function (btn) {
+        btn.disabled = true;
+        if (btn._wert === aufgabe.loesung) {
+          btn.classList.add('correct');
+        } else if (btn === gewaehlterBtn) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      // Der Satz wird jetzt mit der richtigen Form gezeigt – und der
+      // entscheidende Ausdruck wird hervorgehoben. Das ist der
+      // eigentliche Lernmoment: sichtbar zu machen, WORAN man es
+      // erkennen konnte.
+      $('satzText').innerHTML = baueSatzHtml(aufgabe, aufgabe.loesung, true);
+
+    } else {
+      istRichtig = (gewaehlterBtn._korbId === aufgabe.korb);
+
+      // Alle Körbe sperren und einfärben:
+      // der richtige wird immer grün, der falsch gewählte rot.
+      var buttons = $('korbGrid').querySelectorAll('.korb-btn');
+      buttons.forEach(function (btn) {
+        btn.disabled = true;
+        if (btn._korbId === aufgabe.korb) {
+          btn.classList.add('correct');
+        } else if (btn === gewaehlterBtn) {
+          btn.classList.add('wrong');
+        }
+      });
+    }
 
     // Statistik je Regeltyp mitführen (für die Auswertung am Ende)
     var kat = aufgabe.kategorie;
@@ -509,27 +636,37 @@
     statistik[kat].gesamt++;
     if (istRichtig) { statistik[kat].richtig++; }
 
-    // Feedback zusammenbauen
+    // Feedback zusammenbauen.
+    // Bei Typ „satz" folgt die deutsche Übersetzung, bei Typ
+    // „signal" die Beispielsätze zum Ausdruck.
     var feedback = $('uebungFeedback');
+    var zusatz = (aktivSet.typ === 'satz')
+      ? '<span class="feedback-uebersetzung">' + sicher(aufgabe.uebersetzung) + '</span>'
+      : beispielHtml(aufgabe);
 
     if (istRichtig) {
       punkte++;
       feedback.innerHTML =
         '<i class="fas fa-check-circle"></i> Richtig! ' +
-        sicher(aufgabe.erklaerung) +
-        beispielHtml(aufgabe);
+        sicher(aufgabe.erklaerung) + zusatz;
       feedback.className = 'uebung-feedback feedback-correct';
     } else {
-      // Beschriftung des richtigen Korbs heraussuchen
-      var richtigerKorb = aktivSet.koerbe.find(function (k) {
-        return k.id === aufgabe.korb;
-      });
-      var korbName = richtigerKorb ? richtigerKorb.label : aufgabe.korb;
+      // Was richtig gewesen wäre: bei Typ „satz" die Verbform,
+      // bei Typ „signal" die Beschriftung des richtigen Korbs.
+      var richtigeAntwort;
+      if (aktivSet.typ === 'satz') {
+        richtigeAntwort = aufgabe.loesung;
+      } else {
+        var richtigerKorb = aktivSet.koerbe.find(function (k) {
+          return k.id === aufgabe.korb;
+        });
+        richtigerKorb = richtigerKorb || {};
+        richtigeAntwort = richtigerKorb.label || aufgabe.korb;
+      }
 
       feedback.innerHTML =
         '<i class="fas fa-times-circle"></i> Nicht ganz – richtig wäre „' +
-        sicher(korbName) + '“. ' + sicher(aufgabe.erklaerung) +
-        beispielHtml(aufgabe);
+        sicher(richtigeAntwort) + '“. ' + sicher(aufgabe.erklaerung) + zusatz;
       feedback.className = 'uebung-feedback feedback-wrong';
     }
     feedback.classList.remove('hidden');

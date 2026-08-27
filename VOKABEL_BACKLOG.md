@@ -112,6 +112,20 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | uspjeti | schaffen / gelingen | svršeni | uspijevati (nesvršeni) | B1 |
 | pušiti | rauchen | nesvršeni | – (kein echtes Paar nötig) | A2 |
 | složiti se | zustimmen / sich einig werden | svršeni | **`slagati se` steht bereits im Bestand** (B1) | B1 |
+| izlaziti | hinausgehen / aussteigen | nesvršeni | **`izaći` steht bereits im Bestand** (A1, Kap 22) – dort fehlt aber die `par_id` | A1 |
+| zvoniti | klingeln | nesvršeni | zazvoniti (svršeni) – beide fehlen | A2 |
+| provjeravati | überprüfen | nesvršeni | provjeriti (svršeni) – beide fehlen | A2 |
+| pokucati | klopfen | svršeni | kucati (nesvršeni) – beide fehlen | A2 |
+| krenuti | losgehen / aufbrechen | svršeni | kretati (nesvršeni) | A2 |
+| smetati | stören | nesvršeni | – (imperfectivum tantum) | A2 |
+| preseliti se | umziehen | svršeni | preseljavati se (nesvršeni) | B1 |
+
+> ⚠️ **`izaći` ist der wichtigste Fall in dieser Tabelle:** Das Verb steht bereits im
+> Bestand (A1, Kapitel 22), aber ohne `par_id` – und sein Partner `izlaziti` fehlt
+> ganz. Es ist damit ein Gegenstück zu `ulaziti`/`ući` (ap68) und `silaziti`/`sići`
+> (ap69), die beide vollständig verlinkt sind. Beim Nachtragen die Regeln aus
+> `CLAUDE.md` beachten: Partner als `nur_woerterbuch`-Eintrag anlegen, Bedeutung
+> **und** Niveau müssen am `nesvršeni`-Partner korrekt stehen.
 
 > **Wichtig beim Einbau:** `prestati` und `uspjeti` sind Kandidaten für ein neues
 > Aspektpaar (`par_id` ap89 ff.). Dabei gelten die Regeln aus `CLAUDE.md`: Nur echte
@@ -132,7 +146,11 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | šetnja | Spaziergang | Substantiv (f) | A2 | Hobbys & Freizeit (Kap 28/29) |
 | sendvič | Sandwich | Substantiv (m) | A2 | Essen & Trinken (Kap 11 ist voll) |
 | priča | Geschichte / Erzählung | Substantiv (f) | A2 | Kultur & Gesellschaft (Kap 36 ist voll) |
+| miris | Geruch / Duft | Substantiv (m) | A2 | – |
+| pauza | Pause | Substantiv (f) | A1 | Alltag & Routine (Kap 23) |
+| glupost | Dummheit / Unsinn | Substantiv (f) | B1 | Umgangssprache (Kap 56/57) |
 | bosanski | bosnisch | Adjektiv | A1 | – (Sprachen/Länder) |
+| tuđi | fremd (jemand anderem gehörend) | Adjektiv | A2 | – |
 
 > `priča` fehlt, obwohl das Verb `pričati` (A1, ap59) im Bestand steht – dieselbe
 > Wurzel, nur das Substantiv fehlt. Solche Paarlücken sind typisch und lohnen beim

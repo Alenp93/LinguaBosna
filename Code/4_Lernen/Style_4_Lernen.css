@@ -749,6 +749,98 @@ main h1 {
   line-height: 1.5;
 }
 
+/* Set 3 „Situation → Satz": Vorgegeben ist die deutsche Absicht,
+   gewählt wird zwischen zwei vollständigen bosnischen Sätzen.
+   Anders als in Set 2 sind hier BEIDE Sätze korrekt – sie bedeuten
+   nur Verschiedenes. Deshalb stehen sie untereinander und werden im
+   Feedback beide mit ihrer Bedeutung gezeigt.                       */
+
+/* Die deutsche Vorgabe: das, was gesagt werden soll */
+.situation-vorgabe {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #555;
+  text-align: center;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+/* Die beiden Satz-Optionen untereinander */
+.satzwahl {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.satzwahl-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  text-align: left;
+  padding: 14px 18px;
+  min-height: 44px;               /* Mindest-Touch-Target */
+  border: 2px solid var(--neutral);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.satzwahl-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: #f8f8f8;
+}
+.satzwahl-btn:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+.satzwahl-btn.correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e7e46;
+}
+.satzwahl-btn.wrong {
+  border-color: #c0392b;
+  background: #fdecea;
+  color: #922b21;
+}
+
+/* Gegenüberstellung im Feedback: beide Sätze mit ihrer Bedeutung.
+   Das ist die eigentliche Lektion dieses Sets – nicht „richtig oder
+   falsch", sondern „das eine heißt DAS, das andere JENES".          */
+.feedback-variante {
+  display: block;
+  margin-top: 10px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+.feedback-variante::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+.feedback-variante.variante-gewaehlt::before {
+  content: "\2713";               /* Häkchen */
+}
+.feedback-variante.variante-andere::before {
+  content: "\2192";               /* Pfeil */
+  opacity: 0.7;
+}
+.feedback-variante .variante-satz {
+  display: block;
+  font-weight: 700;
+}
+.feedback-variante .variante-bedeutung {
+  display: block;
+  font-style: italic;
+  opacity: 0.85;
+}
+
 /* Beispielsätze im Feedback.
    Bei den „offen"-Einträgen stehen hier ZWEI Sätze untereinander –
    erst ihr Kontrast zeigt, dass beide Aspekte möglich sind.        */

@@ -98,21 +98,69 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) | 88 Paare (`ap01`–`ap88`, lückenlos), 3 Sets: A1–A2 (52) / B1–C1 (36) / alle (88) |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
-| Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–3 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster). Optional später: Set 4 „Erzähltext" |
+| Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–4 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster) · Set 4 „Erzähltext" (10 Texte à 5 Lücken) |
 
-> **Die Seite kennt drei Aufgabentypen**, gesteuert über das Feld `typ` im Set:
+> **Die Seite kennt vier Aufgabentypen**, gesteuert über das Feld `typ` im Set:
 > `typ` fehlt (= „signal") zeigt einen Ausdruck mit drei Korb-Buttons; `typ: "satz"`
 > zeigt einen Lückensatz mit zwei Verbformen; `typ: "situation"` zeigt eine deutsche
-> Absichtsbeschreibung mit zwei vollständigen bosnischen Sätzen. Alle drei teilen
-> sich Fortschritt, Feedback, Ergebnis und die Auswertung nach Regeltyp. Set 2 nutzt
+> Absichtsbeschreibung mit zwei vollständigen bosnischen Sätzen; `typ: "text"` zeigt
+> einen Erzähltext, dessen fünf Lücken nacheinander gefüllt werden. Alle teilen sich
+> Fortschritt, Feedback, Ergebnis und die Auswertung nach Regeltyp. Set 2 und 4 nutzen
 > die vorhandenen Lückentext-Klassen (`.uebung-satz`, `.luecke`, `.wortbank`) aus
-> `Style_4_Lernen.css`; neu sind nur `.signal-mark` (Set 2) sowie `.satzwahl` und
-> `.feedback-variante` (Set 3).
+> `Style_4_Lernen.css`; neu sind nur `.signal-mark` (Set 2), `.satzwahl` und
+> `.feedback-variante` (Set 3) sowie `.erzaehl-text` und die Lücken-Zustände (Set 4).
 >
-> **Stratifiziert gezogen wird in allen Sets, aber nach unterschiedlichen Feldern:**
+> **Stratifiziert gezogen wird in Set 1–3, nach unterschiedlichen Feldern:**
 > Set 1 nach `korb` (sonst wäre der kleinste Korb kaum vertreten), Set 2 und 3 nach
 > `kategorie` – bei 9 bzw. 7 Mustern und 10 Fragen deckt so jeder Durchgang alle
 > Muster ab und liefert bei Wiederholung andere Aufgaben desselben Musters.
+> **Set 4 zieht anders:** zwei ganze Texte (`TEXTE_PRO_RUNDE`), aus deren Lücken eine
+> flache Liste gebaut wird – 2 × 5 = wieder 10 Aufgaben. Die Lücken bleiben dabei
+> bewusst in Textreihenfolge, weil eine Geschichte nur der Reihe nach Sinn ergibt.
+> Dadurch funktionieren Fortschritt, Statistik und Ergebnis unverändert weiter; nur
+> die Beschriftungen wechseln („Lücke 3 von 10", „Nächster Text →").
+>
+> ⚠️ **Erzähltexte brauchen härtere Lücken als Einzelsätze (Befund zu Set 4):**
+> Im Textformat gibt es **kein „entscheidet nicht"-Ventil** wie in Set 1 – jede Lücke
+> muss eine eindeutige Lösung haben, sonst wertet die Übung gutes Bosnisch als Fehler.
+> Der Erzählkontext allein reicht dafür oft nicht: Nach `dok` ist der Hauptsatz frei
+> (beide Aspekte möglich), eine Gewohnheit lässt den habituellen svršeni zu, und
+> `sačekati` verträgt sehr wohl Dauerangaben. Lücken werden deshalb **lexikalisch
+> gehärtet** – mit einem Wort, das die Wahl erzwingt: `odjednom`, `odmah`, `ukratko`,
+> `u jednom trenutku` für den svršeni; `po cijeli dan`, `od jutra do mraka`, `danima`
+> für den nesvršeni. Faustregel: Wenn sich die Lösung nicht an einem Wort im Satz
+> festmachen lässt, gehört die Lücke nicht in den Text.
+>
+> ⚠️ **Minimalkontrast im selben Text** (dasselbe Verbpaar zweimal, einmal je Aspekt)
+> ist didaktisch stark – aber nur, wenn **beide** Vorkommen eindeutig sind. Ist das
+> erste mehrdeutig, lernt der Nutzer das Gegenteil: Er wählt eine korrekte Form,
+> bekommt ein Falsch, und liest sie zwei Zeilen später als richtige Lösung. Das lehrt
+> „der Aspekt ist willkürlich". Mustergültig gelöst im Text „Majstor“
+> (`dok` gegen `za dva sata`).
+>
+> ✅ **Infinitiv und `da` + Präsens stehen bewusst nebeneinander (entschieden
+> 2026-08-28) – bitte nicht vereinheitlichen.** Die eigene B2-Seite
+> `grammatik-nebensaetze.html` stellt fest, dass im gesprochenen Bosnisch
+> `da` + Präsens dominiert; die Übung zeigt deshalb **beide** Konstruktionen, damit
+> der Lernende sie wiedererkennt. Umgestellt sind in Set 2 die Aufgaben mit
+> `prestati`, `početi` und `uspjeti`, in Set 4 vier Stellen (`počeo da radi`,
+> `morao da ponovim`, `sjeli smo da jedemo`, `naučio da plivam`); die übrigen
+> behalten den Infinitiv. Die Botschaft der Erklärungstexte ist dabei zentral:
+> **Die Aspektregel hängt an der Konstruktion nicht** – nach
+> `početi`/`prestati`/`nastaviti` steht der nesvršeni, ob als `da troši` oder als
+> `trošiti`. ⚠️ Bei `da` + Präsens richtet sich die **Person nach dem Subjekt des
+> Hauptverbs** (`Počeli smo da uređujemo`, `morao sam da ponovim`) – auch der
+> Distraktor muss dann in Person und Numerus passen. Die vollständige Liste der
+> umgestellten Stellen steht im Feld `_hinweis_infinitiv` der JSON.
+>
+> ⚠️ **Fallstrick beim Ergänzen weiterer Typen (einmal passiert):** Im Fehlerzweig von
+> `pruefeAntwort` wurde die Beschriftung des richtigen Korbs über `aktivSet.koerbe`
+> gesucht – ein Feld, das **nur Set 1 hat**. Bei Set 4 war es `undefined`, und die
+> Funktion brach genau dann ab, wenn der Lernende **falsch** antwortete: Feedback und
+> Weiter-Button blieben unsichtbar, die Übung hing. Die Bedingung fragt deshalb jetzt
+> nach `typ === 'signal'`, statt die anderen Typen aufzuzählen. Wer einen fünften Typ
+> ergänzt, sollte gezielt eine **falsche** Antwort testen – der Fehler ist bei
+> richtigen Antworten unsichtbar.
 >
 > **Set 2 und Set 3 sind Spiegelbilder – das ist der Kern und darf nicht verwischen:**
 > In Set 2 macht der bosnische Kontext die andere Aspektform unmöglich; gefragt ist

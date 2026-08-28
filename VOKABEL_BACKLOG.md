@@ -120,6 +120,10 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | smetati | stören | nesvršeni | – (imperfectivum tantum) | A2 |
 | preseliti se | umziehen | svršeni | preseljavati se (nesvršeni) | B1 |
 | shvatati | begreifen / verstehen | nesvršeni | **`shvatiti` steht bereits im Bestand** (B1) – dort ohne `par_id` | B1 |
+| pohvaliti | loben | svršeni | hvaliti (nesvršeni) – beide fehlen | B1 |
+| prozvati | aufrufen (Namen/Nummer) | svršeni | prozivati (nesvršeni) | B2 |
+| faliti | fehlen (ugs.) | nesvršeni | – (ugs.; Standard: nedostajati) | A2 |
+| funkcionisati | funktionieren | dvovidni | – | B1 |
 
 > ⚠️ **`izaći` ist der wichtigste Fall in dieser Tabelle:** Das Verb steht bereits im
 > Bestand (A1, Kapitel 22), aber ohne `par_id` – und sein Partner `izlaziti` fehlt
@@ -150,6 +154,9 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | miris | Geruch / Duft | Substantiv (m) | A2 | – |
 | kolač | Kuchen | Substantiv (m) | A1 | Essen & Trinken (Kap 11 ist voll) |
 | namirnice | Lebensmittel / Einkäufe | Substantiv (f, Pl.) | A2 | Einkaufen & Geld (Kap 26/27) |
+| oglas | Anzeige / Inserat | Substantiv (m) | B1 | Reisen & Behörden (Kap 53/54) |
+| red | Reihe / Warteschlange | Substantiv (m) | A2 | – (auch für „doći na red“ = an die Reihe kommen) |
+| ordinacija | Arztpraxis | Substantiv (f) | B1 | Gesundheit & Symptome (Kap 46/47) |
 | pauza | Pause | Substantiv (f) | A1 | Alltag & Routine (Kap 23) |
 | glupost | Dummheit / Unsinn | Substantiv (f) | B1 | Umgangssprache (Kap 56/57) |
 | bosanski | bosnisch | Adjektiv | A1 | – (Sprachen/Länder) |

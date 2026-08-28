@@ -4,9 +4,9 @@
 > `WORKFLOW_Grammatikseiten.md`.
 >
 > ✅ **Status dieser Datei:** Gegen den echten Repo-Stand von `Code/4_Lernen/`
-> abgeglichen (Stand 2026-07-17). Die früheren 🔲-Platzhalter sind ausgefüllt.
-> Einzig offen: die Struktur-Validierung (Abschnitt 6) – dort ist noch eine
-> Entscheidung durch Alen nötig.
+> abgeglichen (Stand 2026-08-28). Die früheren 🔲-Platzhalter sind ausgefüllt.
+> Die Struktur-Validierung (Abschnitt 6) ist seit 2026-08-28 mit
+> `test_lernen_uebung.py` ebenfalls abgedeckt.
 
 ---
 
@@ -244,11 +244,31 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
   Lernen-Seiten (Canonical, Open Graph, Twitter, gültiges JSON-LD, Description-Länge,
   offene `[PLATZHALTER]`, `defer`). Nach einer neuen Übung zusätzlich
   `python3 build_sitemap.py` ausführen und die aktualisierte `sitemap.xml` mitcommitten.
-- **Struktur (Mobile/Layout):** ⚠️ Weiterhin offen – es existiert **kein**
-  `test_grammatikseite.py`-Äquivalent (Mobile-Overflow/Touch-Targets) für Lernen-Seiten.
-  `test_seo.py` deckt nur die SEO-Metadaten ab, nicht das Layout. Bis ein eigenes
-  Struktur-Skript existiert: neue/geänderte Übungen mindestens manuell auf Mobilgeräten
-  (Overflow, Touch-Targets) prüfen.
+- **Struktur (Mobile/Layout):** ✅ `test_lernen_uebung.py` (seit 2026-08-28, Repo-Root).
+  Aufruf: `python3 test_lernen_uebung.py lernen-[typ].html` (Datei- oder Pfadangabe,
+  wie bei `test_grammatikseite.py`; findet Repo-Root automatisch). Prüft:
+  - Struktur: die drei Bildschirme (Start/Übung/Ergebnis), Set-Karten-Grid, Fortschritt,
+    Feedback- und Ergebnis-Elemente
+  - Head-Pflichten: Fonts, FontAwesome, Favicon-Block, `defer` bei `LB_main.js`,
+    keine relativen (`../`) Pfade
+  - SEO: ruft `test_seo.py` für dieselbe Datei mit auf (keine doppelte Prüflogik)
+  - Mobiltest bei 900/628/480/360/320 px **mit echtem JavaScript**: anders als
+    `test_grammatikseite.py` (das Scripts entfernt und nur HTML+CSS zusammenklebt)
+    startet dieses Skript einen lokalen HTTP-Server auf dem Repo-Root, weil
+    Lernen-Seiten ihren Inhalt per `fetch()` aus einer JSON-Datei nachladen –
+    ohne echten Server und aktives JS blieben die Container leer. Geprüft werden
+    Start-Bildschirm, erste Aufgabe, erstes Feedback und Ergebnis-Bildschirm.
+  - Touch-Targets: alle sichtbaren, nicht deaktivierten `<button>` müssen
+    mindestens 44×44px groß sein
+  - Die Interaktion (Set-Karte anklicken, eine Aufgabe „lösen") ist **generisch**
+    gehalten (Sofort-Auswertung bei Körben/Wortbank/Satzwahl; bei Puzzle-Typen wie
+    Satzbau werden alle Bausteine geklickt und dann „Prüfen"), damit dasselbe
+    Skript für künftige Übungstypen weiterfunktioniert, ohne je Typ Sondercode zu
+    brauchen. Gelingt die generische Interaktion bei einem neuen Übungstyp nicht,
+    gibt das Skript einen Hinweis (⚠) statt eines Fehlers aus – Struktur-/Head-Checks
+    laufen trotzdem vollständig.
+  - Exemplarisch getestet an `lernen-aspektwahl.html` (vier Aufgabentypen: signal/
+    satz/situation/text) und `lernen-satzbau.html` (Puzzle-Typ) – beide fehlerfrei.
 - Wie bei Grammatikseiten: Vor jedem Commit Alen die Änderungen zeigen und
   explizit bestätigen lassen, besonders bei neuen Beispielsätzen/Distraktoren.
 

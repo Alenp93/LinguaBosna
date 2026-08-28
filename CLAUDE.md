@@ -293,7 +293,7 @@ Beide Ergebnisse Alen zeigen, bevor committed wird. Ein grüner Struktur-Test be
 die andere.
 
 Für Lernen-Übungen gilt der Sprach-Check (bosnisch-pruefer) ebenso; die Struktur-Prüfung
-ist dort noch offen (siehe `WORKFLOW_Lernen.md`, Abschnitt 6).
+läuft dort über `test_lernen_uebung.py` (siehe `WORKFLOW_Lernen.md`, Abschnitt 6).
 
 **SEO-Prüfung (seitentyp-unabhängig, ergänzend):**
 - `python3 test_seo.py [datei]` oder `python3 test_seo.py --all` prüft die SEO-Grundausstattung

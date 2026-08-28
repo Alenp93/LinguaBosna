@@ -108,38 +108,27 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 
 | Bosnisch | Deutsch | Aspekt | Partner (Vorschlag) | Niveau-Vorschlag |
 |---|---|---|---|---|
-| prestati | aufhören | svršeni | prestajati (nesvršeni) | A2 |
-| uspjeti | schaffen / gelingen | svršeni | uspijevati (nesvršeni) | B1 |
 | pušiti | rauchen | nesvršeni | – (kein echtes Paar nötig) | A2 |
 | složiti se | zustimmen / sich einig werden | svršeni | **`slagati se` steht bereits im Bestand** (B1) | B1 |
-| izlaziti | hinausgehen / aussteigen | nesvršeni | **`izaći` steht bereits im Bestand** (A1, Kap 22) – dort fehlt aber die `par_id` | A1 |
 | zvoniti | klingeln | nesvršeni | zazvoniti (svršeni) – beide fehlen | A2 |
 | provjeravati | überprüfen | nesvršeni | provjeriti (svršeni) – beide fehlen | A2 |
 | pokucati | klopfen | svršeni | kucati (nesvršeni) – beide fehlen | A2 |
 | krenuti | losgehen / aufbrechen | svršeni | kretati (nesvršeni) | A2 |
 | smetati | stören | nesvršeni | – (imperfectivum tantum) | A2 |
 | preseliti se | umziehen | svršeni | preseljavati se (nesvršeni) | B1 |
-| shvatati | begreifen / verstehen | nesvršeni | **`shvatiti` steht bereits im Bestand** (B1) – dort ohne `par_id` | B1 |
 | pohvaliti | loben | svršeni | hvaliti (nesvršeni) – beide fehlen | B1 |
 | prozvati | aufrufen (Namen/Nummer) | svršeni | prozivati (nesvršeni) | B2 |
 | faliti | fehlen (ugs.) | nesvršeni | – (ugs.; Standard: nedostajati) | A2 |
 | funkcionisati | funktionieren | dvovidni | – | B1 |
+| nastavljati | weitermachen / fortsetzen | nesvršeni | **`nastaviti` steht bereits im Bestand** (A2, Kap 25) – dort fehlt aber die `par_id` | A2 |
 
-> ⚠️ **`izaći` ist der wichtigste Fall in dieser Tabelle:** Das Verb steht bereits im
-> Bestand (A1, Kapitel 22), aber ohne `par_id` – und sein Partner `izlaziti` fehlt
-> ganz. Es ist damit ein Gegenstück zu `ulaziti`/`ući` (ap68) und `silaziti`/`sići`
-> (ap69), die beide vollständig verlinkt sind. Beim Nachtragen die Regeln aus
-> `CLAUDE.md` beachten: Partner als `nur_woerterbuch`-Eintrag anlegen, Bedeutung
-> **und** Niveau müssen am `nesvršeni`-Partner korrekt stehen.
-
-> **Wichtig beim Einbau:** `prestati` und `uspjeti` sind Kandidaten für ein neues
-> Aspektpaar (`par_id` ap89 ff.). Dabei gelten die Regeln aus `CLAUDE.md`: Nur echte
-> Paare verlinken (gleicher Stamm, gleiche Grundbedeutung), der Partner wird als
-> `nur_woerterbuch`-Eintrag angelegt, und Bedeutung **und** Niveau müssen am
-> `nesvršeni`-Partner korrekt stehen, weil `lernen-aspektpaare.html` beides von dort
-> nimmt. `prestati` ist zusätzlich didaktisch relevant: Es ist eines der drei
-> Phasenverben (početi / prestati / nastaviti), die zwingend den nesvršeni-Infinitiv
-> nach sich ziehen – die anderen beiden stehen bereits im Bestand.
+> ⚠️ **`nastavljati` schließt die Phasenverben-Trias:** `početi` (ap63) und `prestati`
+> (ap91, 2026-08-28 eingebaut) sind bereits vollständig gepaart, `nastaviti` (A2,
+> Kapitel 25 „In der Stadt & Wegbeschreibung 2" – Platzierung dort historisch, nicht
+> thematisch) hat noch keine `par_id`, sein Partner `nastavljati` fehlt ganz. Beim
+> Nachtragen die Regeln aus `CLAUDE.md` beachten: Partner als `nur_woerterbuch`-Eintrag
+> anlegen, Bedeutung **und** Niveau müssen am `nesvršeni`-Partner korrekt stehen.
+> Aufgefallen bei: Sprachprüfung des Aspektpaars `prestati`/`prestajati`, 2026-08-28.
 
 ---
 
@@ -197,4 +186,18 @@ Damit dieselbe Frage nicht zweimal geprüft wird:
 
 > Nach dem Einbau hierher verschieben – mit Datum und Zielkapitel.
 
-_(noch nichts)_
+- **2026-08-28** – `izaći` (A1, Kap 22 „Verkehrsmittel & unterwegs", bereits im Bestand)
+  hat `par_id: ap89` bekommen; Partner `izlaziti` (nesvršeni) neu als
+  `nur_woerterbuch`-Eintrag angelegt.
+- **2026-08-28** – `shvatiti` (B1, Kap 43 „Bildung & Studium 2", bereits im Bestand)
+  hat `par_id: ap90` bekommen; Partner `shvatati` (nesvršeni) neu als
+  `nur_woerterbuch`-Eintrag angelegt. Form `shvatati` (statt kroat. `shvaćati`) nach
+  Rücksprache mit Alen bestätigt (2026-08-28).
+- **2026-08-28** – Neues Aspektpaar `prestati`/`prestajati` (A2, `par_id: ap91`):
+  `prestati` als Kapitel-Eintrag in Kap 23 „Alltag & Routine" angelegt, `prestajati`
+  als `nur_woerterbuch`-Eintrag. Vervollständigt zwei der drei Phasenverben
+  (početi/prestati/nastaviti) – `nastaviti` bleibt offen, siehe Kandidatentabelle oben.
+- **2026-08-28** – Neues Aspektpaar `uspjeti`/`uspijevati` (B1, `par_id: ap92`):
+  `uspjeti` als Kapitel-Eintrag in Kap 41 „Arbeit & Karriere 2" angelegt (neben
+  bereits vorhandenem `uspjeh`/`uspješan`/`neuspjeh`/`postići`), `uspijevati` als
+  `nur_woerterbuch`-Eintrag.

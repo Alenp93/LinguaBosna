@@ -6323,7 +6323,8 @@
     "Bosnisch": "izaći",
     "Deutsch": "aussteigen (aus dem Auto) / hinausgehen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap89"
   },
   {
     "kategorie": "Kapitel 23",
@@ -6528,6 +6529,17 @@
     "Wortart": "Verb",
     "aspekt": "svršeni",
     "par_id": "ap12"
+  },
+  {
+    "kategorie": "Kapitel 23",
+    "Kapitel": 23,
+    "Kapitelname": "Alltag & Routine",
+    "Niveau": "A2",
+    "Bosnisch": "prestati",
+    "Deutsch": "aufhören",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap91"
   },
   {
     "kategorie": "Kapitel 23",
@@ -10856,6 +10868,17 @@
     "Kapitel": 41,
     "Kapitelname": "Arbeit & Karriere 2",
     "Niveau": "B1",
+    "Bosnisch": "uspjeti",
+    "Deutsch": "schaffen / gelingen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap92"
+  },
+  {
+    "kategorie": "Kapitel 41",
+    "Kapitel": 41,
+    "Kapitelname": "Arbeit & Karriere 2",
+    "Niveau": "B1",
     "Bosnisch": "razvijati",
     "Deutsch": "entwickeln",
     "Wortart": "Verb",
@@ -11201,7 +11224,8 @@
     "Bosnisch": "shvatiti",
     "Deutsch": "begreifen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap90"
   },
   {
     "kategorie": "Kapitel 43",
@@ -26386,6 +26410,42 @@
     "Wortart": "Verb",
     "aspekt": "svršeni",
     "par_id": "ap88",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A1",
+    "Bosnisch": "izlaziti",
+    "Deutsch": "aussteigen (aus dem Auto) / hinausgehen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap89",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "shvatati",
+    "Deutsch": "begreifen / verstehen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap90",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "prestajati",
+    "Deutsch": "aufhören",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap91",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "uspijevati",
+    "Deutsch": "schaffen / gelingen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap92",
     "nur_woerterbuch": true
   }
 ]

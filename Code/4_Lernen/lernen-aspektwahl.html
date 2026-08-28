@@ -190,6 +190,13 @@
           <p class="situation-vorgabe" id="situationText"></p>
         </div>
 
+        <!-- Aufgabentyp „text" (Set 4): ein zusammenhängender
+             Erzähltext, dessen Lücken nacheinander gefüllt werden. -->
+        <div id="textBereich" class="hidden">
+          <h3 class="text-titel" id="textTitel"></h3>
+          <p class="erzaehl-text" id="erzaehlText"></p>
+        </div>
+
         <!-- Die Fragestellung (kommt aus dem Feld "frage" der JSON) -->
         <p class="aspekt-frage" id="aspektFrage"></p>
 
@@ -257,6 +264,7 @@
 
   /* ── Einstellungen ───────────────────────────────────── */
   var FRAGEN_PRO_RUNDE = 10;   // wie viele Aufgaben ein Durchgang hat
+  var TEXTE_PRO_RUNDE  = 2;    // nur Typ „text": 2 Texte à 5 Lücken = 10
 
   /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
   var alleSets    = [];    // alle Sets aus der JSON
@@ -325,6 +333,31 @@
      Verfahren in allen Fällen: reihum je eine Aufgabe aus
      jeder Gruppe, bis die gewünschte Anzahl voll ist.         */
   function zieheAufgaben(set, anzahl) {
+    // Sonderfall Typ „text": Gezogen werden ganze Texte, nicht
+    // einzelne Aufgaben. Aus ihren Lücken wird anschließend eine
+    // flache Liste gebaut – dadurch funktionieren Fortschritt,
+    // Statistik und Ergebnis unverändert wie bei den anderen Sets.
+    if (set.typ === 'text') {
+      var texte = mischen(set.aufgaben.slice()).slice(0, TEXTE_PRO_RUNDE);
+      var liste = [];
+      texte.forEach(function (text) {
+        text.luecken.forEach(function (luecke, i) {
+          liste.push({
+            _text: text,      // zu welchem Text die Lücke gehört
+            _index: i,        // die wievielte Lücke dieses Textes
+            loesung: luecke.loesung,
+            distraktor: luecke.distraktor,
+            kategorie: luecke.kategorie,
+            erklaerung: luecke.erklaerung,
+            par_id: luecke.par_id
+          });
+        });
+      });
+      // Die Lücken bleiben bewusst in Textreihenfolge – ein
+      // Erzähltext ergibt nur der Reihe nach Sinn.
+      return liste;
+    }
+
     // Wonach gruppiert wird, hängt am Aufgabentyp des Sets
     var feld = (!set.typ || set.typ === 'signal') ? 'korb' : 'kategorie';
 
@@ -404,6 +437,7 @@
       var einheit = 'Ausdrücke';
       if (set.typ === 'satz')      { einheit = 'Sätze'; }
       if (set.typ === 'situation') { einheit = 'Situationen'; }
+      if (set.typ === 'text')      { einheit = 'Texte'; }
 
       // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
       var karte = document.createElement('button');
@@ -447,9 +481,11 @@
     $('signalBereich').classList.toggle('hidden',    typ !== 'signal');
     $('satzBereich').classList.toggle('hidden',      typ !== 'satz');
     $('situationBereich').classList.toggle('hidden', typ !== 'situation');
+    $('textBereich').classList.toggle('hidden',      typ !== 'text');
     $('korbGrid').classList.toggle('hidden',         typ !== 'signal');
-    $('wortbank').classList.toggle('hidden',         typ !== 'satz');
     $('satzwahl').classList.toggle('hidden',         typ !== 'situation');
+    // Die Wortbank (zwei Verbformen) dient Typ „satz" UND „text"
+    $('wortbank').classList.toggle('hidden',         typ !== 'satz' && typ !== 'text');
 
     // Die Körbe sind für das ganze Set gleich – einmal bauen genügt.
     // Wortbank und Satzwahl wechseln dagegen je Aufgabe.
@@ -464,9 +500,10 @@
     var aufgabe = aufgaben[aktuelleNr];
     ausgewertet = false;
 
-    // Fortschritt aktualisieren
+    // Fortschritt aktualisieren – bei Erzähltexten sind es Lücken
     $('uebungProgress').textContent =
-      'Aufgabe ' + (aktuelleNr + 1) + ' von ' + aufgaben.length;
+      (aufgabenTyp() === 'text' ? 'Lücke ' : 'Aufgabe ') +
+      (aktuelleNr + 1) + ' von ' + aufgaben.length;
     $('uebungBarFill').style.width =
       ((aktuelleNr / aufgaben.length) * 100) + '%';
 
@@ -482,6 +519,12 @@
       // Die deutsche Absicht vorgeben, dann die beiden Sätze
       $('situationText').textContent = aufgabe.situation;
       baueSatzwahl(aufgabe);
+
+    } else if (typ === 'text') {
+      // Den ganzen Erzähltext zeigen, die aktuelle Lücke markiert
+      $('textTitel').textContent = aufgabe._text.titel;
+      $('erzaehlText').innerHTML = baueTextHtml(aufgabe, null);
+      baueWortbank(aufgabe);
 
     } else {
       // Den Ausdruck und seine Bedeutung anzeigen
@@ -521,6 +564,45 @@
       : '<span class="luecke">___</span>';
 
     return vor + luecke + nach;
+  }
+
+
+  /* ── Den Erzähltext mit seinen Lücken aufbauen ───────── */
+  /* Alle fünf Lücken bleiben sichtbar, aber in drei Zuständen:
+       - schon beantwortet → die Lösung steht als Wort da
+       - die aktuelle      → hervorgehoben, nach der Antwort
+                             grün/rot und mit der Lösung gefüllt
+       - noch kommende     → blass, als „___"
+     So sieht der Lernende die Ereigniskette wachsen.
+     ergebnis = null solange offen, sonst 'richtig' / 'falsch'.   */
+  function baueTextHtml(aufgabe, ergebnis) {
+    var text  = aufgabe._text;
+    var teile = text.text.split('___');
+    var html  = sicher(teile[0]);
+
+    for (var i = 0; i < text.luecken.length; i++) {
+      if (i < aufgabe._index) {
+        // bereits beantwortet – die richtige Form steht da
+        html += '<span class="luecke gefuellt">' +
+                sicher(text.luecken[i].loesung) + '</span>';
+
+      } else if (i === aufgabe._index) {
+        // die aktuelle Lücke
+        if (ergebnis) {
+          html += '<span class="luecke gefuellt luecke-' + ergebnis + '">' +
+                  sicher(text.luecken[i].loesung) + '</span>';
+        } else {
+          html += '<span class="luecke luecke-aktiv">___</span>';
+        }
+
+      } else {
+        // kommt später dran
+        html += '<span class="luecke luecke-spaeter">___</span>';
+      }
+
+      html += sicher(teile[i + 1] || '');
+    }
+    return html;
   }
 
 
@@ -679,7 +761,7 @@
         }
       });
 
-    } else if (typ === 'satz') {
+    } else if (typ === 'satz' || typ === 'text') {
       istRichtig = (gewaehlterBtn._wert === aufgabe.loesung);
 
       // Beide Formen sperren und einfärben
@@ -693,11 +775,17 @@
         }
       });
 
-      // Der Satz wird jetzt mit der richtigen Form gezeigt – und der
-      // entscheidende Ausdruck wird hervorgehoben. Das ist der
-      // eigentliche Lernmoment: sichtbar zu machen, WORAN man es
-      // erkennen konnte.
-      $('satzText').innerHTML = baueSatzHtml(aufgabe, aufgabe.loesung, true);
+      if (typ === 'text') {
+        // Die aktuelle Lücke im Text füllen und markieren
+        $('erzaehlText').innerHTML =
+          baueTextHtml(aufgabe, istRichtig ? 'richtig' : 'falsch');
+      } else {
+        // Typ „satz": Der Satz wird mit der richtigen Form gezeigt –
+        // und der entscheidende Ausdruck wird hervorgehoben. Das ist
+        // der eigentliche Lernmoment: sichtbar zu machen, WORAN man
+        // es erkennen konnte.
+        $('satzText').innerHTML = baueSatzHtml(aufgabe, aufgabe.loesung, true);
+      }
 
     } else {
       istRichtig = (gewaehlterBtn._korbId === aufgabe.korb);
@@ -732,6 +820,13 @@
       zusatz = gegenueberstellung(aufgabe);
     } else if (typ === 'satz') {
       zusatz = '<span class="feedback-uebersetzung">' + sicher(aufgabe.uebersetzung) + '</span>';
+    } else if (typ === 'text') {
+      // Erst am Ende eines Textes die Gesamtübersetzung zeigen –
+      // vorher würde sie die folgenden Lücken verraten.
+      var istLetzteImText = (aufgabe._index === aufgabe._text.luecken.length - 1);
+      zusatz = istLetzteImText
+        ? '<span class="feedback-textuebersetzung">' + sicher(aufgabe._text.uebersetzung) + '</span>'
+        : '';
     } else {
       zusatz = beispielHtml(aufgabe);
     }
@@ -743,17 +838,19 @@
         sicher(aufgabe.erklaerung) + zusatz;
       feedback.className = 'uebung-feedback feedback-correct';
     } else {
-      // Was richtig gewesen wäre: bei „satz"/„situation" die Lösung
-      // selbst, bei „signal" die Beschriftung des richtigen Korbs.
+      // Was richtig gewesen wäre: bei „signal" die Beschriftung des
+      // richtigen Korbs, bei allen anderen Typen die Lösung selbst.
+      // Die Bedingung fragt bewusst nach „signal" statt die anderen
+      // Typen aufzuzählen – nur dieser Typ hat überhaupt „koerbe“.
       var richtigeAntwort;
-      if (typ === 'satz' || typ === 'situation') {
-        richtigeAntwort = aufgabe.loesung;
-      } else {
-        var richtigerKorb = aktivSet.koerbe.find(function (k) {
+      if (typ === 'signal') {
+        var richtigerKorb = (aktivSet.koerbe || []).find(function (k) {
           return k.id === aufgabe.korb;
         });
         richtigerKorb = richtigerKorb || {};
         richtigeAntwort = richtigerKorb.label || aufgabe.korb;
+      } else {
+        richtigeAntwort = aufgabe.loesung;
       }
 
       feedback.innerHTML =
@@ -763,10 +860,17 @@
     }
     feedback.classList.remove('hidden');
 
-    // Weiter-Button zeigen; Beschriftung an der letzten Aufgabe anpassen
+    // Weiter-Button zeigen; Beschriftung passend zum Stand
     $('nextBtn').classList.remove('hidden');
-    if (aktuelleNr === aufgaben.length - 1) {
+    var naechste = aufgaben[aktuelleNr + 1];
+    if (!naechste) {
       $('nextBtn').textContent = 'Ergebnis anzeigen →';
+    } else if (typ === 'text') {
+      // Beginnt mit der nächsten Lücke ein neuer Text, sagen wir das –
+      // sonst wirkt der Sprung in eine fremde Geschichte verwirrend.
+      $('nextBtn').textContent = (naechste._text !== aufgabe._text)
+        ? 'Nächster Text →'
+        : 'Nächste Lücke →';
     } else {
       $('nextBtn').textContent = 'Nächste Aufgabe →';
     }

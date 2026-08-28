@@ -1,7 +1,9 @@
 {
   "_hinweis": "Aufgaben-Datenbank fuer die Uebungsart 'Aspektwahl' (Verbalaspekt in der ANWENDUNG, im Gegensatz zu lernen-aspektpaare.html, das nur die Wortformen abfragt). Deutsche Feldnamen, damit die Datei leicht selbst erweiterbar ist. Aufbau: Top-Level 'sets', analog zu satzbau_data.json. Set 1 'signalwoerter' ist der Aufwaermer: Gezeigt wird ein Ausdruck (z. B. 'svaki dan'), der Lernende ordnet ihn einem von DREI Koerben zu - normalerweise nesvrseni / normalerweise svrseni / entscheidet nicht. Der dritte Korb ist didaktisch der wichtigste: Ohne ihn lernt der Nutzer eine Adverbien-Liste auswendig, statt zu denken. Jede Aufgabe: 'signal', 'deutsch', 'korb' (nesvrseni|svrseni|offen - mit Diakritika geschrieben, identisch zu den Werten im Feld 'aspekt' von vokabeln_flat.json, damit spaetere Sets direkt vergleichen koennen), 'kategorie' (fuer die Auswertung nach Regeltyp am Ende der Runde), 'beispiel' + 'beispiel_de', 'erklaerung', optional 'par_id' (Bezug zum Aspektpaar in vokabeln_flat.json). Koerbe vom Typ 'offen' haben zusaetzlich 'beispiel2' + 'beispiel2_de', weil dort erst der Kontrast ZWEIER Saetze zeigt, dass beide Aspekte moeglich sind und Verschiedenes bedeuten.",
 
-  "_didaktik_wichtig": "Die Fragestellung lautet bewusst 'Welcher Aspekt ist die NORMALE WAHL?' (Feld 'frage'), nicht 'Welcher Aspekt ist erzwungen?'. Grund: Das Bosnische kennt den habituellen svrseni-Praesens - wiederholte, jeweils abgeschlossene Einzelakte stehen regulaer im svrseni ('Svaki dan pogledam jednu epizodu.', 'Uvijek zatvorim vrata za sobom.'). Die Regel 'Wiederholung = nesvrseni' ist also eine Default-Erwartung, keine Grammatikregel. Genau EINE harte Regel steht im Set: die Phasenverben (poceti/prestati/nastaviti + Infinitiv) verlangen zwingend den nesvrseni-Infinitiv. Alle Erklaerungstexte sind entsprechend formuliert ('in der Regel', 'Standardwahl') - beim Ergaenzen neuer Eintraege bitte nicht in absolute Faustregeln zurueckfallen ('immer', 'verlaesslich', 'nie').",
+  "_didaktik_wichtig": "Die Fragestellung lautet bewusst 'Welcher Aspekt ist die NORMALE WAHL?' (Feld 'frage'), nicht 'Welcher Aspekt ist erzwungen?'. Grund: Das Bosnische kennt den habituellen svrseni-Praesens - wiederholte, jeweils abgeschlossene Einzelakte stehen regulaer im svrseni ('Svaki dan pogledam jednu epizodu.', 'Uvijek zatvorim vrata za sobom.'). Die Regel 'Wiederholung = nesvrseni' ist also eine Default-Erwartung, keine Grammatikregel. Genau EINE harte Regel steht im Set: die Phasenverben (poceti/prestati/nastaviti) verlangen zwingend den nesvrseni - und zwar unabhaengig davon, ob die Ergaenzung als Infinitiv oder als 'da' + Praesens steht (siehe _hinweis_infinitiv). Alle Erklaerungstexte sind entsprechend formuliert ('in der Regel', 'Standardwahl') - beim Ergaenzen neuer Eintraege bitte nicht in absolute Faustregeln zurueckfallen ('immer', 'verlaesslich', 'nie').",
+
+  "_hinweis_infinitiv": "BEWUSSTE MISCHUNG, bitte nicht vereinheitlichen: Nach Phasen- und Modalverben stehen im Bestand BEIDE Konstruktionen - der blanke Infinitiv ('poceo sam uciti') und 'da' + Praesens ('poceo sam da ucim'). Grund: Die Grammatikseite grammatik-nebensaetze.html stellt fest, dass im gesprochenen Bosnisch 'da' + Praesens dominiert; die Uebung soll beide Formen zeigen, damit der Lernende sie wiedererkennt. Wichtig ist die Botschaft, dass die ASPEKTREGEL von der Konstruktion unabhaengig ist: Nach poceti/prestati/nastaviti steht der nesvrseni, ob als 'da troshi' oder als 'trositi'. Die Signal-Etiketten in Set 1 nennen deshalb beide Formen ('poceti + Infinitiv / da + Praesens'), damit der Lernende die 'da'-Konstruktion schon im Aufwaermer sieht und nicht erst in Set 2 unvorbereitet trifft. Umgestellt sind derzeit: in Set 2 die Aufgaben mit prestati (trositi), poceti (uredjivati), nastaviti (pisati) und uspjeti (popraviti) - alle vier Phasen-/Modalverben kommen damit in BEIDEN Konstruktionen vor, und die 'da'-Aufgaben decken zusammen 3. Sg. m/f, 1. Sg., 1. Pl. und 3. Pl. ab; in Set 4 die Texte 'Majstor' (poceo da radi), 'Na salteru' (morao da ponovim - dort auch die Lueckenform), 'Bajram kod svekrve' (sjeli smo da jedemo) und 'Sjecanje iz djetinjstva' (naucio da plivam). Bei 'da' + Praesens auf die PERSON achten - sie richtet sich nach dem Subjekt des Hauptverbs.",
 
   "_hinweis_ziehung": "Die Koerbe sind ungleich gross (18 nesvrseni / 10 svrseni / 13 offen), weil schwache Signale bewusst nach 'offen' verschoben statt kuenstlich ausgeglichen wurden. Die Uebungsseite soll die 10 Fragen einer Runde deshalb STRATIFIZIERT ziehen (z. B. 4/3/3), nicht rein zufaellig aus dem Gesamtpool - sonst ist der svrseni-Korb in vielen Runden unterrepraesentiert.",
 
@@ -107,15 +109,15 @@
           "beispiel": "Cijelo vrijeme nas je gledao.", "beispiel_de": "Die ganze Zeit hat er uns angeschaut.",
           "erklaerung": "Eine ausgefüllte Zeitspanne braucht einen andauernden Vorgang – nesvršeni.", "par_id": "ap72" },
 
-        { "signal": "početi + Infinitiv", "deutsch": "anfangen zu …", "korb": "nesvršeni", "kategorie": "phasenverb",
+        { "signal": "početi + Infinitiv / da + Präsens", "deutsch": "anfangen zu …", "korb": "nesvršeni", "kategorie": "phasenverb",
           "beispiel": "Počeo sam učiti bosanski.", "beispiel_de": "Ich habe angefangen, Bosnisch zu lernen.",
-          "erklaerung": "Das ist die einzige wirklich harte Regel in diesem Set: Ein Anfang setzt voraus, dass die Handlung danach weiterläuft. Nach početi steht deshalb zwingend der nesvršeni-Infinitiv – „Počeo sam naučiti“ ist nicht möglich.", "par_id": "ap08" },
+          "erklaerung": "Das ist die einzige wirklich harte Regel in diesem Set: Ein Anfang setzt voraus, dass die Handlung danach weiterläuft. Nach početi steht deshalb zwingend der nesvršeni – „Počeo sam naučiti“ ist nicht möglich. Das gilt für beide Konstruktionen gleichermaßen: „počeo sam učiti“ wie „počeo sam da učim“.", "par_id": "ap08" },
 
-        { "signal": "prestati + Infinitiv", "deutsch": "aufhören zu …", "korb": "nesvršeni", "kategorie": "phasenverb",
+        { "signal": "prestati + Infinitiv / da + Präsens", "deutsch": "aufhören zu …", "korb": "nesvršeni", "kategorie": "phasenverb",
           "beispiel": "Prestala je pušiti prošle godine.", "beispiel_de": "Sie hat letztes Jahr aufgehört zu rauchen.",
-          "erklaerung": "Aufhören kann man nur mit etwas, das läuft. Wie bei početi und nastaviti folgt zwingend der nesvršeni-Infinitiv." },
+          "erklaerung": "Aufhören kann man nur mit etwas, das läuft. Wie bei početi und nastaviti folgt zwingend der nesvršeni – ob als Infinitiv oder als „da“ + Präsens." },
 
-        { "signal": "nastaviti + Infinitiv", "deutsch": "weiter… / fortfahren", "korb": "nesvršeni", "kategorie": "phasenverb",
+        { "signal": "nastaviti + Infinitiv / da + Präsens", "deutsch": "weiter… / fortfahren", "korb": "nesvršeni", "kategorie": "phasenverb",
           "beispiel": "Nastavili smo raditi do kasno.", "beispiel_de": "Wir haben bis spät weitergearbeitet.",
           "erklaerung": "„Weitermachen“ heißt: der Vorgang läuft erneut weiter. Die drei Phasenverben početi, prestati, nastaviti verlangen alle den nesvršeni – und zwar ausnahmslos.", "par_id": "ap53" },
 
@@ -143,7 +145,7 @@
           "beispiel": "Na kraju su prodali kuću.", "beispiel_de": "Am Ende haben sie das Haus verkauft.",
           "erklaerung": "„Am Ende“ berichtet, wie die Sache ausging – meist ein Ergebnis und damit svršeni. Beschreibt der Ausgang einen Zustand, geht auch der nesvršeni: „Na kraju je radio kao taksista.“", "par_id": "ap14" },
 
-        { "signal": "uspjeti + Infinitiv", "deutsch": "es schaffen zu …", "korb": "svršeni", "kategorie": "abschluss",
+        { "signal": "uspjeti + Infinitiv / da + Präsens", "deutsch": "es schaffen zu …", "korb": "svršeni", "kategorie": "abschluss",
           "beispiel": "Uspio sam popraviti mašinu.", "beispiel_de": "Ich habe es geschafft, die Maschine zu reparieren.",
           "erklaerung": "„Es schaffen“ heißt: das Ziel ist erreicht – normalerweise svršeni. Bei Verben ohne Zielpunkt bleibt der nesvršeni möglich: „Uspio sam malo spavati.“", "par_id": "ap36" },
 
@@ -242,32 +244,32 @@
         { "satz": "Počeo sam ___ bosanski prije godinu dana.", "loesung": "učiti", "distraktor": "naučiti",
           "signal": "Počeo sam", "kategorie": "phasenverb", "par_id": "ap08",
           "uebersetzung": "Ich habe vor einem Jahr angefangen, Bosnisch zu lernen.",
-          "erklaerung": "Nach početi steht immer der nesvršeni-Infinitiv – ein Anfang setzt voraus, dass die Handlung danach weiterläuft." },
+          "erklaerung": "Nach početi steht immer der nesvršeni – ein Anfang setzt voraus, dass die Handlung danach weiterläuft." },
 
         { "satz": "Prestali su ___ kuću jer je ponestalo novca.", "loesung": "graditi", "distraktor": "izgraditi",
           "signal": "Prestali su", "kategorie": "phasenverb", "par_id": "ap28",
           "uebersetzung": "Sie haben aufgehört, das Haus zu bauen, weil das Geld ausging.",
           "erklaerung": "Aufhören kann man nur mit etwas, das läuft. Nach prestati folgt zwingend der nesvršeni." },
 
-        { "satz": "Nastavila je ___ pismo poslije pauze.", "loesung": "pisati", "distraktor": "napisati",
-          "signal": "Nastavila je", "kategorie": "phasenverb", "par_id": "ap71",
+        { "satz": "Nastavila je da ___ pismo poslije pauze.", "loesung": "piše", "distraktor": "napiše",
+          "signal": "Nastavila je da", "kategorie": "phasenverb", "par_id": "ap71",
           "uebersetzung": "Sie hat nach der Pause weiter am Brief geschrieben.",
-          "erklaerung": "„Weitermachen“ heißt: der Vorgang läuft erneut weiter – nach nastaviti steht der nesvršeni." },
+          "erklaerung": "„Weitermachen“ heißt: der Vorgang läuft erneut weiter – nach nastaviti steht der nesvršeni. Auch hier gilt das für beide Konstruktionen: „nastavila je pisati“ wie „nastavila je da piše“." },
 
         { "satz": "Kad je počela ___ ručak, gosti su već stigli.", "loesung": "kuhati", "distraktor": "skuhati",
           "signal": "počela", "kategorie": "phasenverb", "par_id": "ap47",
           "uebersetzung": "Als sie anfing, das Mittagessen zu kochen, waren die Gäste schon da.",
-          "erklaerung": "Auch mitten im Satz gilt die Regel: nach početi immer der nesvršeni-Infinitiv." },
+          "erklaerung": "Auch mitten im Satz gilt die Regel: nach početi immer der nesvršeni." },
 
-        { "satz": "Prestao je ___ novac na gluposti.", "loesung": "trošiti", "distraktor": "potrošiti",
-          "signal": "Prestao je", "kategorie": "phasenverb", "par_id": "ap07",
+        { "satz": "Prestao je da ___ novac na gluposti.", "loesung": "troši", "distraktor": "potroši",
+          "signal": "Prestao je da", "kategorie": "phasenverb", "par_id": "ap07",
           "uebersetzung": "Er hat aufgehört, Geld für Unsinn auszugeben.",
-          "erklaerung": "prestati verlangt den nesvršeni – „Prestao je potrošiti“ ist nicht möglich." },
+          "erklaerung": "Hier steht „da“ + Präsens statt des Infinitivs – im gesprochenen Bosnisch die häufigere Konstruktion. An der Regel ändert das nichts: Nach prestati steht der nesvršeni, ob als „da troši“ oder als „trošiti“." },
 
-        { "satz": "Počeli smo ___ stan prošle sedmice.", "loesung": "uređivati", "distraktor": "urediti",
-          "signal": "Počeli smo", "kategorie": "phasenverb", "par_id": "ap38",
+        { "satz": "Prošle sedmice smo počeli da ___ stan.", "loesung": "uređujemo", "distraktor": "uredimo",
+          "signal": "počeli da", "kategorie": "phasenverb", "par_id": "ap38",
           "uebersetzung": "Wir haben letzte Woche angefangen, die Wohnung herzurichten.",
-          "erklaerung": "Die Zeitangabe ändert nichts: Nach početi steht der nesvršeni-Infinitiv." },
+          "erklaerung": "Auch in der Konstruktion „da“ + Präsens gilt die Phasenverb-Regel: nach početi der nesvršeni. Achte auf die Person – „da uređujemo“ richtet sich nach „mi“." },
 
         { "satz": "Nastavili su ___ o problemu do kasno u noć.", "loesung": "pričati", "distraktor": "ispričati",
           "signal": "Nastavili su", "kategorie": "phasenverb", "par_id": "ap59",
@@ -464,10 +466,10 @@
           "uebersetzung": "Endlich hat er das Buch zu Ende gelesen.",
           "erklaerung": "„Konačno“ plus „do kraja“ – zwei Hinweise auf ein erreichtes Ergebnis, also svršeni." },
 
-        { "satz": "Uspjeli su ___ krov prije zime.", "loesung": "popraviti", "distraktor": "popravljati",
-          "signal": "Uspjeli su", "kategorie": "abschluss", "par_id": "ap36",
+        { "satz": "Uspjeli su da ___ krov prije zime.", "loesung": "poprave", "distraktor": "popravljaju",
+          "signal": "Uspjeli su da", "kategorie": "abschluss", "par_id": "ap36",
           "uebersetzung": "Sie haben es geschafft, das Dach vor dem Winter zu reparieren.",
-          "erklaerung": "„Es schaffen“ heißt: das Ziel wurde erreicht – bei einem zielgerichteten Verb wie popraviti also der svršeni. Anders als die Phasenverben ist uspjeti aber keine harte Regel." },
+          "erklaerung": "„Es schaffen“ heißt: das Ziel wurde erreicht – bei einem zielgerichteten Verb wie popraviti also der svršeni. Die Konstruktion „da“ + Präsens ändert daran nichts. Anders als die Phasenverben ist uspjeti aber keine harte Regel." },
 
         { "satz": "Na kraju su ___ stan i preselili se.", "loesung": "prodali", "distraktor": "prodavali",
           "signal": "Na kraju", "kategorie": "abschluss", "par_id": "ap14",
@@ -909,6 +911,181 @@
           "distraktor": "Prošlog ljeta sam putovao u Bosnu.", "distraktor_de": "Letzten Sommer war ich nach Bosnien unterwegs – das Reisen zählt.",
           "kategorie": "einmal_wiederholt", "par_id": "ap56",
           "erklaerung": "otputovati bezeichnet die Abreise, nicht die Reise als Ganzes. Für den einen abgeschlossenen Aufbruch steht der svršeni, für das Unterwegssein der nesvršeni." }
+
+      ]
+    },
+
+    {
+      "id": "erzaehltext",
+      "titel": "Erzähltext",
+      "niveau": "C1",
+      "icon": "fa-book-open",
+      "typ": "text",
+      "frage": "Welche Form passt in die markierte Lücke?",
+      "beschreibung": "Ganze Geschichten mit mehreren Lücken. Hier arbeitet der Aspekt so, wie er im echten Erzählen arbeitet: Hintergrund im nesvršeni, Ereigniskette im svršeni.",
+      "grammatik_url": "/Code/3_Grammatik/Grammatik_B2/grammatik-verbalaspekt.html",
+
+      "aufgaben": [
+
+        { "titel": "Jutro koje je krenulo naopako",
+          "text": "Jučer sam se ___ kasnije nego obično. Dok sam ___ kahvu, odjednom je ___ komšija. On je ___ o svojim problemima pola sata. Kad je konačno izašao, brzo sam se obukao i ___ na posao.",
+          "uebersetzung": "Gestern bin ich später als sonst aufgewacht. Während ich Kaffee trank, kam plötzlich der Nachbar. Er redete eine halbe Stunde über seine Probleme. Als er endlich hinausging, zog ich mich schnell an und machte mich auf den Weg zur Arbeit.",
+          "luecken": [
+            { "loesung": "probudio", "distraktor": "budio", "kategorie": "ereignis", "par_id": "ap06",
+              "erklaerung": "Ein einzelnes Aufwachen an einem bestimmten Morgen – svršeni. „budio sam se“ wäre wiederholtes oder langes Aufwachen." },
+            { "loesung": "pio", "distraktor": "popio", "kategorie": "dok_gleichzeitig", "par_id": "ap46",
+              "erklaerung": "„dok“ im Sinne von „während“: Der Kaffee wird gerade getrunken, als etwas dazwischenkommt – nesvršeni. Merke aber: „dok“ kann auch „bis“ heißen, und dann steht der svršeni – „Čekaj dok ne dođe.“" },
+            { "loesung": "došao", "distraktor": "dolazio", "kategorie": "hintergrund_ereignis", "par_id": "ap03",
+              "erklaerung": "„odjednom“ markiert den Einschnitt in den laufenden Hintergrund – svršeni." },
+            { "loesung": "pričao", "distraktor": "ispričao", "kategorie": "dauer", "par_id": "ap59",
+              "erklaerung": "„pola sata“ misst die Dauer des Redens – nesvršeni." },
+            { "loesung": "otišao", "distraktor": "odlazio", "kategorie": "ereignis", "par_id": "ap05",
+              "erklaerung": "Der letzte Schritt der Kette: ein abgeschlossener Aufbruch – svršeni." }
+          ] },
+
+        { "titel": "Put u Bosnu",
+          "text": "Prošlog ljeta smo u pet ujutro ___ u Bosnu. Cijeli dan smo ___ kroz Njemačku i Austriju. Dok smo ___ na granici, djeca su zaspala. Kad smo konačno ___ u selo, cijela rodbina nas je čekala pred kućom. Te večeri smo ___ do ponoći.",
+          "uebersetzung": "Letzten Sommer sind wir um fünf Uhr morgens nach Bosnien aufgebrochen. Den ganzen Tag fuhren wir durch Deutschland und Österreich. Während wir an der Grenze warteten, schliefen die Kinder ein. Als wir endlich im Dorf ankamen, wartete die ganze Verwandtschaft vor dem Haus. An diesem Abend redeten wir bis Mitternacht.",
+          "luecken": [
+            { "loesung": "otputovali", "distraktor": "putovali", "kategorie": "ereignis", "par_id": "ap56",
+              "erklaerung": "Die Uhrzeit „u pet ujutro“ nennt den Moment des Aufbruchs – und otputovati bezeichnet genau diesen, nicht die Reise als Ganzes. Achte auf den Kontrast zur nächsten Lücke." },
+            { "loesung": "putovali", "distraktor": "otputovali", "kategorie": "dauer", "par_id": "ap56",
+              "erklaerung": "Dasselbe Verbpaar, andere Aufgabe: „cijeli dan“ misst die Dauer der Fahrt – nesvršeni." },
+            { "loesung": "čekali", "distraktor": "sačekali", "kategorie": "dok_gleichzeitig", "par_id": "ap54",
+              "erklaerung": "„dok“ = während: Das Warten läuft, als die Kinder einschlafen – nesvršeni." },
+            { "loesung": "došli", "distraktor": "dolazili", "kategorie": "nebensatz_abfolge", "par_id": "ap03",
+              "erklaerung": "„Kad … konačno“ beschreibt die abgeschlossene Ankunft – svršeni." },
+            { "loesung": "pričali", "distraktor": "ispričali", "kategorie": "dauer", "par_id": "ap59",
+              "erklaerung": "„do ponoći“ spannt eine Zeitspanne auf, die gefüllt wird – nesvršeni." }
+          ] },
+
+        { "titel": "Majstor",
+          "text": "Prošle sedmice se ___ dio krova. Danima smo ___ dobrog majstora. Kad je konačno ___, odmah je počeo da radi. Dok je on ___ krov, ja sam držao ljestve. Za dva sata je sve ___.",
+          "uebersetzung": "Letzte Woche ist ein Teil des Dachs eingestürzt. Tagelang suchten wir einen guten Handwerker. Als er endlich kam, fing er sofort an zu arbeiten. Während er das Dach reparierte, hielt ich die Leiter. In zwei Stunden hatte er alles repariert.",
+          "luecken": [
+            { "loesung": "srušio", "distraktor": "rušio", "kategorie": "ereignis", "par_id": "ap33",
+              "erklaerung": "Ein einmaliger Einsturz mit Ergebnis – svršeni." },
+            { "loesung": "tražili", "distraktor": "potražili", "kategorie": "dauer", "par_id": "ap73",
+              "erklaerung": "„danima“ (tagelang) misst die Dauer der Suche – nesvršeni." },
+            { "loesung": "došao", "distraktor": "dolazio", "kategorie": "nebensatz_abfolge", "par_id": "ap03",
+              "erklaerung": "„Kad … konačno“ – die Ankunft ist abgeschlossen, dann beginnt das Nächste – svršeni." },
+            { "loesung": "popravljao", "distraktor": "popravio", "kategorie": "dok_gleichzeitig", "par_id": "ap36",
+              "erklaerung": "„dok“ = während: Zwei Handlungen laufen parallel – nesvršeni." },
+            { "loesung": "popravio", "distraktor": "popravljao", "kategorie": "zeitrahmen", "par_id": "ap36",
+              "erklaerung": "Dasselbe Verbpaar wie eben, jetzt mit „za dva sata“: die Zeit, INNERHALB derer alles fertig wurde – svršeni." }
+          ] },
+
+        { "titel": "Kod ljekara",
+          "text": "Cijeli mjesec sam se ___ od gripe. Prvih dana me je ljekar ___ kod kuće. Kad mi je bilo bolje, ___ sam kod njega u ordinaciju. Tamo mi je ukratko ___ na šta moram paziti i onda mi je ___ novi recept.",
+          "uebersetzung": "Einen ganzen Monat erholte ich mich von der Grippe. In den ersten Tagen behandelte mich der Arzt zu Hause. Als es mir besser ging, ging ich zu ihm in die Praxis. Dort erklärte er mir kurz, worauf ich achten muss, und dann gab er mir ein neues Rezept.",
+          "luecken": [
+            { "loesung": "oporavljao", "distraktor": "oporavio", "kategorie": "dauer", "par_id": "ap17",
+              "erklaerung": "„Cijeli mjesec“ misst den Verlauf der Genesung, nicht ihren Abschluss – nesvršeni." },
+            { "loesung": "liječio", "distraktor": "izliječio", "kategorie": "dauer", "par_id": "ap88",
+              "erklaerung": "„Prvih dana“ beschreibt die laufende Behandlung. Achtung: izliječiti hieße „geheilt“ – das ist mehr als behandeln." },
+            { "loesung": "otišao", "distraktor": "odlazio", "kategorie": "ereignis", "par_id": "ap05",
+              "erklaerung": "Ein einzelner Gang zum Arzt – svršeni." },
+            { "loesung": "objasnio", "distraktor": "objašnjavao", "kategorie": "ereignis", "par_id": "ap77",
+              "erklaerung": "„ukratko“ (kurz) und das anschließende „i onda“ machen daraus einen einzelnen abgeschlossenen Schritt der Kette – svršeni." },
+            { "loesung": "dao", "distraktor": "davao", "kategorie": "ereignis", "par_id": "ap60",
+              "erklaerung": "Eine einzelne Übergabe am Ende der Kette – svršeni." }
+          ] },
+
+        { "titel": "Na šalteru",
+          "text": "U ponedjeljak sam ___ u općinu. Pred šalterom je ___ dvadesetak ljudi. Dok sam ___ papire u torbi, prozvali su moj broj. Kad sam ___ do šaltera, žena mi je rekla da mi nedostaje jedan dokument. Sve sam morao da ___ sljedeći dan.",
+          "uebersetzung": "Am Montag ging ich zur Gemeinde. Vor dem Schalter warteten etwa zwanzig Leute. Während ich die Papiere in der Tasche suchte, rief man meine Nummer auf. Als ich zum Schalter kam, sagte mir die Frau, dass mir ein Dokument fehlt. Alles musste ich am nächsten Tag wiederholen.",
+          "luecken": [
+            { "loesung": "otišao", "distraktor": "odlazio", "kategorie": "ereignis", "par_id": "ap05",
+              "erklaerung": "Ein einzelner Behördengang an einem bestimmten Tag – svršeni." },
+            { "loesung": "čekalo", "distraktor": "sačekalo", "kategorie": "dauer", "par_id": "ap54",
+              "erklaerung": "Die Leute waren am Warten, als der Erzähler ankam – ein Zustand, also nesvršeni." },
+            { "loesung": "tražio", "distraktor": "potražio", "kategorie": "dok_gleichzeitig", "par_id": "ap73",
+              "erklaerung": "„dok“ = während: Das Suchen läuft, als etwas dazwischenkommt – nesvršeni." },
+            { "loesung": "došao", "distraktor": "dolazio", "kategorie": "nebensatz_abfolge", "par_id": "ap03",
+              "erklaerung": "„Kad sam došao do šaltera“ – ein erreichter Punkt, danach folgt das Nächste – svršeni." },
+            { "loesung": "ponovim", "distraktor": "ponavljam", "kategorie": "abschluss", "par_id": "ap15",
+              "erklaerung": "Der ganze Vorgang sollte einmal komplett wiederholt werden – svršeni. Beachte die Konstruktion: „morao da ponovim“ statt „morao ponoviti“ – im gesprochenen Bosnisch ist „da“ + Präsens die häufigere Form. Am Aspekt ändert das nichts." }
+          ] },
+
+        { "titel": "Bajram kod svekrve",
+          "text": "Svakog Bajrama svekrva po cijeli dan ___ za cijelu porodicu. Ove godine je ___ pitu od jutra do podne. Dok smo ___ goste, ona je izvadila i posljednju tepsiju. Kad su svi ___, sjeli smo da jedemo. Te večeri smo ___ sve stare priče.",
+          "uebersetzung": "Zu jedem Bajram kocht die Schwiegermutter den ganzen Tag für die ganze Familie. Dieses Jahr backte sie von morgens bis mittags Pita. Während wir die Gäste erwarteten, holte sie auch das letzte Blech heraus. Als alle da waren, setzten wir uns zum Essen. An diesem Abend erzählten wir alle alten Geschichten durch.",
+          "luecken": [
+            { "loesung": "kuha", "distraktor": "skuha", "kategorie": "dauer", "par_id": "ap47",
+              "erklaerung": "Nicht die Gewohnheit allein entscheidet – „po cijeli dan“ tut es. Eine ausgefüllte Zeitspanne verlangt den nesvršeni. (Ohne diese Angabe wäre auch „skuha“ möglich: der habituelle svršeni ist im Bosnischen regulär.)" },
+            { "loesung": "pekla", "distraktor": "ispekla", "kategorie": "dauer", "par_id": "ap48",
+              "erklaerung": "„od jutra do podne“ nennt eine gefüllte Zeitspanne – nesvršeni." },
+            { "loesung": "čekali", "distraktor": "sačekali", "kategorie": "dok_gleichzeitig", "par_id": "ap54",
+              "erklaerung": "„dok“ = während: Das Warten ist der laufende Rahmen – nesvršeni." },
+            { "loesung": "došli", "distraktor": "dolazili", "kategorie": "nebensatz_abfolge", "par_id": "ap03",
+              "erklaerung": "„Kad su svi došli“ – erst als alle da waren, folgte das Nächste – svršeni." },
+            { "loesung": "ispričali", "distraktor": "pričali", "kategorie": "abschluss", "par_id": "ap59",
+              "erklaerung": "„sve stare priče“ – eine vollständig durcherzählte Menge – svršeni." }
+          ] },
+
+        { "titel": "Traženje stana",
+          "text": "Kad smo ___ u Njemačku, prvo smo tražili stan. Mjesecima smo ___ oglase i zvali na njih. Konačno smo ___ jedan mali stan blizu centra. Dok smo ___ stan, komšije su nam pomagale. Za sedmicu dana smo ___ i posljednju sobu.",
+          "uebersetzung": "Als wir nach Deutschland kamen, suchten wir zuerst eine Wohnung. Monatelang lasen wir Anzeigen und riefen darauf an. Schließlich mieteten wir eine kleine Wohnung in der Nähe des Zentrums. Während wir die Wohnung einrichteten, halfen uns die Nachbarn. In einer Woche hatten wir auch das letzte Zimmer hergerichtet.",
+          "luecken": [
+            { "loesung": "došli", "distraktor": "dolazili", "kategorie": "nebensatz_abfolge", "par_id": "ap03",
+              "erklaerung": "Die Ankunft ist abgeschlossen, bevor die Suche beginnt – svršeni." },
+            { "loesung": "čitali", "distraktor": "pročitali", "kategorie": "dauer", "par_id": "ap70",
+              "erklaerung": "„Mjesecima“ misst die Dauer – nesvršeni." },
+            { "loesung": "iznajmili", "distraktor": "iznajmljivali", "kategorie": "abschluss", "par_id": "ap85",
+              "erklaerung": "„Konačno“ – nach langem Suchen ein erreichtes Ergebnis – svršeni." },
+            { "loesung": "namještali", "distraktor": "namjestili", "kategorie": "dok_gleichzeitig", "par_id": "ap37",
+              "erklaerung": "„dok“ = während: Zwei Handlungen laufen parallel – nesvršeni." },
+            { "loesung": "uredili", "distraktor": "uređivali", "kategorie": "zeitrahmen", "par_id": "ap38",
+              "erklaerung": "„Za sedmicu dana“ nennt die Zeit, innerhalb derer es fertig wurde – zusammen mit „i posljednju sobu“ ein klares Ergebnis, also svršeni." }
+          ] },
+
+        { "titel": "Na pijaci",
+          "text": "Prošle subote sam ___ na pijacu. Dugo sam ___ najbolje voće i povrće. Dok sam ___ paradajz, prodavačica mi je odmah ___ koji je najslađi. Na kraju sam ___ sve karticom.",
+          "uebersetzung": "Letzten Samstag ging ich auf den Markt. Lange suchte ich das beste Obst und Gemüse. Während ich die Tomaten aussuchte, sagte mir die Verkäuferin sofort, welcher der süßeste ist. Am Ende bezahlte ich alles mit Karte.",
+          "luecken": [
+            { "loesung": "otišao", "distraktor": "odlazio", "kategorie": "ereignis", "par_id": "ap05",
+              "erklaerung": "Ein einzelner Gang an einem bestimmten Samstag – svršeni." },
+            { "loesung": "tražio", "distraktor": "potražio", "kategorie": "dauer", "par_id": "ap73",
+              "erklaerung": "„Dugo“ misst die Dauer der Suche – nesvršeni." },
+            { "loesung": "birao", "distraktor": "izabrao", "kategorie": "dok_gleichzeitig", "par_id": "ap01",
+              "erklaerung": "„dok“ = während: Das Aussuchen läuft, während jemand etwas sagt – nesvršeni." },
+            { "loesung": "objasnila", "distraktor": "objašnjavala", "kategorie": "ereignis", "par_id": "ap77",
+              "erklaerung": "„odmah“ (sofort) macht die Auskunft zu einem einzelnen Moment im laufenden Rahmen – svršeni. Ohne dieses Wort wäre auch „objašnjavala“ möglich gewesen." },
+            { "loesung": "platio", "distraktor": "plaćao", "kategorie": "abschluss", "par_id": "ap67",
+              "erklaerung": "„Na kraju“ und „sve“ – der abschließende, vollständige Bezahlvorgang – svršeni." }
+          ] },
+
+        { "titel": "Prva sedmica na poslu",
+          "text": "Prve sedmice sam od jutra do mraka ___ nove procedure. Kolege su mi danima strpljivo ___ kako sve funkcioniše. Dok sam ___ prvi izvještaj, šef je ušao i pohvalio me. Za mjesec dana sam ___ sve što je trebalo. Na kraju su mi ___ ugovor na neodređeno.",
+          "uebersetzung": "In den ersten Wochen lernte ich von früh bis spät die neuen Abläufe. Die Kollegen erklärten mir tagelang geduldig, wie alles funktioniert. Während ich den ersten Bericht schrieb, kam der Chef herein und lobte mich. In einem Monat hatte ich alles Nötige gelernt. Am Ende gaben sie mir einen unbefristeten Vertrag.",
+          "luecken": [
+            { "loesung": "učio", "distraktor": "naučio", "kategorie": "dauer", "par_id": "ap08",
+              "erklaerung": "„od jutra do mraka“ misst die Dauer des Lernens, nicht sein Ergebnis – nesvršeni. Achte auf den Kontrast zur vierten Lücke." },
+            { "loesung": "objašnjavale", "distraktor": "objasnile", "kategorie": "dauer", "par_id": "ap77",
+              "erklaerung": "„danima“ (tagelang) macht das Erklären zum wiederholten Vorgang – nesvršeni." },
+            { "loesung": "pisao", "distraktor": "napisao", "kategorie": "dok_gleichzeitig", "par_id": "ap71",
+              "erklaerung": "„dok“ = während: Das Schreiben läuft, als jemand hereinkommt – nesvršeni." },
+            { "loesung": "naučio", "distraktor": "učio", "kategorie": "zeitrahmen", "par_id": "ap08",
+              "erklaerung": "Dasselbe Verbpaar wie in Lücke 1, jetzt mit „za mjesec dana“ – die Zeit, INNERHALB derer das Können erreicht war. Dort die Dauer, hier das Ergebnis." },
+            { "loesung": "dali", "distraktor": "davali", "kategorie": "ereignis", "par_id": "ap60",
+              "erklaerung": "Eine einzelne Übergabe am Ende – svršeni." }
+          ] },
+
+        { "titel": "Sjećanje iz djetinjstva",
+          "text": "Kad sam bio dijete, ljeti smo uvijek ___ na selo kod bake. Svako jutro je ona ___ kahvu, a ja sam ___ sto. Jedno jutro me je baka ___ ranije nego obično. Tog dana sam ___ da plivam u rijeci.",
+          "uebersetzung": "Als ich ein Kind war, fuhren wir im Sommer immer aufs Dorf zur Oma. Jeden Morgen kochte sie Kaffee, und ich deckte den Tisch. Eines Morgens weckte mich die Oma früher als sonst. An diesem Tag lernte ich, im Fluss zu schwimmen.",
+          "luecken": [
+            { "loesung": "putovali", "distraktor": "otputovali", "kategorie": "wiederholung", "par_id": "ap56",
+              "erklaerung": "„ljeti uvijek“ – eine wiederkehrende Gewohnheit in der Kindheit – nesvršeni." },
+            { "loesung": "kuhala", "distraktor": "skuhala", "kategorie": "wiederholung", "par_id": "ap47",
+              "erklaerung": "„Svako jutro“ im Rückblick auf die Kindheit: ein wiederkehrender Morgenablauf – nesvršeni." },
+            { "loesung": "postavljao", "distraktor": "postavio", "kategorie": "wiederholung", "par_id": "ap31",
+              "erklaerung": "Was den nesvršeni trägt, ist der Gewohnheitsrahmen des ganzen Textes („ljeti uvijek“, „svako jutro“) – nicht der Satzbau. Auch das Tischdecken gehörte zum festen Ablauf." },
+            { "loesung": "probudila", "distraktor": "budila", "kategorie": "ereignis", "par_id": "ap06",
+              "erklaerung": "„Jedno jutro“ hebt einen einzelnen Morgen aus der Gewohnheit heraus – svršeni." },
+            { "loesung": "naučio", "distraktor": "učio", "kategorie": "ereignis", "par_id": "ap08",
+              "erklaerung": "„Tog dana“ – an diesem einen Tag war das Können erreicht – svršeni." }
+          ] }
 
       ]
     }

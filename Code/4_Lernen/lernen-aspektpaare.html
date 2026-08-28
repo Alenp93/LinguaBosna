@@ -25,7 +25,16 @@
 
        Die Daten kommen direkt aus der kanonischen Vokabeldatei
        vokabeln_flat.json: Alle Einträge mit gesetztem "par_id"
-       bilden ein Aspektpaar (aktuell ap01–ap27).
+       bilden ein Aspektpaar (aktuell ap01–ap92).
+
+       Dazu kommt eine zweite, kleine Datei:
+       aspektpaare_data.json liefert pro par_id je einen
+       Beispielsatz für beide Partner (nesvršeni im Präsens,
+       svršeni im Perfekt). Sie erscheinen im Feedback nach der
+       Antwort und schlagen die Brücke zur Anwendungs-Übung
+       lernen-aspektwahl.html: Diese Seite lehrt die FORM des
+       Partners, die Sätze zeigen, wie sich der Formunterschied
+       in der Bedeutung auswirkt.
        ====================================================== -->
 
   <!-- Globales Design + seiteneigenes CSS -->
@@ -256,6 +265,7 @@
 
   /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
   var allePaare  = [];    // alle Aspektpaare aus der JSON: {parId, nes, svr, ...}
+  var beispiele  = {};    // par_id → Beispielsätze aus aspektpaare_data.json
   var aktivSet   = null;  // das gerade gewählte Set
   var fragen     = [];    // die 10 Fragen dieses Durchgangs
   var aktuelleNr = 0;     // Index der aktuellen Frage (0-basiert)
@@ -282,10 +292,30 @@
 
   /* ── 1. JSON laden und Aspektpaare bilden ────────────── */
   /* Absolute Pfade (mit führendem /), wie im Projekt üblich.
-     Läuft nur über einen Webserver, nicht per file:// .     */
-  fetch('/Code/2_Vokabeln/vokabeln_flat.json')
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
+     Läuft nur über einen Webserver, nicht per file:// .
+
+     Es werden ZWEI Dateien geladen:
+     1. vokabeln_flat.json  – die Aspektpaare selbst (Pflicht)
+     2. aspektpaare_data.json – die Beispielsätze fürs Feedback
+
+     Promise.all wartet, bis beide da sind. Die zweite Datei hat
+     ein eigenes .catch(): Fehlt sie oder ist sie kaputt, läuft die
+     Übung trotzdem – dann eben ohne Beispielsätze. Die Übung darf
+     nicht an einem Zusatz scheitern.                             */
+  Promise.all([
+    fetch('/Code/2_Vokabeln/vokabeln_flat.json')
+      .then(function (response) { return response.json(); }),
+    fetch('/Code/4_Lernen/aspektpaare_data.json')
+      .then(function (response) { return response.json(); })
+      .catch(function (fehler) {
+        console.warn('Beispielsätze konnten nicht geladen werden:', fehler);
+        return { beispiele: {} };
+      })
+  ])
+    .then(function (ergebnisse) {
+      var data = ergebnisse[0];
+      beispiele = (ergebnisse[1] && ergebnisse[1].beispiele) || {};
+
       allePaare = bildePaare(data);
       zeigeSetKarten();
 
@@ -545,6 +575,50 @@
   }
 
 
+  /* ── Hilfsfunktion: Text für innerHTML entschärfen ───── */
+  /* Die Sätze kommen aus einer JSON-Datei und werden per
+     innerHTML eingesetzt. Spitze Klammern & Co. werden deshalb
+     in Entities umgewandelt – gleiche Funktion wie in
+     lernen-aspektwahl.html.                                    */
+  function sicher(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+
+  /* ── Beispielsätze zum Paar aufbereiten ──────────────── */
+  /* Zeigt beide Partner im Kontrast untereinander:
+       nesvršeni im Präsens  → Verlauf/Gewohnheit
+       svršeni   im Perfekt  → abgeschlossen, mit Ergebnis
+     Genau dieser Unterschied ist das Thema der Folgeübung
+     lernen-aspektwahl.html.
+
+     Fehlt die par_id in aspektpaare_data.json, kommt ein leerer
+     String zurück – das Feedback sieht dann aus wie vorher.      */
+  function beispielHtml(parId) {
+    var b = beispiele[parId];
+    if (!b) { return ''; }
+
+    return zeileHtml('nesvršeni', b.nes_satz, b.nes_de) +
+           zeileHtml('svršeni',   b.svr_satz, b.svr_de);
+  }
+
+  /* Eine einzelne Beispielzeile: Aspekt-Etikett, Satz, Übersetzung.
+     Die Klassen .feedback-beispiel/.feedback-satz/.feedback-satz-de
+     gibt es bereits (aus lernen-aspektwahl.html) – nur das kleine
+     Etikett .feedback-satz-aspekt ist neu.                        */
+  function zeileHtml(aspekt, satz, deutsch) {
+    if (!satz) { return ''; }
+    return '<span class="feedback-beispiel">' +
+             '<span class="feedback-satz-aspekt">' + sicher(aspekt) + '</span>' +
+             '<span class="feedback-satz">' + sicher(satz) + '</span>' +
+             '<span class="feedback-satz-de">' + sicher(deutsch) + '</span>' +
+           '</span>';
+  }
+
+
   /* ── 5. Antwort prüfen ───────────────────────────────── */
   function pruefeAntwort(btn) {
     if (beantwortet) { return; }   // schon beantwortet → ignorieren
@@ -571,15 +645,21 @@
         '<strong>' + paar.svr + '</strong> (vollendet) – ' + paar.deutsch +
       '</span>';
 
+    // Die beiden Beispielsätze zum Paar (leer, wenn keine hinterlegt sind).
+    // Sie stehen bewusst bei RICHTIGEN und bei falschen Antworten:
+    // Wer richtig geraten hat, soll trotzdem sehen, was der
+    // Formunterschied im Satz bewirkt.
+    var saetzeHtml = beispielHtml(paar.parId);
+
     if (istRichtig) {
       punkte++;
       feedback.innerHTML =
-        '<i class="fas fa-check-circle"></i> Richtig! ' + paarHtml;
+        '<i class="fas fa-check-circle"></i> Richtig! ' + paarHtml + saetzeHtml;
       feedback.className = 'uebung-feedback feedback-correct';
     } else {
       feedback.innerHTML =
         '<i class="fas fa-times-circle"></i> Leider falsch. Der Aspektpartner von „' +
-        frage.promptWort + '" ist „' + frage.loesung + '". ' + paarHtml;
+        frage.promptWort + '" ist „' + frage.loesung + '". ' + paarHtml + saetzeHtml;
       feedback.className = 'uebung-feedback feedback-wrong';
     }
     feedback.classList.remove('hidden');

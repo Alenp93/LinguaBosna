@@ -467,6 +467,22 @@ main h1 {
   line-height: 1.6;
 }
 
+/* Kleines Etikett über dem Beispielsatz („nesvršeni" / „svršeni").
+   Die Sätze selbst nutzen die vorhandenen Klassen .feedback-beispiel,
+   .feedback-satz und .feedback-satz-de (Abschnitt 4e, ursprünglich für
+   lernen-aspektwahl.html gebaut) – hier kommt nur die Zuordnung dazu,
+   welcher der beiden Sätze zu welchem Aspekt gehört.               */
+.feedback-satz-aspekt {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
 
 /* ── 4c. Satzbau-Puzzle (lernen-satzbau.html) ────────── */
 /* Ergänzt den Übungsbereich um Zielfeld und Wortvorrat.

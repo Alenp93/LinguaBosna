@@ -1,0 +1,658 @@
+{
+  "_hinweis": "Beispielsaetze fuer die Uebungsart 'Aspektpaar-Zuordnung' (Code/4_Lernen/lernen-aspektpaare.html). Die Uebung selbst zieht ihre Paare weiterhin aus vokabeln_flat.json ueber das Feld 'par_id' - diese Datei ergaenzt NUR das Feedback nach der Antwort um je einen Beispielsatz pro Aspektpartner. Warum eine eigene Datei und keine neuen Felder in vokabeln_flat.json: Die Vokabel-JSON ist eine Wortliste, keine Satzsammlung (siehe WORKFLOW_Lernen.md, Abschnitt 3) - Beispielsaetze gehoeren nach Code/4_Lernen/[typ]_data.json. Warum nicht clientseitig erzeugt: Das Perfekt braucht das l-Partizip, und das ist aus dem Infinitiv nicht regelhaft ableitbar (doci -> dosao, peci -> ispekao, uzeti -> uzeo, prenijeti -> prenio). Die Saetze muessen deshalb geschrieben werden.",
+
+  "_konvention": "Feste Form-Konvention, bitte beibehalten: der nesvrseni-Partner steht im PRAESENS (Verlauf oder Gewohnheit), der svrseni-Partner im PERFEKT (abgeschlossene Handlung mit Ergebnis). Genau dieser Kontrast ist die Bruecke zur Anwendungs-Uebung lernen-aspektwahl.html. Die deutsche Uebersetzung macht den Unterschied sichtbar - '(gerade)', 'jeden Tag' beim nesvrseni; 'fertig', 'zu Ende', 'ganz' beim svrseni. Person und Numerus sind bewusst gemischt (1. Sg., 3. Sg., 1./3. Pl., auch weibliche Partizipien wie 'skuhala je'), damit der Lernende nicht nur ein einziges Muster sieht. Die Saetze sind kurz gehalten (3-6 Woerter, in zwei juristischen Faellen 7), weil sie im Feedback-Kasten neben der Paar-Aufloesung stehen und nicht davon ablenken sollen.",
+
+  "_pruefung": "Sprachpruefung durch den bosnisch-pruefer-Subagenten am 2026-08-28: keine Grammatikfehler (Kasus, Kongruenz, l-Partizip, Klitika-Stellung), ijekavische Form und Bosnisch-Standard durchgehend eingehalten. 10 Hinweise wurden eingearbeitet - ap10 ('slati' = schicken, nicht schreiben), ap53 (beide Saetze jetzt in der Lesart 'erledigen', weil 'uraditi' NICHT der Partner von 'raditi' im Sinne von 'arbeiten' ist), ap73 ('potraziti' = aufsuchen/suchen), ap55, ap01, ap23, ap29 (Figura etymologica 'zida zid' aufgeloest), ap43 ('probusiti' nimmt das durchbohrte Ding als Objekt, nicht das Loch), ap61 und ap76. Offen gelassen (bewusst): ap57 kontrastiert 'sude' gegen 'ves' - bei gleichem Objekt waere der Aspektkontrast schaerfer, dafuer ginge der natuerliche Alltagssatz verloren.",
+
+  "_konvention_wortwahl": "Verwendete Woerter stammen so weit wie moeglich aus vokabeln_flat.json (kahva nicht kafa, sedmica nicht tjedan, voz nicht vlak). Die Bedeutungsfallen aus CLAUDE.md sind beruecksichtigt: pozvati heisst hier 'herbeirufen', nicht 'anrufen' (dafuer steht nazvati); poslusati steht mit 'cijelu pjesmu' im Sinne 'zu Ende hoeren'; otputovati bezeichnet die Abreise; uraditi steht in der Bedeutung 'erledigen', nicht 'arbeiten'; iznajmiti ist hier eindeutig als 'vermieten' kontextualisiert.",
+
+  "_felder": "Pro par_id: 'nes'/'svr' = die beiden Verben (nur zur Lesbarkeit und zum Abgleich mit vokabeln_flat.json, die Uebung nutzt sie nicht), 'nes_satz'/'nes_de' und 'svr_satz'/'svr_de' = die angezeigten Saetze mit Uebersetzung. Fehlt ein par_id in dieser Datei, zeigt die Uebung einfach keine Beispielsaetze - sie bricht nicht ab. Neue Aspektpaare in vokabeln_flat.json duerfen also nachgezogen werden, muessen aber nicht sofort.",
+
+  "beispiele": {
+    "ap01": {
+      "nes": "birati", "svr": "izabrati",
+      "nes_satz": "Biram poklon za sestru.",
+      "nes_de": "Ich suche gerade ein Geschenk für meine Schwester aus.",
+      "svr_satz": "Izabrao sam plavu košulju.",
+      "svr_de": "Ich habe das blaue Hemd ausgewählt."
+    },
+    "ap02": {
+      "nes": "kupovati", "svr": "kupiti",
+      "nes_satz": "Kupujem hljeb svaki dan.",
+      "nes_de": "Ich kaufe jeden Tag Brot.",
+      "svr_satz": "Kupio sam hljeb.",
+      "svr_de": "Ich habe das Brot gekauft."
+    },
+    "ap03": {
+      "nes": "dolaziti", "svr": "doći",
+      "nes_satz": "Dolazim svaki petak.",
+      "nes_de": "Ich komme jeden Freitag.",
+      "svr_satz": "Došao sam u pet sati.",
+      "svr_de": "Ich bin um fünf Uhr angekommen."
+    },
+    "ap04": {
+      "nes": "otvarati", "svr": "otvoriti",
+      "nes_satz": "Otvaram prozor svako jutro.",
+      "nes_de": "Ich öffne jeden Morgen das Fenster.",
+      "svr_satz": "Otvorio sam prozor.",
+      "svr_de": "Ich habe das Fenster geöffnet."
+    },
+    "ap05": {
+      "nes": "odlaziti", "svr": "otići",
+      "nes_satz": "Odlazim s posla u pet.",
+      "nes_de": "Ich gehe um fünf von der Arbeit weg.",
+      "svr_satz": "Otišao je kući.",
+      "svr_de": "Er ist nach Hause gegangen."
+    },
+    "ap06": {
+      "nes": "buditi se", "svr": "probuditi se",
+      "nes_satz": "Budim se u šest sati.",
+      "nes_de": "Ich wache (immer) um sechs Uhr auf.",
+      "svr_satz": "Probudio sam se rano.",
+      "svr_de": "Ich bin früh aufgewacht."
+    },
+    "ap07": {
+      "nes": "trošiti", "svr": "potrošiti",
+      "nes_satz": "Trošim previše novca.",
+      "nes_de": "Ich gebe zu viel Geld aus.",
+      "svr_satz": "Potrošio sam sav novac.",
+      "svr_de": "Ich habe das ganze Geld ausgegeben."
+    },
+    "ap08": {
+      "nes": "učiti", "svr": "naučiti",
+      "nes_satz": "Učim bosanski jezik.",
+      "nes_de": "Ich lerne (gerade) Bosnisch.",
+      "svr_satz": "Naučio sam nove riječi.",
+      "svr_de": "Ich habe die neuen Wörter gelernt."
+    },
+    "ap09": {
+      "nes": "čistiti", "svr": "počistiti",
+      "nes_satz": "Čistim kuhinju.",
+      "nes_de": "Ich putze (gerade) die Küche.",
+      "svr_satz": "Počistio sam kuhinju.",
+      "svr_de": "Ich habe die Küche fertig geputzt."
+    },
+    "ap10": {
+      "nes": "slati", "svr": "poslati",
+      "nes_satz": "Šaljem poruku.",
+      "nes_de": "Ich schicke gerade eine Nachricht.",
+      "svr_satz": "Poslao sam pismo.",
+      "svr_de": "Ich habe den Brief abgeschickt."
+    },
+    "ap11": {
+      "nes": "oblačiti se", "svr": "obući se",
+      "nes_satz": "Oblačim se brzo.",
+      "nes_de": "Ich ziehe mich schnell an.",
+      "svr_satz": "Obukao sam se i izašao.",
+      "svr_de": "Ich habe mich angezogen und bin hinausgegangen."
+    },
+    "ap12": {
+      "nes": "odmarati se", "svr": "odmoriti se",
+      "nes_satz": "Odmaram se poslije posla.",
+      "nes_de": "Nach der Arbeit ruhe ich mich aus.",
+      "svr_satz": "Odmorio sam se i nastavio.",
+      "svr_de": "Ich habe mich ausgeruht und weitergemacht."
+    },
+    "ap13": {
+      "nes": "zarađivati", "svr": "zaraditi",
+      "nes_satz": "Zarađuje dobro.",
+      "nes_de": "Er verdient gut.",
+      "svr_satz": "Zaradio je prvu platu.",
+      "svr_de": "Er hat seinen ersten Lohn verdient."
+    },
+    "ap14": {
+      "nes": "prodavati", "svr": "prodati",
+      "nes_satz": "Prodaju voće na pijaci.",
+      "nes_de": "Sie verkaufen Obst auf dem Markt.",
+      "svr_satz": "Prodali su kuću.",
+      "svr_de": "Sie haben das Haus verkauft."
+    },
+    "ap15": {
+      "nes": "ponavljati", "svr": "ponoviti",
+      "nes_satz": "Ponavljam riječi svaki dan.",
+      "nes_de": "Ich wiederhole die Wörter jeden Tag.",
+      "svr_satz": "Ponovio sam pitanje.",
+      "svr_de": "Ich habe die Frage (einmal) wiederholt."
+    },
+    "ap16": {
+      "nes": "razvijati", "svr": "razviti",
+      "nes_satz": "Firma razvija novi program.",
+      "nes_de": "Die Firma entwickelt (gerade) ein neues Programm.",
+      "svr_satz": "Razvili su novi program.",
+      "svr_de": "Sie haben ein neues Programm entwickelt."
+    },
+    "ap17": {
+      "nes": "oporavljati se", "svr": "oporaviti se",
+      "nes_satz": "Polako se oporavlja.",
+      "nes_de": "Er erholt sich langsam.",
+      "svr_satz": "Oporavio se poslije operacije.",
+      "svr_de": "Er hat sich nach der Operation erholt."
+    },
+    "ap18": {
+      "nes": "izvještavati", "svr": "izvijestiti",
+      "nes_satz": "Novinar izvještava sa suđenja.",
+      "nes_de": "Der Journalist berichtet (gerade) vom Prozess.",
+      "svr_satz": "Izvijestio je o rezultatima.",
+      "svr_de": "Er hat über die Ergebnisse berichtet."
+    },
+    "ap19": {
+      "nes": "osuđivati", "svr": "osuditi",
+      "nes_satz": "Javnost osuđuje nasilje.",
+      "nes_de": "Die Öffentlichkeit verurteilt Gewalt.",
+      "svr_satz": "Sud ga je osudio na godinu dana.",
+      "svr_de": "Das Gericht hat ihn zu einem Jahr verurteilt."
+    },
+    "ap20": {
+      "nes": "braniti", "svr": "odbraniti",
+      "nes_satz": "Advokat brani optuženog.",
+      "nes_de": "Der Anwalt verteidigt (gerade) den Angeklagten.",
+      "svr_satz": "Advokat je odbranio optuženog.",
+      "svr_de": "Der Anwalt hat den Angeklagten erfolgreich verteidigt."
+    },
+    "ap21": {
+      "nes": "motriti", "svr": "osmotriti",
+      "nes_satz": "Policajac motri ulaz.",
+      "nes_de": "Der Polizist beobachtet den Eingang.",
+      "svr_satz": "Osmotrio je okolinu i otišao.",
+      "svr_de": "Er hat sich die Umgebung (kurz) angesehen und ist gegangen."
+    },
+    "ap22": {
+      "nes": "kazivati", "svr": "kazati",
+      "nes_satz": "Starac kazuje staru priču.",
+      "nes_de": "Der alte Mann trägt eine alte Geschichte vor.",
+      "svr_satz": "Kazao je istinu.",
+      "svr_de": "Er hat die Wahrheit gesagt."
+    },
+    "ap23": {
+      "nes": "promišljati", "svr": "promisliti",
+      "nes_satz": "Promišlja o svojoj odluci.",
+      "nes_de": "Er denkt über seine Entscheidung nach.",
+      "svr_satz": "Promislio je i odgovorio.",
+      "svr_de": "Er hat es durchdacht und geantwortet."
+    },
+    "ap24": {
+      "nes": "suočavati se", "svr": "suočiti se",
+      "nes_satz": "Suočava se s teškim pitanjima.",
+      "nes_de": "Er setzt sich mit schwierigen Fragen auseinander.",
+      "svr_satz": "Suočio se s istinom.",
+      "svr_de": "Er hat sich der Wahrheit gestellt."
+    },
+    "ap25": {
+      "nes": "razmatrati", "svr": "razmotriti",
+      "nes_satz": "Vlada razmatra novi zakon.",
+      "nes_de": "Die Regierung erwägt (gerade) das neue Gesetz.",
+      "svr_satz": "Razmotrili su sve mogućnosti.",
+      "svr_de": "Sie haben alle Möglichkeiten erwogen."
+    },
+    "ap26": {
+      "nes": "proizlaziti", "svr": "proizaći",
+      "nes_satz": "Iz toga proizlazi problem.",
+      "nes_de": "Daraus ergibt sich ein Problem.",
+      "svr_satz": "Iz sastanka je proizašao dogovor.",
+      "svr_de": "Aus der Besprechung ist eine Vereinbarung hervorgegangen."
+    },
+    "ap27": {
+      "nes": "obznanjivati", "svr": "obznaniti",
+      "nes_satz": "Vlada obznanjuje nove mjere.",
+      "nes_de": "Die Regierung verkündet (nach und nach) neue Maßnahmen.",
+      "svr_satz": "Obznanili su rezultate izbora.",
+      "svr_de": "Sie haben die Wahlergebnisse verkündet."
+    },
+    "ap28": {
+      "nes": "graditi", "svr": "izgraditi",
+      "nes_satz": "Grade novu školu.",
+      "nes_de": "Sie bauen (gerade) eine neue Schule.",
+      "svr_satz": "Izgradili su novu školu.",
+      "svr_de": "Sie haben eine neue Schule fertig gebaut."
+    },
+    "ap29": {
+      "nes": "zidati", "svr": "sazidati",
+      "nes_satz": "Majstor zida novi zid.",
+      "nes_de": "Der Handwerker mauert (gerade) eine neue Wand.",
+      "svr_satz": "Sazidali su kuću za godinu dana.",
+      "svr_de": "Sie haben das Haus in einem Jahr hochgemauert."
+    },
+    "ap30": {
+      "nes": "kopati", "svr": "iskopati",
+      "nes_satz": "Kopaju temelj.",
+      "nes_de": "Sie graben (gerade) das Fundament.",
+      "svr_satz": "Iskopali su temelj.",
+      "svr_de": "Sie haben das Fundament ausgehoben."
+    },
+    "ap31": {
+      "nes": "postavljati", "svr": "postaviti",
+      "nes_satz": "Postavljaju pločice u kupatilu.",
+      "nes_de": "Sie verlegen (gerade) die Fliesen im Bad.",
+      "svr_satz": "Postavili su pločice.",
+      "svr_de": "Sie haben die Fliesen verlegt."
+    },
+    "ap32": {
+      "nes": "ugrađivati", "svr": "ugraditi",
+      "nes_satz": "Ugrađuju nova vrata.",
+      "nes_de": "Sie bauen (gerade) eine neue Tür ein.",
+      "svr_satz": "Ugradili su novu peć.",
+      "svr_de": "Sie haben einen neuen Ofen eingebaut."
+    },
+    "ap33": {
+      "nes": "rušiti", "svr": "srušiti",
+      "nes_satz": "Ruše staru zgradu.",
+      "nes_de": "Sie reißen (gerade) das alte Gebäude ab.",
+      "svr_satz": "Srušili su staru zgradu.",
+      "svr_de": "Sie haben das alte Gebäude abgerissen."
+    },
+    "ap34": {
+      "nes": "farbati", "svr": "ofarbati",
+      "nes_satz": "Farbam ogradu.",
+      "nes_de": "Ich streiche (gerade) den Zaun.",
+      "svr_satz": "Ofarbao sam vrata.",
+      "svr_de": "Ich habe die Tür fertig gestrichen."
+    },
+    "ap35": {
+      "nes": "krečiti", "svr": "okrečiti",
+      "nes_satz": "Krečimo sobu.",
+      "nes_de": "Wir weißen (gerade) das Zimmer.",
+      "svr_satz": "Okrečili smo cijeli stan.",
+      "svr_de": "Wir haben die ganze Wohnung geweißt."
+    },
+    "ap36": {
+      "nes": "popravljati", "svr": "popraviti",
+      "nes_satz": "Popravlja auto u garaži.",
+      "nes_de": "Er repariert (gerade) das Auto in der Garage.",
+      "svr_satz": "Popravio je auto.",
+      "svr_de": "Er hat das Auto repariert."
+    },
+    "ap37": {
+      "nes": "namještati", "svr": "namjestiti",
+      "nes_satz": "Namještamo dnevni boravak.",
+      "nes_de": "Wir richten (gerade) das Wohnzimmer ein.",
+      "svr_satz": "Namjestili smo spavaću sobu.",
+      "svr_de": "Wir haben das Schlafzimmer eingerichtet."
+    },
+    "ap38": {
+      "nes": "uređivati", "svr": "urediti",
+      "nes_satz": "Uređuju dvorište.",
+      "nes_de": "Sie richten (gerade) den Hof her.",
+      "svr_satz": "Uredili su dvorište.",
+      "svr_de": "Sie haben den Hof hergerichtet."
+    },
+    "ap39": {
+      "nes": "odobravati", "svr": "odobriti",
+      "nes_satz": "Općina odobrava građevinske dozvole.",
+      "nes_de": "Die Gemeinde erteilt Baugenehmigungen.",
+      "svr_satz": "Općina je odobrila zahtjev.",
+      "svr_de": "Die Gemeinde hat den Antrag genehmigt."
+    },
+    "ap40": {
+      "nes": "uplaćivati", "svr": "uplatiti",
+      "nes_satz": "Uplaćujem ratu svaki mjesec.",
+      "nes_de": "Ich zahle jeden Monat die Rate ein.",
+      "svr_satz": "Uplatio sam prvu ratu.",
+      "svr_de": "Ich habe die erste Rate eingezahlt."
+    },
+    "ap41": {
+      "nes": "jesti", "svr": "pojesti",
+      "nes_satz": "Jedem burek.",
+      "nes_de": "Ich esse (gerade) Burek.",
+      "svr_satz": "Pojeo sam cijeli burek.",
+      "svr_de": "Ich habe den ganzen Burek aufgegessen."
+    },
+    "ap42": {
+      "nes": "malterisati", "svr": "omalterisati",
+      "nes_satz": "Malterišu zidove.",
+      "nes_de": "Sie verputzen (gerade) die Wände.",
+      "svr_satz": "Omalterisali su fasadu.",
+      "svr_de": "Sie haben die Fassade verputzt."
+    },
+    "ap43": {
+      "nes": "bušiti", "svr": "probušiti",
+      "nes_satz": "Bušim rupu u zidu.",
+      "nes_de": "Ich bohre (gerade) ein Loch in die Wand.",
+      "svr_satz": "Probušio sam zid.",
+      "svr_de": "Ich habe die Wand durchbohrt."
+    },
+    "ap44": {
+      "nes": "lijepiti", "svr": "zalijepiti",
+      "nes_satz": "Lijepim tapete u sobi.",
+      "nes_de": "Ich klebe (gerade) Tapeten im Zimmer.",
+      "svr_satz": "Zalijepio sam sliku na zid.",
+      "svr_de": "Ich habe das Bild an die Wand geklebt."
+    },
+    "ap45": {
+      "nes": "useljavati se", "svr": "useliti se",
+      "nes_satz": "Useljavaju se u novi stan.",
+      "nes_de": "Sie ziehen (gerade) in die neue Wohnung ein.",
+      "svr_satz": "Uselili smo se u maju.",
+      "svr_de": "Wir sind im Mai eingezogen."
+    },
+    "ap46": {
+      "nes": "piti", "svr": "popiti",
+      "nes_satz": "Pijem kahvu svako jutro.",
+      "nes_de": "Ich trinke jeden Morgen Kaffee.",
+      "svr_satz": "Popio sam kahvu.",
+      "svr_de": "Ich habe den Kaffee ausgetrunken."
+    },
+    "ap47": {
+      "nes": "kuhati", "svr": "skuhati",
+      "nes_satz": "Majka kuha ručak.",
+      "nes_de": "Die Mutter kocht (gerade) das Mittagessen.",
+      "svr_satz": "Skuhala je ručak.",
+      "svr_de": "Sie hat das Mittagessen fertig gekocht."
+    },
+    "ap48": {
+      "nes": "peći", "svr": "ispeći",
+      "nes_satz": "Nana peče pitu.",
+      "nes_de": "Die Oma bäckt (gerade) eine Pita.",
+      "svr_satz": "Ispekla je pitu.",
+      "svr_de": "Sie hat die Pita fertig gebacken."
+    },
+    "ap49": {
+      "nes": "rezati", "svr": "narezati",
+      "nes_satz": "Režem hljeb.",
+      "nes_de": "Ich schneide (gerade) Brot.",
+      "svr_satz": "Narezao sam hljeb.",
+      "svr_de": "Ich habe das Brot (in Scheiben) geschnitten."
+    },
+    "ap50": {
+      "nes": "pitati", "svr": "upitati",
+      "nes_satz": "Djeca stalno pitaju.",
+      "nes_de": "Die Kinder fragen ständig.",
+      "svr_satz": "Upitao sam ga za adresu.",
+      "svr_de": "Ich habe ihn (einmal) nach der Adresse gefragt."
+    },
+    "ap51": {
+      "nes": "misliti", "svr": "pomisliti",
+      "nes_satz": "Mislim na tebe.",
+      "nes_de": "Ich denke an dich.",
+      "svr_satz": "Pomislio sam da si zaboravio.",
+      "svr_de": "Mir kam kurz der Gedanke, dass du es vergessen hast."
+    },
+    "ap52": {
+      "nes": "slušati", "svr": "poslušati",
+      "nes_satz": "Slušam muziku.",
+      "nes_de": "Ich höre (gerade) Musik.",
+      "svr_satz": "Poslušao sam cijelu pjesmu.",
+      "svr_de": "Ich habe das ganze Lied zu Ende gehört."
+    },
+    "ap53": {
+      "nes": "raditi", "svr": "uraditi",
+      "nes_satz": "Radim zadatke svaki dan.",
+      "nes_de": "Ich mache jeden Tag Aufgaben.",
+      "svr_satz": "Uradio sam sve zadatke.",
+      "svr_de": "Ich habe alle Aufgaben erledigt."
+    },
+    "ap54": {
+      "nes": "čekati", "svr": "sačekati",
+      "nes_satz": "Čekam autobus.",
+      "nes_de": "Ich warte (gerade) auf den Bus.",
+      "svr_satz": "Sačekao sam ga ispred škole.",
+      "svr_de": "Ich habe vor der Schule auf ihn gewartet (bis er kam)."
+    },
+    "ap55": {
+      "nes": "kasniti", "svr": "zakasniti",
+      "nes_satz": "Uvijek kasni na posao.",
+      "nes_de": "Er kommt immer zu spät zur Arbeit.",
+      "svr_satz": "Zakasnio sam na voz.",
+      "svr_de": "Ich bin zu spät zum Zug gekommen (habe ihn verpasst)."
+    },
+    "ap56": {
+      "nes": "putovati", "svr": "otputovati",
+      "nes_satz": "Putujem vozom.",
+      "nes_de": "Ich reise (gerade) mit dem Zug.",
+      "svr_satz": "Otputovao je u Njemačku.",
+      "svr_de": "Er ist nach Deutschland abgereist."
+    },
+    "ap57": {
+      "nes": "prati", "svr": "oprati",
+      "nes_satz": "Perem suđe.",
+      "nes_de": "Ich spüle (gerade) das Geschirr.",
+      "svr_satz": "Oprao sam veš.",
+      "svr_de": "Ich habe die Wäsche gewaschen."
+    },
+    "ap58": {
+      "nes": "brojati", "svr": "prebrojati",
+      "nes_satz": "Dijete broji do deset.",
+      "nes_de": "Das Kind zählt bis zehn.",
+      "svr_satz": "Prebrojao sam sav novac.",
+      "svr_de": "Ich habe das ganze Geld durchgezählt."
+    },
+    "ap59": {
+      "nes": "pričati", "svr": "ispričati",
+      "nes_satz": "Priča nam o putovanju.",
+      "nes_de": "Er erzählt uns (gerade) von der Reise.",
+      "svr_satz": "Ispričao nam je cijelu priču.",
+      "svr_de": "Er hat uns die ganze Geschichte erzählt."
+    },
+    "ap60": {
+      "nes": "davati", "svr": "dati",
+      "nes_satz": "Daje mi dobre savjete.",
+      "nes_de": "Er gibt mir (immer wieder) gute Ratschläge.",
+      "svr_satz": "Dao mi je ključ.",
+      "svr_de": "Er hat mir den Schlüssel gegeben."
+    },
+    "ap61": {
+      "nes": "uzimati", "svr": "uzeti",
+      "nes_satz": "Uzimam lijek svako jutro.",
+      "nes_de": "Ich nehme jeden Morgen das Medikament.",
+      "svr_satz": "Uzeo sam ključeve i izašao.",
+      "svr_de": "Ich habe die Schlüssel genommen und bin hinausgegangen."
+    },
+    "ap62": {
+      "nes": "stavljati", "svr": "staviti",
+      "nes_satz": "Stavljam knjige na policu.",
+      "nes_de": "Ich stelle (gerade) die Bücher ins Regal.",
+      "svr_satz": "Stavio sam knjigu na sto.",
+      "svr_de": "Ich habe das Buch auf den Tisch gelegt."
+    },
+    "ap63": {
+      "nes": "počinjati", "svr": "početi",
+      "nes_satz": "Škola počinje u osam.",
+      "nes_de": "Die Schule beginnt (immer) um acht.",
+      "svr_satz": "Film je počeo.",
+      "svr_de": "Der Film hat angefangen."
+    },
+    "ap64": {
+      "nes": "završavati", "svr": "završiti",
+      "nes_satz": "Završavam posao.",
+      "nes_de": "Ich bringe die Arbeit gerade zu Ende.",
+      "svr_satz": "Završio sam fakultet.",
+      "svr_de": "Ich habe das Studium abgeschlossen."
+    },
+    "ap65": {
+      "nes": "odgovarati", "svr": "odgovoriti",
+      "nes_satz": "Ne odgovara na poruke.",
+      "nes_de": "Er antwortet nicht auf Nachrichten.",
+      "svr_satz": "Odgovorio sam na pitanje.",
+      "svr_de": "Ich habe die Frage beantwortet."
+    },
+    "ap66": {
+      "nes": "zatvarati", "svr": "zatvoriti",
+      "nes_satz": "Zatvaraju prodavnicu u devet.",
+      "nes_de": "Sie schließen den Laden (immer) um neun.",
+      "svr_satz": "Zatvorio sam vrata.",
+      "svr_de": "Ich habe die Tür geschlossen."
+    },
+    "ap67": {
+      "nes": "plaćati", "svr": "platiti",
+      "nes_satz": "Plaćam karticom.",
+      "nes_de": "Ich zahle (immer) mit Karte.",
+      "svr_satz": "Platio sam račun.",
+      "svr_de": "Ich habe die Rechnung bezahlt."
+    },
+    "ap68": {
+      "nes": "ulaziti", "svr": "ući",
+      "nes_satz": "Djeca ulaze u autobus.",
+      "nes_de": "Die Kinder steigen (gerade) in den Bus ein.",
+      "svr_satz": "Ušao sam u sobu.",
+      "svr_de": "Ich bin ins Zimmer gegangen."
+    },
+    "ap69": {
+      "nes": "silaziti", "svr": "sići",
+      "nes_satz": "Silazim na sljedećoj stanici.",
+      "nes_de": "Ich steige an der nächsten Haltestelle aus.",
+      "svr_satz": "Sišao sam s autobusa.",
+      "svr_de": "Ich bin aus dem Bus ausgestiegen."
+    },
+    "ap70": {
+      "nes": "čitati", "svr": "pročitati",
+      "nes_satz": "Čitam knjigu.",
+      "nes_de": "Ich lese (gerade) ein Buch.",
+      "svr_satz": "Pročitao sam knjigu.",
+      "svr_de": "Ich habe das Buch zu Ende gelesen."
+    },
+    "ap71": {
+      "nes": "pisati", "svr": "napisati",
+      "nes_satz": "Pišem pismo.",
+      "nes_de": "Ich schreibe (gerade) einen Brief.",
+      "svr_satz": "Napisao sam pismo.",
+      "svr_de": "Ich habe den Brief fertig geschrieben."
+    },
+    "ap72": {
+      "nes": "gledati", "svr": "pogledati",
+      "nes_satz": "Gledamo film.",
+      "nes_de": "Wir schauen (gerade) einen Film.",
+      "svr_satz": "Pogledao sam kroz prozor.",
+      "svr_de": "Ich habe (kurz) aus dem Fenster geschaut."
+    },
+    "ap73": {
+      "nes": "tražiti", "svr": "potražiti",
+      "nes_satz": "Tražim ključeve.",
+      "nes_de": "Ich suche (gerade) die Schlüssel.",
+      "svr_satz": "Potražio sam pomoć kod komšije.",
+      "svr_de": "Ich habe beim Nachbarn Hilfe gesucht."
+    },
+    "ap74": {
+      "nes": "plakati", "svr": "zaplakati",
+      "nes_satz": "Beba plače.",
+      "nes_de": "Das Baby weint.",
+      "svr_satz": "Zaplakala je od sreće.",
+      "svr_de": "Sie fing an, vor Freude zu weinen."
+    },
+    "ap75": {
+      "nes": "mjeriti", "svr": "izmjeriti",
+      "nes_satz": "Doktor mjeri krvni pritisak.",
+      "nes_de": "Der Arzt misst (gerade) den Blutdruck.",
+      "svr_satz": "Izmjerio sam temperaturu.",
+      "svr_de": "Ich habe die Temperatur gemessen."
+    },
+    "ap76": {
+      "nes": "slaviti", "svr": "proslaviti",
+      "nes_satz": "Slavimo rođendan.",
+      "nes_de": "Wir feiern (gerade) Geburtstag.",
+      "svr_satz": "Proslavili smo rođendan.",
+      "svr_de": "Wir haben den Geburtstag gebührend gefeiert."
+    },
+    "ap77": {
+      "nes": "objašnjavati", "svr": "objasniti",
+      "nes_satz": "Nastavnik objašnjava novo pravilo.",
+      "nes_de": "Der Lehrer erklärt (gerade) die neue Regel.",
+      "svr_satz": "Objasnio sam mu put do stanice.",
+      "svr_de": "Ich habe ihm den Weg zum Bahnhof erklärt."
+    },
+    "ap78": {
+      "nes": "otkrivati", "svr": "otkriti",
+      "nes_satz": "Nauka otkriva nove lijekove.",
+      "nes_de": "Die Wissenschaft entdeckt (nach und nach) neue Medikamente.",
+      "svr_satz": "Otkrili su grešku.",
+      "svr_de": "Sie haben den Fehler entdeckt."
+    },
+    "ap79": {
+      "nes": "rješavati", "svr": "riješiti",
+      "nes_satz": "Rješavam zadatak.",
+      "nes_de": "Ich löse (gerade) die Aufgabe.",
+      "svr_satz": "Riješili smo problem.",
+      "svr_de": "Wir haben das Problem gelöst."
+    },
+    "ap80": {
+      "nes": "zvati", "svr": "pozvati",
+      "nes_satz": "Zovem konobara.",
+      "nes_de": "Ich rufe (gerade) den Kellner.",
+      "svr_satz": "Pozvao sam komšiju da nam pomogne.",
+      "svr_de": "Ich habe den Nachbarn herbeigerufen, damit er uns hilft."
+    },
+    "ap81": {
+      "nes": "prenositi", "svr": "prenijeti",
+      "nes_satz": "Televizija prenosi utakmicu.",
+      "nes_de": "Das Fernsehen überträgt (gerade) das Spiel.",
+      "svr_satz": "Prenio sam mu poruku.",
+      "svr_de": "Ich habe ihm die Nachricht ausgerichtet."
+    },
+    "ap82": {
+      "nes": "oslobađati", "svr": "osloboditi",
+      "nes_satz": "Sud oslobađa optužene kad nema dokaza.",
+      "nes_de": "Das Gericht spricht Angeklagte frei, wenn es keine Beweise gibt.",
+      "svr_satz": "Sud ga je oslobodio optužbe.",
+      "svr_de": "Das Gericht hat ihn von der Anklage freigesprochen."
+    },
+    "ap83": {
+      "nes": "iznositi", "svr": "iznijeti",
+      "nes_satz": "Advokat iznosi svoje argumente.",
+      "nes_de": "Der Anwalt legt (gerade) seine Argumente dar.",
+      "svr_satz": "Iznio je sve dokaze.",
+      "svr_de": "Er hat alle Beweise vorgelegt."
+    },
+    "ap84": {
+      "nes": "preispitivati", "svr": "preispitati",
+      "nes_satz": "Stalno preispituje svoje odluke.",
+      "nes_de": "Er hinterfragt ständig seine Entscheidungen.",
+      "svr_satz": "Preispitali su cijeli plan.",
+      "svr_de": "Sie haben den ganzen Plan hinterfragt."
+    },
+    "ap85": {
+      "nes": "iznajmljivati", "svr": "iznajmiti",
+      "nes_satz": "Iznajmljuje stan studentima.",
+      "nes_de": "Er vermietet die Wohnung an Studenten.",
+      "svr_satz": "Iznajmio je stan porodici iz Njemačke.",
+      "svr_de": "Er hat die Wohnung an eine Familie aus Deutschland vermietet."
+    },
+    "ap86": {
+      "nes": "proisticati", "svr": "proisteći",
+      "nes_satz": "Iz ugovora proističu velike obaveze.",
+      "nes_de": "Aus dem Vertrag ergeben sich große Verpflichtungen.",
+      "svr_satz": "Iz greške je proistekao veliki problem.",
+      "svr_de": "Aus dem Fehler ist ein großes Problem entstanden."
+    },
+    "ap87": {
+      "nes": "liječiti se", "svr": "izliječiti se",
+      "nes_satz": "Liječi se u Njemačkoj.",
+      "nes_de": "Er lässt sich (zurzeit) in Deutschland behandeln.",
+      "svr_satz": "Izliječio se od bolesti.",
+      "svr_de": "Er ist von der Krankheit genesen."
+    },
+    "ap88": {
+      "nes": "liječiti", "svr": "izliječiti",
+      "nes_satz": "Ovaj doktor liječi djecu.",
+      "nes_de": "Dieser Arzt behandelt Kinder.",
+      "svr_satz": "Doktor ga je izliječio.",
+      "svr_de": "Der Arzt hat ihn geheilt."
+    },
+    "ap89": {
+      "nes": "izlaziti", "svr": "izaći",
+      "nes_satz": "Izlazim iz auta.",
+      "nes_de": "Ich steige (gerade) aus dem Auto.",
+      "svr_satz": "Izašao sam iz kuće u sedam.",
+      "svr_de": "Ich bin um sieben aus dem Haus gegangen."
+    },
+    "ap90": {
+      "nes": "shvatati", "svr": "shvatiti",
+      "nes_satz": "Polako shvatam pravilo.",
+      "nes_de": "Ich begreife die Regel langsam.",
+      "svr_satz": "Shvatio sam grešku.",
+      "svr_de": "Ich habe den Fehler begriffen."
+    },
+    "ap91": {
+      "nes": "prestajati", "svr": "prestati",
+      "nes_satz": "Kiša ne prestaje.",
+      "nes_de": "Der Regen hört nicht auf.",
+      "svr_satz": "Prestao je pušiti.",
+      "svr_de": "Er hat aufgehört zu rauchen."
+    },
+    "ap92": {
+      "nes": "uspijevati", "svr": "uspjeti",
+      "nes_satz": "Ne uspijeva sve završiti na vrijeme.",
+      "nes_de": "Er schafft es nicht, alles rechtzeitig zu beenden.",
+      "svr_satz": "Uspio sam popraviti auto.",
+      "svr_de": "Ich habe es geschafft, das Auto zu reparieren."
+    }
+  }
+}

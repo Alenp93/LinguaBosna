@@ -46,6 +46,13 @@ Selbstkontrolle direkt nach dem Lesen) ist der Lernen-Bereich auf
 - Übungen, die sich direkt aus vorhandenen Feldern ableiten lassen
   (z. B. Aspektpaare über `par_id` + `aspekt`, Genus über `Wortart (Genus)`),
   **brauchen keine neue Datendatei** – nur Filter-/Gruppierungslogik in JS.
+  ⚠️ Das gilt für die **Aufgaben**. Sobald eine solche Übung im *Feedback*
+  ganze Sätze zeigen will, greift wieder die Regel darunter: Die
+  Aspektpaar-Zuordnung zieht ihre Paare weiterhin komplett aus
+  `vokabeln_flat.json` und hat trotzdem eine kleine Zusatzdatei
+  `aspektpaare_data.json` für die Beispielsätze bekommen (2026-08-28).
+  Zwei Dateien mit klarer Rollentrennung sind hier richtig – Sätze gehören
+  nicht in die Wortliste.
 - Übungen, die vollständige Beispielsätze brauchen (z. B. Lückentext,
   Satzbau-Puzzle), brauchen zwingend eine **eigene JSON-Datei**, da
   `vokabeln_flat.json` nur Einzelwörter enthält, keine Sätze.
@@ -96,7 +103,7 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
 | Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
-| Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) | 88 Paare (`ap01`–`ap88`, lückenlos), 3 Sets: A1–A2 (52) / B1–C1 (36) / alle (88) |
+| Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
 | Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–4 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster) · Set 4 „Erzähltext" (10 Texte à 5 Lücken) |
 
@@ -189,6 +196,23 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 > **Anwendung** (wann verwende ich welchen?). Wer die erste Übung perfekt löst, weiß
 > immer noch nicht, ob „Čitao sam knjigu" oder „Pročitao sam knjigu" richtig ist.
 > Die beiden bilden einen Lernpfad: Stufe 1 Formen → Stufe 2 Anwendung.
+>
+> **Die Brücke zwischen beiden Stufen liegt im Feedback von Stufe 1 (seit
+> 2026-08-28):** Nach jeder Antwort stehen dort zwei Beispielsätze – der
+> nesvršeni-Partner im **Präsens**, der svršeni-Partner im **Perfekt**
+> („Čitam knjigu." / „Pročitao sam knjigu."), je mit deutscher Übersetzung, die
+> den Unterschied sichtbar macht. Der Lernende sieht damit schon beim
+> Formentraining, *wozu* die zweite Form gut ist, und trifft die Frage in
+> `lernen-aspektwahl.html` nicht unvorbereitet. Die Sätze stehen in
+> `Code/4_Lernen/aspektpaare_data.json`, nach `par_id` geschlüsselt.
+> ⚠️ **Nicht clientseitig generierbar** – das war die naheliegende Idee und sie
+> trägt nicht: Das Perfekt braucht das l-Partizip, und das ist aus dem Infinitiv
+> nicht regelhaft ableitbar (`doći` → `došao`, `peći` → `ispekao`, `uzeti` →
+> `uzeo`, `prenijeti` → `prenio`). Deshalb sind alle 184 Sätze geschrieben.
+> Die Form-Konvention (nes = Präsens, svr = Perfekt) ist im Feld `_konvention`
+> der JSON festgehalten und gilt für neu ergänzte Paare weiter. Fehlt eine
+> `par_id` in der Datei, zeigt die Übung einfach keine Sätze – neue Aspektpaare
+> in `vokabeln_flat.json` brechen sie also nicht.
 >
 > **Regel für das Set „Signalwörter" (aus dem Bau gelernt):** Es gibt einen dritten
 > Korb „entscheidet nicht", und er ist didaktisch der wichtigste. Ohne ihn lernt der

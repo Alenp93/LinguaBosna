@@ -161,6 +161,50 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 
 ---
 
+## Kandidaten: Beifang aus den Aspektpaar-Beispielsätzen
+
+Aufgefallen bei: Lernen-Übung „Aspektpaar-Zuordnung", Beispielsätze in
+`Code/4_Lernen/aspektpaare_data.json` (184 Sätze zu 92 Paaren), 2026-08-28.
+Alle 184 Sätze wurden Wort für Wort gegen `vokabeln_flat.json` abgeglichen; wo eine
+Bestandsform gleich natürlich war, wurde sie eingesetzt (`policajac` statt `stražar`,
+`Vlada … zakon` statt `Odbor … prijedlog`, `sastanak` statt `razgovor`, `djeca` statt
+`putnici`/`pacijenti`, `krvni pritisak` statt `pritisak`). Übrig bleiben diese Lücken:
+
+| Bosnisch | Deutsch | Wortart (Genus) | Niveau-Vorschlag | Gebraucht in |
+|---|---|---|---|---|
+| rupa | Loch | Substantiv (f) | B1 | ap43 (bušiti/probušiti) |
+| savjet | Rat / Ratschlag | Substantiv (m) | A2 | ap60 (davati/dati) |
+| odluka | Entscheidung | Substantiv (f) | B1 | ap23, ap84 |
+| plan | Plan | Substantiv (m) | A2 | ap84 (preispitivati/preispitati) |
+| pomoć | Hilfe | Substantiv (f) | A1 | ap73 (tražiti/potražiti) |
+| mjera | Maßnahme | Substantiv (f) | B2 | ap27 (obznanjivati/obznaniti) |
+| obaveza | Verpflichtung | Substantiv (f) | B1 | ap86 (proisticati/proisteći) |
+| utakmica | Spiel (Sport) | Substantiv (f) | A2 | ap81 (prenositi/prenijeti) |
+| suđenje | Gerichtsverfahren / Prozess | Substantiv (n) | B2 | ap18 (izvještavati/izvijestiti) |
+| slika | Bild | Substantiv (f) | A1 | ap44 (lijepiti/zalijepiti) |
+| veš | Wäsche | Substantiv (m) | A2 | ap57 (prati/oprati) |
+| sljedeći | nächster | Adjektiv | A2 | ap69 (silaziti/sići) |
+| zaboraviti | vergessen | Verb (svršeni) | A1 | ap51 (misliti/pomisliti) |
+
+> **Auffällig niedrig hängende Früchte:** `pomoć` (A1!) steht nur gebunden in
+> `hitna pomoć` / `socijalna pomoć`, obwohl das Verb `pomoći` seit A1 im Bestand ist –
+> dasselbe Muster wie bei `priča`/`pričati` weiter oben. `veš` existiert nur in
+> `veš-mašina`, `prostorija za veš` und `mašina za pranje veša`, also dreimal gebunden
+> und nie als Lemma. `zaboraviti` fehlt komplett – ein A1-Verb, das in jedem
+> Anfängerkurs vorkommt.
+>
+> **Schon in dieser Datei und hier erneut gebraucht** (also zweimal aufgefallen,
+> das erhöht die Priorität): `priča` (ap22, ap59), `pušiti` (ap91), `krenuti`
+> (in einer Erstfassung von ap21, dort inzwischen durch `otići` ersetzt),
+> `poslije` (ap12, ap17), `stalno` (ap50, ap84).
+>
+> **Bewusst NICHT als Vokabellücke gezählt:** `svoj`, `sav`, `cijeli`/`cio`, `težak`.
+> Das sind Pronomen- bzw. Quantorenformen und Grammatikstoff, keine Wortschatzeinträge –
+> sie gehören auf die Grammatikseiten, nicht in den Vokabeltrainer. (`teško` steht
+> ohnehin als Adverb auf A1 im Bestand, `dobro` ebenso.)
+
+---
+
 ## Bewusst NICHT aufgenommen
 
 Damit dieselbe Frage nicht zweimal geprüft wird:

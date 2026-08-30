@@ -63,11 +63,23 @@ if REPO_ROOT is None:
 
 
 def rel_html_files():
-    """Alle *.html relativ zum Repo-Root, sortiert, ohne .git."""
+    """Alle *.html relativ zum Repo-Root, sortiert, ohne versteckte Ordner.
+
+    Übersprungen wird JEDES Verzeichnis, dessen Name mit einem Punkt beginnt –
+    nicht nur .git. Grund: Unter .claude/worktrees/ kann eine vollständige
+    Arbeitskopie des Repos liegen (git worktree). Die wurde vorher mitgelesen
+    und hat rund 50 Phantom-URLs der Form
+    /.claude/worktrees/<branch>/Code/... in die Sitemap geschrieben – Adressen,
+    die es auf linguabosna.com gar nicht gibt und die Google als doppelten
+    Inhalt zur echten Seite gewertet hätte.
+
+    Das Filtern geschieht über die dirs-Liste von os.walk: Wer sie an Ort und
+    Stelle kürzt (dirs[:] = ...), verhindert, dass os.walk dort überhaupt
+    hinabsteigt.
+    """
     out = []
-    for dp, _dirs, fns in os.walk(REPO_ROOT):
-        if os.sep + ".git" in dp:
-            continue
+    for dp, dirs, fns in os.walk(REPO_ROOT):
+        dirs[:] = [d for d in dirs if not d.startswith(".")]
         for fn in fns:
             if fn.endswith(".html"):
                 rel = os.path.relpath(os.path.join(dp, fn), REPO_ROOT)

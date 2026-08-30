@@ -108,6 +108,8 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 
 | Bosnisch | Deutsch | Aspekt | Partner (Vorschlag) | Niveau-Vorschlag |
 |---|---|---|---|---|
+| morati | müssen | nesvršeni | – (Modalverb, kein Aspektpartner) | A1 |
+| smjeti | dürfen | nesvršeni | – (Modalverb, kein Aspektpartner) | A1 |
 | pušiti | rauchen | nesvršeni | – (kein echtes Paar nötig) | A2 |
 | složiti se | zustimmen / sich einig werden | svršeni | **`slagati se` steht bereits im Bestand** (B1) | B1 |
 | zvoniti | klingeln | nesvršeni | zazvoniti (svršeni) – beide fehlen | A2 |
@@ -129,6 +131,13 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 > Nachtragen die Regeln aus `CLAUDE.md` beachten: Partner als `nur_woerterbuch`-Eintrag
 > anlegen, Bedeutung **und** Niveau müssen am `nesvršeni`-Partner korrekt stehen.
 > Aufgefallen bei: Sprachprüfung des Aspektpaars `prestati`/`prestajati`, 2026-08-28.
+
+> ⚠️ **`morati` und `smjeti` fehlen trotz aktiver Verwendung:** Beide sind Kernmodalverben
+> und werden auf `grammatik-modalverben.html` (A2, Kapitel 12) prominent gelehrt – `moći`,
+> `htjeti` und `trebati` stehen dagegen bereits seit Kapitel 1 (A1) im Bestand. Ohne Eintrag
+> sind `morati`/`smjeti` weder über den Vokabeltrainer noch über die Wörterbuch-Suche im
+> Header auffindbar. Vorschlag: gleiches Kapitel wie die anderen Modalverben (Kap 1, A1).
+> Aufgefallen bei: Sprachprüfung von `grammatik-modalverben.html`, 2026-08-30.
 
 ---
 

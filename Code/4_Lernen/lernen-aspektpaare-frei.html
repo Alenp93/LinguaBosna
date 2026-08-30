@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       lernen-aspektpaare-frei.html
+       Übungsart: „Aspektpaare – freie Eingabe"
+       LinguaBosna | Menüpunkt „Lernen"
+
+       Die Stufe über lernen-aspektpaare.html: Dort wird der
+       Partner aus vier Optionen GEWÄHLT, hier wird er selbst
+       GESCHRIEBEN. Der Unterschied ist didaktisch der Kern –
+       Wiedererkennen kann man auch, ohne die Form zu beherrschen.
+
+       Jede Aufgabe hat zwei Schritte:
+       1. Welcher Aspekt ist das gezeigte Verb?  (zwei Buttons)
+          Anders als in der Zuordnungs-Übung wird der Aspekt
+          NICHT verraten – kein Etikett unter dem Verb.
+       2. Wie lautet der Aspektpartner?           (Textfeld)
+       Ein Punkt gibt es nur, wenn beides stimmt. Wie oft der
+       Aspekt allein erkannt wurde, steht als Nebenwertung im
+       Ergebnis.
+
+       Warum die Form geschrieben und nicht angeklickt wird:
+       Bei 51 der 92 Paare entsteht der Partner nicht durch ein
+       simples Präfix, sondern der Stamm wechselt mit
+       (plaćati → platiti, oslobađati → osloboditi,
+       uspijevati → uspjeti, rješavati → riješiti). Diese
+       Wechsel – ije/je und đ/d vor allem – merkt man sich erst,
+       wenn man an ihnen scheitert.
+
+       Drei Sicherungen machen die freie Eingabe fair:
+       a) Diakritika-Toleranz: „procitati" wird als richtig
+          gewertet, mit Hinweis auf die korrekte Schreibweise.
+          Das ist nachweislich gefahrlos – normalisiert man alle
+          184 Verbformen des Bestands (č ć→c, š→s, ž→z, đ→d),
+          fällt keine einzige mit einer anderen zusammen.
+          Eine Tippfehler-Toleranz (Levenshtein) gibt es dagegen
+          bewusst NICHT: Bei neun Paaren liegt der Prompt selbst
+          nur einen Buchstaben von der Lösung entfernt
+          (kuhati/skuhati, prati/oprati, rušiti/srušiti …) –
+          eine solche Toleranz würde „gar nichts gewusst" als
+          „fast richtig" durchgehen lassen.
+       b) Selbstkorrektur: Zu vielen Verben gibt es mehr als
+          einen gültigen Partner (izabrati → birati, aber auch
+          izabirati). Statt korrektes Bosnisch als Fehler zu
+          werten, kann der Lernende die Wertung selbst umdrehen.
+       c) „Lösung zeigen" – bei Multiple Choice kann man raten,
+          bei freier Eingabe sitzt man sonst fest.
+
+       Die Seite hat 3 Bildschirme (per JavaScript umgeschaltet):
+       1. Startschirm  – Auswahl des Übungssets (nach Niveau)
+       2. Übung        – eine Aufgabe nach der anderen
+       3. Ergebnis     – Punktzahl + Wiederholen
+
+       Datenquelle wie bei der Schwesterseite: die Aspektpaare
+       kommen aus vokabeln_flat.json (Feld par_id), die
+       Beispielsätze fürs Feedback aus aspektpaare_data.json.
+       Dort darf pro Paar zusätzlich ein Block "frei" stehen,
+       der weitere gültige Antworten nennt (alt_nes / alt_svr).
+       Fehlt er, funktioniert die Übung trotzdem – dann fängt
+       die Selbstkorrektur solche Fälle ab.
+       ====================================================== -->
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js" defer></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Aspektpaare frei eingeben</title>
+  <link rel="canonical" href="https://linguabosna.com/Code/4_Lernen/lernen-aspektpaare-frei.html">
+
+  <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="LinguaBosna – Aspektpaare frei eingeben">
+  <meta property="og:description" content="Bosnisch-Übung für Fortgeschrittene: Bestimme den Aspekt eines Verbs und schreibe seinen Aspektpartner selbst – ohne Antwortvorgaben, mit sofortiger Korrektur.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/4_Lernen/lernen-aspektpaare-frei.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Aspektpaare frei eingeben">
+  <meta name="twitter:description" content="Bosnisch-Übung für Fortgeschrittene: Bestimme den Aspekt eines Verbs und schreibe seinen Aspektpartner selbst – ohne Antwortvorgaben, mit sofortiger Korrektur.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta name="description" content="Bosnisch-Übung für Fortgeschrittene: Bestimme den Aspekt eines Verbs und schreibe seinen Aspektpartner selbst – ohne Antwortvorgaben, mit sofortiger Korrektur.">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+
+  <!-- ── Strukturierte Daten (schema.org) ─────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Aspektpaare frei eingeben",
+        "description": "Bosnisch-Übung für Fortgeschrittene: Bestimme den Aspekt eines Verbs und schreibe seinen Aspektpartner selbst – ohne Antwortvorgaben, mit sofortiger Korrektur.",
+        "url": "https://linguabosna.com/Code/4_Lernen/lernen-aspektpaare-frei.html",
+        "inLanguage": "de",
+        "learningResourceType": "Interaktive Übung",
+        "educationalLevel": "B1–C1",
+        "teaches": "Bosnischer Verbalaspekt (freie Formbildung)",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Bosnisch lernen",
+          "url": "https://linguabosna.com/"
+        },
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Lernen",
+            "item": "https://linguabosna.com/Code/4_Lernen/lernen-uebersicht.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Aspektpaare frei eingeben"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Aspektpaare frei eingeben</h1>
+    <p class="subtitle">Bestimme den Aspekt und schreibe den Partner selbst – ohne Auswahlmöglichkeiten.</p>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 1 — STARTSCHIRM (Set-Auswahl)
+         ===================================================== -->
+    <section id="startScreen">
+      <div class="section-intro">
+        <h2>Womit möchtest du üben?</h2>
+        <p>Wähle ein Set. Pro Durchgang bekommst du 10 Verben.</p>
+      </div>
+
+      <!-- Hier fügt das JavaScript die Set-Karten ein -->
+      <div class="thema-grid" id="themaGrid"></div>
+
+      <!-- Verweise auf Vorstufe und Erklärseite -->
+      <p class="uebung-quelle">
+        Zu schwer? Beginne mit der Zuordnungs-Übung
+        <a href="/Code/4_Lernen/lernen-aspektpaare.html">Aspektpaare üben</a>.<br>
+        Die Regeln dazu stehen in
+        <a href="/Code/3_Grammatik/Grammatik_B2/grammatik-verbalaspekt.html">Verbalaspekt</a>.
+      </p>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 2 — ÜBUNG (zwei Schritte je Aufgabe)
+         Standardmäßig versteckt (Klasse "hidden").
+         ===================================================== -->
+    <section id="uebungScreen" class="hidden">
+      <div class="uebung-container">
+
+        <!-- Fortschritt -->
+        <div class="uebung-progress" id="uebungProgress">Verb 1 von 10</div>
+        <div class="uebung-bar"><div class="uebung-bar-fill" id="uebungBarFill"></div></div>
+
+        <!-- Das vorgegebene Verb. Bewusst OHNE Aspekt-Etikett –
+             genau das ist Schritt 1. -->
+        <div class="aspekt-prompt">
+          <span class="aspekt-verb" id="promptVerb"></span>
+        </div>
+
+        <!-- ── Schritt 1: Aspekt bestimmen ──────────────── -->
+        <div class="frei-schritt">Schritt 1 · Welcher Aspekt ist das?</div>
+        <div class="korb-grid korb-grid-2" id="aspektWahl">
+          <button class="korb-btn" id="btnNes">
+            <span class="korb-icon"><i class="fas fa-arrows-rotate"></i></span>
+            <span class="korb-label">nesvršeni</span>
+            <span class="korb-sub">unvollendet</span>
+          </button>
+          <button class="korb-btn" id="btnSvr">
+            <span class="korb-icon"><i class="fas fa-flag-checkered"></i></span>
+            <span class="korb-label">svršeni</span>
+            <span class="korb-sub">vollendet</span>
+          </button>
+        </div>
+
+        <!-- ── Schritt 2: Partner schreiben ─────────────── -->
+        <!-- Liegt blass und gesperrt darunter, bis Schritt 1
+             beantwortet ist – sichtbar, damit der Lernende
+             weiß, was ihn erwartet. -->
+        <div class="frei-schritt2 gesperrt" id="schritt2">
+          <div class="frei-schritt">Schritt 2 · Aspektpartner schreiben</div>
+          <div class="aspekt-frage" id="aspektFrage">Bestimme zuerst den Aspekt.</div>
+
+          <label class="hidden" for="freiInput">Aspektpartner eingeben</label>
+          <input type="text"
+                 id="freiInput"
+                 class="frei-input"
+                 placeholder="Form eintippen …"
+                 autocomplete="off"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 spellcheck="false"
+                 inputmode="text">
+
+          <!-- Sonderzeichen, die deutsche Tastaturen nicht haben -->
+          <div class="frei-zeichen" id="freiZeichen"></div>
+
+          <div class="frei-aktionen">
+            <button class="btn-primary btn-klein" id="pruefenBtn">Prüfen</button>
+            <button class="btn-outline btn-klein" id="loesungBtn">Lösung zeigen</button>
+          </div>
+          <div class="frei-fehler hidden" id="freiFehler"></div>
+        </div>
+
+        <!-- Feedback nach der Auswertung (versteckt bis dahin) -->
+        <div class="uebung-feedback hidden" id="uebungFeedback"></div>
+
+        <!-- Selbstkorrektur – erscheint nur bei einer als falsch
+             gewerteten Antwort -->
+        <div class="frei-korrektur hidden" id="freiKorrektur">
+          <button class="btn-outline btn-klein" id="korrekturBtn">
+            <i class="fas fa-rotate-left"></i> Meine Antwort war auch richtig
+          </button>
+          <span class="frei-korrektur-hinweis">
+            Manche Verben haben mehrere gültige Partner. Wenn deine Form stimmt, zähl sie hier als richtig.
+          </span>
+        </div>
+
+        <!-- „Nächstes Verb"-Button (versteckt bis zur Auswertung) -->
+        <div class="uebung-next-wrap">
+          <button class="btn-primary hidden" id="nextBtn">Nächstes Verb →</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 3 — ERGEBNIS
+         ===================================================== -->
+    <section id="ergebnisScreen" class="hidden">
+      <div class="uebung-result">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-nebenwertung" id="resultNeben"></p>
+        <p class="result-text" id="resultText"></p>
+        <div class="result-actions">
+          <button class="btn-primary" id="retryBtn">Wiederholen</button>
+          <button class="btn-outline" id="otherBtn">Anderes Set</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Aspektpaare – freie Eingabe
+
+       Ablauf je Aufgabe:
+       Verb zeigen → Aspekt anklicken → Partner tippen →
+       prüfen → Feedback (ggf. Selbstkorrektur) → weiter
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  /* ── Einstellungen ───────────────────────────────────── */
+  var FRAGEN_PRO_RUNDE = 10;   // wie viele Verben ein Durchgang hat
+
+  /* Aspekt-Werte, exakt wie in der JSON geschrieben (ijekavisch) */
+  var NESVRSENI = 'nesvršeni'; // unvollendet / imperfektiv
+  var SVRSENI   = 'svršeni';   // vollendet / perfektiv
+
+  /* Deutsche Klartext-Bezeichnungen für die Anzeige */
+  var LABEL = {};
+  LABEL[NESVRSENI] = 'unvollendete';
+  LABEL[SVRSENI]   = 'vollendete';
+
+  /* Die Sonderzeichen, die auf deutschen Tastaturen fehlen */
+  var SONDERZEICHEN = ['č', 'ć', 'š', 'ž', 'đ'];
+
+  /* Die Übungssets: filtern die Paare nach Niveau.
+     Gleiche Aufteilung wie in lernen-aspektpaare.html, damit
+     der Lernende dieselbe Auswahl wiederfindet.
+     "niveaus: null" bedeutet „alle Niveaus". */
+  var SETS = [
+    {
+      id: 'leicht',
+      titel: 'Grundstufe',
+      niveauLabel: 'A1–A2',
+      beschreibung: 'Häufige Alltagsverben. Der Einstieg in die freie Eingabe.',
+      niveaus: ['A1', 'A2']
+    },
+    {
+      id: 'schwer',
+      titel: 'Aufbaustufe',
+      niveauLabel: 'B1–C1',
+      beschreibung: 'Anspruchsvollere Verben – hier wechselt besonders oft der Stamm.',
+      niveaus: ['B1', 'B2', 'C1', 'C2']
+    },
+    {
+      id: 'alle',
+      titel: 'Alle Niveaus gemischt',
+      niveauLabel: 'A1–C1',
+      beschreibung: 'Alle Aspektpaare bunt gemischt – die volle Herausforderung.',
+      niveaus: null
+    }
+  ];
+
+  /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
+  var allePaare  = [];    // alle Aspektpaare aus der JSON
+  var beispiele  = {};    // par_id → Beispielsätze aus aspektpaare_data.json
+  var aktivSet   = null;  // das gerade gewählte Set
+  var fragen     = [];    // die 10 Aufgaben dieses Durchgangs
+  var aktuelleNr = 0;     // Index der aktuellen Aufgabe (0-basiert)
+  var punkte     = 0;     // Aufgaben mit BEIDEN Schritten richtig
+  var aspektTreffer = 0;  // Nebenwertung: Schritt 1 allein richtig
+
+  /* Zustand innerhalb einer Aufgabe */
+  var aspektRichtig = false;  // war Schritt 1 richtig?
+  var aspektOffen   = true;   // Schritt 1 noch unbeantwortet?
+  var ausgewertet   = false;  // Schritt 2 schon geprüft?
+  var punktVergeben = false;  // verhindert Doppelzählung bei Selbstkorrektur
+
+  /* Kurzschreibweise für document.getElementById */
+  function $(id) { return document.getElementById(id); }
+
+
+  /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
+  /* Fisher-Yates-Verfahren, wie in den anderen Übungen. */
+  function mischen(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+
+  /* ── Hilfsfunktion: Text für innerHTML entschärfen ───── */
+  /* Hier besonders wichtig: Anders als in den anderen Übungen
+     wird auch die EIGENE EINGABE des Nutzers wieder angezeigt.
+     Ohne diese Funktion könnte getippter HTML-Code ausgeführt
+     werden.                                                    */
+  function sicher(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+
+  /* ── Normalisierung für den Antwortvergleich ─────────── */
+  /* Macht aus „PROČITATI  " → „procitati".
+
+     Zweck: Wer auf einer deutschen Tastatur schreibt, hat kein
+     č/ć/š/ž/đ. Solche Eingaben sollen nicht als Fehler zählen,
+     sondern als „fast richtig" mit Hinweis auf die Schreibweise.
+
+     Das ist gefahrlos: Normalisiert man alle 184 Verbformen des
+     Bestands, fällt keine mit einer anderen zusammen. „dj" wird
+     mit abgedeckt, weil das die übliche Ersatzschreibung für „đ"
+     ist (oslobadjati → oslobađati) und im Bestand kein Verb ein
+     echtes „dj" enthält.                                        */
+  function normalisiere(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, ' ')     // Mehrfach-Leerzeichen (z. B. „buditi  se")
+      .replace(/[čć]/g, 'c')
+      .replace(/š/g, 's')
+      .replace(/ž/g, 'z')
+      .replace(/đ/g, 'd')
+      .replace(/dj/g, 'd');
+  }
+
+  /* Eingabe nur säubern, ohne Diakritika zu entfernen –
+     für den Vergleich auf exakte Übereinstimmung. */
+  function saeubere(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .trim()
+      .replace(/\s+/g, ' ')
+      .toLowerCase();
+  }
+
+
+  /* ── 1. JSON laden und Aspektpaare bilden ────────────── */
+  /* Absolute Pfade (mit führendem /), wie im Projekt üblich.
+     Läuft nur über einen Webserver, nicht per file:// .
+
+     Wie bei der Schwesterseite werden zwei Dateien geladen; die
+     zweite (Beispielsätze + optionale Alternativen) hat ein
+     eigenes .catch(), damit die Übung auch ohne sie läuft.      */
+  Promise.all([
+    fetch('/Code/2_Vokabeln/vokabeln_flat.json')
+      .then(function (response) { return response.json(); }),
+    fetch('/Code/4_Lernen/aspektpaare_data.json')
+      .then(function (response) { return response.json(); })
+      .catch(function (fehler) {
+        console.warn('Beispielsätze konnten nicht geladen werden:', fehler);
+        return { beispiele: {} };
+      })
+  ])
+    .then(function (ergebnisse) {
+      var data = ergebnisse[0];
+      beispiele = (ergebnisse[1] && ergebnisse[1].beispiele) || {};
+
+      allePaare = bildePaare(data);
+      baueSonderzeichen();
+      zeigeSetKarten();
+
+      // Falls die Seite mit ?set=leicht (o. Ä.) aufgerufen wurde –
+      // z. B. über einen „Jetzt üben"-Button der Grammatikseite.
+      var params = new URLSearchParams(window.location.search);
+      var wunschSet = params.get('set');
+      if (wunschSet) {
+        var gefunden = SETS.find(function (s) { return s.id === wunschSet; });
+        if (gefunden) { starteSet(gefunden); }
+      }
+    })
+    .catch(function (fehler) {
+      $('themaGrid').innerHTML =
+        '<p>Die Übung konnte nicht geladen werden. Bitte lade die Seite neu.</p>';
+      console.error('Fehler beim Laden der Vokabeldaten:', fehler);
+    });
+
+
+  /* ── Aus der flachen Vokabelliste die Aspektpaare bauen ─ */
+  /* Identisch zur Schwesterseite: Jeder Eintrag mit "par_id"
+     gehört zu einem Paar; nur vollständige Paare zählen.       */
+  function bildePaare(data) {
+    var gruppen = {};   // par_id → { nes: Eintrag, svr: Eintrag }
+
+    data.forEach(function (eintrag) {
+      var pid = eintrag.par_id;
+      if (!pid) { return; }                 // kein Aspektpaar → überspringen
+      if (!gruppen[pid]) { gruppen[pid] = {}; }
+
+      if (eintrag.aspekt === NESVRSENI) {
+        gruppen[pid].nes = eintrag;
+      } else if (eintrag.aspekt === SVRSENI) {
+        gruppen[pid].svr = eintrag;
+      }
+    });
+
+    var liste = [];
+    Object.keys(gruppen).forEach(function (pid) {
+      var g = gruppen[pid];
+      if (g.nes && g.svr) {
+        liste.push({
+          parId:   pid,
+          nes:     g.nes.Bosnisch,     // unvollendetes Verb
+          svr:     g.svr.Bosnisch,     // vollendetes Verb
+          deutsch: g.nes.Deutsch,      // Bedeutung (vom nesvršeni-Partner)
+          niveau:  g.nes.Niveau
+        });
+      }
+    });
+    return liste;
+  }
+
+
+  /* ── Sonderzeichenleiste aufbauen ────────────────────── */
+  /* Fügt das Zeichen an der Cursorposition ein und gibt den
+     Fokus zurück ins Feld – man kann also mitten im Wort
+     tippen, ohne die Hand von der Maus/vom Display zu nehmen. */
+  function baueSonderzeichen() {
+    var leiste = $('freiZeichen');
+    SONDERZEICHEN.forEach(function (zeichen) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'frei-zeichen-btn';
+      btn.textContent = zeichen;
+      btn.setAttribute('aria-label', 'Zeichen ' + zeichen + ' einfügen');
+      btn.addEventListener('click', function () { fuegeZeichenEin(zeichen); });
+      leiste.appendChild(btn);
+    });
+  }
+
+  function fuegeZeichenEin(zeichen) {
+    var feld = $('freiInput');
+    if (feld.disabled) { return; }
+
+    var start = feld.selectionStart;
+    var ende  = feld.selectionEnd;
+    var wert  = feld.value;
+
+    // Falls der Browser keine Cursorposition liefert: hinten anhängen
+    if (start === null || start === undefined) {
+      feld.value = wert + zeichen;
+    } else {
+      feld.value = wert.slice(0, start) + zeichen + wert.slice(ende);
+    }
+
+    feld.focus();
+    var neuePos = (start === null || start === undefined)
+      ? feld.value.length
+      : start + zeichen.length;
+    feld.setSelectionRange(neuePos, neuePos);
+    versteckeFehler();
+  }
+
+
+  /* ── 2. Set-Karten auf dem Startschirm anzeigen ──────── */
+  function zeigeSetKarten() {
+    var grid = $('themaGrid');
+    grid.innerHTML = '';
+
+    SETS.forEach(function (set) {
+      var anzahl = paareFuerSet(set).length;
+
+      var karte = document.createElement('button');
+      karte.className = 'thema-card';
+      karte.innerHTML =
+        '<div class="thema-icon"><i class="fas fa-keyboard"></i></div>' +
+        '<span class="thema-niveau">' + set.niveauLabel + '</span>' +
+        '<h3>' + set.titel + '</h3>' +
+        '<p>' + set.beschreibung + '</p>' +
+        '<p class="thema-anzahl">' + anzahl + ' Aspektpaare</p>';
+
+      karte.addEventListener('click', function () { starteSet(set); });
+      grid.appendChild(karte);
+    });
+  }
+
+
+  /* Liefert alle Paare, die zum gewählten Set (Niveau) passen. */
+  function paareFuerSet(set) {
+    if (!set.niveaus) { return allePaare.slice(); }   // „alle"
+    return allePaare.filter(function (p) {
+      return set.niveaus.indexOf(p.niveau) !== -1;
+    });
+  }
+
+
+  /* ── 3. Ein Set starten ──────────────────────────────── */
+  function starteSet(set) {
+    aktivSet = set;
+
+    var pool = mischen(paareFuerSet(set));
+    var gewaehlt = pool.slice(0, FRAGEN_PRO_RUNDE);
+
+    fragen = gewaehlt.map(function (paar) { return baueFrage(paar); });
+
+    aktuelleNr = 0;
+    punkte = 0;
+    aspektTreffer = 0;
+
+    $('startScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.remove('hidden');
+
+    zeigeFrage();
+  }
+
+
+  /* ── Aus einem Paar eine Aufgabe bauen ───────────────── */
+  /* Die Richtung wird gewürfelt – sonst wäre Schritt 1 wertlos:
+     Käme immer der nesvršeni als Prompt, wüsste man die Antwort
+     nach drei Aufgaben auswendig.
+
+     Die Rückrichtung (svršeni → nesvršeni) ist dabei sprachlich
+     die heiklere: Neben dem Simplex existiert oft ein sekundäres
+     Imperfektivum (izabrati → birati, aber auch izabirati). Genau
+     dafür gibt es die Selbstkorrektur und das optionale Feld
+     "frei.alt_nes" in aspektpaare_data.json.                     */
+  function baueFrage(paar) {
+    var zeigeUnvollendet = (Math.random() < 0.5);
+
+    var promptWort, promptAspekt, loesung, zielAspekt, alternativen;
+    var frei = (beispiele[paar.parId] && beispiele[paar.parId].frei) || {};
+
+    if (zeigeUnvollendet) {
+      promptWort   = paar.nes;
+      promptAspekt = NESVRSENI;
+      loesung      = paar.svr;
+      zielAspekt   = SVRSENI;              // gesucht: der vollendete Partner
+      alternativen = frei.alt_svr || [];
+    } else {
+      promptWort   = paar.svr;
+      promptAspekt = SVRSENI;
+      loesung      = paar.nes;
+      zielAspekt   = NESVRSENI;            // gesucht: der unvollendete Partner
+      alternativen = frei.alt_nes || [];
+    }
+
+    return {
+      paar:         paar,
+      promptWort:   promptWort,
+      promptAspekt: promptAspekt,
+      loesung:      loesung,
+      zielAspekt:   zielAspekt,
+      alternativen: alternativen
+    };
+  }
+
+
+  /* ── 4. Eine Aufgabe anzeigen ────────────────────────── */
+  function zeigeFrage() {
+    var frage = fragen[aktuelleNr];
+
+    // Zustand für die neue Aufgabe zurücksetzen
+    aspektRichtig = false;
+    aspektOffen   = true;
+    ausgewertet   = false;
+    punktVergeben = false;
+
+    // Fortschritt aktualisieren
+    $('uebungProgress').textContent =
+      'Verb ' + (aktuelleNr + 1) + ' von ' + fragen.length;
+    $('uebungBarFill').style.width =
+      ((aktuelleNr / fragen.length) * 100) + '%';
+
+    // Das Verb – ohne Aspekt-Etikett, das ist ja die Frage
+    $('promptVerb').textContent = frage.promptWort;
+
+    // Schritt 1: beide Körbe zurücksetzen und freigeben
+    [$('btnNes'), $('btnSvr')].forEach(function (btn) {
+      btn.className = 'korb-btn';
+      btn.disabled = false;
+    });
+
+    // Schritt 2: sperren und leeren
+    $('schritt2').classList.add('gesperrt');
+    $('aspektFrage').textContent = 'Bestimme zuerst den Aspekt.';
+
+    var feld = $('freiInput');
+    feld.value = '';
+    feld.disabled = false;
+    feld.className = 'frei-input';
+
+    $('pruefenBtn').disabled = false;
+    $('loesungBtn').disabled = false;
+    zeichenAktiv(true);
+    versteckeFehler();
+
+    // Feedback, Selbstkorrektur und „Weiter" verstecken
+    $('uebungFeedback').classList.add('hidden');
+    $('freiKorrektur').classList.add('hidden');
+    $('nextBtn').classList.add('hidden');
+  }
+
+
+  /* Sonderzeichen-Buttons gemeinsam sperren/freigeben */
+  function zeichenAktiv(aktiv) {
+    var btns = $('freiZeichen').querySelectorAll('.frei-zeichen-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].disabled = !aktiv;
+    }
+  }
+
+  function zeigeFehler(text) {
+    var box = $('freiFehler');
+    box.textContent = text;
+    box.classList.remove('hidden');
+  }
+  function versteckeFehler() {
+    $('freiFehler').classList.add('hidden');
+  }
+
+
+  /* ── 5. Schritt 1: Aspekt bestimmen ──────────────────── */
+  /* Nach der Wahl wird sofort ausgewertet und Schritt 2
+     freigeschaltet – auch bei falscher Antwort. Sonst wäre die
+     zweite Hälfte der Aufgabe nach einem Fehler gesperrt, und
+     der Lernende käme gar nicht erst zum Schreiben.             */
+  function waehleAspekt(gewaehlt) {
+    if (!aspektOffen) { return; }
+    aspektOffen = false;
+
+    var frage = fragen[aktuelleNr];
+    aspektRichtig = (gewaehlt === frage.promptAspekt);
+    if (aspektRichtig) { aspektTreffer++; }
+
+    // Beide Körbe markieren: der richtige grün, ein falsch
+    // gewählter zusätzlich rot.
+    var btnRichtig = (frage.promptAspekt === NESVRSENI) ? $('btnNes') : $('btnSvr');
+    var btnFalsch  = (frage.promptAspekt === NESVRSENI) ? $('btnSvr') : $('btnNes');
+    btnRichtig.classList.add('correct');
+    if (!aspektRichtig) { btnFalsch.classList.add('wrong'); }
+    btnRichtig.disabled = true;
+    btnFalsch.disabled = true;
+
+    // Schritt 2 freigeben. Die Zielrichtung wird IMMER genannt –
+    // auch wer den Aspekt falsch bestimmt hat, soll die richtige
+    // Form üben können.
+    $('aspektFrage').innerHTML =
+      'Gesucht: der <strong>' + LABEL[frage.zielAspekt] + '</strong> Partner (' +
+      sicher(frage.zielAspekt) + ')';
+    $('schritt2').classList.remove('gesperrt');
+
+    // Auf dem Desktop direkt ins Feld springen. Auf dem Handy
+    // bewusst NICHT – dort würde die Tastatur die Aufgabe verdecken.
+    if (window.innerWidth > 900) { $('freiInput').focus(); }
+  }
+
+  $('btnNes').addEventListener('click', function () { waehleAspekt(NESVRSENI); });
+  $('btnSvr').addEventListener('click', function () { waehleAspekt(SVRSENI); });
+
+
+  /* ── 6. Schritt 2: die Eingabe bewerten ──────────────── */
+  /* Liefert eine der folgenden Bewertungen:
+       'exakt'        – Zeichen für Zeichen richtig
+       'schreibweise' – richtig bis auf fehlende Diakritika
+       'alternative'  – eine hinterlegte Zweitform (frei.alt_*)
+       'ohne_se'      – reflexives Verb ohne „se" geschrieben
+       'falsch'       – alles andere                            */
+  function bewerte(eingabe, frage) {
+    var roh  = saeubere(eingabe);
+    var norm = normalisiere(eingabe);
+
+    if (roh === saeubere(frage.loesung)) { return { art: 'exakt' }; }
+    if (norm === normalisiere(frage.loesung)) { return { art: 'schreibweise' }; }
+
+    // Hinterlegte Alternativen (falls für dieses Paar gepflegt)
+    for (var i = 0; i < frage.alternativen.length; i++) {
+      var alt = frage.alternativen[i];
+      if (roh === saeubere(alt) || norm === normalisiere(alt)) {
+        return { art: 'alternative', wort: alt };
+      }
+    }
+
+    // Reflexives Verb ohne „se"? Das ist kein Tippfehler, sondern
+    // oft ein anderes Verb: „liječiti se" (genesen) vs. „liječiti"
+    // (jemanden behandeln) stehen beide im Bestand.
+    if (frage.loesung.indexOf(' se') !== -1) {
+      var ohneSe = normalisiere(frage.loesung.replace(' se', ''));
+      if (norm === ohneSe) { return { art: 'ohne_se' }; }
+    }
+
+    return { art: 'falsch' };
+  }
+
+
+  /* ── Beispielsätze zum Paar aufbereiten ──────────────── */
+  /* Wie in der Zuordnungs-Übung: nesvršeni im Präsens, svršeni
+     im Perfekt. Der Kontrast schlägt die Brücke zur
+     Anwendungs-Übung lernen-aspektwahl.html.                   */
+  function beispielHtml(parId) {
+    var b = beispiele[parId];
+    if (!b) { return ''; }
+    return zeileHtml('nesvršeni', b.nes_satz, b.nes_de) +
+           zeileHtml('svršeni',   b.svr_satz, b.svr_de);
+  }
+
+  function zeileHtml(aspekt, satz, deutsch) {
+    if (!satz) { return ''; }
+    return '<span class="feedback-beispiel">' +
+             '<span class="feedback-satz-aspekt">' + sicher(aspekt) + '</span>' +
+             '<span class="feedback-satz">' + sicher(satz) + '</span>' +
+             '<span class="feedback-satz-de">' + sicher(deutsch) + '</span>' +
+           '</span>';
+  }
+
+
+  /* Die Paar-Auflösung, die in jedem Feedback steht */
+  function paarHtml(paar) {
+    return '<span class="feedback-paar">' +
+             '<strong>' + sicher(paar.nes) + '</strong> (unvollendet) ↔ ' +
+             '<strong>' + sicher(paar.svr) + '</strong> (vollendet) – ' +
+             sicher(paar.deutsch) +
+           '</span>';
+  }
+
+
+  /* ── 7. Prüfen ───────────────────────────────────────── */
+  function pruefen() {
+    if (ausgewertet || aspektOffen) { return; }
+
+    var eingabe = $('freiInput').value;
+
+    // Leeres Feld: nicht auswerten, sondern nachfragen.
+    if (saeubere(eingabe) === '') {
+      zeigeFehler('Schreib zuerst eine Form – oder nutze „Lösung zeigen".');
+      $('freiInput').focus();
+      return;
+    }
+
+    var frage = fragen[aktuelleNr];
+    werteAus(bewerte(eingabe, frage), eingabe);
+  }
+
+
+  /* ── Aufgabe abschließen und Feedback zeigen ─────────── */
+  /* ergebnis.art steuert Farbe und Text; bei 'aufgegeben' hat
+     der Lernende „Lösung zeigen" gedrückt.                    */
+  function werteAus(ergebnis, eingabe) {
+    ausgewertet = true;
+    versteckeFehler();
+
+    var frage = fragen[aktuelleNr];
+    var feld  = $('freiInput');
+    var fb    = $('uebungFeedback');
+
+    // Eingabefeld sperren und einfärben
+    feld.disabled = true;
+    $('pruefenBtn').disabled = true;
+    $('loesungBtn').disabled = true;
+    zeichenAktiv(false);
+
+    // Formteil richtig? (Schreibweise und Alternativen zählen mit)
+    var formRichtig = (ergebnis.art === 'exakt' ||
+                       ergebnis.art === 'schreibweise' ||
+                       ergebnis.art === 'alternative');
+
+    var kopf, klasse, zusatz = '';
+
+    if (ergebnis.art === 'exakt') {
+      kopf   = '<i class="fas fa-check-circle"></i> Richtig!';
+      klasse = 'feedback-correct';
+      feld.classList.add('correct');
+
+    } else if (ergebnis.art === 'schreibweise') {
+      kopf   = '<i class="fas fa-circle-check"></i> Richtig – bis auf die Schreibweise.';
+      klasse = 'feedback-fast';
+      feld.classList.add('fast');
+      zusatz = '<span class="feedback-schreibweise">Mit Sonderzeichen: ' +
+               sicher(frage.loesung) + '</span>';
+
+    } else if (ergebnis.art === 'alternative') {
+      kopf   = '<i class="fas fa-check-circle"></i> Richtig – das geht auch.';
+      klasse = 'feedback-correct';
+      feld.classList.add('correct');
+      zusatz = '<span class="feedback-schreibweise">Im Wortschatz steht: ' +
+               sicher(frage.loesung) + '</span>';
+
+    } else if (ergebnis.art === 'ohne_se') {
+      kopf   = '<i class="fas fa-times-circle"></i> Fast – aber ohne <em>se</em> ist es ein anderes Verb.';
+      klasse = 'feedback-wrong';
+      feld.classList.add('wrong');
+      zusatz = '<span class="feedback-schreibweise">Richtig: ' +
+               sicher(frage.loesung) + '</span>';
+
+    } else if (ergebnis.art === 'aufgegeben') {
+      kopf   = '<i class="fas fa-eye"></i> Die Lösung lautet <strong>' +
+               sicher(frage.loesung) + '</strong>.';
+      klasse = 'feedback-wrong';
+      feld.value = frage.loesung;
+      feld.classList.add('wrong');
+
+    } else {
+      kopf   = '<i class="fas fa-times-circle"></i> Leider falsch. Der Aspektpartner von „' +
+               sicher(frage.promptWort) + '" ist <strong>' + sicher(frage.loesung) + '</strong>.';
+      klasse = 'feedback-wrong';
+      feld.classList.add('wrong');
+      zusatz = '<span class="feedback-schreibweise">Deine Eingabe: ' +
+               sicher(saeubere(eingabe)) + '</span>';
+    }
+
+    // Hinweis, wenn der Aspekt in Schritt 1 falsch bestimmt wurde.
+    if (!aspektRichtig) {
+      zusatz += '<span class="feedback-schreibweise">Schritt 1: „' +
+                sicher(frage.promptWort) + '" ist ' + sicher(frage.promptAspekt) +
+                '.</span>';
+
+      // Stimmt die Form, war aber der Aspekt falsch, darf das
+      // Feedback NICHT grün „Richtig!" melden: Es gibt keinen Punkt,
+      // und ein grüner Kasten würde genau das Gegenteil suggerieren.
+      // Stattdessen der mittlere Zustand – halb geschafft.
+      if (formRichtig) {
+        kopf   = '<i class="fas fa-circle-half-stroke"></i> Die Form stimmt – der Aspekt nicht.';
+        klasse = 'feedback-fast';
+        feld.classList.remove('correct');
+        feld.classList.add('fast');
+      }
+    }
+
+    fb.innerHTML = kopf + zusatz + paarHtml(frage.paar) + beispielHtml(frage.paar.parId);
+    fb.className = 'uebung-feedback ' + klasse;
+    fb.classList.remove('hidden');
+
+    // Punkt nur, wenn BEIDE Schritte stimmen
+    if (formRichtig && aspektRichtig) {
+      punkte++;
+      punktVergeben = true;
+    }
+
+    // Selbstkorrektur nur anbieten, wenn wirklich als falsch
+    // gewertet wurde und der Lernende etwas Eigenes geschrieben
+    // hat (nach „Lösung zeigen" wäre sie sinnlos).
+    if (ergebnis.art === 'falsch') {
+      $('freiKorrektur').classList.remove('hidden');
+    }
+
+    // Weiter-Button zeigen; Beschriftung am letzten Item anpassen
+    var next = $('nextBtn');
+    next.classList.remove('hidden');
+    next.textContent = (aktuelleNr === fragen.length - 1)
+      ? 'Ergebnis anzeigen →'
+      : 'Nächstes Verb →';
+
+    // Fokus auf „Weiter", damit man mit der Tastatur durchkommt:
+    // Enter prüft, das nächste Enter blättert weiter.
+    if (window.innerWidth > 900) { next.focus(); }
+  }
+
+
+  /* ── 8. Selbstkorrektur ──────────────────────────────── */
+  /* Fängt gültige Formen ab, die (noch) nicht in
+     aspektpaare_data.json hinterlegt sind – vor allem sekundäre
+     Imperfektiva. Ohne diesen Ausgang würde die Übung korrektes
+     Bosnisch als Fehler werten, und der Lernende lernte das
+     Falsche.                                                    */
+  $('korrekturBtn').addEventListener('click', function () {
+    if (punktVergeben) { return; }
+
+    var feld = $('freiInput');
+    var fb   = $('uebungFeedback');
+    feld.classList.remove('wrong');
+
+    // Nur wenn auch der Aspekt stimmte, gibt es den Punkt – und nur
+    // dann wird der Kasten grün. War Schritt 1 falsch, bleibt es beim
+    // mittleren Zustand (wie oben in werteAus).
+    if (aspektRichtig) {
+      punkte++;
+      punktVergeben = true;
+      feld.classList.add('correct');
+      fb.className = 'uebung-feedback feedback-correct';
+    } else {
+      feld.classList.add('fast');
+      fb.className = 'uebung-feedback feedback-fast';
+    }
+
+    $('freiKorrektur').classList.add('hidden');
+  });
+
+
+  /* ── 9. Bedienung: Enter, Prüfen, Lösung zeigen ──────── */
+
+  $('pruefenBtn').addEventListener('click', pruefen);
+
+  $('loesungBtn').addEventListener('click', function () {
+    if (ausgewertet || aspektOffen) { return; }
+    werteAus({ art: 'aufgegeben' }, '');
+  });
+
+  // Enter im Eingabefeld prüft die Antwort
+  $('freiInput').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      pruefen();
+    }
+  });
+
+  // Sobald wieder getippt wird, verschwindet der Leer-Hinweis
+  $('freiInput').addEventListener('input', versteckeFehler);
+
+
+  /* ── 10. Nächste Aufgabe / Ergebnis ──────────────────── */
+  $('nextBtn').addEventListener('click', function () {
+    if (aktuelleNr < fragen.length - 1) {
+      aktuelleNr++;
+      zeigeFrage();
+    } else {
+      zeigeErgebnis();
+    }
+  });
+
+
+  /* ── 11. Ergebnis anzeigen ───────────────────────────── */
+  function zeigeErgebnis() {
+    $('uebungScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.remove('hidden');
+
+    var anzahl = fragen.length;
+    $('resultScore').textContent = punkte + ' von ' + anzahl + ' richtig';
+
+    // Nebenwertung: Schritt 1 allein. Sie zeigt, ob die Fehler am
+    // Erkennen des Aspekts lagen oder am Bilden der Form.
+    $('resultNeben').textContent =
+      'Aspekt richtig bestimmt: ' + aspektTreffer + ' von ' + anzahl;
+
+    var text = '';
+    if (punkte === anzahl) {
+      text = 'Perfekt! Du bildest die Aspektpartner sicher – auch ohne Vorgaben. 🎉';
+    } else if (punkte >= anzahl * 0.7) {
+      text = 'Sehr gut! Nur wenige Ausrutscher – weiter so.';
+    } else if (punkte >= anzahl * 0.5) {
+      text = 'Guter Anfang! Achte auf die Stammwechsel: ije/je und đ/d ändern sich oft mit.';
+    } else if (aspektTreffer >= anzahl * 0.7) {
+      text = 'Den Aspekt erkennst du schon gut – jetzt fehlen noch die Formen. ' +
+             'Die Zuordnungs-Übung zeigt sie dir zur Auswahl.';
+    } else {
+      text = 'Kein Problem – das ist die schwerste Aspekt-Übung. ' +
+             'Übe erst die Zuordnung und komm dann zurück.';
+    }
+    $('resultText').textContent = text;
+  }
+
+
+  /* ── 12. Buttons im Ergebnis-Bildschirm ──────────────── */
+
+  // „Wiederholen" → dasselbe Set erneut (neu gemischt)
+  $('retryBtn').addEventListener('click', function () {
+    starteSet(aktivSet);
+  });
+
+  // „Anderes Set" → zurück zum Startschirm
+  $('otherBtn').addEventListener('click', function () {
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  });
+
+  </script>
+
+</body>
+</html>

@@ -9,13 +9,18 @@
 
   "_felder": "Pro par_id: 'nes'/'svr' = die beiden Verben (nur zur Lesbarkeit und zum Abgleich mit vokabeln_flat.json, die Uebung nutzt sie nicht), 'nes_satz'/'nes_de' und 'svr_satz'/'svr_de' = die angezeigten Saetze mit Uebersetzung. Fehlt ein par_id in dieser Datei, zeigt die Uebung einfach keine Beispielsaetze - sie bricht nicht ab. Neue Aspektpaare in vokabeln_flat.json duerfen also nachgezogen werden, muessen aber nicht sofort.",
 
+  "_pruefung_frei": "Sprachpruefung der Alternativformen durch den bosnisch-pruefer-Subagenten am 2026-08-30. Aufgenommen wurden 12 Paare. ABGELEHNT und bewusst NICHT aufgenommen - bitte nicht spaeter 'nachtragen': 'izici' (ap89, buchsprachlich/kroatisch konnotiert, 'izaci' dominiert klar), 'popijati' (ap46) und 'procitavati' (ap70) - beide existieren, sind im Alltag aber randstaendig und iterativ markiert; 'shvacati' (ap90) - ijekavisch einwandfrei und in BiH real verbreitet, aber kroatisch markiert, waehrend 'shvatati' die bosnische Vorzugsform ist; ausgeschlossen aus demselben Grund wie 'obraniti' bei ap20. Wegen abweichender Bedeutung abgelehnt: 'porusiti' (ap33, distributiv 'mehreres niederreissen'), 'isjeci' (ap49, anderer Stamm - Perfektiv zu 'sjeci', nicht zu 'rezati'), 'odraditi' (ap53, 'abarbeiten/absolvieren'), 'dovrsiti' (ap64, setzt begonnene Handlung voraus und hat mit 'dovrsavati' ein eigenes Imperfektivum), 'premjeriti' (ap75, 'nachmessen'), 'namalterisati' (ap42, kaum belegt). Formhinweis: bei ap58 gilt 'izbrojati', NICHT 'izbrojiti' oder 'prebrojiti' - die Stammvariante 'brojiti' ist kroatisch gepraegt, die JSON fuehrt 'brojati'. Symmetrie beachtet: wo eine Richtung eine Alternative bekommt, wurde die Gegenrichtung mitgeprueft (ap01 'odabrati' -> auch 'odabirati'; ap63 'zapoceti' -> auch 'zapocinjati').",
+
+  "_felder_frei": "OPTIONAL, bei 12 von 92 Paaren gesetzt: Pro par_id darf zusaetzlich ein Block 'frei' stehen, den NUR die Freitext-Uebung (Code/4_Lernen/lernen-aspektpaare-frei.html) auswertet. Er nennt weitere Formen, die als richtige Antwort zaehlen sollen: 'alt_svr' = Liste zusaetzlicher vollendeter Partner (gefragt, wenn der nesvrseni gezeigt wird), 'alt_nes' = Liste zusaetzlicher unvollendeter Partner. Beispiel: \"ap01\": { ..., \"frei\": { \"alt_nes\": [\"izabirati\"] } }. Wozu: Zu vielen praefigierten Verben existiert neben dem Simplex ein sekundaeres Imperfektivum (izabrati -> birati ODER izabirati; proslaviti -> slaviti ODER proslavljati), und in der Gegenrichtung konkurrieren mehrere Praefixe (cekati -> sacekati ODER pricekati). Bei Multiple Choice ist das egal, bei freier Eingabe wertet die Uebung sonst korrektes Bosnisch als Fehler. Der Block ist bewusst NICHT Voraussetzung: Fehlt er, kann der Lernende seine Antwort ueber den Button 'Meine Antwort war auch richtig' selbst umwerten. Das Feld ist also die Verbesserung, nicht die Startbedingung - haeufige Faelle koennen nach und nach nachgetragen werden. Eintraege bitte vom bosnisch-pruefer bestaetigen lassen, bevor sie aufgenommen werden (siehe '_pruefung_frei'). Wichtig beim Nachtragen: Nur Formen mit DERSELBEN Grundbedeutung aufnehmen. Eine zu Unrecht abgelehnte Form fangen die Lernenden ueber die Selbstkorrektur ab und verlieren nichts; eine zu Unrecht AKZEPTIERTE Form lehrt dagegen eine falsche Gleichsetzung, die haengen bleibt. Im Zweifel also weglassen.",
+
   "beispiele": {
     "ap01": {
       "nes": "birati", "svr": "izabrati",
       "nes_satz": "Biram poklon za sestru.",
       "nes_de": "Ich suche gerade ein Geschenk für meine Schwester aus.",
       "svr_satz": "Izabrao sam plavu košulju.",
-      "svr_de": "Ich habe das blaue Hemd ausgewählt."
+      "svr_de": "Ich habe das blaue Hemd ausgewählt.",
+      "frei": { "alt_svr": ["odabrati"], "alt_nes": ["izabirati", "odabirati"] }
     },
     "ap02": {
       "nes": "kupovati", "svr": "kupiti",
@@ -71,7 +76,8 @@
       "nes_satz": "Čistim kuhinju.",
       "nes_de": "Ich putze (gerade) die Küche.",
       "svr_satz": "Počistio sam kuhinju.",
-      "svr_de": "Ich habe die Küche fertig geputzt."
+      "svr_de": "Ich habe die Küche fertig geputzt.",
+      "frei": { "alt_svr": ["očistiti"] }
     },
     "ap10": {
       "nes": "slati", "svr": "poslati",
@@ -155,7 +161,8 @@
       "nes_satz": "Policajac motri ulaz.",
       "nes_de": "Der Polizist beobachtet den Eingang.",
       "svr_satz": "Osmotrio je okolinu i otišao.",
-      "svr_de": "Er hat sich die Umgebung (kurz) angesehen und ist gegangen."
+      "svr_de": "Er hat sich die Umgebung (kurz) angesehen und ist gegangen.",
+      "frei": { "alt_svr": ["promotriti"] }
     },
     "ap22": {
       "nes": "kazivati", "svr": "kazati",
@@ -204,7 +211,8 @@
       "nes_satz": "Grade novu školu.",
       "nes_de": "Sie bauen (gerade) eine neue Schule.",
       "svr_satz": "Izgradili su novu školu.",
-      "svr_de": "Sie haben eine neue Schule fertig gebaut."
+      "svr_de": "Sie haben eine neue Schule fertig gebaut.",
+      "frei": { "alt_svr": ["sagraditi"] }
     },
     "ap29": {
       "nes": "zidati", "svr": "sazidati",
@@ -246,7 +254,8 @@
       "nes_satz": "Farbam ogradu.",
       "nes_de": "Ich streiche (gerade) den Zaun.",
       "svr_satz": "Ofarbao sam vrata.",
-      "svr_de": "Ich habe die Tür fertig gestrichen."
+      "svr_de": "Ich habe die Tür fertig gestrichen.",
+      "frei": { "alt_svr": ["nafarbati"] }
     },
     "ap35": {
       "nes": "krečiti", "svr": "okrečiti",
@@ -309,14 +318,16 @@
       "nes_satz": "Bušim rupu u zidu.",
       "nes_de": "Ich bohre (gerade) ein Loch in die Wand.",
       "svr_satz": "Probušio sam zid.",
-      "svr_de": "Ich habe die Wand durchbohrt."
+      "svr_de": "Ich habe die Wand durchbohrt.",
+      "frei": { "alt_svr": ["izbušiti"] }
     },
     "ap44": {
       "nes": "lijepiti", "svr": "zalijepiti",
       "nes_satz": "Lijepim tapete u sobi.",
       "nes_de": "Ich klebe (gerade) Tapeten im Zimmer.",
       "svr_satz": "Zalijepio sam sliku na zid.",
-      "svr_de": "Ich habe das Bild an die Wand geklebt."
+      "svr_de": "Ich habe das Bild an die Wand geklebt.",
+      "frei": { "alt_svr": ["nalijepiti"] }
     },
     "ap45": {
       "nes": "useljavati se", "svr": "useliti se",
@@ -351,7 +362,8 @@
       "nes_satz": "Režem hljeb.",
       "nes_de": "Ich schneide (gerade) Brot.",
       "svr_satz": "Narezao sam hljeb.",
-      "svr_de": "Ich habe das Brot (in Scheiben) geschnitten."
+      "svr_de": "Ich habe das Brot (in Scheiben) geschnitten.",
+      "frei": { "alt_svr": ["izrezati", "odrezati"] }
     },
     "ap50": {
       "nes": "pitati", "svr": "upitati",
@@ -386,7 +398,8 @@
       "nes_satz": "Čekam autobus.",
       "nes_de": "Ich warte (gerade) auf den Bus.",
       "svr_satz": "Sačekao sam ga ispred škole.",
-      "svr_de": "Ich habe vor der Schule auf ihn gewartet (bis er kam)."
+      "svr_de": "Ich habe vor der Schule auf ihn gewartet (bis er kam).",
+      "frei": { "alt_svr": ["pričekati"], "alt_nes": ["sačekivati"] }
     },
     "ap55": {
       "nes": "kasniti", "svr": "zakasniti",
@@ -414,7 +427,8 @@
       "nes_satz": "Dijete broji do deset.",
       "nes_de": "Das Kind zählt bis zehn.",
       "svr_satz": "Prebrojao sam sav novac.",
-      "svr_de": "Ich habe das ganze Geld durchgezählt."
+      "svr_de": "Ich habe das ganze Geld durchgezählt.",
+      "frei": { "alt_svr": ["izbrojati"] }
     },
     "ap59": {
       "nes": "pričati", "svr": "ispričati",
@@ -449,7 +463,8 @@
       "nes_satz": "Škola počinje u osam.",
       "nes_de": "Die Schule beginnt (immer) um acht.",
       "svr_satz": "Film je počeo.",
-      "svr_de": "Der Film hat angefangen."
+      "svr_de": "Der Film hat angefangen.",
+      "frei": { "alt_svr": ["započeti"], "alt_nes": ["započinjati"] }
     },
     "ap64": {
       "nes": "završavati", "svr": "završiti",
@@ -540,7 +555,8 @@
       "nes_satz": "Slavimo rođendan.",
       "nes_de": "Wir feiern (gerade) Geburtstag.",
       "svr_satz": "Proslavili smo rođendan.",
-      "svr_de": "Wir haben den Geburtstag gebührend gefeiert."
+      "svr_de": "Wir haben den Geburtstag gebührend gefeiert.",
+      "frei": { "alt_nes": ["proslavljati"] }
     },
     "ap77": {
       "nes": "objašnjavati", "svr": "objasniti",

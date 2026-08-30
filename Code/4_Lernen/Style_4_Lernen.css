@@ -976,6 +976,188 @@ main h1 {
 .kat-score.kat-luecke { color: #922b21; }
 
 
+/* ── 4e. Aspektpaare – freie Eingabe ─────────────────── */
+/* (lernen-aspektpaare-frei.html)
+   Die Stufe über der Zuordnungs-Übung: Statt aus Optionen zu
+   wählen, wird die Partnerform selbst geschrieben. Prompt-Verb,
+   Fortschritt, Feedback und Ergebnis kommen aus 4a/4b und werden
+   hier nur mitbenutzt. Neu sind: die Schritt-Beschriftung, die
+   Zwei-Korb-Variante für die Aspektbestimmung, das Eingabefeld
+   samt Sonderzeichenleiste, der dritte Feedback-Zustand
+   („fast richtig") und der Selbstkorrektur-Button.               */
+
+/* Kleine Überschrift über jedem der beiden Schritte */
+.frei-schritt {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #999;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Schritt 1 nutzt die Korb-Optik aus 4d, hat aber nur zwei
+   Antworten statt drei. */
+.korb-grid.korb-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Solange Schritt 1 offen ist, liegt Schritt 2 blass darunter –
+   sichtbar (der Lernende soll wissen, was kommt), aber gesperrt.
+   pointer-events blockt auch Klicks auf die Sonderzeichen.       */
+.frei-schritt2 {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--neutral);
+  transition: opacity 0.25s ease;
+}
+.frei-schritt2.gesperrt {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Das Eingabefeld selbst */
+.frei-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-align: center;
+  color: var(--primary);
+  background: #fcfbf9;
+  padding: 13px 14px;
+  min-height: 48px;
+  border: 2px solid var(--neutral);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.frei-input::placeholder {
+  font-weight: 400;
+  color: #bbb;
+}
+.frei-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fff;
+}
+/* Nach dem Prüfen: das Feld färbt sich mit */
+.frei-input.correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e7e46;
+}
+.frei-input.fast {
+  border-color: #d8a92a;
+  background: #fdf6e3;
+  color: #8a6a1c;
+}
+.frei-input.wrong {
+  border-color: #c0392b;
+  background: #fdecea;
+  color: #922b21;
+}
+.frei-input:disabled {
+  cursor: default;
+}
+
+/* Sonderzeichenleiste: auf deutschen Tastaturen gibt es
+   č ć š ž đ nicht – ohne diese Reihe wäre die Übung am Handy
+   praktisch nicht bedienbar. */
+.frei-zeichen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.frei-zeichen-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  width: 44px;                    /* Mindest-Touch-Target */
+  height: 44px;
+  border: 1px solid var(--neutral);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.frei-zeichen-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: #f8f8f8;
+}
+.frei-zeichen-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* Steuerzeile: Prüfen + Lösung zeigen */
+.frei-aktionen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+/* Inline-Hinweis bei leerem Feld */
+.frei-fehler {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #922b21;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Dritter Feedback-Zustand neben correct/wrong (Abschnitt 4):
+   die Form stimmt, nur die Schreibung nicht (fehlende Diakritika).
+   Goldgelb aus dem Design-System, abgedunkelt für Lesbarkeit.     */
+.feedback-fast {
+  background: #fdf6e3;
+  color: #8a6a1c;
+  border: 1px solid #ecd08a;
+}
+
+/* Zusatzzeile im Feedback: die korrekte Schreibweise */
+.feedback-schreibweise {
+  display: block;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* Selbstkorrektur: fängt gültige Formen ab, die (noch) nicht
+   hinterlegt sind – z. B. sekundäre Imperfektiva wie „izabirati"
+   neben „birati". Ohne diesen Ausgang würde die Übung korrektes
+   Bosnisch als Fehler werten.                                     */
+.frei-korrektur {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.frei-korrektur-hinweis {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.82rem;
+  color: #999;
+  line-height: 1.45;
+  margin-top: 8px;
+}
+
+/* Zeile mit der Nebenwertung auf dem Ergebnis-Bildschirm */
+.result-nebenwertung {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+
 /* ── 6. Responsive Design ────────────────────────────── */
 
 /* Tablet */
@@ -1028,7 +1210,12 @@ main h1 {
   /* Aspektwahl: Die drei Körbe untereinander statt nebeneinander.
      Nebeneinander wären die Beschriftungen („meist unvollendet")
      auf schmalen Displays kaum noch lesbar.                       */
-  .korb-grid {
+  /* Die Zwei-Korb-Variante (4e) muss hier mit aufgezählt werden:
+     .korb-grid.korb-grid-2 ist spezifischer als .korb-grid allein
+     und würde den Einspalter sonst überstimmen – „nesvršeni" passt
+     unter 480px nicht mehr in eine halbe Zeile.                    */
+  .korb-grid,
+  .korb-grid.korb-grid-2 {
     grid-template-columns: 1fr;
     gap: 10px;
   }
@@ -1041,6 +1228,13 @@ main h1 {
     text-align: left;
   }
   .korb-btn .korb-icon { font-size: 1.15rem; }
+  /* Freie Eingabe: Prüfen-Button volle Breite, „Lösung zeigen"
+     darunter. Die Sonderzeichen bleiben nebeneinander – fünf
+     44px-Ziele passen auch auf 320px noch in eine Zeile.        */
+  .frei-aktionen .btn-primary,
+  .frei-aktionen .btn-outline {
+    width: 100%;
+  }
 }
 
 /* Sehr kleine Geräte */
@@ -1060,4 +1254,8 @@ main h1 {
   .korb-label { font-size: 0.9rem; }
   .korb-sub { font-size: 0.74rem; }
   .kategorie-auswertung { font-size: 0.85rem; }
+  /* Freie Eingabe auf sehr schmalen Displays */
+  .frei-input { font-size: 1.05rem; }
+  .frei-zeichen { gap: 6px; }
+  .frei-schritt { font-size: 0.7rem; }
 }

@@ -104,6 +104,7 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
 | Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
+| Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
 | Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–4 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster) · Set 4 „Erzähltext" (10 Texte à 5 Lücken) |
 
@@ -190,12 +191,116 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 > „cijelu kuću **i legla**"). Grund: „dok + nesvršeni, Hauptsatz + nesvršeni" ist als
 > zwei parallele Verläufe ein völlig regulärer Satztyp.
 
-> ⚠️ **Warum es zwei Aspekt-Übungen gibt (nicht zusammenlegen):**
-> `lernen-aspektpaare.html` prüft die **Wortform** (welches Verb ist der Partner von
-> `čitati`?) und wird über den Wortstamm gelöst. `lernen-aspektwahl.html` prüft die
-> **Anwendung** (wann verwende ich welchen?). Wer die erste Übung perfekt löst, weiß
+> ⚠️ **Regeln für Freitext-Eingaben (aus „Aspektpaare – freie Eingabe" gelernt,
+> 2026-08-30) – gelten für jede künftige Übung mit Texteingabe:**
+>
+> **Diakritika-Toleranz ja, Tippfehler-Toleranz nein.** Wer auf einer deutschen
+> Tastatur schreibt, hat kein `č ć š ž đ`. Eine Eingabe, die nur daran scheitert,
+> wird als „fast richtig" gewertet (eigener Feedback-Zustand `.feedback-fast`,
+> Goldgelb), zählt als Punkt und bekommt die korrekte Schreibweise angezeigt.
+> Das ist nachweislich gefahrlos: Normalisiert man alle 184 Verbformen des
+> Bestands (`č ć`→c, `š`→s, `ž`→z, `đ`→d, dazu die Ersatzschreibung `dj`→d),
+> fällt **keine einzige mit einer anderen zusammen**; ein echtes `dj` kommt im
+> Verbbestand nicht vor. Eine **Levenshtein-Tippfehlertoleranz wäre dagegen
+> fatal** und wurde deshalb verworfen: 23 Formenpaare liegen bei Distanz ≤ 1,
+> darunter **neun echte Aspektpaare** (`kuhati/skuhati`, `prati/oprati`,
+> `rušiti/srušiti`, `pitati/upitati`, `platiti/uplatiti`, `shvatati/shvatiti`,
+> `namještati/namjestiti`, `farbati/ofarbati`, `krečiti/okrečiti`). Wer bei
+> `kuhati` einfach `kuhati` abtippt, bekäme ein „fast richtig". Dazu kämen
+> Verwechslungen mit ganz anderen Verben (`pisati/pitati`, `plakati/plaćati`,
+> `slaviti/staviti`, `lijepiti/liječiti`).
+>
+> **Das `se` wird verlangt, nicht wegtoleriert.** 14 Formen sind reflexiv, und
+> bei `liječiti se` (genesen) vs. `liječiti` (jemanden behandeln) stehen beide
+> im Bestand – die Antwort ohne `se` ist dort ein anderes Verb. Sie bekommt
+> deshalb einen eigenen Feedback-Fall, der genau das erklärt.
+>
+> **Selbstkorrektur statt Vollkuratierung.** Zu vielen präfigierten Verben gibt
+> es neben dem Simplex ein sekundäres Imperfektivum (`izabrati` → `birati` **oder**
+> `izabirati`; `proslaviti` → `slaviti` **oder** `proslavljati`), und in der
+> Gegenrichtung konkurrieren mehrere Präfixe (`čekati` → `sačekati`/`pričekati`).
+> Eine freie Eingabe kann das nicht wissen. Statt die Übung erst nach einer
+> vollständigen Alternativenliste freizugeben, kann der Lernende eine als falsch
+> gewertete Antwort selbst umwerten („Meine Antwort war auch richtig"). Damit ist
+> die Kuratierung eine **Verbesserung, keine Startbedingung**: Häufige Fälle
+> stehen im optionalen Feld `frei.alt_nes` / `frei.alt_svr` in
+> `aspektpaare_data.json` (Schema dort unter `_felder_frei`), jeweils nach
+> Bestätigung durch den `bosnisch-pruefer`. **Stand 2026-08-30: 12 der 92 Paare
+> haben einen `frei`-Block** (ap01, ap09, ap21, ap28, ap34, ap43, ap44, ap49,
+> ap54, ap58, ap63, ap76). Alles Übrige fängt weiterhin die Selbstkorrektur ab.
+>
+> ⚠️ **Die abgelehnten Kandidaten stehen mit Begründung in `_pruefung_frei`** –
+> dort nachsehen, bevor eine „fehlende" Form nachgetragen wird (gleiche Funktion
+> wie `_bewusst_weggelassen` in `aspektwahl_data.json`). Zwei Ablehnungsgründe
+> kommen immer wieder vor: **abweichende Bedeutung** (`porušiti` ist distributiv,
+> `isjeći` gehört zu `sjeći` statt zu `rezati`, `odraditi` heißt „abarbeiten") und
+> **kroatische Markierung** (`izići`, `shvaćati`, `obraniti`). Die Abwägung dahinter
+> gilt für jede künftige Freitext-Übung: Eine zu Unrecht **abgelehnte** Form kostet
+> nichts, weil die Selbstkorrektur sie auffängt; eine zu Unrecht **akzeptierte**
+> Form lehrt eine falsche Gleichsetzung, die hängen bleibt. Im Zweifel weglassen.
+>
+> **Symmetrie nicht vergessen:** Wer eine Richtung ergänzt, muss die Gegenrichtung
+> mitprüfen – zu `odabrati` (alt_svr) gehört `odabirati` (alt_nes), zu `započeti`
+> gehört `započinjati`. Sonst gilt dieselbe Wortfamilie in der einen Richtung als
+> richtig und in der anderen als falsch.
+>
+> **Beide Abfragerichtungen, nicht nur `nes → svr`.** Ursprünglich war geplant,
+> nur nach dem vollendeten Partner zu fragen, weil die Rückrichtung mehrdeutiger
+> ist. Das trägt nicht: Wäre der Prompt immer der nesvršeni, wäre Schritt 1
+> („Welcher Aspekt ist das?") nach drei Aufgaben auswendig gelernt. Die Richtung
+> wird deshalb gewürfelt, und die Selbstkorrektur trägt die Mehrdeutigkeit.
+>
+> **Ein Punkt nur für beide Schritte zusammen** – aber das Feedback muss das auch
+> zeigen: Stimmt die Form und war nur der Aspekt falsch, meldet die Übung nicht
+> grün „Richtig!", sondern den mittleren Zustand („Die Form stimmt – der Aspekt
+> nicht"). Ein grüner Kasten ohne Punkt lehrt sonst das Gegenteil. Wie oft der
+> Aspekt allein erkannt wurde, steht als Nebenwertung im Ergebnis – sie zeigt,
+> ob die Fehler am Erkennen oder am Bilden lagen.
+>
+> **Bedienung (mobil mitgedacht):** Sonderzeichenleiste `č ć š ž đ` unter dem Feld,
+> die an der Cursorposition einfügt; `autocapitalize/autocorrect/spellcheck` aus
+> (sonst „korrigiert" iOS die Eingabe); Enter prüft, danach liegt der Fokus auf
+> „Weiter"; Autofokus **nur** ab 900 px, auf dem Handy würde die Tastatur die
+> Aufgabe verdecken; ein „Lösung zeigen"-Ausgang ist Pflicht, weil man bei freier
+> Eingabe – anders als bei Multiple Choice – nicht raten kann.
+>
+> ⚠️ **`test_lernen_uebung.py` kann Freitext-Übungen nicht generisch bedienen.**
+> Struktur-, Head- und Mobilprüfung laufen vollständig, aber der Feedback-Zustand
+> wird mit einem ⚠-Hinweis übersprungen (fünf Hinweise, einer je Viewport). Die
+> Interaktionspfade wurden deshalb einzeln im Browser durchgespielt: Aspektwahl,
+> leeres Feld, exakte Antwort, fehlende Diakritika, `dj`-Schreibung, falsche
+> Antwort samt Selbstkorrektur (auch doppelt geklickt), „Lösung zeigen",
+> Ergebnisschirm, Wiederholen. Wer die Übung ändert, muss das erneut tun.
+
+> ⚠️ **Warum es drei Aspekt-Übungen gibt (nicht zusammenlegen):**
+> `lernen-aspektpaare.html` prüft das **Erkennen** der Wortform (welches Verb ist der
+> Partner von `čitati`?) und wird über den Wortstamm gelöst.
+> `lernen-aspektpaare-frei.html` prüft dieselbe Wortform, aber im **Bilden**: ohne
+> Auswahl, selbst geschrieben. `lernen-aspektwahl.html` prüft die **Anwendung**
+> (wann verwende ich welchen?). Wer die erste Übung perfekt löst, weiß
 > immer noch nicht, ob „Čitao sam knjigu" oder „Pročitao sam knjigu" richtig ist.
-> Die beiden bilden einen Lernpfad: Stufe 1 Formen → Stufe 2 Anwendung.
+> Die drei bilden einen Lernpfad: Stufe 1 Formen erkennen → Stufe 2 Formen bilden
+> → Stufe 3 Anwendung.
+>
+> **Warum Stufe 2 eine eigene Seite ist und kein Modus von Stufe 1:** Die
+> Alternative wäre ein Umschalter „Multiple Choice / freie Eingabe" auf der
+> bestehenden Seite gewesen. Dagegen sprach, dass jede Seite ihren eigenen
+> SEO-Block, ihre Sitemap-Zeile und ihren eigenen Lauf von `test_lernen_uebung.py`
+> braucht – bei einer gemischten Seite hätte der Test nur den Multiple-Choice-Teil
+> abgedeckt. Preis dafür: rund 120 Zeilen Ladelogik (`bildePaare`, `mischen`,
+> Bildschirmwechsel) sind dupliziert. Das ist im Projekt so üblich, es gibt kein
+> Modulsystem.
+>
+> **Warum die freie Eingabe die Karteikarte schlägt** (die naheliegende Alternative
+> war, die Antwort wie im Vokabeltrainer nur zu verdecken und selbst bewerten zu
+> lassen): Bei Vokabeln weiß man zuverlässig, ob man ein Wort wusste. Beim
+> Aspektpartner besteht die Lösung aus einem **bekannten Stamm** und wirkt beim
+> Aufdecken immer vertraut – die Selbstbewertung misst dann Wiedererkennung, und
+> die trainiert Stufe 1 bereits. Dazu kommt: Bei **51 der 92 Paare** entsteht der
+> Partner nicht durch reines Voranstellen eines Präfixes, sondern der Stamm wechselt
+> mit (`plaćati → platiti`, `oslobađati → osloboditi`, `uspijevati → uspjeti`,
+> `rješavati → riješiti`, `namještati → namjestiti`). Diese `ije/je`- und
+> `đ/d`-Wechsel bemerkt man nur beim Schreiben.
 >
 > **Die Brücke zwischen beiden Stufen liegt im Feedback von Stufe 1 (seit
 > 2026-08-28):** Nach jeder Antwort stehen dort zwei Beispielsätze – der

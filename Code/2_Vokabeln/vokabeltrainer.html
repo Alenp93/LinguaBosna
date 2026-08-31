@@ -132,40 +132,63 @@
         <button type="button" class="due-btn" id="dueBtn" onclick="toggleReview()"></button>
       </div>
 
-      <!-- LERNEINHEITS-AUSWAHL (Teil 1, Teil 2, …) -->
-      <div class="selector-wrap" id="unitSelector"></div>
+      <!-- ─── EINSTELLUNGEN: Teil-Auswahl, Richtung, Modus ────────────
+           Auf dem Desktop unverändert immer sichtbar (siehe CSS).
+           Auf Mobil zu einer einklappbaren Zeile zusammengefasst, damit
+           Karte + Bewertungsknöpfe ohne Scrollen sichtbar bleiben.
+           Standardmäßig zugeklappt; die aktuelle Auswahl steht als
+           Kurztext im Toggle-Button (updateSettingsSummary() im JS). -->
+      <div class="settings-panel" id="settingsPanel">
+        <button type="button" class="settings-toggle" id="settingsToggle"
+                onclick="toggleSettings()" aria-expanded="false" aria-controls="settingsBody">
+          <span class="settings-toggle-label">
+            <i class="fa-solid fa-sliders" aria-hidden="true"></i> Einstellungen
+          </span>
+          <span class="settings-summary" id="settingsSummary"></span>
+          <i class="fa-solid fa-chevron-down settings-chevron" id="settingsChevron" aria-hidden="true"></i>
+        </button>
 
-      <!-- RICHTUNG: Bosnisch → Deutsch / Deutsch → Bosnisch -->
-      <div class="direction-wrap">
-        <div class="direction-toggle">
-          <button class="dir-btn active" id="dirBosDE" onclick="setDirection('bos-de')">🇧🇦 Bosnisch → Deutsch</button>
-          <button class="dir-btn"        id="dirDeBS"  onclick="setDirection('de-bos')">🇩🇪 Deutsch → Bosnisch</button>
+        <div class="settings-body" id="settingsBody">
+          <!-- LERNEINHEITS-AUSWAHL (Teil 1, Teil 2, …) -->
+          <div class="selector-wrap" id="unitSelector"></div>
+
+          <!-- RICHTUNG: Bosnisch → Deutsch / Deutsch → Bosnisch -->
+          <div class="direction-wrap">
+            <div class="direction-toggle">
+              <button class="dir-btn active" id="dirBosDE" onclick="setDirection('bos-de')"><span class="dir-badge">BS</span> Bosnisch → Deutsch</button>
+              <button class="dir-btn"        id="dirDeBS"  onclick="setDirection('de-bos')"><span class="dir-badge">DE</span> Deutsch → Bosnisch</button>
+            </div>
+          </div>
+
+          <!-- MODUS: Karteikarte / Multiple Choice / Übersicht -->
+          <div class="mode-row">
+            <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')">🃏 Karteikarte</button>
+            <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')">🧠 Multiple Choice</button>
+            <button class="mode-btn"        id="modeList"  onclick="setMode('list')">📋 Übersicht</button>
+          </div>
         </div>
       </div>
 
-      <!-- MODUS: Karteikarte / Multiple Choice / Übersicht -->
-      <div class="mode-row">
-        <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')">🃏 Karteikarte</button>
-        <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')">🧠 Multiple Choice</button>
-        <button class="mode-btn"        id="modeList"  onclick="setMode('list')">📋 Übersicht</button>
-      </div>
-
-      <!-- FORTSCHRITTSBALKEN -->
-      <div class="progress-wrap" id="progressWrap">
-        <div class="progress-info">
-          <span id="progressText">Vokabel 1 von 15</span>
-          <span id="progressPct">0%</span>
+      <!-- FORTSCHRITTSBALKEN + PUNKTE-ANZEIGE — ein gemeinsamer Wrapper,
+           damit beide auf Mobil in einer kompakten Zeile stehen können
+           (siehe CSS). Auf dem Desktop bleibt die Anordnung unverändert
+           untereinander. -->
+      <div class="progress-score-row" id="progressScoreRow">
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-info">
+            <span id="progressText">Vokabel 1 von 15</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+          </div>
         </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
-        </div>
-      </div>
 
-      <!-- PUNKTE-ANZEIGE -->
-      <div class="score-row" id="scoreRow">
-        <div class="score-badge correct">✓ <span id="scoreCorrect">0</span> Richtig</div>
-        <div class="score-badge wrong">✗ <span id="scoreWrong">0</span> Falsch</div>
-        <div class="score-badge remaining">◉ <span id="scoreRem">15</span> Übrig</div>
+        <div class="score-row" id="scoreRow">
+          <div class="score-badge correct">✓ <span id="scoreCorrect">0</span> <span class="score-label">Richtig</span></div>
+          <div class="score-badge wrong">✗ <span id="scoreWrong">0</span> <span class="score-label">Falsch</span></div>
+          <div class="score-badge remaining">◉ <span id="scoreRem">15</span> <span class="score-label">Übrig</span></div>
+        </div>
       </div>
 
       <!-- ─── KARTEIKARTEN-MODUS ────────────────────────── -->
@@ -199,6 +222,16 @@
           <button class="ans-btn skip-btn"    id="btnSkip"    onclick="skipCard()">→ Überspringen</button>
           <button class="ans-btn correct-btn" id="btnCorrect" onclick="answer(true)"  disabled>✓ Richtig</button>
         </div>
+
+        <!-- Tastatur-Legende — nur auf Zeigegeräten MIT Tastatur sichtbar
+             (CSS-Media-Query hover:hover + pointer:fine), auf Touch bleibt
+             sie ausgeblendet. -->
+        <div class="keyboard-legend" aria-hidden="true">
+          <span><kbd>Leertaste</kbd> umdrehen</span>
+          <span><kbd>←</kbd> falsch</span>
+          <span><kbd>→</kbd> richtig</span>
+          <span><kbd>Enter</kbd> weiter</span>
+        </div>
       </div>
 
       <!-- ─── MULTIPLE-CHOICE-MODUS ─────────────────────── -->
@@ -211,6 +244,12 @@
         </div>
         <div class="quiz-options"   id="quizOptions"></div>
         <div class="feedback-toast" id="quizFeedback"></div>
+
+        <!-- Tastatur-Legende — nur auf Zeigegeräten MIT Tastatur sichtbar. -->
+        <div class="keyboard-legend" aria-hidden="true">
+          <span><kbd>1</kbd>–<kbd>4</kbd> auswählen</span>
+          <span><kbd>Enter</kbd> weiter</span>
+        </div>
       </div>
 
       <!-- ─── ÜBERSICHTS-MODUS ───────────────────────────── -->
@@ -304,6 +343,10 @@
     let reviewPool    = [];         // alle FÄLLIGEN Items (kapitelübergreifend)
     let box1Neu       = 0;          // Karten dieser Runde, die in Box 1 gelandet sind
     let kartenGemerkt = 0;          // erfolgreich gespeicherte Antworten dieser Runde
+
+    // ── Zustand für "Enter = weiter" (siehe scheduleAdvance) ──
+    let pendingAdvanceTimeout = null;
+    let pendingAdvanceFn      = null;
 
     // ─────────────────────────────────────────────────────────
     // INITIALISIERUNG — Kapitel aus URL-Parameter lesen
@@ -591,11 +634,12 @@
       if (mode === 'list') setMode('flash'); else restart();
 
       updateDueBanner();
+      updateSettingsSummary();
     }
 
     function endReview() {
       reviewMode = false;
-      selectUnit(activeUnit);      // zurück zur zuletzt gewählten Lerneinheit
+      selectUnit(activeUnit);      // zurück zur zuletzt gewählten Lerneinheit (ruft updateSettingsSummary())
     }
 
     // Eine Antwort in die Leitner-Boxen eintragen. Das passiert in JEDER
@@ -687,6 +731,43 @@
       unitVocab = units[idx];
       restart();
       updateDueBanner();
+      updateSettingsSummary();
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // EINSTELLUNGEN-KASTEN (Teil-Auswahl, Richtung, Modus)
+    // Auf dem Desktop immer sichtbar (siehe CSS), auf Mobil einklappbar.
+    // Der Toggle-Button zeigt die aktuelle Auswahl als Kurztext, damit
+    // man sie im zugeklappten Zustand nicht rät.
+    // ─────────────────────────────────────────────────────────
+    function updateSettingsSummary() {
+      const el = document.getElementById('settingsSummary');
+      if (!el) return;
+      const teilText = reviewMode ? 'Wiederholung' : `Teil ${activeUnit + 1}`;
+      const dirText  = direction === 'bos-de' ? 'BS→DE' : 'DE→BS';
+      const modeText = mode === 'flash' ? 'Karteikarte' : mode === 'quiz' ? 'Multiple Choice' : 'Übersicht';
+      el.textContent = `${teilText} · ${dirText} · ${modeText}`;
+
+      // Nach jeder Auswahl (Teil/Richtung/Modus/Wiederholung starten oder
+      // beenden) den Kasten wieder zuklappen — sonst bliebe die Karte auf
+      // Mobil weiter verdeckt, genau das Problem, das die Einklappung lösen
+      // soll. Auf dem Desktop hat das keine sichtbare Wirkung (dort ist
+      // .settings-body per CSS immer sichtbar, unabhängig von .open).
+      const body   = document.getElementById('settingsBody');
+      const toggle = document.getElementById('settingsToggle');
+      if (body && toggle) {
+        body.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function toggleSettings() {
+      const body   = document.getElementById('settingsBody');
+      const toggle = document.getElementById('settingsToggle');
+      const open   = body.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
 
     // ─────────────────────────────────────────────────────────
@@ -735,6 +816,7 @@
       ['Flash','Quiz','List'].forEach(n => document.getElementById('mode'+n).classList.remove('active'));
       document.getElementById('mode' + m.charAt(0).toUpperCase() + m.slice(1)).classList.add('active');
       restart();
+      updateSettingsSummary();
     }
 
     function setDirection(dir) {
@@ -742,6 +824,7 @@
       document.getElementById('dirBosDE').classList.toggle('active', dir === 'bos-de');
       document.getElementById('dirDeBS').classList.toggle('active',  dir === 'de-bos');
       restart();
+      updateSettingsSummary();
     }
 
     // ─────────────────────────────────────────────────────────
@@ -759,6 +842,32 @@
         [a[i], a[j]] = [a[j], a[i]];
       }
       return a;
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // VERZÖGERTER ÜBERGANG ZUR NÄCHSTEN KARTE
+    // Nach einer Antwort/Auswahl wartet die UI kurz (Feedback lesen),
+    // bevor automatisch die nächste Karte kommt. Die Enter-Taste soll
+    // dieses Warten überspringen können ("weiter") — dafür merkt sich
+    // scheduleAdvance() die noch ausstehende Funktion, damit
+    // runPendingAdvance() sie bei Bedarf sofort auslösen kann.
+    // ─────────────────────────────────────────────────────────
+    function scheduleAdvance(fn, delay) {
+      pendingAdvanceFn = fn;
+      pendingAdvanceTimeout = setTimeout(() => {
+        pendingAdvanceTimeout = null;
+        pendingAdvanceFn      = null;
+        fn();
+      }, delay);
+    }
+
+    function runPendingAdvance() {
+      if (!pendingAdvanceTimeout) return;
+      clearTimeout(pendingAdvanceTimeout);
+      const fn = pendingAdvanceFn;
+      pendingAdvanceTimeout = null;
+      pendingAdvanceFn      = null;
+      fn();
     }
 
     // ─────────────────────────────────────────────────────────
@@ -900,7 +1009,7 @@
       document.getElementById('flipHint').textContent = '';
 
       updateScores();
-      setTimeout(() => { current++; showCard(); updateProgress(); }, 900);
+      scheduleAdvance(() => { current++; showCard(); updateProgress(); }, 900);
     }
 
     function skipCard() {
@@ -1006,7 +1115,7 @@
       fb.textContent = isCorrect ? '✓ Richtig!' : '✗ Falsch — die Antwort war: ' + richtigeAntwort;
       fb.className   = 'feedback-toast ' + (isCorrect ? 'correct' : 'wrong');
       updateScores();
-      setTimeout(() => { current++; showQuizCard(); updateProgress(); }, 1100);
+      scheduleAdvance(() => { current++; showQuizCard(); updateProgress(); }, 1100);
     }
 
     // ─────────────────────────────────────────────────────────
@@ -1140,6 +1249,71 @@
       // Zähler oben aktualisieren.
       updateDueBanner();
     }
+
+    // ─────────────────────────────────────────────────────────
+    // TASTATURBEDIENUNG
+    // Leertaste = Karte umdrehen · ←/→ = Falsch/Richtig ·
+    // 1–4 = Multiple-Choice-Antwort wählen · Enter = weiter.
+    // Die passende Legende dazu steht nur auf Zeigegeräten MIT
+    // Tastatur im Bild (siehe .keyboard-legend im CSS).
+    // ─────────────────────────────────────────────────────────
+    function isResultVisible() {
+      return !document.getElementById('resultScreen').classList.contains('hidden');
+    }
+    function isFlashVisible() {
+      return !document.getElementById('flashMode').classList.contains('hidden');
+    }
+    function isQuizVisible() {
+      return !document.getElementById('quizMode').classList.contains('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      // Nichts tun, bevor die Trainer-UI überhaupt geladen ist.
+      const trainerUI = document.getElementById('trainerUI');
+      if (!trainerUI || trainerUI.classList.contains('hidden')) return;
+
+      // Ist gerade ein Button/Link fokussiert, löst der Browser bei
+      // Leertaste/Enter ohnehin dessen Klick aus — nicht zusätzlich
+      // eingreifen, sonst würde die Aktion doppelt ausgeführt.
+      const tag = (e.target && e.target.tagName) || '';
+      if (tag === 'BUTTON' || tag === 'A' || tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+      switch (e.key) {
+        case ' ':
+        case 'Spacebar':
+          if (isFlashVisible() && !isResultVisible()) {
+            e.preventDefault();   // verhindert Scrollen der Seite
+            flipCard();
+          }
+          break;
+
+        case 'ArrowLeft':
+          if (isFlashVisible() && !isResultVisible()) { e.preventDefault(); answer(false); }
+          break;
+
+        case 'ArrowRight':
+          if (isFlashVisible() && !isResultVisible()) { e.preventDefault(); answer(true); }
+          break;
+
+        case '1': case '2': case '3': case '4':
+          if (isQuizVisible() && !isResultVisible()) {
+            const opts = document.querySelectorAll('#quizOptions .quiz-opt');
+            const opt  = opts[parseInt(e.key, 10) - 1];
+            if (opt && !opt.disabled) opt.click();
+          }
+          break;
+
+        case 'Enter':
+          if (isResultVisible()) {
+            document.querySelector('#resultScreen .restart-btn.primary').click();
+          } else if (pendingAdvanceTimeout) {
+            runPendingAdvance();          // Wartezeit vor der nächsten Karte überspringen
+          } else if (isFlashVisible() && !isFlipped) {
+            flipCard();
+          }
+          break;
+      }
+    });
   </script>
 
 </body>

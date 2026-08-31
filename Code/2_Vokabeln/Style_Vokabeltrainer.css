@@ -108,6 +108,56 @@ main {
 }
 .state-msg.error { color: #b03030; }
 
+/* ── Fällige Wiederholungen (Leitner-Boxen) ─────────────────────
+   Der Kasten steht ganz oben über der Lerneinheits-Auswahl und ist
+   nur da, wenn wirklich Karten fällig sind (JS setzt .hidden).
+   Goldgelber Rahmen = Akzentfarbe, damit er als Angebot auffällt,
+   ohne die Lerneinheiten optisch zu verdrängen. */
+.due-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+/* Läuft die Wiederholung gerade, wird der Kasten dezenter (blau statt
+   gold) — er ist dann nur noch Statusanzeige mit Ausstieg. */
+.due-banner.running {
+  border-color: var(--blue);
+  background: var(--blue-lt);
+}
+.due-text  { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.due-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+.due-sub   { font-size: 0.8rem; color: var(--muted); }
+.due-btn {
+  flex-shrink: 0;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 6px;                /* Button-System: 6px */
+  background: var(--gold);
+  color: var(--blue);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 44px;                  /* Touch-Target */
+  transition: all 0.25s ease;
+}
+.due-btn:hover { background: var(--blue); color: var(--white); }
+.due-banner.running .due-btn { background: var(--white); border: 2px solid var(--blue); }
+.due-banner.running .due-btn:hover { background: var(--blue); color: var(--white); }
+
 /* ── Lerneinheits-Auswahl ──────────────────────────────────── */
 .selector-wrap {
   display: flex;
@@ -404,8 +454,12 @@ main {
 .result-big       { font-size: 3.2rem; font-weight: 700; color: var(--gold); margin: 0.8rem 0; }
 .result-sub       { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.75rem; }
 .result-stars     { font-size: 1.9rem; margin-bottom: 0.9rem; }
-.result-wrong-count { font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; color: #b03030; }
-.result-btns      { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.result-wrong-count { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #b03030; }
+/* Zeile "… Karten liegen jetzt in Box 1" (Leitner-Rückmeldung).
+   Der Abstand zu den Buttons sitzt bewusst an .result-btns (margin-top),
+   damit er auch dann stimmt, wenn diese Zeile ausgeblendet ist. */
+.result-box1 { font-size: 0.82rem; color: var(--muted); }
+.result-btns      { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.75rem; }
 .restart-btn {
   padding: 0.75rem 2rem;
   border: none;
@@ -586,6 +640,10 @@ main {
 
   .ans-btn       { min-width: 100px; font-size: 0.82rem; }
   .result-btns   { flex-direction: column; align-items: center; }
+
+  /* Wiederholungs-Kasten: Text oben, Button darunter über volle Breite */
+  .due-banner { flex-direction: column; align-items: stretch; text-align: center; }
+  .due-btn    { width: 100%; }
 }
 
 /* ── Sehr kleine Screens ≤ 480px ────────────────────────────── */
@@ -602,6 +660,10 @@ main {
   .card-back .card-word { font-size: 1.2rem; }
 
   .unit-btn { font-size: 0.78rem; padding: 0.45rem 0.9rem; }
+
+  .due-title { font-size: 0.88rem; }
+  .due-sub   { font-size: 0.75rem; }
+  .due-btn   { font-size: 0.8rem; }
 
   .result-big { font-size: 2.4rem; }
 }

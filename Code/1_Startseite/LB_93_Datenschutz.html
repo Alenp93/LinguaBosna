@@ -535,6 +535,7 @@
           <li>Nummer und Name der Vokabelkapitel, die du geübt hast, samt Anzahl der abgeschlossenen Lerneinheiten</li>
           <li>Dateiname der Grammatikthemen, die du gelesen hast</li>
           <li>dein bestes Quiz-Ergebnis je Grammatikthema</li>
+          <li>je geübter Vokabel: in welchem der drei Wiederholungs-Fächer sie liegt und wann sie wieder zur Wiederholung ansteht</li>
           <li>das Datum der letzten Übung (nur der Tag, keine Uhrzeit)</li>
         </ul>
         <p>
@@ -712,7 +713,17 @@
             teile.push(z.grammatikthemen +
                        (z.grammatikthemen === 1 ? ' Grammatikthema' : ' Grammatikthemen'));
           }
-          status.textContent = 'Aktuell auf diesem Gerät gespeichert: ' + teile.join(' und ') + '.';
+          if (z.karten) {
+            teile.push(z.karten + ' Vokabel' + (z.karten === 1 ? '' : 'n') +
+                       ' im Wiederholungs-Stapel');
+          }
+
+          // Aufzählung sauber verbinden: "a, b und c" statt "a und b und c".
+          var text = teile.length > 1
+            ? teile.slice(0, -1).join(', ') + ' und ' + teile[teile.length - 1]
+            : teile[0];
+
+          status.textContent = 'Aktuell auf diesem Gerät gespeichert: ' + text + '.';
           btn.disabled = false;
         }
 

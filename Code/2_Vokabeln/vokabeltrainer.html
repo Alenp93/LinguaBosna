@@ -118,6 +118,20 @@
     <!-- Trainer-UI (erst sichtbar, wenn Daten geladen sind) -->
     <div id="trainerUI" class="hidden">
 
+      <!-- ─── FÄLLIGE WIEDERHOLUNGEN (Leitner-Boxen) ─────────────────
+           Zusätzliches Angebot NEBEN den Lerneinheiten, kein Ersatz.
+           Der Kasten ist standardmäßig versteckt und wird von
+           updateDueBanner() nur eingeblendet, wenn wirklich Karten
+           fällig sind (oder die Wiederholung gerade läuft). Alle
+           Texte kommen aus dem JS, nicht aus diesem HTML. -->
+      <div class="due-banner hidden" id="dueBanner">
+        <div class="due-text">
+          <span class="due-title" id="dueTitle"></span>
+          <span class="due-sub"   id="dueSub"></span>
+        </div>
+        <button type="button" class="due-btn" id="dueBtn" onclick="toggleReview()"></button>
+      </div>
+
       <!-- LERNEINHEITS-AUSWAHL (Teil 1, Teil 2, …) -->
       <div class="selector-wrap" id="unitSelector"></div>
 
@@ -211,6 +225,10 @@
         <div class="result-big"        id="resultScore">—</div>
         <div class="result-sub"        id="resultSub"></div>
         <div class="result-wrong-count" id="resultWrongCount"></div>
+        <!-- Rückmeldung aus den Leitner-Boxen: wie viele Karten sind in
+             Box 1 gelandet (= morgen wieder fällig)? Bleibt versteckt,
+             wenn der Browser nichts speichern konnte. -->
+        <div class="result-box1 hidden" id="resultBox1"></div>
         <div class="result-btns">
           <button class="restart-btn primary"   onclick="restart()">🔄 Alle Karten wiederholen</button>
           <button class="restart-btn secondary" id="btnRetryWrong" onclick="retryWrong()">✗ Nur falsche Karten</button>
@@ -256,6 +274,11 @@
     // Pfad zum Vokabeltrainer selbst (für die Kategorie-Navigation unten).
     const TRAINER_PATH = '/Code/2_Vokabeln/vokabeltrainer.html';
 
+    // Höchstzahl Karten pro Wiederholungs-Runde. Wer zwei Wochen nicht
+    // da war, hätte sonst 150 fällige Karten am Stück — das schreckt ab.
+    // Der Rest bleibt fällig und kommt in der nächsten Runde dran.
+    const REVIEW_LIMIT = 20;
+
     // ─────────────────────────────────────────────────────────
     // ZUSTAND (State-Variablen)
     // ─────────────────────────────────────────────────────────
@@ -275,6 +298,12 @@
     let direction  = 'bos-de';      // 'bos-de' | 'de-bos'
     let activeKapitel = 1;
     let activeUnit    = 0;          // Index der Lerneinheit (0 = Teil 1)
+
+    // ── Zustand der Wiederholungs-Funktion (Leitner) ──────────
+    let reviewMode    = false;      // läuft gerade eine Wiederholungs-Runde?
+    let reviewPool    = [];         // alle FÄLLIGEN Items (kapitelübergreifend)
+    let box1Neu       = 0;          // Karten dieser Runde, die in Box 1 gelandet sind
+    let kartenGemerkt = 0;          // erfolgreich gespeicherte Antworten dieser Runde
 
     // ─────────────────────────────────────────────────────────
     // INITIALISIERUNG — Kapitel aus URL-Parameter lesen
@@ -442,6 +471,149 @@
       return isPair(item) ? (item.nesv.Bosnisch + ' / ' + item.sv.Bosnisch) : item.Bosnisch;
     }
 
+    // ═════════════════════════════════════════════════════════
+    // WIEDERHOLUNG (Leitner-Boxen)
+    // ═════════════════════════════════════════════════════════
+    // Gespeichert wird ausschließlich in LB_fortschritt.js (localStorage,
+    // Abschnitt "Wiederholung" — dort stehen auch die Intervalle:
+    // Box 1 = 1 Tag, Box 2 = 3 Tage, Box 3 = 7 Tage).
+    //
+    // Hier im Trainer steht nur zweierlei:
+    //   a) WELCHE Karte gemeint ist  → cardKey()
+    //   b) wie aus gespeicherten Schlüsseln wieder echte Vokabeln werden
+    //      → buildCardIndex(), denn nur der Trainer hat die JSON-Daten.
+
+    // Schlüssel einer Karte: "Kapitel|bosnische Form".
+    // Ein Aspektpaar zählt als EINE Karte ("raditi / uraditi") — genau so,
+    // wie es im Trainer auch abgefragt wird. Beide Partner liegen im selben
+    // Kapitel, sonst wäre in buildItems() gar kein Paar entstanden.
+    function cardKey(item) {
+      const kap = isPair(item) ? item.nesv.Kapitel : item.Kapitel;
+      return kap + '|' + bosSidePlain(item);
+    }
+
+    // Zu einer Liste gespeicherter Schlüssel die passenden Lern-Items suchen.
+    // Es werden nur die Kapitel aufgebaut, die in den Schlüsseln vorkommen —
+    // nicht alle 90. Wichtig: dieselbe Gruppierung (buildItems) wie im
+    // normalen Trainer, sonst hätte ein Aspektpaar hier einen anderen
+    // Schlüssel als beim Speichern.
+    function buildCardIndex(keys) {
+      const kapitelNummern = new Set();
+      keys.forEach(k => {
+        const nr = parseInt(String(k).split('|')[0], 10);
+        if (!isNaN(nr)) kapitelNummern.add(nr);
+      });
+
+      const index = new Map();
+      kapitelNummern.forEach(nr => {
+        buildItems(allVocab.filter(e => e.Kapitel === nr))
+          .forEach(item => index.set(cardKey(item), item));
+      });
+      return index;
+    }
+
+    // Zählt die fälligen Karten und aktualisiert den Kasten ganz oben.
+    // Wird aufgerufen: nach dem Laden der Vokabeln, beim Wechsel der
+    // Lerneinheit, nach jeder abgeschlossenen Runde und sobald das
+    // Fortschritts-Modul da ist (es wird von LB_main.js nachgeladen).
+    function updateDueBanner() {
+      const banner = document.getElementById('dueBanner');
+      if (!banner) return;
+
+      const titel = document.getElementById('dueTitle');
+      const sub   = document.getElementById('dueSub');
+      const btn   = document.getElementById('dueBtn');
+
+      reviewPool = [];
+
+      // Ohne Fortschritts-Modul oder ohne geladene Vokabeln gibt es
+      // nichts zu zählen — der Kasten bleibt dann einfach unsichtbar.
+      if (window.LBFortschritt && window.LBFortschritt.alleKarten && allVocab.length) {
+        const gespeichert = window.LBFortschritt.alleKarten() || {};
+        const index       = buildCardIndex(Object.keys(gespeichert));
+
+        // Schlüssel, zu denen es keine Vokabel mehr gibt (z. B. nach einer
+        // Kapitel-Neunummerierung wie im August 2026), aus dem Speicher
+        // werfen. Sonst zählen sie ewig als "fällig", ohne je gezeigt
+        // werden zu können. Der Aufruf ist nur hier sicher, weil an dieser
+        // Stelle garantiert alle Vokabeln geladen sind.
+        window.LBFortschritt.kartenAufraeumen(
+          Object.keys(gespeichert).filter(k => index.has(k))
+        );
+
+        window.LBFortschritt.faelligeKarten().forEach(k => {
+          const item = index.get(k);
+          if (item) reviewPool.push(item);
+        });
+      }
+
+      // Läuft die Wiederholung gerade, zeigt derselbe Kasten den Ausstieg.
+      if (reviewMode) {
+        banner.classList.remove('hidden');
+        banner.classList.add('running');
+        titel.textContent = '🔁 Wiederholung läuft';
+        sub.textContent   = `${unitVocab.length} Karte${unitVocab.length === 1 ? '' : 'n'} `
+                          + 'aus deinem Karteikasten – kapitelübergreifend.';
+        btn.textContent   = 'Beenden';
+        return;
+      }
+
+      banner.classList.remove('running');
+
+      const n = reviewPool.length;
+      if (n === 0) { banner.classList.add('hidden'); return; }   // nichts fällig → kein Kasten
+
+      banner.classList.remove('hidden');
+      titel.textContent = `🔁 Fällige Wiederholungen (${n})`;
+      sub.textContent   = n > REVIEW_LIMIT
+        ? `Karten aus allen Kapiteln, die heute wieder dran sind – ${REVIEW_LIMIT} davon in dieser Runde.`
+        : 'Karten aus allen Kapiteln, die heute wieder dran sind.';
+      btn.textContent   = 'Jetzt wiederholen';
+    }
+
+    // Klick auf den Kasten-Button: starten oder beenden.
+    function toggleReview() {
+      if (reviewMode) endReview(); else startReview();
+    }
+
+    function startReview() {
+      if (!reviewPool.length) return;
+      reviewMode = true;
+
+      // Teil 1 / Teil 2 optisch abwählen. Das Kapitel bleibt im Hintergrund
+      // unverändert und ist mit einem Klick auf die Buttons zurück.
+      document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+
+      unitVocab = shuffle(reviewPool).slice(0, REVIEW_LIMIT);
+
+      // Im Übersichts-Modus wird nichts bewertet — dort brächte eine
+      // Wiederholung nichts, also auf Karteikarten umschalten.
+      if (mode === 'list') setMode('flash'); else restart();
+
+      updateDueBanner();
+    }
+
+    function endReview() {
+      reviewMode = false;
+      selectUnit(activeUnit);      // zurück zur zuletzt gewählten Lerneinheit
+    }
+
+    // Eine Antwort in die Leitner-Boxen eintragen. Das passiert in JEDER
+    // Runde – auch in den normalen Kapitel-Runden, denn genau dadurch
+    // füllt sich der Wiederholungs-Stapel überhaupt erst.
+    function merkeKarte(item, richtig) {
+      if (!item || !window.LBFortschritt || !window.LBFortschritt.karteAntwort) return;
+      const eintrag = window.LBFortschritt.karteAntwort(cardKey(item), richtig);
+      if (!eintrag) return;        // Browser konnte nichts speichern
+      kartenGemerkt++;
+      if (eintrag.box === 1) box1Neu++;
+    }
+
+    // Das Fortschritts-Modul wird von LB_main.js nachgeladen und kann
+    // vor ODER nach den Vokabeln fertig sein. Beide Wege führen zum
+    // selben Aufruf; updateDueBanner() darf beliebig oft laufen.
+    document.addEventListener('lb-fortschritt-bereit', updateDueBanner);
+
     function initCategory() {
       allInCat = allVocab.filter(e => e.Kapitel === activeKapitel);
       if (!allInCat.length) {
@@ -471,7 +643,7 @@
       document.getElementById('trainerUI').classList.remove('hidden');
 
       buildUnitSelector();
-      selectUnit(0);
+      selectUnit(0);      // ruft am Ende auch updateDueBanner() auf
     }
 
     // ─────────────────────────────────────────────────────────
@@ -508,10 +680,13 @@
     }
 
     function selectUnit(idx) {
+      // Ein Klick auf Teil 1 / Teil 2 verlässt immer die Wiederholungs-Runde.
+      reviewMode = false;
       activeUnit = idx;
       document.querySelectorAll('.unit-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
       unitVocab = units[idx];
       restart();
+      updateDueBanner();
     }
 
     // ─────────────────────────────────────────────────────────
@@ -593,6 +768,7 @@
       queue     = shuffle([...unitVocab]);
       current   = 0; correct = 0; wrong = 0; wrongList = [];
       isFlipped = false; answered = false;
+      box1Neu   = 0; kartenGemerkt = 0;   // Leitner-Zähler dieser Runde
 
       document.getElementById('resultScreen').classList.add('hidden');
       document.getElementById('progressWrap').classList.remove('hidden');
@@ -619,6 +795,7 @@
       queue     = shuffle([...wrongList]);
       current   = 0; correct = 0; wrong = 0; wrongList = [];
       isFlipped = false; answered = false;
+      box1Neu   = 0; kartenGemerkt = 0;   // Leitner-Zähler dieser Runde
 
       document.getElementById('resultScreen').classList.add('hidden');
       document.getElementById('progressWrap').classList.remove('hidden');
@@ -710,6 +887,9 @@
       if (isCorrect) { correct++; }
       else           { wrong++; wrongList.push(queue[current]); }
 
+      // Karteikasten aktualisieren (richtig = eine Box weiter, falsch = Box 1)
+      merkeKarte(queue[current], isCorrect);
+
       document.getElementById('btnWrong').disabled   = true;
       document.getElementById('btnCorrect').disabled = true;
       document.getElementById('btnSkip').disabled    = true;
@@ -724,6 +904,15 @@
     }
 
     function skipCard() {
+      // ÜBERSPRINGEN ÄNDERT DEN KARTEIKASTEN BEWUSST NICHT.
+      // Die Karte wird nur ans Rundenende geschoben und kommt garantiert
+      // zurück — die Runde endet erst, wenn jede Karte bewertet wurde.
+      // "Überspringen" heißt also "gleich noch mal", nicht "weiß ich nicht";
+      // als Falsch zu werten wäre eine Strafe für ein legitimes Vertagen.
+      // Bricht jemand mittendrin ab, bleibt eine fällige Karte fällig.
+      // Soll es doch als Falsch zählen: hier merkeKarte(queue[current], false)
+      // ergänzen — mehr braucht es nicht.
+      //
       // Karte ans Ende der Warteschlange ROTIEREN: aus der aktuellen Position
       // herausnehmen und hinten wieder anhaengen. Wichtig: dadurch bleibt
       // queue.length konstant = Anzahl der Karten dieser Runde. (Frueher wurde
@@ -780,8 +969,12 @@
     }
 
     function getQuizOptions(correctV) {
-      // Ablenkerpool aus den Items des Kapitels (Paare zählen als ein Item)
-      const pool = allItemsInCat.filter(it => it !== correctV);
+      // Ablenkerpool aus den Items des Kapitels (Paare zählen als ein Item).
+      // In der Wiederholungs-Runde stammen die Karten aus mehreren Kapiteln —
+      // dann sind die fälligen Karten der passendere Pool. Sind es zu wenige
+      // (unter 4 fällige Karten), wird wie bisher das Kapitel herangezogen.
+      let pool = (reviewMode ? reviewPool : allItemsInCat).filter(it => it !== correctV);
+      if (pool.length < 3) pool = allItemsInCat.filter(it => it !== correctV);
       return shuffle([correctV, ...shuffle(pool).slice(0, 3)]);
     }
 
@@ -801,6 +994,10 @@
           if (b._vocab === correctV) b.classList.add('reveal-correct');
         });
       }
+
+      // Karteikasten aktualisieren (richtig = eine Box weiter, falsch = Box 1)
+      merkeKarte(correctV, isCorrect);
+
       // Im Feedback die richtige Antwort nennen (Rückseite als Klartext)
       const richtigeAntwort = direction === 'bos-de'
         ? correctV.Deutsch
@@ -874,7 +1071,11 @@
       // erreicht diese Funktion ohnehin nie.
       // Die Abfrage auf window.LBFortschritt ist nötig, weil das Modul von
       // LB_main.js nachgeladen wird – fehlt es, läuft der Trainer normal weiter.
+      // In einer Wiederholungs-Runde wird ebenfalls NICHT gezählt: die Karten
+      // stammen aus mehreren Kapiteln, ein Häkchen am aktuellen Kapitel wäre
+      // schlicht falsch. Die Boxen werden dort trotzdem gepflegt (merkeKarte).
       if (window.LBFortschritt &&
+          !reviewMode &&
           queue.length === unitVocab.length &&
           (correct + wrong) > 0 &&
           allInCat.length) {
@@ -910,6 +1111,34 @@
         wc.textContent    = 'Alles richtig – perfekte Runde! 🎉';
         retryBtn.disabled = true;
       }
+
+      // ── Rückmeldung aus den Leitner-Boxen ────────────────────────
+      // Gezeigt wird der IST-Zustand nach der Runde, nicht nur die falschen
+      // Antworten. Das ist wichtig, weil eine Karte auch dann in Box 1
+      // bleiben kann, wenn sie hier richtig war: Wer sie heute schon einmal
+      // falsch hatte, behält sie heute in Box 1 (siehe LB_fortschritt.js).
+      // Deshalb "X von Y" – sonst wirkt die Zahl willkürlich.
+      //
+      // kartenGemerkt zählt die Antworten, die wirklich gespeichert werden
+      // konnten. Ist es 0 (privater Modus, Speicher voll), bleibt die Zeile
+      // weg – sonst stünde dort "keine Karte in Box 1", obwohl gar nichts
+      // gemerkt wurde.
+      const b1 = document.getElementById('resultBox1');
+      if (kartenGemerkt === 0) {
+        b1.classList.add('hidden');
+      } else if (box1Neu > 0) {
+        b1.textContent = `${box1Neu} von ${kartenGemerkt} Karten `
+                       + (box1Neu === 1 ? 'liegt' : 'liegen')
+                       + ' jetzt in Box 1 – morgen wieder fällig.';
+        b1.classList.remove('hidden');
+      } else {
+        b1.textContent = 'Keine Karte in Box 1 – alles sitzt. 👍';
+        b1.classList.remove('hidden');
+      }
+
+      // Die eben beantworteten Karten sind jetzt nicht mehr fällig →
+      // Zähler oben aktualisieren.
+      updateDueBanner();
     }
   </script>
 

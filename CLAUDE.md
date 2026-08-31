@@ -246,9 +246,9 @@ steckt in `/Code/LB_fortschritt.js`; das Modul wird von `LB_main.js` per
 auf jeder Seite. Es hängt sich öffentlich an `window.LBFortschritt`.
 
 - **Speicher-Key:** `linguabosna.fortschritt`, ein einziges JSON-Objekt mit
-  `version` (aktuell `1`), `vokabeln` (Kapitelnummer → `{name, zuletzt,
-  durchgaenge}`) und `grammatik` (Dateiname → `{gelesen, zuletzt, quiz:
-  {punkte, max, am}}`). Beim Vokabeleintrag steht der Kapitelname als
+  `version` (aktuell `2`), `vokabeln` (Kapitelnummer → `{name, zuletzt,
+  durchgaenge}`), `grammatik` (Dateiname → `{gelesen, zuletzt, quiz:
+  {punkte, max, am}}`) und `wiederholung` (siehe unten). Beim Vokabeleintrag steht der Kapitelname als
   Gegenprobe mit dabei: stimmt er nicht mehr mit der Karte überein (z. B. nach
   einer künftigen Kapitel-Neunummerierung wie im August 2026), wird der
   Eintrag ignoriert statt am falschen Kapitel angezeigt zu werden.
@@ -268,9 +268,34 @@ auf jeder Seite. Es hängt sich öffentlich an `window.LBFortschritt`.
   Dateien enthalten dafür nur einen erklärenden Kommentar, keinen Code; die
   Klassen `.lb-haken`/`.lb-gelesen`/`.lb-geuebt`/`.lb-quiz-ok` samt Styles
   stehen in `Style.css` und werden von `LB_fortschritt.js` von außen gesetzt.
+- **Wiederholung (Leitner-Boxen, seit Schema-Version 2):** `wiederholung`
+  bildet `"Kapitel|bosnische Form"` → `{box, zuletzt, faellig}` ab. Drei
+  Boxen mit 1 / 3 / 7 Tagen Abstand (`BOX_INTERVALL` in
+  `LB_fortschritt.js` ist die einzige Stelle, an der die Intervalle
+  stehen). Falsch → immer Box 1, richtig → eine Box weiter, erste
+  richtige Antwort → gleich Box 2; **aufsteigen darf eine Karte nur
+  einmal pro Tag** („falsch schlägt richtig am selben Tag"), sonst würde
+  „nur falsche Karten wiederholen" direkt im Anschluss alles hochstufen.
+  Deshalb nennt der Ergebnisbildschirm „X von Y Karten liegen jetzt in
+  Box 1" (Ist-Zustand) statt der falschen Antworten – eine heute schon
+  einmal falsche Karte bleibt auch nach einer richtigen Antwort dort. Ein Aspektpaar ist **eine** Karte
+  (`"raditi / uraditi"`). Der Schlüssel wird im Trainer gebaut
+  (`cardKey()`), weil nur er die Vokabeldaten hat; `LB_fortschritt.js`
+  kennt nur Schlüssel-Strings. Schlüssel, zu denen keine Vokabel mehr
+  existiert (Kapitel-Neunummerierung), räumt der Trainer über
+  `kartenAufraeumen()` weg — das ist die Gegenprobe, die bei den
+  Kapiteln der Kapitelname übernimmt. Gefüllt werden die Boxen in
+  **jeder** Runde des Vokabeltrainers; „Überspringen" ändert bewusst
+  nichts (die Karte kommt in derselben Runde ohnehin zurück).
+  Sichtbar wird das als Kasten „Fällige Wiederholungen (n)" oben im
+  Trainer (nur bei n > 0, max. 20 Karten pro Runde) — eine
+  kapitelübergreifende Runde, die **keinen** Kapitel-Durchgang zählt.
 - **Löschen:** Auf der Datenschutzseite (`LB_93_Datenschutz.html`,
   Abschnitt 10) gibt es eine Statuszeile und einen „Lernfortschritt
-  löschen"-Button (`LBFortschritt.alleLoeschen()`).
+  löschen"-Button (`LBFortschritt.alleLoeschen()`). Die Statuszeile
+  nennt auch den Wiederholungs-Stapel, und `zusammenfassung().leer`
+  zählt ihn mit — sonst stünde dort „nichts gespeichert", obwohl ein
+  Karteikasten existiert.
 - **Robustheit:** Jeder Speicherzugriff steckt in try/catch (privater Modus
   kann werfen); ohne gespeicherte Daten sehen alle Seiten exakt so aus wie
   vorher. Weil das Modul asynchron nachgeladen wird, muss jeder Aufrufer auf

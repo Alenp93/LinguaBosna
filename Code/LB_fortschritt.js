@@ -20,7 +20,7 @@
    Key: "linguabosna.fortschritt"
 
    {
-     "version": 1,
+     "version": 2,
      "vokabeln": {
        "12": {                        // Schlüssel = Kapitelnummer
          "name": "Zahlen & Mengen",   // Gegenprobe, s. u.
@@ -33,6 +33,13 @@
          "gelesen": true,
          "zuletzt": "2026-08-31",
          "quiz": { "punkte": 8, "max": 10, "am": "2026-08-31" }
+       }
+     },
+     "wiederholung": {                // seit Version 2: Leitner-Boxen
+       "12|kuća": {                   // Schlüssel = "Kapitel|bosnische Form"
+         "box": 1,                    // 1, 2 oder 3
+         "zuletzt": "2026-08-31",     // wann zuletzt beantwortet
+         "faellig": "2026-09-01"      // ab wann wieder dran
        }
      }
    }
@@ -48,6 +55,38 @@
    Die meisten Grammatikseiten haben 10 Fragen, grammatik-alphabet.html
    aber nur 5. Gespeichert wird das jeweils BESTE Ergebnis.
 
+   ------------------------------------------------------------
+   WIEDERHOLUNG (Leitner-Boxen, seit Schema-Version 2)
+
+   Drei Karteikästen. Jede beantwortete Vokabel liegt in genau einem:
+
+     Box 1 = sitzt noch nicht  → wieder fällig nach 1 Tag
+     Box 2 = ganz gut          → wieder fällig nach 3 Tagen
+     Box 3 = sitzt             → wieder fällig nach 7 Tagen
+
+   Falsch  → immer zurück auf Box 1.
+   Richtig → eine Box weiter (Box 3 bleibt Box 3). Eine Vokabel, die
+             beim ersten Mal richtig war, startet gleich in Box 2.
+   Aufsteigen darf eine Karte höchstens EINMAL PRO TAG. Anders gesagt:
+   FALSCH SCHLÄGT RICHTIG AM SELBEN TAG — wer eine Karte heute einmal
+   falsch hatte, behält sie heute in Box 1 und sieht sie morgen wieder.
+   Ohne diese Regel würde "nur falsche Karten wiederholen" direkt im
+   Anschluss jede Karte hochstufen, obwohl die Antwort gerade erst zu
+   sehen war. Das ist der Grund, warum der Ergebnisbildschirm des
+   Trainers "X von Y Karten liegen jetzt in Box 1" schreibt und nicht
+   einfach die falschen Antworten zählt.
+
+   Fällig ist eine Karte, wenn ihr "faellig"-Datum <= heute ist.
+   Beide Daten sind reine Tagesdaten (wie überall in dieser Datei),
+   deshalb genügt ein String-Vergleich.
+
+   Der Schlüssel "Kapitel|bosnische Form" wird vom Aufrufer gebaut
+   (siehe cardKey() in vokabeltrainer.html); Aspektpaare zählen als
+   EINE Karte und stehen als "raditi / uraditi" darin. Ändert sich die
+   Kapitelnummerierung, findet der Trainer den Schlüssel nicht mehr
+   auf und räumt ihn über kartenAufraeumen() weg — dieselbe Idee wie
+   die Namens-Gegenprobe bei den Vokabelkapiteln oben.
+
    Die Versionsnummer erlaubt spätere Schema-Änderungen: dann wird
    SCHEMA_VERSION erhöht und in migrieren() der Umbau ergänzt.
    ============================================================ */
@@ -57,11 +96,16 @@
 
   // ── Konstanten ────────────────────────────────────────────
   var SPEICHER_KEY   = 'linguabosna.fortschritt';
-  var SCHEMA_VERSION = 1;
+  var SCHEMA_VERSION = 2;
 
   // Ab diesem Anteil richtiger Antworten gilt ein Grammatik-Quiz
   // als bestanden (0.7 = 70 %, also z. B. 7 von 10).
   var QUIZ_SCHWELLE = 0.7;
+
+  // Leitner-Boxen: Box-Nummer → Abstand in Tagen bis zur Wiedervorlage.
+  // Hier (und nur hier) werden die Intervalle festgelegt.
+  var BOX_INTERVALL = { 1: 1, 2: 3, 3: 7 };
+  var MAX_BOX       = 3;
 
 
   /* ==========================================================
@@ -72,7 +116,7 @@
   // Speicher nicht lesbar ist. So arbeitet der Rest des Codes
   // immer mit einem gültigen Objekt und muss nie auf null prüfen.
   function leeresModell() {
-    return { version: SCHEMA_VERSION, vokabeln: {}, grammatik: {} };
+    return { version: SCHEMA_VERSION, vokabeln: {}, grammatik: {}, wiederholung: {} };
   }
 
   // Ist localStorage überhaupt benutzbar? (Privater Modus, iOS mit
@@ -123,13 +167,15 @@
     }
   }
 
-  // Alten Stand auf das aktuelle Schema bringen. Aktuell gibt es
-  // nur Version 1 — die Funktion sorgt hier vor allem dafür, dass
-  // die beiden Unterobjekte garantiert existieren. Kommt später
-  // Version 2, wird hier von 1 nach 2 umgebaut.
+  // Alten Stand auf das aktuelle Schema bringen.
+  // Version 1 → 2: Es kam nur das Unterobjekt "wiederholung" dazu.
+  // Nichts muss umgerechnet werden — wer schon Kapitel geübt hat,
+  // startet einfach mit einem leeren Karteikasten. Deshalb genügt es,
+  // die Unterobjekte notfalls anzulegen (das deckt Version 1 mit ab).
   function migrieren(daten) {
-    if (!daten.vokabeln  || typeof daten.vokabeln  !== 'object') daten.vokabeln  = {};
-    if (!daten.grammatik || typeof daten.grammatik !== 'object') daten.grammatik = {};
+    if (!daten.vokabeln     || typeof daten.vokabeln     !== 'object') daten.vokabeln     = {};
+    if (!daten.grammatik    || typeof daten.grammatik    !== 'object') daten.grammatik    = {};
+    if (!daten.wiederholung || typeof daten.wiederholung !== 'object') daten.wiederholung = {};
     daten.version = SCHEMA_VERSION;
     return daten;
   }
@@ -146,6 +192,20 @@
   function datumDE(iso) {
     var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
     return m ? m[3] + '.' + m[2] + '.' + m[1] : '';
+  }
+
+  // "2026-08-31" + 3 Tage → "2026-09-03".
+  // Wir rechnen absichtlich mit einem Date-Objekt statt auf den Zahlen
+  // herumzurechnen: setDate() kennt Monatslängen und Schaltjahre.
+  // Die Uhrzeit 12:00 vermeidet Sprünge über die Sommerzeit-Umstellung.
+  function tagePlus(iso, tage) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    if (!m) return heute();
+    var d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 12, 0, 0);
+    d.setDate(d.getDate() + tage);
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var tt = String(d.getDate()).padStart(2, '0');
+    return d.getFullYear() + '-' + mm + '-' + tt;
   }
 
 
@@ -225,11 +285,95 @@
               (eintrag.quiz.punkte / eintrag.quiz.max) >= QUIZ_SCHWELLE);
   }
 
+  /* ----------------------------------------------------------
+     WIEDERHOLUNG (Leitner-Boxen)
+     Die Regeln stehen ausführlich oben im Dateikopf.
+     ---------------------------------------------------------- */
+
+  // Eine beantwortete Karte verbuchen.
+  //   schluessel: "Kapitel|bosnische Form" (baut der Aufrufer)
+  //   richtig:    true/false
+  // Rückgabe: der neue Eintrag { box, zuletzt, faellig } — oder null,
+  // wenn nichts gespeichert werden konnte (privater Modus, voller
+  // Speicher). Der Trainer erkennt daran, ob er "… in Box 1 gelandet"
+  // überhaupt anzeigen darf.
+  function karteAntwort(schluessel, richtig) {
+    if (!schluessel) return null;
+
+    var daten = laden();
+    var alt   = daten.wiederholung[schluessel];
+    var heuteIso = heute();
+    var box;
+
+    if (!richtig) {
+      box = 1;                                   // falsch → immer ganz zurück
+    } else if (!alt) {
+      box = 2;                                   // gleich beim ersten Mal gewusst
+    } else if (alt.zuletzt === heuteIso) {
+      box = alt.box || 1;                        // heute schon aufgestiegen → stehen bleiben
+    } else {
+      box = Math.min((alt.box || 1) + 1, MAX_BOX);
+    }
+
+    var eintrag = {
+      box:     box,
+      zuletzt: heuteIso,
+      faellig: tagePlus(heuteIso, BOX_INTERVALL[box] || 1)
+    };
+    daten.wiederholung[schluessel] = eintrag;
+
+    return speichern(daten) ? eintrag : null;
+  }
+
+  // Alle Karten, die heute (oder früher) wieder dran sind — als Liste
+  // von Schlüsseln. Der Trainer löst sie selbst in Vokabeln auf, denn
+  // nur er hat die JSON-Daten.
+  function faelligeKarten() {
+    var alle = laden().wiederholung;
+    var heuteIso = heute();
+    var liste = [];
+    Object.keys(alle).forEach(function (k) {
+      var e = alle[k];
+      if (!e) return;
+      // Ohne (oder mit kaputtem) Fälligkeitsdatum lieber sofort abfragen.
+      if (!e.faellig || e.faellig <= heuteIso) liste.push(k);
+    });
+    return liste;
+  }
+
+  // Kompletter Karteikasten (Schlüssel → Eintrag), z. B. um zu prüfen,
+  // welche Schlüssel es überhaupt noch gibt.
+  function alleKarten() {
+    return laden().wiederholung;
+  }
+
+  // Karten wegwerfen, deren Schlüssel es nicht mehr gibt.
+  // ACHTUNG: Die übergebene Liste muss ALLE noch gültigen Schlüssel
+  // enthalten, nicht nur die gerade fälligen — alles andere wird
+  // gelöscht. Aufrufen also nur, wenn die Vokabeldaten wirklich
+  // geladen sind (siehe updateDueBanner() im Vokabeltrainer).
+  function kartenAufraeumen(gueltigeSchluessel) {
+    if (!Array.isArray(gueltigeSchluessel)) return false;
+
+    var behalten = {};
+    gueltigeSchluessel.forEach(function (k) { behalten[k] = true; });
+
+    var daten = laden();
+    var weg   = Object.keys(daten.wiederholung).filter(function (k) {
+      return !behalten[k];
+    });
+    if (!weg.length) return false;              // nichts zu tun
+
+    weg.forEach(function (k) { delete daten.wiederholung[k]; });
+    return speichern(daten);
+  }
+
   // Kurzübersicht — für die Anzeige auf der Datenschutzseite.
   function zusammenfassung() {
     var daten = laden();
     var kapitel = Object.keys(daten.vokabeln);
     var themen  = Object.keys(daten.grammatik);
+    var karten  = Object.keys(daten.wiederholung);
     var runden  = 0;
     var quizzes = 0;
 
@@ -245,7 +389,12 @@
       durchgaenge:     runden,
       grammatikthemen: themen.length,
       quizBestanden:   quizzes,
-      leer:            kapitel.length === 0 && themen.length === 0
+      karten:          karten.length,
+      faellig:         faelligeKarten().length,
+      // "leer" steuert den Löschen-Button auf der Datenschutzseite —
+      // deshalb müssen die Wiederholungskarten hier mitzählen, sonst
+      // hieße es "nichts gespeichert", obwohl ein Karteikasten da ist.
+      leer:            kapitel.length === 0 && themen.length === 0 && karten.length === 0
     };
   }
 
@@ -508,7 +657,14 @@
     quizBestanden:    quizBestanden,
     zusammenfassung:  zusammenfassung,
     alleLoeschen:     alleLoeschen,
-    markiereKarten:   markiereKarten
+    markiereKarten:   markiereKarten,
+
+    // Wiederholung (Leitner-Boxen)
+    karteAntwort:     karteAntwort,
+    faelligeKarten:   faelligeKarten,
+    alleKarten:       alleKarten,
+    kartenAufraeumen: kartenAufraeumen,
+    BOX_INTERVALL:    BOX_INTERVALL
   };
 
   // Signal für Seiten, die das Modul direkt beim Laden brauchen.

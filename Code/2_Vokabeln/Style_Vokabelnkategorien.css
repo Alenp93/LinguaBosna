@@ -166,6 +166,13 @@ tbody tr:hover {
   background-color: #f4f9ff;
 }
 
+/* Abstand zum fixen Header, wenn per Anker (#wort) aus der
+   Wörterbuch-Suche direkt zu einer Zeile gesprungen wird – sonst
+   verschwindet die Zeile unter dem Header. */
+tbody tr {
+  scroll-margin-top: 90px;
+}
+
 /* Letzte Zeile ohne untere Linie */
 tbody tr:last-child td {
   border-bottom: none;

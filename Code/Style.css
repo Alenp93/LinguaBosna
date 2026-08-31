@@ -439,15 +439,45 @@
   flex-direction: column;
 }
 
-/* Einzelner Treffer – dezenter Card-Hover (nur Hintergrundwechsel) */
+/* Kleine Zeile über der Trefferliste, z.B. "8 von 23 Treffern" –
+   macht die Begrenzung auf 8 Treffer für den Nutzer nachvollziehbar. */
+.search-result-count {
+  padding: 4px 12px 8px;
+  color: var(--secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* Einzelner Treffer – dezenter Card-Hover (nur Hintergrundwechsel).
+   "display: block" ist nötig, weil ein Treffer jetzt entweder ein <a>
+   (verlinktes Kapitel) oder ein <div> (reiner Wörterbuch-Eintrag ohne
+   Kapitel) sein kann – <a> ist sonst standardmäßig inline. */
 .search-result {
+  display: block;
   padding: 10px 12px;
   border-radius: 6px;
   transition: background 0.2s;   /* bewusst KEIN translateY */
 }
 
-.search-result:hover {
+/* Hover UND per Pfeiltaste markierter Treffer (Klasse "is-active")
+   sehen gleich aus – beides bedeutet "das ist der aktuell anvisierte
+   Treffer". */
+.search-result:hover,
+.search-result.is-active {
   background: var(--bg-light);
+}
+
+/* Reine Wörterbuch-Einträge ohne Kapitel (kein Link) sollen nicht wie
+   klickbare Karten aussehen – deshalb kein Hover-Hintergrund. */
+.search-result-static:hover {
+  background: none;
+}
+
+/* Deutliche Tastatur-Fokusmarkierung, wenn ein Treffer-Link per Tab
+   angesprungen wird (Fokus-Trap, siehe LB_main.js). */
+.search-result:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 /* Zeile "Deutsch – Bosnisch" */

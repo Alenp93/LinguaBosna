@@ -199,6 +199,15 @@
       return entry['Wortart'] || entry['Wortart (Genus)'] || '';
     }
 
+    // Bosnisches Wort in einen URL-Anker verwandeln (Leerzeichen bei
+    // Mehrwortlemmata → Bindestrich). Dieselbe Funktion steht (bewusst
+    // dupliziert, wie im Projekt üblich) auch in LB_main.js — nur wenn
+    // beide Seiten denselben Anker berechnen, springt der Link aus der
+    // Wörterbuch-Suche auch wirklich zur richtigen Tabellenzeile.
+    function wortAnker(wort) {
+      return (wort || '').trim().replace(/\s+/g, '-');
+    }
+
     // ── Genus-Zusatz für Substantive ermitteln ──────────────────────────
     // Aus z.B. "Substantiv (f)" wird " (f)", aus "Substantiv (f, Pl.)" wird
     // " (f, Pl.)". Dieser Zusatz wird direkt hinter das bosnische Wort
@@ -396,6 +405,9 @@
 
         entries.forEach(entry => {
           const tr = document.createElement('tr');
+          // id = Anker-Ziel für Links aus der Wörterbuch-Suche
+          // (LB_main.js#sucheAusfuehren), z.B. "#biti-bolestan".
+          tr.id = wortAnker(entry.Bosnisch);
           // Bosnisches Wort + (bei Substantiven) Genus-Zusatz in runden
           // Klammern + (bei Verben) Aspekt-Badge in eckigen Klammern.
           // Beispiele: "vjera (f)", "cipele (f, Pl.)", "raditi [nesvrš.]".
@@ -418,6 +430,16 @@
         document.getElementById('actions').style.display    = 'flex';  /* flex für Button-Reihe */
         document.getElementById('vocabTable').style.display = '';
         document.getElementById('countWrap').style.display  = '';
+
+        // Direkter Sprung zum Wort, wenn über einen Anker aus der
+        // Wörterbuch-Suche verlinkt wurde (z.B. "#sat"). Der native
+        // Browser-Sprung beim Laden würde die Zeile verpassen, weil die
+        // Tabelle erst HIER (nach dem asynchronen JSON-Fetch) entsteht –
+        // vorher gibt es die Zeilen-ID im DOM noch gar nicht.
+        if (window.location.hash) {
+          const ziel = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+          if (ziel) ziel.scrollIntoView({ block: 'start' });
+        }
 
       } catch (e) {
         const msg = document.getElementById('stateMsg');

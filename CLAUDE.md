@@ -237,6 +237,47 @@ erhalten** – sie ist der Grund, warum eine Neunummerierung überhaupt möglich
 Einziger Nebeneffekt: alte `?kapitel=N`-Links (Lesezeichen, Google-Index) zeigen jetzt auf
 ein anderes Kapitel.
 
+## Lernfortschritt-System
+
+Seit August 2026 merkt sich LinguaBosna den Lernfortschritt lokal im Browser des
+Besuchers – kein Backend, kein Cookie, nur `localStorage`. Die gesamte Logik
+steckt in `/Code/LB_fortschritt.js`; das Modul wird von `LB_main.js` per
+`createElement`/`appendChild` nachgeladen (wie GoatCounter) und läuft dadurch
+auf jeder Seite. Es hängt sich öffentlich an `window.LBFortschritt`.
+
+- **Speicher-Key:** `linguabosna.fortschritt`, ein einziges JSON-Objekt mit
+  `version` (aktuell `1`), `vokabeln` (Kapitelnummer → `{name, zuletzt,
+  durchgaenge}`) und `grammatik` (Dateiname → `{gelesen, zuletzt, quiz:
+  {punkte, max, am}}`). Beim Vokabeleintrag steht der Kapitelname als
+  Gegenprobe mit dabei: stimmt er nicht mehr mit der Karte überein (z. B. nach
+  einer künftigen Kapitel-Neunummerierung wie im August 2026), wird der
+  Eintrag ignoriert statt am falschen Kapitel angezeigt zu werden.
+- **Was zählt als „geübt"/„gelesen":** Im Vokabeltrainer nur eine
+  *vollständig* durchgearbeitete Lerneinheit (Teil 1 oder Teil 2 eines
+  Kapitels) – die Wiederholung „nur falscher Karten" zählt nicht mit. Auf
+  Grammatikseiten wird „gelesen" automatisch gesetzt, sobald `#quizContainer`
+  ins Bild scrollt (IntersectionObserver), und ein Quiz-Ergebnis wird nur bei
+  Verbesserung überschrieben (bestes Ergebnis bleibt erhalten). Das Modul
+  fasst dafür **keine der 37 Grammatikseiten einzeln an** – es hört zentral
+  auf die laut `WORKFLOW_Grammatikseiten.md` eingefrorenen Quiz-IDs
+  (`quizContainer`, `quizResult`, `resultScore`), daher funktioniert es auch
+  auf jeder künftigen Seite aus dem Template automatisch mit.
+- **Sichtbar gemacht wird der Fortschritt** als kleine Haken-Plakette auf den
+  Kapitel-/Themenkarten in `LB_2_Vokabeln.html` (grün = geübt) und
+  `LB_3_Grammatik.html` (grau = gelesen, grün = Quiz ≥ 70 % bestanden) – beide
+  Dateien enthalten dafür nur einen erklärenden Kommentar, keinen Code; die
+  Klassen `.lb-haken`/`.lb-gelesen`/`.lb-geuebt`/`.lb-quiz-ok` samt Styles
+  stehen in `Style.css` und werden von `LB_fortschritt.js` von außen gesetzt.
+- **Löschen:** Auf der Datenschutzseite (`LB_93_Datenschutz.html`,
+  Abschnitt 10) gibt es eine Statuszeile und einen „Lernfortschritt
+  löschen"-Button (`LBFortschritt.alleLoeschen()`).
+- **Robustheit:** Jeder Speicherzugriff steckt in try/catch (privater Modus
+  kann werfen); ohne gespeicherte Daten sehen alle Seiten exakt so aus wie
+  vorher. Weil das Modul asynchron nachgeladen wird, muss jeder Aufrufer auf
+  `window.LBFortschritt` prüfen bzw. auf das Ereignis
+  `lb-fortschritt-bereit` warten (Beispiel dazu am Ende von
+  `LB_fortschritt.js`).
+
 ## Bekannte Lösungen / Fallstricke (nicht wiederholen)
 
 - **Mobile Overflow (Grammatik-Tabellen) – aktuelle Lösung (Juli 2026):** Tabellen sollen

@@ -601,3 +601,84 @@
     font-size: 1rem;
   }
 }
+
+/* =========================================
+   LERNFORTSCHRITT – Markierungen auf den
+   Übersichtsseiten (Vokabeln & Grammatik)
+   -----------------------------------------
+   Die Klassen setzt /Code/LB_fortschritt.js.
+   Ohne gespeicherten Fortschritt greift hier
+   NICHTS – die Seiten sehen dann exakt so aus
+   wie vorher.
+   ========================================= */
+
+/* Nur für Screenreader sichtbar (z. B. "bereits geübt").
+   Der Text steht im Link, ist aber optisch nicht im Weg. */
+.lb-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Die Karten brauchen einen Bezugspunkt, damit die Plakette
+   absolut positioniert werden kann. Beide Karten setzen selbst
+   kein "position", hier wird also nichts überschrieben. */
+.vocab-card-icon,
+.grammar-card {
+  position: relative;
+}
+
+/* Haken-Plakette (Grundform) */
+.lb-haken {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.62rem;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  pointer-events: none;   /* fängt keine Klicks ab – die Karte bleibt ein Link */
+}
+
+/* Grau = gelesen (Grammatikthema geöffnet und durchgesehen) */
+.lb-haken-gelesen {
+  background: #fff;
+  border: 2px solid var(--neutral);
+  color: #9aa3ab;
+}
+
+/* Grün = geübt (Vokabelkapitel) bzw. Quiz bestanden (Grammatik) */
+.lb-haken-geuebt {
+  background: var(--secondary);
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+/* Position: im Icon-Kreis der Vokabelkarte (unten rechts) … */
+.vocab-card-icon .lb-haken {
+  right: -4px;
+  bottom: -4px;
+}
+
+/* … und oben rechts auf der Grammatikkarte (die hat keinen Kreis) */
+.grammar-card .lb-haken {
+  top: 12px;
+  right: 12px;
+}
+
+/* Dezenter grüner Rahmen, wo etwas abgeschlossen ist.
+   Gelesene, aber noch nicht bestandene Themen bekommen bewusst
+   nur den grauen Haken und keinen farbigen Rahmen. */
+.vocab-card.lb-geuebt,
+.grammar-card.lb-quiz-ok {
+  border-color: rgba(46, 94, 46, 0.45);
+}

@@ -26,8 +26,8 @@
   <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
   <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
 
-  <!-- Globale Styles -->
-  <link rel="stylesheet" href="../Style.css">
+  <!-- Globale Styles (absoluter Pfad wie auf allen anderen Seiten) -->
+  <link rel="stylesheet" href="/Code/Style.css">
 
   <style>
     /* =============================================
@@ -189,6 +189,48 @@
     }
     .notice-box strong { color: #0A3D62; }
 
+    /* Kasten "Lernfortschritt löschen" (Abschnitt 9) */
+    .fortschritt-box {
+      background: #F8F5F0;
+      border: 1px solid #E6E6E6;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-top: 18px;
+    }
+    .fortschritt-status {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 14px !important;
+    }
+    /* Button im Projekt-Buttonstil: Dunkelblau, Hover Goldgelb */
+    .fortschritt-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+      background: #0A3D62;
+      border: 2px solid #0A3D62;
+      border-radius: 6px;
+      padding: 12px 22px;
+      min-height: 44px;           /* Touch-Ziel laut Designvorgabe */
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    .fortschritt-btn:hover:not(:disabled) {
+      background: #F4C542;
+      border-color: #F4C542;
+      color: #0A3D62;
+    }
+    .fortschritt-btn:disabled {
+      background: #E6E6E6;
+      border-color: #E6E6E6;
+      color: #999;
+      cursor: default;
+    }
+
     /* Datums-Zeile am Seitenanfang */
     .last-updated {
       font-size: 0.85rem;
@@ -234,7 +276,7 @@
           ★ HIER ANPASSEN ★
           Datum der letzten Änderung dieser Erklärung eintragen
         -->
-        Stand: 06/2026 
+        Stand: 08/2026
       </p>
 
 
@@ -249,7 +291,9 @@
           <li><a href="#kofi">Ko-fi (Spendenplattform)</a></li>
           <li><a href="#instagram">Instagram-Link</a></li>
           <li><a href="#kontakt-email">Kontakt per E-Mail</a></li>
+          <li><a href="#goatcounter">GoatCounter (Webanalyse)</a></li>
           <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#lernfortschritt">Lernfortschritt (lokale Speicherung)</a></li>
           <li><a href="#rechte">Deine Rechte</a></li>
           <li><a href="#beschwerderecht">Beschwerderecht</a></li>
           <li><a href="#aenderungen">Änderungen dieser Erklärung</a></li>
@@ -281,17 +325,9 @@
         <h2>2. Hosting und Server-Logfiles</h2>
         <p>
           Diese Website wird gehostet bei:
-          <span class="service-name">
-            <!--
-              ★ HIER ANPASSEN ★
-              Trage deinen Hosting-Anbieter ein, z.B.:
-              • GitHub Pages (github.com)
-              • Netlify (netlify.com)
-              • IONOS, Strato, etc.
-            -->
-            Netlify 
-            
-          </span>
+          <span class="service-name">GitHub Pages</span>, einem Dienst der
+          GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA
+          (Teil von Microsoft Corporation).
         </p>
         <p>
           Beim Besuch dieser Website erfasst der Hosting-Anbieter automatisch technische
@@ -313,15 +349,9 @@
         <p>
           Weitere Informationen zur Datenverarbeitung des Hosting-Anbieters findest du in
           dessen Datenschutzerklärung:
-          <!--
-            ★ HIER ANPASSEN ★
-            Link zur Datenschutzseite deines Hosters einfügen.
-            Beispiele:
-            • GitHub Pages: https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement
-            • Netlify: https://www.netlify.com/privacy/
-          -->
-          <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">
-            Datenschutzerklärung Netlify
+          <a href="https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement"
+             target="_blank" rel="noopener">
+            Datenschutzerklärung GitHub
           </a>
         </p>
       </div>
@@ -434,12 +464,46 @@
       </div>
 
 
-      <!-- ─── 8. Cookies ────────────────────────────────────── -->
+      <!-- ─── 8. GoatCounter ─────────────────────────────────── -->
+      <div class="legal-section" id="goatcounter">
+        <h2>8. GoatCounter (Webanalyse)</h2>
+        <p>
+          Um zu sehen, wie oft einzelne Seiten aufgerufen werden, verwendet LinguaBosna
+          den datenschutzfreundlichen Analysedienst
+          <span class="service-name">GoatCounter</span> (Betreiber: Martin Tournoij,
+          Niederlande).
+        </p>
+        <p>
+          GoatCounter setzt <strong>keine Cookies</strong> und speichert
+          <strong>keine vollständigen IP-Adressen</strong>. Besucher werden nicht
+          personenbezogen oder geräteübergreifend wiedererkannt; erfasst werden nur
+          aggregierte Werte wie aufgerufene Seite, Datum, grober Standort (Land) und
+          verwendeter Browser-/Gerätetyp. Diese Daten sind für uns nicht einer
+          bestimmten Person zuordenbar.
+        </p>
+        <p>
+          Da keine personenbezogenen Daten im Sinne der DSGVO verarbeitet und keine
+          Cookies gesetzt werden, ist hierfür keine Einwilligung erforderlich.
+          Rechtsgrundlage – soweit einschlägig – ist Art. 6 Abs. 1 lit. f DSGVO
+          (berechtigtes Interesse an anonymer Reichweitenmessung zur Verbesserung
+          des Angebots).
+        </p>
+        <p>
+          Weitere Informationen:
+          <a href="https://www.goatcounter.com/privacy" target="_blank" rel="noopener">
+            Datenschutzerklärung GoatCounter
+          </a>.
+        </p>
+      </div>
+
+
+      <!-- ─── 9. Cookies ────────────────────────────────────── -->
       <div class="legal-section" id="cookies">
-        <h2>8. Cookies</h2>
+        <h2>9. Cookies</h2>
         <p>
           LinguaBosna setzt <strong>keine eigenen Tracking-Cookies</strong> ein.
-          Es werden keine Analyse- oder Werbe-Tools (wie Google Analytics) verwendet.
+          Es werden keine Werbe-Tools verwendet, und auch die verwendete
+          Webanalyse (GoatCounter, siehe Abschnitt 8) arbeitet ohne Cookies.
         </p>
         <p>
           Hinweis: Externe Dienste wie Google Fonts, FontAwesome CDN oder Ko-fi können
@@ -450,9 +514,58 @@
       </div>
 
 
-      <!-- ─── 9. Deine Rechte ───────────────────────────────── -->
+      <!-- ─── 10. Lernfortschritt (localStorage) ────────────── -->
+      <div class="legal-section" id="lernfortschritt">
+        <h2>10. Lernfortschritt (lokale Speicherung im Browser)</h2>
+        <p>
+          Damit du beim nächsten Besuch siehst, welche Vokabelkapitel du bereits
+          geübt und welche Grammatikthemen du gelesen hast, merkt sich LinguaBosna
+          diesen Lernfortschritt im
+          <span class="service-name">localStorage</span> deines Browsers – einem
+          Speicher, der ausschließlich auf deinem eigenen Gerät liegt.
+        </p>
+        <p>
+          <strong>Diese Daten verlassen dein Gerät nicht.</strong> Sie werden weder
+          an uns noch an einen Server oder an Dritte übertragen, und wir können sie
+          zu keinem Zeitpunkt einsehen. Es handelt sich auch nicht um Cookies:
+          localStorage-Inhalte werden bei Seitenaufrufen nicht mitgeschickt.
+        </p>
+        <p>Gespeichert wird ausschließlich:</p>
+        <ul>
+          <li>Nummer und Name der Vokabelkapitel, die du geübt hast, samt Anzahl der abgeschlossenen Lerneinheiten</li>
+          <li>Dateiname der Grammatikthemen, die du gelesen hast</li>
+          <li>dein bestes Quiz-Ergebnis je Grammatikthema</li>
+          <li>das Datum der letzten Übung (nur der Tag, keine Uhrzeit)</li>
+        </ul>
+        <p>
+          Es entstehen dabei keine personenbezogenen Daten: kein Name, keine
+          E-Mail-Adresse und keine Kennung, mit der du wiedererkannt werden könntest.
+          Die Speicherung dient allein der Anzeige deines eigenen Lernfortschritts.
+          Wenn dein Browser die Speicherung nicht zulässt (etwa im privaten Modus),
+          funktioniert die Website unverändert – es wird dann nur nichts gemerkt.
+        </p>
+        <p>
+          Du kannst den gespeicherten Fortschritt jederzeit selbst löschen –
+          entweder über die Website-Daten deines Browsers oder direkt hier:
+        </p>
+
+        <!-- ── Fortschritt löschen ──────────────────────────────
+             Zustand und Button werden per JS befüllt (siehe unten am
+             Seitenende). Ohne JavaScript bleibt der Kasten leer und es
+             fehlt nichts Rechtliches – der Text darüber gilt weiterhin. -->
+        <div class="fortschritt-box" id="fortschrittBox" hidden>
+          <p class="fortschritt-status" id="fortschrittStatus"></p>
+          <button type="button" class="fortschritt-btn" id="fortschrittLoeschen">
+            <i class="fas fa-trash-can" aria-hidden="true"></i>
+            Lernfortschritt löschen
+          </button>
+        </div>
+      </div>
+
+
+      <!-- ─── 11. Deine Rechte ──────────────────────────────── -->
       <div class="legal-section" id="rechte">
-        <h2>9. Deine Rechte als betroffene Person</h2>
+        <h2>11. Deine Rechte als betroffene Person</h2>
         <p>
           Gemäß DSGVO hast du folgende Rechte gegenüber uns als Verantwortlichem:
         </p>
@@ -491,9 +604,9 @@
       </div>
 
 
-      <!-- ─── 10. Beschwerderecht ───────────────────────────── -->
+      <!-- ─── 12. Beschwerderecht ───────────────────────────── -->
       <div class="legal-section" id="beschwerderecht">
-        <h2>10. Beschwerderecht bei der Aufsichtsbehörde</h2>
+        <h2>12. Beschwerderecht bei der Aufsichtsbehörde</h2>
         <p>
           Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde über die
           Verarbeitung deiner personenbezogenen Daten zu beschweren.
@@ -529,9 +642,9 @@
       </div>
 
 
-      <!-- ─── 11. Änderungen ────────────────────────────────── -->
+      <!-- ─── 13. Änderungen ────────────────────────────────── -->
       <div class="legal-section" id="aenderungen">
-        <h2>11. Änderungen dieser Datenschutzerklärung</h2>
+        <h2>13. Änderungen dieser Datenschutzerklärung</h2>
         <p>
           Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen,
           etwa wenn sich technische oder rechtliche Grundlagen ändern.
@@ -546,7 +659,79 @@
   </main>
 
   <div id="footer"></div>
-  <script src="../LB_main.js"></script>
+
+  <!-- Absoluter Pfad + defer wie auf allen anderen Seiten
+       (vorher: relatives "../LB_main.js" ohne defer) -->
+  <script src="/Code/LB_main.js" defer></script>
+
+  <!-- ── Lernfortschritt: Anzeige & Löschen ──────────────────────────
+       Nutzt window.LBFortschritt aus /Code/LB_fortschritt.js. Weil dieses
+       Modul von LB_main.js nachgeladen wird, kann es hier noch fehlen –
+       deshalb wird auf das Ereignis "lb-fortschritt-bereit" gewartet.
+       Ist gar kein Speicher verfügbar (privater Modus), bleibt der Kasten
+       ausgeblendet und die Seite sieht aus wie vorher. -->
+  <script>
+    (function () {
+
+      // Führt fn aus, sobald das Fortschritts-Modul da ist.
+      function wennBereit(fn) {
+        if (window.LBFortschritt) {
+          fn(window.LBFortschritt);
+        } else {
+          document.addEventListener('lb-fortschritt-bereit', function () {
+            fn(window.LBFortschritt);
+          });
+        }
+      }
+
+      wennBereit(function (fs) {
+        var box    = document.getElementById('fortschrittBox');
+        var status = document.getElementById('fortschrittStatus');
+        var btn    = document.getElementById('fortschrittLoeschen');
+        if (!box || !status || !btn) return;
+
+        // Kein nutzbarer Speicher → Kasten gar nicht erst zeigen.
+        if (!fs.verfuegbar()) return;
+
+        // Statuszeile aus den gespeicherten Daten bauen.
+        function statusAnzeigen() {
+          var z = fs.zusammenfassung();
+
+          if (z.leer) {
+            status.textContent = 'Aktuell ist auf diesem Gerät kein Lernfortschritt gespeichert.';
+            btn.disabled = true;
+            return;
+          }
+
+          var teile = [];
+          if (z.vokabelkapitel) {
+            teile.push(z.vokabelkapitel + ' Vokabelkapitel (' + z.durchgaenge +
+                       ' Lerneinheit' + (z.durchgaenge === 1 ? '' : 'en') + ')');
+          }
+          if (z.grammatikthemen) {
+            teile.push(z.grammatikthemen +
+                       (z.grammatikthemen === 1 ? ' Grammatikthema' : ' Grammatikthemen'));
+          }
+          status.textContent = 'Aktuell auf diesem Gerät gespeichert: ' + teile.join(' und ') + '.';
+          btn.disabled = false;
+        }
+
+        statusAnzeigen();
+        box.hidden = false;
+
+        btn.addEventListener('click', function () {
+          if (!window.confirm('Deinen gespeicherten Lernfortschritt wirklich löschen? ' +
+                              'Das lässt sich nicht rückgängig machen.')) {
+            return;
+          }
+          fs.alleLoeschen();
+          statusAnzeigen();
+          status.textContent = 'Der Lernfortschritt auf diesem Gerät wurde gelöscht.';
+        });
+      });
+
+    })();
+  </script>
 
 </body>
 </html>

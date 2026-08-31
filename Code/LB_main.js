@@ -329,6 +329,23 @@ function initWoerterbuchSuche() {
 })();
 // ────────────────────────────────────────────────────────────
 
+// ── Lernfortschritt-Modul nachladen ─────────────────────────
+// LB_fortschritt.js merkt sich im localStorage des Besuchers, welche
+// Vokabelkapitel geübt und welche Grammatikthemen gelesen wurden.
+// Es steckt in einer eigenen Datei, damit LB_main.js übersichtlich
+// bleibt — wird aber von hier aus geladen und läuft dadurch auf JEDER
+// Seite. Wie bei GoatCounter über createElement/appendChild, weil ein
+// per innerHTML eingefügtes <script> nicht ausgeführt würde.
+(function () {
+    var fs = document.createElement('script');
+    fs.src = '/Code/LB_fortschritt.js';   // absoluter Pfad (Projektprinzip)
+    // Per JS eingefügte <script>-Elemente laden ohnehin asynchron und
+    // blockieren den Seitenaufbau nicht. Das Modul wartet selbst darauf,
+    // dass das DOM fertig ist.
+    document.head.appendChild(fs);
+})();
+// ────────────────────────────────────────────────────────────
+
 // ── GoatCounter Webanalyse ──────────────────────────────────
 // Läuft auf JEDER Seite, weil LB_main.js überall eingebunden ist.
 // Wir erzeugen das <script>-Element per JS und hängen es an den

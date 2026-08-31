@@ -866,6 +866,21 @@
     // ERGEBNIS-BILDSCHIRM
     // ─────────────────────────────────────────────────────────
     function showResult() {
+      // ── Lernfortschritt merken (localStorage, siehe LB_fortschritt.js) ──
+      // Gezählt wird nur eine VOLLSTÄNDIGE Lerneinheit: nach
+      // "Nur falsche wiederholen" ist queue kürzer als unitVocab, das ist
+      // kein eigener Durchgang. Ebenso wird nichts gezählt, wenn alle Karten
+      // nur übersprungen wurden (correct + wrong = 0). Der Listen-Modus
+      // erreicht diese Funktion ohnehin nie.
+      // Die Abfrage auf window.LBFortschritt ist nötig, weil das Modul von
+      // LB_main.js nachgeladen wird – fehlt es, läuft der Trainer normal weiter.
+      if (window.LBFortschritt &&
+          queue.length === unitVocab.length &&
+          (correct + wrong) > 0 &&
+          allInCat.length) {
+        window.LBFortschritt.vokabelDurchgang(activeKapitel, allInCat[0].Kapitelname);
+      }
+
       document.getElementById('flashMode').classList.add('hidden');
       document.getElementById('quizMode').classList.add('hidden');
       document.getElementById('progressWrap').classList.add('hidden');

@@ -45,6 +45,21 @@
         // Elemente noch nicht.
         initWoerterbuchSuche();
         // ────────────────────────────────────────────────────────────
+
+        // ── Skip-Link-Ziel ───────────────────────────────────────────
+        // Der Skip-Link in LB_header.html springt zu "#main-content".
+        // Die ID steht in keiner einzelnen Seite fest im HTML, deshalb
+        // wird sie hier zentral gesetzt – wirkt dadurch auf jeder Seite,
+        // ohne <main> überall einzeln anpassen zu müssen. tabindex="-1"
+        // macht <main> fokussierbar, obwohl es normalerweise kein
+        // interaktives Element ist – sonst würde der Sprung zwar scrollen,
+        // der Tastaturfokus aber auf der Seite hängen bleiben.
+        const mainEl = document.querySelector('main');
+        if (mainEl) {
+            if (!mainEl.id) mainEl.id = 'main-content';
+            mainEl.setAttribute('tabindex', '-1');
+        }
+        // ────────────────────────────────────────────────────────────
     });
 
 // ── Wörterbuch-Suche: gesamte Logik ─────────────────────────────

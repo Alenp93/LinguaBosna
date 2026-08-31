@@ -227,7 +227,7 @@ tbody tr:last-child td {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--accent);
+  color: var(--accent-text);   /* var(--accent) auf Weiß nur 1,63:1 – hier ein Bedienelement (Icon-Button) */
   font-size: 0.95rem;
   margin-left: 8px;
   padding: 3px 5px;

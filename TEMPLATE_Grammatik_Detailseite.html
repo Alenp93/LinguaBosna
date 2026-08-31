@@ -214,39 +214,43 @@
 
       <div class="example-cards">
 
-        <!-- 6x diese Karte. highlight = die entscheidende Stelle -->
+        <!-- 6x diese Karte. highlight = die entscheidende Stelle.
+             lang="bs" auf .example-word: der Inhalt ist hier IMMER reines
+             Bosnisch (die deutsche Übersetzung steht separat in
+             .example-translation) – Screenreader sprechen es dadurch mit
+             bosnischer statt deutscher Aussprache vor. -->
         <div class="example-card">
-          <div class="example-word">[BOSNISCH mit <span class="highlight">markierter Stelle</span>]</div>
+          <div class="example-word" lang="bs">[BOSNISCH mit <span class="highlight">markierter Stelle</span>]</div>
           <div class="example-translation">[DEUTSCHE ÜBERSETZUNG]</div>
           <div class="example-detail">[KURZLABEL, z.B. „Feminin: -a" oder „nach Präposition"]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">[BEISPIEL 2]</div>
+          <div class="example-word" lang="bs">[BEISPIEL 2]</div>
           <div class="example-translation">[ÜBERSETZUNG 2]</div>
           <div class="example-detail">[LABEL 2]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">[BEISPIEL 3]</div>
+          <div class="example-word" lang="bs">[BEISPIEL 3]</div>
           <div class="example-translation">[ÜBERSETZUNG 3]</div>
           <div class="example-detail">[LABEL 3]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">[BEISPIEL 4]</div>
+          <div class="example-word" lang="bs">[BEISPIEL 4]</div>
           <div class="example-translation">[ÜBERSETZUNG 4]</div>
           <div class="example-detail">[LABEL 4]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">[BEISPIEL 5]</div>
+          <div class="example-word" lang="bs">[BEISPIEL 5]</div>
           <div class="example-translation">[ÜBERSETZUNG 5]</div>
           <div class="example-detail">[LABEL 5]</div>
         </div>
 
         <div class="example-card">
-          <div class="example-word">[BEISPIEL 6]</div>
+          <div class="example-word" lang="bs">[BEISPIEL 6]</div>
           <div class="example-translation">[ÜBERSETZUNG 6]</div>
           <div class="example-detail">[LABEL 6]</div>
         </div>
@@ -280,6 +284,14 @@
       <h3 class="group-title"><i class="fas fa-[ICON-1]"></i> Gruppe 1: [GRUPPEN-TITEL 1]</h3>
       <p class="group-desc">[KURZE EINLEITUNG: Was zeigt diese Gruppe?]</p>
 
+      <!-- WICHTIG (Barrierefreiheit): welche Spalte hier Bosnisch bzw.
+           Deutsch enthält, ist von Thema zu Thema verschieden (mal ist nur
+           Spalte 1 bosnisch, mal sind es alle Spalten, z.B. bei einer
+           Fälle-Tabelle mit mehreren bosnischen Formen). Deshalb NICHT
+           pauschal vorbelegt – bitte an jeder <th>/<td> mit bosnischem
+           Inhalt von Hand lang="bs" ergänzen, an deutschsprachigen
+           Spalten/Zellen weglassen. Screenreader sprechen sonst bosnische
+           Wörter mit deutscher Aussprache vor. -->
       <div class="letter-table-wrap">
         <table class="letter-table">
           <thead>
@@ -373,6 +385,9 @@
 
         <div class="comparison-card">
           <div class="comp-label comp-ba">Bosnisch</div>
+          <!-- Fließtext hier ist deutsche Erklärung, kein lang="bs" auf dem
+               Absatz. Einzelne bosnische Beispielwörter darin bitte mit
+               <span lang="bs">Wort</span> auszeichnen. -->
           <p>[WIE FUNKTIONIERT ES IM BOSNISCHEN? Punkt 1 – parallel zur DE-Karte formuliert.]</p>
           <p>[PUNKT 2.]</p>
         </div>

@@ -115,7 +115,10 @@ body {
 .breadcrumb {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.85rem;
-  color: #888;
+  /* #707070 statt des früheren #888: erreicht 4,5:1 auf Weiß, #888 kam
+     nur auf 3,3–3,5:1. Gilt für alle #707070-Stellen in dieser Datei
+     (Schritt-Labels, Übersetzungen, Quiz-Fortschritt). */
+  color: #707070;
   margin-bottom: 24px;
 }
 
@@ -174,7 +177,7 @@ body {
 .step-label {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.78rem;
-  color: #888;
+  color: #707070;
   margin-right: 10px;
 }
 
@@ -303,15 +306,18 @@ body {
   margin-bottom: 6px;
 }
 
-/* Hervorgehobene Buchstaben in Beispielwörtern */
+/* Hervorgehobene Buchstaben in Beispielwörtern.
+   var(--accent-text) statt var(--accent): das reine Gold hat auf Weiß nur
+   1,63:1 Kontrast – für die didaktisch wichtigste Stelle der Seite zu wenig
+   (WCAG AA verlangt 4,5:1 für Text). --accent-text erreicht 4,92:1. */
 .highlight {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .example-translation {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.85rem;
-  color: #888;
+  color: #707070;
   margin-bottom: 8px;
 }
 
@@ -613,7 +619,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #888;
+  color: #707070;
   margin-bottom: 10px;
 }
 

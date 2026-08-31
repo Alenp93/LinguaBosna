@@ -186,7 +186,7 @@ main {
 .vocab-card-count {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.8rem;
-  color: #777;
+  color: #707070;   /* statt #777: auf dem --bg-light-Chip nur 4,12:1, jetzt 4,55:1 */
   background: var(--bg-light);
   border-radius: 20px;
   padding: 3px 12px;

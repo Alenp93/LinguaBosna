@@ -412,8 +412,10 @@
           // Klammern + (bei Verben) Aspekt-Badge in eckigen Klammern.
           // Beispiele: "vjera (f)", "cipele (f, Pl.)", "raditi [nesvrš.]".
           // Die Wortart selbst wird NICHT angezeigt (nur noch im JSON).
+          // lang="bs" auf der Bosnisch-Zelle: Screenreader sprechen das Wort
+          // sonst mit deutscher statt bosnischer Aussprache vor.
           tr.innerHTML = `
-            <td>${entry.Bosnisch}<span class="genus">${getGenusSuffix(entry)}</span>${getAspektBadge(entry)}</td>
+            <td lang="bs">${entry.Bosnisch}<span class="genus">${getGenusSuffix(entry)}</span>${getAspektBadge(entry)}</td>
             <td>${entry.Deutsch}</td>
           `;
           tbody.appendChild(tr);

@@ -16,6 +16,7 @@
   --blue-lt: #d0e8f7;
   --gold:    #F4C542;   /* = var(--accent) */
   --gold-dk: #c9a030;
+  --gold-text: #8A6D00; /* = var(--accent-text), barrierefreier Text-Ton, 4,92:1 auf Weiß */
   --green:   #2E5E2E;   /* = var(--secondary) */
   --green-lt:#e8f4e8;
   --bg:      #F8F5F0;   /* = var(--bg-light) */
@@ -504,7 +505,7 @@ main {
   box-shadow: var(--shadow);
 }
 .result-screen h2 { font-size: 1.55rem; font-weight: 700; color: var(--blue); margin-bottom: 0.4rem; }
-.result-big       { font-size: 3.2rem; font-weight: 700; color: var(--gold); margin: 0.8rem 0; }
+.result-big       { font-size: 3.2rem; font-weight: 700; color: var(--gold-text); margin: 0.8rem 0; } /* var(--gold) auf Weiß nur 1,63:1 */
 .result-sub       { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.75rem; }
 .result-stars     { font-size: 1.9rem; margin-bottom: 0.9rem; }
 .result-wrong-count { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #b03030; }

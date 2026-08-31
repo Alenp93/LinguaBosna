@@ -2,6 +2,10 @@
     :root {
       --primary: #0A3D62;
       --accent: #F4C542;
+      /* Barrierefreier Gold-Ton für TEXT/Icons auf hellem Grund (4,92:1 auf Weiß).
+         --accent bleibt für Flächen/Buttons/Icon-Kreise unverändert – dort steht
+         dunkler Text auf dem Gold, da stimmt der Kontrast schon. */
+      --accent-text: #8A6D00;
       --secondary: #2E5E2E;
       --bg-light: #F8F5F0;
       --neutral: #E6E6E6;
@@ -406,8 +410,9 @@
 }
 
 .search-input:focus {
-  outline: none;
-  border-color: var(--primary);   /* deutliche Fokus-Markierung */
+  outline: 2px solid var(--primary);   /* deutliche Fokus-Markierung für Tastaturnutzung */
+  outline-offset: 2px;
+  border-color: var(--primary);
 }
 
 /* Schließen-Button (X) */
@@ -629,6 +634,56 @@
 
   .search-input {
     font-size: 1rem;
+  }
+}
+
+
+/* =========================================
+   SKIP-LINK ("Zum Inhalt springen")
+   Liegt als erstes Element in LB_header.html.
+   Per Tastatur (Tab) erreichbar, für Maus/Touch
+   unsichtbar: per absoluter Position aus dem
+   sichtbaren Bereich geschoben, bis :focus sie
+   zurückholt. Höherer z-index als der fixierte
+   Header (1000), damit sie ihn beim Aufklappen
+   nicht überdeckt bekommt.
+   ========================================= */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 12px;
+  z-index: 2000;
+  background: var(--primary);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 20px;
+  border-radius: 0 0 6px 6px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+
+/* =========================================
+   BEWEGUNG REDUZIEREN (prefers-reduced-motion)
+   Schaltet Transform-Animationen und -Übergänge
+   sitewide praktisch ab (Karten-Hover, Flashcard-
+   Drehung im Vokabeltrainer, Herz-Puls auf der
+   Unterstützen-Seite usw.), wenn der Nutzer das
+   in seinem Betriebssystem so eingestellt hat.
+   Läuft hier global, weil Style.css auf jeder
+   Seite eingebunden ist.
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

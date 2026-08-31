@@ -84,6 +84,11 @@
   <!-- Platzhalter für dynamischen Header -->
   <div id="header"></div>
 
+  <!-- main fehlte hier bisher (einzige Seite ohne Landmark) – der Skip-Link
+       aus LB_header.html springt zu #main-content, das LB_main.js hier
+       hineinsetzt. Ohne <main> hätte der Sprung auf der Startseite kein Ziel. -->
+  <main>
+
   <!-- ════════════════════════════════════════════════════════════
        HERO-SECTION
        ════════════════════════════════════════════════════════════ -->
@@ -136,6 +141,8 @@
 
     </div>
   </section>
+
+  </main>
 
   <!-- ════════════════════════════════════════════════════════════
        BLOG-VORSCHAU (Platzhalter)

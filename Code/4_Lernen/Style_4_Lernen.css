@@ -227,7 +227,7 @@ main h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #888;
+  color: #707070;   /* statt #888: 4,5:1 auf Weiß (#888 nur 3,3:1) */
   margin-bottom: 10px;
 }
 
@@ -264,7 +264,7 @@ main h1 {
   min-width: 60px;
   padding: 0 10px;
   border-bottom: 3px dashed var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);   /* var(--accent) auf Weiß nur 1,63:1 */
   font-weight: 700;
 }
 /* Wenn die Lücke nach der Antwort gefüllt wird */
@@ -1040,7 +1040,8 @@ main h1 {
   color: #bbb;
 }
 .frei-input:focus {
-  outline: none;
+  outline: 2px solid var(--primary);   /* deutliche Fokus-Markierung für Tastaturnutzung */
+  outline-offset: 2px;
   border-color: var(--primary);
   background: #fff;
 }

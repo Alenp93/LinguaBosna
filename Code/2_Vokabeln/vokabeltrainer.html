@@ -834,6 +834,10 @@
     function backText(v)  { return direction === 'bos-de' ? v.Deutsch  : v.Bosnisch; }
     function frontLang()  { return direction === 'bos-de' ? 'Bosnisch' : 'Deutsch'; }
     function backLang()   { return direction === 'bos-de' ? 'Deutsch'  : 'Bosnisch'; }
+    // lang-Attribut-Werte zu frontLang()/backLang(): für Screenreader, damit
+    // bosnische Wörter nicht mit deutscher Aussprache vorgelesen werden.
+    function frontLangCode() { return direction === 'bos-de' ? 'bs' : 'de'; }
+    function backLangCode()  { return direction === 'bos-de' ? 'de' : 'bs'; }
 
     function shuffle(arr) {
       const a = [...arr];
@@ -941,9 +945,13 @@
       // frontSideHTML/backSideHTML berücksichtigen Richtung, Genus, Aspekt
       // und stellen Aspektpaare als "Form1 / Form2" dar.
       document.getElementById('cardFrontLabel').textContent = frontLang();
-      document.getElementById('cardFrontWord').innerHTML    = frontSideHTML(v);
+      const frontWordEl = document.getElementById('cardFrontWord');
+      frontWordEl.innerHTML = frontSideHTML(v);
+      frontWordEl.lang      = frontLangCode();
       document.getElementById('cardBackLabel').textContent  = backLang();
-      document.getElementById('cardBackWord').innerHTML     = backSideHTML(v);
+      const backWordEl = document.getElementById('cardBackWord');
+      backWordEl.innerHTML = backSideHTML(v);
+      backWordEl.lang      = backLangCode();
       document.getElementById('cardBackHint').innerHTML     = backLang() + ': ';
 
       // Nach einem Frame: Transition wiederherstellen & Rückseite zeigen
@@ -1061,7 +1069,9 @@
         ? 'Was bedeutet auf Deutsch …' : 'Wie heißt auf Bosnisch …';
 
       // Frage-Wort = Vorderseite des Items (Paar erscheint als "Form1 / Form2")
-      document.getElementById('quizWord').innerHTML = frontSideHTML(v);
+      const quizWordEl = document.getElementById('quizWord');
+      quizWordEl.innerHTML = frontSideHTML(v);
+      quizWordEl.lang      = frontLangCode();
 
       const container = document.getElementById('quizOptions');
       container.innerHTML = '';

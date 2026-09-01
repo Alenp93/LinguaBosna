@@ -91,6 +91,14 @@
 
   <!-- ════════════════════════════════════════════════════════════
        HERO-SECTION
+
+       Der Button führt bewusst NICHT mehr auf die Kapitelliste
+       (das war wieder eine Auswahl aus 97 Kapiteln), sondern auf
+       den Drei-Schritte-Pfad direkt darunter. Wer den Pfad nicht
+       braucht, scrollt einfach weiter; wer neu ist, bekommt eine
+       Reihenfolge statt einer Liste. Pfeil zeigt deshalb nach
+       unten (fa-arrow-down), nicht nach rechts – der Klick
+       springt auf dieselbe Seite.
        ════════════════════════════════════════════════════════════ -->
   <section class="hero" aria-label="Willkommen bei LinguaBosna">
     <!-- Overlay für bessere Lesbarkeit des Textes -->
@@ -98,10 +106,100 @@
     <div class="hero-content">
       <h1>Lerne Bosnisch.</h1>
       <p class="hero-subtitle">Lebe die Kultur.</p>
-      <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html" class="btn btn-hero">
-        Jetzt starten <i class="fas fa-arrow-right"></i>
+      <a href="#start" class="btn btn-hero">
+        Jetzt starten <i class="fas fa-arrow-down" aria-hidden="true"></i>
       </a>
     </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       FÜR WEN – schmales Band direkt unter dem Hero
+
+       Beantwortet die erste Frage jedes Besuchers („bin ich hier
+       richtig?") in einem Satz, bevor irgendetwas anderes kommt.
+       ════════════════════════════════════════════════════════════ -->
+  <section class="zielgruppe" aria-label="Für wen LinguaBosna gemacht ist">
+    <p class="zielgruppe-text">
+      <i class="fas fa-people-group" aria-hidden="true"></i>
+      Gemacht für die bosnische Diaspora im deutschsprachigen Raum und für alle,
+      die von Deutsch aus Bosnisch lernen – von den ersten Wörtern bis zur
+      Behördensprache.
+    </p>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       NEU HIER? – Drei-Schritte-Pfad
+
+       Ziel des Ankers "start": Der Hero-Button springt hierher.
+       Die Schritte sind eine <ol>, weil die Reihenfolge Teil der
+       Aussage ist (Screenreader lesen „1 von 3" mit).
+       ════════════════════════════════════════════════════════════ -->
+  <section class="start-pfad" id="start" aria-labelledby="start-titel">
+    <div class="section-intro">
+      <h2 id="start-titel">Neu hier? So fängst du an</h2>
+      <p>Drei Schritte in der richtigen Reihenfolge – für den ersten musst du nichts können.</p>
+    </div>
+
+    <ol class="start-steps">
+
+      <!-- Schritt 1 – Alphabet -->
+      <li>
+        <a class="start-step" href="/Code/3_Grammatik/Grammatik_A1/grammatik-alphabet.html">
+          <span class="start-step-num" aria-hidden="true">1</span>
+          <span class="start-step-body">
+            <span class="start-step-title">Das Alphabet lesen lernen</span>
+            <span class="start-step-text">
+              30 Buchstaben, und jeder wird immer gleich ausgesprochen.
+              Danach kannst du jedes bosnische Wort laut vorlesen.
+            </span>
+            <span class="start-step-meta">A1 · Grammatik · ca. 15 Minuten</span>
+          </span>
+          <i class="fas fa-arrow-right start-step-arrow" aria-hidden="true"></i>
+        </a>
+      </li>
+
+      <!-- Schritt 2 – erstes Vokabelkapitel
+           Die Meta-Zeile (Kapitelname + Wortanzahl) wird unten per
+           JavaScript aus vokabeln_flat.json nachgetragen. Der hier
+           stehende Text ist der Stand ohne JavaScript. -->
+      <li>
+        <a class="start-step" href="/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html?kapitel=1">
+          <span class="start-step-num" aria-hidden="true">2</span>
+          <span class="start-step-body">
+            <span class="start-step-title">Die ersten Wörter lernen</span>
+            <span class="start-step-text">
+              Begrüßen, danken, sich vorstellen: Kapitel 1 bringt genau die
+              Wörter, die du am ersten Tag brauchst.
+            </span>
+            <span class="start-step-meta" id="startStep2Meta">A1 · Vokabeln · Kapitel 1</span>
+          </span>
+          <i class="fas fa-arrow-right start-step-arrow" aria-hidden="true"></i>
+        </a>
+      </li>
+
+      <!-- Schritt 3 – erste Grammatikregel anwenden -->
+      <li>
+        <a class="start-step" href="/Code/3_Grammatik/Grammatik_A1/grammatik-biti.html">
+          <span class="start-step-num" aria-hidden="true">3</span>
+          <span class="start-step-body">
+            <span class="start-step-title">Den ersten Satz bilden</span>
+            <span class="start-step-text">
+              <span lang="bs">biti</span> heißt „sein“ – das häufigste Verb der
+              Sprache. Am Ende der Seite wartet ein kurzes Quiz.
+            </span>
+            <span class="start-step-meta">A1 · Grammatik mit Quiz</span>
+          </span>
+          <i class="fas fa-arrow-right start-step-arrow" aria-hidden="true"></i>
+        </a>
+      </li>
+
+    </ol>
+
+    <p class="start-danach">
+      Danach geht es weiter mit
+      <a href="/Code/4_Lernen/lernen-uebersicht.html">interaktiven Übungen</a> –
+      oder du suchst dir aus, was dich interessiert.
+    </p>
   </section>
 
   <!-- ════════════════════════════════════════════════════════════
@@ -142,6 +240,128 @@
     </div>
   </section>
 
+  <!-- ════════════════════════════════════════════════════════════
+       INHALTSVORSCHAU – „So sieht Lernen hier aus"
+
+       Zwei echte Beispiele statt Kategorie-Icons:
+         • links  eine Karteikarte wie im Vokabeltrainer (dreht sich
+                  auf Klick/Enter/Leertaste um)
+         • rechts ein Beispielsatz aus einer Übung
+       Beide Inhalte werden unten per JavaScript aus den echten
+       Datendateien geholt. Die hier fest stehenden Inhalte sind der
+       Stand ohne JavaScript – „hvala" steht in vokabeln_flat.json
+       (Kapitel 1), der Satz in Code/4_Lernen/aspektpaare_data.json.
+       ════════════════════════════════════════════════════════════ -->
+  <section class="vorschau" id="vorschau" aria-labelledby="vorschau-titel">
+    <div class="section-intro">
+      <h2 id="vorschau-titel">So sieht Lernen hier aus</h2>
+      <p>Keine Videos, keine Anmeldung – Karteikarten und echte Sätze.</p>
+    </div>
+
+    <div class="vorschau-grid">
+
+      <!-- Karteikarte zum Umdrehen -->
+      <div class="vorschau-box">
+        <span class="vorschau-label">Karteikarte aus dem Vokabeltrainer</span>
+
+        <button type="button" class="demo-card" id="demoCard" aria-expanded="false">
+          <span class="demo-card-inner">
+            <!-- Vorderseite: Bosnisch -->
+            <span class="demo-card-face demo-card-front" id="demoFront">
+              <span class="demo-card-side">Bosnisch</span>
+              <span class="demo-card-word" id="demoWordBs" lang="bs">hvala</span>
+              <span class="demo-card-hint">Zum Umdrehen antippen</span>
+            </span>
+            <!-- Rückseite: Deutsch (für Screenreader ausgeblendet, solange
+                 die Karte nicht gedreht ist – das JavaScript unten schaltet
+                 aria-hidden beim Umdrehen um) -->
+            <span class="demo-card-face demo-card-back" id="demoBack" aria-hidden="true">
+              <span class="demo-card-side">Deutsch</span>
+              <span class="demo-card-word" id="demoWordDe">danke</span>
+              <span class="demo-card-type" id="demoWordType">Phrase · A1</span>
+            </span>
+          </span>
+        </button>
+
+        <a href="/Code/2_Vokabeln/vokabeltrainer.html?kapitel=1" class="btn btn-outline">
+          Zum Vokabeltrainer
+        </a>
+      </div>
+
+      <!-- Beispielsatz aus einer Übung -->
+      <div class="vorschau-box">
+        <span class="vorschau-label">Beispielsatz aus einer Übung</span>
+
+        <div class="vorschau-satz">
+          <p class="vorschau-satz-bs" id="demoSatzBs" lang="bs">Učim bosanski jezik.</p>
+          <p class="vorschau-satz-de" id="demoSatzDe">Ich lerne (gerade) Bosnisch.</p>
+        </div>
+
+        <a href="/Code/4_Lernen/lernen-uebersicht.html" class="btn btn-outline">
+          Zu den Übungen
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       ZAHLEN – was schon da ist
+
+       Alle Zahlen werden unten per JavaScript aus den echten
+       Datenquellen gezählt, damit sie nicht veralten (siehe
+       Kommentar im Script). Vor dem Laden steht in jeder Kachel
+       ein „…"; lässt sich eine Zahl nicht ermitteln, verschwindet
+       die betroffene Kachel, statt etwas Falsches zu behaupten.
+       ════════════════════════════════════════════════════════════ -->
+  <section class="zahlen" id="zahlen" aria-labelledby="zahlen-titel">
+    <div class="section-intro">
+      <h2 id="zahlen-titel">Was dich erwartet</h2>
+      <p>Alles frei zugänglich, ohne Konto und ohne Bezahlschranke.</p>
+    </div>
+
+    <ul class="zahlen-grid">
+
+      <li class="zahl-kachel" id="kachelVokabeln">
+        <span class="zahl-wert" id="zahlVokabeln">…</span>
+        <span class="zahl-label">Vokabeln mit Wortart und Niveau</span>
+      </li>
+
+      <li class="zahl-kachel" id="kachelKapitel">
+        <span class="zahl-wert" id="zahlKapitel">…</span>
+        <span class="zahl-label">Vokabelkapitel nach Themen</span>
+      </li>
+
+      <li class="zahl-kachel" id="kachelGrammatik">
+        <span class="zahl-wert" id="zahlGrammatik">…</span>
+        <span class="zahl-label">Grammatikthemen mit Quiz</span>
+      </li>
+
+      <li class="zahl-kachel" id="kachelUebungen">
+        <span class="zahl-wert" id="zahlUebungen">…</span>
+        <span class="zahl-label">interaktive Übungstypen</span>
+      </li>
+
+      <li class="zahl-kachel" id="kachelNiveaus">
+        <span class="zahl-wert" id="zahlNiveaus">…</span>
+        <span class="zahl-label">Sprachniveaus, lückenlos abgedeckt</span>
+      </li>
+
+      <!-- Diese Kachel hat keine Datenquelle – sie ist eine Zusage,
+           keine gezählte Zahl, und bleibt deshalb immer stehen. -->
+      <li class="zahl-kachel">
+        <span class="zahl-wert">0 €</span>
+        <span class="zahl-label">kostenlos, ohne Anmeldung und ohne Werbung</span>
+      </li>
+
+    </ul>
+
+    <p class="zahlen-hinweis">
+      Diese Zahlen werden beim Aufruf direkt aus den Lerndaten gezählt –
+      sie sind also immer der aktuelle Stand.
+    </p>
+  </section>
+
   </main>
 
   <!-- ════════════════════════════════════════════════════════════
@@ -150,6 +370,273 @@
 
   <!-- Platzhalter für dynamischen Footer -->
   <div id="footer"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       STARTSEITEN-SKRIPT
+
+       Zwei Aufgaben:
+         1. die Demo-Karteikarte umdrehen (Klick / Tastatur)
+         2. Zahlen, Beispielkarte und Beispielsatz zur Laufzeit aus
+            den echten Datendateien holen
+
+       Warum zur Laufzeit und nicht fest eingetragen: Der Bestand
+       wächst laufend. Fest eingetragene Zahlen wären nach dem
+       nächsten neuen Kapitel falsch, und niemand würde es merken.
+       Gezählt wird deshalb an der Quelle:
+
+         vokabeln_flat.json      → Anzahl Vokabeln, Anzahl Kapitel,
+                                   Niveau-Spanne, Beispielkarte,
+                                   Name + Umfang von Kapitel 1
+         LB_3_Grammatik.html     → Anzahl Grammatikthemen
+                                   (gezählt werden die .grammar-card-
+                                   Karten; auskommentierte Karten
+                                   zählen nicht mit, weil ein
+                                   HTML-Kommentar beim Parsen kein
+                                   Element ergibt)
+         lernen-uebersicht.html  → Anzahl Übungstypen (.thema-card
+                                   im .uebung-grid)
+         aspektpaare_data.json   → der Beispielsatz (sprachlich
+                                   geprüfte Sätze, siehe "_pruefung"
+                                   in der Datei)
+
+       Wichtig für spätere Änderungen: Solange keine Datei
+       Kapitelnummern oder Themenzahlen fest verdrahtet, bleibt
+       diese Seite auch nach einer Kapitel-Neunummerierung richtig.
+       Geladen wird nach dem "load"-Ereignis (siehe unten).
+       ════════════════════════════════════════════════════════════ -->
+  <script>
+  (function () {
+    'use strict';
+
+    // ── Datenquellen (absolute Pfade – Projektprinzip) ──────────
+    var VOKABEL_JSON   = '/Code/2_Vokabeln/vokabeln_flat.json';
+    var ASPEKT_JSON    = '/Code/4_Lernen/aspektpaare_data.json';
+    var GRAMMATIK_HTML = '/Code/1_Startseite/LB_3_Grammatik.html';
+    var LERNEN_HTML    = '/Code/4_Lernen/lernen-uebersicht.html';
+
+    // Reihenfolge der Niveaus – für die Spanne „A1–C2".
+    var NIVEAU_REIHENFOLGE = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+    function el(id) { return document.getElementById(id); }
+
+
+    /* ══ 1. Demo-Karteikarte umdrehen ═════════════════════════ */
+
+    var karte = el('demoCard');
+    if (karte) {
+      karte.addEventListener('click', function () {
+        // Die Klasse macht die Drehung, das Attribut meldet den
+        // Zustand an Screenreader. Enter/Leertaste lösen bei einem
+        // <button> automatisch ein click-Ereignis aus – dafür ist
+        // hier kein eigener Tastatur-Code nötig.
+        var gedreht = karte.classList.toggle('is-flipped');
+        karte.setAttribute('aria-expanded', gedreht ? 'true' : 'false');
+
+        var vorne  = el('demoFront');
+        var hinten = el('demoBack');
+        if (vorne)  vorne.setAttribute('aria-hidden',  gedreht ? 'true' : 'false');
+        if (hinten) hinten.setAttribute('aria-hidden', gedreht ? 'false' : 'true');
+      });
+    }
+
+
+    /* ══ 2. Hilfsfunktionen für den Zahlenblock ═══════════════ */
+
+    // Zahl in eine Kachel schreiben (mit deutschem Tausenderpunkt).
+    function zahlSetzen(id, wert) {
+      var ziel = el(id);
+      if (ziel) ziel.textContent = wert.toLocaleString('de-DE');
+    }
+
+    // Freien Text in eine Kachel schreiben (z. B. „A1–C2").
+    function textSetzen(id, wert) {
+      var ziel = el(id);
+      if (ziel) ziel.textContent = wert;
+    }
+
+    // Kachel entfernen, wenn ihre Quelle nicht erreichbar war.
+    // Lieber eine Kachel weniger als eine Kachel mit „…" darin.
+    function kachelEntfernen(id) {
+      var kachel = el(id);
+      if (kachel && kachel.parentNode) kachel.parentNode.removeChild(kachel);
+    }
+
+
+    /* ══ 3. Vokabeldaten: Zahlen, Beispielkarte, Kapitel 1 ════ */
+
+    function vokabelDatenVerwenden(daten) {
+      if (!Array.isArray(daten) || !daten.length) throw new Error('leer');
+
+      // -- Zahlen ------------------------------------------------
+      zahlSetzen('zahlVokabeln', daten.length);
+
+      var kapitel = {};   // als Objekt statt Set: läuft auch in alten Browsern
+      var niveaus = {};
+      daten.forEach(function (e) {
+        if (e.Kapitel) kapitel[e.Kapitel] = true;
+        if (e.Niveau)  niveaus[e.Niveau]  = true;
+      });
+      zahlSetzen('zahlKapitel', Object.keys(kapitel).length);
+
+      // Niveau-Spanne: das niedrigste und das höchste vorhandene
+      // Niveau in der festen Reihenfolge oben.
+      var vorhanden = NIVEAU_REIHENFOLGE.filter(function (n) { return niveaus[n]; });
+      if (vorhanden.length > 1) {
+        textSetzen('zahlNiveaus', vorhanden[0] + '–' + vorhanden[vorhanden.length - 1]);
+      } else if (vorhanden.length === 1) {
+        textSetzen('zahlNiveaus', vorhanden[0]);
+      } else {
+        kachelEntfernen('kachelNiveaus');
+      }
+
+      // -- Beispielkarte ----------------------------------------
+      // Gefiltert wird auf A1-Kapitelwörter, die aus EINEM kurzen
+      // Wort bestehen. Nicht aus inhaltlichen Gründen, sondern
+      // damit die Karte in jeder Bildschirmbreite gut aussieht.
+      var pool = daten.filter(function (e) {
+        return e.Niveau === 'A1' && e.Kapitel && e.Bosnisch &&
+               e.Bosnisch.indexOf(' ') === -1 && e.Bosnisch.length <= 12;
+      });
+      if (pool.length) {
+        var wort = pool[Math.floor(Math.random() * pool.length)];
+        textSetzen('demoWordBs', wort.Bosnisch);
+        textSetzen('demoWordDe', wort.Deutsch);
+        // Wortart steht je nach Eintrag unter „Wortart (Genus)"
+        // (Substantive) oder „Wortart" (alles andere) – beide prüfen.
+        var wortart = wort['Wortart (Genus)'] || wort['Wortart'] || '';
+        textSetzen('demoWordType', wortart ? wortart + ' · ' + wort.Niveau : wort.Niveau);
+      }
+
+      // -- Meta-Zeile von Schritt 2 („Neu hier?") ---------------
+      var kapitelEins = daten.filter(function (e) { return e.Kapitel === 1; });
+      if (kapitelEins.length) {
+        textSetzen('startStep2Meta',
+          'A1 · Kapitel 1: ' + kapitelEins[0].Kapitelname +
+          ' · ' + kapitelEins.length + ' Wörter');
+      }
+    }
+
+    // Sammelt die par_id-Nummern der EINFACHEN Aspektpaare (A1/A2).
+    // Das Niveau eines Paares steht immer am nesvršeni-Partner –
+    // genauso bestimmt es lernen-aspektpaare.html.
+    //
+    // Wozu der Filter: Die Beispielsätze in aspektpaare_data.json
+    // reichen bis in den Rechts- und Verwaltungswortschatz („Das
+    // Gericht spricht Angeklagte frei …"). Als Vorschau auf der
+    // Startseite soll aber ein Satz stehen, den jemand am ersten
+    // Tag lesen kann.
+    function einfacheParIds(daten) {
+      var ids = {};
+      daten.forEach(function (e) {
+        if (e.par_id && e.aspekt === 'nesvršeni' &&
+            (e.Niveau === 'A1' || e.Niveau === 'A2')) {
+          ids[e.par_id] = true;
+        }
+      });
+      return ids;
+    }
+
+
+    /* ══ 4. Karten in einer anderen Seite zählen ══════════════ */
+
+    // Holt eine HTML-Seite, parst sie im Speicher (nichts davon
+    // wird angezeigt) und zählt darin die Treffer eines Selektors.
+    function kartenZaehlen(url, selektor, zahlId, kachelId) {
+      return fetch(url)
+        .then(function (a) { return a.text(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var anzahl = doc.querySelectorAll(selektor).length;
+          if (!anzahl) throw new Error('keine Treffer für ' + selektor);
+          zahlSetzen(zahlId, anzahl);
+        })
+        .catch(function () { kachelEntfernen(kachelId); });
+    }
+
+
+    /* ══ 5. Beispielsatz aus den Aspektpaar-Sätzen ════════════ */
+
+    // "erlaubteIds" ist das Ergebnis von einfacheParIds(). Ist es
+    // null (weil die Vokabeldatei nicht geladen werden konnte),
+    // wird aus allen Sätzen gewählt – lieber ein etwas schwerer
+    // Satz als gar keine Vorschau.
+    function beispielsatzLaden(erlaubteIds) {
+      return fetch(ASPEKT_JSON)
+        .then(function (a) { return a.json(); })
+        .then(function (daten) {
+          var beispiele = daten && daten.beispiele;
+          if (!beispiele) return;
+
+          var ids = Object.keys(beispiele).filter(function (id) {
+            return !erlaubteIds || erlaubteIds[id];
+          });
+          if (!ids.length) return;
+
+          var b = beispiele[ids[Math.floor(Math.random() * ids.length)]];
+          // Gezeigt wird immer der nesvršeni-Satz (Präsens) – der
+          // ist für Anfänger leichter lesbar als das Perfekt.
+          if (b && b.nes_satz && b.nes_de) {
+            textSetzen('demoSatzBs', b.nes_satz);
+            textSetzen('demoSatzDe', b.nes_de);
+          }
+        })
+        .catch(function () { /* Fallback-Satz aus dem HTML bleibt stehen */ });
+    }
+
+
+    /* ══ 6. Alles laden (genau einmal) ════════════════════════ */
+
+    var schonGeladen = false;
+
+    function allesLaden() {
+      if (schonGeladen) return;
+      schonGeladen = true;
+
+      // Die Vokabeldatei zuerst: Sie liefert nicht nur drei Zahlen,
+      // sondern auch die Niveaus der Aspektpaare – und die
+      // entscheiden, welcher Beispielsatz gezeigt werden darf.
+      fetch(VOKABEL_JSON)
+        .then(function (a) { return a.json(); })
+        .then(function (daten) {
+          vokabelDatenVerwenden(daten);
+          beispielsatzLaden(einfacheParIds(daten));
+        })
+        .catch(function () {
+          // Ohne Vokabeldaten gibt es drei Zahlen nicht – die
+          // Kacheln verschwinden, der Rest der Seite bleibt heil.
+          kachelEntfernen('kachelVokabeln');
+          kachelEntfernen('kachelKapitel');
+          kachelEntfernen('kachelNiveaus');
+          beispielsatzLaden(null);   // dann eben ohne Niveaufilter
+        });
+
+      kartenZaehlen(GRAMMATIK_HTML, '.grammar-card',
+                    'zahlGrammatik', 'kachelGrammatik');
+      kartenZaehlen(LERNEN_HTML, '.uebung-grid .thema-card',
+                    'zahlUebungen', 'kachelUebungen');
+    }
+
+    // Ausgelöst wird das Laden erst nach dem "load"-Ereignis, also
+    // wenn Bild, CSS und Schriften der Seite fertig sind. Dadurch
+    // konkurriert kein Datenabruf mit dem, was der Besucher zuerst
+    // sieht.
+    //
+    // Bewusst NICHT erst beim Scrollen (IntersectionObserver):
+    // Zusammen sind die vier Dateien komprimiert rund 80 KB –
+    // weniger als ein Drittel des Hero-Bildes, das ohnehin geladen
+    // wird. Der Aufwand lohnt den zusätzlichen Sonderfall nicht,
+    // und die Zahlen stehen so garantiert, wenn der Besucher unten
+    // ankommt. Sollte die Vokabeldatei irgendwann deutlich größer
+    // werden, ist Nachladen beim Scrollen der nächste Schritt.
+    if (document.readyState === 'complete') {
+      allesLaden();
+    } else {
+      window.addEventListener('load', allesLaden);
+    }
+
+  })();
+  </script>
 
 </body>
 </html>

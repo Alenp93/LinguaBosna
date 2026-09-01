@@ -192,6 +192,18 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
   Ohne diese Klammer werden Bosnismus und Standardform in der Rückrichtung ununterscheidbar.
 - **Datei bleibt nach Kapitelnummer sortiert.** Die Reihenfolge der Kapitel innerhalb eines
   Niveaus ergibt sich in der Übersicht aus dem ersten Auftreten in der JSON.
+- **`kapitel_index.json` ist ein generierter Auszug**, nicht von Hand pflegen. Die
+  ~650 KB große `vokabeln_flat.json` enthält alle ~2.900 Einzelvokabeln, aber
+  `LB_2_Vokabeln.html` (Vokabel-Übersicht) braucht davon nur Kapitelnummer, -name,
+  Niveau und Anzahl je Kapitel (97 Zeilen) – deshalb lädt sie stattdessen
+  `/Code/2_Vokabeln/kapitel_index.json` (~11 KB, `nur_woerterbuch`-Einträge bereits
+  ausgeschlossen). `LB_2-1_Vokabeln_Master.html` und `vokabeltrainer.html` laden den
+  Index zusätzlich zur vollen Liste – für die Vor-/Zurück-Kapitel-Navigation, während
+  die volle Liste dort weiterhin für die Vokabeln des angezeigten Kapitels (und beim
+  Trainer zusätzlich für kapitelübergreifende Wiederholungskarten) gebraucht wird.
+  **Nach jeder Änderung an `vokabeln_flat.json`** `python3 build_kapitel_index.py`
+  ausführen und `kapitel_index.json` mitcommitten (`--check` prüft nur, ob er
+  veraltet ist – analog zu `build_sitemap.py`).
 - **Progression: Grundwort nie über dem Kompositum.** `bruto plata` stand auf B2, `bruto`
   aber auf C1 – der Lernende trifft das zusammengesetzte Wort, bevor er den Baustein kennt.
   Im August 2026 wurden neun solcher Inversionen aufgelöst. Prüfbar mit einem Abgleich
@@ -221,7 +233,7 @@ build_b1_split.py → build_b2.py → build_resplit.py → build_c1.py → build
 diese Datei ist am kritischsten für Konsistenz.
 
 ⚠️ **Stand August 2026: Diese Build-Skripte liegen nicht im Repository** (nur `build_sitemap.py`
-ist vorhanden). Die Kapitel 81–90 (ehemals 73–82) wurden deshalb direkt in `vokabeln_flat.json`
+und `build_kapitel_index.py` sind vorhanden). Die Kapitel 81–90 (ehemals 73–82) wurden deshalb direkt in `vokabeln_flat.json`
 geschrieben, nicht über die Pipeline erzeugt. Wer neue Kapitel anlegt, arbeitet also an der JSON
 selbst – und muss die Regeln oben (Kapitelgröße, ein Niveau je Kapitel, Wortart-Konvention,
 Sortierung nach Kapitelnummer) von Hand einhalten. Ein Validierungsskript dafür fehlt bisher.
@@ -372,6 +384,10 @@ läuft dort über `test_lernen_uebung.py` (siehe `WORKFLOW_Lernen.md`, Abschnitt
   `noindex`/Fragmente/Vorlage ausgeschlossen, `lastmod` aus dem letzten Git-Commit).
   **Nach jeder neuen Seite ausführen und mitcommitten.** `python3 build_sitemap.py --check`
   meldet nur, ob die Sitemap veraltet ist (Exit 1), ohne zu schreiben.
+- `python3 build_kapitel_index.py` erzeugt `Code/2_Vokabeln/kapitel_index.json` neu aus
+  `vokabeln_flat.json` (siehe Vokabular-System oben). **Nach jeder Änderung an
+  `vokabeln_flat.json` ausführen und mitcommitten.** `python3 build_kapitel_index.py --check`
+  meldet nur, ob der Index veraltet ist (Exit 1), ohne zu schreiben.
 - `.claude/agents/seo-pruefer.md` – **optionaler** Subagent für die *redaktionelle* SEO-Qualität
   (Title-/Description-Güte, Keyword-Ausrichtung, interne Verlinkung, Dubletten). Nur Leserechte,
   korrigiert nichts, liefert eine ✓/⚠-Liste. Prüft QUALITÄT, nicht Vorhandensein (das macht

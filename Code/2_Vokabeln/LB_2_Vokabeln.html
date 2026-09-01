@@ -127,7 +127,11 @@
 
   <script>
     // ── Pfade ────────────────────────────────────────────────────────
-    const JSON_PATH   = "/Code/2_Vokabeln/vokabeln_flat.json";
+    // Diese Seite braucht nur Kapitelnummer, -name, Niveau und Anzahl je
+    // Kapitel (97 Zeilen) — dafür reicht der schlanke kapitel_index.json
+    // (siehe build_kapitel_index.py), statt der kompletten ~650-KB-Datei
+    // mit allen ~2.900 Einzelvokabeln.
+    const JSON_PATH   = "/Code/2_Vokabeln/kapitel_index.json";
     const MASTER_PAGE = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
     // ────────────────────────────────────────────────────────────────
 
@@ -289,22 +293,18 @@
 
         // Gruppieren: Niveau → Kapitel → { name, count }
         // (Reihenfolge der Kapitel ergibt sich aus dem ersten Auftreten.)
-        // Einträge mit "nur_woerterbuch" gehören zu keinem Kapitel – sie
-        // sind ausschließlich über die Wörterbuch-Suche im Header erreichbar.
-        // Ohne diesen Filter entstünde hier eine leere "Kapitel undefined"-Karte.
+        // kapitel_index.json enthält bereits genau ein Objekt pro Kapitel
+        // (Einträge mit "nur_woerterbuch" hat build_kapitel_index.py schon
+        // herausgefiltert), daher hier nur noch nach Niveau gruppieren.
         const byLevel = new Map();
-        data.filter(e => !e.nur_woerterbuch).forEach(entry => {
+        data.forEach(entry => {
           const niv = entry.Niveau;
           if (!byLevel.has(niv)) byLevel.set(niv, new Map());
-          const kaps = byLevel.get(niv);
-          if (!kaps.has(entry.Kapitel)) {
-            kaps.set(entry.Kapitel, {
-              kapitel:     entry.Kapitel,
-              kapitelname: entry.Kapitelname,
-              count:       0
-            });
-          }
-          kaps.get(entry.Kapitel).count++;
+          byLevel.get(niv).set(entry.Kapitel, {
+            kapitel:     entry.Kapitel,
+            kapitelname: entry.Kapitelname,
+            count:       entry.Anzahl
+          });
         });
 
         // Nur tatsächlich vorhandene Niveaus, in fester Reihenfolge

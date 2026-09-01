@@ -306,6 +306,14 @@
     // ─────────────────────────────────────────────────────────
     const JSON_PATH = '/Code/2_Vokabeln/vokabeln_flat.json';
 
+    // Schlanker Kapitel-Index (Nummer, Name, Niveau, Anzahl) für die
+    // Kategorie-Navigation (vorheriges/nächstes Kapitel) ganz unten —
+    // siehe build_kapitel_index.py. Die komplette vokabeln_flat.json bleibt
+    // daneben nötig: für die Vokabeln des aktuellen Kapitels UND für die
+    // fälligen Wiederholungskarten (Leitner-Boxen), die aus JEDEM Kapitel
+    // stammen können (siehe buildCardIndex()).
+    const INDEX_PATH = '/Code/2_Vokabeln/kapitel_index.json';
+
     // Pfad zur Vokabeltabellen-Seite (für den Zurück-Button). Absoluter
     // Pfad, damit der Link auch aus Unterordnern zuverlässig funktioniert.
     const TABLE_PATH = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
@@ -322,6 +330,7 @@
     // ZUSTAND (State-Variablen)
     // ─────────────────────────────────────────────────────────
     let allVocab   = [];   // komplette JSON-Daten
+    let kapitelIndex = []; // kapitel_index.json — nur für die Kategorie-Navigation
     let allInCat   = [];   // alle Einträge für das aktuelle Kapitel
     let allItemsInCat = [];// allInCat gruppiert in Lern-Items (Einzel + Paare)
     let units      = [];   // die zwei Lerneinheiten (Teil 1 / Teil 2)
@@ -359,9 +368,11 @@
 
     async function loadVocab() {
       try {
-        const res = await fetch(JSON_PATH);
+        const [res, indexRes] = await Promise.all([fetch(JSON_PATH), fetch(INDEX_PATH)]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        allVocab = await res.json();
+        if (!indexRes.ok) throw new Error('HTTP ' + indexRes.status);
+        allVocab     = await res.json();
+        kapitelIndex = await indexRes.json();
         initCategory();
       } catch(e) {
         const msg = document.getElementById('stateMsg');
@@ -772,17 +783,18 @@
 
     // ─────────────────────────────────────────────────────────
     // KATEGORIE-NAVIGATION (vorheriges / nächstes Kapitel)
-    // Baut die Buttons ganz unten anhand der in der JSON vorhandenen
-    // Kapitel auf. Im ersten Kapitel wird "Vorherige", im letzten
-    // "Nächste" Kategorie ausgeblendet.
+    // Baut die Buttons ganz unten anhand des Kapitel-Index auf (siehe
+    // build_kapitel_index.py). Im ersten Kapitel wird "Vorherige", im
+    // letzten "Nächste" Kategorie ausgeblendet.
     // ─────────────────────────────────────────────────────────
     function setupCategoryNav() {
-      // Alle Kapitel-Nummern eindeutig & sortiert sammeln
-      const chapters = [...new Set(allVocab.map(e => e.Kapitel))].sort((a, b) => a - b);
+      // Alle Kapitel-Nummern sortiert sammeln (der Index hat bereits genau
+      // einen Eintrag pro Kapitel)
+      const chapters = kapitelIndex.map(e => e.Kapitel).sort((a, b) => a - b);
 
-      // Kapitelname je Nummer merken (erstes Vorkommen genügt)
+      // Kapitelname je Nummer merken
       const names = {};
-      allVocab.forEach(e => { if (!(e.Kapitel in names)) names[e.Kapitel] = e.Kapitelname; });
+      kapitelIndex.forEach(e => { names[e.Kapitel] = e.Kapitelname; });
 
       const idx     = chapters.indexOf(activeKapitel);
       const prevNum = idx > 0 ? chapters[idx - 1] : null;

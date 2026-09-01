@@ -1,0 +1,584 @@
+[
+  {
+    "Kapitel": 1,
+    "Kapitelname": "Begrüßung & Alltagssprache",
+    "Niveau": "A1",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 2,
+    "Kapitelname": "Höflichkeit & Anlässe",
+    "Niveau": "A1",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 3,
+    "Kapitelname": "Zahlen & Mengen",
+    "Niveau": "A1",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 4,
+    "Kapitelname": "Zahlen 11–1000 & Ordnungszahlen",
+    "Niveau": "A1",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 5,
+    "Kapitelname": "Farben & Formen",
+    "Niveau": "A1",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 6,
+    "Kapitelname": "Körper",
+    "Niveau": "A1",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 7,
+    "Kapitelname": "Familie & Freunde",
+    "Niveau": "A1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 8,
+    "Kapitelname": "Verwandtschaft & Lebensphasen",
+    "Niveau": "A1",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 9,
+    "Kapitelname": "Häufige Verben & Handlungen",
+    "Niveau": "A1",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 10,
+    "Kapitelname": "Häufige Adverbien & Partikeln",
+    "Niveau": "A1",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 11,
+    "Kapitelname": "Essen & Trinken",
+    "Niveau": "A1",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 12,
+    "Kapitelname": "Obst & Gemüse",
+    "Niveau": "A1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 13,
+    "Kapitelname": "Mahlzeiten & Geschirr",
+    "Niveau": "A1",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 14,
+    "Kapitelname": "Zeit & Datum",
+    "Niveau": "A1",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 15,
+    "Kapitelname": "Uhrzeit & Jahreszeiten",
+    "Niveau": "A1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 16,
+    "Kapitelname": "Haus & Wohnen",
+    "Niveau": "A1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 17,
+    "Kapitelname": "Kleidung & Aussehen",
+    "Niveau": "A1",
+    "Anzahl": 31
+  },
+  {
+    "Kapitel": 18,
+    "Kapitelname": "Tiere",
+    "Niveau": "A1",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 19,
+    "Kapitelname": "Wetter",
+    "Niveau": "A1",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 20,
+    "Kapitelname": "Natur & Länder",
+    "Niveau": "A1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 21,
+    "Kapitelname": "Reisen & Verkehr",
+    "Niveau": "A1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 22,
+    "Kapitelname": "Verkehrsmittel & unterwegs",
+    "Niveau": "A1",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 23,
+    "Kapitelname": "Alltag & Routine",
+    "Niveau": "A2",
+    "Anzahl": 31
+  },
+  {
+    "Kapitel": 24,
+    "Kapitelname": "In der Stadt & Wegbeschreibung 1",
+    "Niveau": "A2",
+    "Anzahl": 21
+  },
+  {
+    "Kapitel": 25,
+    "Kapitelname": "In der Stadt & Wegbeschreibung 2",
+    "Niveau": "A2",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 26,
+    "Kapitelname": "Einkaufen & Geld 1",
+    "Niveau": "A2",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 27,
+    "Kapitelname": "Einkaufen & Geld 2",
+    "Niveau": "A2",
+    "Anzahl": 19
+  },
+  {
+    "Kapitel": 28,
+    "Kapitelname": "Hobbys & Freizeit 1",
+    "Niveau": "A2",
+    "Anzahl": 19
+  },
+  {
+    "Kapitel": 29,
+    "Kapitelname": "Hobbys & Freizeit 2",
+    "Niveau": "A2",
+    "Anzahl": 19
+  },
+  {
+    "Kapitel": 30,
+    "Kapitelname": "Berufe & Arbeit 1",
+    "Niveau": "A2",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 31,
+    "Kapitelname": "Berufe & Arbeit 2",
+    "Niveau": "A2",
+    "Anzahl": 18
+  },
+  {
+    "Kapitel": 32,
+    "Kapitelname": "Schule & Bildung",
+    "Niveau": "A2",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 33,
+    "Kapitelname": "Gesundheit & Medizin",
+    "Niveau": "A2",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 34,
+    "Kapitelname": "Gefühle & Charakter",
+    "Niveau": "A2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 35,
+    "Kapitelname": "Kommunikation & Medien",
+    "Niveau": "A2",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 36,
+    "Kapitelname": "Kultur & Gesellschaft",
+    "Niveau": "A2",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 37,
+    "Kapitelname": "Bosnische Küche",
+    "Niveau": "A2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 38,
+    "Kapitelname": "Religion & Glaube",
+    "Niveau": "A2",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 39,
+    "Kapitelname": "Feiertage & Bräuche",
+    "Niveau": "A2",
+    "Anzahl": 24
+  },
+  {
+    "Kapitel": 40,
+    "Kapitelname": "Arbeit & Karriere 1",
+    "Niveau": "B1",
+    "Anzahl": 22
+  },
+  {
+    "Kapitel": 41,
+    "Kapitelname": "Arbeit & Karriere 2",
+    "Niveau": "B1",
+    "Anzahl": 24
+  },
+  {
+    "Kapitel": 42,
+    "Kapitelname": "Bildung & Studium 1",
+    "Niveau": "B1",
+    "Anzahl": 18
+  },
+  {
+    "Kapitel": 43,
+    "Kapitelname": "Bildung & Studium 2",
+    "Niveau": "B1",
+    "Anzahl": 19
+  },
+  {
+    "Kapitel": 44,
+    "Kapitelname": "Technik & Internet 1",
+    "Niveau": "B1",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 45,
+    "Kapitelname": "Technik & Internet 2",
+    "Niveau": "B1",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 46,
+    "Kapitelname": "Gesundheit & Symptome 1",
+    "Niveau": "B1",
+    "Anzahl": 19
+  },
+  {
+    "Kapitel": 47,
+    "Kapitelname": "Gesundheit & Symptome 2",
+    "Niveau": "B1",
+    "Anzahl": 19
+  },
+  {
+    "Kapitel": 48,
+    "Kapitelname": "Persönlichkeit & Charakter",
+    "Niveau": "B1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 49,
+    "Kapitelname": "Gefühle & Beziehungen",
+    "Niveau": "B1",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 50,
+    "Kapitelname": "Meinung & Diskussion 1",
+    "Niveau": "B1",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 51,
+    "Kapitelname": "Meinung & Diskussion 2",
+    "Niveau": "B1",
+    "Anzahl": 17
+  },
+  {
+    "Kapitel": 52,
+    "Kapitelname": "Konnektoren & Redemittel",
+    "Niveau": "B1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 53,
+    "Kapitelname": "Reisen & Behörden 1",
+    "Niveau": "B1",
+    "Anzahl": 19
+  },
+  {
+    "Kapitel": 54,
+    "Kapitelname": "Reisen & Behörden 2",
+    "Niveau": "B1",
+    "Anzahl": 21
+  },
+  {
+    "Kapitel": 55,
+    "Kapitelname": "Behörden & Recht – Einstieg",
+    "Niveau": "B1",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 56,
+    "Kapitelname": "Umgangssprache & Bosnizismen 1",
+    "Niveau": "B1",
+    "Anzahl": 28
+  },
+  {
+    "Kapitel": 57,
+    "Kapitelname": "Umgangssprache & Bosnizismen 2",
+    "Niveau": "B1",
+    "Anzahl": 25
+  },
+  {
+    "Kapitel": 58,
+    "Kapitelname": "Hausbau: Fundament & Mauerwerk",
+    "Niveau": "B1",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 59,
+    "Kapitelname": "Hausbau: Dach & Gebäudeteile",
+    "Niveau": "B1",
+    "Anzahl": 29
+  },
+  {
+    "Kapitel": 60,
+    "Kapitelname": "Werkzeug & Baustelle",
+    "Niveau": "B1",
+    "Anzahl": 27
+  },
+  {
+    "Kapitel": 61,
+    "Kapitelname": "Handwerker & Gewerke",
+    "Niveau": "B1",
+    "Anzahl": 27
+  },
+  {
+    "Kapitel": 62,
+    "Kapitelname": "Einrichtung & Möbel",
+    "Niveau": "B1",
+    "Anzahl": 27
+  },
+  {
+    "Kapitel": 63,
+    "Kapitelname": "Wohnen zur Miete & Nebenkosten",
+    "Niveau": "B1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 64,
+    "Kapitelname": "Gesellschaft & Soziales",
+    "Niveau": "B2",
+    "Anzahl": 31
+  },
+  {
+    "Kapitel": 65,
+    "Kapitelname": "Politik & Staat",
+    "Niveau": "B2",
+    "Anzahl": 31
+  },
+  {
+    "Kapitel": 66,
+    "Kapitelname": "Umwelt & Klima",
+    "Niveau": "B2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 67,
+    "Kapitelname": "Wirtschaft & Finanzen",
+    "Niveau": "B2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 68,
+    "Kapitelname": "Medien & Öffentlichkeit",
+    "Niveau": "B2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 69,
+    "Kapitelname": "Recht & Justiz",
+    "Niveau": "B2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 70,
+    "Kapitelname": "Wissenschaft & Forschung",
+    "Niveau": "B2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 71,
+    "Kapitelname": "Abstrakte Begriffe & Konzepte",
+    "Niveau": "B2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 72,
+    "Kapitelname": "Kollokationen & feste Wendungen",
+    "Niveau": "B2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 73,
+    "Kapitelname": "Formeller Sprachgebrauch",
+    "Niveau": "B2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 74,
+    "Kapitelname": "Hausbau: Ausbau & Oberflächen",
+    "Niveau": "B2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 75,
+    "Kapitelname": "Hausbau: Haustechnik & Dämmung",
+    "Niveau": "B2",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 76,
+    "Kapitelname": "Grundstück & Baugenehmigung",
+    "Niveau": "B2",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 77,
+    "Kapitelname": "Amtliche Anerkennung & Papiere",
+    "Niveau": "B2",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 78,
+    "Kapitelname": "Versicherung, Steuer & Soziales",
+    "Niveau": "B2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 79,
+    "Kapitelname": "Bankgeschäfte & Finanzen",
+    "Niveau": "B2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 80,
+    "Kapitelname": "Gehobene & abstrakte Lexik 1",
+    "Niveau": "C1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 81,
+    "Kapitelname": "Gehobene & abstrakte Lexik 2",
+    "Niveau": "C1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 82,
+    "Kapitelname": "Fachsprache: Recht & Verwaltung",
+    "Niveau": "C1",
+    "Anzahl": 31
+  },
+  {
+    "Kapitel": 83,
+    "Kapitelname": "Fachsprache: Medizin",
+    "Niveau": "C1",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 84,
+    "Kapitelname": "Fachsprache: Wirtschaft",
+    "Niveau": "C1",
+    "Anzahl": 28
+  },
+  {
+    "Kapitel": 85,
+    "Kapitelname": "Redewendungen & Idiome",
+    "Niveau": "C1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 86,
+    "Kapitelname": "Gehobene Synonyme & Nuancen",
+    "Niveau": "C1",
+    "Anzahl": 29
+  },
+  {
+    "Kapitel": 87,
+    "Kapitelname": "Akademische Redemittel",
+    "Niveau": "C1",
+    "Anzahl": 28
+  },
+  {
+    "Kapitel": 88,
+    "Kapitelname": "Emotion & Haltung (nuanciert)",
+    "Niveau": "C1",
+    "Anzahl": 28
+  },
+  {
+    "Kapitel": 89,
+    "Kapitelname": "Bauvertrag & Abrechnung",
+    "Niveau": "C1",
+    "Anzahl": 23
+  },
+  {
+    "Kapitel": 90,
+    "Kapitelname": "Sprichwörter",
+    "Niveau": "C2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 91,
+    "Kapitelname": "Literatur- & Bildungssprache",
+    "Niveau": "C2",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 92,
+    "Kapitelname": "Orientalizmi – Kulturlexik",
+    "Niveau": "C2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 93,
+    "Kapitelname": "Sevdah & Kulturerbe",
+    "Niveau": "C2",
+    "Anzahl": 28
+  },
+  {
+    "Kapitel": 94,
+    "Kapitelname": "Idiomatik & Stil",
+    "Niveau": "C2",
+    "Anzahl": 30
+  },
+  {
+    "Kapitel": 95,
+    "Kapitelname": "Archaismen & feierliche Sprache",
+    "Niveau": "C2",
+    "Anzahl": 23
+  },
+  {
+    "Kapitel": 96,
+    "Kapitelname": "Regionalismen & Diskurspartikeln",
+    "Niveau": "C2",
+    "Anzahl": 18
+  },
+  {
+    "Kapitel": 97,
+    "Kapitelname": "Traditionelle Baukultur",
+    "Niveau": "C2",
+    "Anzahl": 35
+  }
+]

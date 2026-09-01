@@ -187,6 +187,11 @@
   <script>
     // ── Pfade ──────────────────────────────────────────────────────────
     const JSON_PATH    = '/Code/2_Vokabeln/vokabeln_flat.json';
+    // Schlanker Kapitel-Index (Nummer, Name, Niveau, Anzahl) für die
+    // Vor-/Zurück-Navigation am Seitenende — siehe build_kapitel_index.py.
+    // Die komplette vokabeln_flat.json bleibt daneben nötig, weil nur sie
+    // die eigentlichen Vokabeln des aktuell angezeigten Kapitels enthält.
+    const INDEX_PATH   = '/Code/2_Vokabeln/kapitel_index.json';
     const TRAINER_PATH = '/Code/2_Vokabeln/vokabeltrainer.html';
     // Absoluter Pfad zur Master-Seite selbst — für die Kapitel-Navigation.
     // (Absolute Pfade laut Projektprinzip, damit Links auch in Unterordnern
@@ -313,17 +318,16 @@
     });
 
     // ── Kapitel-Navigation aufbauen ─────────────────────────────────────
-    // Bekommt die komplette JSON-Liste und das aktuelle Kapitel und richtet
-    // die Buttons "Vorheriges/Nächstes Kapitel" ein.
-    function setupChapterNav(all, kapitel) {
-      // 1) Alle vorhandenen Kapitel-Nummern eindeutig & sortiert sammeln
-      const chapters = [...new Set(all.map(e => e.Kapitel))].sort((a, b) => a - b);
+    // Bekommt den Kapitel-Index (kapitel_index.json) und das aktuelle
+    // Kapitel und richtet die Buttons "Vorheriges/Nächstes Kapitel" ein.
+    function setupChapterNav(index, kapitel) {
+      // 1) Alle vorhandenen Kapitel-Nummern sortiert sammeln (der Index hat
+      //    bereits genau einen Eintrag pro Kapitel)
+      const chapters = index.map(e => e.Kapitel).sort((a, b) => a - b);
 
-      // 2) Zu jeder Nummer den Kapitelnamen merken (erstes Vorkommen genügt)
+      // 2) Zu jeder Nummer den Kapitelnamen merken
       const names = {};
-      all.forEach(e => {
-        if (!(e.Kapitel in names)) names[e.Kapitel] = e.Kapitelname;
-      });
+      index.forEach(e => { names[e.Kapitel] = e.Kapitelname; });
 
       // 3) Position des aktuellen Kapitels in der Liste finden
       const idx     = chapters.indexOf(kapitel);
@@ -365,9 +369,14 @@
       const kapitel = parseInt(params.get('kapitel') || '1', 10);
 
       try {
-        const res = await fetch(JSON_PATH);
+        // Beide Dateien parallel laden: die komplette Vokabelliste (für die
+        // Tabelle dieses Kapitels) und der schlanke Index (für die Vor-/
+        // Zurück-Navigation).
+        const [res, indexRes] = await Promise.all([fetch(JSON_PATH), fetch(INDEX_PATH)]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        const all = await res.json();
+        if (!indexRes.ok) throw new Error('HTTP ' + indexRes.status);
+        const all   = await res.json();
+        const index = await indexRes.json();
 
         // Nur die Einträge für das aktuelle Kapitel herausfiltern
         const entries = all.filter(e => e.Kapitel === kapitel);
@@ -425,7 +434,7 @@
         document.getElementById('vocabCount').textContent = entries.length;
 
         // Kapitel-Navigation (Vor/Zurück) aufbauen
-        setupChapterNav(all, kapitel);
+        setupChapterNav(index, kapitel);
 
         // Alle UI-Elemente einblenden
         document.getElementById('stateMsg').style.display   = 'none';

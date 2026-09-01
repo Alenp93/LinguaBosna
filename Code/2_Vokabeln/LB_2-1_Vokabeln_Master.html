@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Dynamischer Titel & Description werden per JS gesetzt -->
-  <meta name="description" content="Bosnische Vokabeln mit deutscher Übersetzung und Aussprache – für jedes Kapitel auf LinguaBosna.">
+  <meta name="description" content="Bosnische Vokabeln mit deutscher Übersetzung – für jedes Kapitel auf LinguaBosna.">
   <title>LinguaBosna – Vokabelliste</title>
   <link rel="canonical" href="https://linguabosna.com/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html">
 
   <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="LinguaBosna – Vokabelliste">
-  <meta property="og:description" content="Bosnische Vokabeln mit deutscher Übersetzung und Aussprache – für jedes Kapitel auf LinguaBosna.">
+  <meta property="og:description" content="Bosnische Vokabeln mit deutscher Übersetzung – für jedes Kapitel auf LinguaBosna.">
   <meta property="og:url"         content="https://linguabosna.com/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html">
   <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
   <meta property="og:site_name"   content="LinguaBosna">
@@ -20,7 +20,7 @@
   <!-- ── Twitter Card ───────────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="LinguaBosna – Vokabelliste">
-  <meta name="twitter:description" content="Bosnische Vokabeln mit deutscher Übersetzung und Aussprache – für jedes Kapitel auf LinguaBosna.">
+  <meta name="twitter:description" content="Bosnische Vokabeln mit deutscher Übersetzung – für jedes Kapitel auf LinguaBosna.">
   <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
 
   <!-- Google Fonts -->
@@ -43,6 +43,16 @@
   <link rel="stylesheet" href="/Code/Style.css">
   <link rel="stylesheet" href="/Code/2_Vokabeln/Style_Vokabelnkategorien.css">
 
+  <!-- Print-Stylesheet: Header/Footer/Navigation verstecken, Tabelle auf volle Breite -->
+  <style media="print">
+    #header, #footer, .actions, .chapter-nav, nav, .page-header p { display: none !important; }
+    body { margin: 0; padding: 0; }
+    main { width: 100%; padding: 0; }
+    .table-wrap { max-width: 100%; }
+    .letter-table { width: 100%; }
+    @page { margin: 1cm; }
+  </style>
+
   <!-- Shared Header/Footer -->
   <script src="/Code/LB_main.js" defer></script>
 
@@ -54,7 +64,7 @@
       {
         "@type": "LearningResource",
         "name": "Vokabelliste",
-        "description": "Bosnische Vokabeln mit deutscher Übersetzung und Aussprache – für jedes Kapitel auf LinguaBosna.",
+        "description": "Bosnische Vokabeln mit deutscher Übersetzung – für jedes Kapitel auf LinguaBosna.",
         "url": "https://linguabosna.com/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html",
         "inLanguage": "de",
         "learningResourceType": "Vokabelliste",
@@ -247,75 +257,6 @@
       return ` <span class="aspekt-tag">[${kuerzel}]</span>`;
     }
 
-    // ── Beste verfügbare BKS-Stimme ermitteln ───────────────────────────
-    // BKS = Bosnisch / Kroatisch / Serbisch (+ Montenegrinisch). Alle vier
-    // klingen phonetisch praktisch gleich. Wir nehmen die erste Stimme, die
-    // das Gerät tatsächlich anbietet – in dieser Wunschreihenfolge:
-    // Bosnisch → Kroatisch → Serbisch → Montenegrinisch.
-    const BKS_LANGS = ['bs-BA', 'bs', 'hr-HR', 'hr', 'sr-RS', 'sr', 'cnr-ME', 'cnr'];
-    let bksVoice = null;
-
-    function pickBksVoice() {
-      const voices = window.speechSynthesis.getVoices();   // verfügbare Stimmen abfragen
-      for (const lang of BKS_LANGS) {                       // Wunschreihenfolge durchgehen
-        const treffer = voices.find(v =>
-          v.lang && v.lang.toLowerCase().startsWith(lang.toLowerCase())
-        );
-        if (treffer) { bksVoice = treffer; break; }         // erste passende Stimme merken
-      }
-    }
-
-    // Stimmen werden teils verzögert geladen – deshalb sofort UND beim
-    // Nachladen ermitteln. Läuft beim Seitenstart (lange vor dem ersten
-    // Klick) und blockiert daher nichts auf Mobilgeräten.
-    if ('speechSynthesis' in window) {
-      pickBksVoice();
-      window.speechSynthesis.addEventListener('voiceschanged', pickBksVoice);
-    }
-
-    // ── Aussprache per Browser-Stimme (Web Speech API) ──────────────────
-    // Erzeugt die Aussprache live im Browser – es werden KEINE Tondateien
-    // benötigt.
-    function speakWord(word) {
-      // 1) Unterstützt der Browser Sprachausgabe überhaupt? (sehr ältere Browser nicht)
-      if (!('speechSynthesis' in window)) return;
-
-      // 2) Eventuell noch laufende Ausgabe stoppen – verhindert Überlappung,
-      //    wenn schnell hintereinander auf mehrere Buttons getippt wird.
-      window.speechSynthesis.cancel();
-
-      // 3) Sprachobjekt mit dem ORIGINAL-Wort erstellen – wichtig: MIT den
-      //    Sonderzeichen (č, ć, š, ž, đ), damit die Aussprache korrekt klingt.
-      const utterance = new SpeechSynthesisUtterance(word);
-
-      // 4) Gefundene BKS-Stimme verwenden; falls keine erkannt wurde,
-      //    Kroatisch als sicherer Standard-Fallback (phonetisch ≈ Bosnisch).
-      if (bksVoice) {
-        utterance.voice = bksVoice;
-        utterance.lang  = bksVoice.lang;
-      } else {
-        utterance.lang  = 'hr-HR';
-      }
-
-      // 5) Etwas langsamer als normal – angenehmer zum Mit- und Nachsprechen.
-      utterance.rate = 0.9;
-
-      // 6) Sofort & synchron abspielen. WICHTIG für Mobilgeräte: speak() muss
-      //    direkt im Klick-Event aufgerufen werden. Jede Verzögerung
-      //    (setTimeout o. Ä.) würde den Ton auf dem Handy blockieren.
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Klicks auf ALLE Lautsprecher-Buttons zentral über die Tabelle abfangen
-    // (sogenannte "Event-Delegation"). Vorteile gegenüber einem onclick pro Button:
-    //  • funktioniert auch für Zeilen, die erst später dynamisch erzeugt werden
-    //  • keine Escaping-Probleme mit Sonderzeichen/Apostrophen im Wort
-    // Das gesuchte Wort steht jeweils im data-Attribut "data-wort" des Buttons.
-    document.getElementById('vocabBody').addEventListener('click', (e) => {
-      const btn = e.target.closest('.speaker-btn');  // wurde ein Lautsprecher getroffen?
-      if (!btn) return;                               // Klick daneben → ignorieren
-      speakWord(btn.dataset.wort);                    // Wort vorlesen lassen
-    });
 
     // ── Kapitel-Navigation aufbauen ─────────────────────────────────────
     // Bekommt den Kapitel-Index (kapitel_index.json) und das aktuelle

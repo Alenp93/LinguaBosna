@@ -680,6 +680,62 @@ function initWoerterbuchSuche() {
 })();
 // ────────────────────────────────────────────────────────────
 
+// ── "Nach oben"-Button für die Niveau-Auswahl (mobil) ───────
+// Ergänzt die sticky Niveau-Tabs auf Vokabeln-/Grammatik-Übersicht
+// (Style_2_Vokabeln.css / Style_3_Grammatik.css, @media min-width:901px):
+// Auf breiten Bildschirmen bleibt die Niveau-Auswahl beim Scrollen
+// sichtbar (reines CSS, position: sticky). Auf schmalen Bildschirmen
+// wäre der zweizeilige Tab-Block dauerhaft zu hoch (Header + Tabs
+// nehmen dort bis zu einem Drittel der Bildschirmhöhe ein, gemessen
+// bei 320×568) – deshalb bleibt die Auswahl dort im normalen Fluss,
+// und dieser schwebende Button bringt bei Bedarf per Klick dorthin
+// zurück, statt ganz an den Seitenanfang zu springen. Bricht sofort
+// ab, wenn die Seite keine .level-selector hat (bisher Vokabeln-,
+// Grammatik- und Lernen-Übersicht).
+(function () {
+    function init() {
+        var ziel = document.querySelector('.level-selector');
+        if (!ziel) return;
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'lb-nach-oben-btn hat-ziel';
+        btn.setAttribute('aria-label', 'Zurück zur Niveau-Auswahl');
+        btn.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+        document.body.appendChild(btn);
+
+        btn.addEventListener('click', function () {
+            ziel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Sichtbar erst, sobald über die Niveau-Auswahl hinausgescrollt
+        // wurde – vorher würde der Button auf nichts Sinnvolles zeigen.
+        // getBoundingClientRect() wird bei jedem Tick neu gelesen statt
+        // einmalig gecacht: Auf der Vokabeln-Seite ist .level-selector
+        // beim Laden zunächst leer (Tabs kommen erst nach dem JSON-Fetch
+        // dazu) und wächst danach in der Höhe.
+        var tickt = false;
+        function aktualisieren() {
+            tickt = false;
+            var schwelle = ziel.getBoundingClientRect().bottom + window.scrollY;
+            btn.classList.toggle('sichtbar', window.scrollY > schwelle);
+        }
+        window.addEventListener('scroll', function () {
+            if (tickt) return;
+            tickt = true;
+            requestAnimationFrame(aktualisieren);
+        }, { passive: true });
+        aktualisieren();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+// ────────────────────────────────────────────────────────────
+
 // ── Fortschrittsleiste (Grammatikseiten): Scrollspy ─────────
 // Die 6 Schritte in .progress-steps sind Anker-Links (<a href="#block-N">)
 // auf die 6 .grammar-section-Blöcke der Seite (siehe

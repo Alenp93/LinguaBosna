@@ -61,6 +61,24 @@ main h1 {
    Vokabeln-Übersicht. Hier bleiben nur die Mobil-Anpassungen
    (Schriftgröße/Padding) weiter unten in den @media-Blöcken. */
 
+/* Sticky ab Desktop (> 900px, Projekt-Breakpoint): 37 Kategorien
+   über 6 Niveaus, sonst muss man zum Tab-Wechsel ganz nach oben
+   scrollen. Bleibt unterhalb des fixen Headers (63px hoch) stehen.
+   Auf Mobil bewusst NICHT sticky – siehe Begründung in
+   Style_2_Vokabeln.css (identischer Aufbau); dort übernimmt
+   stattdessen der schwebende "Nach oben"-Button aus LB_main.js
+   (.lb-nach-oben-btn, Style.css). */
+@media (min-width: 901px) {
+  .level-selector {
+    position: sticky;
+    top: 63px;
+    z-index: 900;
+    background: var(--bg-light);
+    padding: 14px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+}
+
 
 /* ── 3. Karten-Layout (Flexbox) ──────────────────────── */
 /* Flexbox statt Grid, damit einzelne Karten in der       */

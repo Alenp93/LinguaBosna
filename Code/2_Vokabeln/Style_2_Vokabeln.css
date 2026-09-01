@@ -61,6 +61,26 @@ main {
    Grammatik-Übersicht. Hier bleiben nur die Mobil-Anpassungen
    (Schriftgröße/Padding) weiter unten in den @media-Blöcken. */
 
+/* Sticky ab Desktop (> 900px, Projekt-Breakpoint): Bei 22 A1- bzw.
+   24 B1-Kapiteln ist der Weg zum Tab-Wechsel sonst ein Scroll ganz
+   nach oben. Bleibt unterhalb des fixen Headers (63px hoch) stehen.
+   Auf Mobil bewusst NICHT sticky – die Tabs brechen dort in ein
+   4er-Raster über zwei Zeilen um (siehe @media 768px) und würden
+   zusammen mit dem Header dauerhaft rund ein Drittel der kleinsten
+   getesteten Bildschirmhöhe (320×568) belegen. Dort übernimmt
+   stattdessen der schwebende "Nach oben"-Button aus LB_main.js
+   (.lb-nach-oben-btn, Style.css). */
+@media (min-width: 901px) {
+  .level-selector {
+    position: sticky;
+    top: 63px;
+    z-index: 900;
+    background: var(--bg-light);
+    padding: 14px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+}
+
 
 /* ── Lade-Meldung ──────────────────────────────────────────── */
 .loading-msg {

@@ -238,6 +238,20 @@
     .then(function (response) { return response.json(); })
     .then(function (data) {
       alleThemen = data.themen;
+
+      // Bei genau einem Thema lohnt sich kein Auswahlbildschirm für
+      // eine einzige Karte – die Übung startet direkt. Kommt später
+      // ein zweites Thema dazu, zeigt derselbe Code automatisch
+      // wieder die Auswahl, ohne dass hier etwas geändert werden muss.
+      if (alleThemen.length === 1) {
+        // "Anderes Thema" hätte sonst nichts zum Umschalten (der
+        // Startschirm bliebe leer, weil zeigeThemenKarten() nie lief)
+        // – bei nur einem Thema bleibt deshalb nur "Wiederholen".
+        $('otherBtn').classList.add('hidden');
+        starteThema(alleThemen[0]);
+        return;
+      }
+
       zeigeThemenKarten();
 
       // Falls die Seite mit ?thema=akkusativ aufgerufen wurde

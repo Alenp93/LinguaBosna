@@ -328,23 +328,34 @@ def run_playwright_checks():
                 page = browser.new_page(viewport={"width": width, "height": 900})
                 try:
                     page.goto(url)
+                    # Bei genau einem Thema/Set startet die Seite die Übung
+                    # direkt (kein Auswahlbildschirm, siehe lernen-luckentext.html
+                    # seit 2026-09-01) — #themaGrid bleibt dann leer und
+                    # #uebungScreen ist schon beim Laden sichtbar. Beide Fälle
+                    # generisch abfangen: warten, bis EINES von beidem eintritt.
                     page.wait_for_function(
                         "() => { const g = document.getElementById('themaGrid'); "
-                        "return g && g.children.length > 0; }", timeout=6000)
-
-                    # ── Start-Bildschirm ──
-                    check_overflow(page, "Start", width)
-                    check_touch_targets(page, "Start", width)
+                        "const u = document.getElementById('uebungScreen'); "
+                        "return (g && g.children.length > 0) || "
+                        "(u && !u.classList.contains('hidden')); }", timeout=6000)
 
                     karte = page.query_selector("#themaGrid button.thema-card")
-                    if not karte:
-                        warn(f"{width}px: keine Set-Karte gefunden — "
-                             f"Übungs-/Ergebnisschirm nicht geprüft")
-                        page.close()
-                        continue
+                    if karte:
+                        # ── Start-Bildschirm ──
+                        check_overflow(page, "Start", width)
+                        check_touch_targets(page, "Start", width)
 
-                    karte.click()
-                    wait_hidden_off(page, "#uebungScreen")
+                        karte.click()
+                        wait_hidden_off(page, "#uebungScreen")
+                    else:
+                        uebung = page.query_selector("#uebungScreen")
+                        if not uebung or "hidden" in (uebung.get_attribute("class") or ""):
+                            warn(f"{width}px: keine Set-Karte gefunden — "
+                                 f"Übungs-/Ergebnisschirm nicht geprüft")
+                            page.close()
+                            continue
+                        # Direktstart: kein Startbildschirm zu prüfen, die
+                        # Übung läuft schon.
 
                     # ── Erste Aufgabe (vor Antwort) ──
                     check_overflow(page, "Aufgabe", width)

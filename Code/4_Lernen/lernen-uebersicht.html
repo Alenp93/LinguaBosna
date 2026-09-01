@@ -120,13 +120,33 @@
       <p>Alle Übungen sind kostenlos und funktionieren direkt im Browser – auch auf dem Handy.</p>
     </div>
 
+    <!-- ── Niveau-Filter ─────────────────────────────────────
+         Anders als bei den Niveau-Tabs auf Vokabeln/Grammatik
+         deckt eine Übung hier oft MEHRERE Niveaus ab (z. B.
+         "A1–C1"). Ein Klick blendet deshalb keine exklusive
+         Ansicht um, sondern filtert: gezeigt wird jede Karte,
+         deren data-niveau das gewählte Niveau enthält. "Alle"
+         ist der Default und zeigt weiterhin jede Übung. -->
+    <div class="level-selector" id="levelFilter" role="tablist" aria-label="Übungen nach Sprachniveau filtern">
+      <button class="level-btn active" data-level="alle" role="tab" aria-selected="true">Alle</button>
+      <button class="level-btn" data-level="A1" role="tab" aria-selected="false">A1</button>
+      <button class="level-btn" data-level="A2" role="tab" aria-selected="false">A2</button>
+      <button class="level-btn" data-level="B1" role="tab" aria-selected="false">B1</button>
+      <button class="level-btn" data-level="B2" role="tab" aria-selected="false">B2</button>
+      <button class="level-btn" data-level="C1" role="tab" aria-selected="false">C1</button>
+      <button class="level-btn" data-level="C2" role="tab" aria-selected="false">C2</button>
+    </div>
+
     <!-- Raster mit einer Karte pro Übung.
          Die Karten sind Links (<a>) und nutzen dieselbe
-         Karten-Optik wie die Startschirme der Übungen. -->
-    <div class="thema-grid uebung-grid">
+         Karten-Optik wie die Startschirme der Übungen.
+         data-niveau listet alle Niveaus, die die Übung laut
+         ihrem "thema-niveau"-Etikett abdeckt (leerzeichen-
+         getrennt) – das treibt den Filter oben. -->
+    <div class="thema-grid uebung-grid" id="uebungGrid">
 
       <!-- Übung 1: Lückentext -->
-      <a class="thema-card" href="/Code/4_Lernen/lernen-luckentext.html">
+      <a class="thema-card" href="/Code/4_Lernen/lernen-luckentext.html" data-niveau="A2">
         <div class="thema-icon"><i class="fas fa-pen-to-square"></i></div>
         <span class="thema-niveau">A2 · Akkusativ</span>
         <h3>Lückentext üben</h3>
@@ -134,7 +154,7 @@
       </a>
 
       <!-- Übung 2: Aspektpaare -->
-      <a class="thema-card" href="/Code/4_Lernen/lernen-aspektpaare.html">
+      <a class="thema-card" href="/Code/4_Lernen/lernen-aspektpaare.html" data-niveau="A1 A2 B1 B2 C1">
         <div class="thema-icon"><i class="fas fa-right-left"></i></div>
         <span class="thema-niveau">A1–C1 · Verben</span>
         <h3>Aspektpaare üben</h3>
@@ -145,7 +165,7 @@
            Die Stufe über der Zuordnung: Der Partner wird nicht
            gewählt, sondern geschrieben. Steht deshalb direkt
            dahinter. -->
-      <a class="thema-card" href="/Code/4_Lernen/lernen-aspektpaare-frei.html">
+      <a class="thema-card" href="/Code/4_Lernen/lernen-aspektpaare-frei.html" data-niveau="B1 B2 C1 C2">
         <div class="thema-icon"><i class="fas fa-keyboard"></i></div>
         <span class="thema-niveau">B1+ · Verben</span>
         <h3>Aspektpaare frei eingeben</h3>
@@ -156,7 +176,7 @@
            Steht bewusst hinter den beiden Formen-Übungen: Sie
            bilden einen Lernpfad – erst die Formen (erkennen,
            dann bilden), dann ihre Anwendung im Satz. -->
-      <a class="thema-card" href="/Code/4_Lernen/lernen-aspektwahl.html">
+      <a class="thema-card" href="/Code/4_Lernen/lernen-aspektwahl.html" data-niveau="B1 B2">
         <div class="thema-icon"><i class="fas fa-code-branch"></i></div>
         <span class="thema-niveau">B1–B2 · Verbalaspekt</span>
         <h3>Aspektwahl üben</h3>
@@ -164,7 +184,7 @@
       </a>
 
       <!-- Übung 5: Satzbau-Puzzle -->
-      <a class="thema-card" href="/Code/4_Lernen/lernen-satzbau.html">
+      <a class="thema-card" href="/Code/4_Lernen/lernen-satzbau.html" data-niveau="B2">
         <div class="thema-icon"><i class="fas fa-shuffle"></i></div>
         <span class="thema-niveau">B2 · Wortstellung</span>
         <h3>Satzbau-Puzzle</h3>
@@ -173,10 +193,59 @@
 
     </div>
 
+    <!-- Hinweistext, falls ein Niveau-Filter zufällig auf keine
+         Übung passt (aktuell nicht möglich, aber falls künftige
+         Übungen schmaler geschnitten sind). -->
+    <p class="uebung-filter-leer hidden" id="uebungFilterLeer">
+      Für dieses Niveau ist aktuell keine Übung dabei – wähle „Alle" oder ein anderes Niveau.
+    </p>
+
   </main>
 
   <!-- Footer wird hier von LB_main.js hineingeladen -->
   <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Niveau-Filter
+
+       Klick auf ein Niveau blendet jede Karte ein/aus, je
+       nachdem ob ihr data-niveau das gewählte Niveau enthält.
+       "Alle" (Default) zeigt wieder jede Karte.
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  var filterButtons = document.querySelectorAll('#levelFilter .level-btn');
+  var karten         = document.querySelectorAll('#uebungGrid .thema-card');
+  var leerHinweis    = document.getElementById('uebungFilterLeer');
+
+  function filtereNach(level) {
+    var sichtbareAnzahl = 0;
+
+    karten.forEach(function (karte) {
+      var niveaus = (karte.dataset.niveau || '').split(' ');
+      var passt   = level === 'alle' || niveaus.indexOf(level) !== -1;
+      karte.classList.toggle('hidden', !passt);
+      if (passt) sichtbareAnzahl++;
+    });
+
+    leerHinweis.classList.toggle('hidden', sichtbareAnzahl > 0);
+
+    filterButtons.forEach(function (btn) {
+      var aktiv = btn.dataset.level === level;
+      btn.classList.toggle('active', aktiv);
+      btn.setAttribute('aria-selected', aktiv ? 'true' : 'false');
+    });
+  }
+
+  filterButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filtereNach(btn.dataset.level);
+    });
+  });
+
+  </script>
 
 </body>
 </html>

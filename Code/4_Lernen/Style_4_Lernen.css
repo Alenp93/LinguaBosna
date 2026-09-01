@@ -149,11 +149,34 @@ main h1 {
   font-size: 0.98rem;
 }
 
+/* ── Niveau-Filter (lernen-uebersicht.html) ──────────────────
+   Optik von .level-btn (Farben, Form, Hover/Aktiv-Zustand) steht
+   zentral in /Code/Style.css – einheitlich mit Vokabeln/Grammatik.
+   Hier nur das Layout von .level-selector, wie auf den anderen
+   beiden Übersichtsseiten. */
+.level-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
 /* Raster der Themen-Karten (aktuell nur Akkusativ) */
 .thema-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 18px;
+}
+
+/* Hinweistext, wenn der Niveau-Filter auf lernen-uebersicht.html
+   keine Karte trifft (siehe .level-selector dort). */
+.uebung-filter-leer {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 20px;
 }
 
 /* Eine Themen-/Übungs-Karte = anklickbarer Button ODER Link.
@@ -1175,6 +1198,20 @@ main h1 {
   main {
     margin-top: 80px;
     padding: 30px 5% 50px;
+  }
+  /* Niveau-Filter: 4er-Grid statt Fließtext-Umbruch (wie auf
+     Vokabeln/Grammatik) – hier nur 7 Buttons statt 6, deshalb
+     4 statt 3 Spalten, sonst bliebe "Alle" allein in einer Zeile. */
+  .level-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .level-btn {
+    font-size: 0.78rem;
+    padding: 8px 4px;
+    text-align: center;
   }
   .uebung-container {
     padding: 24px 18px;

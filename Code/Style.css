@@ -717,6 +717,60 @@
 
 
 /* =========================================
+   "NACH OBEN"-BUTTON (.lb-nach-oben-btn)
+   -----------------------------------------
+   Ergänzt die sticky Niveau-Auswahl auf Vokabeln-/Grammatik-
+   Übersicht (siehe Style_2_Vokabeln.css / Style_3_Grammatik.css):
+   Auf Desktop bleiben die Niveau-Tabs beim Scrollen stehen (reines
+   CSS, kein Button nötig). Auf Mobil wäre der zweizeilige Tab-Block
+   dauerhaft zu hoch, deshalb bleibt er dort im normalen Fluss, und
+   dieser schwebende Button (von /Code/LB_main.js erzeugt, nur wenn
+   die Seite eine .level-selector hat) springt bei Bedarf dorthin
+   zurück. display:none als Grundzustand blendet ihn auf Desktop
+   komplett aus; erst @media 900px + Klasse "hat-ziel" zeigt ihn an,
+   und "sichtbar" (per Scroll-Listener gesetzt) blendet ihn ein.
+   ========================================= */
+.lb-nach-oben-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 900;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+}
+
+.lb-nach-oben-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+@media (max-width: 900px) {
+  .lb-nach-oben-btn.hat-ziel {
+    display: flex;      /* auf Mobil vorhanden, aber erst per Scroll sichtbar */
+  }
+  .lb-nach-oben-btn.sichtbar {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+
+/* =========================================
    BEWEGUNG REDUZIEREN (prefers-reduced-motion)
    Schaltet Transform-Animationen und -Übergänge
    sitewide praktisch ab (Karten-Hover, Flashcard-

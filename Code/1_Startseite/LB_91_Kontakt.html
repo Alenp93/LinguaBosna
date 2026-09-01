@@ -41,205 +41,14 @@
   <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
 
   <!-- Globale Styles (Farben, Header, Footer, Buttons …) -->
-  <link rel="stylesheet" href="../Style.css">
+  <link rel="stylesheet" href="/Code/Style.css">
 
-  <style>
-    /* =============================================
-       SEITENSPEZIFISCHE STYLES — Kontakt
-       ============================================= */
-
-    /* --- Seiten-Hero (Banner oben) --- */
-    .page-hero {
-      background: linear-gradient(135deg, #0A3D62 0%, #1a5876 100%);
-      color: #fff;
-      text-align: center;
-      /* Oben Abstand für den fixierten Header (ca. 70px Headerhöhe + 60px Puffer) */
-      padding: 130px 5% 60px;
-    }
-    .page-hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 2.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-    }
-    .page-hero p {
-      font-size: 1.1rem;
-      opacity: 0.88;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    /* --- Haupt-Inhaltsbereich --- */
-    .page-content {
-      max-width: 860px;   /* Angenehme Lesebreite */
-      margin: 0 auto;
-      padding: 70px 5%;
-    }
-
-    /* --- Kontaktkarten-Raster --- */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;  /* Zwei gleichbreite Spalten */
-      gap: 24px;
-      margin-bottom: 50px;
-    }
-
-    /* --- Einzelne Karte --- */
-    .contact-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 36px 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border: 1px solid #E6E6E6;
-      text-align: center;
-      /* Hover-Effekt: leicht anheben (wie im Design-System vorgegeben) */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.13);
-    }
-
-    /* Icon in der Karte */
-    .contact-card .card-icon {
-      font-size: 2.2rem;
-      color: #F4C542;   /* Akzentfarbe Goldgelb */
-      margin-bottom: 16px;
-    }
-
-    /* Kartenüberschrift */
-    .contact-card h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #0A3D62;
-      margin-bottom: 10px;
-    }
-
-    /* Kartentext */
-    .contact-card p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    /* --- Button-Styles (passend zum Design-System) --- */
-    /* Primärer Button: Dunkelblau */
-    .btn-primary {
-      display: inline-block;
-      background-color: #0A3D62;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-    .btn-primary:hover {
-      background-color: #F4C542;
-      color: #0A3D62;
-    }
-
-    /* Sekundärer Button: nur Umrandung */
-    .btn-outline {
-      display: inline-block;
-      background: transparent;
-      color: #0A3D62;
-      border: 2px solid #0A3D62;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-    .btn-outline:hover {
-      background-color: #0A3D62;
-      color: #fff;
-    }
-
-    /* --- Hinweisbox (z.B. Antwortzeit) --- */
-    .info-box {
-      background: #F8F5F0;
-      border-left: 4px solid #F4C542;  /* goldgelber Akzentstreifen links */
-      border-radius: 0 8px 8px 0;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-    .info-box i {
-      color: #F4C542;
-      font-size: 1.3rem;
-      margin-top: 2px;
-      flex-shrink: 0;  /* Icon schrumpft nicht */
-    }
-    .info-box p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.6;
-    }
-
-    /* --- Häufige Fragen (FAQ) --- */
-    .faq-section {
-      margin-top: 10px;
-    }
-    /* section-intro bereits in Style.css definiert, hier nur ergänzend */
-    .faq-item {
-      border-bottom: 1px solid #E6E6E6;
-      padding: 18px 0;
-    }
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-    .faq-item h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      color: #0A3D62;
-      margin-bottom: 8px;
-    }
-    .faq-item p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.65;
-    }
-    .faq-item a {
-      color: #0A3D62;
-      font-weight: 600;
-      text-decoration: underline;
-    }
-
-    /* =============================================
-       RESPONSIVE DESIGN
-       ============================================= */
-
-    /* Tablet (max. 768px): Karten untereinander statt nebeneinander */
-    @media (max-width: 768px) {
-      .page-hero h1 { font-size: 1.9rem; }
-      .page-hero     { padding: 110px 5% 50px; }
-      .page-content  { padding: 50px 5%; }
-      .contact-grid  { grid-template-columns: 1fr; } /* 1 Spalte auf Mobile */
-    }
-
-    /* Sehr kleine Screens (max. 480px) */
-    @media (max-width: 480px) {
-      .page-hero h1  { font-size: 1.6rem; }
-      .page-content  { padding: 40px 4%; }
-      .contact-card  { padding: 28px 20px; }
-    }
-  </style>
+  <!-- Gemeinsame Styles der vier Info-/Utility-Seiten
+       (Kontakt, Impressum, Datenschutz, Unterstützen) -->
+  <link rel="stylesheet" href="/Code/1_Startseite/Style_Infoseiten.css">
 </head>
 
-<body>
+<body class="pg-kontakt">
 
   <!-- Header wird von LB_main.js automatisch hier eingefügt -->
   <div id="header"></div>
@@ -370,7 +179,7 @@
   <div id="footer"></div>
 
   <!-- LB_main.js lädt Header und Footer dynamisch ein -->
-  <script src="../LB_main.js"></script>
+  <script src="/Code/LB_main.js" defer></script>
 
 </body>
 </html>

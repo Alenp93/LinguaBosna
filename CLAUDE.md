@@ -74,6 +74,23 @@ Alen hat nur Grundkenntnisse in Webdesign/Programmierung.
 </div>
 ```
 
+**Page-Hero-Block (für Info-/Rechts-/Utility-Seiten wie Kontakt, Impressum,
+Datenschutz – Seiten ohne Kartenraster direkt unter dem Titel):**
+```html
+<section class="page-hero">
+  <h1>Titel</h1>
+  <p>Untertitel</p>
+</section>
+```
+Farbverlaufs-Banner (Dunkelblau, `linear-gradient(135deg, var(--primary) 0%, #1a5876 100%)`),
+weiße Schrift, zentriert, `padding: 130px 5% 60px` (Platz für den fixierten Header).
+Anders als `.section-intro` ist das ein **eigenständiger Banner**, kein Block innerhalb
+einer Section – für Seiten, die mit einem farbigen Titel-Banner statt mit `main`-Innenabstand
+beginnen. Definiert in `/Code/1_Startseite/Style_Infoseiten.css`, zusammen mit `.page-content`
+(zentrierter Lesebereich darunter). Die Unterstützen-Seite nutzt bewusst eine eigene Variante
+(`.hero-unterstuetzen`, mit Icon + Puls-Animation) statt `.page-hero` – das ist kein
+Widerspruch, sondern eine zusätzliche, emotionalere Ausprägung für genau diese eine Seite.
+
 **Karten-Hover (Feature/Blog/Vokabel/Grammatik-Karten):**
 ```css
 transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -97,6 +114,15 @@ box-shadow: 0 12px 30px rgba(0,0,0,0.13);
 - `<title>LinguaBosna – [Seitenname]</title>`
 
 **Favicon-Pflicht (B1+ Seiten, mandatory 6-Einträge-Block):** `/Bilder/favicon/`
+
+**Info-/Utility-Seiten (Kontakt, Impressum, Datenschutz, Unterstützen):**
+Diese vier Seiten teilen sich `/Code/1_Startseite/Style_Infoseiten.css` statt je einen
+eigenen `<style>`-Block im `<head>` zu haben (Stand vor September 2026 – seitdem behoben).
+Wie bei jeder Seite: absolute Pfade für CSS/JS (`/Code/Style.css`, `/Code/LB_main.js`).
+Kleine Breiten-/Größenunterschiede zwischen den Seiten (z. B. `max-width` von
+`.page-content`) laufen über Body-Klassen (`pg-kontakt`, `pg-impressum`,
+`pg-datenschutz`, `pg-unterstuetzen`), damit die gemeinsame CSS-Datei trotzdem
+seitengenaue Werte erlaubt.
 
 ## Referenzseite
 

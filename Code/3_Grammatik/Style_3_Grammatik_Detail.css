@@ -23,6 +23,17 @@
    ====================================================== */
 
 
+/* ── Anker-Sprung sanft scrollen ─────────────────────── */
+/* Gilt für Klicks auf die Fortschrittsleiste (#block-1 … #block-6).
+   Nutzer mit "Bewegung reduzieren" bekommen trotzdem einen harten
+   Sprung: die globale Regel in Style.css (@media prefers-reduced-motion)
+   setzt scroll-behavior sitewide per !important auf auto zurück –
+   hier also bewusst KEINE eigene reduced-motion-Abfrage nötig. */
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* ── 0. Mobile-Schutz: kein horizontaler Überlauf ────── */
 /* Lange deutsche Komposita (z.B. „Entscheidungsfragen",
    „Fragewörter") oder lange bosnische Sätze können auf
@@ -144,7 +155,15 @@ body {
 
 
 /* ── 3. Fortschrittsanzeige ──────────────────────────── */
-/* 6 nummerierte Schritte in einer horizontalen Reihe     */
+/* 6 nummerierte Schritte in einer horizontalen Reihe.
+   Sind zugleich Anker-Links (<a href="#block-N">) zu den 6 Sections
+   weiter unten – siehe TEMPLATE_Grammatik_Detailseite.html. Auf dem
+   Desktop bleibt die Leiste beim Scrollen unter dem fixen Header
+   stehen (position: sticky) und markiert per Scrollspy (Modul in
+   LB_main.js, IntersectionObserver) den gerade sichtbaren Abschnitt
+   mit der Klasse .active. Auf Mobil ist sie NICHT sticky (siehe
+   Media Query weiter unten in dieser Datei) – das würde dort zu viel
+   Bildschirmhöhe kosten – sondern scrollt bei Bedarf horizontal. */
 
 .progress-steps {
   display: flex;
@@ -152,12 +171,44 @@ body {
   gap: 6px;
   margin-bottom: 50px;
   flex-wrap: wrap;
+  position: sticky;
+  /* 90px = Höhe des fixen Headers, dieselbe Zahl wie main { margin-top: 90px }
+     weiter oben in dieser Datei – so schließt die Leiste nahtlos unter dem
+     Header an, statt darunter zu verschwinden oder eine Lücke zu lassen. */
+  top: 90px;
+  z-index: 500;              /* unter Header (1000) und Such-Overlay (1001), über dem Seiteninhalt */
+  background: var(--bg-light);
+  padding: 10px 0;
 }
 
 .step {
   display: flex;
   align-items: center;
   gap: 5px;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 3px 5px;
+  transition: background 0.2s ease;
+}
+
+.step:hover {
+  background: #fff;
+}
+
+.step:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Aktueller Abschnitt (per Scrollspy gesetzt, siehe LB_main.js) */
+.step.active .step-num {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.step.active .step-label {
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .step-num {
@@ -172,6 +223,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .step-label {
@@ -179,6 +232,7 @@ body {
   font-size: 0.78rem;
   color: #707070;
   margin-right: 10px;
+  transition: color 0.2s ease;
 }
 
 
@@ -187,6 +241,13 @@ body {
 
 .grammar-section {
   margin-bottom: 55px;
+  /* Abstand, den ein Anker-Sprung (Klick auf die Fortschrittsleiste) über
+     der Section-Oberkante frei lässt – sonst verschwindet die Überschrift
+     unter dem fixen Header + der sticky Fortschrittsleiste. 90px Header
+     + ca. 46px Leiste (26px Kreis + 2×10px Padding) + 14px Luft = 150px.
+     Auf Mobil ist die Leiste nicht sticky, siehe Media Query unten –
+     dort reicht der kleinere Wert aus dem 768px-Block. */
+  scroll-margin-top: 150px;
 }
 
 /* Abschnitts-Überschrift: Nummer + Titel */
@@ -955,9 +1016,32 @@ body {
     display: none;
   }
 
+  /* Auf Mobil NICHT sticky (würde zu viel Bildschirmhöhe kosten) –
+     stattdessen eine horizontal scrollbare Reihe aus Nummer-Pillen.
+     flex-shrink: 0 an .step verhindert, dass die Pillen gequetscht
+     werden, statt dass die Reihe seitlich überläuft. */
   .progress-steps {
+    position: static;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     gap: 10px;
     margin-bottom: 35px;
+    padding: 8px 4px;
+  }
+
+  .step {
+    flex-shrink: 0;
+    /* Zusammen mit dem 26px-Kreis ca. 44px hoch – Mindest-Touch-Target
+       laut Design-Vorgabe (main CLAUDE.md), obwohl nur die Nummer sichtbar ist. */
+    padding: 9px 8px;
+  }
+
+  /* Anker-Sprung: hier reicht der Versatz für den fixen Header allein,
+     die Leiste ist auf Mobil nicht sticky (siehe oben). */
+  .grammar-section {
+    scroll-margin-top: 100px;
   }
 
   /* Beispiel-Karten: 2 Spalten */

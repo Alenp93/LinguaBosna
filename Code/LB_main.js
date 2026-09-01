@@ -547,6 +547,60 @@ function initWoerterbuchSuche() {
 })();
 // ────────────────────────────────────────────────────────────
 
+// ── Fortschrittsleiste (Grammatikseiten): Scrollspy ─────────
+// Die 6 Schritte in .progress-steps sind Anker-Links (<a href="#block-N">)
+// auf die 6 .grammar-section-Blöcke der Seite (siehe
+// TEMPLATE_Grammatik_Detailseite.html). Dieses Modul markiert beim
+// Scrollen den gerade sichtbaren Block mit der Klasse "active" an
+// seinem Link (Styling in Style_3_Grammatik_Detail.css). Läuft auf
+// JEDER Seite, weil LB_main.js überall eingebunden ist – bricht aber
+// sofort ab, wenn .progress-steps fehlt (bisher nur Grammatikseiten).
+(function () {
+    function init() {
+        var steps = document.querySelectorAll('.progress-steps .step');
+        if (!steps.length || !window.IntersectionObserver) return;
+
+        // Nur Links mit einem echten #block-N-Ziel berücksichtigen.
+        var sections = [];
+        steps.forEach(function (step) {
+            var hash = step.getAttribute('href');
+            if (!hash || hash.charAt(0) !== '#') return;
+            var section = document.querySelector(hash);
+            if (section) sections.push(section);
+        });
+        if (!sections.length) return;
+
+        function setActive(hash) {
+            steps.forEach(function (step) {
+                step.classList.toggle('active', step.getAttribute('href') === hash);
+            });
+        }
+
+        // rootMargin zieht den "aktiven Streifen" auf einen schmalen Bereich
+        // knapp unter dem fixen Header + der sticky Fortschrittsleiste
+        // (zusammen ca. 140px): der Block, dessen Oberkante dort gerade
+        // durchläuft, gilt als aktueller Abschnitt. -60% unten sorgt dafür,
+        // dass immer nur ein Block gleichzeitig als "aktiv" zählt, auch
+        // wenn Blöcke unterschiedlich lang sind.
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    setActive('#' + entry.target.id);
+                }
+            });
+        }, { rootMargin: '-140px 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(function (section) { observer.observe(section); });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+// ────────────────────────────────────────────────────────────
+
 // ── Lernfortschritt-Modul nachladen ─────────────────────────
 // LB_fortschritt.js merkt sich im localStorage des Besuchers, welche
 // Vokabelkapitel geübt und welche Grammatikthemen gelesen wurden.

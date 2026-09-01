@@ -189,6 +189,21 @@
       </button>
     </div>
 
+    <!-- ── Einstieg in die statischen Buchstabenseiten ──────────────
+         Dieser Link steht fest im HTML und wird NICHT von JavaScript
+         erzeugt – das ist der Punkt. Alles auf dieser Seite oberhalb
+         entsteht erst durch JS; für eine Suchmaschine ist der Seiten-
+         quelltext also praktisch leer. Über diesen einen echten Link
+         erreicht ein Crawler die Übersichtsseite und von dort alle
+         Buchstabenseiten, in denen die Wörter fertig im Quelltext
+         stehen (erzeugt von build_woerterbuch.py). -->
+    <p class="wb-hinweis-suche wb-hinweis-unten">
+      <i class="fa-solid fa-book" aria-hidden="true"></i>
+      Lieber ohne Suchfeld stöbern? Das Wörterbuch gibt es auch
+      <a href="/Code/2_Vokabeln/woerterbuch/index.html">Buchstabe für
+      Buchstabe als eigene Seiten</a>.
+    </p>
+
   </main>
 
   <!-- Footer (dynamisch eingebunden per LB_main.js) -->

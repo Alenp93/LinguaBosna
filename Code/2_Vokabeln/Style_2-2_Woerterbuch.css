@@ -505,6 +505,162 @@ a.wb-eintrag:hover .wb-fuss {
 }
 
 
+/* ============================================================
+   STATISCHE BUCHSTABENSEITEN
+   ------------------------------------------------------------
+   /Code/2_Vokabeln/woerterbuch/ — erzeugt von build_woerterbuch.py.
+   Diese Seiten benutzen bewusst dieselben Klassen wie oben
+   (.wb-liste, .wb-eintrag, .wb-abc, .wb-abc-btn), damit sie
+   identisch aussehen und kein zweites Stylesheet nötig ist.
+   Hier stehen nur die Ergänzungen, die es dort zusätzlich gibt.
+   ============================================================ */
+
+/* Auf den statischen Seiten sind die Alphabet-Elemente <a> und <span>
+   statt <button>. Links sind von Haus aus inline und unterstrichen –
+   das gleicht diese Regel an die Button-Optik an. */
+a.wb-abc-btn,
+span.wb-abc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Der Buchstabe der aktuellen Seite ist ein <span> ohne Ziel (man
+   verlinkt nicht auf die Seite, auf der man schon steht). Er darf
+   deshalb auch nicht wie ein anklickbarer Knopf reagieren. */
+span.wb-abc-btn {
+  cursor: default;
+}
+
+/* Hinweiszeile mit dem Weg zur Suchseite */
+.wb-hinweis-suche {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  padding: 12px 18px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  color: #4a4a4a;
+}
+
+.wb-hinweis-suche i {
+  color: var(--accent-text);     /* barrierefreier Gold-Ton für Icons */
+  margin-right: 6px;
+}
+
+.wb-hinweis-suche a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.wb-hinweis-suche a:hover {
+  color: var(--secondary);
+}
+
+/* Dieselbe Zeile am Fuß der dynamischen Suchseite – dort braucht sie
+   Abstand nach oben zur Trefferliste statt nach unten. */
+.wb-hinweis-unten {
+  margin: 40px auto 0;
+}
+
+/* Blättern zum vorigen/nächsten Buchstaben, unter der Liste */
+.wb-blaettern {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1100px;
+  margin: 32px auto 0;
+}
+
+/* Steht nur ein Button da (erster oder letzter Buchstabe), soll er nicht
+   einsam links kleben, sondern an seiner logischen Seite stehen. */
+.wb-blaettern .btn:only-child:last-child {
+  margin-left: auto;
+}
+
+
+/* „Nach oben"-Link am Fuß der Buchstabenseiten.
+   Springt auf #main-content – diese ID setzt LB_main.js auf jeder Seite
+   an <main> (für den Skip-Link im Header), sie ist hier also schon da. */
+.wb-nach-oben {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.88rem;
+}
+
+.wb-nach-oben a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;      /* großzügiges Touch-Ziel */
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.wb-nach-oben a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+
+/* ── Buchstaben-Übersicht (woerterbuch/index.html) ─────────── */
+.wb-buchstaben-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.wb-buchstabe-karte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 12px;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 12px;
+  color: var(--primary);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  /* Karten-Hover laut Designvorgabe */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wb-buchstabe-karte:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+.wb-buchstabe-karte:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.wb-buchstabe-gross {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--primary);
+}
+
+.wb-buchstabe-anzahl {
+  font-size: 0.78rem;
+  color: var(--secondary);
+}
+
+
 /* ── Leerzustand (keine Treffer) ───────────────────────────── */
 .wb-leer {
   max-width: 620px;
@@ -674,5 +830,34 @@ a.wb-eintrag:hover .wb-fuss {
 
   .wb-bs {
     font-size: 1rem;
+  }
+
+  /* Buchstaben-Übersicht: 3 Spalten statt auto-fill, sonst werden die
+     Karten auf 320px-Geräten unnötig breit und die Liste sehr lang. */
+  .wb-buchstaben-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .wb-buchstabe-karte {
+    padding: 14px 8px;
+  }
+
+  .wb-buchstabe-gross {
+    font-size: 1.5rem;
+  }
+
+  /* Blätter-Buttons untereinander, damit die Beschriftung
+     ("Wörter mit Nj") nicht abgeschnitten wird. */
+  .wb-blaettern {
+    flex-direction: column;
+  }
+
+  .wb-blaettern .btn {
+    justify-content: center;
+  }
+
+  .wb-blaettern .btn:only-child:last-child {
+    margin-left: 0;
   }
 }

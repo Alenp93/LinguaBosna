@@ -204,9 +204,12 @@ window.LBSuche = (function () {
                 if (pfad === '/' || pfad === '/index.html') return 'start';
                 // Das Wörterbuch liegt zwar im Ordner /Code/2_Vokabeln/, ist im
                 // Menü aber ein eigener Punkt. Diese Prüfung muss deshalb VOR
-                // der allgemeinen Vokabeln-Regel stehen – sonst würde auf der
-                // Wörterbuch-Seite "Vokabeln" unterstrichen.
-                if (pfad.indexOf('/Code/2_Vokabeln/LB_2-2_Woerterbuch.html') !== -1) return 'woerterbuch';
+                // der allgemeinen Vokabeln-Regel stehen – sonst würde auf den
+                // Wörterbuch-Seiten "Vokabeln" unterstrichen. Erfasst beides:
+                // die dynamische Suchseite und den Ordner woerterbuch/ mit den
+                // statischen Buchstabenseiten (siehe build_woerterbuch.py).
+                if (pfad.indexOf('/Code/2_Vokabeln/LB_2-2_Woerterbuch.html') !== -1 ||
+                    pfad.indexOf('/Code/2_Vokabeln/woerterbuch/') !== -1) return 'woerterbuch';
                 if (pfad.indexOf('/Code/2_Vokabeln/') !== -1) return 'vokabeln';
                 if (pfad.indexOf('/Code/3_Grammatik/') !== -1 ||
                     pfad.indexOf('/Code/1_Startseite/LB_3_Grammatik.html') !== -1) return 'grammatik';

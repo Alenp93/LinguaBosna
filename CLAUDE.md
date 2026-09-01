@@ -249,6 +249,59 @@ erhalten** – sie ist der Grund, warum eine Neunummerierung überhaupt möglich
 Einziger Nebeneffekt: alte `?kapitel=N`-Links (Lesezeichen, Google-Index) zeigen jetzt auf
 ein anderes Kapitel.
 
+## Wörterbuch-Bereich
+
+Seit September 2026 sind die ~2.900 Vokabeln nicht mehr nur über das Such-Overlay im
+Header erreichbar, sondern über einen eigenen Menüpunkt „Wörterbuch". Der Bereich besteht
+aus **drei** Teilen, die zusammengehören:
+
+1. **`LB_2-2_Woerterbuch.html`** – die dynamische Seite. Volltextsuche, Filter nach Niveau
+   und Wortart, Alphabet-Blätterfunktion. Der Zustand (`?q=`, `?niveau=`, `?wortart=`,
+   `?buchstabe=`) steht in der Adresszeile, jede Ansicht ist also verlinkbar. Die Liste
+   wird in 100er-Blöcken aufgebaut, sonst bremsen 2.895 Karten ältere Geräte aus.
+   Einträge mit `nur_woerterbuch: true` gehören hier **ausdrücklich dazu** – dies ist die
+   einzige Seite, auf der sie überhaupt sichtbar werden.
+2. **`window.LBSuche`** in `LB_main.js` – Normalisierung, Relevanz-Rang und Sortierung.
+   Das Header-Overlay **und** die Wörterbuch-Seite rufen dieselbe Funktion `suchen()` auf,
+   damit derselbe Suchbegriff nicht an zwei Stellen verschieden sortiert. Das Modul steht
+   bewusst **ganz oben in `LB_main.js`**, außerhalb aller fetch-Callbacks: `LB_main.js`
+   ist ohnehin überall eingebunden (kein Extra-Abruf), und weil es mit `defer` geladen
+   wird, existiert `window.LBSuche` garantiert vor `DOMContentLoaded`. Seiten, die es
+   nutzen, starten deshalb in `DOMContentLoaded` – ein inline-`<script>` im `<body>`
+   liefe sonst *vor* dem deferred `LB_main.js`.
+   ⚠️ Die Normalisierung bildet `đ` zusätzlich von Hand auf `d` ab. `normalize('NFD')`
+   zerlegt nur Buchstaben mit Akzent; `đ` ist ein eigenes Zeichen und bliebe sonst
+   unauffindbar, wenn jemand „djubre"/„dubre" tippt.
+3. **`Code/2_Vokabeln/woerterbuch/`** – 32 **statische** Seiten (Übersicht + je Buchstabe),
+   erzeugt von `build_woerterbuch.py`. Sie existieren aus einem einzigen Grund: Der
+   `<main>`-Bereich der dynamischen Seite enthält im ausgelieferten HTML **null** Vokabeln
+   (alles entsteht per JS) und genau **einen** Link – den auf `woerterbuch/index.html`.
+   Ein Crawler tippt nicht in Suchfelder, `?q=kuca` entsteht also nie von selbst. Erst
+   über diesen einen Link erreicht er die Buchstabenseiten, in denen alle Wörter fertig
+   im Quelltext stehen (Buchstabe K: 196 Einträge, 15.500 Zeichen Text, 221 Links).
+   **Diesen Link in `LB_2-2_Woerterbuch.html` bitte nicht entfernen** – ohne ihn ist der
+   ganze statische Teil für Suchmaschinen unerreichbar.
+   - Bewusst **keine** Seite pro Wort (2.895 Stück): Google wertet solche Massen an
+     Kleinstseiten als „Thin Content" ab.
+   - Die Seiten benutzen dieselben CSS-Klassen wie die dynamische Seite
+     (`.wb-liste`, `.wb-eintrag`, `.wb-abc-btn` aus `Style_2-2_Woerterbuch.css`) und
+     brauchen deshalb kein eigenes Stylesheet.
+   - **Die Slug-Zuordnung in `build_woerterbuch.py` (`Č` → `c-caron`, `Š` → `s-caron`,
+     `Dž` → `dz` …) darf sich nicht mehr ändern**, sonst brechen bereits indexierte
+     Adressen. Dateinamen sind reines ASCII, weil Umlaut-Dateinamen im Repo unter
+     Windows/Git/GitHub Pages eine bekannte Fehlerquelle sind.
+   - `buchstabeVon()` im HTML und `buchstabe_von()` im Python-Skript müssen dieselbe
+     Einteilung ergeben (Digraphen `Dž`/`Lj`/`Nj` als eigene Buchstaben), sonst zeigen
+     dynamische und statische Seite unter demselben Buchstaben verschiedene Wörter.
+
+**Nach jeder Änderung an `vokabeln_flat.json`** also drei Skripte, in dieser Reihenfolge:
+```
+python3 build_kapitel_index.py
+python3 build_woerterbuch.py
+python3 build_sitemap.py
+```
+Alle drei kennen `--check` (Exit 1, wenn veraltet) und alle drei Ergebnisse mitcommitten.
+
 ## Lernfortschritt-System
 
 Seit August 2026 merkt sich LinguaBosna den Lernfortschritt lokal im Browser des
@@ -388,6 +441,11 @@ läuft dort über `test_lernen_uebung.py` (siehe `WORKFLOW_Lernen.md`, Abschnitt
   `vokabeln_flat.json` (siehe Vokabular-System oben). **Nach jeder Änderung an
   `vokabeln_flat.json` ausführen und mitcommitten.** `python3 build_kapitel_index.py --check`
   meldet nur, ob der Index veraltet ist (Exit 1), ohne zu schreiben.
+- `python3 build_woerterbuch.py` erzeugt die 32 statischen Buchstabenseiten unter
+  `Code/2_Vokabeln/woerterbuch/` neu (siehe Wörterbuch-Bereich oben). **Ebenfalls nach jeder
+  Änderung an `vokabeln_flat.json` ausführen und mitcommitten**, und zwar *vor*
+  `build_sitemap.py`, damit neue oder entfallene Buchstabenseiten in der Sitemap landen.
+  `--check` verhält sich wie bei den anderen beiden.
 - `.claude/agents/seo-pruefer.md` – **optionaler** Subagent für die *redaktionelle* SEO-Qualität
   (Title-/Description-Güte, Keyword-Ausrichtung, interne Verlinkung, Dubletten). Nur Leserechte,
   korrigiert nichts, liefert eine ✓/⚠-Liste. Prüft QUALITÄT, nicht Vorhandensein (das macht

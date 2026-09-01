@@ -106,6 +106,23 @@ box-shadow: 0 12px 30px rgba(0,0,0,0.13);
 - Sehr klein (≤480px): `40px 4%`
 - Button-Stacking-Breakpoint bei 900px (nicht 768px), 44px Mindest-Touch-Targets
 
+**Usability-Checkliste (verbindlich, jede neue/geänderte Seite):**
+Ein allgemeiner Grundsatz wie „Mobile-first-Denken" allein reicht erfahrungsgemäß
+nicht – er wird beim Bauen einer konkreten Seite leicht übersehen. Deshalb hier
+konkret, was zu prüfen ist (automatisiert über `test_usability.py`, siehe
+Validierungs-Workflow):
+- Kontrast: mindestens 4,5:1 für Fließtext, 3:1 ab 24px bzw. 18.66px+fett.
+  Gilt auch für Hervorhebungsfarben auf Weiß – reines Gold `#F4C542` erreicht
+  auf Weiß nur 1,63:1, dafür gibt es `var(--accent-text)` (`#8A6D00`, 4,92:1)
+  für Text auf hellem Grund. `--accent` bleibt für Flächen/Icons/Buttons.
+- Tap-Targets: mindestens 44×44px für alles Klickbare (siehe Abstände oben).
+- Kein horizontaler Overflow bei 900/628/480/360/320px.
+- Sichtbarer Fokusring bei Tastaturnavigation (kein `outline: none` ohne
+  `:focus-visible`-Ersatz).
+- `prefers-reduced-motion` bei Animationen/Transforms berücksichtigen.
+- Bosnische Textbausteine mit `lang="bs"` auszeichnen (Screenreader-Aussprache).
+- Skip-Link vorhanden (steht zentral in `LB_header.html`, nicht pro Seite nötig).
+
 **FontAwesome:** 6.5.0 via cdnjs — `https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css`
 (NICHT den alten Kit-Link verwenden)
 
@@ -476,6 +493,19 @@ läuft dort über `test_lernen_uebung.py` (siehe `WORKFLOW_Lernen.md`, Abschnitt
   (Title-/Description-Güte, Keyword-Ausrichtung, interne Verlinkung, Dubletten). Nur Leserechte,
   korrigiert nichts, liefert eine ✓/⚠-Liste. Prüft QUALITÄT, nicht Vorhandensein (das macht
   `test_seo.py`). Sparsam einsetzen (Token-Kosten) – bei rein technischen Änderungen nicht nötig.
+
+**Usability-Prüfung (seitentyp-unabhängig, ergänzend):**
+- `python3 test_usability.py [datei]` oder `python3 test_usability.py --all` prüft die
+  Usability-Checkliste oben messbar nach: Kontrast (WCAG-Formel), Tap-Targets ≥44px,
+  horizontaler Overflow bei 900/628/480/360/320px. Startet dafür selbst einen lokalen
+  Server für die Testdauer (kein manuell laufender Server nötig). Nur der Overflow-Check
+  ist ein harter Fehler (Exit 1) – Kontrast und Tap-Targets sind Hinweise, weil hier
+  Ermessen mitspielt und das Skript neu ist (nicht jeder Altbestand ist sofort behoben).
+  Einmalig zusätzlich (nicht pro Seite): entfernter Fokusring ohne Ersatz, fehlendes
+  `prefers-reduced-motion`, fehlender Skip-Link. Ergänzt `test_seo.py` und
+  `test_grammatikseite.py`, ersetzt keins von beiden. Kontrast-Messung ist eine
+  Annäherung – bei Text auf Fotos oder stark transparenten Flächen im Zweifel mit den
+  Browser-DevTools nachprüfen (Details im Skript-Docstring).
 
 **Einmalige lokale Einrichtung (falls noch nicht geschehen):** Das Skript braucht Playwright.
 Falls der Testlauf mit „Playwright nicht installiert" fehlschlägt, einmalig ausführen:

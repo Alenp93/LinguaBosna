@@ -50,6 +50,8 @@ main {
   font-weight: 700;
   color: var(--blue);
   margin-bottom: 0.3rem;
+  text-transform: uppercase;     /* Großbuchstaben bei Haupttiteln (Design-System) */
+  letter-spacing: 0.5px;
 }
 .category-badge {
   display: inline-block;
@@ -508,6 +510,9 @@ main {
 .result-big       { font-size: 3.2rem; font-weight: 700; color: var(--gold-text); margin: 0.8rem 0; } /* var(--gold) auf Weiß nur 1,63:1 */
 .result-sub       { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.75rem; }
 .result-stars     { font-size: 1.9rem; margin-bottom: 0.9rem; }
+.result-stars i   { margin: 0 0.1em; }
+.result-stars .fa-solid.fa-star  { color: var(--gold); }   /* erreichter Stern */
+.result-stars .fa-regular.fa-star { color: var(--gray); }  /* noch offener Stern */
 .result-wrong-count { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #b03030; }
 /* Zeile "… Karten liegen jetzt in Box 1" (Leitner-Rückmeldung).
    Der Abstand zu den Buttons sitzt bewusst an .result-btns (margin-top),

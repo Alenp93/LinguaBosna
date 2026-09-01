@@ -162,9 +162,9 @@
 
           <!-- MODUS: Karteikarte / Multiple Choice / Übersicht -->
           <div class="mode-row">
-            <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')">🃏 Karteikarte</button>
-            <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')">🧠 Multiple Choice</button>
-            <button class="mode-btn"        id="modeList"  onclick="setMode('list')">📋 Übersicht</button>
+            <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Karteikarte</button>
+            <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')"><i class="fa-solid fa-brain" aria-hidden="true"></i> Multiple Choice</button>
+            <button class="mode-btn"        id="modeList"  onclick="setMode('list')"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Übersicht</button>
           </div>
         </div>
       </div>
@@ -259,7 +259,7 @@
 
       <!-- ─── ERGEBNIS-BILDSCHIRM ───────────────────────── -->
       <div id="resultScreen" class="result-screen hidden">
-        <div class="result-stars" id="resultStars">⭐⭐⭐</div>
+        <div class="result-stars" id="resultStars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <h2>Lerneinheit abgeschlossen!</h2>
         <div class="result-big"        id="resultScore">—</div>
         <div class="result-sub"        id="resultSub"></div>
@@ -269,7 +269,7 @@
              wenn der Browser nichts speichern konnte. -->
         <div class="result-box1 hidden" id="resultBox1"></div>
         <div class="result-btns">
-          <button class="restart-btn primary"   onclick="restart()">🔄 Alle Karten wiederholen</button>
+          <button class="restart-btn primary"   onclick="restart()"><i class="fa-solid fa-arrow-rotate-right" aria-hidden="true"></i> Alle Karten wiederholen</button>
           <button class="restart-btn secondary" id="btnRetryWrong" onclick="retryWrong()">✗ Nur falsche Karten</button>
         </div>
       </div>
@@ -594,7 +594,7 @@
       if (reviewMode) {
         banner.classList.remove('hidden');
         banner.classList.add('running');
-        titel.textContent = '🔁 Wiederholung läuft';
+        titel.innerHTML = '<i class="fa-solid fa-repeat" aria-hidden="true"></i> Wiederholung läuft';
         sub.textContent   = `${unitVocab.length} Karte${unitVocab.length === 1 ? '' : 'n'} `
                           + 'aus deinem Karteikasten – kapitelübergreifend.';
         btn.textContent   = 'Beenden';
@@ -607,7 +607,7 @@
       if (n === 0) { banner.classList.add('hidden'); return; }   // nichts fällig → kein Kasten
 
       banner.classList.remove('hidden');
-      titel.textContent = `🔁 Fällige Wiederholungen (${n})`;
+      titel.innerHTML = `<i class="fa-solid fa-repeat" aria-hidden="true"></i> Fällige Wiederholungen (${n})`;
       sub.textContent   = n > REVIEW_LIMIT
         ? `Karten aus allen Kapiteln, die heute wieder dran sind – ${REVIEW_LIMIT} davon in dieser Runde.`
         : 'Karten aus allen Kapiteln, die heute wieder dran sind.';
@@ -1212,12 +1212,22 @@
       // ganze Lerneinheit; unitVocab.length wäre hier zu groß.
       const total = correct + wrong;
       const pct   = total > 0 ? Math.round((correct / total) * 100) : 0;
-      const stars = pct >= 90 ? '⭐⭐⭐' : pct >= 60 ? '⭐⭐' : '⭐';
+      const sterneAnzahl = pct >= 90 ? 3 : pct >= 60 ? 2 : 1;
       const msg   = pct >= 90 ? 'Ausgezeichnet – du bist ein Bosnisch-Profi!'
                   : pct >= 60 ? 'Gut gemacht! Noch etwas Übung und du hast es!'
                   :             'Nicht aufgeben – Wiederholung macht den Meister!';
 
-      document.getElementById('resultStars').textContent = stars;
+      // Sterne als FontAwesome-Icons aufbauen: gefüllt bis sterneAnzahl,
+      // danach als Umriss – so bleibt sichtbar, wie viele von 3 es sind
+      // (nicht nur wie viele Icons überhaupt dastehen).
+      const resultStarsEl = document.getElementById('resultStars');
+      let sterneHtml = '';
+      for (let i = 1; i <= 3; i++) {
+        sterneHtml += '<i class="fa-' + (i <= sterneAnzahl ? 'solid' : 'regular') +
+                       ' fa-star" aria-hidden="true"></i>';
+      }
+      resultStarsEl.innerHTML = sterneHtml;
+      resultStarsEl.setAttribute('aria-label', sterneAnzahl + ' von 3 Sternen');
       document.getElementById('resultScore').textContent = pct + '%';
       document.getElementById('resultSub').textContent   = msg;
 

@@ -56,28 +56,10 @@ main {
   margin-bottom: 45px;
 }
 
-.level-btn {
-  padding: 10px 22px;
-  border-radius: 50px;                 /* Pill-Form */
-  border: 2px solid var(--primary);
-  background: #fff;
-  color: var(--primary);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.25s ease;          /* Hover-Effekt immer vorhanden */
-}
-
-.level-btn:hover {
-  background: #e8f2fb;                  /* dezentes Hellblau beim Überfahren */
-}
-
-/* Aktives Niveau: dunkelblau gefüllt mit weißer Schrift */
-.level-btn.active {
-  background: var(--primary);
-  color: #fff;
-}
+/* Optik von .level-btn (Farben, Form, Hover/Aktiv-Zustand) steht
+   jetzt zentral in /Code/Style.css – einheitlich mit der
+   Grammatik-Übersicht. Hier bleiben nur die Mobil-Anpassungen
+   (Schriftgröße/Padding) weiter unten in den @media-Blöcken. */
 
 
 /* ── Lade-Meldung ──────────────────────────────────────────── */

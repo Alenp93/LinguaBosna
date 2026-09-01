@@ -767,3 +767,64 @@
 .grammar-card.lb-quiz-ok {
   border-color: rgba(46, 94, 46, 0.45);
 }
+
+/* =========================================
+   NIVEAU-AUSWAHL (.level-btn) — EINHEITLICHE OPTIK
+   -----------------------------------------
+   Wird sowohl auf der Vokabeln- als auch auf der
+   Grammatik-Übersicht verwendet. Stand vor dieser Vereinheitlichung:
+   Style_2_Vokabeln.css nutzte eine Pillenform (border-radius: 50px)
+   mit dunkelblauem Aktiv-Zustand, Style_3_Grammatik.css eckige Buttons
+   (border-radius: 6px, wie im Design-System vorgegeben) mit goldgelbem
+   Aktiv-Zustand. Hier gilt jetzt die Grammatik-Variante als Standard:
+   6px passt zum übrigen Button-System, und Goldgelb als Aktiv-Farbe
+   nutzt die Akzentfarbe genau für ihre vorgesehene Rolle laut
+   Design-System ("Highlights") – der Hover-Zustand (Dunkelblau-Füllung)
+   bleibt dadurch klar von "gerade ausgewählt" (Goldgelb) unterscheidbar.
+   Style_2_Vokabeln.css / Style_3_Grammatik.css enthalten nur noch das
+   Layout von .level-selector (Abstände) sowie die Mobil-Anpassungen
+   (Schriftgröße/Padding) von .level-btn in ihren @media-Blöcken. */
+.level-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 2px solid var(--primary);
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.level-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.level-btn.active {
+  background: var(--accent);
+  color: var(--primary);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+/* =========================================
+   AKTIVER MENÜPUNKT (Hauptnavigation)
+   -----------------------------------------
+   Die Klasse setzt LB_main.js nach dem Einfügen des Headers, anhand
+   des aktuellen Pfads (siehe dort). Goldgelber Unterstrich statt reiner
+   Textfarbe, damit der aktive Bereich auch für farbenblinde Nutzer an
+   der Form erkennbar bleibt, nicht nur an der Farbe. Im aufgeklappten
+   Mobil-Menü löst die Regel bewusst den grauen Trennstrich der Zeile
+   (header nav ul li a, @media 768px) ab – höhere Selektor-Spezifität
+   durch die zusätzliche Klasse gewinnt automatisch. */
+header nav ul li a.nav-active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+header nav ul li a.nav-active:hover {
+  color: var(--accent);
+}

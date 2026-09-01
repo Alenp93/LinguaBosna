@@ -56,30 +56,10 @@ main h1 {
   margin-bottom: 40px;
 }
 
-.level-btn {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: 2px solid var(--primary);
-  background: #fff;
-  color: var(--primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.level-btn:hover {
-  background: var(--primary);
-  color: #fff;
-}
-
-.level-btn.active {
-  background: var(--accent);
-  color: var(--primary);
-  border-color: var(--accent);
-  font-weight: 700;
-}
+/* Optik von .level-btn (Farben, Form, Hover/Aktiv-Zustand) steht
+   jetzt zentral in /Code/Style.css – einheitlich mit der
+   Vokabeln-Übersicht. Hier bleiben nur die Mobil-Anpassungen
+   (Schriftgröße/Padding) weiter unten in den @media-Blöcken. */
 
 
 /* ── 3. Karten-Layout (Flexbox) ──────────────────────── */

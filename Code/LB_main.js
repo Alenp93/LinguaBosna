@@ -39,6 +39,35 @@
         }
         // ────────────────────────────────────────────────────────────
 
+        // ── Aktiven Menüpunkt markieren ──────────────────────────────
+        // Jeder Hauptnav-Link trägt in LB_header.html ein data-nav
+        // (start/vokabeln/grammatik/lernen). Hier wird anhand des
+        // aktuellen Pfads ermittelt, zu welchem Bereich die Seite gehört
+        // – auch auf Unterseiten (z. B. eine Grammatik-Detailseite oder
+        // der Vokabeltrainer), nicht nur auf den drei Übersichtsseiten
+        // selbst. Style.css zeichnet den Treffer mit einem goldgelben
+        // Unterstrich aus (Klasse "nav-active").
+        (function () {
+            function aktuellenBereichErmitteln(pfad) {
+                if (pfad === '/' || pfad === '/index.html') return 'start';
+                if (pfad.indexOf('/Code/2_Vokabeln/') !== -1) return 'vokabeln';
+                if (pfad.indexOf('/Code/3_Grammatik/') !== -1 ||
+                    pfad.indexOf('/Code/1_Startseite/LB_3_Grammatik.html') !== -1) return 'grammatik';
+                if (pfad.indexOf('/Code/4_Lernen/') !== -1) return 'lernen';
+                return null;
+            }
+
+            var bereich = aktuellenBereichErmitteln(window.location.pathname);
+            if (!bereich) return;
+
+            var aktiverLink = navMenu ? navMenu.querySelector('a[data-nav="' + bereich + '"]') : null;
+            if (aktiverLink) {
+                aktiverLink.classList.add('nav-active');
+                aktiverLink.setAttribute('aria-current', 'page');
+            }
+        })();
+        // ────────────────────────────────────────────────────────────
+
         // ── Wörterbuch-Suche (Header-Overlay) ───────────────────────
         // Läuft hier drin, weil der Header (und damit das Such-Icon +
         // das Overlay) erst JETZT im DOM steht – vorher gäbe es die

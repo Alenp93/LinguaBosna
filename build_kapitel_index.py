@@ -31,6 +31,13 @@ import json
 import pathlib
 import sys
 
+if sys.platform == "win32":  # UTF-8-Ausgabe wie in test_seo.py
+    # Ohne diese Zeilen bricht das Skript unter Windows beim abschließenden
+    # print() mit einem UnicodeEncodeError ab ("✓" gibt es in cp1252 nicht) –
+    # die Arbeit war da längst getan, es sah nur nach Fehlschlag aus.
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 VOKABELN_REL = pathlib.Path("Code/2_Vokabeln/vokabeln_flat.json")
 INDEX_REL    = pathlib.Path("Code/2_Vokabeln/kapitel_index.json")
 

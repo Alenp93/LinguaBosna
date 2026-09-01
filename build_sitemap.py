@@ -30,6 +30,13 @@ import subprocess
 import datetime
 import pathlib
 
+if sys.platform == "win32":  # UTF-8-Ausgabe wie in test_seo.py
+    # Ohne diese Zeilen bricht das Skript unter Windows beim ABSCHLIESSENDEN
+    # print() mit einem UnicodeEncodeError ab ("✓" gibt es in cp1252 nicht) –
+    # die sitemap.xml war da längst geschrieben, es sah nur nach Fehlschlag aus.
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 DOMAIN = "https://linguabosna.com"
 TODAY = datetime.date.today().isoformat()
 

@@ -1,0 +1,678 @@
+/* ============================================================
+   Style_2-2_Woerterbuch.css — Wörterbuch-Seite (alle Einträge)
+   ============================================================
+   Designvorgaben:
+   - Primärfarbe (Dunkelblau): var(--primary) / #0A3D62
+   - Akzentfarbe (Goldgelb):   var(--accent)  / #F4C542
+   - Sekundärfarbe (Grün):     var(--secondary)/ #2E5E2E
+   - Hintergrund:              var(--bg-light) / #F8F5F0
+   - Neutral Grau:             var(--neutral)  / #E6E6E6
+
+   Aufbau der Seite von oben nach unten:
+     1. Titel-Block (.section-intro)
+     2. großes Suchfeld (.wb-suchfeld)
+     3. Filterzeile: Niveau-Buttons + Wortart-Auswahl (.wb-filter)
+     4. Alphabet-Leiste A–Ž (.wb-abc)
+     5. Statuszeile ("123 Treffer") (.wb-status)
+     6. Trefferliste als Karten-Grid (.wb-liste)
+
+   Die .level-btn-Optik der Niveau-Buttons steht zentral in
+   /Code/Style.css – wie auf der Vokabel- und der Grammatik-Übersicht.
+   Hier stehen nur die Ergänzungen dieser Seite.
+   ============================================================ */
+
+
+/* ── Main-Bereich ──────────────────────────────────────────── */
+main {
+  /* Abstand nach oben, da der Header fixed (ca. 63 px hoch) ist */
+  margin-top: 70px;
+  padding: 70px 5%;
+
+  /* width: 100% ist Pflicht, nicht Kosmetik (siehe CLAUDE.md):
+     <body> ist ein Flex-Container, <main> ein Flex-Item. Ohne feste
+     Breite schrumpft es auf Inhaltsbreite und wird von breiten Inhalten
+     über den Viewport gebläht – der Überlauf würde dann unsichtbar
+     abgeschnitten statt scrollbar zu sein. */
+  width: 100%;
+}
+
+
+/* ── Section-Intro Block ───────────────────────────────────── */
+/* Pflicht-Struktur laut Designvorgabe für alle Sections */
+.section-intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-intro h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  text-transform: uppercase;     /* Großbuchstaben bei Haupttiteln */
+  letter-spacing: 0.5px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.section-intro p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--secondary);
+}
+
+
+/* ============================================================
+   1. SUCHFELD
+   ============================================================ */
+
+/* Wrapper zentriert das Feld und begrenzt seine Breite auf großen
+   Monitoren – ein über 1400px breites Eingabefeld liest sich schlecht. */
+.wb-suchfeld {
+  position: relative;            /* Bezugspunkt für Lupe und X-Button */
+  max-width: 620px;
+  margin: 0 auto 22px;
+}
+
+.wb-suchfeld input {
+  width: 100%;
+  /* links Platz für die Lupe, rechts für den Leeren-Button */
+  padding: 14px 46px 14px 46px;
+  border: 2px solid var(--neutral);
+  border-radius: 6px;            /* Designvorgabe: 6px */
+  background: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.05rem;
+  color: var(--primary);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wb-suchfeld input::placeholder {
+  color: #8a8a8a;                /* 4,6:1 auf Weiß – lesbar, aber zurückhaltend */
+}
+
+.wb-suchfeld input:focus {
+  outline: none;                 /* durch den Rahmen unten ersetzt */
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.15);
+}
+
+/* Lupe links im Feld – rein dekorativ, deshalb pointer-events: none,
+   damit ein Klick darauf trotzdem im Eingabefeld landet. */
+.wb-suchfeld-lupe {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary);
+  pointer-events: none;
+}
+
+/* X-Button rechts im Feld: leert die Suche. Wird per JS ein-/ausgeblendet. */
+.wb-suchfeld-leeren {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.wb-suchfeld-leeren:hover {
+  background: var(--neutral);
+}
+
+/* WICHTIG: Das HTML-Attribut "hidden" versteckt ein Element nur über die
+   Browser-Standardregel [hidden] { display: none }. Sobald wir hier selbst
+   ein display setzen (oben: flex), gewinnt unsere Regel – der Button bliebe
+   trotz hidden sichtbar. Deshalb muss jedes Element, das per hidden
+   ein-/ausgeblendet wird UND ein eigenes display bekommt, diese Zeile haben.
+   Betrifft auf dieser Seite den Leeren-Button und den "Weitere anzeigen"-
+   Bereich (siehe .wb-mehr-wrap weiter unten). */
+.wb-suchfeld-leeren[hidden] {
+  display: none;
+}
+
+
+/* ============================================================
+   2. FILTERZEILE (Niveau + Wortart)
+   ============================================================ */
+
+.wb-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 18px;
+  margin-bottom: 22px;
+}
+
+/* Eine Gruppe = Beschriftung + Bedienelemente */
+.wb-filter-gruppe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+
+  /* <fieldset> bringt von Haus aus Rahmen und Innenabstand mit –
+     hier wird beides entfernt, die Struktur bleibt aber erhalten
+     (wichtig für Screenreader: die <legend> benennt die Gruppe). */
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wb-filter-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--secondary);
+
+  /* <legend> sitzt ohne float mitten im Textfluss über der Gruppe.
+     float: left reiht sie stattdessen als erstes Element in die
+     Flex-Zeile ein – so steht "Niveau" links neben den Buttons. */
+  float: left;
+  padding: 0;
+  margin-right: 4px;
+  line-height: 34px;             /* auf Höhe der Buttons ausrichten */
+}
+
+/* Niveau-Buttons: kompaktere Variante der zentralen .level-btn-Optik
+   aus /Code/Style.css. Nur Größe wird hier angepasst, Farben und
+   Aktiv-Zustand bleiben projektweit einheitlich. */
+.wb-filter .level-btn {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  min-height: 34px;
+}
+
+/* Wortart-Auswahl */
+.wb-select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--primary);
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  padding: 7px 12px;
+  min-height: 34px;
+  cursor: pointer;
+  transition: border-color 0.25s ease;
+}
+
+.wb-select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   3. ALPHABET-LEISTE (A–Ž)
+   ============================================================ */
+
+/* Die Leiste steckt in einem <details>-Element. Auf dem Desktop ist es
+   immer offen und die <summary> unsichtbar – dort ist Platz genug.
+   Auf schmalen Geräten klappt das JS es zu (siehe abcBoxAnpassen() im
+   HTML) und die <summary> wird zur Aufklapp-Zeile. */
+.wb-abc-box {
+  margin-bottom: 4px;
+}
+
+/* Aufklapp-Zeile – auf dem Desktop ausgeblendet, siehe @media unten */
+.wb-abc-summary {
+  display: none;
+}
+
+.wb-abc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-width: 900px;
+  margin: 0 auto 10px;
+}
+
+.wb-abc-btn {
+  min-width: 38px;
+  min-height: 38px;              /* Touch-Ziel */
+  padding: 4px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary);
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wb-abc-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Gerade gewählter Buchstabe – wie .level-btn.active in Goldgelb,
+   damit "ausgewählt" projektweit dieselbe Farbe hat. */
+.wb-abc-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.wb-abc-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Erklärzeile unter dem Alphabet (Dž/Lj/Nj-Hinweis) */
+.wb-abc-hinweis {
+  max-width: 900px;
+  margin: 0 auto 26px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #5a5a5a;
+}
+
+
+/* ============================================================
+   4. STATUSZEILE
+   ============================================================ */
+
+.wb-status {
+  max-width: 1100px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  min-height: 1.6em;             /* verhindert Springen beim Umschalten */
+}
+
+/* Fehlermeldung (JSON nicht ladbar) */
+.wb-status.wb-fehler {
+  color: #b03030;
+}
+
+
+/* ============================================================
+   5. TREFFERLISTE
+   ============================================================ */
+
+/* auto-fill füllt so viele Spalten wie möglich; auf dem Handy bleibt
+   dadurch automatisch eine einzige Spalte übrig. */
+.wb-liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  list-style: none;              /* <ul> ohne Aufzählungspunkte */
+  padding: 0;
+}
+
+
+/* ── Einzelner Eintrag ─────────────────────────────────────── */
+/* Zwei Varianten mit identischem Aussehen im Ruhezustand:
+     <a class="wb-eintrag">        – Eintrag mit Kapitel, ganze Karte klickbar
+     <div class="wb-eintrag wb-eintrag-static"> – reiner Wörterbuch-Eintrag
+                                     ("nur_woerterbuch": true), kein Ziel
+   Nur die klickbare Variante bekommt weiter unten den Hover-Effekt –
+   dieselbe Unterscheidung wie im Such-Overlay (.search-result-static). */
+.wb-eintrag {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 12px;
+  padding: 16px 18px;
+  color: var(--primary);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  /* Hover-Animation vorbereiten (Designvorgabe) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Karten-Hover laut Designvorgabe – nur für verlinkte Einträge */
+a.wb-eintrag:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+a.wb-eintrag:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Kopfzeile: bosnisches Wort links, Niveau-Pill rechts */
+.wb-kopf {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Das bosnische Wort – die Hauptinformation der Karte */
+.wb-bs {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.08rem;
+  line-height: 1.3;
+  color: var(--primary);
+}
+
+/* Genus-Zusatz hinter Substantiven, z.B. "(f)" – bewusst leichter
+   gesetzt als das Wort selbst, damit es nicht als Teil des Worts liest. */
+.wb-genus {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+/* Aspekt-Kürzel bei Verben, z.B. "[nesvrš.]" */
+.wb-aspekt {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  color: var(--secondary);
+  background: rgba(46, 94, 46, 0.10);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+/* Niveau (A1–C2) als Pill – gleiche Optik wie im Such-Overlay */
+.wb-niveau {
+  flex: none;                    /* schrumpft nicht, auch bei langen Wörtern */
+  display: inline-block;
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.3px;
+}
+
+/* Die deutsche Bedeutung */
+.wb-de {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: #3d3d3d;                /* 9,8:1 auf Weiß */
+}
+
+/* Metazeile: Wortart + Aspekt */
+.wb-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+/* Fußzeile der Karte: Kapitel-Verweis bzw. Hinweis „nur im Wörterbuch" */
+.wb-fuss {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--neutral);
+  font-size: 0.78rem;
+  color: #5f5f5f;
+}
+
+/* Auf der verlinkten Karte wird die Fußzeile beim Hover hervorgehoben –
+   sie ist das eigentliche Ziel des Klicks. */
+a.wb-eintrag:hover .wb-fuss {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.wb-fuss i {
+  color: var(--accent-text);     /* barrierefreier Gold-Ton für Icons */
+}
+
+/* Einträge ohne Kapitel: Fußzeile bleibt neutral-grau */
+.wb-eintrag-static .wb-fuss i {
+  color: #9aa3ab;
+}
+
+
+/* ── „Mehr anzeigen"-Button ────────────────────────────────── */
+/* Die Liste wird in Blöcken aufgebaut (siehe SEITE_SCHRITT im HTML),
+   damit auch 2.900 Treffer den Browser nicht ausbremsen. */
+.wb-mehr-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+/* Gleicher Grund wie beim Leeren-Button oben: ohne diese Zeile würde
+   "display: flex" das hidden-Attribut überstimmen und der Button auch
+   dann stehen bleiben, wenn schon alle Treffer angezeigt sind. */
+.wb-mehr-wrap[hidden] {
+  display: none;
+}
+
+/* Button-System laut Designvorgabe */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 6px;                  /* Designvorgabe: 6px */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;                    /* Designvorgabe: Montserrat Bold */
+  font-size: 0.88rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* btn-outline — nur Umrandung, für sekundäre Aktionen */
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+
+/* ── Leerzustand (keine Treffer) ───────────────────────────── */
+.wb-leer {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 34px 24px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 12px;
+}
+
+.wb-leer i {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.wb-leer p {
+  color: #4a4a4a;
+  margin-bottom: 14px;
+}
+
+/* dict.cc-Ausweichlink im Leerzustand */
+.wb-leer a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   Breakpoints laut Vorgabe: 900px / 768px / 480px
+   ============================================================ */
+
+/* ── Tablet ≤ 900px ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+
+  .section-intro h1 {
+    font-size: 2rem;
+  }
+
+  .section-intro p {
+    font-size: 1rem;
+  }
+
+  /* Filtergruppen untereinander statt nebeneinander – nebeneinander
+     wird es hier zu eng und die Beschriftungen rutschen auseinander. */
+  .wb-filter {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wb-filter-gruppe {
+    justify-content: center;
+  }
+}
+
+
+/* ── Mobil ≤ 768px ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  main {
+    padding: 50px 5%;
+  }
+
+  .section-intro {
+    margin-bottom: 22px;
+  }
+
+  .section-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .wb-suchfeld input {
+    font-size: 1rem;
+    padding: 12px 44px 12px 42px;
+  }
+
+  /* Aufklapp-Zeile für das Alphabet – nur auf Mobil sichtbar.
+     Sieht aus wie ein sekundärer Button (btn-outline) und ist mit 44px
+     hoch genug als Touch-Ziel. */
+  .wb-abc-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 320px;
+    min-height: 44px;
+    margin: 0 auto 16px;
+    padding: 10px 18px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--primary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    list-style: none;              /* Standard-Dreieck ausblenden (Firefox) */
+    transition: all 0.25s ease;
+  }
+
+  /* Standard-Dreieck in WebKit/Blink ausblenden – dort ist es ein
+     eigenes Pseudo-Element und wird von list-style nicht erfasst. */
+  .wb-abc-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .wb-abc-summary:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .wb-abc-summary:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  /* Aufgeklappt: Abstand zur Leiste darunter wieder herausnehmen */
+  .wb-abc-box[open] .wb-abc-summary {
+    margin-bottom: 12px;
+  }
+
+  /* Alphabet-Buttons enger, aber weiterhin mit 44px Touch-Ziel */
+  .wb-abc {
+    gap: 5px;
+  }
+
+  .wb-abc-btn {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 0.88rem;
+  }
+
+  /* Eine Spalte – minmax(290px) würde auf 360px-Geräten sonst
+     knapp überstehen. */
+  .wb-liste {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+
+/* ── Sehr kleine Screens ≤ 480px ────────────────────────────── */
+@media (max-width: 480px) {
+
+  main {
+    padding: 40px 4%;
+  }
+
+  .section-intro h1 {
+    font-size: 1.5rem;
+  }
+
+  .wb-abc-btn {
+    min-width: 40px;
+    min-height: 44px;
+    font-size: 0.82rem;
+    padding: 4px 5px;
+  }
+
+  .wb-eintrag {
+    padding: 14px 15px;
+  }
+
+  .wb-bs {
+    font-size: 1rem;
+  }
+}

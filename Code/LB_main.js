@@ -1,4 +1,156 @@
 
+// ── Wörterbuch-Suchlogik (gemeinsam genutztes Modul) ────────────
+// Diese Funktionen entscheiden, WELCHE Einträge zu einem Suchbegriff
+// passen und in WELCHER Reihenfolge sie erscheinen.
+//
+// Benutzt werden sie von zwei Stellen:
+//   • dem Such-Overlay im Header (initWoerterbuchSuche, weiter unten)
+//   • der Wörterbuch-Seite /Code/2_Vokabeln/LB_2-2_Woerterbuch.html
+// Beide sollen exakt gleich sortieren – deshalb steht die Logik hier an
+// EINER Stelle und nicht zweimal.
+//
+// Warum ausgerechnet hier, ganz oben in LB_main.js?
+//   1. LB_main.js ist ohnehin auf jeder Seite eingebunden – ein eigenes
+//      Modul würde einen zusätzlichen Netzabruf kosten.
+//   2. LB_main.js wird überall mit "defer" geladen. Deferred Scripts
+//      laufen laut HTML-Standard garantiert VOR dem DOMContentLoaded-
+//      Ereignis. Jede Seite, die ihre eigene Logik in DOMContentLoaded
+//      startet, findet window.LBSuche deshalb sicher vor.
+//   3. Der Code steht bewusst AUSSERHALB des fetch(...).then()-Blocks
+//      weiter unten – sonst gäbe es ihn erst, wenn der Header geladen ist.
+window.LBSuche = (function () {
+
+    // Reihenfolge der Niveaus für die Sortierung bei Gleichstand
+    // (A1 zuerst). Fehlt ein Niveau (sollte nicht vorkommen), landet
+    // der Treffer über "?? 99" ganz hinten statt die Sortierung zu brechen.
+    var NIVEAU_REIHENFOLGE = { 'A1': 0, 'A2': 1, 'B1': 2, 'B2': 3, 'C1': 4, 'C2': 5 };
+
+    // -- Text für den Vergleich vereinheitlichen -------------------
+    // Entfernt Diakritika (č, ć, š, ž, đ → c, s, z, d) und macht alles
+    // klein. So findet "cetiri" auch "četiri" und umgekehrt.
+    // normalize('NFD') zerlegt Buchstaben in Grundzeichen + Akzent,
+    // die Regex löscht dann alle Akzentzeichen (U+0300 bis U+036F).
+    // Sonderfall đ/Đ: Dieser Buchstabe ist KEINE Kombination aus d +
+    // Akzent, sondern ein eigenes Zeichen – NFD zerlegt ihn nicht.
+    // Deshalb wird er zusätzlich von Hand auf "d" abgebildet, sonst
+    // fände "djubre" das Wort "đubre" nicht.
+    function normalisieren(text) {
+        return (text || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/đ/g, 'd');
+    }
+
+    // -- HTML-Sonderzeichen entschärfen ---------------------------
+    // Sicherheitsnetz, falls in den Daten mal <, > oder & vorkommt,
+    // damit beim Einfügen per innerHTML nichts kaputtgeht.
+    function escapeHtml(text) {
+        return (text || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    // -- Bosnisches Wort in einen URL-Anker verwandeln -------------
+    // Leerzeichen (bei Mehrwortlemmata wie "biti bolestan") werden zu
+    // Bindestrichen, Diakritika bleiben erhalten. Die Vokabel-Kapitelseite
+    // LB_2-1_Vokabeln_Master.html berechnet denselben Anker (dort noch
+    // einmal eigenständig) – nur dann springt ein Trefferlink auch
+    // wirklich zur richtigen Tabellenzeile.
+    function wortAnker(wort) {
+        return (wort || '').trim().replace(/\s+/g, '-');
+    }
+
+    // -- Wortart eines Eintrags auslesen --------------------------
+    // Das JSON kennt zwei Feldnamen: "Wortart (Genus)" bei Substantiven,
+    // "Wortart" bei allem anderen. Diese Konvention ist laut CLAUDE.md
+    // fix – hier werden beide Fälle abgedeckt.
+    function wortart(e) {
+        return e['Wortart (Genus)'] || e['Wortart'] || '';
+    }
+
+    // -- Relevanz EINES Feldes (Deutsch ODER Bosnisch) ermitteln ---
+    // Rückgabe: 0 = exakte Übereinstimmung, 1 = Feld beginnt mit q,
+    // 2 = eines der Wörter in einem Mehrwortlemma beginnt mit q,
+    // 3 = q steckt nur irgendwo als Teilstring drin, -1 = kein Treffer.
+    function feldRang(feldWert, q) {
+        var norm = normalisieren(feldWert);
+        var pos  = norm.indexOf(q);
+        if (pos === -1) return -1;
+        if (norm === q) return 0;
+        if (pos === 0)  return 1;
+
+        // Erstes Wort ist durch den obigen pos===0-Test schon abgedeckt,
+        // deshalb hier erst ab dem zweiten Wort prüfen.
+        var woerter = norm.split(' ');
+        for (var i = 1; i < woerter.length; i++) {
+            if (woerter[i].indexOf(q) === 0) return 2;
+        }
+        return 3;
+    }
+
+    // -- Besten (niedrigsten) Rang eines Eintrags über beide Felder --
+    function eintragRang(e, q) {
+        var rBs = feldRang(e.Bosnisch, q);
+        var rDe = feldRang(e.Deutsch, q);
+        if (rBs === -1) return rDe;   // nur Deutsch trifft (oder gar keins: -1)
+        if (rDe === -1) return rBs;   // nur Bosnisch trifft
+        return Math.min(rBs, rDe);    // beide treffen: besserer Rang zählt
+    }
+
+    // -- Vollsuche: filtern + sortieren ---------------------------
+    // Bekommt den kompletten Datensatz und einen Suchbegriff, liefert
+    // ein Array der passenden Einträge – bester Treffer zuerst. OHNE
+    // Obergrenze: Wer nur die ersten 8 braucht (Header-Overlay), kürzt
+    // selbst und kennt über .length trotzdem die Gesamtzahl.
+    //
+    // Sortierung: erst Relevanz-Rang (0 = am besten), bei Gleichstand
+    // Niveau (A1 zuerst), bei erneutem Gleichstand die ursprüngliche
+    // Reihenfolge aus der JSON-Datei. Letzteres steckt bewusst als
+    // "pos"-Vergleich im Sortierer statt sich auf die Stabilität von
+    // Array.sort() zu verlassen – so ist die Reihenfolge in jedem
+    // Browser garantiert dieselbe.
+    function suchen(daten, begriff) {
+        var q = normalisieren((begriff || '').trim());
+        if (!q || !daten) return [];
+
+        var treffer = [];
+        for (var i = 0; i < daten.length; i++) {
+            var rang = eintragRang(daten[i], q);
+            if (rang !== -1) {
+                treffer.push({ eintrag: daten[i], rang: rang, pos: i });
+            }
+        }
+
+        treffer.sort(function (a, b) {
+            if (a.rang !== b.rang) return a.rang - b.rang;
+            var na = NIVEAU_REIHENFOLGE[a.eintrag.Niveau];
+            var nb = NIVEAU_REIHENFOLGE[b.eintrag.Niveau];
+            if (na === undefined) na = 99;
+            if (nb === undefined) nb = 99;
+            if (na !== nb) return na - nb;
+            return a.pos - b.pos;
+        });
+
+        return treffer.map(function (t) { return t.eintrag; });
+    }
+
+    // Öffentliche Schnittstelle des Moduls
+    return {
+        NIVEAU_REIHENFOLGE: NIVEAU_REIHENFOLGE,
+        normalisieren:      normalisieren,
+        escapeHtml:         escapeHtml,
+        wortAnker:          wortAnker,
+        wortart:            wortart,
+        feldRang:           feldRang,
+        eintragRang:        eintragRang,
+        suchen:             suchen
+    };
+})();
+// ────────────────────────────────────────────────────────────
+
 //Header//
    fetch('/Code/LB_header.html')
         .then(response => response.text())
@@ -50,6 +202,11 @@
         (function () {
             function aktuellenBereichErmitteln(pfad) {
                 if (pfad === '/' || pfad === '/index.html') return 'start';
+                // Das Wörterbuch liegt zwar im Ordner /Code/2_Vokabeln/, ist im
+                // Menü aber ein eigener Punkt. Diese Prüfung muss deshalb VOR
+                // der allgemeinen Vokabeln-Regel stehen – sonst würde auf der
+                // Wörterbuch-Seite "Vokabeln" unterstrichen.
+                if (pfad.indexOf('/Code/2_Vokabeln/LB_2-2_Woerterbuch.html') !== -1) return 'woerterbuch';
                 if (pfad.indexOf('/Code/2_Vokabeln/') !== -1) return 'vokabeln';
                 if (pfad.indexOf('/Code/3_Grammatik/') !== -1 ||
                     pfad.indexOf('/Code/1_Startseite/LB_3_Grammatik.html') !== -1) return 'grammatik';
@@ -123,72 +280,21 @@ function initWoerterbuchSuche() {
     // Absoluter Pfad zur Vokabel-Kapitelseite – Ziel der Ergebnis-Links.
     var MASTER_PATH = '/Code/2_Vokabeln/LB_2-1_Vokabeln_Master.html';
 
-    // Reihenfolge der Niveaus für die Sortierung bei Gleichstand
-    // (A1 zuerst). Fehlt ein Niveau (sollte nicht vorkommen), landet
-    // der Treffer über "?? 99" ganz hinten statt die Sortierung zu brechen.
-    var NIVEAU_REIHENFOLGE = { 'A1': 0, 'A2': 1, 'B1': 2, 'B2': 3, 'C1': 4, 'C2': 5 };
+    // Absoluter Pfad zur großen Wörterbuch-Seite. Das Overlay zeigt nur
+    // die besten 8 Treffer; von dort geht es mit demselben Suchbegriff
+    // weiter zur vollständigen Liste (mit Filtern und Alphabet-Blättern).
+    var WOERTERBUCH_PATH = '/Code/2_Vokabeln/LB_2-2_Woerterbuch.html';
 
-    // -- Hilfsfunktion: Text für den Vergleich vereinheitlichen ----
-    // Entfernt Diakritika (č, ć, š, ž, đ → c, s, z, d) und macht alles
-    // klein. So findet "cetiri" auch "četiri" und umgekehrt.
-    // normalize('NFD') zerlegt Buchstaben in Grundzeichen + Akzent,
-    // die Regex löscht dann alle Akzentzeichen (U+0300 bis U+036F).
-    function normalisieren(text) {
-        return (text || '')
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase();
-    }
-
-    // -- Hilfsfunktion: HTML-Sonderzeichen entschärfen -------------
-    // Sicherheitsnetz, falls in den Daten mal <, > oder & vorkommt,
-    // damit beim Einfügen per innerHTML nichts kaputtgeht.
-    function escapeHtml(text) {
-        return (text || '')
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;');
-    }
-
-    // -- Hilfsfunktion: bosnisches Wort in einen URL-Anker verwandeln --
-    // Leerzeichen (bei Mehrwortlemmata wie "biti bolestan") werden zu
-    // Bindestrichen, Diakritika bleiben erhalten. Dieselbe Funktion
-    // steht (bewusst dupliziert, wie im Projekt üblich) auch in
-    // LB_2-1_Vokabeln_Master.html – nur wenn beide Seiten denselben
-    // Anker berechnen, springt der Link auch wirklich zum richtigen Wort.
-    function wortAnker(wort) {
-        return (wort || '').trim().replace(/\s+/g, '-');
-    }
-
-    // -- Relevanz EINES Feldes (Deutsch ODER Bosnisch) ermitteln ---
-    // Rückgabe: 0 = exakte Übereinstimmung, 1 = Feld beginnt mit q,
-    // 2 = eines der Wörter in einem Mehrwortlemma beginnt mit q,
-    // 3 = q steckt nur irgendwo als Teilstring drin, -1 = kein Treffer.
-    function feldRang(feldWert, q) {
-        var norm = normalisieren(feldWert);
-        var pos  = norm.indexOf(q);
-        if (pos === -1) return -1;
-        if (norm === q) return 0;
-        if (pos === 0)  return 1;
-
-        // Erstes Wort ist durch den obigen pos===0-Test schon abgedeckt,
-        // deshalb hier erst ab dem zweiten Wort prüfen.
-        var woerter = norm.split(' ');
-        for (var i = 1; i < woerter.length; i++) {
-            if (woerter[i].indexOf(q) === 0) return 2;
-        }
-        return 3;
-    }
-
-    // -- Besten (niedrigsten) Rang eines Eintrags über beide Felder --
-    function eintragRang(e, q) {
-        var rBs = feldRang(e.Bosnisch, q);
-        var rDe = feldRang(e.Deutsch, q);
-        if (rBs === -1) return rDe;   // nur Deutsch trifft (oder gar keins: -1)
-        if (rDe === -1) return rBs;   // nur Bosnisch trifft
-        return Math.min(rBs, rDe);    // beide treffen: besserer Rang zählt
-    }
+    // -- Such- und Sortierlogik: gemeinsames Modul ----------------
+    // Normalisierung, Relevanz-Rang und Sortierung stehen NICHT mehr hier,
+    // sondern in window.LBSuche ganz oben in dieser Datei. Grund: Die
+    // Wörterbuch-Seite /Code/2_Vokabeln/LB_2-2_Woerterbuch.html benutzt
+    // exakt dieselbe Logik. Läge sie zweimal vor, würden Overlay und
+    // Seite bei der nächsten Änderung auseinanderlaufen und derselbe
+    // Suchbegriff hätte an zwei Stellen eine andere Trefferreihenfolge.
+    // Kurze Aliase, damit der Code unten lesbar bleibt:
+    var escapeHtml = LBSuche.escapeHtml;
+    var wortAnker  = LBSuche.wortAnker;
 
     // -- JSON einmalig laden und cachen ---------------------------
     // Wird beim ersten Öffnen des Overlays aufgerufen. Danach liegt
@@ -218,8 +324,8 @@ function initWoerterbuchSuche() {
 
     // -- Suche ausführen und Ergebnisse anzeigen ------------------
     function sucheAusfuehren(begriff) {
-        var roh = begriff.trim();               // Original (für dict.cc-Link)
-        var q   = normalisieren(roh);           // normalisiert (für Vergleich)
+        var roh = begriff.trim();                   // Original (für die Links)
+        var q   = LBSuche.normalisieren(roh);       // normalisiert (für Vergleich)
 
         // dict.cc-Link IMMER aktualisieren (auch bei leerer Eingabe egal).
         dictcc.href = 'https://m.dict.cc/deutsch-bosnisch/' +
@@ -240,17 +346,12 @@ function initWoerterbuchSuche() {
             return;
         }
 
-        // Durchsuchen: gegen Deutsch UND Bosnisch, jeden Treffer mit
-        // seinem Relevanz-Rang sammeln (noch OHNE Obergrenze – die
-        // Gesamtzahl brauchen wir für die "X von Y Treffern"-Anzeige).
-        var alleTreffer = [];
-        for (var i = 0; i < vokabelDaten.length; i++) {
-            var e    = vokabelDaten[i];
-            var rang = eintragRang(e, q);
-            if (rang !== -1) {
-                alleTreffer.push({ eintrag: e, rang: rang });
-            }
-        }
+        // Durchsuchen und sortieren übernimmt das gemeinsame Modul
+        // (window.LBSuche, ganz oben in dieser Datei). Es liefert ALLE
+        // Treffer in der endgültigen Reihenfolge – die Gesamtzahl brauchen
+        // wir gleich für die "X von Y Treffern"-Anzeige, gekürzt wird erst
+        // danach. Die Wörterbuch-Seite ruft exakt dieselbe Funktion auf.
+        var alleTreffer = LBSuche.suchen(vokabelDaten, roh);
 
         // Keine Treffer → Hinweistext, Ergebnisliste war zuvor schon
         // vom letzten Suchlauf befüllt, also aktiverIndex zurücksetzen.
@@ -260,21 +361,8 @@ function initWoerterbuchSuche() {
             return;
         }
 
-        // Sortieren: erst nach Relevanz-Rang (0 = am besten), bei
-        // Gleichstand nach Niveau (A1 zuerst). Array.sort() ist in
-        // modernen Browsern stabil – gleiche Treffer behalten sonst
-        // ihre ursprüngliche Reihenfolge aus der JSON-Datei.
-        alleTreffer.sort(function (a, b) {
-            if (a.rang !== b.rang) return a.rang - b.rang;
-            var na = NIVEAU_REIHENFOLGE[a.eintrag.Niveau];
-            var nb = NIVEAU_REIHENFOLGE[b.eintrag.Niveau];
-            if (na === undefined) na = 99;
-            if (nb === undefined) nb = 99;
-            return na - nb;
-        });
-
         var gesamtzahl = alleTreffer.length;
-        var treffer    = alleTreffer.slice(0, 8).map(function (t) { return t.eintrag; });
+        var treffer    = alleTreffer.slice(0, 8);
 
         // Trefferzahl-Zeile: macht die Begrenzung auf 8 sichtbar,
         // z. B. "8 von 23 Treffern" (oder einfach "3 Treffer", wenn
@@ -289,7 +377,7 @@ function initWoerterbuchSuche() {
         var trefferHtml = treffer.map(function (e) {
             // Wortart steht je nach Eintrag mal unter "Wortart (Genus)"
             // (Substantive), mal unter "Wortart" (alles andere) – beide prüfen.
-            var wortart = e['Wortart (Genus)'] || e['Wortart'] || '';
+            var wortart = LBSuche.wortart(e);
             var niveau  = e.Niveau || '';
 
             // Meta-Zeile (Wortart + Niveau-Pill) nur bauen, wenn es was gibt.
@@ -328,7 +416,20 @@ function initWoerterbuchSuche() {
             return '<div class="search-result search-result-static">' + innerHtml + '</div>';
         }).join('');
 
-        results.innerHTML = zahlHtml + trefferHtml;
+        // Weg aus dem Overlay heraus: Das Panel zeigt höchstens 8 Treffer
+        // und keine Filter. Dieser Link öffnet die vollständige Wörterbuch-
+        // Seite mit demselben Suchbegriff in der Adresse (?q=…) – dort sind
+        // alle Treffer, Niveau-/Wortart-Filter und das Alphabet verfügbar.
+        // Bewusst OHNE Klasse "search-result": sonst würde ihn die
+        // Pfeiltasten-Navigation als Treffer mitzählen.
+        var mehrHtml =
+            '<a class="search-more" href="' + WOERTERBUCH_PATH +
+            '?q=' + encodeURIComponent(roh) + '">' +
+                '<i class="fa-solid fa-book-open" aria-hidden="true"></i> ' +
+                'Alle ' + gesamtzahl + ' Treffer im Wörterbuch ansehen' +
+            '</a>';
+
+        results.innerHTML = zahlHtml + trefferHtml + mehrHtml;
     }
 
     // -- Aktiven (per Pfeiltaste markierten) Treffer setzen --------

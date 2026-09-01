@@ -87,6 +87,21 @@
       color: var(--accent);
     }
 
+    /* Enges Fenster, aber noch Desktop-Leiste (769–900px):
+       Seit „Wörterbuch“ als fünfter Menüpunkt dazugekommen ist, stößt die
+       Navigation hier ans Logo (bei 769px blieb exakt 0px Abstand). Etwas
+       kleinerer Abstand und Schriftgrad schaffen wieder Luft, bis unter
+       769px ohnehin das Hamburger-Menü übernimmt. */
+    @media (max-width: 900px) and (min-width: 769px) {
+      header nav ul {
+        gap: 16px;
+      }
+
+      header nav ul li a {
+        font-size: 0.92rem;
+      }
+    }
+
     .cta-btn {
       background-color: var(--accent);
       color: var(--primary);
@@ -521,6 +536,39 @@
   font-weight: 700;
   font-size: 0.72rem;
   letter-spacing: 0.3px;
+}
+
+/* Link "Alle N Treffer im Wörterbuch ansehen" – steht unter der auf 8
+   gekürzten Trefferliste und führt mit demselben Suchbegriff (?q=…) auf
+   /Code/2_Vokabeln/LB_2-2_Woerterbuch.html. Setzt LB_main.js ans Ende
+   der Ergebnisliste; sieht bewusst wie eine Aktion aus (goldgelber
+   Balken) und nicht wie ein weiterer Treffer. */
+.search-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--bg-light);
+  border: 1px solid var(--neutral);
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.search-more:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.search-more:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 /* Hinweistexte ("Keine Treffer" / "wird geladen …") */

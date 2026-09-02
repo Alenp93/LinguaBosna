@@ -766,18 +766,17 @@ function initWoerterbuchSuche() {
         }
 
         // rootMargin zieht den "aktiven Streifen" auf einen schmalen Bereich
-        // knapp unter dem fixen Header + der sticky Fortschrittsleiste
-        // (zusammen ca. 140px): der Block, dessen Oberkante dort gerade
-        // durchläuft, gilt als aktueller Abschnitt. -60% unten sorgt dafür,
-        // dass immer nur ein Block gleichzeitig als "aktiv" zählt, auch
-        // wenn Blöcke unterschiedlich lang sind.
+        // knapp unter dem fixen Header (ca. 100px): der Block, dessen
+        // Oberkante dort gerade durchläuft, gilt als aktueller Abschnitt.
+        // -60% unten sorgt dafür, dass immer nur ein Block gleichzeitig
+        // als "aktiv" zählt, auch wenn Blöcke unterschiedlich lang sind.
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     setActive('#' + entry.target.id);
                 }
             });
-        }, { rootMargin: '-140px 0px -60% 0px', threshold: 0 });
+        }, { rootMargin: '-100px 0px -60% 0px', threshold: 0 });
 
         sections.forEach(function (section) { observer.observe(section); });
     }

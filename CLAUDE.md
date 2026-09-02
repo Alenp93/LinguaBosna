@@ -185,7 +185,7 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 
 ## Vokabular-System
 
-- Kanonische Datei: `vokabeln_flat.json` – ca. 2.889 Einträge über 97 Kapitel (A1–C2)
+- Kanonische Datei: `vokabeln_flat.json` – ca. 3.391 Einträge über 110 Kapitel (A1–C2)
 - **`vokabeln_flat.json` ist die Referenz für die Wortform – projektweit, nicht nur
   für den Vokabeltrainer.** Wo das Bosnische zulässige Dubletten kennt (`jučer`/`juče`,
   `nikada`/`nikad`, `sviđati se`/`dopadati se`), gilt die Form aus der JSON – auch in
@@ -196,7 +196,7 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
   die als Einheit überliefert sind.)
 - JSON-Schema: `"Wortart (Genus)"` für Substantive, `"Wortart"` für andere Wortarten –
   **diese Konvention darf nicht gebrochen werden**
-- Verben: `aspekt`-Feld, 88 Aspektpaare über `par_id` (`ap01`–`ap88`, lückenlos belegt) verlinkt
+- Verben: `aspekt`-Feld, 111 Aspektpaare über `par_id` (`ap01`–`ap111`, lückenlos belegt) verlinkt
 - ⚠️ **Nur echte Aspektpaare verlinken** – gleicher Stamm, gleiche Grundbedeutung, der
   Unterschied liegt allein im Aspekt. Im August 2026 mussten elf Bestandspaare repariert
   werden, in denen nur thematisch benachbarte Verben eines Kapitels verlinkt waren
@@ -238,7 +238,7 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 - **`kapitel_index.json` ist ein generierter Auszug**, nicht von Hand pflegen. Die
   ~650 KB große `vokabeln_flat.json` enthält alle ~2.900 Einzelvokabeln, aber
   `LB_2_Vokabeln.html` (Vokabel-Übersicht) braucht davon nur Kapitelnummer, -name,
-  Niveau und Anzahl je Kapitel (97 Zeilen) – deshalb lädt sie stattdessen
+  Niveau und Anzahl je Kapitel (110 Zeilen) – deshalb lädt sie stattdessen
   `/Code/2_Vokabeln/kapitel_index.json` (~11 KB, `nur_woerterbuch`-Einträge bereits
   ausgeschlossen). `LB_2-1_Vokabeln_Master.html` und `vokabeltrainer.html` laden den
   Index zusätzlich zur vollen Liste – für die Vor-/Zurück-Kapitel-Navigation, während
@@ -258,6 +258,29 @@ nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geä
 - **Aspektpaare stehen auf genau einem Niveau.** `lernen-aspektpaare.html` übernimmt
   Bedeutung *und* Niveau vom `nesvršeni`-Partner; ein Paar über zwei Niveaus landet
   deshalb im falschen Übungsset. Fünf solcher Fälle wurden im August 2026 angeglichen.
+- **Wortarten-Mischung je Kapitel (seit dem Tiere-Block, September 2026).** Ein Kapitel soll
+  nicht aus einer einzigen Wortart bestehen – kein reines Verb- oder Adjektivkapitel. Der
+  Grund ist didaktisch: Wer 35 Adjektive am Stück abgefragt bekommt, lernt eine Liste, keinen
+  benutzbaren Wortschatz. Beim Thema „Tiere" wurden die 24 Geräuschverben und die 26
+  Adjektive deshalb bewusst auf mehrere Kapitel verteilt statt nach Wortart gebündelt.
+  Ausgenommen sind Altbestandskapitel, die schon vorher so geschnitten waren (z. B. Kap. 18).
+- **Vollständige Sätze sind zulässig, aber nur als `"Wortart": "Phrase"`.** Der Bestand
+  kannte Sätze bis September 2026 nur als Sprichwörter (Kap. 90). Mit dem Tiere-Block kamen
+  Sätze als reguläre Lerneinträge dazu (`Pas laje.` = „Der Hund bellt.") – es gibt weiterhin
+  **keinen** Wortart-Wert `Satz`, `Redewendung`, `Sprichwort`, `Nominalphrase` oder
+  `Präpositionalphrase`. Alles Mehrteilige ist `Phrase`. Faustregel für die Auswahl: Sätze,
+  die als *Einheit* gelernt werden (Tierlaute, Alltagsfragen), gehören in ein Kapitel;
+  Sätze, die nur eine Grammatikform vorführen, gehören in `nur_woerterbuch` oder in eine
+  Lernen-Übung – nicht in den Vokabeltrainer.
+- **Der Tiere-Block (September 2026, Kapitel 98–110).** 496 neue Einträge aus einer
+  Sammelliste, davon 424 in 13 neuen Kapiteln, 48 reine `nur_woerterbuch`-Einträge und
+  19 Aspektpartner (`ap93`–`ap111`); zusätzlich wurde Kap. 18 „Tiere" (A1) von 30 auf 35
+  aufgefüllt. Die neuen Kapitel wurden **hinten angehängt (98–110) statt thematisch
+  einsortiert** – eine Neunummerierung wie im August 2026 hätte alle `?kapitel=N`-Links
+  erneut verschoben, ohne inhaltlichen Gewinn. Fachlich enge Arten (`kozorog`, `raža`,
+  `sipa`, `punoglavac`), Nischenzubehör (`brnjica`, `mikročip`) und konnotierte Wörter
+  (`kuja`, `pecaroš`) stehen bewusst nur im Wörterbuch: Sie sollen auffindbar sein, aber
+  keine Trainerkarte belegen.
 - **Eigennamen nur, wenn das Deutsche anders lautet.** Entscheidend ist, ob es überhaupt
   etwas zu lernen gibt: `Beč` = Wien, `Jadransko more` = Adriatisches Meer, `Njemačka` =
   Deutschland – solche Exonyme gehören in den Bestand. Namen, die im Deutschen gleich lauten
@@ -301,7 +324,7 @@ aus **drei** Teilen, die zusammengehören:
 1. **`LB_2-2_Woerterbuch.html`** – die dynamische Seite. Volltextsuche, Filter nach Niveau
    und Wortart, Alphabet-Blätterfunktion. Der Zustand (`?q=`, `?niveau=`, `?wortart=`,
    `?buchstabe=`) steht in der Adresszeile, jede Ansicht ist also verlinkbar. Die Liste
-   wird in 100er-Blöcken aufgebaut, sonst bremsen 2.895 Karten ältere Geräte aus.
+   wird in 100er-Blöcken aufgebaut, sonst bremsen 3.391 Karten ältere Geräte aus.
    Einträge mit `nur_woerterbuch: true` gehören hier **ausdrücklich dazu** – dies ist die
    einzige Seite, auf der sie überhaupt sichtbar werden.
 2. **`window.LBSuche`** in `LB_main.js` – Normalisierung, Relevanz-Rang und Sortierung.
@@ -324,7 +347,7 @@ aus **drei** Teilen, die zusammengehören:
    im Quelltext stehen (Buchstabe K: 196 Einträge, 15.500 Zeichen Text, 221 Links).
    **Diesen Link in `LB_2-2_Woerterbuch.html` bitte nicht entfernen** – ohne ihn ist der
    ganze statische Teil für Suchmaschinen unerreichbar.
-   - Bewusst **keine** Seite pro Wort (2.895 Stück): Google wertet solche Massen an
+   - Bewusst **keine** Seite pro Wort (3.391 Stück): Google wertet solche Massen an
      Kleinstseiten als „Thin Content" ab.
    - Die Seiten benutzen dieselben CSS-Klassen wie die dynamische Seite
      (`.wb-liste`, `.wb-eintrag`, `.wb-abc-btn` aus `Style_2-2_Woerterbuch.css`) und

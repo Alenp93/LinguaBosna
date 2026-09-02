@@ -214,9 +214,50 @@ Bestandsform gleich natürlich war, wurde sie eingesetzt (`policajac` statt `str
 
 ---
 
+## Offene Folgearbeit aus dem Tiere-Block (2026-09-02)
+
+| Was | Warum offen | Betrifft |
+|---|---|---|
+| **38 Beispielsätze für `ap93`–`ap111`** | `Code/4_Lernen/aspektpaare_data.json` deckt 92 der jetzt 111 Paare ab. Die 19 neuen Tier-Paare erscheinen in der Übung korrekt, im Feedback fehlt aber der Beispielsatz (`beispielHtml()` liefert dann bewusst einen leeren String – kein Fehler, nur eine Lücke). | `lernen-aspektpaare.html` |
+| **`hrana` (Essen / Nahrung, Substantiv f, A1)** | Beim Abgleich aufgefallen: steht **nur** gebunden (`stočna hrana`, `hrana za kućne ljubimce`, `brza hrana`), nie als eigenes Lemma – dasselbe Muster wie bei `priča`/`pričati` und `pomoć` weiter oben. Verstößt außerdem gegen „Grundwort nie über dem Kompositum". | `vokabeln_flat.json` |
+| **Geräuschsätze als Lückentext-Übung** | Die 22 Sätze aus Block 15 (`Krava muče.`, `Pijetao kukuriče.`) sind jetzt Kapiteleinträge in Kap. 99/102. Sie wären zusätzlich eine natürliche Vorlage für ein Lückentext-Set „Tierlaute" (Verb in der 3. Sg. einsetzen). | `WORKFLOW_Lernen.md` |
+
+---
+
 ## Bewusst NICHT aufgenommen
 
 Damit dieselbe Frage nicht zweimal geprüft wird:
+
+- **Aus der Tiere-Sammelliste (2026-09-02) gestrichen:** `životinje` (bloße Pluralform von
+  `životinja`, kein eigenes Lemma), `beba životinje` (nicht idiomatisch, redundant zu
+  `mladunče`), `oglašavanje životinja` (konstruiertes Verbalsubstantiv), `jato riba`
+  (redundant zu `jato`), `unska pastrmka` (gastronomische Ortsangabe, kein Artname –
+  Eigennamen-Regel), `koža` = „Leder" (steht schon als „Haut" auf A1), `kopati`
+  (steht schon mit `par_id: ap30` auf B1 – ein zweiter Eintrag hätte das Paar über zwei
+  Niveaus verteilt).
+- **Formen, die durch die Sprachprüfung ersetzt wurden** – nicht versehentlich zurückändern:
+  `ambar` → `hambar` (h-Form, und Bedeutung „Getreidespeicher", nicht „Scheune"; „Scheune"
+  ist `štagalj`), `azil za životinje` → `sklonište za životinje`, `buljina` → `sova ušara`,
+  `pas s rodovnikom` → `rasni pas`, `šišati (ovce)` → `strići`, `ljuska` → `krljušt`
+  (Fischschuppe), `vosak` → `pčelinji vosak`, `Pažnja, ljut pas!` → `Čuvaj se psa!`,
+  `Ne hraniti!` → `Ne hranite životinje!`, `Kupiti mačku u vreći` → `kupiti mačku u džaku`,
+  `Poklonjenom konju se zubi ne gledaju` → `Poklonjenom konju se ne gleda u zube`,
+  `Kao dijete smo imali ovce` → `Kao djeca smo imali ovce`.
+- **`grebati` vs. `grepsti`** – der Bestand führt `grebati`/`ogrebati` (ap106). `grepsti` ist
+  stärker kodifiziert, `grebati` in BiH die geläufigere Form; entschieden zugunsten der
+  geläufigeren. Nicht parallel führen.
+- **`bježati` / `pobjeći` (ap96) bleibt ein Paar** – `pobjeći` hat eine resultative Note
+  („entkommen"), ein näherer Partner existiert aber nicht (`bjegnuti` ist regional/selten).
+  Weil die Übung Bedeutung und Niveau vom `nesvršeni`-Partner nimmt, entsteht kein falscher
+  Lerninhalt. Nicht erneut prüfen.
+- **Kapitel 99 bleibt A2, obwohl die Präsensstämme schwer sind** (`groktati → grokće`,
+  `kokodakati → kokodače`). Grund: In genau diesem Kapitel steht zu jedem Lautverb der
+  Beispielsatz mit der 3. Person Singular – der Lernende sieht die Form also unmittelbar
+  neben dem Infinitiv. Offen bleibt nur `musti → muze` und `strići → strižem` in Kap. 100,
+  wo kein solcher Satz danebensteht.
+- **Kein Schlusspunkt bei Sprichwörtern** – `Poklonjenom konju se ne gleda u zube` steht
+  ohne Punkt, `Pas laje.` mit. Das ist kein Versehen: Kapitel 90 „Sprichwörter" führt alle
+  30 Einträge ohne Schlusspunkt, gewöhnliche Beispielsätze bekommen einen.
 
 - **`kafa`** – der Bestand führt korrekt die bosnische Form **`kahva`** (Kap 11, A1).
   `kafa` ist die serbische Variante und gehört **nicht** in den Bestand. Beispielsätze
@@ -238,6 +279,18 @@ Damit dieselbe Frage nicht zweimal geprüft wird:
 ## Erledigt (eingebaut)
 
 > Nach dem Einbau hierher verschieben – mit Datum und Zielkapitel.
+
+- **2026-09-02** – Thema **Tiere** komplett eingebaut: 496 neue Einträge (Bestand
+  2.895 → 3.391). 13 neue Kapitel **98–110** (A2: Haustiere & Tierhaltung, Laute von
+  Haus- & Hoftieren, Bauernhof & Nutztiere, Wald/Wiese & Kleintiere, Zootiere ·
+  B1: Laute & Merkmale der Wildtiere, Wildtiere & Jagd, Vögel, Wasser & Meer,
+  Insekten & Imkerei, Hof/Haltung & Tierarzt · B2: Tierkunde, Artenschutz &
+  Lebensräume · C1: Tiere in Redewendungen & Kultur), dazu 48 reine
+  `nur_woerterbuch`-Einträge und 19 neue Aspektpaare `ap93`–`ap111`.
+  Kap. 18 „Tiere" (A1) von 30 auf 35 aufgefüllt (`mačak`, `štene`, `jelen`, `sova`,
+  `orao`). 79 Dubletten der Sammelliste aussortiert. Sprachprüfung durch
+  `bosnisch-pruefer` in zwei Runden: 59 Beanstandungen an der Rohliste und 14 am
+  fertigen Einbau – alle eingearbeitet.
 
 - **2026-08-28** – `izaći` (A1, Kap 22 „Verkehrsmittel & unterwegs", bereits im Bestand)
   hat `par_id: ap89` bekommen; Partner `izlaziti` (nesvršeni) neu als

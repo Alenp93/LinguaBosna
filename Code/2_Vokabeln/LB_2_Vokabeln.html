@@ -152,7 +152,25 @@
     // Kapitelnummern künftig verschieben oder neue Kapitel dazukommen.
     // Die Reihenfolge ist wichtig: spezifischere Begriffe stehen oben.
     const ICON_RULES = [
-      // Hausbau-Kapitel zuerst: "Hausbau: …" würde sonst von der
+      // Tiere-Kapitel ganz oben: Ohne eigene Regel würde "Tiere: Haustiere &
+      // Tierhaltung" von /haus|wohnen/ abgefangen (Haus-Icon) und "Tierkunde,
+      // Artenschutz & Lebensräume" von gar keiner Regel (Buch-Fallback).
+      // Ausserdem säßen sonst bis zu sechs Kapitel eines Niveau-Tabs auf
+      // demselben Pfoten-Icon.
+      // "Tiere: Wildtiere & Jagd" bekommt bewusst keine eigene Zeile – es fällt
+      // auf /tiere/ (fa-paw) durch und ist damit das einzige Pfoten-Kapitel in B1.
+      [/haustiere|tierhaltung/i,               'fa-dog'],
+      [/stimmen|laute/i,                       'fa-volume-high'],
+      [/bauernhof|nutztiere/i,                 'fa-cow'],
+      [/wiese|kleintiere/i,                    'fa-tree'],
+      [/vögel/i,                               'fa-dove'],
+      [/wasser & meer/i,                       'fa-fish'],
+      [/insekten|imkerei/i,                    'fa-bug'],
+      [/körperbau|tierarzt/i,                  'fa-syringe'],
+      [/zoo|ferne länder/i,                    'fa-hippo'],
+      [/tierkunde|artenschutz/i,               'fa-seedling'],
+      [/tiere in redewendungen/i,              'fa-dragon'],
+      // Hausbau-Kapitel: "Hausbau: …" würde sonst von der
       // allgemeinen Regel /haus|wohnen/ weiter unten abgefangen,
       // "Haustechnik" zusätzlich von /technik|internet/ und
       // "Traditionelle Baukultur" von /kultur/.

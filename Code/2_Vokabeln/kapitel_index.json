@@ -105,7 +105,7 @@
     "Kapitel": 18,
     "Kapitelname": "Tiere",
     "Niveau": "A1",
-    "Anzahl": 30
+    "Anzahl": 35
   },
   {
     "Kapitel": 19,
@@ -580,5 +580,83 @@
     "Kapitelname": "Traditionelle Baukultur",
     "Niveau": "C2",
     "Anzahl": 35
+  },
+  {
+    "Kapitel": 98,
+    "Kapitelname": "Tiere: Haustiere & Tierhaltung",
+    "Niveau": "A2",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 99,
+    "Kapitelname": "Tiere: Laute von Haus- & Hoftieren",
+    "Niveau": "A2",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 100,
+    "Kapitelname": "Tiere: Bauernhof & Nutztiere",
+    "Niveau": "A2",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 101,
+    "Kapitelname": "Tiere: Wald, Wiese & Kleintiere",
+    "Niveau": "A2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 102,
+    "Kapitelname": "Tiere: Laute & Merkmale der Wildtiere",
+    "Niveau": "B1",
+    "Anzahl": 33
+  },
+  {
+    "Kapitel": 103,
+    "Kapitelname": "Tiere: Wildtiere & Jagd",
+    "Niveau": "B1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 104,
+    "Kapitelname": "Tiere: Vögel",
+    "Niveau": "B1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 105,
+    "Kapitelname": "Tiere: Wasser & Meer",
+    "Niveau": "B1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 106,
+    "Kapitelname": "Tiere: Insekten & Imkerei",
+    "Niveau": "B1",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 107,
+    "Kapitelname": "Tiere: Hof, Haltung & Tierarzt",
+    "Niveau": "B1",
+    "Anzahl": 35
+  },
+  {
+    "Kapitel": 108,
+    "Kapitelname": "Tiere: Zootiere",
+    "Niveau": "A2",
+    "Anzahl": 29
+  },
+  {
+    "Kapitel": 109,
+    "Kapitelname": "Tierkunde, Artenschutz & Lebensräume",
+    "Niveau": "B2",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 110,
+    "Kapitelname": "Tiere in Redewendungen & Kultur",
+    "Niveau": "C1",
+    "Anzahl": 20
   }
 ]

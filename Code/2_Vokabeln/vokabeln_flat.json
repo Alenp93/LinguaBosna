@@ -1851,7 +1851,8 @@
     "Bosnisch": "posjetiti",
     "Deutsch": "besuchen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap147"
   },
   {
     "kategorie": "Kapitel 7",
@@ -7417,7 +7418,8 @@
     "Bosnisch": "pokloniti",
     "Deutsch": "schenken",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap148"
   },
   {
     "kategorie": "Kapitel 28",
@@ -9044,7 +9046,8 @@
     "Bosnisch": "brinuti se",
     "Deutsch": "sich sorgen",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap154"
   },
   {
     "kategorie": "Kapitel 34",
@@ -12520,7 +12523,8 @@
     "Bosnisch": "zaljubiti se",
     "Deutsch": "sich verlieben",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap150"
   },
   {
     "kategorie": "Kapitel 49",
@@ -12530,7 +12534,8 @@
     "Bosnisch": "svađati se",
     "Deutsch": "sich streiten",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap143"
   },
   {
     "kategorie": "Kapitel 49",
@@ -12540,7 +12545,8 @@
     "Bosnisch": "pomiriti se",
     "Deutsch": "sich versöhnen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap145"
   },
   {
     "kategorie": "Kapitel 49",
@@ -12550,7 +12556,8 @@
     "Bosnisch": "vjenčati se",
     "Deutsch": "heiraten",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap149"
   },
   {
     "kategorie": "Kapitel 49",
@@ -12580,7 +12587,8 @@
     "Bosnisch": "zagrliti",
     "Deutsch": "umarmen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap146"
   },
   {
     "kategorie": "Kapitel 49",
@@ -12600,7 +12608,8 @@
     "Bosnisch": "oprostiti",
     "Deutsch": "verzeihen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap144"
   },
   {
     "kategorie": "Kapitel 50",
@@ -13855,7 +13864,8 @@
     "Bosnisch": "kazniti",
     "Deutsch": "bestrafen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap151"
   },
   {
     "kategorie": "Kapitel 55",
@@ -13865,7 +13875,8 @@
     "Bosnisch": "zabraniti",
     "Deutsch": "verbieten",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap152"
   },
   {
     "kategorie": "Kapitel 55",
@@ -13875,7 +13886,8 @@
     "Bosnisch": "dozvoliti",
     "Deutsch": "erlauben",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap153"
   },
   {
     "kategorie": "Kapitel 55",
@@ -17666,7 +17678,8 @@
     "Bosnisch": "optužiti",
     "Deutsch": "anklagen",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap135"
   },
   {
     "kategorie": "Kapitel 69",
@@ -29336,6 +29349,4494 @@
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "babo",
+    "Deutsch": "Papa (vertraut)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "tata",
+    "Deutsch": "Papa",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "mama",
+    "Deutsch": "Mama",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "pradjed",
+    "Deutsch": "Urgroßvater",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "prabaka",
+    "Deutsch": "Urgroßmutter",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "braća i sestre",
+    "Deutsch": "Geschwister",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "braća",
+    "Deutsch": "Brüder (Kollektivum, dekliniert wie f. Sg.)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "stariji brat",
+    "Deutsch": "älterer Bruder",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "mlađa sestra",
+    "Deutsch": "jüngere Schwester",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "jedinac",
+    "Deutsch": "Einzelkind",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "dalji rođak",
+    "Deutsch": "entfernter Verwandter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "bliža rodbina",
+    "Deutsch": "nähere Verwandtschaft",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "nećak",
+    "Deutsch": "Neffe",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "nećaka",
+    "Deutsch": "Nichte",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "porodično stablo",
+    "Deutsch": "Stammbaum",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "preci",
+    "Deutsch": "Vorfahren",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "potomci",
+    "Deutsch": "Nachkommen",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "rod",
+    "Deutsch": "Sippe, Geschlecht, Abstammung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Imam dva brata i jednu sestru.",
+    "Deutsch": "Ich habe zwei Brüder und eine Schwester.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Koliko imaš braće i sestara?",
+    "Deutsch": "Wie viele Geschwister hast du?",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Imaš li djece?",
+    "Deutsch": "Hast du Kinder?",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Jesi li oženjen?",
+    "Deutsch": "Bist du verheiratet? (zu einem Mann)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Jesi li udata?",
+    "Deutsch": "Bist du verheiratet? (zu einer Frau)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Ja sam najstariji u porodici.",
+    "Deutsch": "Ich bin der Älteste in der Familie.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Ja sam najmlađa.",
+    "Deutsch": "Ich bin die Jüngste.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Ličim na majku.",
+    "Deutsch": "Ich sehe meiner Mutter ähnlich.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Sav je na oca.",
+    "Deutsch": "Er kommt ganz nach dem Vater. (f: Sva je na oca.)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Sestra mi je udata.",
+    "Deutsch": "Meine Schwester ist verheiratet.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Ima troje djece.",
+    "Deutsch": "Er hat drei Kinder.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Djed mi je u penziji.",
+    "Deutsch": "Mein Opa ist in Rente.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Nisam oženjen.",
+    "Deutsch": "Ich bin ledig. (Mann)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 111",
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Bosnisch": "Nisam udata.",
+    "Deutsch": "Ich bin ledig. (Frau)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "amidžinica",
+    "Deutsch": "Frau des Vaterbruders",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "strina",
+    "Deutsch": "Frau des Vaterbruders",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "daidžinica",
+    "Deutsch": "Frau des Mutterbruders",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "ujna",
+    "Deutsch": "Frau des Mutterbruders",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "tetak",
+    "Deutsch": "Mann der Tante",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "amidžić",
+    "Deutsch": "Cousin (Sohn d. Vaterbruders)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "daidžić",
+    "Deutsch": "Cousin (Sohn d. Mutterbruders)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "tetić",
+    "Deutsch": "Cousin (Sohn der Tante)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "sestrić",
+    "Deutsch": "Schwestersohn",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "s očeve strane",
+    "Deutsch": "väterlicherseits",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "s majčine strane",
+    "Deutsch": "mütterlicherseits",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "Mi smo rod.",
+    "Deutsch": "Wir sind verwandt.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "Kako ste u rodu?",
+    "Deutsch": "Wie seid ihr verwandt?",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "član porodice",
+    "Deutsch": "Familienmitglied",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "posjeta",
+    "Deutsch": "Besuch",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "ići u posjetu",
+    "Deutsch": "zu Besuch gehen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "popiti kahvu",
+    "Deutsch": "Kaffee trinken (soziales Ritual)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "Idemo kod nane i dede.",
+    "Deutsch": "Wir fahren zu Oma und Opa.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "Kako su ti roditelji?",
+    "Deutsch": "Wie geht es deinen Eltern?",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "Pozdravi mi porodicu.",
+    "Deutsch": "Grüß deine Familie von mir.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "Odrastao sam kod nane.",
+    "Deutsch": "Ich bin bei meiner Oma aufgewachsen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "dom",
+    "Deutsch": "Zuhause, Heim",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "domaćinstvo",
+    "Deutsch": "Haushalt",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "domaćica",
+    "Deutsch": "Hausfrau, Gastgeberin",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "kućni poslovi",
+    "Deutsch": "Hausarbeit",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "porodični život",
+    "Deutsch": "Familienleben",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "svakodnevica",
+    "Deutsch": "Alltag",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "obaveza",
+    "Deutsch": "Pflicht, Verpflichtung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "porodični ručak",
+    "Deutsch": "Familienmittagessen",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "džeparac",
+    "Deutsch": "Taschengeld",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "pospremati",
+    "Deutsch": "aufräumen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap112"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "prati suđe",
+    "Deutsch": "Geschirr spülen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "prati veš",
+    "Deutsch": "Wäsche waschen (veš = Germ.; Standard: rublje)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "peglati",
+    "Deutsch": "bügeln",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "brinuti se o nekome",
+    "Deutsch": "sich um jdn. kümmern",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "živjeti zajedno",
+    "Deutsch": "zusammenleben",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Moja porodica živi u Njemačkoj.",
+    "Deutsch": "Meine Familie lebt in Deutschland.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Roditelji su mi iz Bosne.",
+    "Deutsch": "Meine Eltern kommen aus Bosnien.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Nedostaje mi porodica.",
+    "Deutsch": "Ich vermisse meine Familie.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Živimo zajedno.",
+    "Deutsch": "Wir wohnen zusammen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Kod kuće govorimo bosanski.",
+    "Deutsch": "Zu Hause sprechen wir Bosnisch.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Ljeti idemo u Bosnu.",
+    "Deutsch": "Im Sommer fahren wir nach Bosnien.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Porodica je na prvom mjestu.",
+    "Deutsch": "Die Familie steht an erster Stelle.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Čestitam vam na vjenčanju!",
+    "Deutsch": "Herzlichen Glückwunsch zur Hochzeit!",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 113",
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Bosnisch": "Neka vam je sretno i berićetno!",
+    "Deutsch": "Möge es euch Glück und Segen bringen! (berićet = Segen, Turzismus)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "novorođenče",
+    "Deutsch": "Neugeborenes",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "mališan",
+    "Deutsch": "Knirps, kleiner Junge (zärtl.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "dječak",
+    "Deutsch": "Junge",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "djevojčica",
+    "Deutsch": "Mädchen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "dječja kolica",
+    "Deutsch": "Kinderwagen",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "pelena",
+    "Deutsch": "Windel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "duda varalica",
+    "Deutsch": "Schnuller",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "flašica",
+    "Deutsch": "Fläschchen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "majčino mlijeko",
+    "Deutsch": "Muttermilch",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "kašica",
+    "Deutsch": "Brei",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "lutka",
+    "Deutsch": "Puppe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "dječji krevetić",
+    "Deutsch": "Kinderbett",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "dječja soba",
+    "Deutsch": "Kinderzimmer",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "vrtić",
+    "Deutsch": "Kindergarten",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "odgajateljica",
+    "Deutsch": "Erzieherin",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "dadilja",
+    "Deutsch": "Kindermädchen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "igralište",
+    "Deutsch": "Spielplatz",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "bajka",
+    "Deutsch": "Märchen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "priča za laku noć",
+    "Deutsch": "Gutenachtgeschichte",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "uspavanka",
+    "Deutsch": "Schlaflied",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "prvi zub",
+    "Deutsch": "erster Zahn",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "prvi koraci",
+    "Deutsch": "erste Schritte",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "igrati se",
+    "Deutsch": "spielen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "kupati",
+    "Deutsch": "baden (jdn.)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap113"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "prohodati",
+    "Deutsch": "zu laufen beginnen (die ersten Schritte machen)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "progovoriti",
+    "Deutsch": "zu sprechen beginnen (die ersten Worte sagen)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "Beba ima tri mjeseca.",
+    "Deutsch": "Das Baby ist drei Monate alt.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "Ona je trudna.",
+    "Deutsch": "Sie ist schwanger.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "Čeka dijete.",
+    "Deutsch": "Sie erwartet ein Kind.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "Čestitam na bebi!",
+    "Deutsch": "Glückwunsch zum Baby!",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 114",
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Bosnisch": "podbradnik",
+    "Deutsch": "Lätzchen",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "tazbina",
+    "Deutsch": "angeheiratete Verwandtschaft",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "djever",
+    "Deutsch": "Schwager (Bruder des Ehemanns)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "zaova",
+    "Deutsch": "Schwägerin (Schwester des Ehemanns)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "badžanak",
+    "Deutsch": "Mann der Schwester der Ehefrau (ugs. auch: badžo)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "jetrva",
+    "Deutsch": "Frauen von Brüdern zueinander",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "kum",
+    "Deutsch": "Trauzeuge, Pate",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "kuma",
+    "Deutsch": "Trauzeugin, Patin",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "kumstvo",
+    "Deutsch": "Patenschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "očuh",
+    "Deutsch": "Stiefvater",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "maćeha",
+    "Deutsch": "Stiefmutter",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "pastorak",
+    "Deutsch": "Stiefsohn",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "pastorka",
+    "Deutsch": "Stieftochter",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "polubrat",
+    "Deutsch": "Halbbruder",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "polusestra",
+    "Deutsch": "Halbschwester",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "siroče",
+    "Deutsch": "Waise",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "staratelj",
+    "Deutsch": "Vormund",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "vjerenik",
+    "Deutsch": "Verlobter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "vjerenica",
+    "Deutsch": "Verlobte",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Ušao je u našu porodicu.",
+    "Deutsch": "Er ist in unsere Familie gekommen (durch Heirat).",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "odrastati",
+    "Deutsch": "aufwachsen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap114"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "sazrijevati",
+    "Deutsch": "reifen, reif werden",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap115"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "On je razveden.",
+    "Deutsch": "Er ist geschieden. (f: Ona je razvedena.)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Ostala je udovica.",
+    "Deutsch": "Sie ist Witwe geblieben.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Naslijedio je kuću od oca.",
+    "Deutsch": "Er hat das Haus von seinem Vater geerbt.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Djeca su mi sve.",
+    "Deutsch": "Die Kinder sind mir alles.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Pazimo jedni na druge.",
+    "Deutsch": "Wir passen aufeinander auf.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Odrastao je kod nane i dede.",
+    "Deutsch": "Er ist bei den Großeltern aufgewachsen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Jako su bliski.",
+    "Deutsch": "Sie stehen sich sehr nahe.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Posvađali smo se.",
+    "Deutsch": "Wir haben uns zerstritten.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Pomirili smo se.",
+    "Deutsch": "Wir haben uns wieder versöhnt.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Liči na djeda.",
+    "Deutsch": "Er ähnelt seinem Großvater.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "To je velika porodica.",
+    "Deutsch": "Das ist eine große Familie.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "Cijela porodica se okupila.",
+    "Deutsch": "Die ganze Familie kam zusammen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "ostaviti",
+    "Deutsch": "hinterlassen, zurücklassen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap155"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "dečko",
+    "Deutsch": "Freund (Partner)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "partner",
+    "Deutsch": "Partner",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "ići na spoj",
+    "Deutsch": "sich verabreden, ein Date haben",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "vjeridba",
+    "Deutsch": "Verlobung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "vjerenički prsten",
+    "Deutsch": "Verlobungsring",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "prosidba",
+    "Deutsch": "Antrag (Heiratsantrag)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "vjernost",
+    "Deutsch": "Treue",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "nevjera",
+    "Deutsch": "Untreue",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "poljubac",
+    "Deutsch": "Kuss",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "zagrljaj",
+    "Deutsch": "Umarmung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "vanbračna zajednica",
+    "Deutsch": "eheähnliche Gemeinschaft",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "brak iz ljubavi",
+    "Deutsch": "Liebesheirat",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "dogovoreni brak",
+    "Deutsch": "arrangierte Ehe",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "biti zaljubljen",
+    "Deutsch": "verliebt sein",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "hodati s nekim",
+    "Deutsch": "mit jdm. zusammen sein (ugs.)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "zaprositi",
+    "Deutsch": "um die Hand anhalten",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "vjeriti se",
+    "Deutsch": "sich verloben",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "pristati",
+    "Deutsch": "zustimmen, ja sagen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap116"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "raskinuti",
+    "Deutsch": "Schluss machen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap117"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "prevariti",
+    "Deutsch": "betrügen (untreu sein)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap118"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "ljubiti",
+    "Deutsch": "küssen (nicht: lieben — das ist voljeti)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap119"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "rastajati se",
+    "Deutsch": "sich trennen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap120"
+  },
+  {
+    "kategorie": "Kapitel 116",
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Bosnisch": "Čestitam na vjeridbi!",
+    "Deutsch": "Herzlichen Glückwunsch zur Verlobung!",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "svadba",
+    "Deutsch": "Hochzeit (Feier)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "mlada",
+    "Deutsch": "Braut (die Heiratende)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "nevjesta",
+    "Deutsch": "Braut (traditionell, ländlich); auch: junge Schwiegertochter",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "mladoženja",
+    "Deutsch": "Bräutigam",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "mladenci",
+    "Deutsch": "Brautpaar",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "svatovi",
+    "Deutsch": "Hochzeitsgäste",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "vjenčanica",
+    "Deutsch": "Brautkleid",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "burma",
+    "Deutsch": "Ehering",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "svadbeni buket",
+    "Deutsch": "Brautstrauß",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "veo",
+    "Deutsch": "Schleier",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "građansko vjenčanje",
+    "Deutsch": "standesamtliche Trauung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "nikah",
+    "Deutsch": "religiöse Trauung (islam.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "vjersko vjenčanje",
+    "Deutsch": "religiöse Trauung (allg.)",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "pozivnica",
+    "Deutsch": "Einladung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "gozba",
+    "Deutsch": "Festmahl",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "svadbena torta",
+    "Deutsch": "Hochzeitstorte",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "dan vjenčanja",
+    "Deutsch": "Hochzeitstag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "godišnjica braka",
+    "Deutsch": "Hochzeitstag (Jahrestag)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "medeni mjesec",
+    "Deutsch": "Flitterwochen",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "oženiti se",
+    "Deutsch": "heiraten (Mann)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap121"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "udati se",
+    "Deutsch": "heiraten (Frau)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap122"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "Živjeli mladenci!",
+    "Deutsch": "Lang lebe das Brautpaar!",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "Kada ste se vjenčali?",
+    "Deutsch": "Wann habt ihr geheiratet?",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "U braku smo deset godina.",
+    "Deutsch": "Wir sind seit zehn Jahren verheiratet.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 117",
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Bosnisch": "Sretna vam godišnjica!",
+    "Deutsch": "Alles Gute zum Hochzeitstag!",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "trudnoća",
+    "Deutsch": "Schwangerschaft",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "trudnica",
+    "Deutsch": "Schwangere",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "trudna",
+    "Deutsch": "schwanger",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "biti u drugom stanju",
+    "Deutsch": "in anderen Umständen sein",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "začeće",
+    "Deutsch": "Empfängnis",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "ginekolog",
+    "Deutsch": "Frauenarzt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "ultrazvuk",
+    "Deutsch": "Ultraschall",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "termin porođaja",
+    "Deutsch": "errechneter Geburtstermin",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "prohtjevi",
+    "Deutsch": "Heißhunger (Schwangerschaft)",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "porođaj",
+    "Deutsch": "Geburt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "rađaonica",
+    "Deutsch": "Kreißsaal",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "babica",
+    "Deutsch": "Hebamme",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "trudovi",
+    "Deutsch": "Wehen",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "carski rez",
+    "Deutsch": "Kaiserschnitt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "porodilja",
+    "Deutsch": "Wöchnerin",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "prijevremeni porod",
+    "Deutsch": "Frühgeburt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "spontani pobačaj",
+    "Deutsch": "Fehlgeburt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "rodni list",
+    "Deutsch": "Geburtsurkunde (Alltagswort)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "dojenje",
+    "Deutsch": "Stillen",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "roditi",
+    "Deutsch": "gebären",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap123"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "zatrudnjeti",
+    "Deutsch": "schwanger werden",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "dojiti",
+    "Deutsch": "stillen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap124"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "dati ime",
+    "Deutsch": "einen Namen geben",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "Rodila je zdravo dijete.",
+    "Deutsch": "Sie hat ein gesundes Kind zur Welt gebracht.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "Čestitam na prinovi!",
+    "Deutsch": "Herzlichen Glückwunsch zur Geburt! (prinova = Familienzuwachs)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "Dobili su dijete prošle godine.",
+    "Deutsch": "Sie haben letztes Jahr ein Kind bekommen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 118",
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Bosnisch": "Sestra mi čeka drugo dijete.",
+    "Deutsch": "Meine Schwester erwartet ihr zweites Kind.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "odgoj",
+    "Deutsch": "Erziehung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "djetinjstvo",
+    "Deutsch": "Kindheit",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "roditeljstvo",
+    "Deutsch": "Elternschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "majčinstvo",
+    "Deutsch": "Mutterschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "očinstvo",
+    "Deutsch": "Vaterschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "disciplina",
+    "Deutsch": "Disziplin",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "pohvala",
+    "Deutsch": "Lob",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "nagrada",
+    "Deutsch": "Belohnung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "zabrana",
+    "Deutsch": "Verbot",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "savjet",
+    "Deutsch": "Rat, Ratschlag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "uzor",
+    "Deutsch": "Vorbild",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "autoritet",
+    "Deutsch": "Autorität",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "poslušnost",
+    "Deutsch": "Gehorsam",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "samostalnost",
+    "Deutsch": "Selbstständigkeit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "pubertet",
+    "Deutsch": "Pubertät",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "odgajati",
+    "Deutsch": "erziehen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap125"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "pohvaliti",
+    "Deutsch": "loben",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap126"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "nagraditi",
+    "Deutsch": "belohnen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap127"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "grditi",
+    "Deutsch": "schimpfen, ausschimpfen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap128"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "razmaziti",
+    "Deutsch": "verwöhnen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap129"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "strog",
+    "Deutsch": "streng",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "razmažen",
+    "Deutsch": "verwöhnt",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "presvlačiti",
+    "Deutsch": "wickeln, umziehen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap130"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "uspavljivati",
+    "Deutsch": "in den Schlaf wiegen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap131"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "brižan",
+    "Deutsch": "fürsorglich",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "nestrpljiv",
+    "Deutsch": "ungeduldig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "blag",
+    "Deutsch": "sanft, milde",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "popustljiv",
+    "Deutsch": "nachgiebig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "pravedan",
+    "Deutsch": "gerecht",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "nepravedan",
+    "Deutsch": "ungerecht",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 119",
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Bosnisch": "razuman",
+    "Deutsch": "vernünftig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "poštovanje prema starijima",
+    "Deutsch": "Respekt vor den Älteren",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "starački dom",
+    "Deutsch": "Altersheim",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "njega",
+    "Deutsch": "Pflege",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "njegovatelj",
+    "Deutsch": "Pflegekraft",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "pomoć u kući",
+    "Deutsch": "häusliche Hilfe",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "štap",
+    "Deutsch": "Gehstock",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "invalidska kolica",
+    "Deutsch": "Rollstuhl",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "sluh",
+    "Deutsch": "Gehör",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "vid",
+    "Deutsch": "Sehkraft",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "zaboravnost",
+    "Deutsch": "Vergesslichkeit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "demencija",
+    "Deutsch": "Demenz",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "samoća",
+    "Deutsch": "Einsamkeit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "mudrost",
+    "Deutsch": "Weisheit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "životno iskustvo",
+    "Deutsch": "Lebenserfahrung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "sijeda kosa",
+    "Deutsch": "graues Haar",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "bore",
+    "Deutsch": "Falten",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "sjećanje",
+    "Deutsch": "Erinnerung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "ostarjeti",
+    "Deutsch": "altern, alt werden",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap132"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "njegovati",
+    "Deutsch": "pflegen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "nemoćan",
+    "Deutsch": "gebrechlich, hilflos",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "usamljen",
+    "Deutsch": "einsam",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "Otišao je u penziju.",
+    "Deutsch": "Er ist in Rente gegangen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "Brinem se o svojim roditeljima.",
+    "Deutsch": "Ich kümmere mich um meine Eltern.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "Podigla je troje djece.",
+    "Deutsch": "Sie hat drei Kinder großgezogen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "zahvalan",
+    "Deutsch": "dankbar",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "nezahvalan",
+    "Deutsch": "undankbar",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 120",
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Bosnisch": "požrtvovan",
+    "Deutsch": "aufopferungsvoll",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "bračni par",
+    "Deutsch": "Ehepaar",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "supružnici",
+    "Deutsch": "Eheleute",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "bračni drug",
+    "Deutsch": "Ehepartner",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "bračni ugovor",
+    "Deutsch": "Ehevertrag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "bračna kriza",
+    "Deutsch": "Ehekrise",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "nesporazum",
+    "Deutsch": "Missverständnis",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "prijekor",
+    "Deutsch": "Vorwurf",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "bračno savjetovalište",
+    "Deutsch": "Eheberatungsstelle",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "rastanak",
+    "Deutsch": "Trennung (räumlich)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "tužba za razvod braka",
+    "Deutsch": "Scheidungsantrag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "alimentacija",
+    "Deutsch": "Unterhalt (für Kinder)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "starateljstvo",
+    "Deutsch": "Sorgerecht",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "zajedničko starateljstvo",
+    "Deutsch": "gemeinsames Sorgerecht",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "samohrani roditelj",
+    "Deutsch": "alleinerziehender Elternteil",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "samohrana majka",
+    "Deutsch": "alleinerziehende Mutter",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "otuđenje",
+    "Deutsch": "Entfremdung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "ponovni brak",
+    "Deutsch": "zweite Ehe, Wiederverheiratung",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "razvesti se",
+    "Deutsch": "sich scheiden lassen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap133"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "napustiti",
+    "Deutsch": "verlassen (jdn.)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap134"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "prepirati se",
+    "Deutsch": "streiten (nesv.)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "optuživati",
+    "Deutsch": "beschuldigen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap135"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "dogovoriti se",
+    "Deutsch": "sich einigen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap136"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "poremećen",
+    "Deutsch": "zerrüttet (poremećeni bračni odnosi)",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "Brak je propao.",
+    "Deutsch": "Die Ehe ist gescheitert.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "svadljiv",
+    "Deutsch": "streitlustig",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "posesivan",
+    "Deutsch": "besitzergreifend",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "distanciran",
+    "Deutsch": "distanziert",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 121",
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Bosnisch": "licemjeran",
+    "Deutsch": "heuchlerisch",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "nuklearna porodica",
+    "Deutsch": "Kernfamilie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "proširena porodica",
+    "Deutsch": "Großfamilie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "usvojenje",
+    "Deutsch": "Adoption",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "usvojeno dijete",
+    "Deutsch": "Adoptivkind",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "biološki roditelj",
+    "Deutsch": "leiblicher Elternteil",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "hraniteljska porodica",
+    "Deutsch": "Pflegefamilie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "vještačka oplodnja",
+    "Deutsch": "künstliche Befruchtung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "neplodnost",
+    "Deutsch": "Unfruchtbarkeit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "planiranje porodice",
+    "Deutsch": "Familienplanung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "kontracepcija",
+    "Deutsch": "Verhütung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "roditeljsko odsustvo",
+    "Deutsch": "Elternzeit",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "centar za socijalni rad",
+    "Deutsch": "Sozialamt (in BiH zugleich organ starateljstva)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "organ starateljstva",
+    "Deutsch": "Vormundschaftsbehörde (= centar za socijalni rad)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "uvjerenje o slobodnom bračnom stanju",
+    "Deutsch": "Ledigkeitsbescheinigung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "spajanje porodice",
+    "Deutsch": "Familienzusammenführung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "djevojačko prezime",
+    "Deutsch": "Mädchenname",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "promjena prezimena",
+    "Deutsch": "Nachnamensänderung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "ovjerena kopija",
+    "Deutsch": "beglaubigte Kopie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "nasilje u porodici",
+    "Deutsch": "häusliche Gewalt",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "zaštita djece",
+    "Deutsch": "Kinderschutz",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "usvojiti",
+    "Deutsch": "adoptieren",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap137"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "podnijeti zahtjev",
+    "Deutsch": "beantragen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 122",
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Bosnisch": "nova porodica",
+    "Deutsch": "Patchworkfamilie (alltagsnah)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "vjerski obred",
+    "Deutsch": "religiöse Zeremonie",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "akika",
+    "Deutsch": "Namensgebungsfeier (islam.)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "sunet",
+    "Deutsch": "Beschneidung (islam.; die Feier: sunećenje)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "kum na krštenju",
+    "Deutsch": "Taufpate",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "krizma",
+    "Deutsch": "Firmung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "prva pričest",
+    "Deutsch": "Erstkommunion",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "gostoprimstvo",
+    "Deutsch": "Gastfreundschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "amanet",
+    "Deutsch": "anvertrautes Gut, Vermächtnis",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "poljubiti ruku",
+    "Deutsch": "Handkuss (Respektgeste)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "Bajram šerif mubarek olsun!",
+    "Deutsch": "Frohes Fest! (Bajram)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "Allah razi olsun!",
+    "Deutsch": "Danke, ebenso. (wörtl.: Möge Allah zufrieden sein)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "Hairli bilo.",
+    "Deutsch": "Möge es gesegnet sein.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "Ako Bog da.",
+    "Deutsch": "So Gott will.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "čuvati tradiciju",
+    "Deutsch": "eine Tradition bewahren",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "miroljubiv",
+    "Deutsch": "friedlich",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "srdačan",
+    "Deutsch": "herzlich",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "osjećajan",
+    "Deutsch": "gefühlvoll",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 123",
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Bosnisch": "pun poštovanja",
+    "Deutsch": "respektvoll",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "Vidimo se samo ljeti.",
+    "Deutsch": "Wir sehen uns nur im Sommer.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "Porodica mi je raštrkana po cijeloj Evropi.",
+    "Deutsch": "Meine Familie ist über ganz Europa verstreut.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "Kod kuće smo uvijek govorili bosanski.",
+    "Deutsch": "Zu Hause haben wir immer Bosnisch gesprochen.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "dijaspora",
+    "Deutsch": "Diaspora",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "gastarbajter",
+    "Deutsch": "Gastarbeiter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "iseljenik",
+    "Deutsch": "Auswanderer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "doseljenik",
+    "Deutsch": "Einwanderer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "povratnik",
+    "Deutsch": "Rückkehrer",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "druga generacija",
+    "Deutsch": "zweite Generation",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "maternji jezik",
+    "Deutsch": "Muttersprache",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "dvojezičnost",
+    "Deutsch": "Zweisprachigkeit",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "akcenat",
+    "Deutsch": "Akzent",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "vikendica",
+    "Deutsch": "Wochenendhaus, Ferienhaus",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "naši",
+    "Deutsch": "unsere Leute (Landsleute)",
+    "Wortart (Genus)": "Substantiv (m, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "naški",
+    "Deutsch": "„unsere Sprache“ (informelle Sammelbezeichnung BKS)",
+    "Wortart": "Adverb"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "ići dolje",
+    "Deutsch": "„runterfahren\" (nach BiH)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "prenijeti jezik na djecu",
+    "Deutsch": "die Sprache an die Kinder weitergeben",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "održavati vezu",
+    "Deutsch": "die Verbindung halten",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "Rođeni smo ovdje, ali korijeni su tamo.",
+    "Deutsch": "Wir sind hier geboren, aber die Wurzeln sind dort.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "Moja djeca sve razumiju, ali malo govore.",
+    "Deutsch": "Meine Kinder verstehen alles, sprechen aber wenig.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 124",
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Bosnisch": "odan",
+    "Deutsch": "ergeben, loyal",
+    "Wortart": "Adjektiv"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "Primite moje iskreno saučešće.",
+    "Deutsch": "Mein aufrichtiges Beileid.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "Neka mu je laka zemlja.",
+    "Deutsch": "Möge ihm die Erde leicht sein.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "Bog da mu rahmet.",
+    "Deutsch": "Gott sei ihm gnädig.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "Preminuo je.",
+    "Deutsch": "Er ist verstorben.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "Moramo na dženazu.",
+    "Deutsch": "Wir müssen zur Beerdigung.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "smrt",
+    "Deutsch": "Tod",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "pokojnik",
+    "Deutsch": "Verstorbener",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "mezarje",
+    "Deutsch": "Friedhof (muslimisch)",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "grob",
+    "Deutsch": "Grab (allg.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "nadgrobni spomenik",
+    "Deutsch": "Grabstein",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "osmrtnica",
+    "Deutsch": "Todesanzeige",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "saučešće",
+    "Deutsch": "Beileid",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "žalost",
+    "Deutsch": "Trauer (Zustand nach einem Todesfall)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "period žalosti",
+    "Deutsch": "Trauerzeit",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "crnina",
+    "Deutsch": "Trauerkleidung, Schwarz",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "godišnjica smrti",
+    "Deutsch": "Todestag, Jahrestag",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "uspomena",
+    "Deutsch": "Andenken",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "umrijeti",
+    "Deutsch": "sterben (neutral)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap138"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "preminuti",
+    "Deutsch": "versterben (gehoben)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "preseliti na ahiret",
+    "Deutsch": "ins Jenseits übergehen (islam.)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "sahraniti",
+    "Deutsch": "bestatten",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap139"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "tugovati",
+    "Deutsch": "trauern",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "oplakivati",
+    "Deutsch": "beweinen, betrauern",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap140"
+  },
+  {
+    "kategorie": "Kapitel 125",
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Bosnisch": "izjaviti saučešće",
+    "Deutsch": "Beileid aussprechen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "nasljedstvo",
+    "Deutsch": "Erbe (die Erbschaft)",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "ostavština",
+    "Deutsch": "Nachlass",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "nasljednik",
+    "Deutsch": "Erbe (die Person)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "zakonski nasljednik",
+    "Deutsch": "gesetzlicher Erbe",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "nasljedno pravo",
+    "Deutsch": "Erbrecht",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "testament",
+    "Deutsch": "Testament (auch: oporuka)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "odricanje od nasljedstva",
+    "Deutsch": "Erbausschlagung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "prihvatanje nasljedstva",
+    "Deutsch": "Erbannahme",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "imovina",
+    "Deutsch": "Vermögen",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "nekretnina",
+    "Deutsch": "Immobilie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "katastar",
+    "Deutsch": "Kataster",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "vlasništvo",
+    "Deutsch": "Eigentum",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "suvlasništvo",
+    "Deutsch": "Miteigentum",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "procjena vrijednosti",
+    "Deutsch": "Wertermittlung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "ugovor o poklonu",
+    "Deutsch": "Schenkungsvertrag",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "punomoćnik",
+    "Deutsch": "Bevollmächtigter",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "naslijediti",
+    "Deutsch": "erben",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "par_id": "ap141"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "ostaviti u nasljedstvo",
+    "Deutsch": "vererben, hinterlassen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "odreći se nasljedstva",
+    "Deutsch": "das Erbe ausschlagen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 126",
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Bosnisch": "zavještati",
+    "Deutsch": "vererben, letztwillig hinterlassen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "demografija",
+    "Deutsch": "Demografie",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "natalitet",
+    "Deutsch": "Geburtenrate",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "pad nataliteta",
+    "Deutsch": "Geburtenrückgang",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "starenje stanovništva",
+    "Deutsch": "Bevölkerungsalterung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "iseljavanje",
+    "Deutsch": "Abwanderung",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "generacijski jaz",
+    "Deutsch": "Generationenkonflikt",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "patrijarhalno društvo",
+    "Deutsch": "patriarchale Gesellschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "rodne uloge",
+    "Deutsch": "Geschlechterrollen",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "ravnopravnost",
+    "Deutsch": "Gleichberechtigung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "emancipacija",
+    "Deutsch": "Emanzipation",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "tradicionalne vrijednosti",
+    "Deutsch": "traditionelle Werte",
+    "Wortart (Genus)": "Substantiv (f, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "promjena vrijednosti",
+    "Deutsch": "Wertewandel",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "socijalizacija",
+    "Deutsch": "Sozialisation",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "međugeneracijska solidarnost",
+    "Deutsch": "Generationensolidarität",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "porodična politika",
+    "Deutsch": "Familienpolitik",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "porodiljska naknada",
+    "Deutsch": "Elterngeld, Mutterschaftsgeld",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "ratna trauma",
+    "Deutsch": "Kriegstrauma",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "raseljena lica",
+    "Deutsch": "Vertriebene",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "izbjeglištvo",
+    "Deutsch": "Flucht, Exil",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "nestala lica",
+    "Deutsch": "Vermisste (Kriegsvermisste, BiH-Kontext)",
+    "Wortart (Genus)": "Substantiv (n, Pl.)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "obnova",
+    "Deutsch": "Wiederaufbau",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "odlazak sa sela",
+    "Deutsch": "Landflucht",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "urbanizacija",
+    "Deutsch": "Urbanisierung",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "mijenjati se",
+    "Deutsch": "sich verändern",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "par_id": "ap142"
+  },
+  {
+    "kategorie": "Kapitel 127",
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Bosnisch": "Struktura porodice se promijenila.",
+    "Deutsch": "Die Familienstruktur hat sich verändert.",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "potomstvo",
+    "Deutsch": "Nachkommenschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "rodoslov",
+    "Deutsch": "Ahnentafel, Stammbaum",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "krvno srodstvo",
+    "Deutsch": "Blutsverwandtschaft",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "stepen srodstva",
+    "Deutsch": "Verwandtschaftsgrad",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "čeljad",
+    "Deutsch": "Hausstand, Hausleute",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "starješina",
+    "Deutsch": "Ältester, Oberhaupt (starješina kuće = Familienoberhaupt)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "ognjište",
+    "Deutsch": "Herdstelle, Heimstatt",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "kućni prag",
+    "Deutsch": "Türschwelle (symb. Heim)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "bratstvo",
+    "Deutsch": "Brüderlichkeit",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "staranje",
+    "Deutsch": "Fürsorge",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "okrilje",
+    "Deutsch": "Obhut",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "sloga",
+    "Deutsch": "Zusammenhalt",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "nesloga",
+    "Deutsch": "Zwietracht",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "odgojna uloga",
+    "Deutsch": "Erziehungsrolle",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "pijetet",
+    "Deutsch": "Ehrfurcht, Pietät",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "ugled porodice",
+    "Deutsch": "Ansehen der Familie",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "porodična čast",
+    "Deutsch": "Familienehre",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "lijepo ponašanje",
+    "Deutsch": "gutes Benehmen, Anstand",
+    "Wortart (Genus)": "Substantiv (n)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "roditeljska kuća",
+    "Deutsch": "Herkunftshaus",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "osirotjeti",
+    "Deutsch": "verwaisen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni"
+  },
+  {
+    "kategorie": "Kapitel 128",
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Bosnisch": "s koljena na koljeno",
+    "Deutsch": "von Generation zu Generation",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "sinko",
+    "Deutsch": "Sohn (liebevolle Anrede, nur im Vokativ)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "gazda",
+    "Deutsch": "Herr des Hauses, Chef (Hungarismus; m., a-Deklination)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "domaćin kuće",
+    "Deutsch": "Hausherr, Oberhaupt des Haushalts",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "prosac",
+    "Deutsch": "Brautwerber",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "jad",
+    "Deutsch": "Elend, Jammer, Kummer (meist Pl. jadi)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "ahiret",
+    "Deutsch": "Jenseits (islam., Turz.)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "duša",
+    "Deutsch": "Seele",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "tražiti halala",
+    "Deutsch": "Vergebung erbitten (trad., vor dem Tod / langer Reise)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "halaliti",
+    "Deutsch": "vergeben, freigeben (trad.)",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "rahmet",
+    "Deutsch": "Gottes Erbarmen (islam.; bes. für Verstorbene)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "kuća i ognjište",
+    "Deutsch": "Heim und Herd",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "otići u bijeli svijet",
+    "Deutsch": "in die weite Welt gehen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "ostati bez igdje ikoga",
+    "Deutsch": "ohne Angehörige dastehen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "doći na svijet",
+    "Deutsch": "zur Welt kommen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "podariti život",
+    "Deutsch": "jdm. das Leben schenken (geh.)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "počivati u miru",
+    "Deutsch": "in Frieden ruhen (christl. geprägt)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "Sretno vam bilo",
+    "Deutsch": "Möge es euch Glück bringen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 129",
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Bosnisch": "Da im Bog da dug i sretan život",
+    "Deutsch": "Möge Gott ihnen ein langes und glückliches Leben schenken. (Hochzeitswunsch)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "Krv nije voda",
+    "Deutsch": "Blut ist dicker als Wasser",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "Iver ne pada daleko od klade",
+    "Deutsch": "Der Span fällt nicht weit vom Klotz (= Der Apfel fällt nicht weit vom Stamm)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "Kakva majka, takva kći",
+    "Deutsch": "Wie die Mutter, so die Tochter",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "U slozi je snaga",
+    "Deutsch": "In der Eintracht liegt die Kraft",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "Mala djeca, mala briga; velika djeca, velika briga",
+    "Deutsch": "Kleine Kinder, kleine Sorgen; große Kinder, große Sorgen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "Sin je sin dok se ne oženi, a kći je kći dok je živa",
+    "Deutsch": "Der Sohn ist Sohn, bis er heiratet; die Tochter bleibt es ein Leben lang",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "Ko nema starijeg, neka ga kupi",
+    "Deutsch": "Wer keinen Älteren hat, der kaufe sich einen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "Gost u kuću – berićet u kuću",
+    "Deutsch": "Ein Gast im Haus ist ein Segen im Haus",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "dići djecu na noge",
+    "Deutsch": "Kinder großziehen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "biti nekome desna ruka",
+    "Deutsch": "jds. rechte Hand sein",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "proći sito i rešeto",
+    "Deutsch": "viel durchgemacht haben, durch alle Höhen und Tiefen gehen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "mamin sin",
+    "Deutsch": "Muttersöhnchen (abwertend)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "tatina maza",
+    "Deutsch": "Papas Liebling (für Töchter)",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "baciti oko na nekoga",
+    "Deutsch": "ein Auge auf jdn. werfen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "udomiti se",
+    "Deutsch": "unter die Haube kommen (wörtl.: ein Zuhause finden)",
+    "Wortart": "Verb"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "pasti nekome na teret",
+    "Deutsch": "jdm. zur Last fallen",
+    "Wortart": "Phrase"
+  },
+  {
+    "kategorie": "Kapitel 130",
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Bosnisch": "naslijediti očevinu",
+    "Deutsch": "das Familienerbe antreten (očevina = väterliches Erbe)",
+    "Wortart": "Phrase"
+  },
+  {
     "Niveau": "B2",
     "Bosnisch": "brusilica",
     "Deutsch": "Winkelschleifer / Flex",
@@ -30889,5 +35390,911 @@
     "Wortart": "Verb",
     "aspekt": "nesvršeni",
     "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "nena",
+    "Deutsch": "Oma (regional: Ostbosnien, Sandžak)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "unučad",
+    "Deutsch": "Enkelkinder",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "prvorođenče",
+    "Deutsch": "Erstgeborener",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "mezimče",
+    "Deutsch": "Liebling, Nesthäkchen (zärtl.)",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "sestra blizanka",
+    "Deutsch": "Zwillingsschwester",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "trojke",
+    "Deutsch": "Drillinge",
+    "Wortart (Genus)": "Substantiv (f, Pl.)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "rodica",
+    "Deutsch": "Verwandte, Cousine (Nebenform zu rođaka)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "amidžična",
+    "Deutsch": "Cousine (Tochter d. Vaterbruders)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "daidžična",
+    "Deutsch": "Cousine (Tochter d. Mutterbruders)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "tetična",
+    "Deutsch": "Cousine (Tochter der Tante)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "bratična",
+    "Deutsch": "Brudertochter",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "loza",
+    "Deutsch": "Sippe, Geschlechterlinie (geh.)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "portikla",
+    "Deutsch": "Lätzchen (regional; Standard: podbradnik)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "proševina",
+    "Deutsch": "Brautwerbung (trad., regional; üblich: prosidba)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "jenge",
+    "Deutsch": "Brautbegleiterinnen (trad., Turz.)",
+    "Wortart (Genus)": "Substantiv (f, Pl.)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "mehr",
+    "Deutsch": "Brautgabe (islam., Teil des nikah)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "miraz",
+    "Deutsch": "Mitgift (Turz.; heute meist historisch)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "ispraćaj mlade",
+    "Deutsch": "Verabschiedung der Braut",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "svadbena povorka",
+    "Deutsch": "Hochzeitszug",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "plod",
+    "Deutsch": "Fötus (med.; sonst: Frucht)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "materica",
+    "Deutsch": "Gebärmutter (med.)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "pupčana vrpca",
+    "Deutsch": "Nabelschnur",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "porođajna težina",
+    "Deutsch": "Geburtsgewicht",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "matična knjiga rođenih",
+    "Deutsch": "Geburtenregister (Behördenwort)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "mirovina",
+    "Deutsch": "Rente (kroat.; in BiH: penzija)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "patronažna sestra",
+    "Deutsch": "Gemeindeschwester (aufsuchende Nachsorge, BiH-System)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "Alzheimerova bolest",
+    "Deutsch": "Alzheimer-Krankheit",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "obaveza izdržavanja",
+    "Deutsch": "Unterhaltspflicht",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "pravo na viđanje djece",
+    "Deutsch": "Umgangsrecht",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "podjela imovine",
+    "Deutsch": "Vermögensaufteilung",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "rekomponovana porodica",
+    "Deutsch": "Patchworkfamilie (Fachsprache)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "jednoroditeljska porodica",
+    "Deutsch": "Einelternfamilie",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "hraniteljstvo",
+    "Deutsch": "Pflegeelternschaft, Pflegekindverhältnis",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "matična knjiga vjenčanih",
+    "Deutsch": "Eheregister",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "hatma dova",
+    "Deutsch": "Koranlesung als Widmung (islam.)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "pečalba",
+    "Deutsch": "Arbeitsmigration (hist./literarisch)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "pečalbar",
+    "Deutsch": "Wanderarbeiter (hist./literarisch)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "doznake",
+    "Deutsch": "Rücküberweisungen in die Heimat (volkswirtsch.)",
+    "Wortart (Genus)": "Substantiv (f, Pl.)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "merhum",
+    "Deutsch": "der Verstorbene (geh., islam.; f: merhuma)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "sprovod",
+    "Deutsch": "Beerdigung, Trauerzug",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "ukop",
+    "Deutsch": "Beisetzung (Register-Variante zu sahrana/dženaza)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "tabut",
+    "Deutsch": "Totenbahre (islam.; bestattet wird ohne Sarg)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "sedmina",
+    "Deutsch": "Siebentagsgedenken (christl., orth./kath.)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "četrdesetnica",
+    "Deutsch": "Vierzigtagsgedenken (christl.)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "izvod iz matične knjige umrlih",
+    "Deutsch": "Sterbeurkunde (Auszug; auch: smrtni list)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "nasljedni red",
+    "Deutsch": "Erbordnung (I./II./III. Ordnung)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "ostavilac",
+    "Deutsch": "Erblasser",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "ostavinska rasprava",
+    "Deutsch": "Nachlassverfahren",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "rješenje o nasljeđivanju",
+    "Deutsch": "Erbschein",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "nužni dio",
+    "Deutsch": "Pflichtteil",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "dioba nasljedstva",
+    "Deutsch": "Erbteilung",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "porez na naslijeđe i poklone",
+    "Deutsch": "Erbschaft- und Schenkungsteuer",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "pravo plodouživanja",
+    "Deutsch": "Nießbrauch",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "starateljstvo nad maloljetnikom",
+    "Deutsch": "Vormundschaft über Minderjährige",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "sastaviti testament",
+    "Deutsch": "ein Testament errichten",
+    "Wortart": "Phrase",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "mortalitet",
+    "Deutsch": "Sterberate",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "depopulacija",
+    "Deutsch": "Entvölkerung",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "institucionalna briga o starijima",
+    "Deutsch": "Altenpflege (institutionell)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "društvena kohezija",
+    "Deutsch": "soziale Kohäsion",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "transgeneracijski prijenos",
+    "Deutsch": "transgenerationale Weitergabe",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "rodonačelnik",
+    "Deutsch": "Stammvater",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "srodstvo po tazbini",
+    "Deutsch": "Schwägerschaft (jur.)",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "zadruga",
+    "Deutsch": "Genossenschaft; hist.: südslaw. Großfamilienverband",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "sestrinstvo",
+    "Deutsch": "Schwesternschaft (seltene Neubildung)",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "uzrastati",
+    "Deutsch": "heranwachsen (buchsprachlich)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "evlad",
+    "Deutsch": "Kind, Nachkomme (Turz., veraltet/dialektal)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "kćerkica",
+    "Deutsch": "Töchterlein (Diminutiv; meist im Vokativ: kćerkice!)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "hanuma",
+    "Deutsch": "Dame, Frau (Anrede, Turz.; auch: Ehefrau)",
+    "Wortart (Genus)": "Substantiv (f)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "bećar",
+    "Deutsch": "Junggeselle (arch., kulturell besetzt)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "momče",
+    "Deutsch": "junger Bursche (n., Deklination: momče, momčeta)",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "djevojče",
+    "Deutsch": "junges Mädchen (n., Deklination: djevojče, djevojčeta)",
+    "Wortart (Genus)": "Substantiv (n)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "sanduk",
+    "Deutsch": "Truhe, Kiste (trad. Aussteuertruhe)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "kader",
+    "Deutsch": "Fügung, Vorbestimmung (islam.-theolog.; nicht kadar = fähig)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "C2",
+    "Bosnisch": "edžel",
+    "Deutsch": "vorbestimmte Todesstunde (islam.)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "okupati",
+    "Deutsch": "baden (jdn.)",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap113"
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "pospremiti",
+    "Deutsch": "aufräumen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap112"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "rađati",
+    "Deutsch": "gebären",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap123"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "odgojiti",
+    "Deutsch": "erziehen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap125"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "presvući",
+    "Deutsch": "wickeln, umziehen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap130"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "uspavati",
+    "Deutsch": "in den Schlaf wiegen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap131"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "poljubiti",
+    "Deutsch": "küssen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap119"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "rastati se",
+    "Deutsch": "sich trennen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap120"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "sazreti",
+    "Deutsch": "reifen, reif werden",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap115"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "starjeti",
+    "Deutsch": "altern, alt werden",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap132"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "ženiti se",
+    "Deutsch": "heiraten (Mann)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap121"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "udavati se",
+    "Deutsch": "heiraten (Frau)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap122"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "hvaliti",
+    "Deutsch": "loben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap126"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "nagrađivati",
+    "Deutsch": "belohnen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap127"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "razmazivati",
+    "Deutsch": "verwöhnen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap129"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "odrasti",
+    "Deutsch": "aufwachsen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap114"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "pristajati",
+    "Deutsch": "zustimmen, ja sagen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap116"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "raskidati",
+    "Deutsch": "Schluss machen, auflösen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap117"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "varati",
+    "Deutsch": "betrügen (untreu sein)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap118"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "podojiti",
+    "Deutsch": "stillen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap124"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "izgrditi",
+    "Deutsch": "schimpfen, ausschimpfen",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap128"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "umirati",
+    "Deutsch": "sterben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap138"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "razvoditi se",
+    "Deutsch": "sich scheiden lassen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap133"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "napuštati",
+    "Deutsch": "verlassen (jdn.)",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap134"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "dogovarati se",
+    "Deutsch": "sich einigen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap136"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "usvajati",
+    "Deutsch": "adoptieren",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap137"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "sahranjivati",
+    "Deutsch": "bestatten",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap139"
+  },
+  {
+    "Niveau": "B2",
+    "Bosnisch": "oplakati",
+    "Deutsch": "beweinen, betrauern",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap140"
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "nasljeđivati",
+    "Deutsch": "erben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap141"
+  },
+  {
+    "Niveau": "C1",
+    "Bosnisch": "promijeniti se",
+    "Deutsch": "sich verändern",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap142"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "posvađati se",
+    "Deutsch": "sich streiten",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap143"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "opraštati",
+    "Deutsch": "verzeihen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap144"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "miriti se",
+    "Deutsch": "sich versöhnen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap145"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "grliti",
+    "Deutsch": "umarmen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap146"
+  },
+  {
+    "Niveau": "A1",
+    "Bosnisch": "posjećivati",
+    "Deutsch": "besuchen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap147"
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "poklanjati",
+    "Deutsch": "schenken",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap148"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "vjenčavati se",
+    "Deutsch": "sich trauen lassen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap149"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "zaljubljivati se",
+    "Deutsch": "sich verlieben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap150"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "kažnjavati",
+    "Deutsch": "bestrafen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap151"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "zabranjivati",
+    "Deutsch": "verbieten",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap152"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "dozvoljavati",
+    "Deutsch": "erlauben",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap153"
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "pobrinuti se",
+    "Deutsch": "sich kümmern",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap154"
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "ostavljati",
+    "Deutsch": "hinterlassen",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap155"
   }
 ]

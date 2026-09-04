@@ -658,5 +658,125 @@
     "Kapitelname": "Tiere in Redewendungen & Kultur",
     "Niveau": "C1",
     "Anzahl": 20
+  },
+  {
+    "Kapitel": 111,
+    "Kapitelname": "Familie: Verwandtschaft & Generationen",
+    "Niveau": "A2",
+    "Anzahl": 32
+  },
+  {
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Anzahl": 21
+  },
+  {
+    "Kapitel": 113,
+    "Kapitelname": "Familienalltag & Zuhause",
+    "Niveau": "A2",
+    "Anzahl": 24
+  },
+  {
+    "Kapitel": 114,
+    "Kapitelname": "Baby & Kleinkind",
+    "Niveau": "A2",
+    "Anzahl": 31
+  },
+  {
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Anzahl": 34
+  },
+  {
+    "Kapitel": 116,
+    "Kapitelname": "Liebe, Partnerschaft & Verlobung",
+    "Niveau": "B1",
+    "Anzahl": 23
+  },
+  {
+    "Kapitel": 117,
+    "Kapitelname": "Hochzeit & Hochzeitsbräuche",
+    "Niveau": "B1",
+    "Anzahl": 25
+  },
+  {
+    "Kapitel": 118,
+    "Kapitelname": "Schwangerschaft & Geburt",
+    "Niveau": "B1",
+    "Anzahl": 27
+  },
+  {
+    "Kapitel": 119,
+    "Kapitelname": "Erziehung & Kindheit",
+    "Niveau": "B1",
+    "Anzahl": 31
+  },
+  {
+    "Kapitel": 120,
+    "Kapitelname": "Alter, Rente & Pflege",
+    "Niveau": "B1",
+    "Anzahl": 27
+  },
+  {
+    "Kapitel": 121,
+    "Kapitelname": "Ehe, Krise & Scheidung",
+    "Niveau": "B2",
+    "Anzahl": 28
+  },
+  {
+    "Kapitel": 122,
+    "Kapitelname": "Familienformen, Behörden & Dokumente",
+    "Niveau": "B2",
+    "Anzahl": 23
+  },
+  {
+    "Kapitel": 123,
+    "Kapitelname": "Familienbräuche & Religion",
+    "Niveau": "B2",
+    "Anzahl": 18
+  },
+  {
+    "Kapitel": 124,
+    "Kapitelname": "Familie & Diaspora",
+    "Niveau": "B2",
+    "Anzahl": 21
+  },
+  {
+    "Kapitel": 125,
+    "Kapitelname": "Tod, Trauer & Bestattung",
+    "Niveau": "B2",
+    "Anzahl": 24
+  },
+  {
+    "Kapitel": 126,
+    "Kapitelname": "Erbe, Nachlass & Erbrecht",
+    "Niveau": "C1",
+    "Anzahl": 20
+  },
+  {
+    "Kapitel": 127,
+    "Kapitelname": "Familie, Gesellschaft & Wandel",
+    "Niveau": "C1",
+    "Anzahl": 25
+  },
+  {
+    "Kapitel": 128,
+    "Kapitelname": "Gehobener Familienwortschatz",
+    "Niveau": "C1",
+    "Anzahl": 21
+  },
+  {
+    "Kapitel": 129,
+    "Kapitelname": "Archaischer & literarischer Familienwortschatz",
+    "Niveau": "C2",
+    "Anzahl": 18
+  },
+  {
+    "Kapitel": 130,
+    "Kapitelname": "Familie in Sprichwörtern & Redewendungen",
+    "Niveau": "C2",
+    "Anzahl": 17
   }
 ]

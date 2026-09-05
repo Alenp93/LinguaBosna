@@ -159,6 +159,13 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | glupost | Dummheit / Unsinn | Substantiv (f) | B1 | Umgangssprache (Kap 56/57) |
 | bosanski | bosnisch | Adjektiv | A1 | – (Sprachen/Länder) |
 | tuđi | fremd (jemand anderem gehörend) | Adjektiv | A2 | – |
+| žena | Frau | Substantiv (f) | A1 | Personen & Familie (Kap 4) |
+| muškarac | Mann | Substantiv (m) | A1 | Personen & Familie (Kap 4) |
+
+> `žena` und `muškarac` fehlen trotz aktiver Verwendung als Musterwörter in
+> Grammatikseiten (Dativ, Lokativ, Nominativ/Akkusativ). Sie sind A1-Grundvokabeln –
+> essenziell für den Unterricht. Aufgefallen bei: Sprachprüfung der Dativ-Plural-Ergänzung,
+> 2026-09-06.
 
 > `priča` fehlt, obwohl das Verb `pričati` (A1, ap59) im Bestand steht – dieselbe
 > Wurzel, nur das Substantiv fehlt. Solche Paarlücken sind typisch und lohnen beim

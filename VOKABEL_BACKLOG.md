@@ -161,11 +161,26 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | tuđi | fremd (jemand anderem gehörend) | Adjektiv | A2 | – |
 | žena | Frau | Substantiv (f) | A1 | Personen & Familie (Kap 4) |
 | muškarac | Mann | Substantiv (m) | A1 | Personen & Familie (Kap 4) |
+| čovjek | Mensch / Mann | Substantiv (m) | A1 | Personen & Familie (Kap 4) |
+| ljudi | Leute / Menschen (Pl. zu čovjek) | Substantiv (m, Pl.) | A1 | Personen & Familie (Kap 4) |
+| kilogram | Kilogramm | Substantiv (m) | A2 | Einkaufen & Geld (Kap 26/27) |
 
 > `žena` und `muškarac` fehlen trotz aktiver Verwendung als Musterwörter in
 > Grammatikseiten (Dativ, Lokativ, Nominativ/Akkusativ). Sie sind A1-Grundvokabeln –
 > essenziell für den Unterricht. Aufgefallen bei: Sprachprüfung der Dativ-Plural-Ergänzung,
 > 2026-09-06.
+
+> ⚠️ **`čovjek` und `ljudi` fehlen beide komplett** – dasselbe Muster wie bei `žena`/`muškarac`,
+> nur gravierender: Der Bestand führt den Turzismus `insan` (B1) und verweist in dessen
+> Deutsch-Feld auf `"Mensch (orient.; Standard: čovjek)"` – also auf ein Wort, das es selbst
+> nicht gibt. Beide werden in mindestens vier veröffentlichten Grammatikseiten aktiv gelehrt
+> (`grammatik-nominativ.html` A2 als Pflichtausnahme `čovjek → ljudi`, `grammatik-instrumental.html`
+> B1, `grammatik-demonstrativpronomen.html` B1, `grammatik-kasusfeinheiten-wortbildung.html` C1) –
+> und jetzt zusätzlich als Sonderform der -i-Gruppe auf `grammatik-genitiv.html`. `ljudi` ist
+> dabei ein echtes Suppletiv-Lemma, keine bloße Pluralform: es gehört als eigener Eintrag in
+> den Bestand, nicht als Flexionsform von `čovjek` (vgl. die Regel bei `godinama`/`satima` oben).
+> `kilogram` ist die schwächere Lücke derselben Prüfung (auch `kila` fehlt).
+> Aufgefallen bei: Sprachprüfung der Genitiv-Plural-Ergänzung, 2026-09-06.
 
 > `priča` fehlt, obwohl das Verb `pričati` (A1, ap59) im Bestand steht – dieselbe
 > Wurzel, nur das Substantiv fehlt. Solche Paarlücken sind typisch und lohnen beim

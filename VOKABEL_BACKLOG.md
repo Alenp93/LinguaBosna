@@ -82,10 +82,26 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | prije | vor / früher | Präposition | A1 | Zeit & Datum (Kap 14) |
 | poslije | nach / später | Präposition | A1 | Zeit & Datum (Kap 14) |
 | nakon | nach | Präposition | A2 | Konnektoren 2 (neu) |
+| iz | aus | Präposition | A1 | – (Präpositionen, siehe Notiz) |
+| od | von | Präposition | A1 | – (Präpositionen, siehe Notiz) |
+| do | bis (zu) | Präposition | A1 | – (Präpositionen, siehe Notiz) |
+| kod | bei | Präposition | A1 | – (Präpositionen, siehe Notiz) |
+| bez | ohne | Präposition | A1 | – (Präpositionen, siehe Notiz) |
 
 > `prije` und `poslije` fehlen bisher komplett als eigenständige Lemmata – im Bestand
 > stehen nur Zusammensetzungen (`prije podne`, `poslijepodne`, `prije svega`). Für
 > A1-Lernende ist das eine echte Lücke, unabhängig von den Übungen.
+
+> ⚠️ **Keine einzige der sechs Genitiv-Präpositionen steht im Bestand.**
+> `grammatik-genitiv.html` (B1) lehrt `iz, od, do, kod, bez, poslije` als
+> Pflichtprogramm und der Lückentext übt sie mit 24 Sätzen – im Wörterbuch ist
+> keine davon auffindbar. Das ist keine Beifang-Lücke, sondern eine systematische:
+> Der Bestand ist thematisch geschnitten und hat für Präpositionen bisher gar kein
+> Heimatkapitel (dieselbe Ursache wie bei den Funktionswörtern oben). Sinnvoll
+> wäre ein eigenes A1-Kapitel „Präpositionen" – zusammen mit den bereits gelehrten
+> Kasus-Präpositionen der anderen Grammatikseiten (`u`, `na`, `s(a)`, `prema`, `o`,
+> `pored`, `ispred` …) käme leicht ein volles Kapitel zusammen.
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `genitiv`, 2026-09-06.
 
 ---
 
@@ -164,6 +180,26 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | čovjek | Mensch / Mann | Substantiv (m) | A1 | Personen & Familie (Kap 4) |
 | ljudi | Leute / Menschen (Pl. zu čovjek) | Substantiv (m, Pl.) | A1 | Personen & Familie (Kap 4) |
 | kilogram | Kilogramm | Substantiv (m) | A2 | Einkaufen & Geld (Kap 26/27) |
+| litar | Liter | Substantiv (m) | A2 | Einkaufen & Geld (Kap 26/27) |
+| komad | Stück | Substantiv (m) | A2 | Einkaufen & Geld (Kap 26/27) |
+| mjesto | Ort / Platz | Substantiv (n) | A1 | Stadt & Orte (Kap 20/24) |
+| ime | Name / Vorname | Substantiv (n) | A1 | Vorstellen & Personalien (Kap 8) |
+| Bosna | Bosnien | Substantiv (f) | A1 | Länder & Nationalitäten (Kap 20) |
+
+> ⚠️ **`vrijeme` gibt es nur in der Bedeutung „Wetter"** (A1, Kap 19). Die zweite,
+> mindestens ebenso häufige Bedeutung **„Zeit"** fehlt – obwohl der Bestand
+> `radno vrijeme`, `na vrijeme` und `s vremena na vrijeme` bereits führt und der
+> Genitiv über „Nemam vremena." gelehrt wird. Nötig ist ein **zweiter Eintrag**
+> mit derselben Bosnisch-Form (wie bei `nana` = Oma / Minze bereits praktiziert),
+> nicht eine Erweiterung des Deutsch-Felds: Die beiden Bedeutungen gehören
+> didaktisch in verschiedene Kapitel (Wetter vs. Zeit & Datum).
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `genitiv`, 2026-09-06.
+
+> `mjesto` und `ime` werden bereits vom Akkusativ-Set des Lückentexts als
+> `vokabel_ref` referenziert, stehen aber nicht im Bestand – die Referenz läuft
+> dort also ins Leere. `Bosna` ist ein Exonym (bosn. Bosna ≠ dt. Bosnien) und
+> gehört nach der Eigennamen-Regel in `CLAUDE.md` deshalb in den Bestand,
+> anders als `Sarajevo` oder `Mostar`.
 
 > `žena` und `muškarac` fehlen trotz aktiver Verwendung als Musterwörter in
 > Grammatikseiten (Dativ, Lokativ, Nominativ/Akkusativ). Sie sind A1-Grundvokabeln –

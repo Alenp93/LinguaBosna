@@ -102,13 +102,39 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 |---|---|---|---|---|
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
-| Lückentext mit Wortbank | ✅ Pilot fertig (Akkusativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 80 Sätze (Thema `akkusativ`) |
+| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Genitiv) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 154 Sätze in 2 Themen: `akkusativ` (A2, 80) · `genitiv` (B1, 74) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
 | Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–4 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster) · Set 4 „Erzähltext" (10 Texte à 5 Lücken) |
 
-> **Die Seite kennt vier Aufgabentypen**, gesteuert über das Feld `typ` im Set:
+> ⚠️ **Lückentext-Thema `genitiv` (B1, 2026-09-06) – zwei Regeln, die beim Bau
+> entstanden sind und für jedes weitere Kasus-Set gelten:**
+>
+> **(a) Der Übungspool folgt dem Zuschnitt der Grammatikseite, nicht dem, was
+> „auch noch stimmt".** Die Genitivseite hat ihre Sonderformen bewusst nach C1
+> ausgelagert (Dualreste ruku/nogu/očiju/gostiju, die Cluster-Ausnahme
+> st/zd/št/žd, c → č in stričeva, die Sibilarisierungsfalle učenik/učenica,
+> sat vs. satovi). Diese Formen sind in der B1-Übung deshalb **nicht** enthalten
+> – sonst prüft die Übung Stoff, den die zugehörige Erklärseite nicht liefert,
+> und der Lernende scheitert an etwas, das er nicht lesen konnte. Beim Ergänzen
+> weiterer Sätze also erst die Grammatikseite lesen, dann schreiben.
+> Aus demselben Grund fehlen im Set auch **flüchtige a im Singular**
+> (ručak → ručka, posao → posla, otac → oca, vjetar → vjetra): B1 lehrt sie nicht.
+> Die zwei Ausnahmen `novac → novca` und `vrijeme → vremena` stehen wörtlich auf
+> der Erklärseite („Nemam novca.", „Nemam vremena.") und werden im Feedback
+> jeweils mitbegründet.
+>
+> **(b) Genitiv der Verneinung nur dort, wo er zwingend ist.** Nach dem
+> unpersönlichen `nema` („es gibt kein") ist der Genitiv obligatorisch –
+> „Nema mjesta.", „U kući nema vode." Nach persönlichem `nemam` + **zählbarem**
+> Objekt ist er dagegen nur *bevorzugt*: „Nemam poklon" ist neben „Nemam poklona"
+> gängig. Solche Sätze wurden aussortiert (dieselbe Eindeutigkeits-Regel wie in
+> Set 2 der Aspektwahl), weil die Übung sonst korrekte Antworten als falsch
+> wertet. Geblieben sind bei `nemam` nur Massen- und Abstraktbegriffe
+> (novca, mesa, vremena) sowie das Sammelwort braće.
+>
+> **`lernen-aspektwahl.html` kennt vier Aufgabentypen**, gesteuert über das Feld `typ` im Set:
 > `typ` fehlt (= „signal") zeigt einen Ausdruck mit drei Korb-Buttons; `typ: "satz"`
 > zeigt einen Lückensatz mit zwei Verbformen; `typ: "situation"` zeigt eine deutsche
 > Absichtsbeschreibung mit zwei vollständigen bosnischen Sätzen; `typ: "text"` zeigt
@@ -427,7 +453,8 @@ Lernende beim Thema einsteigen, nicht bei der Übungsart.
 - **Gibt es noch keine passende Grammatikseite** (Übung kommt zuerst), wird das als
   To-do gemeldet und beim Anlegen der Grammatikseite nachgezogen.
 
-Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext,
+Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext (`?thema=akkusativ`),
+`grammatik-genitiv.html` → Lückentext (`?thema=genitiv`),
 `grammatik-enklitika.html` → Satzbau-Puzzle,
 `grammatik-verbalaspekt.html` → Aspektpaare.
 

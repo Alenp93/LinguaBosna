@@ -102,7 +102,7 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 |---|---|---|---|---|
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
-| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Genitiv) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 154 Sätze in 2 Themen: `akkusativ` (A2, 80) · `genitiv` (B1, 74) |
+| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 214 Sätze in 3 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
@@ -133,6 +133,39 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 > Set 2 der Aspektwahl), weil die Übung sonst korrekte Antworten als falsch
 > wertet. Geblieben sind bei `nemam` nur Massen- und Abstraktbegriffe
 > (novca, mesa, vremena) sowie das Sammelwort braće.
+>
+> ⚠️ **Lückentext-Thema `lokativ` (A2, 2026-09-07) – zwei Regeln, die für jedes
+> weitere Kasus-Set mit Wechselpräpositionen gelten:**
+>
+> **(a) Distraktoren dürfen nie die Dativform sein.** Der Lokativ Singular ist beim
+> Substantiv **identisch mit dem Dativ** (`gradu`, `školi`, `selu` – steht so als
+> mini-note auf der Erklärseite). Ein „Dativ-Distraktor" wäre also exakt dieselbe
+> Zeichenkette wie die Lösung. Distraktoren kommen deshalb ausschließlich aus
+> Nominativ, Genitiv und Akkusativ. Der `bosnisch-pruefer` hat daran **einen** Fall
+> gefunden, den die Regel allein nicht abfängt: Bei der i-Deklination fallen
+> Nominativ Plural und Lokativ **Singular** zusammen (`vijesti`), der harmlos
+> gemeinte Nom.-Pl.-Distraktor wäre also im Singular eine gültige Antwort gewesen.
+> Der Satz hat deshalb ein pluralerzwingendes Wort bekommen („u **svim** vijestima").
+> Faustregel: Bei Plural-Aufgaben muss der Satz den Plural erzwingen (Demonstrativ
+> oder Adjektiv im Plural), nicht nur der Grundform-Hinweis „(Plural)".
+>
+> **(b) In den wo?/wohin?-Sätzen muss das Verb die Richtung erzwingen.** Der Kontrast
+> Lokativ/Akkusativ bei denselben Präpositionen `u`/`na` ist das didaktische
+> Alleinstellungsmerkmal der Seite und stellt 16 der 60 Sätze – als 8 Minimalpaare
+> mit demselben Wort in beiden Richtungen („Učim u školi." / „Idem u školu."). Ein
+> Satz, der beide Lesarten zulässt, wertet eine richtige Antwort als falsch; das ist
+> dieselbe Eindeutigkeits-Regel wie in Set 2 der Aspektwahl. Aussortiert wurden
+> deshalb Verben, die in beide Richtungen gehen (`trčati u sobu` = hinein / `u sobi`
+> = darin herumlaufen) sowie `idem kući`, das ohne Präposition im Dativ steht.
+>
+> **Der Pool folgt auch hier dem Zuschnitt der Erklärseite** (Regel (a) beim Genitiv,
+> siehe unten). Nicht enthalten, weil die A2-Seite es nicht lehrt: Sibilarisierung im
+> Feminin Singular (`knjiga → knjizi`, `majka → majci`, `djevojka → djevojci`),
+> flüchtiges a (`posao → poslu`, `novac → novcu`), Neutra mit `-en-`/`-et-`
+> (`vrijeme → vremenu`) und Feminina auf Konsonant im **Singular**. Im **Plural**
+> sind Feminina auf Konsonant dagegen enthalten (`vijestima`, `stvarima`), weil die
+> Seite `-ima` dort ausdrücklich lehrt. Diese Abgrenzung steht zusätzlich im Feld
+> `_hinweis` des Themas in der JSON – dort nachsehen, bevor Sätze ergänzt werden.
 >
 > **`lernen-aspektwahl.html` kennt vier Aufgabentypen**, gesteuert über das Feld `typ` im Set:
 > `typ` fehlt (= „signal") zeigt einen Ausdruck mit drei Korb-Buttons; `typ: "satz"`
@@ -454,6 +487,7 @@ Lernende beim Thema einsteigen, nicht bei der Übungsart.
   To-do gemeldet und beim Anlegen der Grammatikseite nachgezogen.
 
 Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext (`?thema=akkusativ`),
+`grammatik-lokativ.html` → Lückentext (`?thema=lokativ`),
 `grammatik-genitiv.html` → Lückentext (`?thema=genitiv`),
 `grammatik-enklitika.html` → Satzbau-Puzzle,
 `grammatik-verbalaspekt.html` → Aspektpaare.

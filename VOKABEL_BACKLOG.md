@@ -185,6 +185,7 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | mjesto | Ort / Platz | Substantiv (n) | A1 | Stadt & Orte (Kap 20/24) |
 | ime | Name / Vorname | Substantiv (n) | A1 | Vorstellen & Personalien (Kap 8) |
 | Bosna | Bosnien | Substantiv (f) | A1 | Länder & Nationalitäten (Kap 20) |
+| stvar | Sache / Ding | Substantiv (f) | A1 | – (siehe Notiz unten) |
 
 > ⚠️ **`vrijeme` gibt es nur in der Bedeutung „Wetter"** (A1, Kap 19). Die zweite,
 > mindestens ebenso häufige Bedeutung **„Zeit"** fehlt – obwohl der Bestand
@@ -200,6 +201,18 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 > dort also ins Leere. `Bosna` ist ein Exonym (bosn. Bosna ≠ dt. Bosnien) und
 > gehört nach der Eigennamen-Regel in `CLAUDE.md` deshalb in den Bestand,
 > anders als `Sarajevo` oder `Mostar`.
+
+> ⚠️ **`stvar` fehlt, obwohl `grammatik-lokativ.html` es als Musterwort benutzt** –
+> es ist dort das einzige Beispiel für „Feminin auf Konsonant" im Plural
+> (`stvar → u stvarima`, Gruppe 4). Im Bestand steht nur die Ableitung `stvarno`,
+> `stvarnost` und `ustvari`, also dreimal das Wortfeld ohne das Grundwort – dasselbe
+> Muster wie bei `priča`/`pričati` und `pomoć` oben, und zugleich ein Verstoß gegen
+> „Grundwort nie über dem Kompositum". Als sehr häufiges Alltagswort („Kako stvari
+> stoje?", „To je druga stvar.") wäre A1 angemessen; ein Heimatkapitel fehlt aber,
+> weil der Bestand thematisch geschnitten ist (gleiche Ursache wie bei den
+> Funktionswörtern ganz oben). Der Lückentext benutzt es in einem Satz und lässt
+> `vokabel_ref` dort bewusst leer.
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `lokativ`, 2026-09-07.
 
 > `žena` und `muškarac` fehlen trotz aktiver Verwendung als Musterwörter in
 > Grammatikseiten (Dativ, Lokativ, Nominativ/Akkusativ). Sie sind A1-Grundvokabeln –

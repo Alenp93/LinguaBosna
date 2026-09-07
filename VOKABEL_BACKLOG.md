@@ -186,6 +186,7 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | ime | Name / Vorname | Substantiv (n) | A1 | Vorstellen & Personalien (Kap 8) |
 | Bosna | Bosnien | Substantiv (f) | A1 | Länder & Nationalitäten (Kap 20) |
 | stvar | Sache / Ding | Substantiv (f) | A1 | – (siehe Notiz unten) |
+| inostranstvo | Ausland | Substantiv (n) | A2 | Länder & Nationalitäten (Kap 20) |
 
 > ⚠️ **`vrijeme` gibt es nur in der Bedeutung „Wetter"** (A1, Kap 19). Die zweite,
 > mindestens ebenso häufige Bedeutung **„Zeit"** fehlt – obwohl der Bestand
@@ -212,6 +213,18 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 > weil der Bestand thematisch geschnitten ist (gleiche Ursache wie bei den
 > Funktionswörtern ganz oben). Der Lückentext benutzt es in einem Satz und lässt
 > `vokabel_ref` dort bewusst leer.
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `lokativ`, 2026-09-07.
+
+> ⚠️ **`inostranstvo` fehlt komplett.** Aufgefallen beim Ersetzen eines
+> mehrdeutigen Kontrastsatzes: „Sutra putujemo u grad." ließ theoretisch auch
+> die Lokativ-Lesart „wir reisen in der Stadt umher" zu (der `bosnisch-pruefer`
+> stufte das als geringes Risiko ein, aber vermeidbar). „inostranstvo" schließt
+> diese Lesart sauberer aus, weil „u inostranstvu" einen **Zustand** beschreibt
+> (im Ausland sein) und die native Konstruktion fürs Umherreisen „po
+> inostranstvu" wäre, nicht „u inostranstvu" – anders als bei area-artigen
+> Ortsnamen (Stadt, Land), wo diese Abgrenzung nicht trägt. Häufiges A2-Wort
+> („Živi u inostranstvu.", „Putujemo u inostranstvo."), aber noch ohne
+> Heimatkapitel.
 > Aufgefallen bei: Lernen-Übung „Lückentext", Thema `lokativ`, 2026-09-07.
 
 > `žena` und `muškarac` fehlen trotz aktiver Verwendung als Musterwörter in

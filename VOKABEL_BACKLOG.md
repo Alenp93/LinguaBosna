@@ -87,6 +87,8 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | do | bis (zu) | Präposition | A1 | – (Präpositionen, siehe Notiz) |
 | kod | bei | Präposition | A1 | – (Präpositionen, siehe Notiz) |
 | bez | ohne | Präposition | A1 | – (Präpositionen, siehe Notiz) |
+| k / ka | zu (Richtung, + Dativ) | Präposition | B1 | – (Präpositionen, siehe Notiz) |
+| što | dass | Konjunktion | A2 | Konnektoren 2 (neu) |
 
 > `prije` und `poslije` fehlen bisher komplett als eigenständige Lemmata – im Bestand
 > stehen nur Zusammensetzungen (`prije podne`, `poslijepodne`, `prije svega`). Für
@@ -102,6 +104,19 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 > Kasus-Präpositionen der anderen Grammatikseiten (`u`, `na`, `s(a)`, `prema`, `o`,
 > `pored`, `ispred` …) käme leicht ein volles Kapitel zusammen.
 > Aufgefallen bei: Lernen-Übung „Lückentext", Thema `genitiv`, 2026-09-06.
+
+> ⚠️ **`k` / `ka` fehlt, obwohl `grammatik-dativ.html` (B1) es als eine von vier
+> Dativ-Funktionen lehrt** („Richtung zu jemandem", `Idem k doktoru.`) und der
+> Lückentext es in 12 Sätzen übt. Damit ist es dieselbe Lücke wie bei den sechs
+> Genitiv-Präpositionen eine Notiz weiter oben – und ein weiteres Argument für ein
+> eigenes Präpositionen-Kapitel. Beim Einbau die Doppelform beachten: **`ka` vor
+> Wörtern mit k-/g-** (`ka gradu`, `ka kući`), sonst `k`. Das gehört ins Deutsch-Feld
+> oder als zwei Einträge, sonst geht die Regel verloren.
+> `što` (als Konjunktion „dass" nach Gefühlsausdrücken: „Žao mi je **što** ne može
+> doći.") fehlt ebenfalls – anders als das bereits vorhandene Fragewort-Umfeld.
+> ⚠️ **Bewusst nicht als Lücke gezählt:** die Fragepartikel `li` („Je li vam hladno?").
+> Sie ist Grammatikstoff wie `svoj` oder `sav`, kein Wortschatzeintrag.
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `dativ`, 2026-09-07.
 
 ---
 
@@ -139,6 +154,9 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | faliti | fehlen (ugs.) | nesvršeni | – (ugs.; Standard: nedostajati) | A2 |
 | funkcionisati | funktionieren | dvovidni | – | B1 |
 | nastavljati | weitermachen / fortsetzen | nesvršeni | **`nastaviti` steht bereits im Bestand** (A2, Kap 25) – dort fehlt aber die `par_id` | A2 |
+| pomagati | helfen | nesvršeni | **`pomoći` steht bereits im Bestand** (A1, Kap 7) – dort fehlt aber die `par_id` | A1 |
+| zahvaliti | danken | svršeni | zahvaljivati (nesvršeni) – beide fehlen | A2 |
+| vraćati | zurückgeben / zurückbringen | nesvršeni | **`vratiti` steht bereits im Bestand** (A2, Kap 26) – dort fehlt aber die `par_id` | A2 |
 
 > ⚠️ **`nastavljati` schließt die Phasenverben-Trias:** `početi` (ap63) und `prestati`
 > (ap91, 2026-08-28 eingebaut) sind bereits vollständig gepaart, `nastaviti` (A2,
@@ -154,6 +172,16 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 > sind `morati`/`smjeti` weder über den Vokabeltrainer noch über die Wörterbuch-Suche im
 > Header auffindbar. Vorschlag: gleiches Kapitel wie die anderen Modalverben (Kap 1, A1).
 > Aufgefallen bei: Sprachprüfung von `grammatik-modalverben.html`, 2026-08-30.
+
+> ⚠️ **`pomagati` und `zahvaliti` fehlen, obwohl `grammatik-dativ.html` (B1) sie als
+> die zwei Musterverben mit Dativ führt** („Pomažem majci.", Spickzettel: „pomagati
+> (helfen), vjerovati (glauben), zahvaliti (danken), nedostajati (fehlen)"). Von den
+> vieren stehen nur `vjerovati` (B1) und `nedostajati` (B1) im Bestand. Bei `pomagati`
+> ist die Lücke besonders schief: `pomoći` (svršeni) steht seit A1 im Bestand, aber der
+> unvollendete Partner – also genau die Form, die man im Präsens braucht („pomažem",
+> nicht „pomognem") – fehlt. Dasselbe Muster bei `vratiti`/`vraćati`.
+> `morati` (schon oben gelistet) wurde hier ein zweites Mal gebraucht.
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `dativ`, 2026-09-07.
 
 ---
 
@@ -343,6 +371,11 @@ Damit dieselbe Frage nicht zweimal geprüft wird:
   ohne Punkt, `Pas laje.` mit. Das ist kein Versehen: Kapitel 90 „Sprichwörter" führt alle
   30 Einträge ohne Schlusspunkt, gewöhnliche Beispielsätze bekommen einen.
 
+- **`bajram` bleibt klein geschrieben (entschieden 2026-09-07).** Der `bosnisch-pruefer`
+  hatte angemerkt, dass der *Pravopis bosanskoga jezika* (Halilović) „Bajram" alleinstehend
+  groß verlangt. Alen hat sich bewusst für die im Bestand bereits durchgängige
+  Kleinschreibung entschieden (`bajram`, `sretan bajram`, Kap 39) – **nicht** ändern, auch
+  wenn „Sretan Bajram" in der Praxis oft groß geschrieben wird.
 - **`kafa`** – der Bestand führt korrekt die bosnische Form **`kahva`** (Kap 11, A1).
   `kafa` ist die serbische Variante und gehört **nicht** in den Bestand. Beispielsätze
   in Übungen müssen `kahva` verwenden.

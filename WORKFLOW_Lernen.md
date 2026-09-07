@@ -102,7 +102,7 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 |---|---|---|---|---|
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
-| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 214 Sätze in 3 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) |
+| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv, Dativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 288 Sätze in 4 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) · `dativ` (B1, 74) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
@@ -166,6 +166,68 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 > sind Feminina auf Konsonant dagegen enthalten (`vijestima`, `stvarima`), weil die
 > Seite `-ima` dort ausdrücklich lehrt. Diese Abgrenzung steht zusätzlich im Feld
 > `_hinweis` des Themas in der JSON – dort nachsehen, bevor Sätze ergänzt werden.
+>
+> ⚠️ **Lückentext-Thema `dativ` (B1, 2026-09-07) – der Kasus mit den meisten
+> Formzusammenfällen, deshalb die strengste Distraktor-Regel des ganzen Sets:**
+>
+> **(a) Zwei Kasus-Zusammenfälle statt einem.** Beim Lokativ galt schon: Lokativ Sg =
+> Dativ Sg. Beim Dativ kommt der Plural dazu – **Dativ Pl = Lokativ Pl = Instrumental
+> Pl** (alle `-ima`/`-ama`). Ein Distraktor aus einem dieser Kasus wäre also buchstäblich
+> dieselbe Zeichenkette wie die Lösung. Distraktoren kommen deshalb ausschließlich aus
+> **Nominativ, Genitiv und Akkusativ** – im Plural konkret aus Nominativ Plural und
+> Genitiv Plural (`prijatelji`/`prijatelja`, `sestre`/`sestara`, `sinovi`/`sinova`).
+>
+> ⚠️ **Der Genitiv-Plural-Distraktor braucht trotzdem ein Attribut im Dativ Plural
+> davor – Befund des `bosnisch-pruefer`, und er gilt für jedes künftige Kasus-Set.**
+> Die naheliegende Annahme „Gen. Pl. ist keine Dativform, also ist der Distraktor
+> sicher" trägt nicht: Im Plural ist der **Possessivgenitiv** die einzige
+> normgerechte Ausdrucksweise (ein Possessivadjektiv gibt es dort nicht), und damit
+> ist „Dajem knjige **prijatelja**." ein völlig korrekter Satz – nur eben „Ich gebe
+> die Bücher *der Freunde*" statt „*den Freunden* Bücher". Fünf Aufgaben waren
+> davon betroffen und haben ein Attribut bekommen (`starim`, `novim`, `svim`,
+> `svojim`), das die Genitiv-Lesart ausschließt: `starim` kann kein Genitiv Plural
+> sein (der wäre `starih`). **Faustregel: Steht ein Genitiv Plural in der Wortbank,
+> gehört ein Adjektiv oder Possessivum im Dativ Plural vor die Lücke.**
+> Im **Singular** ist die Lage umgekehrt entspannt: Dort verlangt die Norm bei einer
+> unerweiterten Personenbezeichnung das Possessivadjektiv (`bratovu knjigu`, nicht
+> `knjigu brata`), der Genitiv-Distraktor bleibt also ungrammatisch – die 13
+> Singular-Aufgaben stehen deshalb bewusst ohne Attribut.
+>
+> Wo eine **Singularform** als Distraktor steht (`selima` gegen `selo`), erzwingt
+> ebenfalls ein Adjektiv im Plural die Lesart („ka **malim** selima").
+>
+> **(b) Die Pronomen-Gruppe („… mi je") passt ins Wortbank-Schema – mit einer Regel.**
+> Gruppe 3 der Erklärseite füllt die Lücke nicht mit einem Substantiv, sondern mit einem
+> Dativ-Pronomen (`Hladno mi je.`). Das funktioniert im vorhandenen Schema unverändert:
+> `grundform` trägt das **Nominativ-Pronomen mit deutscher Glosse** (`"ja (ich)"`,
+> `"oni (sie, Plural)"`) – das ist dieselbe Rolle wie `"žena (Plural)"` bei Substantiven,
+> nur mit Glosse, weil `mi` sonst mit dem Dativ von `ja` verwechselbar wäre. ⚠️ **Die
+> Distraktoren müssen aus DERSELBEN Person kommen** (Akkusativ- oder Nominativform:
+> `mi` gegen `me`/`ja`, `joj` gegen `je`/`ona`). Ein Pronomen einer *anderen* Person wäre
+> ein grammatisch einwandfreier Satz mit anderer Bedeutung – die Übung würde eine
+> richtige Antwort als falsch werten (dieselbe Eindeutigkeits-Regel wie in Set 2 der
+> Aspektwahl). Weil die Übersetzung erst **nach** der Antwort im Feedback erscheint,
+> ist der `grundform`-Hinweis die einzige Information, die die Person festlegt – er
+> darf deshalb bei Pronomen nie fehlen.
+>
+> Genau **eine** Aufgabe bricht diese Regel bewusst: „Toplo ___ je u sobi." (1. Pl.)
+> hat als zweiten Distraktor die betonte Langform `nama`. Die ist zwar ein Dativ, an
+> dieser Stelle aber trotzdem unmöglich – die Enklitika `je` muss an zweiter Stelle
+> stehen (`Nama je toplo`, nie *`Toplo nama je`*). Der Grund für die Ausnahme:
+> Die Nominativform `mi` scheidet hier aus, weil sie zufällig mit dem Dativ von `ja`
+> zusammenfällt und „Toplo **mi** je" ein korrekter Satz wäre. Die Aufgabe prüft
+> damit als einzige Syntax statt Morphologie; das steht auch im `_hinweis` der JSON.
+>
+> **(c) Der Pool folgt auch hier dem Zuschnitt der Erklärseite.** Nicht enthalten, weil
+> die B1-Seite es nicht lehrt: flüchtiges a (`otac → ocu`, `posao → poslu`, `pas → psu`),
+> Neutra mit `-en-`/`-et-` (`vrijeme → vremenu`), Feminina auf Konsonant, Maskulina auf
+> `-a` (`komšija → komšiji`, `kolega → kolegi`, `tata → tati`) und die Palatalisierung im
+> Maskulin Plural (`učenik → učenicima`). Beim Lautwandel im Feminin Singular sind nur
+> `-ka → -ci` und `-ga → -zi` drin; `-ha` (`snaha → snasi`) fehlt bewusst, weil die Seite
+> `-ha` zwar in der Regel nennt, aber kein Beispiel zeigt – und h wird zu **s**, nicht zu z.
+> Ebenso ausgelassen sind die **Ausnahmen** des Lautwandels (`baka → baki`, `tetka → tetki`,
+> `mačka → mački`, `kćerka → kćerki`), die die Seite nicht behandelt. Alles davon steht
+> zusätzlich im Feld `_hinweis` des Themas.
 >
 > **`lernen-aspektwahl.html` kennt vier Aufgabentypen**, gesteuert über das Feld `typ` im Set:
 > `typ` fehlt (= „signal") zeigt einen Ausdruck mit drei Korb-Buttons; `typ: "satz"`
@@ -489,6 +551,7 @@ Lernende beim Thema einsteigen, nicht bei der Übungsart.
 Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext (`?thema=akkusativ`),
 `grammatik-lokativ.html` → Lückentext (`?thema=lokativ`),
 `grammatik-genitiv.html` → Lückentext (`?thema=genitiv`),
+`grammatik-dativ.html` → Lückentext (`?thema=dativ`),
 `grammatik-enklitika.html` → Satzbau-Puzzle,
 `grammatik-verbalaspekt.html` → Aspektpaare.
 

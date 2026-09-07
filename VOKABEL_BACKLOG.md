@@ -157,6 +157,8 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | pomagati | helfen | nesvršeni | **`pomoći` steht bereits im Bestand** (A1, Kap 7) – dort fehlt aber die `par_id` | A1 |
 | zahvaliti | danken | svršeni | zahvaljivati (nesvršeni) – beide fehlen | A2 |
 | vraćati | zurückgeben / zurückbringen | nesvršeni | **`vratiti` steht bereits im Bestand** (A2, Kap 26) – dort fehlt aber die `par_id` | A2 |
+| sjediti | sitzen | nesvršeni | – (Zustandsverb; `sjesti` = „sich setzen" steht bereits im Bestand, A1, Kap 9) | A1 |
+| šetati | spazieren gehen | nesvršeni | prošetati (svršeni) – beide fehlen | A2 |
 
 > ⚠️ **`nastavljati` schließt die Phasenverben-Trias:** `početi` (ap63) und `prestati`
 > (ap91, 2026-08-28 eingebaut) sind bereits vollständig gepaart, `nastaviti` (A2,
@@ -182,6 +184,17 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 > nicht „pomognem") – fehlt. Dasselbe Muster bei `vratiti`/`vraćati`.
 > `morati` (schon oben gelistet) wurde hier ein zweites Mal gebraucht.
 > Aufgefallen bei: Lernen-Übung „Lückentext", Thema `dativ`, 2026-09-07.
+
+> ⚠️ **`sjediti` und `šetati` fehlen, obwohl beide Alltagsverben sind.** Im Bestand steht
+> jeweils nur die verwandte, aber nicht gleichbedeutende Form: `sjesti` („sich setzen",
+> A1, Kap 9) ohne `sjediti` („sitzen"), und `šetnja` („Spaziergang", selbst noch
+> Backlog-Kandidat, siehe Substantiv-Tabelle) ohne `šetati`. Bei `sjediti` ist die Lücke
+> besonders schief, weil die Zustandsbedeutung die häufigere ist: „Sjedim za stolom."
+> braucht `sjediti` – `sjesti` hieße „ich setze mich hin". Dasselbe Muster wie bei
+> `pomoći`/`pomagati` oben. ⚠️ Beim Einbau **keine** `par_id` zu `sjesti` vergeben:
+> `sjediti` ist ein Zustandsverb, kein echter Aspektpartner (vgl. die Warnung zu
+> Scheinpaaren in `CLAUDE.md`).
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `instrumental`, 2026-09-07.
 
 ---
 

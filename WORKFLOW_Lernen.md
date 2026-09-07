@@ -102,7 +102,7 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 |---|---|---|---|---|
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
-| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv, Dativ) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 288 Sätze in 4 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) · `dativ` (B1, 74) |
+| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv, Dativ, Instrumental) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 365 Sätze in 5 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) · `dativ` (B1, 74) · `instrumental` (B1, 77) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
@@ -228,6 +228,69 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 > Ebenso ausgelassen sind die **Ausnahmen** des Lautwandels (`baka → baki`, `tetka → tetki`,
 > `mačka → mački`, `kćerka → kćerki`), die die Seite nicht behandelt. Alles davon steht
 > zusätzlich im Feld `_hinweis` des Themas.
+>
+> ⚠️ **Lückentext-Thema `instrumental` (B1, 2026-09-07) – der Kasus, bei dem die
+> Distraktor-Regel je nach Numerus umschlägt:**
+>
+> **(a) Singular und Plural brauchen gegenläufige Distraktoren.** Im **Singular** ist der
+> Instrumental (`-om`/`-em`) der einzige Kasus, der mit keinem anderen zusammenfällt –
+> Nominativ, Genitiv, Akkusativ und sogar Dativ/Lokativ sind dort als Distraktor
+> unbedenklich. Das ist die Ausnahme gegenüber den Sets `lokativ` und `dativ`. Im
+> **Plural** gilt dagegen die strengste Variante der Regel: Instrumental Pl = Dativ Pl =
+> Lokativ Pl (alle `-ima`/`-ama`), also kommen die Distraktoren nur aus Nominativ Plural,
+> Genitiv Plural oder aus einer **gar nicht existierenden** Form. Letztere sind hier
+> besonders ergiebig, weil sie den verlängerten Plural-Stamm prüfen, den die Seite lehrt:
+> `ključevima` gegen `ključima`, `krovovima` gegen `krovima`, `stolovima` gegen `stolima`.
+> Solche Formen sind sicher, weil sie im Standard nicht existieren – und sie umgehen die
+> Kasus-Syncretismen ganz.
+>
+> **(b) Das Kernthema „Werkzeug ohne s / Begleitung mit s/sa" braucht zwei verschiedene
+> Aufgabenbauweisen.** Werkzeug-Sätze enthalten selbst **kein** s/sa – sonst verriete die
+> Präposition die Antwort; stattdessen steht die falsche s-Variante als **Distraktor** in
+> der Wortbank (`s nožem` gegen `nožem`). Begleitungs-Sätze haben s/sa im Satztext, dort
+> ist nur die Form gefragt. Der `bosnisch-pruefer` hat die s-Distraktoren einzeln geprüft
+> und bestätigt: „Režem hljeb s nožem", „Plaćam s karticom" usw. sind belegbar falsch, nicht
+> bloß dispräferiert – die Aufgaben sind also fair.
+>
+> **(c) Bei `s`/`sa` wird nur die Richtung geprüft, in der `sa` zwingend ist** (vor
+> s/z/š/ž und bei `sa mnom`). Die Gegenrichtung wäre unfair, weil `sa` vor anderen Lauten
+> umgangssprachlich ebenfalls vorkommt (`sa bratom`) – dieselbe Eindeutigkeits-Regel wie
+> überall sonst. In diesen sechs Aufgaben steckt die **Präposition mit in der Lücke**
+> (`loesung: "sa šećerom"`); das ist im vorhandenen Schema die einzige Stelle mit
+> mehrwortigen Lösungen und funktioniert ohne Codeänderung, weil die Wortbank den
+> Lösungsstring nur anzeigt und vergleicht.
+>
+> **(d) `braća`/`djeca` sind der einzige Ort im ganzen Lückentext, an dem eine Dativform
+> bewusst als Distraktor steht** (`braći`, `djeci` gegen `braćom`, `djecom`) – genau weil
+> sich Dativ und Instrumental hier **unterscheiden**, anders als bei echten Pluralformen.
+> Dasselbe Wortpaar zeigt damit den Kontrast zu den Sets `dativ` und `lokativ`.
+>
+> ⚠️ **(e) Befund des `bosnisch-pruefer`, der für jedes künftige Präpositions-Set gilt:
+> Bewegungsverben machen `nad`/`pod`/`pred` mehrdeutig.** Vier Sätze standen ursprünglich
+> mit `letjeti` („Avion leti nad gradom", „Ptice lete nad kućama") – und `nad` + **Akkusativ**
+> ist bei Bewegung eine reguläre Richtungsangabe („Ptica leti nad kuću"). Damit wären die
+> Akkusativ-Distraktoren verteidigbar gewesen. Alle vier sind auf statische Prädikate
+> umgestellt (`Sunce je nad …`, `Zvijezde su nad …`, `Nad … je magla`). Faustregel:
+> **Nur `biti`/`je`/`su`, `spavati`, `stajati`, `čekati`, `sjediti`** – kein Verb, das eine
+> Bewegung ausdrückt.
+>
+> ⚠️ **(f) Zweiter Befund, der genauso allgemein gilt: Ein objektloser Satz macht den
+> Akkusativ-Distraktor selbst zum Objekt.** „Plaćam ___." mit dem Distraktor `karticu`
+> ergibt „Plaćam karticu" = „ich zahle die Kartengebühr", „Djeca crtaju ___." mit `olovke`
+> ergibt „die Kinder malen Stifte ab" – beides korrektes Bosnisch. Beide Aufgaben haben ein
+> Objekt bekommen („Plaćam **račun** karticom", „Djeca crtaju **kuću** olovkama"). Ebenso
+> gefährlich: ein Satz **ohne Subjekt**, weil 3. Person Singular und Imperativ gleich lauten –
+> „Sjedi za ___ i radi." war auch als „Setz dich an den Computer!" lesbar und damit als
+> Richtung; jetzt „**Tata** sjedi za računarom".
+>
+> **(g) Der Pool folgt auch hier dem Zuschnitt der Erklärseite.** Nicht enthalten, weil die
+> B1-Seite es nicht lehrt: flüchtiges a (`otac → ocem`, `pas → psom`, `vjetar → vjetrom`),
+> Neutra mit `-en-`/`-et-` (`vrijeme → vremenom`, `jaje → jajetom`), Feminina auf Konsonant
+> (`noć → noću`, `so → solju`), Maskulina auf `-a` (`komšija → komšijom`) und die
+> Dissimilation e…e → `-om` (`mjesec → mjesecom`). `među` steht nur im Plural, `između` +
+> Genitiv kommt bewusst gar nicht vor, und `za` wird nur in der gelehrten Bedeutung
+> „am (Tisch/Computer) sitzen" geübt – nicht als „hinterherlaufen" (`trčati za nekim`), wo
+> eine Akkusativ-Lesart möglich wäre. Alles davon steht zusätzlich im Feld `_hinweis`.
 >
 > **`lernen-aspektwahl.html` kennt vier Aufgabentypen**, gesteuert über das Feld `typ` im Set:
 > `typ` fehlt (= „signal") zeigt einen Ausdruck mit drei Korb-Buttons; `typ: "satz"`
@@ -552,6 +615,7 @@ Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext (`?thema=akkusativ`
 `grammatik-lokativ.html` → Lückentext (`?thema=lokativ`),
 `grammatik-genitiv.html` → Lückentext (`?thema=genitiv`),
 `grammatik-dativ.html` → Lückentext (`?thema=dativ`),
+`grammatik-instrumental.html` → Lückentext (`?thema=instrumental`),
 `grammatik-enklitika.html` → Satzbau-Puzzle,
 `grammatik-verbalaspekt.html` → Aspektpaare.
 

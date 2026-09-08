@@ -583,14 +583,14 @@
   line-height: 1.7;
 }
 
-.paypal-section {
+.support-section {
   padding: 70px 5%;
   background: #fff;
   text-align: center;
 }
 
 /* Goldene Trennlinie über dem Bereich */
-.paypal-section::before {
+.support-section::before {
   content: '';
   display: block;
   width: 60px;
@@ -600,62 +600,83 @@
   margin: 0 auto 50px;
 }
 
-.paypal-box {
-  background: var(--bg-light);
-  border: 2px solid var(--neutral);
-  border-radius: 14px;
-  padding: 50px 40px;
-  max-width: 560px;
+/* Zwei gleichwertige Optionen nebeneinander */
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
-.paypal-box .paypal-icon {
-  font-size: 3rem;
-  color: #003087; /* PayPal Blau */
-  display: block;
-  margin-bottom: 18px;
+.support-box {
+  background: var(--bg-light);
+  border: 2px solid var(--neutral);
+  border-radius: 14px;
+  padding: 40px 30px;
 }
 
-.paypal-box h2 {
+.support-box .support-icon {
+  font-size: 2.6rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Markenfarben nur beim Icon — Button bleibt einheitlich (Design-System) */
+.support-icon.kofi-icon   { color: #FF5E5B; } /* Ko-fi Rot */
+.support-icon.paypal-icon { color: #003087; } /* PayPal Blau */
+
+.support-box h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--primary);
   margin-bottom: 14px;
 }
 
-.paypal-box p {
+.support-box p {
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.97rem;
+  font-size: 0.93rem;
   color: #555;
-  line-height: 1.75;
-  margin-bottom: 32px;
+  line-height: 1.7;
+  margin-bottom: 26px;
 }
 
-/* PayPal Button — goldgelb, Montserrat Bold */
-.btn-paypal {
+/* Unterstützen-Button — goldgelb, Montserrat Bold (Design-System-Standard) */
+.btn-support {
   display: inline-block;
   background-color: var(--accent);
   color: var(--primary);
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1rem;
-  padding: 14px 36px;
+  padding: 14px 30px;
   border-radius: 6px;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn-paypal:hover {
+.btn-support:hover {
   background-color: var(--primary);
   color: #fff;
 }
 
-.paypal-note {
-  margin-top: 18px;
+/* Kleiner Hinweis unter dem Button */
+.support-note {
+  margin-top: 16px;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.82rem;
   color: #707070;   /* statt #888: 4,5:1 auf Weiß (#888 nur 3,3:1) */
+}
+
+/* Hinweis: freiwillig, keine Gegenleistung, nicht absetzbar */
+.tax-note {
+  margin: 40px auto 0;
+  max-width: 560px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #707070;   /* statt #888: 4,5:1 auf Weiß (#888 nur 3,3:1) */
+  font-style: italic;
 }
 
 .transparency-section {
@@ -757,7 +778,7 @@
   .hero-unterstuetzen h1 { font-size: 1.9rem; }
 
   .why-section,
-  .paypal-section,
+  .support-section,
   .transparency-section {
     padding: 50px 5%;
   }
@@ -765,7 +786,10 @@
   /* 3 Karten → 1 Spalte */
   .why-grid { grid-template-columns: 1fr; }
 
-  .paypal-box { padding: 36px 24px; }
+  /* 2 Unterstützen-Boxen → 1 Spalte */
+  .support-grid { grid-template-columns: 1fr; }
+
+  .support-box { padding: 36px 24px; }
 }
 
 
@@ -786,14 +810,14 @@
   .hero-unterstuetzen h1 { font-size: 1.55rem; }
 
   .why-section,
-  .paypal-section,
+  .support-section,
   .transparency-section {
     padding: 40px 4%;
   }
 
-  .paypal-box { padding: 28px 18px; }
+  .support-box { padding: 28px 18px; }
 
-  .btn-paypal {
+  .btn-support {
     width: 100%;
     text-align: center;
   }

@@ -35,7 +35,7 @@
   <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="LinguaBosna – Lückentext üben">
-  <meta property="og:description" content="Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Lokativ, Genitiv, Dativ und Instrumental, mit Erklärung zu jeder Lösung.">
+  <meta property="og:description" content="Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Genitiv, Dativ, Instrumental, Lokativ oder alle Fälle gemischt.">
   <meta property="og:url"         content="https://linguabosna.com/Code/4_Lernen/lernen-luckentext.html">
   <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
   <meta property="og:site_name"   content="LinguaBosna">
@@ -44,9 +44,9 @@
   <!-- ── Twitter Card ───────────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="LinguaBosna – Lückentext üben">
-  <meta name="twitter:description" content="Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Lokativ, Genitiv, Dativ und Instrumental, mit Erklärung zu jeder Lösung.">
+  <meta name="twitter:description" content="Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Genitiv, Dativ, Instrumental, Lokativ oder alle Fälle gemischt.">
   <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
-  <meta name="description" content="Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Lokativ, Genitiv, Dativ und Instrumental, mit Erklärung zu jeder Lösung.">
+  <meta name="description" content="Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Genitiv, Dativ, Instrumental, Lokativ oder alle Fälle gemischt.">
 
   <!-- Google Fonts (Pflicht) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,7 @@
       {
         "@type": "LearningResource",
         "name": "Lückentext üben",
-        "description": "Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Lokativ, Genitiv, Dativ und Instrumental, mit Erklärung zu jeder Lösung.",
+        "description": "Interaktive Bosnisch-Übung: Setze im Lückentext die richtige Wortform ein – Akkusativ, Genitiv, Dativ, Instrumental, Lokativ oder alle Fälle gemischt.",
         "url": "https://linguabosna.com/Code/4_Lernen/lernen-luckentext.html",
         "inLanguage": "de",
         "learningResourceType": "Interaktive Übung",
@@ -180,6 +180,12 @@
           <button class="btn-primary" id="retryBtn">Wiederholen</button>
           <button class="btn-outline" id="otherBtn">Anderes Thema</button>
         </div>
+
+        <!-- Auswertung nach Fall: nur beim Thema „gemischt" sichtbar
+             (die Einzel-Themen haben nur einen Fall, da lohnt sie nicht).
+             Die Klassen liegen schon in Style_4_Lernen.css, weil die
+             Aspektwahl dieselbe Auswertung nach Regeltyp benutzt. -->
+        <div class="kategorie-auswertung hidden" id="fallAuswertung"></div>
       </div>
     </section>
 
@@ -211,9 +217,21 @@
   var aktuelleNr   = 0;     // Index der aktuellen Aufgabe (0-basiert)
   var punkte       = 0;     // richtig beantwortete Aufgaben
   var beantwortet  = false; // verhindert Doppelklick auf die Wortbank
+  var fallStatistik = {};   // pro Fall: { richtig: n, gesamt: n } – nur „gemischt"
 
   /* Kurzschreibweise für document.getElementById */
   function $(id) { return document.getElementById(id); }
+
+  /* Minimal-Escaping für Text, der per innerHTML eingesetzt wird.
+     Die Daten stammen aus unserer eigenen JSON, das ist also reine
+     Vorsicht – aber billig und verhindert, dass ein „<" im Text
+     die Seite zerlegt. */
+  function sicher(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
 
 
   /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
@@ -228,6 +246,73 @@
       array[j] = temp;
     }
     return array;
+  }
+
+
+  /* ── Aufgaben für einen Durchgang ziehen ─────────────── */
+  /* Zwei Verfahren, die Datei entscheidet selbst welches:
+
+     a) Themen OHNE das Feld „fall" (akkusativ, lokativ, genitiv,
+        dativ, instrumental): einfach mischen und die ersten 10
+        nehmen. Dort prüft ohnehin jede Aufgabe denselben Fall,
+        eine Gruppierung wäre also wirkungslos.
+
+     b) Thema „gemischt": Dort prüft jede Aufgabe einen ANDEREN
+        Fall, und eine rein zufällige Ziehung könnte im Extremfall
+        10-mal denselben liefern. Deshalb wird nach dem Feld „fall"
+        gruppiert und reihum je eine Aufgabe pro Fall gezogen –
+        dasselbe Verfahren wie in lernen-aspektwahl.html (dort nach
+        „korb" bzw. „kategorie"). Bei 6 Fällen und 10 Aufgaben kommt
+        so jeder Fall mindestens einmal vor, und bei einer
+        Wiederholung sind es andere Sätze desselben Falls.
+
+     Die Unterscheidung läuft absichtlich über das Vorhandensein
+     des Feldes und nicht über die Themen-ID: Ein künftiges zweites
+     Misch-Thema bekommt die Stratifizierung damit automatisch. */
+  function zieheAufgaben(thema, anzahl) {
+    var alle = thema.aufgaben.slice();   // Kopie, Original bleibt heil
+
+    // Hat das Thema überhaupt Fall-Angaben? (erste Aufgabe genügt)
+    var stratifizieren = alle.length > 0 && alle[0].fall;
+
+    if (!stratifizieren) {
+      return mischen(alle).slice(0, anzahl);
+    }
+
+    // 1. Nach Fall gruppieren
+    var nachFall = {};
+    alle.forEach(function (a) {
+      if (!nachFall[a.fall]) { nachFall[a.fall] = []; }
+      nachFall[a.fall].push(a);
+    });
+
+    // 2. Jede Gruppe für sich mischen
+    var gruppen = Object.keys(nachFall).map(function (k) {
+      return mischen(nachFall[k].slice());
+    });
+
+    // 3. Gruppen-Reihenfolge mischen – sonst bekäme bei 10 Aufgaben
+    //    auf 6 Fälle immer derselbe Fall die Extraplätze
+    mischen(gruppen);
+
+    // 4. Reihum je eine Aufgabe aus jeder Gruppe
+    var auswahl = [];
+    var runde = 0;
+    while (auswahl.length < anzahl) {
+      var etwasGenommen = false;
+      for (var i = 0; i < gruppen.length && auswahl.length < anzahl; i++) {
+        if (gruppen[i].length > runde) {
+          auswahl.push(gruppen[i][runde]);
+          etwasGenommen = true;
+        }
+      }
+      if (!etwasGenommen) { break; }   // Pool erschöpft
+      runde++;
+    }
+
+    // 5. Zum Schluss durchmischen, damit die Fälle nicht in fester
+    //    Reihenfolge abgefragt werden
+    return mischen(auswahl);
   }
 
 
@@ -297,19 +382,17 @@
   function starteThema(thema) {
     aktivThema = thema;
 
-    // Zufällige Auswahl aus dem großen Satz-Pool:
-    // 1. thema.aufgaben.slice() macht eine Kopie (Original bleibt unangetastet).
-    // 2. mischen(...) würfelt die Reihenfolge der Kopie mit Math.random() durch.
-    // 3. slice(0, AUFGABEN_PRO_RUNDE) schneidet die ersten 10 heraus.
-    // Weil wir aus einer gemischten Liste die ersten 10 nehmen, sind es
-    // 10 verschiedene Sätze (keine Wiederholung), und bei jedem Durchgang
-    // eine andere Auswahl. Hat ein Thema weniger als 10 Sätze, kommen
-    // automatisch einfach alle vorhandenen dran.
-    var gemischt = mischen(thema.aufgaben.slice());
-    aufgaben = gemischt.slice(0, AUFGABEN_PRO_RUNDE);
+    // Auswahl aus dem großen Satz-Pool – zufällig, bei „gemischt"
+    // zusätzlich gleichmäßig über die sechs Fälle verteilt
+    // (siehe zieheAufgaben weiter oben). In beiden Fällen sind es
+    // 10 verschiedene Sätze ohne Wiederholung, und bei jedem
+    // Durchgang eine andere Auswahl. Hat ein Thema weniger als
+    // 10 Sätze, kommen automatisch einfach alle vorhandenen dran.
+    aufgaben = zieheAufgaben(thema, AUFGABEN_PRO_RUNDE);
 
     aktuelleNr = 0;
     punkte = 0;
+    fallStatistik = {};   // Auswertung nach Fall bei jedem Start zurücksetzen
 
     // Bildschirm wechseln: Start ausblenden, Übung einblenden
     $('startScreen').classList.add('hidden');
@@ -387,6 +470,16 @@
     });
     if (!istRichtig) { btn.classList.add('wrong'); }
 
+    // Statistik je Fall mitführen (nur beim Thema „gemischt";
+    // die Einzel-Themen haben kein „fall"-Feld und überspringen das)
+    if (aufgabe.fall) {
+      if (!fallStatistik[aufgabe.fall]) {
+        fallStatistik[aufgabe.fall] = { richtig: 0, gesamt: 0 };
+      }
+      fallStatistik[aufgabe.fall].gesamt++;
+      if (istRichtig) { fallStatistik[aufgabe.fall].richtig++; }
+    }
+
     // Die Lücke im Satz mit der richtigen Lösung füllen
     var lueckeBox = $('lueckeBox');
     if (lueckeBox) {
@@ -452,6 +545,56 @@
       text = 'Kein Problem – schau dir die Erklärseite noch einmal an und versuch es erneut!';
     }
     $('resultText').textContent = text;
+
+    zeigeFallAuswertung();
+  }
+
+
+  /* ── 7b. Auswertung nach Fall ────────────────────────── */
+  /* Nur für „gemischt" sinnvoll: Dort zeigt sie nicht nur WIE VIELE
+     Fehler es gab, sondern BEI WELCHEM FALL – z. B. „Nominativ 1/2,
+     Lokativ 2/2". Genau das ist die Frage, die diese Übung stellt.
+     Bei den Einzel-Themen bleibt fallStatistik leer, die Box also
+     versteckt – der Ergebnis-Bildschirm sieht dort aus wie bisher. */
+  function zeigeFallAuswertung() {
+    var box = $('fallAuswertung');
+    var schluessel = Object.keys(fallStatistik);
+
+    // Bei null oder nur einem Fall lohnt die Aufschlüsselung nicht
+    if (schluessel.length < 2) {
+      box.classList.add('hidden');
+      box.innerHTML = '';
+      return;
+    }
+
+    // Lesbare Namen kommen aus dem Feld „faelle" des Themas;
+    // fehlt es, wird der Schlüssel selbst angezeigt.
+    var namen = (aktivThema && aktivThema.faelle) ? aktivThema.faelle : {};
+
+    // Schwächste Fälle zuerst – da lohnt das Nacharbeiten
+    schluessel.sort(function (a, b) {
+      var qa = fallStatistik[a].richtig / fallStatistik[a].gesamt;
+      var qb = fallStatistik[b].richtig / fallStatistik[b].gesamt;
+      return qa - qb;
+    });
+
+    var html = '<h3>Wo lagen die Fehler?</h3>';
+    schluessel.forEach(function (fall) {
+      var werte = fallStatistik[fall];
+      var name  = namen[fall] || fall;
+      var klasse = (werte.richtig === werte.gesamt) ? 'kat-alle' : 'kat-luecke';
+
+      html +=
+        '<div class="kat-zeile">' +
+          '<span class="kat-name">' + sicher(name) + '</span>' +
+          '<span class="kat-score ' + klasse + '">' +
+            werte.richtig + ' / ' + werte.gesamt +
+          '</span>' +
+        '</div>';
+    });
+
+    box.innerHTML = html;
+    box.classList.remove('hidden');
   }
 
 

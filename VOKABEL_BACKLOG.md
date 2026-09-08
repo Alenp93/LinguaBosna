@@ -63,6 +63,7 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1 (Signalwörter), 2026-08-26
 | iznenada | unerwartet / plötzlich | Adverb | B1 | Adverbien 2 (neu) |
 | napokon | endlich | Adverb | B1 | Adverbien 2 (neu) |
 | potpuno | völlig / ganz | Adverb | B1 | Adverbien 2 (neu) |
+| napolju | draußen | Adverb | A1 | Häufige Adverbien & Partikeln (Kap 10, 34/35) |
 
 > Hinweis: `godinama`, `satima`, `vikendom` sind Instrumental-Formen mit eigener
 > Bedeutung (Dauer bzw. Regelmäßigkeit). Sie gehören als eigenes Lemma in den
@@ -216,6 +217,8 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 | glupost | Dummheit / Unsinn | Substantiv (f) | B1 | Umgangssprache (Kap 56/57) |
 | bosanski | bosnisch | Adjektiv | A1 | – (Sprachen/Länder) |
 | tuđi | fremd (jemand anderem gehörend) | Adjektiv | A2 | – |
+| dobar | gut | Adjektiv | A1 | – (siehe Notiz unten) |
+| dubok | tief | Adjektiv | A1 | Natur & Länder (Kap 20 ist voll) |
 | žena | Frau | Substantiv (f) | A1 | Personen & Familie (Kap 4) |
 | muškarac | Mann | Substantiv (m) | A1 | Personen & Familie (Kap 4) |
 | čovjek | Mensch / Mann | Substantiv (m) | A1 | Personen & Familie (Kap 4) |
@@ -267,6 +270,22 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 > („Živi u inostranstvu.", „Putujemo u inostranstvo."), aber noch ohne
 > Heimatkapitel.
 > Aufgefallen bei: Lernen-Übung „Lückentext", Thema `lokativ`, 2026-09-07.
+
+> ⚠️ **`dobar` fehlt, obwohl das Adverb `dobro` („gut", A1) im Bestand steht** – dasselbe
+> Muster wie bei `priča`/`pričati` und `stvar`/`stvarno` weiter unten, nur andersherum:
+> Hier ist die abgeleitete Form da und das Grundwort fehlt. `dobar` ist eines der
+> häufigsten Adjektive überhaupt und wird in veröffentlichten Übungen bereits benutzt
+> („Poznajem **dobrog** ljekara." im Akkusativ-Set). Beim Einbau die unregelmäßige
+> bestimmte Form beachten (`dobar` → `dobri`, Komparativ `bolji`), sonst hilft der
+> Wörterbuch-Eintrag beim Lesen nicht weiter. `dubok` fehlt ebenso und steht seit dem
+> Akkusativ-Set in Gebrauch („Vidim **duboko** jezero."); `napolju` kam mit dem Thema
+> `gemischt` dazu.
+> ⚠️ **Ausdrücklich KEINE Lücke ist `sto` („Tisch")** – es steht im Bestand unter der
+> disambiguierten Lemma-Form **`sto (stol)`** (A1), getrennt vom Zahlwort `sto`
+> („hundert"). Wer `vokabel_ref` setzt, muss deshalb `"sto (stol)"` schreiben; ein
+> bloßes `"sto"` zeigt auf das Zahlwort. (Genau dieser Fehler ist beim Bau des Themas
+> `gemischt` einmal passiert und wurde korrigiert.)
+> Aufgefallen bei: Lernen-Übung „Lückentext", Thema `gemischt`, 2026-09-08.
 
 > `žena` und `muškarac` fehlen trotz aktiver Verwendung als Musterwörter in
 > Grammatikseiten (Dativ, Lokativ, Nominativ/Akkusativ). Sie sind A1-Grundvokabeln –

@@ -102,7 +102,7 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 |---|---|---|---|---|
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
-| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv, Dativ, Instrumental) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 365 Sätze in 5 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) · `dativ` (B1, 74) · `instrumental` (B1, 77) |
+| Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv, Dativ, Instrumental + alle gemischt) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 443 Sätze in 6 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) · `dativ` (B1, 74) · `instrumental` (B1, 77) · `gemischt` (B1, 78 – **stratifiziert gezogen**, siehe unten) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
@@ -291,6 +291,121 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 > Genitiv kommt bewusst gar nicht vor, und `za` wird nur in der gelehrten Bedeutung
 > „am (Tisch/Computer) sitzen" geübt – nicht als „hinterherlaufen" (`trčati za nekim`), wo
 > eine Akkusativ-Lesart möglich wäre. Alles davon steht zusätzlich im Feld `_hinweis`.
+>
+> ⚠️ **Lückentext-Thema `gemischt` (B1, 2026-09-08) – das Abschluss-Review über die fünf
+> Einzel-Sets, und technisch wie sprachlich das anspruchsvollste:**
+>
+> **(a) Die Aufgabe ist eine andere.** In den fünf Einzel-Themen steht der Fall schon fest,
+> gefragt ist nur die Form. Hier muss der Lernende den Fall erst am Kontext **erkennen**
+> (Verb, Präposition, Funktion) – die Wortbank zeigt deshalb Formen desselben Wortes aus
+> **verschiedenen** Fällen, und es sind **drei Distraktoren statt zwei** (bei sechs
+> konkurrierenden Fällen wären zwei zu wenig). 78 Sätze, exakt 13 je Fall.
+> Der Wortschatz ist bewusst fast vollständig aus den fünf geprüften Sets wiederverwendet:
+> dieselben Lemmata über mehrere Fälle hinweg sind didaktisch erwünscht, und die Wörter
+> sind schon einmal durch den `bosnisch-pruefer` gelaufen.
+>
+> **(b) Vokativ ist bewusst NICHT dabei.** Die Anrede konkurriert grammatisch mit keinem
+> anderen Fall – eine Position, die auch ein anderer Fall einnehmen könnte, gibt es dort
+> nicht. Eine „Vokativ oder was?"-Aufgabe wäre didaktisch unehrlich einfach.
+> **Nominativ dagegen gehört rein**, gerade weil er beim Fälle-Mischen am häufigsten
+> vergessen wird: Die Grundform selbst ist die Lösung, die anderen Fälle sind die Falle.
+>
+> **(c) Neues Feld `fall` je Aufgabe + stratifizierte Ziehung.** Bei rein zufälliger
+> Ziehung könnte eine Runde 10× denselben Fall liefern. `lernen-luckentext.html` gruppiert
+> deshalb nach `fall` und zieht reihum je eine Aufgabe pro Gruppe – dasselbe Verfahren wie
+> in `lernen-aspektwahl.html` (dort nach `korb`/`kategorie`). Nachgemessen über 2.000
+> simulierte Runden: **jede** Runde enthält alle sechs Fälle, nie mehr als zwei desselben.
+> ⚠️ Die Umschaltung hängt am **Vorhandensein des Feldes**, nicht an der Themen-ID
+> (`alle[0].fall`): Die fünf Einzel-Themen haben es nicht und verhalten sich unverändert
+> (nachgeprüft), ein künftiges zweites Misch-Thema bekommt die Stratifizierung geschenkt.
+> Dazu kommt eine Auswertung „Wo lagen die Fehler?" nach Fall im Ergebnis-Bildschirm,
+> analog zur Auswertung nach Regeltyp bei der Aspektwahl – sie nutzt **dieselben
+> CSS-Klassen** (`.kategorie-auswertung`, `.kat-zeile`, `.kat-name`, `.kat-score`), es war
+> also kein neues CSS nötig. Die Klartext-Namen stehen im neuen Themenfeld `faelle`;
+> bei weniger als zwei Fällen blendet sich die Box selbst aus, deshalb sieht der
+> Ergebnis-Bildschirm der Einzel-Themen aus wie vorher.
+>
+> **(d) Die Kollisions-Tabelle ist hier der Kernrisiko-Punkt** – verschärft gegenüber den
+> Einzel-Sets, weil jetzt gezielt mehrere Fälle gegeneinander antreten. Vor dem Ergänzen
+> weiterer Sätze durchgehen (steht ausführlich auch im `_hinweis` des Themas):
+> - **Dativ Sg = Lokativ Sg** bei allen Geschlechtern (`bratu`, `sestri`, `gradu`). Kein
+>   Problem, solange die Lösung nicht als Distraktor danebensteht – sie *ist* die andere Form.
+> - **Dativ Pl = Lokativ Pl = Instrumental Pl** (`-ima`/`-ama`). Im Plural gibt es damit nur
+>   vier unterscheidbare Optionen statt sechs. Das Set ist deshalb fast reiner **Singular**;
+>   nur zwei Genitiv-Plural-Aufgaben sind dabei, beide mit **langem Plural**
+>   (`grad → gradova`, `student → studenata`), wo sich Genitiv Singular und Plural
+>   unterscheiden. Wörter ohne langen Plural (`selo → sela`, `konj → konja`) sind
+>   ausgeschlossen, weil Gen. Sg. und Gen. Pl. dort dieselbe Zeichenkette sind.
+> - **Genitiv Sg = Akkusativ Sg bei BELEBTEN Maskulina** (`studenta`, `brata`). Das ist hier
+>   kein Fehler, sondern die Lektion – die Erklärung benennt es ausdrücklich. Bei
+>   **unbelebten** Maskulina gilt es nicht (`grada` ist nur Genitiv, der Akkusativ ist `grad`).
+> - **Genitiv Pl Feminin (kurze Form) = Nominativ Sg** (`kuća`, `škola`, `voda`). Deshalb
+>   steht in Genitiv-**Singular**-Aufgaben mit Feminina **kein Nominativ-Distraktor**.
+> - **Genitiv Sg = Nominativ Pl = Akkusativ Pl bei Feminina** (`knjige`, `djevojke`). Diese
+>   `-e`-Form steht nur dort in der Wortbank, wo ein Attribut den Singular erzwingt
+>   („Čitam **zanimljivu** ___" mit `knjige`); sonst wäre sie als Plural-Objekt korrekt
+>   („Vidim djevojke." = „Ich sehe Mädchen.").
+>
+> **(e) Nominativ-Aufgaben brauchen eine eigene Absicherung – der subtilste Befund beim Bau.**
+> Ohne Attribut wäre der Dativ-Distraktor als indirektes Objekt eines Satzes mit
+> weggelassenem Subjekt gültig: „___ čita knjigu." mit `studentu` ergibt
+> „**Studentu** čita knjigu." = „Er liest **dem Studenten** ein Buch." – korrektes Bosnisch.
+> Jede Nominativ-Aufgabe hat deshalb eines von dreien: ein Attribut im Nominativ
+> (`moj`/`moja`/`ova`/`naš`/`ovaj`/`ta`), ein kongruierendes Prädikatsadjektiv
+> („___ je danas **hladna**.") oder ein intransitives Verb ohne mögliches Dativobjekt
+> („Napolju pada ___.", „Danas ___ ne radi."). Das ist dieselbe Denkweise wie beim
+> Attribut-Fix im Dativ-Set, nur an der Gegenseite.
+>
+> **(f) Dativ-Aufgaben mit direktem Objekt stellen den Dativ VOR das Objekt**
+> („Dajem ___ knjigu.", „Djeca su dala ___ poklon."). Nachgestellt wäre der
+> Genitiv-Distraktor als Possessivattribut lesbar („Dajem knjigu **sestre**." = „Ich gebe
+> das Buch **der Schwester**."). Die Voranstellung ist zugleich die natürlichere
+> Wortstellung – der Fix kostet also nichts.
+>
+> ⚠️ **Das reicht aber nicht – Befund des `bosnisch-pruefer`, und die eigentlich neue Regel
+> dieses Sets:** Ein Genitiv-Distraktor im Singular darf **weder hinter dem Objekt noch
+> hinter dem Subjekt** stehen. „Profesor ___ objašnjava novi zadatak." war nach Regel (f)
+> sauber (der Dativ steht vor dem Objekt), aber das **vorangestellte Subjekt** öffnete
+> dieselbe Lücke von der anderen Seite: „Profesor **studenta** objašnjava novi zadatak."
+> = „Der Professor **des Studenten** erklärt die neue Aufgabe." Bei `student` trägt auch
+> die Possessivadjektiv-Regel des Dativ-Sets nicht, denn `profesor studenta` ist die
+> übliche Ausdrucksweise. Der Satz steht jetzt als „Profesor objašnjava ___ novi zadatak."
+> – hinter der Lücke ein Verb statt eines Substantivs. **Faustregel: Vor einer
+> Dativ-Lücke mit Genitiv-Distraktor darf kein Substantiv stehen.**
+>
+> **(g) Die Eindeutigkeitsregeln der Einzel-Sets gelten unverändert weiter:** Sätze mit
+> `u`/`na` nutzen nur eindeutig statische Verben (→ Lokativ: `biti`, `raditi`, `živjeti`,
+> `stajati`, `igrati se`, `učiti`, `plivati`, `ima`) oder eindeutig gerichtete
+> (→ Akkusativ: `ulaziti`, `ići`, `penjati se`). `pod`/`nad`/`pred`/`za` nur mit statischen
+> Prädikaten. Werkzeug-Sätze im Instrumental haben **immer schon ein Objekt**
+> („Režem **hljeb** ___.", „Otvaram **vrata** ___."), sonst wäre der Akkusativ-Distraktor
+> selbst als Objekt lesbar (Befund (f) des Instrumental-Sets).
+>
+> ⚠️ **(g2) Der zweite neue Risikotyp: die Doppelnatur einzelner Wörter.** Nicht der
+> Kasus-Zusammenfall war beim Bau die Hauptfehlerquelle, sondern Wörter, die in derselben
+> Position **zwei Wortarten** sein können. „Pišem **dugo** ___." sah wie ein sicheres
+> Attribut-Muster aus (analog zu „Čitam **zanimljivu** knjigu"), aber `dugo` ist auch
+> Zeitadverb – und dann ist der Distraktor `pisma` als Akkusativ **Plural** korrekt:
+> „Pišem dugo pisma." = „Ich schreibe seit Langem Briefe." Der Bestand selbst führt `dugo`
+> als Adverb („lange", A1), was den Befund bestätigt. Der Satz heißt jetzt „Pišem **ovo**
+> ___." – ein Demonstrativum kann nicht adverbial gelesen werden und legt zusätzlich den
+> Singular fest (der Plural wäre `ova pisma`). **Faustregel: Ein Attribut, das den Numerus
+> absichern soll, darf selbst kein Adverb sein** – das schließt `dugo`, `kratko`, `dobro`,
+> `često` aus. Demonstrativa (`ovo`, `ova`, `taj`) und Possessiva (`moj`, `tvoje`) sind
+> dafür sicher.
+>
+> **(h) `žena` wurde bewusst NICHT verwendet**, obwohl `grammatik-faelle.html` es als
+> Musterwort für alle sieben Fälle benutzt: Das Wort fehlt weiterhin im Bestand
+> (`VOKABEL_BACKLOG.md`). Es war auch nicht nötig – `sestra`, `majka`, `škola`, `kuća`,
+> `knjiga`, `soba`, `prijateljica`, `učiteljica`, `komšinica` und `prodavnica` zeigen
+> dasselbe Feminin-Paradigma und stehen alle im Bestand. Bei den Dativ-/Lokativ-Formen sind
+> Wörter auf `-ka`/`-ga` (`knjiga → knjizi`, `djevojka → djevojci`) nur als **Distraktor**
+> im Spiel, nie als Lösung – die Sibilarisierung lehrt die A2-Lokativseite nicht.
+>
+> **(i) Verlinkt ist die Übung von `grammatik-faelle.html` (A1)** – der einzigen Seite, die
+> alle sieben Fälle gemeinsam einführt. Der CTA-Text weicht dort bewusst vom üblichen
+> „Lust auf mehr?" ab: Die Übung setzt B1-Wissen voraus, das A1-Publikum dieser Seite hat
+> es noch nicht. Deshalb „Für später, wenn du die einzelnen Fälle schon geübt hast …".
 >
 > **`lernen-aspektwahl.html` kennt vier Aufgabentypen**, gesteuert über das Feld `typ` im Set:
 > `typ` fehlt (= „signal") zeigt einen Ausdruck mit drei Korb-Buttons; `typ: "satz"`
@@ -616,6 +731,8 @@ Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext (`?thema=akkusativ`
 `grammatik-genitiv.html` → Lückentext (`?thema=genitiv`),
 `grammatik-dativ.html` → Lückentext (`?thema=dativ`),
 `grammatik-instrumental.html` → Lückentext (`?thema=instrumental`),
+`grammatik-faelle.html` → Lückentext (`?thema=gemischt`, mit „für später"-Text, weil die
+Seite A1 ist und die Übung B1-Wissen voraussetzt),
 `grammatik-enklitika.html` → Satzbau-Puzzle,
 `grammatik-verbalaspekt.html` → Aspektpaare.
 

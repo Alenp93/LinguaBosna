@@ -555,6 +555,13 @@
   padding: 36px 28px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* min-width:0 verhindert, dass der Grid-Item-Inhalt (Icon-Glyph) die
+     Spaltenbreite im 3-Spalten-Raster sprengt; overflow:hidden fängt
+     minimales Glyphen-„Ink-Bleed" der Font-Awesome-Icons am Kartenrand
+     ab (1-2px Überlauf bei 900/480/320px), ohne den Hover-Schatten zu
+     beschneiden (box-shadow wird nicht vom eigenen overflow geclippt). */
+  min-width: 0;
+  overflow: hidden;
 }
 
 .why-card:hover {

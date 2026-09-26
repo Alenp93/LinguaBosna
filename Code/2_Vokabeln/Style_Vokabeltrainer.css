@@ -687,6 +687,19 @@ main {
 /* ── Mobil ≤ 768px ──────────────────────────────────────────── */
 @media (max-width: 768px) {
   main {
+    /* WICHTIG: main ist ein Flex-Item (body ist display:flex/column, main
+       flex:1) und wird per align-items:stretch auf die volle Breite
+       gestreckt. Ohne explizites width:100% floort der Browser diese
+       Streckung trotzdem auf den Inhalts-Mindestwert (min-width:auto) –
+       bei sehr schmalen Screens (320px) reicht dann der nicht schrumpfbare
+       Teil des Einstellungen-Buttons (Icon+Label, Chevron) aus, um main
+       (und damit die ganze Seite) über den Viewport hinaus zu drücken.
+       width:100% macht die Breite stattdessen zu einem festen Wert, wodurch
+       .settings-summary (flex:1; min-width:0) endlich wie vorgesehen
+       schrumpft, statt die Seite aufzublähen. Siehe CLAUDE.md, „Bekannte
+       Lösungen/Fallstricke – Mobile Overflow" für dasselbe Muster auf
+       Seitenebene. */
+    width: 100%;
     padding: 1.5rem 1rem 3rem;
   }
 

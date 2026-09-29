@@ -628,7 +628,215 @@ function initWoerterbuchSuche() {
                 // Alternativ: Fügen Sie den Footer am Ende des Body-Bereichs ein
                 document.body.insertAdjacentHTML('afterbegin', html);
             }
+
+            // ── Feedback-Formular ────────────────────────────────────
+            // Erst HIER initialisieren, weil Button + Overlay jetzt im DOM sind
+            // (beides steckt im Footer-Fragment, siehe LB_footer.html).
+            initFeedbackFormular();
+            // ────────────────────────────────────────────────────────────
         });
+
+// ── Feedback-Formular: "Fehler melden" im Footer ────────────────
+// Öffnet ein Overlay (Markup in LB_footer.html), das automatisch die
+// aktuelle Seite mitschickt, damit niemand Titel/URL selbst eintippen
+// muss. Versand über Web3Forms (siehe LB_93_Datenschutz.html) direkt
+// an info@linguabosna.com – kein eigenes Backend nötig.
+function initFeedbackFormular() {
+    var openBtn   = document.getElementById('feedback-open-btn');
+    var overlay   = document.getElementById('feedback-overlay');
+    var panel     = overlay ? overlay.querySelector('.feedback-panel') : null;
+    var closeBtn  = document.getElementById('feedback-close');
+    var form      = document.getElementById('feedback-form');
+    var textField = document.getElementById('feedback-text');
+    var errorEl   = document.getElementById('feedback-error');
+    var successEl = document.getElementById('feedback-success');
+    var contextEl = document.getElementById('feedback-context-text');
+    var submitBtn = document.getElementById('feedback-submit');
+
+    // Fehlt eines der Kernelemente (z. B. Footer nicht geladen), sauber abbrechen.
+    if (!openBtn || !overlay || !panel || !closeBtn || !form || !textField ||
+        !errorEl || !successEl || !contextEl || !submitBtn) {
+        return;
+    }
+
+    // ⚠ Access-Key aus dem eigenen Web3Forms-Konto (siehe web3forms.com).
+    // Das ist laut Web3Forms bewusst KEIN Geheimnis, sondern für die Nutzung
+    // im öffentlichen Quelltext gedacht – er berechtigt nur zum Versand an
+    // das hinterlegte Postfach, zu nichts anderem.
+    var WEB3FORMS_ACCESS_KEY = '8a2591ee-c1ca-4907-8d86-d75db080796f';
+
+    var vorherigerFokus = null;   // Element vor dem Öffnen (für Fokus-Rückgabe)
+    var geoeffnetUm     = 0;      // Zeitstempel: Bot-Falle (siehe submit-Handler)
+
+    // -- Seitenkontext für die Anzeige im Overlay ------------------
+    // Der SEO-Titel hat das Format "LinguaBosna – [Seitenname]" (siehe
+    // CLAUDE.md) – das Präfix ist für die Meldung selbst nicht nötig.
+    function seitenKontext() {
+        var titel = document.title.replace(/^LinguaBosna\s*[–-]\s*/, '');
+        return titel + ' (' + window.location.pathname + ')';
+    }
+
+    function formularZuruecksetzen() {
+        form.reset();
+        form.hidden = false;
+        successEl.hidden = true;
+        errorEl.hidden = true;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Feedback senden';
+    }
+
+    function oeffnen() {
+        contextEl.textContent = seitenKontext();
+        overlay.hidden = false;
+        openBtn.setAttribute('aria-expanded', 'true');
+        vorherigerFokus = document.activeElement;
+        geoeffnetUm = Date.now();
+        // Kleiner Timeout, damit das Feld sicher sichtbar ist, bevor der Fokus springt.
+        setTimeout(function () { textField.focus(); }, 0);
+    }
+
+    function schliessen() {
+        overlay.hidden = true;
+        openBtn.setAttribute('aria-expanded', 'false');
+        if (vorherigerFokus && typeof vorherigerFokus.focus === 'function') {
+            vorherigerFokus.focus();
+        } else {
+            openBtn.focus();
+        }
+        formularZuruecksetzen();
+    }
+
+    openBtn.addEventListener('click', function () {
+        if (overlay.hidden) oeffnen(); else schliessen();
+    });
+    closeBtn.addEventListener('click', schliessen);
+
+    // Klick auf die abgedunkelte Fläche AUSSERHALB des Panels: schließen.
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) schliessen();
+    });
+
+    // Escape schließt das offene Overlay.
+    document.addEventListener('keydown', function (e) {
+        if (!overlay.hidden && e.key === 'Escape') schliessen();
+    });
+
+    // Fokus-Trap: Tab/Shift+Tab bleiben innerhalb des Panels, solange es offen ist.
+    document.addEventListener('keydown', function (e) {
+        if (overlay.hidden || e.key !== 'Tab') return;
+
+        var fokussierbar = panel.querySelectorAll(
+            'a[href], button:not([disabled]), select, textarea, input:not([disabled]):not([tabindex="-1"])'
+        );
+        if (!fokussierbar.length) return;
+
+        var erstes  = fokussierbar[0];
+        var letztes = fokussierbar[fokussierbar.length - 1];
+
+        if (e.shiftKey && document.activeElement === erstes) {
+            e.preventDefault();
+            letztes.focus();
+        } else if (!e.shiftKey && document.activeElement === letztes) {
+            e.preventDefault();
+            erstes.focus();
+        }
+    });
+
+    // Fehlermeldung ausblenden, sobald wieder getippt wird.
+    textField.addEventListener('input', function () {
+        if (textField.value.trim()) errorEl.hidden = true;
+    });
+
+    // -- Sende-Limit gegen Spam: max. 3 Meldungen pro Stunde je Browser --
+    var LIMIT_SCHLUESSEL = 'linguabosna.feedback.gesendet';
+    var LIMIT_MAX         = 3;
+    var LIMIT_FENSTER_MS  = 60 * 60 * 1000;
+
+    // Gibt zurück, ob noch eine Meldung erlaubt ist, plus die (bereinigte)
+    // Liste bisheriger Zeitstempel – letztere wird bei Erfolg weitergegeben,
+    // damit limitEintragen() nicht ein zweites Mal aus localStorage lesen muss.
+    function limitPruefen() {
+        try {
+            var liste = JSON.parse(localStorage.getItem(LIMIT_SCHLUESSEL) || '[]');
+            var jetzt = Date.now();
+            liste = liste.filter(function (t) { return jetzt - t < LIMIT_FENSTER_MS; });
+            return { erlaubt: liste.length < LIMIT_MAX, liste: liste };
+        } catch (e) {
+            // localStorage nicht verfügbar (z. B. privater Modus) → nicht blockieren
+            return { erlaubt: true, liste: [] };
+        }
+    }
+
+    function limitEintragen(liste) {
+        try {
+            liste.push(Date.now());
+            localStorage.setItem(LIMIT_SCHLUESSEL, JSON.stringify(liste));
+        } catch (e) {
+            // privater Modus o. Ä. – dann eben ohne Limit für die nächste Meldung
+        }
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!textField.value.trim()) {
+            errorEl.textContent = 'Bitte kurz beschreiben, was dir aufgefallen ist.';
+            errorEl.hidden = false;
+            textField.focus();
+            return;
+        }
+
+        // Wer schneller als 2 Sekunden nach dem Öffnen abschickt, hat das
+        // Formular nicht gelesen – typisches Bot-Verhalten. Zusätzlich zum
+        // "botcheck"-Honeypot-Feld, das Web3Forms serverseitig auswertet.
+        if (Date.now() - geoeffnetUm < 2000) {
+            return;
+        }
+
+        var limit = limitPruefen();
+        if (!limit.erlaubt) {
+            errorEl.textContent = 'Du hast bereits mehrere Meldungen gesendet. Bitte versuch es später erneut.';
+            errorEl.hidden = false;
+            return;
+        }
+        errorEl.hidden = true;
+
+        var daten = new FormData(form);
+        daten.append('access_key', WEB3FORMS_ACCESS_KEY);
+        daten.append('subject', 'LinguaBosna Feedback: ' + daten.get('Art_des_Fehlers'));
+        daten.append('Seite', window.location.href);
+        daten.append('Seitentitel', document.title);
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet …';
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: daten
+        })
+            .then(function (antwort) { return antwort.json(); })
+            .then(function (ergebnis) {
+                if (ergebnis.success) {
+                    limitEintragen(limit.liste);
+                    form.hidden = true;
+                    successEl.hidden = false;
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Feedback senden';
+                    errorEl.textContent = 'Senden hat nicht geklappt. Bitte später erneut versuchen.';
+                    errorEl.hidden = false;
+                }
+            })
+            .catch(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Feedback senden';
+                errorEl.textContent = 'Senden hat nicht geklappt. Bitte später erneut versuchen.';
+                errorEl.hidden = false;
+            });
+    });
+}
+// ────────────────────────────────────────────────────────────
 
 // ── Tabellen-Scroll-Schatten ────────────────────────────────
 // Setzt an jedem .letter-table-wrap die Klassen .lb-scroll-left /

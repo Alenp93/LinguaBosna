@@ -153,6 +153,210 @@
       border-color: var(--accent);
     }
 
+    /* "Fehler melden"-Button im Footer — öffnet das Feedback-Overlay
+       (Markup in LB_footer.html, Logik in LB_main.js). */
+    .footer-feedback-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 44px;
+      margin-left: 8px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .footer-feedback-btn:hover {
+      background-color: var(--accent);
+      color: var(--primary);
+      border-color: var(--accent);
+    }
+
+    .footer-feedback-btn:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    /* --- Feedback-Overlay (Fehler melden) ---
+       Anders als das Such-Overlay ist das ein echtes, zentriertes Modal
+       mit abgedunkeltem Hintergrund auf JEDER Bildschirmgröße. */
+    .feedback-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1001;
+      background: rgba(10, 20, 30, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .feedback-overlay[hidden] {
+      display: none;
+    }
+
+    .feedback-panel {
+      width: min(420px, 100%);
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+      padding: 20px;
+    }
+
+    .feedback-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .feedback-panel-header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+
+    .feedback-context {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: var(--neutral);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 12px 0 16px;
+      font-size: 0.8rem;
+      color: #444;
+      line-height: 1.45;
+    }
+
+    .feedback-context i {
+      color: var(--secondary);
+      margin-top: 2px;
+      flex: none;
+    }
+
+    /* Ohne min-width:0 würde der Textblock (Flex-Item) nicht auf die
+       verfügbare Breite schrumpfen und stattdessen mit dem langen
+       Seitenpfad über den Kartenrand hinauslaufen. */
+    .feedback-context span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .feedback-form label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 12px 0 4px;
+    }
+
+    .feedback-form select,
+    .feedback-form textarea {
+      width: 100%;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 10px 12px;
+      border: 1px solid var(--neutral);
+      border-radius: 6px;
+      color: var(--primary);
+      background: #fff;
+    }
+
+    .feedback-form textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .feedback-form select:focus-visible,
+    .feedback-form textarea:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      border-color: var(--primary);
+    }
+
+    /* Honeypot-Feld gegen Spam-Bots: für Menschen unsichtbar, aber (anders
+       als display:none) für Screenreader/Bots technisch noch vorhanden. */
+    .feedback-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .feedback-error {
+      color: #B3261E;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+
+    .feedback-submit-btn {
+      width: 100%;
+      min-height: 44px;
+      margin-top: 16px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .feedback-submit-btn:hover {
+      background: #0d4d7a;
+    }
+
+    .feedback-submit-btn:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    .feedback-submit-btn:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .feedback-hint {
+      font-size: 0.72rem;
+      color: #888;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .feedback-success {
+      text-align: center;
+      padding: 20px 4px;
+      font-size: 0.95rem;
+      color: var(--secondary);
+    }
+
+    .feedback-success i {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .feedback-panel {
+        padding: 16px;
+      }
+    }
+
 
 
   /* Responsive */
@@ -305,6 +509,15 @@
   footer a {
     display: inline-block;
     padding: 4px 6px;   /* größeres Touch-Ziel */
+  }
+
+  /* "Fehler melden" auf Mobil als eigene Zeile statt eingequetscht
+     zwischen die Links. */
+  .footer-feedback-btn {
+    margin: 14px 0 0;
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
   }
 
   /* Social-Links als deutlichere Buttons */

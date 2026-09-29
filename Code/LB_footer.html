@@ -16,6 +16,13 @@
       <a href="/Code/1_Startseite/LB_92_Impressum.html">Impressum</a> |
       <a href="/Code/1_Startseite/LB_93_Datenschutz.html">Datenschutz</a>
       <a href="/Code/1_Startseite/LB_Unterstuetzen.html" style="color: var(--accent); font-weight: 700;"> ☕ Unterstützen </a>
+
+      <!-- Fehler melden: öffnet das Feedback-Overlay weiter unten.
+           Kein Link, weil kein Ziel geöffnet wird, sondern nur der Dialog. -->
+      <button type="button" id="feedback-open-btn" class="footer-feedback-btn"
+              aria-haspopup="dialog" aria-controls="feedback-overlay" aria-expanded="false">
+        <i class="fa-solid fa-flag" aria-hidden="true"></i> Fehler melden
+      </button>
     </div>
 
     <div class="social">
@@ -40,6 +47,64 @@
   <script>
     document.getElementById('yearPlaceholder').textContent = new Date().getFullYear();
   </script>
+
+  <!-- =========================================================
+       FEEDBACK-OVERLAY (Fehler melden)
+       Statisches Markup wie beim Such-Overlay in LB_header.html –
+       die Logik steckt in LB_main.js (initFeedbackFormular), weil
+       ein per innerHTML eingefügtes <script> nicht ausgeführt würde.
+       Startet mit "hidden" → unsichtbar, bis das JS es öffnet.
+       ========================================================= -->
+  <div id="feedback-overlay" class="feedback-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="feedback-title" hidden>
+    <div class="feedback-panel">
+
+      <div class="feedback-panel-header">
+        <h2 id="feedback-title">Fehler melden</h2>
+        <button type="button" id="feedback-close" class="search-close" aria-label="Formular schließen">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- Seitenkontext: wird von LB_main.js automatisch befüllt
+           (Seitentitel + Pfad), damit niemand die Seite selbst
+           beschreiben muss. -->
+      <p class="feedback-context">
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+        <span>Wird automatisch mitgesendet: <strong id="feedback-context-text"></strong></span>
+      </p>
+
+      <form id="feedback-form" class="feedback-form">
+        <label for="feedback-art">Art des Fehlers</label>
+        <select id="feedback-art" name="Art_des_Fehlers">
+          <option value="Grammatik">Grammatikerklärung</option>
+          <option value="Vokabel">Vokabel</option>
+          <option value="Beispielsatz">Beispielsatz</option>
+          <option value="Uebung">Übung / Quiz</option>
+          <option value="Darstellung">Darstellung / Technik</option>
+          <option value="Sonstiges">Sonstiges</option>
+        </select>
+
+        <label for="feedback-text">Was ist dir aufgefallen?</label>
+        <textarea id="feedback-text" name="message" rows="4"
+                  placeholder="z. B. Beim dritten Beispielsatz fehlt die ijekavische Form …"></textarea>
+        <p id="feedback-error" class="feedback-error" hidden></p>
+
+        <!-- Honeypot gegen Spam-Bots (Web3Forms-Konvention: Feldname "botcheck").
+             Für Menschen unsichtbar und nicht per Tab erreichbar. -->
+        <input type="checkbox" name="botcheck" id="feedback-botcheck"
+               class="feedback-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <button type="submit" id="feedback-submit" class="feedback-submit-btn">Feedback senden</button>
+        <p class="feedback-hint">Kein Konto nötig, keine Veröffentlichung – geht direkt an das LinguaBosna-Team.</p>
+      </form>
+
+      <p id="feedback-success" class="feedback-success" hidden>
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        Danke! Deine Meldung ist unterwegs.
+      </p>
+    </div>
+  </div>
 
 </body>
 </html>

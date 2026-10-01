@@ -5,3 +5,9 @@ __pycache__/
 # Persoenliche Claude-Code-Einstellungen (im Gegensatz zu .claude/agents/
 # und .claude/launch.json, die zum Projekt gehoeren)
 .claude/settings.local.json
+
+# Instagram-Material (Vorlagen, PNG-Exporte, Content-Plaene) ist reine
+# Social-Media-Arbeit und gehoert nicht auf GitHub Pages. Das Muster greift
+# bei Ordnern und Dateien, deren Name mit "Instagram"/"instagram" beginnt,
+# auch fuer kuenftige Dateien (z. B. Instagram-Contentplan.md).
+[Ii]nstagram*

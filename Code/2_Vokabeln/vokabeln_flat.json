@@ -1944,24 +1944,6 @@
     "Kapitel": 8,
     "Kapitelname": "Verwandtschaft & Lebensphasen",
     "Niveau": "A1",
-    "Bosnisch": "bratić",
-    "Deutsch": "Cousin",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 8",
-    "Kapitel": 8,
-    "Kapitelname": "Verwandtschaft & Lebensphasen",
-    "Niveau": "A1",
-    "Bosnisch": "sestrična",
-    "Deutsch": "Cousine",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 8",
-    "Kapitel": 8,
-    "Kapitelname": "Verwandtschaft & Lebensphasen",
-    "Niveau": "A1",
     "Bosnisch": "svekar",
     "Deutsch": "Schwiegervater (Vater des Ehemanns)",
     "Wortart (Genus)": "Substantiv (m)"
@@ -29462,7 +29444,7 @@
     "Kapitelname": "Familie: Verwandtschaft & Generationen",
     "Niveau": "A2",
     "Bosnisch": "nećak",
-    "Deutsch": "Neffe",
+    "Deutsch": "Neffe (allg., Sohn von Bruder oder Schwester)",
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
@@ -29470,8 +29452,8 @@
     "Kapitel": 111,
     "Kapitelname": "Familie: Verwandtschaft & Generationen",
     "Niveau": "A2",
-    "Bosnisch": "nećaka",
-    "Deutsch": "Nichte",
+    "Bosnisch": "nećakinja",
+    "Deutsch": "Nichte (allg., Tochter von Bruder oder Schwester; auch: nećaka)",
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
@@ -29641,8 +29623,8 @@
     "Kapitel": 112,
     "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
     "Niveau": "A2",
-    "Bosnisch": "amidžinica",
-    "Deutsch": "Frau des Vaterbruders",
+    "Bosnisch": "amidžinica / strina",
+    "Deutsch": "Tante, Frau des Vaterbruders (amidžinica zu amidža, bosn.; strina zu stric)",
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
@@ -29650,26 +29632,8 @@
     "Kapitel": 112,
     "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
     "Niveau": "A2",
-    "Bosnisch": "strina",
-    "Deutsch": "Frau des Vaterbruders",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 112",
-    "Kapitel": 112,
-    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
-    "Niveau": "A2",
-    "Bosnisch": "daidžinica",
-    "Deutsch": "Frau des Mutterbruders",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 112",
-    "Kapitel": 112,
-    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
-    "Niveau": "A2",
-    "Bosnisch": "ujna",
-    "Deutsch": "Frau des Mutterbruders",
+    "Bosnisch": "daidžinica / ujna",
+    "Deutsch": "Tante, Frau des Mutterbruders (daidžinica zu daidža, bosn.; ujna zu ujak)",
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
@@ -29687,8 +29651,17 @@
     "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
     "Niveau": "A2",
     "Bosnisch": "amidžić",
-    "Deutsch": "Cousin (Sohn d. Vaterbruders)",
+    "Deutsch": "Cousin, Sohn des Vaterbruders (bosn., zu amidža)",
     "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "amidžična",
+    "Deutsch": "Cousine, Tochter des Vaterbruders (bosn., zu amidža)",
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 112",
@@ -29696,8 +29669,17 @@
     "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
     "Niveau": "A2",
     "Bosnisch": "daidžić",
-    "Deutsch": "Cousin (Sohn d. Mutterbruders)",
+    "Deutsch": "Cousin, Sohn des Mutterbruders (bosn., zu daidža)",
     "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "daidžična",
+    "Deutsch": "Cousine, Tochter des Mutterbruders (bosn., zu daidža)",
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 112",
@@ -29705,7 +29687,7 @@
     "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
     "Niveau": "A2",
     "Bosnisch": "tetić",
-    "Deutsch": "Cousin (Sohn der Tante)",
+    "Deutsch": "Cousin, Sohn einer Tante (väterl. oder mütterl.)",
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
@@ -29713,9 +29695,45 @@
     "Kapitel": 112,
     "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
     "Niveau": "A2",
-    "Bosnisch": "sestrić",
-    "Deutsch": "Schwestersohn",
+    "Bosnisch": "tetična",
+    "Deutsch": "Cousine, Tochter einer Tante (väterl. oder mütterl.)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "bratić",
+    "Deutsch": "Neffe, Sohn des Bruders (kroat. Standard: Cousin)",
     "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "bratična",
+    "Deutsch": "Nichte, Tochter des Bruders",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "sestrić",
+    "Deutsch": "Neffe, Sohn der Schwester",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 112",
+    "Kapitel": 112,
+    "Kapitelname": "Familie: Onkel, Tante & Verwandtenbesuch",
+    "Niveau": "A2",
+    "Bosnisch": "sestrična",
+    "Deutsch": "Nichte, Tochter der Schwester (kroat. Standard: Cousine)",
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 112",
@@ -35437,34 +35455,6 @@
     "Niveau": "A2",
     "Bosnisch": "rodica",
     "Deutsch": "Verwandte, Cousine (Nebenform zu rođaka)",
-    "Wortart (Genus)": "Substantiv (f)",
-    "nur_woerterbuch": true
-  },
-  {
-    "Niveau": "A2",
-    "Bosnisch": "amidžična",
-    "Deutsch": "Cousine (Tochter d. Vaterbruders)",
-    "Wortart (Genus)": "Substantiv (f)",
-    "nur_woerterbuch": true
-  },
-  {
-    "Niveau": "A2",
-    "Bosnisch": "daidžična",
-    "Deutsch": "Cousine (Tochter d. Mutterbruders)",
-    "Wortart (Genus)": "Substantiv (f)",
-    "nur_woerterbuch": true
-  },
-  {
-    "Niveau": "A2",
-    "Bosnisch": "tetična",
-    "Deutsch": "Cousine (Tochter der Tante)",
-    "Wortart (Genus)": "Substantiv (f)",
-    "nur_woerterbuch": true
-  },
-  {
-    "Niveau": "A2",
-    "Bosnisch": "bratična",
-    "Deutsch": "Brudertochter",
     "Wortart (Genus)": "Substantiv (f)",
     "nur_woerterbuch": true
   },

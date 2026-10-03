@@ -130,6 +130,38 @@ main h1 {
 }
 
 
+/* Zurück-zur-Übersicht-Link (auf jeder Übungsseite unter dem Untertitel).
+   Optik wie der Zurück-Button bei den Vokabeln: .btn-outline mit Pfeil-Icon.
+   Er steht außerhalb der drei Bildschirme (Start/Übung/Ergebnis) und bleibt
+   deshalb in jedem Zustand sichtbar.
+   Größe bewusst identisch mit dem Zurück-Button der Vokabelseiten
+   (Style_Vokabelnkategorien.css, .btn): kompakter als die großen
+   Übungs-Buttons (.btn-primary/.btn-outline oben), damit er als
+   Navigation wirkt und nicht mit der Übung konkurriert.
+   - inline-flex → Icon und Text mittig nebeneinander
+   - text-decoration: none → es ist ein <a>, kein <button>                    */
+.lernen-zurueck {
+  text-align: center;
+  margin: -14px 0 30px;          /* rückt näher an den Untertitel (34px Abstand dort) */
+}
+.btn-zurueck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  line-height: 1;
+  text-decoration: none;
+}
+@media (max-width: 480px) {
+  .btn-zurueck {
+    font-size: 0.82rem;
+    padding: 9px 14px;
+  }
+}
+
+
 /* ── 3. Startschirm: Themen-Auswahl ──────────────────── */
 
 /* Einleitungsblock über der Themen-Auswahl */

@@ -27,37 +27,20 @@ import sys
 import pathlib
 import tempfile
 
-# Windows-Konsolen nutzen oft cp1252, das an ═/✓/✗/⚠ unten scheitert
-# (UnicodeEncodeError) und das Skript vor dem ersten Test abbrechen lässt.
-if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+# Gemeinsame Bausteine — siehe lb_testlib.py. errors/warnings hier NICHT neu
+# zuweisen, sonst schreibt fail() in eine andere Liste als der Schluss ausliest.
+#
+# Die Überlauf-Messung dieses Skripts steht bewusst NICHT in der Bibliothek:
+# Sie misst zusätzlich, ob die .letter-table-wrap-Container intern scrollen
+# (siehe CLAUDE.md „Mobile Overflow"), und ist damit grammatikspezifisch.
+from lb_testlib import (utf8_ausgabe, repo_root, VIEWPORTS,
+                        ok, fail, warn, errors, warnings)
 
-# ── Konfiguration ────────────────────────────────────────────────
-VIEWPORTS = [900, 628, 480, 360, 320]
+utf8_ausgabe()
 
-
-def find_repo_root(start, max_levels=6):
-    """
-    Sucht ausgehend von `start` aufwärts nach dem Repo-Root, erkennbar
-    am Ordner Code/Style.css. Funktioniert unabhängig davon, in welchem
-    Unterordner des Repos dieses Skript selbst liegt oder von wo aus
-    es aufgerufen wird (lokal via Claude Code).
-    """
-    current = pathlib.Path(start).resolve()
-    for _ in range(max_levels):
-        if (current / "Code" / "Style.css").exists():
-            return current
-        if current.parent == current:
-            break
-        current = current.parent
-    return None
-
-
-# Repo-Root zuerst vom Skript-Speicherort aus suchen, dann vom
-# aktuellen Arbeitsverzeichnis aus (falls das Skript kopiert/verschoben wurde)
-REPO_ROOT = (find_repo_root(pathlib.Path(__file__).resolve().parent)
-             or find_repo_root(pathlib.Path.cwd()))
+# Repo-Root darf hier fehlen (pflicht=False): das Skript kann auch außerhalb
+# des Repos laufen und fällt dann auf die CSS-Kandidaten unten zurück.
+REPO_ROOT = repo_root(pflicht=False)
 
 # CSS: bevorzugt lokale Repo-Struktur (Claude Code), sonst Fallback auf
 # Projektwissen bzw. die gefixten Versionen in outputs (claude.ai-Chat;
@@ -83,30 +66,12 @@ QUIZ_IDS = [
     "resultScore", "resultText", "quizRetryBtn",
 ]
 
-errors = []    # harte Fehler → Exit-Code 1
-warnings = []  # Hinweise → nur Ausgabe
-
-
 def find_first(paths):
     """Gibt den ersten existierenden Pfad aus einer Kandidatenliste zurück."""
     for p in paths:
         if pathlib.Path(p).exists():
             return p
     return None
-
-
-def ok(msg):
-    print(f"  ✓ {msg}")
-
-
-def fail(msg):
-    errors.append(msg)
-    print(f"  ✗ FEHLER: {msg}")
-
-
-def warn(msg):
-    warnings.append(msg)
-    print(f"  ⚠ Hinweis: {msg}")
 
 
 # ── Datei einlesen ───────────────────────────────────────────────

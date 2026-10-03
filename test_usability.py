@@ -52,103 +52,21 @@ Exit-Code 0 = keine harten Fehler, 1 = mindestens ein Überlauf-Fehler.
 import re
 import sys
 import json
-import socket
-import subprocess
-import time
 import pathlib
-import contextlib
-import urllib.request
 
-if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+# Gemeinsame Bausteine — siehe lb_testlib.py. errors/warnings hier NICHT neu
+# zuweisen, sonst schreibt fail() in eine andere Liste als main() ausliest.
+from lb_testlib import (utf8_ausgabe, repo_root, html_dateien, LocalServer,
+                        overflow_js, SKIP_NAMES, VIEWPORTS,
+                        ok, fail, warn, errors, warnings)
 
-VIEWPORTS = [900, 628, 480, 360, 320]
+utf8_ausgabe()
+
 CONTRAST_WIDTH = 360  # Breite, bei der Kontrast/Tap-Targets geprüft werden
 
-SKIP_NAMES = {
-    "LB_header.html", "LB_footer.html",
-    "TEMPLATE_Grammatik_Detailseite.html",
-}
-
-errors = []
-warnings = []
+REPO_ROOT = repo_root()
 
 
-def find_repo_root(start, max_levels=6):
-    current = pathlib.Path(start).resolve()
-    for _ in range(max_levels):
-        if (current / "Code" / "Style.css").exists():
-            return current
-        if current.parent == current:
-            break
-        current = current.parent
-    return None
-
-
-REPO_ROOT = (find_repo_root(pathlib.Path(__file__).resolve().parent)
-             or find_repo_root(pathlib.Path.cwd()))
-if REPO_ROOT is None:
-    print("✗ Repo-Root nicht gefunden (kein Code/Style.css).")
-    sys.exit(1)
-
-
-def ok(msg):
-    print(f"  ✓ {msg}")
-
-
-def fail(msg):
-    errors.append(msg)
-    print(f"  ✗ FEHLER: {msg}")
-
-
-def warn(msg):
-    warnings.append(msg)
-    print(f"  ⚠ Hinweis: {msg}")
-
-
-# ── Lokalen Server für die Testdauer starten ─────────────────────────
-def free_port():
-    with contextlib.closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as s:
-        s.bind(("127.0.0.1", 0))
-        return s.getsockname()[1]
-
-
-class LocalServer:
-    def __init__(self, root):
-        self.root = root
-        self.port = free_port()
-        self.proc = None
-
-    def __enter__(self):
-        self.proc = subprocess.Popen(
-            [sys.executable, "-m", "http.server", str(self.port)],
-            cwd=str(self.root),
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        url = f"http://127.0.0.1:{self.port}/"
-        for _ in range(50):
-            try:
-                urllib.request.urlopen(url, timeout=0.5)
-                break
-            except Exception:
-                time.sleep(0.1)
-        else:
-            raise RuntimeError("Lokaler Testserver ist nicht hochgekommen.")
-        return self
-
-    def __exit__(self, *exc):
-        if self.proc:
-            self.proc.terminate()
-            try:
-                self.proc.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                self.proc.kill()
-
-    def url_for(self, rel_path):
-        return f"http://127.0.0.1:{self.port}/{rel_path}"
-
-
-# ── Einmalige, seitenunabhängige Checks (CSS-Dateien, Header) ────────
 def global_checks():
     print("\n══ Globale Checks (einmalig) ══")
 
@@ -254,32 +172,9 @@ TAPTARGET_JS = """() => {
     return out.slice(0, 15);
 }"""
 
-OVERFLOW_JS = """() => {
-    const ov = document.documentElement.scrollWidth - window.innerWidth;
-    let culprits = [];
-    if (ov > 0) {
-        const base = document.documentElement.scrollWidth;
-        const cand = [];
-        document.querySelectorAll('body *').forEach(e => {
-            const prev = e.style.display;
-            e.style.display = 'none';
-            const drop = base - document.documentElement.scrollWidth;
-            e.style.display = prev;
-            if (drop > 0) {
-                let depth = 0, p = e;
-                while (p) { depth++; p = p.parentElement; }
-                cand.push({
-                    depth, drop, tag: e.tagName,
-                    cls: (typeof e.className === 'string' ? e.className : ''),
-                    text: (e.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 40)
-                });
-            }
-        });
-        cand.sort((a, b) => (b.depth - a.depth) || (b.drop - a.drop));
-        culprits = cand.slice(0, 3);
-    }
-    return { ov: Math.round(ov), culprits };
-}"""
+# Überlauf-Messung: hier über den ganzen body, weil test_usability.py im
+# Gegensatz zu den Seitentyp-Tests auch Header und Footer mitprüft.
+OVERFLOW_JS = overflow_js("body")
 
 
 def check_page(browser, server, path):
@@ -344,12 +239,8 @@ def check_page(browser, server, path):
 
 
 def all_html():
-    out = []
-    for p in sorted(REPO_ROOT.rglob("*.html")):
-        if ".git" in p.parts or ".claude" in p.parts:
-            continue
-        out.append(p)
-    return out
+    """Alle Seiten des Projekts (Punkt-Ordner wie .git/.claude ausgenommen)."""
+    return html_dateien(REPO_ROOT)
 
 
 def main():

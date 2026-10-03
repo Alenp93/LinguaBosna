@@ -35,52 +35,17 @@ import re
 import sys
 import json
 import pathlib
-import threading
 import subprocess
-from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
-if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+# Gemeinsame Bausteine — siehe lb_testlib.py. errors/warnings hier NICHT neu
+# zuweisen, sonst schreibt fail() in eine andere Liste als der Schluss ausliest.
+from lb_testlib import (utf8_ausgabe, repo_root, LocalServer, overflow_js,
+                        playwright_oder_fehler, VIEWPORTS, MIN_TOUCH,
+                        ok, fail, warn, errors, warnings)
 
-VIEWPORTS = [900, 628, 480, 360, 320]
-MIN_TOUCH = 44
+utf8_ausgabe()
 
-errors = []
-warnings = []
-
-
-def ok(msg):
-    print(f"  ✓ {msg}")
-
-
-def fail(msg):
-    errors.append(msg)
-    print(f"  ✗ FEHLER: {msg}")
-
-
-def warn(msg):
-    warnings.append(msg)
-    print(f"  ⚠ Hinweis: {msg}")
-
-
-def find_repo_root(start, max_levels=6):
-    current = pathlib.Path(start).resolve()
-    for _ in range(max_levels):
-        if (current / "Code" / "Style.css").exists():
-            return current
-        if current.parent == current:
-            break
-        current = current.parent
-    return None
-
-
-REPO_ROOT = (find_repo_root(pathlib.Path(__file__).resolve().parent)
-             or find_repo_root(pathlib.Path.cwd()))
-if REPO_ROOT is None:
-    print("✗ Repo-Root nicht gefunden (kein Code/Style.css). "
-          "Skript innerhalb des LinguaBosna-Repos ausführen.")
-    sys.exit(1)
+REPO_ROOT = repo_root()
 
 # ── Datei einlesen ───────────────────────────────────────────────
 if len(sys.argv) < 2:
@@ -188,32 +153,9 @@ else:
 # ── [3]+[4] Mobiltest & Touch-Targets (Playwright, echter Server) ─
 print("\n[3] Mobiltest & Touch-Targets (Playwright, lokaler Server)")
 
-OVERFLOW_JS = """() => {
-    const ov = document.documentElement.scrollWidth - window.innerWidth;
-    let culprits = [];
-    if (ov > 0) {
-        const base = document.documentElement.scrollWidth;
-        const cand = [];
-        document.querySelectorAll('main *').forEach(e => {
-            const prev = e.style.display;
-            e.style.display = 'none';
-            const drop = base - document.documentElement.scrollWidth;
-            e.style.display = prev;
-            if (drop > 0) {
-                let depth = 0, p = e;
-                while (p) { depth++; p = p.parentElement; }
-                cand.push({
-                    depth, drop, tag: e.tagName,
-                    cls: (typeof e.className === 'string' ? e.className : ''),
-                    text: (e.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 40)
-                });
-            }
-        });
-        cand.sort((a, b) => (b.depth - a.depth) || (b.drop - a.drop));
-        culprits = cand.slice(0, 3);
-    }
-    return {ov: Math.round(ov), culprits};
-}"""
+# Scope "main": Header/Footer sind auf allen Lernen-Seiten identisch und
+# werden zentral von test_usability.py geprüft.
+OVERFLOW_JS = overflow_js("main")
 
 TOUCH_JS = """() => {
     const buttons = [...document.querySelectorAll('main button')].filter(b => {
@@ -297,29 +239,14 @@ def try_interact(page):
 
 
 def run_playwright_checks():
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
-        fail("Playwright nicht installiert "
-             "(pip install playwright --break-system-packages && "
-             "playwright install chromium)")
+    sync_playwright = playwright_oder_fehler()
+    if sync_playwright is None:
         return
 
     # Lokalen HTTP-Server auf dem Repo-Root starten, damit die
     # absoluten fetch()-Pfade (/Code/4_Lernen/...) funktionieren.
-    class QuietHandler(SimpleHTTPRequestHandler):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, directory=str(REPO_ROOT), **kwargs)
-
-        def log_message(self, *args, **kwargs):
-            pass  # Zugriffs-Log stumm schalten
-
-    server = ThreadingHTTPServer(("127.0.0.1", 0), QuietHandler)
-    port = server.server_address[1]
-    thread = threading.Thread(target=server.serve_forever, daemon=True)
-    thread.start()
-
-    url = f"http://127.0.0.1:{port}/{rel_path}"
+    server = LocalServer(REPO_ROOT).start()
+    url = server.url_for(rel_path)
 
     try:
         with sync_playwright() as pw:
@@ -411,8 +338,7 @@ def run_playwright_checks():
                     page.close()
             browser.close()
     finally:
-        server.shutdown()
-        server.server_close()
+        server.stop()
 
 
 run_playwright_checks()

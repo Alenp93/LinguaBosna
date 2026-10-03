@@ -23,75 +23,39 @@ lastmod = Datum des letzten Git-Commits der jeweiligen Datei (fällt auf das
 heutige Datum zurück, falls Git nicht verfügbar ist).
 """
 
-import os
 import re
 import sys
 import subprocess
 import datetime
 import pathlib
 
-if sys.platform == "win32":  # UTF-8-Ausgabe wie in test_seo.py
-    # Ohne diese Zeilen bricht das Skript unter Windows beim ABSCHLIESSENDEN
-    # print() mit einem UnicodeEncodeError ab ("✓" gibt es in cp1252 nicht) –
-    # die sitemap.xml war da längst geschrieben, es sah nur nach Fehlschlag aus.
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+from lb_testlib import utf8_ausgabe, repo_root, html_dateien, SKIP_NAMES
+
+# Ohne UTF-8-Ausgabe bricht das Skript unter Windows beim ABSCHLIESSENDEN
+# print() mit einem UnicodeEncodeError ab ("✓" gibt es in cp1252 nicht) –
+# die sitemap.xml war da längst geschrieben, es sah nur nach Fehlschlag aus.
+utf8_ausgabe()
 
 DOMAIN = "https://linguabosna.com"
 TODAY = datetime.date.today().isoformat()
 
-# Dateien, die nie in die Sitemap gehören (zusätzlich zur noindex-Erkennung).
-# Die Header/Footer-Fragmente haben zwar einen <head> mit <title>Document</title>,
-# sind aber keine eigenständigen Seiten, sondern werden per JS eingebunden.
-EXCLUDE_NAMES = {
-    "TEMPLATE_Grammatik_Detailseite.html",
-    "LB_header.html",
-    "LB_footer.html",
-}
+# Dateien, die nie in die Sitemap gehören, stehen zentral in lb_testlib
+# (SKIP_NAMES) — dieselbe Liste benutzen test_seo.py und test_usability.py.
+EXCLUDE_NAMES = SKIP_NAMES
 
 
-def find_repo_root(start, max_levels=6):
-    """Sucht aufwärts nach dem Repo-Root (erkennbar an Code/Style.css)."""
-    current = pathlib.Path(start).resolve()
-    for _ in range(max_levels):
-        if (current / "Code" / "Style.css").exists():
-            return current
-        if current.parent == current:
-            break
-        current = current.parent
-    return None
-
-
-REPO_ROOT = (find_repo_root(pathlib.Path(__file__).resolve().parent)
-             or find_repo_root(pathlib.Path.cwd()))
-if REPO_ROOT is None:
-    print("✗ Repo-Root nicht gefunden (kein Code/Style.css).")
-    sys.exit(1)
+REPO_ROOT = repo_root()
 
 
 def rel_html_files():
-    """Alle *.html relativ zum Repo-Root, sortiert, ohne versteckte Ordner.
-
-    Übersprungen wird JEDES Verzeichnis, dessen Name mit einem Punkt beginnt –
-    nicht nur .git. Grund: Unter .claude/worktrees/ kann eine vollständige
-    Arbeitskopie des Repos liegen (git worktree). Die wurde vorher mitgelesen
-    und hat rund 50 Phantom-URLs der Form
-    /.claude/worktrees/<branch>/Code/... in die Sitemap geschrieben – Adressen,
-    die es auf linguabosna.com gar nicht gibt und die Google als doppelten
-    Inhalt zur echten Seite gewertet hätte.
-
-    Das Filtern geschieht über die dirs-Liste von os.walk: Wer sie an Ort und
-    Stelle kürzt (dirs[:] = ...), verhindert, dass os.walk dort überhaupt
-    hinabsteigt.
     """
-    out = []
-    for dp, dirs, fns in os.walk(REPO_ROOT):
-        dirs[:] = [d for d in dirs if not d.startswith(".")]
-        for fn in fns:
-            if fn.endswith(".html"):
-                rel = os.path.relpath(os.path.join(dp, fn), REPO_ROOT)
-                out.append(rel.replace(os.sep, "/"))
-    return sorted(out)
+    Alle *.html relativ zum Repo-Root, sortiert, ohne versteckte Ordner.
+
+    Die Suche selbst steht in lb_testlib.html_dateien() — dort ist auch
+    begründet, warum JEDER Punkt-Ordner übersprungen wird und nicht nur .git
+    (Stichwort .claude/worktrees/ und ~50 Phantom-URLs in der Sitemap).
+    """
+    return html_dateien(REPO_ROOT, als_relativ=True)
 
 
 def git_lastmod(rel):

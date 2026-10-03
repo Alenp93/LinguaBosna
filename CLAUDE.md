@@ -302,7 +302,9 @@ diese Datei ist am kritischsten für Konsistenz.
 und `build_kapitel_index.py` sind vorhanden). Die Kapitel 81–90 (ehemals 73–82) wurden deshalb direkt in `vokabeln_flat.json`
 geschrieben, nicht über die Pipeline erzeugt. Wer neue Kapitel anlegt, arbeitet also an der JSON
 selbst – und muss die Regeln oben (Kapitelgröße, ein Niveau je Kapitel, Wortart-Konvention,
-Sortierung nach Kapitelnummer) von Hand einhalten. Ein Validierungsskript dafür fehlt bisher.
+Sortierung nach Kapitelnummer) von Hand einhalten. Geprüft werden diese Regeln seit
+September 2026 von `test_vokabeln.py` (siehe Validierungs-Workflow unten) – das Skript
+ersetzt die fehlende Pipeline nicht, fängt aber jeden Regelbruch danach ab.
 
 ⚠️ **Globale Neunummerierung im August 2026:** Beim Auffüllen von A1 sind acht neue Kapitel
 thematisch zwischen die bestehenden einsortiert worden. Dadurch hat sich **jede** Kapitelnummer
@@ -492,6 +494,19 @@ die andere.
 Für Lernen-Übungen gilt der Sprach-Check (bosnisch-pruefer) ebenso; die Struktur-Prüfung
 läuft dort über `test_lernen_uebung.py` (siehe `WORKFLOW_Lernen.md`, Abschnitt 6).
 
+**Vokabel-Prüfung (nach jeder Änderung an `vokabeln_flat.json`, verbindlich):**
+- `python test_vokabeln.py` prüft die Regeln aus dem Abschnitt „Vokabular-System"
+  maschinell nach: Wortart-Konvention (`Wortart (Genus)` vs. `Wortart`), ein Niveau je
+  Kapitel, Kapitelgröße ≤ 35, Kapitelnummer ↔ -name eindeutig, `nur_woerterbuch` ohne
+  Kapitelfelder, Aspektpaare (genau zwei Partner, je ein Aspekt, ein Niveau) und die
+  Sortierung nach Kapitelnummer. Das sind harte Fehler (Exit 1), weil jeder davon eine
+  konsumierende Seite bricht. Zusätzlich als Hinweis: Wortart-Monokultur (erst ab
+  Kapitel 98, ältere Kapitel sind ausgenommen), Grundwort-über-Kompositum, doppelte
+  bosnische Formen, `par_id`-Lücken. `--quiet` unterdrückt die ✓-Zeilen.
+- ⚠ Das Skript prüft **Struktur, nicht Sprache** – für ijekavische Form, Register und
+  Bosnisch-Standard bleibt der `bosnisch-pruefer`-Subagent zuständig, genau wie bei den
+  Grammatikseiten.
+
 **SEO-Prüfung (seitentyp-unabhängig, ergänzend):**
 - `python3 test_seo.py [datei]` oder `python3 test_seo.py --all` prüft die SEO-Grundausstattung
   **jeder** Seite (nicht nur Grammatik): Canonical, Open Graph, Twitter Card, gültiges JSON-LD,
@@ -530,6 +545,20 @@ läuft dort über `test_lernen_uebung.py` (siehe `WORKFLOW_Lernen.md`, Abschnitt
   Annäherung – bei Text auf Fotos oder stark transparenten Flächen im Zweifel mit den
   Browser-DevTools nachprüfen (Details im Skript-Docstring).
 
+**Gemeinsame Bibliothek:** Alle Prüf- und Build-Skripte teilen sich `lb_testlib.py`
+(Repo-Root finden, ✓/✗/⚠-Ausgabe, HTML-Dateien einsammeln, lokaler Testserver,
+Überlauf-Messung). Vorher hatte jedes Skript eigene Kopien davon – mit dem Ergebnis, dass
+ein Fix nur in einem Skript ankam: `test_seo.py` prüfte deshalb bis September 2026 jede
+Seite doppelt, weil ihm der Filter für die Arbeitskopie unter `.claude/worktrees/` fehlte,
+den `build_sitemap.py` längst hatte. **Wer an einem dieser Bausteine etwas ändert, ändert
+ihn in `lb_testlib.py`, nicht im einzelnen Skript.**
+
+**Aufrufname unter Windows:** Die Beispiele oben schreiben `python3`, weil das unter Linux
+üblich ist. Auf Alens Rechner heißt der Befehl **`python`** (es gibt kein `python3` im PATH),
+und bei Umlauten/✓-Zeichen ist `PYTHONUTF8=1` nötig, sonst bricht die Ausgabe mit einem
+UnicodeEncodeError ab. In der Praxis also z. B.:
+`PYTHONUTF8=1 python test_vokabeln.py`
+
 **Einmalige lokale Einrichtung (falls noch nicht geschehen):** Das Skript braucht Playwright.
 Falls der Testlauf mit „Playwright nicht installiert" fehlschlägt, einmalig ausführen:
 ```
@@ -557,6 +586,14 @@ Aspektpaare) fertig sind.
 - Audio-Feature reaktivieren (Google Cloud TTS Free Tier)
 - Mögliche zukünftige englische Version (nach Phase 3; JSON hat bereits English-Feldgrundlage)
 - Kultur-/Blog-Sektionen aktivieren, sobald Grammatik weiter fortgeschritten ist
+- **Falls je eine KI-Funktion eingebaut wird** (z. B. Chat-Hilfe, automatische
+  Übersetzungs-/Grammatikprüfung mit einem LLM): dann Schutz gegen Prompt-Injection
+  konkret mitplanen (klare Trennung System-Prompt/Nutzereingabe, Behandlung von
+  Nutzertext als Daten statt Anweisung, Output-Filterung). Stand September 2026 hat
+  die Seite kein Backend und keine LLM-Integration im Live-Betrieb, daher aktuell
+  keine solche Angriffsfläche – nur die Wörterbuch-Suche verarbeitet Nutzereingaben,
+  und die entschärft HTML bereits über `escapeHtml()` in `LB_main.js` (Schutz gegen
+  XSS, eine andere Angriffsklasse als Prompt-Injection).
 
 ## Arbeitsweise
 

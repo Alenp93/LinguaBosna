@@ -35,52 +35,17 @@ import sys
 import json
 import pathlib
 
-if sys.platform == "win32":  # UTF-8-Ausgabe wie in test_grammatikseite.py
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+# Gemeinsame Bausteine (Repo-Root, Ausgabe, Dateisuche) — siehe lb_testlib.py.
+# Wichtig: errors/warnings werden hier NICHT neu zugewiesen, sonst schreibt
+# fail() in eine andere Liste als die, die main() am Ende ausliest.
+from lb_testlib import (utf8_ausgabe, repo_root, html_dateien, SKIP_NAMES,
+                        ok, fail, warn, errors, warnings)
+
+utf8_ausgabe()
 
 DOMAIN = "https://linguabosna.com"
 
-# Fragmente/Vorlagen, die keine eigenständigen Seiten sind
-SKIP_NAMES = {
-    "LB_header.html", "LB_footer.html",
-    "TEMPLATE_Grammatik_Detailseite.html",
-}
-
-errors = []
-warnings = []
-
-
-def find_repo_root(start, max_levels=6):
-    current = pathlib.Path(start).resolve()
-    for _ in range(max_levels):
-        if (current / "Code" / "Style.css").exists():
-            return current
-        if current.parent == current:
-            break
-        current = current.parent
-    return None
-
-
-REPO_ROOT = (find_repo_root(pathlib.Path(__file__).resolve().parent)
-             or find_repo_root(pathlib.Path.cwd()))
-if REPO_ROOT is None:
-    print("✗ Repo-Root nicht gefunden (kein Code/Style.css).")
-    sys.exit(1)
-
-
-def ok(msg):
-    print(f"  ✓ {msg}")
-
-
-def fail(msg):
-    errors.append(msg)
-    print(f"  ✗ FEHLER: {msg}")
-
-
-def warn(msg):
-    warnings.append(msg)
-    print(f"  ⚠ Hinweis: {msg}")
+REPO_ROOT = repo_root()
 
 
 def check_page(path):
@@ -176,12 +141,16 @@ def check_page(path):
 
 
 def all_html():
-    out = []
-    for p in sorted(REPO_ROOT.rglob("*.html")):
-        if ".git" in p.parts:
-            continue
-        out.append(p)
-    return out
+    """
+    Alle Seiten des Projekts.
+
+    Die Suche steckt in lb_testlib.html_dateien() — sie überspringt JEDEN
+    Ordner, der mit einem Punkt beginnt. Vorher filterte diese Funktion nur
+    ".git" und lief deshalb zusätzlich durch die Arbeitskopie unter
+    .claude/worktrees/: 172 statt 86 geprüfte Seiten, jede Seite doppelt,
+    die zweite Hälfte aus einem beliebig alten Klon.
+    """
+    return html_dateien(REPO_ROOT)
 
 
 def main():

@@ -49,9 +49,9 @@ import shutil
 import sys
 import unicodedata
 
-if sys.platform == "win32":  # UTF-8-Ausgabe wie in test_seo.py
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+from lb_testlib import utf8_ausgabe, repo_root
+
+utf8_ausgabe()
 
 DOMAIN = "https://linguabosna.com"
 
@@ -94,24 +94,9 @@ ASPEKT_KUERZEL = {
 
 
 # ══════════════════════════════════════════════════════════════
-#  Repo-Root finden (gleiche Logik wie in den anderen Skripten)
+#  Repo-Root finden (zentral in lb_testlib.py, siehe dort)
 # ══════════════════════════════════════════════════════════════
-def find_repo_root(start, max_levels=6):
-    current = pathlib.Path(start).resolve()
-    for _ in range(max_levels):
-        if (current / "Code" / "Style.css").exists():
-            return current
-        if current.parent == current:
-            break
-        current = current.parent
-    return None
-
-
-REPO_ROOT = (find_repo_root(pathlib.Path(__file__).resolve().parent)
-             or find_repo_root(pathlib.Path.cwd()))
-if REPO_ROOT is None:
-    print("✗ Repo-Root nicht gefunden (kein Code/Style.css).")
-    sys.exit(1)
+REPO_ROOT = repo_root()
 
 
 # ══════════════════════════════════════════════════════════════

@@ -31,34 +31,18 @@ import json
 import pathlib
 import sys
 
-if sys.platform == "win32":  # UTF-8-Ausgabe wie in test_seo.py
-    # Ohne diese Zeilen bricht das Skript unter Windows beim abschließenden
-    # print() mit einem UnicodeEncodeError ab ("✓" gibt es in cp1252 nicht) –
-    # die Arbeit war da längst getan, es sah nur nach Fehlschlag aus.
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+from lb_testlib import utf8_ausgabe, repo_root
+
+# Ohne UTF-8-Ausgabe bricht das Skript unter Windows beim abschließenden
+# print() mit einem UnicodeEncodeError ab ("✓" gibt es in cp1252 nicht) –
+# die Arbeit war da längst getan, es sah nur nach Fehlschlag aus.
+utf8_ausgabe()
 
 VOKABELN_REL = pathlib.Path("Code/2_Vokabeln/vokabeln_flat.json")
 INDEX_REL    = pathlib.Path("Code/2_Vokabeln/kapitel_index.json")
 
 
-def find_repo_root(start, max_levels=6):
-    """Sucht aufwärts nach dem Repo-Root (erkennbar an Code/Style.css)."""
-    current = pathlib.Path(start).resolve()
-    for _ in range(max_levels):
-        if (current / "Code" / "Style.css").exists():
-            return current
-        if current.parent == current:
-            break
-        current = current.parent
-    return None
-
-
-REPO_ROOT = (find_repo_root(pathlib.Path(__file__).resolve().parent)
-             or find_repo_root(pathlib.Path.cwd()))
-if REPO_ROOT is None:
-    print("✗ Repo-Root nicht gefunden (kein Code/Style.css).")
-    sys.exit(1)
+REPO_ROOT = repo_root()
 
 
 def build_index():

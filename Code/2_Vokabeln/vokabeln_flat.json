@@ -1998,24 +1998,6 @@
     "Kapitel": 8,
     "Kapitelname": "Verwandtschaft & Lebensphasen",
     "Niveau": "A1",
-    "Bosnisch": "šura",
-    "Deutsch": "Schwager (Bruder der Ehefrau)",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 8",
-    "Kapitel": 8,
-    "Kapitelname": "Verwandtschaft & Lebensphasen",
-    "Niveau": "A1",
-    "Bosnisch": "svastika",
-    "Deutsch": "Schwägerin (Schwester der Ehefrau)",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 8",
-    "Kapitel": 8,
-    "Kapitelname": "Verwandtschaft & Lebensphasen",
-    "Niveau": "A1",
     "Bosnisch": "unuk",
     "Deutsch": "Enkel",
     "Wortart (Genus)": "Substantiv (m)"
@@ -30378,6 +30360,24 @@
     "Kapitel": 115,
     "Kapitelname": "Verwandtschaft durch Heirat & Paten",
     "Niveau": "B1",
+    "Bosnisch": "šura",
+    "Deutsch": "Schwager (Bruder der Ehefrau)",
+    "Wortart (Genus)": "Substantiv (m)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
+    "Bosnisch": "svastika",
+    "Deutsch": "Schwägerin (Schwester der Ehefrau)",
+    "Wortart (Genus)": "Substantiv (f)"
+  },
+  {
+    "kategorie": "Kapitel 115",
+    "Kapitel": 115,
+    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
+    "Niveau": "B1",
     "Bosnisch": "badžanak",
     "Deutsch": "Mann der Schwester der Ehefrau (ugs. auch: badžo)",
     "Wortart (Genus)": "Substantiv (m)"
@@ -30507,15 +30507,6 @@
     "Bosnisch": "vjerenica",
     "Deutsch": "Verlobte",
     "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 115",
-    "Kapitel": 115,
-    "Kapitelname": "Verwandtschaft durch Heirat & Paten",
-    "Niveau": "B1",
-    "Bosnisch": "Ušao je u našu porodicu.",
-    "Deutsch": "Er ist in unsere Familie gekommen (durch Heirat).",
-    "Wortart": "Phrase"
   },
   {
     "kategorie": "Kapitel 115",

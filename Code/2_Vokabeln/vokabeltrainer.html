@@ -133,40 +133,51 @@
       </div>
 
       <!-- ─── EINSTELLUNGEN: Teil-Auswahl, Richtung, Modus ────────────
-           Auf dem Desktop unverändert immer sichtbar (siehe CSS).
-           Auf Mobil zu einer einklappbaren Zeile zusammengefasst, damit
-           Karte + Bewertungsknöpfe ohne Scrollen sichtbar bleiben.
-           Standardmäßig zugeklappt; die aktuelle Auswahl steht als
-           Kurztext im Toggle-Button (updateSettingsSummary() im JS). -->
+           Immer sichtbar – auf dem Desktop wie bisher drei zentrierte
+           Zeilen untereinander. Auf Mobil (≤768px, siehe CSS) eine
+           kompakte Leiste aus zwei Zeilen:
+             Zeile 1: [Teil 1 | Teil 2]  [BS → DE ⇄]
+             Zeile 2: [Karte | Quiz | Liste]
+           Jede Einstellung ist dort EIN Tipp und alle Möglichkeiten sind
+           auf einen Blick zu sehen. (Bis Oktober 2026 steckte das auf Mobil
+           in einem Klappkasten, der nach jedem Tipp wieder zuklappte –
+           mühsam bei mehreren Änderungen, und neue Nutzer entdeckten die
+           Modi gar nicht erst.)
+           Kurz-/Langbeschriftungen: .lbl-kurz nur auf Mobil, .lbl-lang
+           nur auf dem Desktop. -->
       <div class="settings-panel" id="settingsPanel">
-        <button type="button" class="settings-toggle" id="settingsToggle"
-                onclick="toggleSettings()" aria-expanded="false" aria-controls="settingsBody">
-          <span class="settings-toggle-label">
-            <i class="fa-solid fa-sliders" aria-hidden="true"></i> Einstellungen
-          </span>
-          <span class="settings-summary" id="settingsSummary"></span>
-          <i class="fa-solid fa-chevron-down settings-chevron" id="settingsChevron" aria-hidden="true"></i>
-        </button>
-
-        <div class="settings-body" id="settingsBody">
-          <!-- LERNEINHEITS-AUSWAHL (Teil 1, Teil 2, …) -->
-          <div class="selector-wrap" id="unitSelector"></div>
+        <div class="settings-row">
+          <!-- LERNEINHEITS-AUSWAHL (Teil 1, Teil 2, …) – Buttons baut buildUnitSelector() -->
+          <div class="selector-wrap" id="unitSelector" role="group" aria-label="Lerneinheit"></div>
 
           <!-- RICHTUNG: Bosnisch → Deutsch / Deutsch → Bosnisch -->
           <div class="direction-wrap">
-            <div class="direction-toggle">
-              <button class="dir-btn active" id="dirBosDE" onclick="setDirection('bos-de')"><span class="dir-badge">BS</span> Bosnisch → Deutsch</button>
-              <button class="dir-btn"        id="dirDeBS"  onclick="setDirection('de-bos')"><span class="dir-badge">DE</span> Deutsch → Bosnisch</button>
+            <!-- Desktop: zwei Knöpfe nebeneinander -->
+            <div class="direction-toggle" role="group" aria-label="Abfragerichtung">
+              <button class="dir-btn active" id="dirBosDE" onclick="setDirection('bos-de')" aria-pressed="true"><span class="dir-badge">BS</span> Bosnisch → Deutsch</button>
+              <button class="dir-btn"        id="dirDeBS"  onclick="setDirection('de-bos')" aria-pressed="false"><span class="dir-badge">DE</span> Deutsch → Bosnisch</button>
             </div>
-          </div>
-
-          <!-- MODUS: Karteikarte / Multiple Choice / Übersicht -->
-          <div class="mode-row">
-            <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Karteikarte</button>
-            <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')"><i class="fa-solid fa-brain" aria-hidden="true"></i> Multiple Choice</button>
-            <button class="mode-btn"        id="modeList"  onclick="setMode('list')"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Übersicht</button>
+            <!-- Mobil: EIN Umschalt-Knopf, ein Tipp dreht die Richtung um.
+                 Text + aria-label setzt setDirection(). -->
+            <button type="button" class="dir-swap" id="dirSwap" onclick="swapDirection()"
+                    aria-label="Abfragerichtung: Bosnisch nach Deutsch. Tippen zum Umkehren.">
+              <span id="dirSwapText">BS → DE</span>
+              <i class="fa-solid fa-right-left" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
+
+        <!-- MODUS: Karteikarte / Multiple Choice / Übersicht -->
+        <div class="mode-row" role="group" aria-label="Übungsmodus">
+          <button class="mode-btn active" id="modeFlash" onclick="setMode('flash')" aria-pressed="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> <span class="lbl-lang">Karteikarte</span><span class="lbl-kurz">Karte</span></button>
+          <button class="mode-btn"        id="modeQuiz"  onclick="setMode('quiz')"  aria-pressed="false"><i class="fa-solid fa-brain" aria-hidden="true"></i> <span class="lbl-lang">Multiple Choice</span><span class="lbl-kurz">Quiz</span></button>
+          <button class="mode-btn"        id="modeList"  onclick="setMode('list')"  aria-pressed="false"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> <span class="lbl-lang">Übersicht</span><span class="lbl-kurz">Liste</span></button>
+        </div>
+
+        <!-- Kurzer Hinweis, wenn ein Umschalten eine laufende Runde neu
+             startet (zeigeNeustartHinweis() im JS). Liegt per CSS über
+             dem Fortschrittsbalken, damit nichts verspringt. -->
+        <div class="restart-note" id="restartNote" role="status" aria-live="polite"></div>
       </div>
 
       <!-- FORTSCHRITTSBALKEN + PUNKTE-ANZEIGE — ein gemeinsamer Wrapper,
@@ -645,12 +656,11 @@
       if (mode === 'list') setMode('flash'); else restart();
 
       updateDueBanner();
-      updateSettingsSummary();
     }
 
     function endReview() {
       reviewMode = false;
-      selectUnit(activeUnit);      // zurück zur zuletzt gewählten Lerneinheit (ruft updateSettingsSummary())
+      selectUnit(activeUnit);      // zurück zur zuletzt gewählten Lerneinheit
     }
 
     // Eine Antwort in die Leitner-Boxen eintragen. Das passiert in JEDER
@@ -728,57 +738,55 @@
         start = to + 1;
         const btn  = document.createElement('button');
         btn.className = 'unit-btn' + (i === 0 ? ' active' : '');
-        btn.textContent = `Teil ${i + 1}  (${from}–${to})`;
+        btn.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        // Der Bereich "(1–16)" steht in einem eigenen <span>, damit ihn
+        // das CSS auf Mobil ausblenden kann (dort nur "Teil 1").
+        btn.innerHTML = `Teil ${i + 1}<span class="unit-range"> (${from}–${to})</span>`;
         btn.onclick = () => selectUnit(i);
         wrap.appendChild(btn);
       });
     }
 
     function selectUnit(idx) {
+      // Bewusster Wechsel auf einen ANDEREN Teil mitten in der Runde → Hinweis.
+      // (Rückkehr aus der Wiederholung über endReview() zeigt keinen.)
+      const hinweis = rundeLaeuft() && !reviewMode && idx !== activeUnit;
       // Ein Klick auf Teil 1 / Teil 2 verlässt immer die Wiederholungs-Runde.
       reviewMode = false;
       activeUnit = idx;
-      document.querySelectorAll('.unit-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+      document.querySelectorAll('.unit-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+        b.setAttribute('aria-pressed', i === idx ? 'true' : 'false');
+      });
       unitVocab = units[idx];
       restart();
       updateDueBanner();
-      updateSettingsSummary();
+      if (hinweis) zeigeNeustartHinweis();
     }
 
     // ─────────────────────────────────────────────────────────
-    // EINSTELLUNGEN-KASTEN (Teil-Auswahl, Richtung, Modus)
-    // Auf dem Desktop immer sichtbar (siehe CSS), auf Mobil einklappbar.
-    // Der Toggle-Button zeigt die aktuelle Auswahl als Kurztext, damit
-    // man sie im zugeklappten Zustand nicht rät.
+    // NEUSTART-HINWEIS
+    // Teil, Richtung und Modus umzuschalten startet die Runde neu
+    // (restart()). Da die Einstellungen jetzt immer griffbereit sind,
+    // soll das nicht unbemerkt passieren: Lief gerade eine Runde mit
+    // mindestens einer Antwort, erscheint kurz "Neue Runde gestartet".
     // ─────────────────────────────────────────────────────────
-    function updateSettingsSummary() {
-      const el = document.getElementById('settingsSummary');
+    function rundeLaeuft() {
+      const ergebnisSichtbar = !document.getElementById('resultScreen').classList.contains('hidden');
+      return mode !== 'list' && (correct + wrong) > 0 && !ergebnisSichtbar;
+    }
+
+    let neustartTimer = null;
+    function zeigeNeustartHinweis() {
+      const el = document.getElementById('restartNote');
       if (!el) return;
-      const teilText = reviewMode ? 'Wiederholung' : `Teil ${activeUnit + 1}`;
-      const dirText  = direction === 'bos-de' ? 'BS→DE' : 'DE→BS';
-      const modeText = mode === 'flash' ? 'Karteikarte' : mode === 'quiz' ? 'Multiple Choice' : 'Übersicht';
-      el.textContent = `${teilText} · ${dirText} · ${modeText}`;
-
-      // Nach jeder Auswahl (Teil/Richtung/Modus/Wiederholung starten oder
-      // beenden) den Kasten wieder zuklappen — sonst bliebe die Karte auf
-      // Mobil weiter verdeckt, genau das Problem, das die Einklappung lösen
-      // soll. Auf dem Desktop hat das keine sichtbare Wirkung (dort ist
-      // .settings-body per CSS immer sichtbar, unabhängig von .open).
-      const body   = document.getElementById('settingsBody');
-      const toggle = document.getElementById('settingsToggle');
-      if (body && toggle) {
-        body.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    function toggleSettings() {
-      const body   = document.getElementById('settingsBody');
-      const toggle = document.getElementById('settingsToggle');
-      const open   = body.classList.toggle('open');
-      toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      el.textContent = 'Neue Runde gestartet';
+      el.classList.add('show');
+      clearTimeout(neustartTimer);
+      neustartTimer = setTimeout(() => {
+        el.classList.remove('show');
+        el.textContent = '';
+      }, 2500);
     }
 
     // ─────────────────────────────────────────────────────────
@@ -824,19 +832,38 @@
     // MODUS & RICHTUNG
     // ─────────────────────────────────────────────────────────
     function setMode(m) {
+      const hinweis = rundeLaeuft() && m !== mode && m !== 'list';
       mode = m;
-      ['Flash','Quiz','List'].forEach(n => document.getElementById('mode'+n).classList.remove('active'));
-      document.getElementById('mode' + m.charAt(0).toUpperCase() + m.slice(1)).classList.add('active');
+      ['Flash','Quiz','List'].forEach(n => {
+        const b = document.getElementById('mode' + n);
+        const aktiv = n.toLowerCase() === m;
+        b.classList.toggle('active', aktiv);
+        b.setAttribute('aria-pressed', aktiv ? 'true' : 'false');
+      });
       restart();
-      updateSettingsSummary();
+      if (hinweis) zeigeNeustartHinweis();
     }
 
     function setDirection(dir) {
+      const hinweis = rundeLaeuft() && dir !== direction;
       direction = dir;
-      document.getElementById('dirBosDE').classList.toggle('active', dir === 'bos-de');
-      document.getElementById('dirDeBS').classList.toggle('active',  dir === 'de-bos');
+      const bsDe = dir === 'bos-de';
+      // Desktop: zwei Knöpfe
+      document.getElementById('dirBosDE').classList.toggle('active', bsDe);
+      document.getElementById('dirDeBS').classList.toggle('active', !bsDe);
+      document.getElementById('dirBosDE').setAttribute('aria-pressed', bsDe ? 'true' : 'false');
+      document.getElementById('dirDeBS').setAttribute('aria-pressed', bsDe ? 'false' : 'true');
+      // Mobil: ein Umschalt-Knopf
+      document.getElementById('dirSwapText').textContent = bsDe ? 'BS → DE' : 'DE → BS';
+      document.getElementById('dirSwap').setAttribute('aria-label',
+        `Abfragerichtung: ${bsDe ? 'Bosnisch nach Deutsch' : 'Deutsch nach Bosnisch'}. Tippen zum Umkehren.`);
       restart();
-      updateSettingsSummary();
+      if (hinweis) zeigeNeustartHinweis();
+    }
+
+    // Mobiler Umschalt-Knopf: dreht die aktuelle Richtung um.
+    function swapDirection() {
+      setDirection(direction === 'bos-de' ? 'de-bos' : 'bos-de');
     }
 
     // ─────────────────────────────────────────────────────────

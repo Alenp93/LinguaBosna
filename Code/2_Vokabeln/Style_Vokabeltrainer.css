@@ -254,13 +254,43 @@ main {
 }
 .dir-btn.active .dir-badge { background: rgba(255,255,255,0.25); color: var(--white); }
 
-/* ── Einstellungen-Kasten (Teil-Auswahl, Richtung, Modus) ─────────
-   Auf dem Desktop ist dieser Wrapper unsichtbar (kein Rahmen/Padding) —
-   die drei Zeilen stehen genau wie vorher direkt untereinander. Erst
-   die Mobil-Media-Query weiter unten macht daraus einen einklappbaren
-   Kasten, damit Karte + Bewertungsknöpfe ohne Scrollen sichtbar bleiben. */
-.settings-toggle { display: none; }
-.settings-body   { display: block; }
+/* ── Einstellungen-Leiste (Teil-Auswahl, Richtung, Modus) ─────────
+   Auf dem Desktop sind die Wrapper unsichtbar (kein Rahmen/Padding) —
+   die drei Zeilen stehen genau wie vorher zentriert untereinander.
+   Erst die Mobil-Media-Query weiter unten macht daraus eine kompakte,
+   immer sichtbare Leiste aus zwei Zeilen (Segment-Knöpfe). */
+.settings-panel { position: relative; }   /* Bezugspunkt für .restart-note */
+.settings-row   { display: block; }
+
+/* Mobil-only-Elemente auf dem Desktop ausblenden */
+.dir-swap   { display: none; }
+.lbl-kurz   { display: none; }
+
+/* Kurzer Hinweis "Neue Runde gestartet" (siehe zeigeNeustartHinweis()).
+   Absolut positioniert unter der Leiste, damit beim Ein-/Ausblenden
+   nichts auf der Seite verspringt; pointer-events:none, damit er
+   keinen Tipp auf den Fortschrittsbalken abfängt. */
+.restart-note {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0.2rem);
+  z-index: 5;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.restart-note.show { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .restart-note { transition: none; }
+}
 
 /* ── Fortschrittsbalken ────────────────────────────────────── */
 .progress-wrap { margin-bottom: 1.5rem; }
@@ -692,11 +722,11 @@ main {
        gestreckt. Ohne explizites width:100% floort der Browser diese
        Streckung trotzdem auf den Inhalts-Mindestwert (min-width:auto) –
        bei sehr schmalen Screens (320px) reicht dann der nicht schrumpfbare
-       Teil des Einstellungen-Buttons (Icon+Label, Chevron) aus, um main
-       (und damit die ganze Seite) über den Viewport hinaus zu drücken.
-       width:100% macht die Breite stattdessen zu einem festen Wert, wodurch
-       .settings-summary (flex:1; min-width:0) endlich wie vorgesehen
-       schrumpft, statt die Seite aufzublähen. Siehe CLAUDE.md, „Bekannte
+       Teil der Einstellungen-Leiste aus, um main (und damit die ganze
+       Seite) über den Viewport hinaus zu drücken. width:100% macht die
+       Breite stattdessen zu einem festen Wert, wodurch die Segment-Knöpfe
+       (flex:1; min-width:0) wie vorgesehen schrumpfen, statt die Seite
+       aufzublähen. Siehe CLAUDE.md, „Bekannte
        Lösungen/Fallstricke – Mobile Overflow" für dasselbe Muster auf
        Seitenebene. */
     width: 100%;
@@ -729,67 +759,95 @@ main {
   .due-banner       { flex-direction: column; align-items: stretch; text-align: center; }
   .due-btn          { width: 100%; }
 
-  /* ── Einstellungen-Kasten: Teil-Auswahl/Richtung/Modus einklappbar ──
-     Standardmäßig zugeklappt (.settings-body ohne .open), der
-     Toggle-Button zeigt die aktuelle Auswahl als Kurztext. */
+  /* ── Einstellungen-Leiste: immer sichtbar, zwei kompakte Zeilen ──
+       Zeile 1: (Teil 1) (Teil 2)  (BS → DE ⇄)
+       Zeile 2: (Karte) (Quiz) (Liste)
+     Gleiche Optik wie auf dem Desktop: einzelne runde Pillen, zentriert,
+     nur so breit wie ihr Text. Teil = blau umrandet, Modus = grau
+     umrandet / aktiv gold – genau die Desktop-Farben.
+     TAP-TARGETS: Optisch sind die Pillen nur ~32px hoch (wirkt leichter),
+     antippbar sind sie trotzdem 44px – ein unsichtbares ::after ragt
+     6px nach oben und unten über den Knopf hinaus (Klicks auf ein
+     Pseudo-Element zählen als Klick auf den Knopf). Der Zeilenabstand
+     von 0.75rem (12px) sorgt dafür, dass sich diese erweiterten Flächen
+     zweier Zeilen nicht überlappen. */
   .settings-panel {
-    margin-bottom: 0.9rem;
-  }
-  .settings-toggle {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+  }
+  .settings-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 0.5rem;
-    padding: 0.55rem 0.9rem;
+  }
+
+  /* Lange Beschriftungen aus, kurze an */
+  .lbl-lang   { display: none; }
+  .lbl-kurz   { display: inline; }
+  .unit-range { display: none; }
+
+  /* Gemeinsame Pillen-Größe für alle drei Knopfarten */
+  .unit-btn,
+  .mode-btn,
+  .dir-swap {
+    position: relative;               /* Bezugspunkt für die Tap-Fläche */
+    padding: 0.4rem 0.9rem;
+    font-size: 0.76rem;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .unit-btn::after,
+  .mode-btn::after,
+  .dir-swap::after {
+    content: '';
+    position: absolute;
+    inset: -6px 0;                    /* 32px + 2×6px = 44px Tap-Höhe */
+  }
+
+  /* Teil 1 / Teil 2 – Desktop-Stil, nur kompakter */
+  .settings-row .selector-wrap {
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    margin-bottom: 0;
+  }
+
+  /* Richtung: nur der Umschalt-Knopf, als Pille im Stil des
+     Desktop-Richtungsschalters (weiß, grauer Rand, blaue Schrift) */
+  .direction-wrap   { margin-bottom: 0; }
+  .direction-toggle { display: none; }
+  .dir-swap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     border: 1.5px solid var(--gray);
-    border-radius: var(--radius);
+    border-radius: 50px;
     background: var(--white);
     color: var(--blue);
     font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
-    min-height: 44px;                 /* Touch-Target */
-  }
-  .settings-toggle-label {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.8rem;
     font-weight: 700;
-    flex-shrink: 0;
+    cursor: pointer;
+    transition: background 0.18s, border-color 0.18s;
   }
-  .settings-summary {
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-align: left;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--muted);
+  .dir-swap i { font-size: 0.7rem; color: var(--gold-text); transition: transform 0.25s ease; }
+  .dir-swap:active { background: var(--blue-lt); border-color: var(--blue); }
+  .dir-swap:active i { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .dir-swap i { transition: none; }
+    .dir-swap:active i { transform: none; }
   }
-  .settings-chevron {
-    flex-shrink: 0;
-    font-size: 0.75rem;
-    color: var(--muted);
-    transition: transform 0.2s ease;
-  }
-  .settings-toggle.open .settings-chevron { transform: rotate(180deg); }
 
-  .settings-body {
-    display: none;
-    margin-top: 0.75rem;
-    padding: 0.9rem 0.75rem;
-    border: 1.5px solid var(--gray);
-    border-radius: var(--radius);
-    background: var(--bg);
+  /* Karte / Quiz / Liste – Desktop-Stil, nur kompakter */
+  .mode-row {
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    margin-bottom: 0;
   }
-  .settings-body.open { display: block; }
-  /* Innerhalb des aufgeklappten Kastens brauchen die drei Zeilen keinen
-     eigenen Abstand nach unten mehr außer zwischen sich selbst. */
-  .settings-body .selector-wrap,
-  .settings-body .direction-wrap  { margin-bottom: 1rem; }
-  .settings-body .mode-row        { margin-bottom: 0; }
+  .mode-btn i { margin-right: 0.15rem; }
 
   /* ── Fortschritt + Punkte in einer kompakten Zeile ─────────────── */
   .progress-score-row {
@@ -820,13 +878,12 @@ main {
   .page-title h1   { font-size: 1.25rem; }
   .category-badge  { font-size: 0.75rem; }
 
-  .dir-btn  { font-size: 0.7rem; padding: 0.35rem 0.6rem; }
-  .mode-btn { font-size: 0.72rem; padding: 0.38rem 0.75rem; }
+  /* Einstellungen-Leiste: Pillen etwas schmaler, damit Zeile 1 auch
+     bei 320px nebeneinander passt */
+  .unit-btn, .mode-btn, .dir-swap { padding: 0.4rem 0.75rem; font-size: 0.74rem; }
 
   .card-word          { font-size: 1.3rem; }
   .card-back .card-word { font-size: 1.2rem; }
-
-  .unit-btn { font-size: 0.78rem; padding: 0.45rem 0.9rem; }
 
   .due-title { font-size: 0.88rem; }
   .due-sub   { font-size: 0.75rem; }

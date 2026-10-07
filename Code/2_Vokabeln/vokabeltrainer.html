@@ -102,7 +102,7 @@
     <div class="trainer-topbar">
       <a id="backToTable" class="back-btn" href="#">
         <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-        Zurück zur Vokabeltabelle
+        <span id="backToTableText">Zurück zur Vokabeltabelle</span>
       </a>
     </div>
 
@@ -280,6 +280,11 @@
              wenn der Browser nichts speichern konnte. -->
         <div class="result-box1 hidden" id="resultBox1"></div>
         <div class="result-btns">
+          <!-- Nur in einer Wiederholungs-Runde und nur, wenn noch Karten
+               fällig sind (showResult() blendet ihn ein). Bewusst NICHT
+               die Klasse "primary": die Enter-Taste klickt den ersten
+               .restart-btn.primary, auch wenn er versteckt ist. -->
+          <button class="restart-btn next-review hidden" id="btnNextReview" onclick="startReview()"></button>
           <button class="restart-btn primary"   onclick="restart()"><i class="fa-solid fa-arrow-rotate-right" aria-hidden="true"></i> Alle Karten wiederholen</button>
           <button class="restart-btn secondary" id="btnRetryWrong" onclick="retryWrong()">✗ Nur falsche Karten</button>
         </div>
@@ -332,6 +337,16 @@
     // Pfad zum Vokabeltrainer selbst (für die Kategorie-Navigation unten).
     const TRAINER_PATH = '/Code/2_Vokabeln/vokabeltrainer.html';
 
+    // Seite im Lernen-Bereich, die den ganzen Karteikasten zeigt (Liste aller
+    // Karten mit Box und Fälligkeit). Dorthin führt der Zurück-Button und das
+    // Beenden, wenn der Trainer direkt als Wiederholung gestartet wurde.
+    const KARTEIKASTEN_PATH = '/Code/4_Lernen/lernen-wiederholung.html';
+
+    // Wie lange der direkte Wiederholungs-Start auf das Fortschritts-Modul
+    // wartet (ms). Das Modul wird von LB_main.js nachgeladen; kommt es nie
+    // (Netzfehler, Skript-Blocker), soll die Seite nicht ewig "lädt" zeigen.
+    const AUTOSTART_TIMEOUT = 6000;
+
     // Höchstzahl Karten pro Wiederholungs-Runde. Wer zwei Wochen nicht
     // da war, hätte sonst 150 fällige Karten am Stück — das schreckt ab.
     // Der Rest bleibt fällig und kommt in der nächsten Runde dran.
@@ -364,6 +379,15 @@
     let box1Neu       = 0;          // Karten dieser Runde, die in Box 1 gelandet sind
     let kartenGemerkt = 0;          // erfolgreich gespeicherte Antworten dieser Runde
 
+    // ── Direkter Einstieg in die Wiederholung (?wiederholung=1) ──
+    // Die Wiederholung lässt sich auch OHNE Kapitel starten, z. B. aus dem
+    // Menüpunkt "Lernen" heraus. Dann gibt es keine Kapitelansicht: keine
+    // Teil-1/Teil-2-Auswahl, keine Vor-/Zurück-Kategorie, und "Beenden"
+    // führt zurück zur Karteikasten-Seite statt in ein Kapitel.
+    let direktWiederholung = false; // true = ohne Kapitel gestartet
+    let autostartOffen     = false; // wartet noch auf Vokabeln + Fortschritts-Modul
+    let autostartTimer     = null;
+
     // ── Zustand für "Enter = weiter" (siehe scheduleAdvance) ──
     let pendingAdvanceTimeout = null;
     let pendingAdvanceFn      = null;
@@ -374,6 +398,10 @@
     window.addEventListener('DOMContentLoaded', async () => {
       const params = new URLSearchParams(window.location.search);
       activeKapitel = parseInt(params.get('kapitel') || '1', 10);
+
+      // ?wiederholung=1 gilt nur OHNE ?kapitel=… — mit Kapitel ist die
+      // normale Kapitelansicht gemeint (dort gibt es den Kasten ohnehin).
+      direktWiederholung = params.get('wiederholung') === '1' && !params.has('kapitel');
       await loadVocab();
     });
 
@@ -384,7 +412,11 @@
         if (!indexRes.ok) throw new Error('HTTP ' + indexRes.status);
         allVocab     = await res.json();
         kapitelIndex = await indexRes.json();
-        initCategory();
+        if (direktWiederholung) {
+          initWiederholungOhneKapitel();
+        } else {
+          initCategory();
+        }
       } catch(e) {
         const msg = document.getElementById('stateMsg');
         msg.textContent = '⚠️ Fehler beim Laden der Vokabeln. Stelle sicher, dass vokabeln_flat.json erreichbar ist.';
@@ -659,8 +691,87 @@
     }
 
     function endReview() {
+      // Ohne Kapitel gestartet → es gibt keine Lerneinheit, zu der man
+      // zurückkönnte. Die Karteikasten-Seite zeigt den neuen Stand.
+      if (direktWiederholung) {
+        window.location.href = KARTEIKASTEN_PATH;
+        return;
+      }
       reviewMode = false;
       selectUnit(activeUnit);      // zurück zur zuletzt gewählten Lerneinheit
+    }
+
+    // ── Direkter Einstieg ohne Kapitel (?wiederholung=1) ──────────
+    // Bereitet die Seite für eine reine Wiederholung vor. Die Runde selbst
+    // startet erst in versucheAutostart(), denn dafür müssen ZWEI Dinge da
+    // sein: die Vokabeln (fetch) und das Fortschritts-Modul (von LB_main.js
+    // nachgeladen). Welches zuerst kommt, ist Netzsache.
+    function initWiederholungOhneKapitel() {
+      document.getElementById('categoryBadge').textContent = 'Wiederholung – dein Karteikasten';
+      document.getElementById('categoryDesc').textContent  = 'Fällige Karten aus allen Kapiteln';
+      document.title = 'LinguaBosna – Vokabeltrainer: Wiederholung';
+
+      // Zurück-Button: zur Karteikasten-Seite statt zur Vokabeltabelle
+      document.getElementById('backToTable').href = KARTEIKASTEN_PATH;
+      document.getElementById('backToTableText').textContent = 'Zurück zum Karteikasten';
+
+      // Alles Kapitelbezogene ausblenden
+      document.getElementById('unitSelector').classList.add('hidden');
+      document.getElementById('categoryNav').classList.add('hidden');
+
+      // Kein Kapitel geladen — Zustand bewusst leer lassen. Die Fallback-
+      // Auswahl der Quiz-Antworten kommt dann aus getQuizOptions().
+      allInCat = []; allItemsInCat = []; units = [[]]; unitVocab = [];
+
+      document.getElementById('stateMsg').textContent = '⏳ Fällige Karten werden gesucht…';
+
+      autostartOffen  = true;
+      autostartTimer  = setTimeout(() => {
+        if (!autostartOffen) return;
+        autostartOffen = false;
+        zeigeKeineFaelligen(true);
+      }, AUTOSTART_TIMEOUT);
+
+      versucheAutostart();   // Fortschritts-Modul ist evtl. schon da
+    }
+
+    // Startet die Wiederholung, sobald Vokabeln UND Fortschritts-Modul da
+    // sind. Wird nach dem Laden der Vokabeln und beim Ereignis
+    // 'lb-fortschritt-bereit' aufgerufen; autostartOffen verhindert, dass
+    // die Runde zweimal startet.
+    function versucheAutostart() {
+      if (!autostartOffen) return;
+      if (!allVocab.length || !window.LBFortschritt) return;
+
+      autostartOffen = false;
+      clearTimeout(autostartTimer);
+
+      updateDueBanner();                      // füllt reviewPool
+      if (!reviewPool.length) { zeigeKeineFaelligen(false); return; }
+
+      document.getElementById('stateMsg').classList.add('hidden');
+      document.getElementById('trainerUI').classList.remove('hidden');
+      startReview();
+    }
+
+    // Meldung statt Trainer: nichts fällig (fehler = false) bzw. der
+    // Karteikasten ließ sich nicht lesen (fehler = true). Beide führen
+    // mit einem Link zur Karteikasten-Seite weiter.
+    function zeigeKeineFaelligen(fehler) {
+      const msg = document.getElementById('stateMsg');
+      msg.classList.remove('hidden', 'error');
+      msg.textContent = fehler
+        ? '⚠️ Dein Karteikasten konnte nicht geladen werden. Prüfe, ob dein Browser das Speichern von Daten erlaubt.'
+        : 'Im Moment ist keine Karte fällig – für heute bist du fertig. 🎉';
+      if (fehler) msg.classList.add('error');
+
+      const link = document.createElement('a');
+      link.href        = KARTEIKASTEN_PATH;
+      link.className   = 'back-btn';
+      link.textContent = 'Zum Karteikasten';
+      link.style.marginTop = '1.25rem';
+      msg.appendChild(document.createElement('br'));
+      msg.appendChild(link);
     }
 
     // Eine Antwort in die Leitner-Boxen eintragen. Das passiert in JEDER
@@ -678,6 +789,7 @@
     // vor ODER nach den Vokabeln fertig sein. Beide Wege führen zum
     // selben Aufruf; updateDueBanner() darf beliebig oft laufen.
     document.addEventListener('lb-fortschritt-bereit', updateDueBanner);
+    document.addEventListener('lb-fortschritt-bereit', versucheAutostart);
 
     function initCategory() {
       allInCat = allVocab.filter(e => e.Kapitel === activeKapitel);
@@ -1133,6 +1245,19 @@
       // (unter 4 fällige Karten), wird wie bisher das Kapitel herangezogen.
       let pool = (reviewMode ? reviewPool : allItemsInCat).filter(it => it !== correctV);
       if (pool.length < 3) pool = allItemsInCat.filter(it => it !== correctV);
+
+      // Ohne Kapitel gestartete Wiederholung (?wiederholung=1): allItemsInCat
+      // ist leer. Dann kommen die Ablenker aus dem Kapitel der abgefragten
+      // Karte — thematisch passend, wie in der normalen Kapitelansicht.
+      // Verglichen wird über den Karten-Schlüssel, nicht über die Objekte:
+      // buildItems() erzeugt hier neue Objekte, "!== correctV" würde die
+      // richtige Antwort sonst ein zweites Mal als Ablenker anbieten.
+      if (pool.length < 3) {
+        const kap    = isPair(correctV) ? correctV.nesv.Kapitel : correctV.Kapitel;
+        const eigene = cardKey(correctV);
+        pool = buildItems(allVocab.filter(e => e.Kapitel === kap))
+                 .filter(it => cardKey(it) !== eigene);
+      }
       return shuffle([correctV, ...shuffle(pool).slice(0, 3)]);
     }
 
@@ -1305,8 +1430,19 @@
       }
 
       // Die eben beantworteten Karten sind jetzt nicht mehr fällig →
-      // Zähler oben aktualisieren.
+      // Zähler oben aktualisieren. (Das füllt auch reviewPool neu.)
       updateDueBanner();
+
+      // Nach einer Wiederholungs-Runde: sind noch Karten fällig (mehr als
+      // REVIEW_LIMIT passen nicht in eine Runde), gleich die nächste anbieten.
+      // startReview() zieht dann die nächsten Karten aus dem neuen reviewPool.
+      const naechste = document.getElementById('btnNextReview');
+      if (reviewMode && reviewPool.length > 0) {
+        naechste.textContent = `Weitere fällige Karten (${reviewPool.length})`;
+        naechste.classList.remove('hidden');
+      } else {
+        naechste.classList.add('hidden');
+      }
     }
 
     // ─────────────────────────────────────────────────────────

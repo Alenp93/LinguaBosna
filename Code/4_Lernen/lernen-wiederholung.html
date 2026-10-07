@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ======================================================
+       lernen-wiederholung.html
+       „Vokabeln wiederholen" – der Karteikasten
+       LinguaBosna | Menüpunkt „Lernen"
+
+       Diese Seite ist KEINE Übung mit eigenen Aufgaben, sondern
+       die Schaltzentrale für die fälligen Wiederholungen des
+       Vokabeltrainers (Leitner-Boxen, siehe LB_fortschritt.js):
+
+       1. Sie startet die Wiederholung direkt – ohne dass man
+          vorher ein Vokabelkapitel öffnen muss. Der Button führt
+          zu vokabeltrainer.html?wiederholung=1; die Runde selbst
+          läuft im Trainer (Karteikarte, Quiz, Tastatur …).
+       2. Sie zeigt ALLE Karten, die im Karteikasten liegen – mit
+          Box und Fälligkeit, filterbar nach „fällig" / Box 1–3.
+
+       Datenquellen:
+       • Karteikasten (Schlüssel → Box, Fälligkeit):
+         window.LBFortschritt.alleKarten() – liegt im localStorage
+         des Besuchers, verlässt das Gerät nie.
+       • Wörter + Übersetzungen: vokabeln_flat.json. Im Karteikasten
+         stehen nur Schlüssel der Form „Kapitel|bosnische Form"; die
+         deutsche Bedeutung steckt in der JSON.
+
+       Die Seite ist bewusst noindex: Ihr Inhalt entsteht erst im
+       Browser aus dem persönlichen Karteikasten. Eine Suchmaschine
+       sähe nur eine leere Hülle.
+       ====================================================== -->
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js" defer></script>
+
+  <!-- SEO -->
+  <title>LinguaBosna – Vokabeln wiederholen</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://linguabosna.com/Code/4_Lernen/lernen-wiederholung.html">
+  <meta name="description" content="Dein Karteikasten für Bosnisch-Vokabeln: Starte die fälligen Wiederholungen aus allen Kapiteln und sieh, welche Karten in welcher Box liegen.">
+
+  <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="LinguaBosna – Vokabeln wiederholen">
+  <meta property="og:description" content="Dein Karteikasten für Bosnisch-Vokabeln: Starte die fälligen Wiederholungen aus allen Kapiteln und sieh, welche Karten in welcher Box liegen.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/4_Lernen/lernen-wiederholung.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Vokabeln wiederholen">
+  <meta name="twitter:description" content="Dein Karteikasten für Bosnisch-Vokabeln: Starte die fälligen Wiederholungen aus allen Kapiteln und sieh, welche Karten in welcher Box liegen.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+
+  <!-- ── Strukturierte Daten (schema.org) ─────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Vokabeln wiederholen",
+        "description": "Dein Karteikasten für Bosnisch-Vokabeln: Starte die fälligen Wiederholungen aus allen Kapiteln und sieh, welche Karten in welcher Box liegen.",
+        "url": "https://linguabosna.com/Code/4_Lernen/lernen-wiederholung.html",
+        "inLanguage": "de",
+        "learningResourceType": "Interaktive Übung",
+        "teaches": "Bosnischer Wortschatz (Wiederholung)",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Bosnisch lernen",
+          "url": "https://linguabosna.com/"
+        },
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Lernen",
+            "item": "https://linguabosna.com/Code/4_Lernen/lernen-uebersicht.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Vokabeln wiederholen"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Vokabeln wiederholen</h1>
+    <p class="subtitle">Dein Karteikasten: Vokabeln aus allen Kapiteln, die heute wieder dran sind – und alles, was schon drinliegt.</p>
+
+    <!-- Zurück zur Lernen-Übersicht -->
+    <div class="lernen-zurueck">
+      <a href="/Code/4_Lernen/lernen-uebersicht.html" class="btn-outline btn-zurueck">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Zurück zur Übersicht
+      </a>
+    </div>
+
+    <!-- Lade-/Fehlermeldung. Verschwindet, sobald der Karteikasten steht.
+         role="status" → Screenreader hören die Änderung. -->
+    <p class="kasten-status" id="kastenStatus" role="status">⏳ Dein Karteikasten wird geladen…</p>
+
+    <div id="kastenInhalt" class="hidden">
+
+      <!-- =====================================================
+           ZUSTAND A — Karteikasten ist leer
+           (noch nie im Vokabeltrainer geübt, Daten gelöscht, oder
+           der Browser kann nichts speichern)
+           ===================================================== -->
+      <section id="kastenLeer" class="kasten-leer hidden" aria-labelledby="kastenLeerTitel">
+        <i class="fa-solid fa-box-open kasten-leer-icon" aria-hidden="true"></i>
+        <h2 id="kastenLeerTitel">Dein Karteikasten ist noch leer</h2>
+        <p id="kastenLeerText"></p>
+        <a class="btn-primary" href="/Code/2_Vokabeln/LB_2_Vokabeln.html">Zu den Vokabeln</a>
+      </section>
+
+      <!-- =====================================================
+           ZUSTAND B — es liegen Karten im Kasten
+           ===================================================== -->
+      <div id="kastenVoll" class="hidden">
+
+        <!-- Start-Kasten: Zahl der fälligen Karten + Button zum Trainer.
+             Ist nichts fällig, steht hier stattdessen, wann es wieder
+             losgeht (kein Button – ohne fällige Karten würde der
+             Trainer ohnehin nur "nichts fällig" melden). -->
+        <section class="kasten-start" id="kastenStart" aria-labelledby="kastenStartTitel">
+          <div class="kasten-start-zahl" id="kastenStartZahl" aria-hidden="true"></div>
+          <div class="kasten-start-text">
+            <h2 id="kastenStartTitel"></h2>
+            <p id="kastenStartSub"></p>
+          </div>
+          <a class="btn-primary kasten-start-btn" id="kastenStartBtn"
+             href="/Code/2_Vokabeln/vokabeltrainer.html?wiederholung=1">Jetzt wiederholen</a>
+          <a class="btn-outline kasten-start-btn hidden" id="kastenNeuBtn"
+             href="/Code/2_Vokabeln/LB_2_Vokabeln.html">Neue Vokabeln üben</a>
+        </section>
+
+        <!-- Kurze Erklärung, standardmäßig zugeklappt. Die Zahlen
+             (1 / 3 / 7 Tage) schreibt das JS aus LBFortschritt.BOX_INTERVALL
+             hinein, damit sie nicht an zwei Stellen stehen. -->
+        <details class="kasten-erklaerung">
+          <summary>So funktioniert der Karteikasten</summary>
+          <p>Jede Vokabel, die du im Vokabeltrainer beantwortest, landet in einer von drei Boxen.
+             Je besser du sie kannst, desto seltener kommt sie dran:</p>
+          <ul id="kastenErklaerListe"></ul>
+          <p>Eine falsche Antwort schickt die Karte immer zurück in Box 1. Eine Karte steigt
+             höchstens einmal pro Tag eine Box auf.</p>
+        </details>
+
+        <!-- Die Liste -->
+        <div class="section-intro">
+          <h2>Alle Karten im Karteikasten</h2>
+          <p id="kastenListeSub"></p>
+        </div>
+
+        <div class="kasten-filter" id="kastenFilter" role="group" aria-label="Karten filtern"></div>
+
+        <ul class="kasten-liste" id="kastenListe"></ul>
+
+        <p class="kasten-filter-leer hidden" id="kastenFilterLeer"></p>
+
+        <div class="kasten-mehr">
+          <button type="button" class="btn-outline hidden" id="kastenMehrBtn">Weitere Karten anzeigen</button>
+        </div>
+
+        <!-- Nur sichtbar, wenn Schlüssel keinem Vokabeleintrag mehr zugeordnet
+             werden konnten (z. B. nach einer Kapitel-Neunummerierung). Der
+             Vokabeltrainer räumt sie beim nächsten Start selbst auf; diese
+             Seite löscht bewusst nichts. -->
+        <p class="kasten-verwaist hidden" id="kastenVerwaist"></p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Karteikasten laden, zählen, filtern, anzeigen
+
+       Ablauf
+       1. Zwei Dinge müssen da sein: die Vokabeln (fetch) und das
+          Fortschritts-Modul (von LB_main.js nachgeladen).
+       2. Jeder Schlüssel „Kapitel|bosnische Form" wird in einen
+          Vokabeleintrag aufgelöst (loeseSchluesselAuf).
+       3. Zählen, Filter-Buttons bauen, Liste in 100er-Blöcken
+          aufbauen (sonst bremsen tausende Zeilen ältere Geräte).
+
+       Alle Texte aus der JSON kommen über textContent ins DOM,
+       nie über innerHTML.
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  var JSON_PATH = '/Code/2_Vokabeln/vokabeln_flat.json';
+
+  // Wie viele Karten pro Block gezeigt werden ("Weitere anzeigen")
+  var BLOCK = 100;
+
+  // Beschriftungen der drei Boxen (die Intervalle stehen in LB_fortschritt.js)
+  var BOX_NAMEN = { 1: 'Noch unsicher', 2: 'Ganz gut', 3: 'Sitzt' };
+
+  var alleVokabeln = [];      // komplette vokabeln_flat.json
+  var vokabelnGeladen = false;
+  var karten = [];            // aufgelöste Karteikasten-Einträge (siehe baueKarten)
+  var verwaiste = 0;          // Schlüssel ohne passende Vokabel
+  var aktiverFilter = 'faellig';
+  var gezeigt = 0;            // wie viele Zeilen der aktuellen Auswahl schon im DOM sind
+  var aktuelleAuswahl = [];
+
+  var el = {
+    status:      document.getElementById('kastenStatus'),
+    inhalt:      document.getElementById('kastenInhalt'),
+    leer:        document.getElementById('kastenLeer'),
+    leerText:    document.getElementById('kastenLeerText'),
+    voll:        document.getElementById('kastenVoll'),
+    startZahl:   document.getElementById('kastenStartZahl'),
+    startTitel:  document.getElementById('kastenStartTitel'),
+    startSub:    document.getElementById('kastenStartSub'),
+    startBtn:    document.getElementById('kastenStartBtn'),
+    neuBtn:      document.getElementById('kastenNeuBtn'),
+    erklaer:     document.getElementById('kastenErklaerListe'),
+    listeSub:    document.getElementById('kastenListeSub'),
+    filter:      document.getElementById('kastenFilter'),
+    liste:       document.getElementById('kastenListe'),
+    filterLeer:  document.getElementById('kastenFilterLeer'),
+    mehrBtn:     document.getElementById('kastenMehrBtn'),
+    verwaist:    document.getElementById('kastenVerwaist')
+  };
+
+
+  /* ── Start: auf Vokabeln UND Fortschritts-Modul warten ───── */
+
+  document.addEventListener('DOMContentLoaded', function () {
+    fetch(JSON_PATH)
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (daten) {
+        alleVokabeln = daten;
+        vokabelnGeladen = true;
+        versucheAufbau();
+      })
+      .catch(function () {
+        zeigeFehler('⚠️ Die Vokabeln konnten nicht geladen werden. Bitte lade die Seite neu.');
+      });
+
+    // Das Fortschritts-Modul kommt per createElement aus LB_main.js und
+    // kann vor oder nach den Vokabeln fertig sein (Muster b aus
+    // LB_fortschritt.js, Abschnitt 7).
+    document.addEventListener('lb-fortschritt-bereit', versucheAufbau);
+
+    // Kommt das Modul nie (Netzfehler, Skript-Blocker), nicht ewig "lädt" zeigen.
+    setTimeout(function () {
+      if (!aufgebaut && vokabelnGeladen && !window.LBFortschritt) {
+        zeigeFehler('⚠️ Der Karteikasten konnte nicht geladen werden. Bitte lade die Seite neu.');
+      }
+    }, 6000);
+  });
+
+  var aufgebaut = false;
+  function versucheAufbau() {
+    if (aufgebaut) return;
+    if (!vokabelnGeladen || !window.LBFortschritt) return;
+    aufgebaut = true;
+    baue();
+  }
+
+  function zeigeFehler(text) {
+    el.status.textContent = text;
+    el.status.classList.add('kasten-status-fehler');
+  }
+
+
+  /* ── Schlüssel → Vokabel ─────────────────────────────────────
+     Der Vokabeltrainer speichert "Kapitel|bosnische Form" (cardKey() in
+     vokabeltrainer.html). Ein Aspektpaar ist EINE Karte und steht als
+     "raditi / uraditi" im Schlüssel.
+
+     Hier wird nicht die ganze Gruppierungslogik des Trainers (buildItems)
+     nachgebaut, sondern nur umgekehrt aufgelöst:
+       1. Gibt es im Kapitel einen Eintrag, dessen bosnische Form genau dem
+          Schlüsselrest entspricht? → Einzelkarte. (Das zuerst, weil es
+          Einzeleinträge gibt, die selbst " / " enthalten, z. B. "bolan / bona".)
+       2. Sonst am " / " aufteilen: Sind beide Teile im Kapitel vorhanden und
+          haben dieselbe par_id → Aspektpaar.
+       3. Sonst: verwaist (nicht auflösbar).                                   */
+
+  function baueIndex() {
+    var index = {};                       // "Kapitel|Bosnisch" → Eintrag
+    alleVokabeln.forEach(function (e) {
+      if (e.Kapitel === undefined || e.nur_woerterbuch) return;
+      index[e.Kapitel + '|' + e.Bosnisch] = e;
+    });
+    return index;
+  }
+
+  function loeseSchluesselAuf(schluessel, index) {
+    var pos = schluessel.indexOf('|');
+    if (pos < 1) return null;
+    var kapitel = schluessel.slice(0, pos);
+    var form    = schluessel.slice(pos + 1);
+
+    var einzel = index[kapitel + '|' + form];
+    if (einzel) return { eintraege: [einzel], deutsch: einzel.Deutsch, kapitel: einzel.Kapitel, kapitelname: einzel.Kapitelname };
+
+    var teile = form.split(' / ');
+    if (teile.length === 2) {
+      var a = index[kapitel + '|' + teile[0]];
+      var b = index[kapitel + '|' + teile[1]];
+      if (a && b && a.par_id && a.par_id === b.par_id) {
+        // Deutsch steht beim nesvršeni-Partner (wie im Trainer)
+        var nes = (a.aspekt === 'nesvršeni') ? a : (b.aspekt === 'nesvršeni') ? b : a;
+        return { eintraege: [a, b], deutsch: nes.Deutsch, kapitel: a.Kapitel, kapitelname: a.Kapitelname };
+      }
+    }
+    return null;
+  }
+
+
+  /* ── Datumshelfer (reine Tagesdaten "YYYY-MM-DD") ────────────
+     LB_fortschritt.js rechnet genauso (lokale Zeit, 12:00 Uhr gegen
+     Sommerzeit-Sprünge). heute() ist dort nicht öffentlich, daher hier
+     noch einmal. Welche Karte FÄLLIG ist, entscheidet trotzdem allein
+     LBFortschritt.faelligeKarten() — das hier dient nur der Anzeige.     */
+
+  function heuteIso() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function isoZuDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 12, 0, 0) : null;
+  }
+  // Tage von heute bis zum Datum (negativ = überfällig)
+  function tageBis(iso) {
+    var ziel = isoZuDate(iso), jetzt = isoZuDate(heuteIso());
+    if (!ziel || !jetzt) return 0;
+    return Math.round((ziel - jetzt) / 86400000);
+  }
+  function datumDE(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return m ? m[3] + '.' + m[2] + '.' + m[1] : '';
+  }
+  function tageText(n) { return n + (n === 1 ? ' Tag' : ' Tagen'); }
+
+
+  /* ── Aufbau ─────────────────────────────────────────────────── */
+
+  function baue() {
+    var fs = window.LBFortschritt;
+    var gespeichert = fs.alleKarten() || {};
+    var schluessel  = Object.keys(gespeichert);
+
+    // Welche Karten sind fällig? Das entscheidet das Modul (dieselbe
+    // Quelle wie der Trainer), nicht eine eigene Rechnung.
+    var faelligSet = {};
+    fs.faelligeKarten().forEach(function (k) { faelligSet[k] = true; });
+
+    var index = baueIndex();
+    karten = [];
+    verwaiste = 0;
+
+    schluessel.forEach(function (k) {
+      var aufgeloest = loeseSchluesselAuf(k, index);
+      if (!aufgeloest) { verwaiste++; return; }
+      var e = gespeichert[k] || {};
+      karten.push({
+        schluessel:  k,
+        eintraege:   aufgeloest.eintraege,
+        deutsch:     aufgeloest.deutsch,
+        kapitel:     aufgeloest.kapitel,
+        kapitelname: aufgeloest.kapitelname,
+        box:         (e.box >= 1 && e.box <= 3) ? e.box : 1,
+        faellig:     e.faellig || '',
+        istFaellig:  !!faelligSet[k]
+      });
+    });
+
+    el.status.classList.add('hidden');
+    el.inhalt.classList.remove('hidden');
+
+    if (!karten.length) {
+      zeigeLeer(fs);
+      return;
+    }
+
+    el.leer.classList.add('hidden');
+    el.voll.classList.remove('hidden');
+
+    zeigeStartKasten();
+    baueErklaerung(fs);
+    baueFilter();
+
+    // Standardansicht: das, was jetzt zu tun ist. Ist nichts fällig, gleich alles zeigen.
+    waehleFilter(zaehle().faellig > 0 ? 'faellig' : 'alle');
+
+    if (verwaiste > 0) {
+      el.verwaist.textContent = verwaiste + (verwaiste === 1 ? ' gespeicherte Karte' : ' gespeicherte Karten') +
+        ' konnte keiner Vokabel mehr zugeordnet werden (z. B. weil sich Kapitel verschoben haben) und wird hier nicht angezeigt. ' +
+        'Der Vokabeltrainer räumt sie beim nächsten Start selbst auf.';
+      el.verwaist.classList.remove('hidden');
+    }
+  }
+
+  function zeigeLeer(fs) {
+    el.voll.classList.add('hidden');
+    el.leer.classList.remove('hidden');
+    // Kann der Browser gar nichts speichern, ist "noch leer" die falsche Auskunft.
+    if (fs.verfuegbar && !fs.verfuegbar()) {
+      el.leerText.textContent = 'Dein Browser erlaubt gerade kein Speichern von Daten (z. B. im privaten Modus). ' +
+        'Deshalb kann sich LinguaBosna nicht merken, welche Vokabeln du schon geübt hast.';
+    } else {
+      el.leerText.textContent = 'Sobald du im Vokabeltrainer Karten beantwortest, landen sie hier – und kommen automatisch ' +
+        'wieder dran, kurz bevor du sie vergessen würdest. Wähle dazu ein Kapitel und starte eine Lerneinheit.';
+    }
+  }
+
+  function zaehle() {
+    var z = { alle: karten.length, faellig: 0, 1: 0, 2: 0, 3: 0 };
+    karten.forEach(function (k) {
+      if (k.istFaellig) z.faellig++;
+      z[k.box]++;
+    });
+    return z;
+  }
+
+  // Der große Kasten oben: Zahl + Start-Button — oder "nichts fällig" mit Datum.
+  function zeigeStartKasten() {
+    var z = zaehle();
+
+    if (z.faellig > 0) {
+      el.startZahl.textContent = z.faellig;
+      el.startTitel.textContent = z.faellig === 1 ? 'Karte ist heute fällig' : 'Karten sind heute fällig';
+      el.startSub.textContent = 'Aus allen Kapiteln gemischt. Die Runden gehen weiter, bis alles geschafft ist.';
+      el.startBtn.classList.remove('hidden');
+      el.neuBtn.classList.add('hidden');
+      return;
+    }
+
+    // Nichts fällig: frühestes Fälligkeitsdatum suchen
+    var naechste = '';
+    karten.forEach(function (k) {
+      if (k.faellig && (!naechste || k.faellig < naechste)) naechste = k.faellig;
+    });
+    var tage = naechste ? tageBis(naechste) : 0;
+
+    el.startZahl.textContent = '✓';
+    el.startTitel.textContent = 'Heute ist nichts fällig';
+    el.startSub.textContent = !naechste ? 'Mach einfach mit dem nächsten Kapitel weiter.'
+      : tage <= 1 ? 'Die nächste Karte ist morgen (' + datumDE(naechste) + ') wieder dran.'
+      : 'Die nächste Karte ist in ' + tageText(tage) + ' (' + datumDE(naechste) + ') wieder dran.';
+    el.startBtn.classList.add('hidden');
+    el.neuBtn.classList.remove('hidden');
+  }
+
+  function baueErklaerung(fs) {
+    var iv = fs.BOX_INTERVALL || { 1: 1, 2: 3, 3: 7 };
+    el.erklaer.textContent = '';
+    [1, 2, 3].forEach(function (b) {
+      var li = document.createElement('li');
+      var fett = document.createElement('strong');
+      fett.textContent = 'Box ' + b + ' – ' + BOX_NAMEN[b] + ': ';
+      li.appendChild(fett);
+      li.appendChild(document.createTextNode('wieder fällig nach ' + iv[b] + (iv[b] === 1 ? ' Tag' : ' Tagen')));
+      el.erklaer.appendChild(li);
+    });
+  }
+
+
+  /* ── Filter ─────────────────────────────────────────────────── */
+
+  // Beschriftung + Zähler je Filter. Reihenfolge = Reihenfolge der Buttons.
+  var FILTER = [
+    { id: 'faellig', label: 'Fällig' },
+    { id: '1',       label: 'Box 1' },
+    { id: '2',       label: 'Box 2' },
+    { id: '3',       label: 'Box 3' },
+    { id: 'alle',    label: 'Alle' }
+  ];
+
+  function baueFilter() {
+    var z = zaehle();
+    el.filter.textContent = '';
+    FILTER.forEach(function (f) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'level-btn kasten-chip';
+      btn.dataset.filter = f.id;
+      btn.setAttribute('aria-pressed', 'false');
+      btn.textContent = f.label + ' (' + z[f.id] + ')';
+      btn.addEventListener('click', function () { waehleFilter(f.id); });
+      el.filter.appendChild(btn);
+    });
+  }
+
+  function waehleFilter(id) {
+    aktiverFilter = id;
+    var z = zaehle();
+
+    el.filter.querySelectorAll('.kasten-chip').forEach(function (btn) {
+      var aktiv = btn.dataset.filter === id;
+      btn.classList.toggle('active', aktiv);
+      btn.setAttribute('aria-pressed', aktiv ? 'true' : 'false');
+    });
+
+    // Auswahl bestimmen
+    aktuelleAuswahl = karten.filter(function (k) {
+      if (id === 'faellig') return k.istFaellig;
+      if (id === 'alle')    return true;
+      return String(k.box) === id;
+    });
+
+    // Sortierung: Was zuerst dran ist, steht oben; bei gleichem Datum nach Alphabet
+    // (hr-Sortierung kennt č ć đ š ž an der richtigen Stelle).
+    aktuelleAuswahl.sort(function (a, b) {
+      if (a.faellig !== b.faellig) return a.faellig < b.faellig ? -1 : 1;
+      return a.eintraege[0].Bosnisch.localeCompare(b.eintraege[0].Bosnisch, 'hr');
+    });
+
+    el.listeSub.textContent = z.alle + (z.alle === 1 ? ' Karte' : ' Karten') +
+      ' insgesamt – Box 1: ' + z[1] + ' · Box 2: ' + z[2] + ' · Box 3: ' + z[3];
+
+    // Liste neu aufbauen
+    el.liste.textContent = '';
+    gezeigt = 0;
+    zeigeNaechsterBlock();
+
+    if (!aktuelleAuswahl.length) {
+      el.filterLeer.textContent = id === 'faellig'
+        ? 'Im Moment ist keine Karte fällig.'
+        : 'In dieser Box liegt gerade keine Karte.';
+      el.filterLeer.classList.remove('hidden');
+    } else {
+      el.filterLeer.classList.add('hidden');
+    }
+  }
+
+
+  /* ── Liste ──────────────────────────────────────────────────── */
+
+  // Hängt die nächsten BLOCK Zeilen an. Der Button erscheint nur, solange
+  // noch etwas übrig ist, und nennt die Restzahl.
+  function zeigeNaechsterBlock() {
+    var bis = Math.min(gezeigt + BLOCK, aktuelleAuswahl.length);
+    var frag = document.createDocumentFragment();
+    for (var i = gezeigt; i < bis; i++) frag.appendChild(baueZeile(aktuelleAuswahl[i]));
+    el.liste.appendChild(frag);
+    gezeigt = bis;
+
+    var rest = aktuelleAuswahl.length - gezeigt;
+    if (rest > 0) {
+      el.mehrBtn.textContent = 'Weitere Karten anzeigen (' + rest + ' übrig)';
+      el.mehrBtn.classList.remove('hidden');
+    } else {
+      el.mehrBtn.classList.add('hidden');
+    }
+  }
+  el.mehrBtn.addEventListener('click', zeigeNaechsterBlock);
+
+  // "Substantiv (f)" → " (f)" — wie in Vokabeltabelle und Trainer.
+  function genusSuffix(e) {
+    var w = e.Wortart || e['Wortart (Genus)'] || '';
+    if (w.indexOf('Substantiv') === 0) {
+      var t = /\(([^)]+)\)/.exec(w);
+      if (t) return ' (' + t[1] + ')';
+    }
+    return '';
+  }
+  var ASPEKT_KURZ = { 'svršeni': 'svrš.', 'nesvršeni': 'nesvrš.', 'dvovidni': 'dvov.' };
+
+  // Ein bosnisches Wort samt Genus bzw. Aspekt-Kürzel, als DOM-Knoten.
+  function bosnischeForm(e) {
+    var span = document.createElement('span');
+    span.lang = 'bs';                                   // Screenreader: bosnische Aussprache
+    span.appendChild(document.createTextNode(e.Bosnisch));
+
+    var g = genusSuffix(e);
+    if (g) {
+      var gs = document.createElement('span');
+      gs.className = 'kasten-genus';
+      gs.textContent = g;
+      span.appendChild(gs);
+    }
+    if (ASPEKT_KURZ[e.aspekt]) {
+      var as = document.createElement('span');
+      as.className = 'kasten-aspekt';
+      as.textContent = '[' + ASPEKT_KURZ[e.aspekt] + ']';
+      span.appendChild(as);
+    }
+    return span;
+  }
+
+  // Text für die Fälligkeit: "heute fällig", "seit 3 Tagen fällig", "morgen", "in 5 Tagen"
+  function faelligText(k) {
+    if (!k.faellig) return 'heute fällig';
+    var tage = tageBis(k.faellig);
+    if (k.istFaellig) {
+      if (tage >= 0) return 'heute fällig';
+      return 'seit ' + tageText(-tage) + ' fällig';
+    }
+    return tage === 1 ? 'morgen fällig' : 'fällig in ' + tageText(tage);
+  }
+
+  function baueZeile(k) {
+    var li = document.createElement('li');
+    li.className = 'kasten-eintrag';
+
+    // Wort + Übersetzung
+    var wort = document.createElement('div');
+    wort.className = 'kasten-wort';
+
+    var bos = document.createElement('span');
+    bos.className = 'kasten-bos';
+    k.eintraege.forEach(function (e, i) {
+      if (i > 0) bos.appendChild(document.createTextNode(' / '));
+      bos.appendChild(bosnischeForm(e));
+    });
+    var de = document.createElement('span');
+    de.className = 'kasten-de';
+    de.textContent = k.deutsch;
+    // Kapitel als dezente dritte Zeile (hilft beim Wiederfinden im Vokabeltrainer)
+    var kap = document.createElement('span');
+    kap.className = 'kasten-kapitel';
+    kap.textContent = 'Kap. ' + k.kapitel + ' · ' + k.kapitelname;
+
+    wort.appendChild(bos);
+    wort.appendChild(de);
+    wort.appendChild(kap);
+
+    // Box + Fälligkeit (rechts)
+    var meta = document.createElement('div');
+    meta.className = 'kasten-meta';
+
+    var box = document.createElement('span');
+    box.className = 'kasten-box kasten-box-' + k.box;
+    box.textContent = 'Box ' + k.box;
+    box.title = BOX_NAMEN[k.box];
+
+    var faellig = document.createElement('span');
+    faellig.className = 'kasten-faellig' + (k.istFaellig ? ' ist-faellig' : '');
+    faellig.textContent = faelligText(k);
+    if (k.faellig) faellig.title = 'Fällig am ' + datumDE(k.faellig);
+
+    meta.appendChild(box);
+    meta.appendChild(faellig);
+
+    li.appendChild(wort);
+    li.appendChild(meta);
+    return li;
+  }
+  </script>
+
+</body>
+</html>

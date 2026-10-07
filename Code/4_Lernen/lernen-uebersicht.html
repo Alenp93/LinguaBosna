@@ -145,6 +145,23 @@
          getrennt) – das treibt den Filter oben. -->
     <div class="thema-grid uebung-grid" id="uebungGrid">
 
+      <!-- Vokabeln wiederholen (Karteikasten)
+           Steht bewusst ganz vorn: Es ist die Übung, die man täglich
+           braucht, und sie funktioniert unabhängig von Grammatikthemen.
+           Die Plakette „n Karten fällig" füllt das Skript unten, sobald
+           das Fortschritts-Modul geladen ist; ohne fällige Karten (oder
+           ohne gespeicherten Fortschritt) bleibt sie unsichtbar.
+           data-niveau enthält alle Niveaus, damit die Karte unter jedem
+           Niveau-Filter sichtbar bleibt – die Karten kommen aus allen
+           Kapiteln. -->
+      <a class="thema-card" href="/Code/4_Lernen/lernen-wiederholung.html" data-niveau="A1 A2 B1 B2 C1 C2">
+        <div class="thema-icon"><i class="fas fa-repeat"></i></div>
+        <span class="thema-niveau">A1–C2 · Vokabeln</span>
+        <h3>Vokabeln wiederholen</h3>
+        <p>Dein Karteikasten: Karten aus allen Kapiteln, die heute wieder dran sind – direkt starten und alle Karten im Überblick sehen.</p>
+        <span class="uebung-faellig hidden" id="faelligBadge"></span>
+      </a>
+
       <!-- Übung 1: Lückentext -->
       <a class="thema-card" href="/Code/4_Lernen/lernen-luckentext.html" data-niveau="A2 B1">
         <div class="thema-icon"><i class="fas fa-pen-to-square"></i></div>
@@ -244,6 +261,34 @@
       filtereNach(btn.dataset.level);
     });
   });
+
+
+  // ── Plakette „n Karten fällig" auf der Wiederholen-Karte ──
+  // LB_fortschritt.js wird von LB_main.js NACHGELADEN und kann beim
+  // Ausführen dieses Skripts noch fehlen. Deshalb: ist das Modul da,
+  // sofort zählen – sonst auf das Ereignis warten.
+  // Gezählt wird, was das Modul als fällig meldet; die Wiederholen-Seite
+  // selbst zeigt die geprüfte Zahl (nur Karten, zu denen es noch eine
+  // Vokabel gibt).
+  function zeigeFaelligPlakette() {
+    var badge = document.getElementById('faelligBadge');
+    var fs    = window.LBFortschritt;
+    if (!badge || !fs) return;
+
+    var n = fs.faelligeKarten().length;
+    if (n < 1) {
+      badge.classList.add('hidden');
+      return;
+    }
+    badge.textContent = n + (n === 1 ? ' Karte fällig' : ' Karten fällig');
+    badge.classList.remove('hidden');
+  }
+
+  if (window.LBFortschritt) {
+    zeigeFaelligPlakette();
+  } else {
+    document.addEventListener('lb-fortschritt-bereit', zeigeFaelligPlakette);
+  }
 
   </script>
 

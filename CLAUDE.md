@@ -423,6 +423,14 @@ auf jeder Seite. Es hängt sich öffentlich an `window.LBFortschritt`.
   Sichtbar wird das als Kasten „Fällige Wiederholungen (n)" oben im
   Trainer (nur bei n > 0, max. 20 Karten pro Runde) — eine
   kapitelübergreifende Runde, die **keinen** Kapitel-Durchgang zählt.
+  **Seit Oktober 2026 auch ohne Kapitel startbar:** `vokabeltrainer.html?wiederholung=1`
+  (nur ohne `?kapitel=`) startet die Runde direkt; die Seite
+  `Code/4_Lernen/lernen-wiederholung.html` („Vokabeln wiederholen", Karte ganz vorn in
+  `lernen-uebersicht.html` mit Plakette „n Karten fällig") ist der Einstieg und zeigt den
+  **ganzen** Karteikasten (Filter Fällig/Box 1–3/Alle). Sie löst die Schlüssel rückwärts
+  auf (`loeseSchluesselAuf()`) und löscht nie etwas – Aufräumen bleibt beim Trainer.
+  Ändert sich `cardKey()`, muss diese Auflösung mitgezogen werden. Details und Prüfweg:
+  `WORKFLOW_Lernen.md`.
 - **Löschen:** Auf der Datenschutzseite (`LB_93_Datenschutz.html`,
   Abschnitt 10) gibt es eine Statuszeile und einen „Lernfortschritt
   löschen"-Button (`LBFortschritt.alleLoeschen()`). Die Statuszeile

@@ -102,11 +102,50 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 |---|---|---|---|---|
 | Übersicht „Lernen" | ✅ fertig | `Code/4_Lernen/lernen-uebersicht.html` | – (statische Kartenliste) | – |
 | Vokabeltrainer | ✅ fertig | `Code/2_Vokabeln/vokabeltrainer.html` | `vokabeln_flat.json` (alle Kapitel) | – |
+| Vokabeln wiederholen (Karteikasten) | ✅ fertig (2026-10-07) | `Code/4_Lernen/lernen-wiederholung.html` (+ Trainer-Einstieg `vokabeltrainer.html?wiederholung=1`) | `LBFortschritt.alleKarten()` (localStorage, Leitner-Boxen) **+** `vokabeln_flat.json` (Wort/Übersetzung) | – (so groß wie der Karteikasten des Besuchers) |
 | Lückentext mit Wortbank | ✅ fertig (Akkusativ, Lokativ, Genitiv, Dativ, Instrumental + alle gemischt) | `Code/4_Lernen/lernen-luckentext.html` | eigene JSON (`Code/4_Lernen/luckentext_data.json`) | 443 Sätze in 6 Themen: `akkusativ` (A2, 80) · `lokativ` (A2, 60) · `genitiv` (B1, 74) · `dativ` (B1, 74) · `instrumental` (B1, 77) · `gemischt` (B1, 78 – **stratifiziert gezogen**, siehe unten) |
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
 | Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–4 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster) · Set 4 „Erzähltext" (10 Texte à 5 Lücken) |
+
+> ⚠️ **„Vokabeln wiederholen" (2026-10-07) ist keine Übung im Sinne der anderen Zeilen,
+> sondern die Schaltzentrale für die fälligen Wiederholungen des Vokabeltrainers.**
+> Vorher ließ sich der Kasten „Fällige Wiederholungen" nur nutzen, wenn man zuerst ein
+> Vokabelkapitel öffnete. Jetzt gibt es zwei Wege hinein, die dieselbe Runde starten:
+> (a) die Karte „Vokabeln wiederholen" ganz vorn in `lernen-uebersicht.html` (mit
+> Plakette „n Karten fällig") → `lernen-wiederholung.html` → Button „Jetzt wiederholen";
+> (b) direkt `vokabeltrainer.html?wiederholung=1`. Die Runde selbst läuft immer im Trainer –
+> die Seite im Lernen-Bereich fügt nur Einstieg und Überblick hinzu.
+>
+> - **Die Seite zeigt den ganzen Karteikasten**, nicht nur die fälligen Karten: Filter
+>   Fällig / Box 1 / Box 2 / Box 3 / Alle, je Karte Bosnisch, Deutsch, Kapitel, Box und
+>   Fälligkeit, in 100er-Blöcken aufgebaut. Welche Karte *fällig* ist, entscheidet allein
+>   `LBFortschritt.faelligeKarten()` – dieselbe Quelle wie der Trainer, keine Doppelrechnung.
+> - **Schlüssel-Auflösung:** Im Karteikasten stehen nur Schlüssel `"Kapitel|bosnische Form"`
+>   (gebaut von `cardKey()` im Trainer). Die Seite löst sie rückwärts auf: erst exakter
+>   Treffer als Einzelkarte (wichtig, weil `bolan / bona` ein *Einzel*eintrag mit „ / " im
+>   Wort ist), dann Aufteilen am „ / " und gleiche `par_id` → Aspektpaar. ⚠️ Ändert sich der
+>   Schlüsselaufbau im Trainer, muss `loeseSchluesselAuf()` hier mitgezogen werden.
+> - **Die Seite löscht nie etwas.** Nicht auflösbare Schlüssel (Kapitel-Neunummerierung)
+>   werden nur ignoriert und mit einem Hinweis genannt; aufgeräumt wird ausschließlich vom
+>   Trainer (`kartenAufraeumen()`). Grund: Ein Fehler in der neuen Auflösung dürfte keine
+>   gültigen Lerndaten vernichten. Die Plakette in `lernen-uebersicht.html` zählt deshalb
+>   die rohen fälligen Schlüssel und kann in diesem Sonderfall kurz höher sein als die Zahl
+>   auf der Seite.
+> - **Trainer ohne Kapitel (`?wiederholung=1`, nur ohne `?kapitel=`):** keine Teil-Auswahl,
+>   keine Vor-/Zurück-Kategorie, „Beenden" und der Zurück-Button führen zur Karteikasten-Seite.
+>   Die Quiz-Ablenker kommen dort aus dem Kapitel der abgefragten Karte (sonst gäbe es bei
+>   weniger als vier fälligen Karten Fragen mit nur einer Antwort). Neu im Ergebnisbildschirm
+>   jeder Wiederholungs-Runde: „Weitere fällige Karten (n)", wenn mehr als eine Runde fällig war.
+> - **Prüfung:** `test_lernen_uebung.py` ist hier **nicht anwendbar** (es verlangt die drei
+>   Übungsbildschirme); Head, Favicon und SEO-Teil laufen durch, die Struktur-Fehler sind
+>   erwartet. Stattdessen `test_seo.py` + `test_usability.py` auf die Seite und den
+>   Trainer, und die Wege im Browser durchspielen (leerer Kasten, nichts fällig, fällig,
+>   Aspektpaar, verwaiste Karte, ?wiederholung=1 ohne fällige Karten).
+> - **`noindex, follow`:** Der Inhalt entsteht erst im Browser aus dem persönlichen
+>   Karteikasten; eine Suchmaschine sähe nur eine leere Hülle. Die Seite steht deshalb
+>   nicht in der Sitemap.
 
 > ⚠️ **Lückentext-Thema `genitiv` (B1, 2026-09-06) – zwei Regeln, die beim Bau
 > entstanden sind und für jedes weitere Kasus-Set gelten:**

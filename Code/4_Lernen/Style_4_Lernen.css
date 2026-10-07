@@ -268,6 +268,21 @@ main h1 {
   line-height: 1.5;
 }
 
+/* Plakette „n Karten fällig" auf der Wiederholen-Karte
+   (lernen-uebersicht.html). Goldgelbe Fläche mit dunkelblauem Text –
+   derselbe Kontrast wie bei den goldenen Buttons.                      */
+.thema-card .uebung-faellig {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: var(--accent);
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 
 /* ── 4. Übungsbereich (Lückentext-Quiz) ──────────────── */
 
@@ -1212,6 +1227,278 @@ main h1 {
   color: #777;
   margin-bottom: 18px;
   line-height: 1.5;
+}
+
+
+/* ── 5b. Karteikasten (lernen-wiederholung.html) ──────────
+   Kein Übungsbildschirm, sondern Startkasten + Liste aller Karten
+   mit Box und Fälligkeit. Alle Farben für Text auf hellem Grund sind
+   auf mindestens 4,5:1 ausgelegt (Usability-Checkliste, CLAUDE.md).    */
+
+/* Lade-/Fehlermeldung */
+.kasten-status {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  color: #555;
+}
+.kasten-status-fehler { color: #b03030; }
+
+/* Zustand „Karteikasten leer" */
+.kasten-leer {
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 36px 24px;
+}
+.kasten-leer-icon {
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.kasten-leer h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.kasten-leer p {
+  max-width: 520px;
+  margin: 0 auto 22px;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* Start-Kasten: Zahl · Text · Button in einer Zeile.
+   Goldgelber Rahmen wie der Wiederholungs-Kasten im Vokabeltrainer –
+   dasselbe Angebot, dieselbe Optik.                                      */
+.kasten-start {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+/* Pillenform statt Kreis: vierstellige Zahlen sollen nicht herausragen */
+.kasten-start-zahl {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 64px;
+  padding: 0 14px;
+  border-radius: 32px;
+  background: var(--accent);
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.kasten-start-text {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.kasten-start-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+.kasten-start-text p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.45;
+}
+.kasten-start-btn {
+  flex-shrink: 0;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+/* Ausklappbare Erklärung */
+.kasten-erklaerung {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 0 18px;
+  margin-bottom: 34px;
+}
+.kasten-erklaerung summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;                    /* Touch-Target */
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+.kasten-erklaerung summary:focus-visible,
+.kasten-chip:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+.kasten-erklaerung p,
+.kasten-erklaerung li {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.55;
+}
+.kasten-erklaerung p { margin-bottom: 10px; }
+.kasten-erklaerung ul {
+  padding-left: 1.2rem;                /* Style.css setzt alle Listen auf 0 */
+  margin-bottom: 10px;
+}
+.kasten-erklaerung li { margin-bottom: 4px; }
+.kasten-erklaerung[open] { padding-bottom: 8px; }
+
+/* Filter-Chips: Optik von .level-btn (Style.css), hier mit eigenem Padding –
+   die Mobil-Regel für .level-btn oben ist für das 4er-Raster der
+   Übersichtsseite gedacht und wäre für umbrechende Chips zu eng.          */
+.kasten-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.kasten-filter .kasten-chip {
+  min-height: 44px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+}
+
+/* Liste */
+.kasten-liste {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.kasten-eintrag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+.kasten-wort {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.kasten-bos {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary);
+  overflow-wrap: break-word;
+}
+.kasten-genus {
+  font-weight: 400;
+  font-size: 0.85em;
+  color: #555;
+}
+.kasten-aspekt {
+  margin-left: 0.35em;
+  font-weight: 400;
+  font-size: 0.72em;
+  color: var(--accent-text);
+}
+.kasten-de {
+  font-size: 0.92rem;
+  color: #444;
+  overflow-wrap: break-word;
+}
+/* Rechte Spalte: Box-Plakette über der Fälligkeit, rechtsbündig.
+   Auf sehr schmalen Displays (≤480px) rutscht sie unter das Wort und
+   steht dann nebeneinander (siehe Media-Query unten).                  */
+.kasten-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: #666;
+}
+/* Box-Plaketten: Rot = unsicher, Gold = ganz gut, Grün = sitzt.
+   Die Farbe ist nie der einzige Hinweis – „Box 1/2/3" steht immer im Text. */
+.kasten-box {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 2px 9px;
+  border-radius: 50px;
+}
+.kasten-box-1 { background: #fdecea; color: #b03030; }
+.kasten-box-2 { background: #fdf6dc; color: #6b5400; }
+.kasten-box-3 { background: #e8f4e8; color: var(--secondary); }
+.kasten-faellig { white-space: nowrap; }
+.kasten-faellig.ist-faellig {
+  color: #b03030;
+  font-weight: 600;
+}
+.kasten-kapitel {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: #666;
+  overflow-wrap: break-word;
+}
+
+.kasten-filter-leer {
+  text-align: center;
+  color: #666;
+  padding: 20px 0;
+}
+.kasten-mehr {
+  text-align: center;
+  margin-top: 18px;
+}
+.kasten-verwaist {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .kasten-start { padding: 16px; gap: 14px; }
+  .kasten-start-btn { width: 100%; }
+}
+@media (max-width: 480px) {
+  .kasten-start {
+    flex-direction: column;
+    text-align: center;
+  }
+  .kasten-start-text { flex-basis: auto; }
+  .kasten-eintrag { padding: 12px 14px; }
+  .kasten-meta {
+    flex: 1 1 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+  }
+  .kasten-filter .kasten-chip {
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
 }
 
 

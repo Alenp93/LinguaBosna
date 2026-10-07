@@ -564,6 +564,11 @@ main {
 .restart-btn.secondary           { background: var(--white); color: #b03030; border: 2px solid #c0392b; }
 .restart-btn.secondary:hover:not(:disabled) { background: #fdecea; }
 .restart-btn.secondary:disabled  { opacity: 0.35; cursor: not-allowed; }
+/* "Weitere fällige Karten" — goldgelb wie der Wiederholungs-Kasten oben,
+   damit klar ist, dass es dieselbe Funktion ist. Text in --blue (nicht Weiß)
+   wegen des Kontrasts auf Gold. */
+.restart-btn.next-review         { background: var(--gold); color: var(--blue); }
+.restart-btn.next-review:hover   { background: var(--blue); color: var(--white); }
 
 /* ── Vokabel-Übersichts-Liste ──────────────────────────────── */
 .word-list-grid {

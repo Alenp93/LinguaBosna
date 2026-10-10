@@ -774,9 +774,17 @@
       msg.appendChild(link);
     }
 
-    // Eine Antwort in die Leitner-Boxen eintragen. Das passiert in JEDER
-    // Runde – auch in den normalen Kapitel-Runden, denn genau dadurch
-    // füllt sich der Wiederholungs-Stapel überhaupt erst.
+    // Eine Antwort verbuchen. Das passiert in JEDER Runde – auch in den
+    // normalen Kapitel-Runden, denn genau dadurch füllt sich der
+    // Wiederholungs-Stapel überhaupt erst.
+    //
+    // In den Karteikasten kommt dabei nur, was NICHT gewusst wurde: Eine
+    // falsche Antwort legt die Karte in Box 1 (neu oder zurück), eine
+    // richtige schiebt nur Karten weiter, die schon im Kasten liegen. Eine
+    // richtig beantwortete, unbekannte Karte bleibt draußen — das entscheidet
+    // karteAntwort() in LB_fortschritt.js und meldet es als { box: 0 }.
+    // Für die Zählung unten ist das trotzdem eine erfolgreich verbuchte
+    // Antwort (kartenGemerkt), nur eben keine in Box 1 (box1Neu).
     function merkeKarte(item, richtig) {
       if (!item || !window.LBFortschritt || !window.LBFortschritt.karteAntwort) return;
       const eintrag = window.LBFortschritt.karteAntwort(cardKey(item), richtig);
@@ -1155,7 +1163,8 @@
       if (isCorrect) { correct++; }
       else           { wrong++; wrongList.push(queue[current]); }
 
-      // Karteikasten aktualisieren (richtig = eine Box weiter, falsch = Box 1)
+      // Karteikasten aktualisieren (falsch = Box 1; richtig schiebt nur
+      // Karten weiter, die schon im Kasten liegen – siehe merkeKarte)
       merkeKarte(queue[current], isCorrect);
 
       document.getElementById('btnWrong').disabled   = true;
@@ -1278,7 +1287,8 @@
         });
       }
 
-      // Karteikasten aktualisieren (richtig = eine Box weiter, falsch = Box 1)
+      // Karteikasten aktualisieren (falsch = Box 1; richtig schiebt nur
+      // Karten weiter, die schon im Kasten liegen – siehe merkeKarte)
       merkeKarte(correctV, isCorrect);
 
       // Im Feedback die richtige Antwort nennen (Rückseite als Klartext)
@@ -1412,10 +1422,11 @@
       // falsch hatte, behält sie heute in Box 1 (siehe LB_fortschritt.js).
       // Deshalb "X von Y" – sonst wirkt die Zahl willkürlich.
       //
-      // kartenGemerkt zählt die Antworten, die wirklich gespeichert werden
-      // konnten. Ist es 0 (privater Modus, Speicher voll), bleibt die Zeile
-      // weg – sonst stünde dort "keine Karte in Box 1", obwohl gar nichts
-      // gemerkt wurde.
+      // kartenGemerkt zählt die Antworten, die verbucht werden konnten –
+      // auch richtige, bei denen bewusst keine Karte angelegt wurde (die
+      // zählen als "nicht in Box 1"). Ist es 0 (privater Modus, Speicher
+      // voll), bleibt die Zeile weg – sonst stünde dort "keine Karte in
+      // Box 1", obwohl gar nichts gemerkt werden konnte.
       const b1 = document.getElementById('resultBox1');
       if (kartenGemerkt === 0) {
         b1.classList.add('hidden');

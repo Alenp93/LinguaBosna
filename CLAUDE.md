@@ -405,8 +405,16 @@ auf jeder Seite. Es hängt sich öffentlich an `window.LBFortschritt`.
   bildet `"Kapitel|bosnische Form"` → `{box, zuletzt, faellig}` ab. Drei
   Boxen mit 1 / 3 / 7 Tagen Abstand (`BOX_INTERVALL` in
   `LB_fortschritt.js` ist die einzige Stelle, an der die Intervalle
-  stehen). Falsch → immer Box 1, richtig → eine Box weiter, erste
-  richtige Antwort → gleich Box 2; **aufsteigen darf eine Karte nur
+  stehen). **In den Kasten kommt nur, was nicht gewusst wurde (seit
+  Oktober 2026):** Falsch → Box 1 (neue Karte oder zurück), richtig →
+  eine Box weiter, aber **nur bei Karten, die schon im Kasten liegen**;
+  eine richtig beantwortete, unbekannte Karte bleibt draußen
+  (`karteAntwort()` meldet das als `{ box: 0 }`, ohne etwas zu speichern);
+  **eine richtige Antwort in Box 3 lässt die Karte aus dem Kasten ausscheiden**
+  (gelernt; sonst würde Box 3 nur wachsen). Am Ende von `lernen-wiederholung.html`
+  leert „Alle Karten entfernen" per `LBFortschritt.kastenLeeren()` nur den Kasten,
+  nicht den übrigen Fortschritt;
+  **aufsteigen darf eine Karte nur
   einmal pro Tag** („falsch schlägt richtig am selben Tag"), sonst würde
   „nur falsche Karten wiederholen" direkt im Anschluss alles hochstufen.
   Deshalb nennt der Ergebnisbildschirm „X von Y Karten liegen jetzt in

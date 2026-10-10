@@ -141,6 +141,10 @@
       </a>
     </div>
 
+    <!-- Rückmeldung nach dem Leeren des Karteikastens ("N Karten entfernt").
+         Steht hier oben, weil die Seite danach nach oben scrollt. -->
+    <p class="kasten-hinweis hidden" id="kastenHinweis" role="status"></p>
+
     <!-- Lade-/Fehlermeldung. Verschwindet, sobald der Karteikasten steht.
          role="status" → Screenreader hören die Änderung. -->
     <p class="kasten-status" id="kastenStatus" role="status">⏳ Dein Karteikasten wird geladen…</p>
@@ -185,11 +189,14 @@
              hinein, damit sie nicht an zwei Stellen stehen. -->
         <details class="kasten-erklaerung">
           <summary>So funktioniert der Karteikasten</summary>
-          <p>Jede Vokabel, die du im Vokabeltrainer beantwortest, landet in einer von drei Boxen.
-             Je besser du sie kannst, desto seltener kommt sie dran:</p>
+          <p>In den Karteikasten kommen nur Vokabeln, die du im Vokabeltrainer <strong>nicht gewusst</strong>
+             hast – sie landen zuerst in Box 1. Wenn du sie bei der Wiederholung richtig hast, steigen
+             sie auf; je besser du sie kannst, desto seltener kommen sie dran:</p>
           <ul id="kastenErklaerListe"></ul>
           <p>Eine falsche Antwort schickt die Karte immer zurück in Box 1. Eine Karte steigt
-             höchstens einmal pro Tag eine Box auf.</p>
+             höchstens einmal pro Tag eine Box auf. Hast du eine Karte in Box 3 richtig, gilt sie
+             als gelernt und scheidet aus dem Karteikasten aus. Vokabeln, die du auf Anhieb richtig
+             hast, legen keine Karte an.</p>
         </details>
 
         <!-- Die Liste -->
@@ -214,6 +221,34 @@
              Seite löscht bewusst nichts. -->
         <p class="kasten-verwaist hidden" id="kastenVerwaist"></p>
       </div>
+
+      <!-- =====================================================
+           KARTEIKASTEN LEEREN — ganz unten auf der Seite
+           Für alle, die ihren Kasten neu anfangen wollen und sonst
+           nicht wüssten, wie. Entfernt NUR die Wiederholungs-Karten;
+           geübte Kapitel, Grammatik und Quiz-Ergebnisse bleiben.
+           Zweistufig (Button → "Wirklich?"), weil das Entfernen nicht
+           rückgängig zu machen ist. Sichtbar, sobald überhaupt etwas
+           gespeichert ist — auch wenn nur nicht mehr zuordenbare Karten
+           übrig sind.
+           ===================================================== -->
+      <section class="kasten-leeren hidden" id="kastenLeerenBox" aria-labelledby="kastenLeerenTitel">
+        <h2 id="kastenLeerenTitel">Karteikasten leeren</h2>
+        <p>Du möchtest von vorn anfangen? Dann entfernst du hier alle Karten aus deinem Karteikasten.
+           Dein übriger Fortschritt (geübte Kapitel, gelesene Grammatikthemen, Quiz-Ergebnisse) bleibt erhalten.</p>
+
+        <button type="button" class="btn-outline btn-gefahr" id="kastenLeerenBtn">
+          <i class="fa-solid fa-trash-can" aria-hidden="true"></i> Alle Karten entfernen
+        </button>
+
+        <div class="kasten-leeren-frage hidden" id="kastenLeerenFrage" role="group" aria-labelledby="kastenLeerenFrageText">
+          <p id="kastenLeerenFrageText"></p>
+          <div class="kasten-leeren-aktionen">
+            <button type="button" class="btn-outline btn-gefahr btn-gefahr-voll" id="kastenLeerenJa">Ja, alle entfernen</button>
+            <button type="button" class="btn-outline" id="kastenLeerenNein">Abbrechen</button>
+          </div>
+        </div>
+      </section>
     </div>
 
   </main>
@@ -272,7 +307,14 @@
     liste:       document.getElementById('kastenListe'),
     filterLeer:  document.getElementById('kastenFilterLeer'),
     mehrBtn:     document.getElementById('kastenMehrBtn'),
-    verwaist:    document.getElementById('kastenVerwaist')
+    verwaist:    document.getElementById('kastenVerwaist'),
+    hinweis:     document.getElementById('kastenHinweis'),
+    leerenBox:   document.getElementById('kastenLeerenBox'),
+    leerenBtn:   document.getElementById('kastenLeerenBtn'),
+    leerenFrage: document.getElementById('kastenLeerenFrage'),
+    leerenText:  document.getElementById('kastenLeerenFrageText'),
+    leerenJa:    document.getElementById('kastenLeerenJa'),
+    leerenNein:  document.getElementById('kastenLeerenNein')
   };
 
 
@@ -428,6 +470,12 @@
     el.status.classList.add('hidden');
     el.inhalt.classList.remove('hidden');
 
+    // "Karteikasten leeren" ganz unten: sichtbar, sobald irgendetwas gespeichert
+    // ist — auch dann, wenn davon nichts mehr anzeigbar ist (nur verwaiste
+    // Schlüssel). Eine eventuell offene Rückfrage wird dabei zurückgesetzt.
+    schliesseLeerenFrage();
+    el.leerenBox.classList.toggle('hidden', schluessel.length === 0);
+
     if (!karten.length) {
       zeigeLeer(fs);
       return;
@@ -451,6 +499,64 @@
     }
   }
 
+  /* ── Karteikasten leeren ─────────────────────────────────────
+     Zwei Schritte statt eines Klicks, weil das Entfernen nicht rückgängig zu
+     machen ist: Button → "Wirklich alle N Karten entfernen?" → Ja / Abbrechen.
+     Bewusst keine window.confirm()-Box: In manchen eingebetteten Browsern
+     (In-App-Browser, Webviews) werden die unterdrückt, und der Klick täte dann
+     scheinbar nichts. Entfernt wird nur der Karteikasten (kastenLeeren() in
+     LB_fortschritt.js), nicht der übrige Fortschritt.                       */
+
+  function schliesseLeerenFrage() {
+    el.leerenFrage.classList.add('hidden');
+    el.leerenBtn.classList.remove('hidden');
+  }
+
+  function zeigeHinweis(text, fehler) {
+    el.hinweis.textContent = text;
+    el.hinweis.classList.toggle('kasten-hinweis-fehler', !!fehler);
+    el.hinweis.classList.remove('hidden');
+  }
+
+  function anzahlGespeichert() {
+    return Object.keys((window.LBFortschritt && window.LBFortschritt.alleKarten()) || {}).length;
+  }
+
+  el.leerenBtn.addEventListener('click', function () {
+    var n = anzahlGespeichert();
+    el.leerenText.textContent = 'Wirklich alle ' + n + (n === 1 ? ' Karte' : ' Karten') +
+      ' entfernen? Das lässt sich nicht rückgängig machen.';
+    el.leerenBtn.classList.add('hidden');
+    el.leerenFrage.classList.remove('hidden');
+    el.leerenNein.focus();               // sicherer Standard: Abbrechen
+  });
+
+  el.leerenNein.addEventListener('click', function () {
+    schliesseLeerenFrage();
+    el.leerenBtn.focus();
+  });
+
+  el.leerenJa.addEventListener('click', function () {
+    var fs = window.LBFortschritt;
+    if (!fs) return;
+    var n = anzahlGespeichert();
+
+    if (!fs.kastenLeeren()) {
+      // Speicher nicht nutzbar (z. B. privater Modus) – dann ist auch nichts
+      // gespeichert, was man entfernen könnte; ehrlich melden statt "geleert".
+      schliesseLeerenFrage();
+      zeigeHinweis('⚠️ Die Karten konnten nicht entfernt werden. Dein Browser erlaubt vermutlich kein Speichern von Daten.', true);
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    baue();                              // zeichnet den (jetzt leeren) Kasten neu
+    zeigeHinweis('Dein Karteikasten wurde geleert – ' + n + (n === 1 ? ' Karte' : ' Karten') + ' entfernt.', false);
+    window.scrollTo(0, 0);
+    el.hinweis.setAttribute('tabindex', '-1');
+    el.hinweis.focus({ preventScroll: true });   // Tastatur-Fokus nicht ins Leere fallen lassen
+  });
+
   function zeigeLeer(fs) {
     el.voll.classList.add('hidden');
     el.leer.classList.remove('hidden');
@@ -459,8 +565,9 @@
       el.leerText.textContent = 'Dein Browser erlaubt gerade kein Speichern von Daten (z. B. im privaten Modus). ' +
         'Deshalb kann sich LinguaBosna nicht merken, welche Vokabeln du schon geübt hast.';
     } else {
-      el.leerText.textContent = 'Sobald du im Vokabeltrainer Karten beantwortest, landen sie hier – und kommen automatisch ' +
-        'wieder dran, kurz bevor du sie vergessen würdest. Wähle dazu ein Kapitel und starte eine Lerneinheit.';
+      el.leerText.textContent = 'Sobald du im Vokabeltrainer eine Karte nicht weißt, landet sie hier – und kommt automatisch ' +
+        'wieder dran, kurz bevor du sie vergessen würdest. Richtig beantwortete Karten legen keine Karte an. ' +
+        'Wähle dazu ein Kapitel und starte eine Lerneinheit.';
     }
   }
 

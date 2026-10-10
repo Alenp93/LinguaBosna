@@ -122,6 +122,27 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 >   Fällig / Box 1 / Box 2 / Box 3 / Alle, je Karte Bosnisch, Deutsch, Kapitel, Box und
 >   Fälligkeit, in 100er-Blöcken aufgebaut. Welche Karte *fällig* ist, entscheidet allein
 >   `LBFortschritt.faelligeKarten()` – dieselbe Quelle wie der Trainer, keine Doppelrechnung.
+> - **Was in den Karteikasten kommt (geändert 2026-10-10):** nur Vokabeln, die **nicht
+>   gewusst** wurden. Eine falsche Antwort legt die Karte in Box 1 an; richtige Antworten
+>   schieben nur Karten weiter, die schon im Kasten liegen. Eine auf Anhieb richtige Karte
+>   bleibt draußen (`karteAntwort()` → `{ box: 0 }`, nichts wird gespeichert). Vorher kam jede
+>   beantwortete Vokabel hinein, richtige sofort in Box 2. Bereits gespeicherte Karten aus
+>   dieser Zeit bleiben unverändert im Kasten, denn man kann ihnen nicht ansehen, ob sie je
+>   falsch waren.
+> - **Ausscheiden (2026-10-10):** Eine **richtige Antwort in Box 3** löscht die Karte aus
+>   dem Kasten – sie gilt als gelernt. Sonst würde Box 3 nur wachsen. Wer sie später wieder
+>   vergisst, legt sie mit einer falschen Antwort neu in Box 1 an. Es gilt dieselbe
+>   Einmal-pro-Tag-Regel wie beim Aufsteigen: Eine Karte, die erst **heute** nach Box 3
+>   aufgestiegen ist, scheidet heute nicht gleich wieder aus („nur falsche Karten
+>   wiederholen" würde sie sonst sofort hinauswerfen). Zählt jede richtige Antwort – auch
+>   in einer normalen Kapitel-Runde, nicht nur in der Wiederholung. `karteAntwort()` meldet
+>   das Ausscheiden wie „nie im Kasten" als `{ box: 0 }`.
+> - **Button „Alle Karten entfernen"** ganz unten auf der Seite (Bereich „Karteikasten
+>   leeren"): Er ruft `LBFortschritt.kastenLeeren()` auf und löscht **nur** die Karten –
+>   geübte Kapitel, Grammatik und Quiz-Ergebnisse bleiben (das macht dagegen der Button
+>   auf der Datenschutzseite über `alleLoeschen()`). Zweistufig mit Rückfrage statt
+>   `confirm()`, weil In-App-Browser native Dialoge teils unterdrücken. Der Bereich
+>   erscheint, sobald irgendetwas gespeichert ist – auch bei nur noch verwaisten Karten.
 > - **Schlüssel-Auflösung:** Im Karteikasten stehen nur Schlüssel `"Kapitel|bosnische Form"`
 >   (gebaut von `cardKey()` im Trainer). Die Seite löst sie rückwärts auf: erst exakter
 >   Treffer als Einzelkarte (wichtig, weil `bolan / bona` ein *Einzel*eintrag mit „ / " im

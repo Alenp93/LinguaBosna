@@ -58,16 +58,30 @@
    ------------------------------------------------------------
    WIEDERHOLUNG (Leitner-Boxen, seit Schema-Version 2)
 
-   Drei Karteikästen. Jede beantwortete Vokabel liegt in genau einem:
+   Drei Karteikästen. Jede Vokabel IM Karteikasten liegt in genau einem:
 
      Box 1 = sitzt noch nicht  → wieder fällig nach 1 Tag
      Box 2 = ganz gut          → wieder fällig nach 3 Tagen
      Box 3 = sitzt             → wieder fällig nach 7 Tagen
 
-   Falsch  → immer zurück auf Box 1.
-   Richtig → eine Box weiter (Box 3 bleibt Box 3). Eine Vokabel, die
-             beim ersten Mal richtig war, startet gleich in Box 2.
-   Aufsteigen darf eine Karte höchstens EINMAL PRO TAG. Anders gesagt:
+   IM KARTEIKASTEN LANDET NUR, WAS NICHT GEWUSST WURDE (seit Oktober 2026):
+   Eine Vokabel kommt erst durch eine FALSCHE Antwort hinein, und zwar in
+   Box 1. Wer eine Vokabel auf Anhieb richtig hat, bekommt dafür keine
+   Karte — der Kasten soll zeigen, was noch Wiederholung braucht, nicht
+   alles, was man je geübt hat. (Vorher kam jede beantwortete Vokabel
+   hinein, richtige sofort in Box 2.) Karten, die schon im Kasten liegen,
+   werden durch richtige Antworten wie folgt weitergeschoben:
+
+   Falsch  → immer zurück auf Box 1 (auch eine neue Karte startet dort).
+   Richtig → eine Box weiter — aber NUR, wenn die Karte schon im Kasten
+             liegt. Eine unbekannte Karte bleibt draußen.
+   Richtig in Box 3 → die Karte SCHEIDET AUS dem Kasten aus: Sie gilt als
+             gelernt und wird gelöscht (seit Oktober 2026). Ohne das würde
+             Box 3 nur wachsen und jede Karte bis in alle Ewigkeit alle
+             7 Tage wiederkommen. Wer sie später wieder vergisst, legt sie
+             mit einer falschen Antwort ganz normal neu in Box 1 an.
+   Aufsteigen — und damit auch Ausscheiden — darf eine Karte höchstens
+   EINMAL PRO TAG. Anders gesagt:
    FALSCH SCHLÄGT RICHTIG AM SELBEN TAG — wer eine Karte heute einmal
    falsch hatte, behält sie heute in Box 1 und sieht sie morgen wieder.
    Ohne diese Regel würde "nur falsche Karten wiederholen" direkt im
@@ -293,26 +307,46 @@
   // Eine beantwortete Karte verbuchen.
   //   schluessel: "Kapitel|bosnische Form" (baut der Aufrufer)
   //   richtig:    true/false
-  // Rückgabe: der neue Eintrag { box, zuletzt, faellig } — oder null,
-  // wenn nichts gespeichert werden konnte (privater Modus, voller
-  // Speicher). Der Trainer erkennt daran, ob er "… in Box 1 gelandet"
-  // überhaupt anzeigen darf.
+  // Rückgabe — drei Fälle, die der Trainer unterscheiden muss:
+  //   • null                      → es konnte nichts gespeichert werden
+  //                                 (privater Modus, voller Speicher). Der
+  //                                 Trainer zeigt dann kein "… in Box 1".
+  //   • { box: 0 }                → die Karte liegt NICHT (mehr) im Kasten.
+  //                                 Zwei Gründe, beide gewollt: richtig
+  //                                 beantwortet und nie im Kasten gewesen
+  //                                 (es wird nichts angelegt), oder richtig
+  //                                 in Box 3 beantwortet (sie scheidet aus).
+  //   • { box, zuletzt, faellig } → die Karte liegt jetzt in Box 1–3.
   function karteAntwort(schluessel, richtig) {
     if (!schluessel) return null;
+
+    // Ohne nutzbaren Speicher gar nicht erst rechnen. Wichtig für den
+    // { box: 0 }-Fall unten: der gibt im ersten Zweig zurück, OHNE zu
+    // speichern, würde also auch im privaten Modus "Erfolg" melden — dann
+    // muss hier null kommen.
+    if (!verfuegbar()) return null;
 
     var daten = laden();
     var alt   = daten.wiederholung[schluessel];
     var heuteIso = heute();
     var box;
 
+    // Richtig und noch nicht im Kasten → nichts anlegen.
+    if (richtig && !alt) return { box: 0 };
+
     if (!richtig) {
-      box = 1;                                   // falsch → immer ganz zurück
-    } else if (!alt) {
-      box = 2;                                   // gleich beim ersten Mal gewusst
+      box = 1;                                   // falsch → Box 1 (neu oder zurück)
     } else if (alt.zuletzt === heuteIso) {
       box = alt.box || 1;                        // heute schon aufgestiegen → stehen bleiben
+    } else if ((alt.box || 1) >= MAX_BOX) {
+      // Richtig in Box 3 → gelernt, Karte verlässt den Kasten. Steht hinter
+      // der Heute-Prüfung: eine Karte, die erst heute in Box 3 aufgestiegen
+      // ist, scheidet nicht noch am selben Tag aus ("nur falsche Karten
+      // wiederholen" würde sie sonst sofort wieder hinauswerfen).
+      delete daten.wiederholung[schluessel];
+      return speichern(daten) ? { box: 0 } : null;
     } else {
-      box = Math.min((alt.box || 1) + 1, MAX_BOX);
+      box = (alt.box || 1) + 1;
     }
 
     var eintrag = {
@@ -365,6 +399,18 @@
     if (!weg.length) return false;              // nichts zu tun
 
     weg.forEach(function (k) { delete daten.wiederholung[k]; });
+    return speichern(daten);
+  }
+
+  // Nur den Karteikasten leeren. Geübte Kapitel, gelesene Grammatikthemen
+  // und Quiz-Ergebnisse bleiben erhalten — dafür ist alleLoeschen() da.
+  // Gedacht für den Button am Ende von lernen-wiederholung.html, den
+  // Besucher brauchen, die ihren Kasten neu anfangen wollen.
+  // Rückgabe: true, wenn gespeichert werden konnte.
+  function kastenLeeren() {
+    if (!verfuegbar()) return false;
+    var daten = laden();
+    daten.wiederholung = {};
     return speichern(daten);
   }
 
@@ -664,6 +710,7 @@
     faelligeKarten:   faelligeKarten,
     alleKarten:       alleKarten,
     kartenAufraeumen: kartenAufraeumen,
+    kastenLeeren:     kastenLeeren,
     BOX_INTERVALL:    BOX_INTERVALL
   };
 

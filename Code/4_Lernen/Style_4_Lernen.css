@@ -1477,6 +1477,84 @@ main h1 {
   color: #666;
 }
 
+/* Rückmeldung nach dem Leeren (steht oben auf der Seite) */
+.kasten-hinweis {
+  text-align: center;
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #e8f4e8;
+  color: var(--secondary);
+  font-weight: 600;
+  line-height: 1.45;
+}
+.kasten-hinweis-fehler {
+  background: #fdecea;
+  color: #b03030;
+}
+
+/* „Karteikasten leeren" – ganz unten, bewusst unauffällig abgesetzt:
+   eine Linie darüber und viel Abstand, damit der Button nicht aus Versehen
+   beim Scrollen getroffen wird.                                          */
+.kasten-leeren {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--neutral);
+  text-align: center;
+}
+.kasten-leeren h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.kasten-leeren p {
+  max-width: 520px;
+  margin: 0 auto 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #555;
+}
+.kasten-leeren button {
+  min-height: 44px;                       /* Touch-Target */
+}
+.kasten-leeren button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+.kasten-leeren-frage { margin-top: 4px; }
+.kasten-leeren-frage p {
+  font-weight: 600;
+  color: #b03030;
+}
+.kasten-leeren-aktionen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Gefahr-Variante des Outline-Buttons (löschende Aktion). Rot #b03030 hat auf
+   Weiß 6,7:1, Weiß auf Rot ebenfalls – beide Zustände sind gut lesbar.     */
+.btn-gefahr {
+  color: #b03030;
+  border-color: #b03030;
+}
+.btn-gefahr:hover {
+  background: #b03030;
+  color: #fff;
+  border-color: #b03030;
+}
+.btn-gefahr.btn-gefahr-voll {
+  background: #b03030;
+  color: #fff;
+}
+.btn-gefahr.btn-gefahr-voll:hover {
+  background: #8c2424;
+  border-color: #8c2424;
+}
+
 @media (max-width: 768px) {
   .kasten-start { padding: 16px; gap: 14px; }
   .kasten-start-btn { width: 100%; }
@@ -1488,6 +1566,8 @@ main h1 {
   }
   .kasten-start-text { flex-basis: auto; }
   .kasten-eintrag { padding: 12px 14px; }
+  .kasten-leeren-aktionen .btn-outline,
+  .kasten-leeren > .btn-outline { width: 100%; }
   .kasten-meta {
     flex: 1 1 100%;
     flex-direction: row;

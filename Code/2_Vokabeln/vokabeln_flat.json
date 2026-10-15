@@ -429,7 +429,7 @@
     "Kapitel": 2,
     "Kapitelname": "Höflichkeit & Anlässe",
     "Niveau": "A1",
-    "Bosnisch": "hvala lijepa",
+    "Bosnisch": "hvala lijepo",
     "Deutsch": "vielen Dank",
     "Wortart": "Phrase"
   },
@@ -3031,9 +3031,10 @@
     "Kapitelname": "Essen & Trinken",
     "Niveau": "A1",
     "Bosnisch": "spremati",
-    "Deutsch": "zubereiten",
+    "Deutsch": "zubereiten (Essen); aufräumen; wegräumen / aufbewahren",
     "Wortart": "Verb",
-    "aspekt": "nesvršeni"
+    "aspekt": "nesvršeni",
+    "par_id": "ap156"
   },
   {
     "kategorie": "Kapitel 11",
@@ -3637,9 +3638,9 @@
     "Kapitel": 13,
     "Kapitelname": "Mahlzeiten & Geschirr",
     "Niveau": "A1",
-    "Bosnisch": "tiganj",
+    "Bosnisch": "tava",
     "Deutsch": "Pfanne",
-    "Wortart (Genus)": "Substantiv (m)"
+    "Wortart (Genus)": "Substantiv (f)"
   },
   {
     "kategorie": "Kapitel 13",
@@ -3647,7 +3648,7 @@
     "Kapitelname": "Mahlzeiten & Geschirr",
     "Niveau": "A1",
     "Bosnisch": "tepsija",
-    "Deutsch": "runde Backform / Backblech (orient.)",
+    "Deutsch": "Backform / Auflaufform (orient.)",
     "Wortart (Genus)": "Substantiv (f)"
   },
   {
@@ -5227,7 +5228,7 @@
     "Kapitelname": "Wetter",
     "Niveau": "A1",
     "Bosnisch": "vrijeme",
-    "Deutsch": "Wetter",
+    "Deutsch": "Wetter; Zeit",
     "Wortart (Genus)": "Substantiv (n)"
   },
   {
@@ -6462,10 +6463,11 @@
     "Kapitel": 23,
     "Kapitelname": "Alltag & Routine",
     "Niveau": "A2",
-    "Bosnisch": "spremiti",
-    "Deutsch": "aufräumen",
+    "Bosnisch": "spremiti se",
+    "Deutsch": "sich fertig machen / sich vorbereiten",
     "Wortart": "Verb",
-    "aspekt": "svršeni"
+    "aspekt": "svršeni",
+    "par_id": "ap157"
   },
   {
     "kategorie": "Kapitel 23",
@@ -10585,7 +10587,7 @@
     "Kapitelname": "Arbeit & Karriere 1",
     "Niveau": "B1",
     "Bosnisch": "konkurs",
-    "Deutsch": "Stellenausschreibung",
+    "Deutsch": "Stellenausschreibung (nicht: Insolvenz — das ist stečaj)",
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
@@ -10676,10 +10678,9 @@
     "Kapitel": 40,
     "Kapitelname": "Arbeit & Karriere 1",
     "Niveau": "B1",
-    "Bosnisch": "konkurisati",
-    "Deutsch": "sich bewerben",
-    "Wortart": "Verb",
-    "aspekt": "dvovidni"
+    "Bosnisch": "prijaviti se na konkurs",
+    "Deutsch": "sich auf eine Stelle bewerben",
+    "Wortart": "Phrase"
   },
   {
     "kategorie": "Kapitel 41",
@@ -36277,5 +36278,38 @@
     "aspekt": "nesvršeni",
     "nur_woerterbuch": true,
     "par_id": "ap155"
+  },
+  {
+    "Niveau": "A1",
+    "Bosnisch": "tiganj",
+    "Deutsch": "Pfanne (eher serb.; in BiH meist: tava)",
+    "Wortart (Genus)": "Substantiv (m)",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "B1",
+    "Bosnisch": "konkurisati",
+    "Deutsch": "konkurrieren; sich bewerben (Amtsspr.; üblich: prijaviti se)",
+    "Wortart": "Verb",
+    "aspekt": "dvovidni",
+    "nur_woerterbuch": true
+  },
+  {
+    "Niveau": "A2",
+    "Bosnisch": "spremati se",
+    "Deutsch": "sich fertig machen / sich vorbereiten",
+    "Wortart": "Verb",
+    "aspekt": "nesvršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap157"
+  },
+  {
+    "Niveau": "A1",
+    "Bosnisch": "spremiti",
+    "Deutsch": "zubereiten (Essen); aufräumen; wegräumen / aufbewahren",
+    "Wortart": "Verb",
+    "aspekt": "svršeni",
+    "nur_woerterbuch": true,
+    "par_id": "ap156"
   }
 ]

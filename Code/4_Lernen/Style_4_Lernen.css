@@ -139,9 +139,17 @@ main h1 {
    Übungs-Buttons (.btn-primary/.btn-outline oben), damit er als
    Navigation wirkt und nicht mit der Übung konkurriert.
    - inline-flex → Icon und Text mittig nebeneinander
-   - text-decoration: none → es ist ein <a>, kein <button>                    */
+   - text-decoration: none → es ist ein <a>, kein <button>
+
+   Neben „Zurück zur Übersicht" steht ein zweiter Button „Grammatik nachlesen"
+   (Link zur passenden Erklärseite, gleiche Klassen). Deshalb ist der Block ein
+   Flex-Container: Die Buttons stehen mittig nebeneinander und rutschen auf
+   schmalen Bildschirmen von selbst untereinander (flex-wrap).               */
 .lernen-zurueck {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;                /* Zeilen- / Spaltenabstand zwischen den Buttons */
   margin: -14px 0 30px;          /* rückt näher an den Untertitel (34px Abstand dort) */
 }
 .btn-zurueck {

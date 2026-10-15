@@ -796,6 +796,32 @@ Seite A1 ist und die Übung B1-Wissen voraussetzt),
 `grammatik-enklitika.html` → Satzbau-Puzzle,
 `grammatik-verbalaspekt.html` → Aspektpaare.
 
+**Rückweg: jede Übung hat selbst einen „Grammatik nachlesen"-Button (seit 2026-10-15).**
+Die Verlinkung oben führt von der Grammatik zur Übung; umgekehrt muss man aus der
+Übung zur Erklärseite zurückfinden, wenn man eine Regel nachschlagen will.
+
+- **Ort:** im Block `div.lernen-zurueck` direkt neben „Zurück zur Übersicht" – der Block
+  steht außerhalb der drei Bildschirme und ist deshalb in Start, Übung und Ergebnis
+  sichtbar. Er ist ein Flex-Container (`flex-wrap`), die Buttons rutschen auf schmalen
+  Bildschirmen von selbst untereinander.
+- **Baustein:** `<a class="btn-outline btn-zurueck" target="_blank" rel="noopener">` mit
+  Icon `fa-book-open` und `aria-label="Grammatik nachlesen: [Thema] (öffnet in neuem Tab)"`.
+  ⚠️ **Neuer Tab ist Absicht:** Der Übungsstand liegt nur im Speicher; ein Klick im selben
+  Tab würde die laufende Runde verwerfen.
+- **Statische Übungen** (Aspektpaare, Aspektpaare frei, Aspektwahl → `grammatik-verbalaspekt`;
+  Satzbau-Puzzle → `grammatik-enklitika`): fester Link im HTML, damit er auch für
+  Suchmaschinen sichtbar ist.
+- **Lückentext** hängt am Thema: Das Feld `grammatik_url` jedes Themas in
+  `luckentext_data.json` wird in `zeigeGrammatikLink()` in den Button gesetzt, der Button
+  bleibt auf dem Startschirm versteckt (noch kein Thema) und erscheint mit dem Start.
+  Ein künftiges Thema ohne `grammatik_url` bekommt einfach keinen Button.
+- **Neue Übung ⇒ Button mit einbauen** (und bei Daten-getriebenen Übungen das Feld
+  `grammatik_url` in der JSON pflegen, wie es `aspektwahl_data.json` und
+  `satzbau_data.json` ohnehin schon tun).
+- **Ausgenommen:** Vokabeltrainer und „Vokabeln wiederholen" (kein Grammatikbezug) sowie
+  `lernen-uebersicht.html` (die Karten sind selbst Links; ein zweiter Link darin wäre
+  ungültiges verschachteltes `<a>`).
+
 ---
 
 ## 8. Antwortformat der Auslieferung

@@ -127,6 +127,18 @@
         <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
         Zurück zur Übersicht
       </a>
+      <!-- Grammatik nochmal ansehen. Anders als bei den anderen Übungen hängt das
+           Ziel hier vom gewählten Thema ab (Akkusativ, Dativ, …): Das JavaScript
+           setzt href und Beschriftung aus dem Feld "grammatik_url" der JSON,
+           sobald ein Thema startet. Auf dem Startschirm (noch kein Thema)
+           bleibt der Button versteckt.
+           Öffnet in einem NEUEN Tab, weil der Übungsstand nur im Speicher
+           liegt und beim Verlassen dieser Seite verloren ginge. -->
+      <a id="grammatikLink" href="/Code/1_Startseite/LB_3_Grammatik.html"
+         class="btn-outline btn-zurueck hidden" target="_blank" rel="noopener">
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        Grammatik nachlesen
+      </a>
     </div>
 
 
@@ -407,7 +419,30 @@
     $('ergebnisScreen').classList.add('hidden');
     $('uebungScreen').classList.remove('hidden');
 
+    zeigeGrammatikLink(thema);
     zeigeAufgabe();
+  }
+
+
+  /* ── 3b. „Grammatik nachlesen"-Button zum Thema ──────── */
+  /* Jedes Thema der JSON trägt in „grammatik_url" den Pfad zu seiner
+     Erklärseite (Akkusativ → grammatik-akkusativ.html usw.). Hier wird
+     er in den Button oben auf der Seite eingesetzt und der Button
+     eingeblendet. Fehlt die URL bei einem künftigen Thema, bleibt der
+     Button einfach versteckt, statt auf eine falsche Seite zu führen.
+     Der aria-label nennt das Thema und weist darauf hin, dass der Link
+     in einem neuen Tab öffnet (Screenreader lesen sonst nur
+     „Grammatik nachlesen"). */
+  function zeigeGrammatikLink(thema) {
+    var link = $('grammatikLink');
+    if (!thema.grammatik_url) {
+      link.classList.add('hidden');
+      return;
+    }
+    link.href = thema.grammatik_url;
+    link.setAttribute('aria-label',
+      'Grammatik nachlesen: ' + thema.titel + ' (öffnet in neuem Tab)');
+    link.classList.remove('hidden');
   }
 
 
@@ -618,6 +653,8 @@
     $('ergebnisScreen').classList.add('hidden');
     $('uebungScreen').classList.add('hidden');
     $('startScreen').classList.remove('hidden');
+    // Auf dem Startschirm ist noch kein Thema gewählt → kein Grammatik-Button
+    $('grammatikLink').classList.add('hidden');
   });
 
   </script>

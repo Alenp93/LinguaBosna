@@ -3,7 +3,7 @@
     "Kapitel": 1,
     "Kapitelname": "Begrüßung & Alltagssprache",
     "Niveau": "A1",
-    "Anzahl": 30
+    "Anzahl": 33
   },
   {
     "Kapitel": 2,
@@ -15,7 +15,7 @@
     "Kapitel": 3,
     "Kapitelname": "Zahlen & Mengen",
     "Niveau": "A1",
-    "Anzahl": 30
+    "Anzahl": 32
   },
   {
     "Kapitel": 4,
@@ -27,7 +27,7 @@
     "Kapitel": 5,
     "Kapitelname": "Farben & Formen",
     "Niveau": "A1",
-    "Anzahl": 20
+    "Anzahl": 33
   },
   {
     "Kapitel": 6,
@@ -45,7 +45,7 @@
     "Kapitel": 8,
     "Kapitelname": "Verwandtschaft & Lebensphasen",
     "Niveau": "A1",
-    "Anzahl": 29
+    "Anzahl": 30
   },
   {
     "Kapitel": 9,
@@ -63,7 +63,7 @@
     "Kapitel": 11,
     "Kapitelname": "Essen & Trinken",
     "Niveau": "A1",
-    "Anzahl": 34
+    "Anzahl": 35
   },
   {
     "Kapitel": 12,
@@ -99,7 +99,7 @@
     "Kapitel": 17,
     "Kapitelname": "Kleidung & Aussehen",
     "Niveau": "A1",
-    "Anzahl": 31
+    "Anzahl": 34
   },
   {
     "Kapitel": 18,
@@ -111,7 +111,7 @@
     "Kapitel": 19,
     "Kapitelname": "Wetter",
     "Niveau": "A1",
-    "Anzahl": 20
+    "Anzahl": 22
   },
   {
     "Kapitel": 20,
@@ -123,7 +123,7 @@
     "Kapitel": 21,
     "Kapitelname": "Reisen & Verkehr",
     "Niveau": "A1",
-    "Anzahl": 32
+    "Anzahl": 33
   },
   {
     "Kapitel": 22,
@@ -135,19 +135,19 @@
     "Kapitel": 23,
     "Kapitelname": "Alltag & Routine",
     "Niveau": "A2",
-    "Anzahl": 31
+    "Anzahl": 32
   },
   {
     "Kapitel": 24,
     "Kapitelname": "In der Stadt & Wegbeschreibung 1",
     "Niveau": "A2",
-    "Anzahl": 21
+    "Anzahl": 23
   },
   {
     "Kapitel": 25,
     "Kapitelname": "In der Stadt & Wegbeschreibung 2",
     "Niveau": "A2",
-    "Anzahl": 20
+    "Anzahl": 23
   },
   {
     "Kapitel": 26,
@@ -165,19 +165,19 @@
     "Kapitel": 28,
     "Kapitelname": "Hobbys & Freizeit 1",
     "Niveau": "A2",
-    "Anzahl": 19
+    "Anzahl": 20
   },
   {
     "Kapitel": 29,
     "Kapitelname": "Hobbys & Freizeit 2",
     "Niveau": "A2",
-    "Anzahl": 19
+    "Anzahl": 24
   },
   {
     "Kapitel": 30,
     "Kapitelname": "Berufe & Arbeit 1",
     "Niveau": "A2",
-    "Anzahl": 20
+    "Anzahl": 23
   },
   {
     "Kapitel": 31,
@@ -189,13 +189,13 @@
     "Kapitel": 32,
     "Kapitelname": "Schule & Bildung",
     "Niveau": "A2",
-    "Anzahl": 33
+    "Anzahl": 35
   },
   {
     "Kapitel": 33,
     "Kapitelname": "Gesundheit & Medizin",
     "Niveau": "A2",
-    "Anzahl": 33
+    "Anzahl": 35
   },
   {
     "Kapitel": 34,
@@ -279,7 +279,7 @@
     "Kapitel": 47,
     "Kapitelname": "Gesundheit & Symptome 2",
     "Niveau": "B1",
-    "Anzahl": 19
+    "Anzahl": 22
   },
   {
     "Kapitel": 48,
@@ -291,13 +291,13 @@
     "Kapitel": 49,
     "Kapitelname": "Gefühle & Beziehungen",
     "Niveau": "B1",
-    "Anzahl": 30
+    "Anzahl": 35
   },
   {
     "Kapitel": 50,
     "Kapitelname": "Meinung & Diskussion 1",
     "Niveau": "B1",
-    "Anzahl": 20
+    "Anzahl": 26
   },
   {
     "Kapitel": 51,
@@ -357,7 +357,7 @@
     "Kapitel": 60,
     "Kapitelname": "Werkzeug & Baustelle",
     "Niveau": "B1",
-    "Anzahl": 27
+    "Anzahl": 30
   },
   {
     "Kapitel": 61,
@@ -441,7 +441,7 @@
     "Kapitel": 74,
     "Kapitelname": "Hausbau: Ausbau & Oberflächen",
     "Niveau": "B2",
-    "Anzahl": 34
+    "Anzahl": 32
   },
   {
     "Kapitel": 75,

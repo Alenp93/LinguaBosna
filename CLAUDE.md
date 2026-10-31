@@ -391,7 +391,7 @@ auf jeder Seite. Es hängt sich öffentlich an `window.LBFortschritt`.
   Grammatikseiten wird „gelesen" automatisch gesetzt, sobald `#quizContainer`
   ins Bild scrollt (IntersectionObserver), und ein Quiz-Ergebnis wird nur bei
   Verbesserung überschrieben (bestes Ergebnis bleibt erhalten). Das Modul
-  fasst dafür **keine der 37 Grammatikseiten einzeln an** – es hört zentral
+  fasst dafür **keine der 38 Grammatikseiten einzeln an** – es hört zentral
   auf die laut `WORKFLOW_Grammatikseiten.md` eingefrorenen Quiz-IDs
   (`quizContainer`, `quizResult`, `resultScore`), daher funktioniert es auch
   auf jeder künftigen Seite aus dem Template automatisch mit.

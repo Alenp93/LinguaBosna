@@ -103,7 +103,7 @@ auf der passenden Grammatikseite nach.
 
 ---
 
-## 3. Kapitel-Taxonomie (37 Kapitel, Stand: C1 komplett)
+## 3. Kapitel-Taxonomie (38 Kapitel, Stand: C1 komplett)
 
 **A1 (1–6):** 1 Alphabet & Aussprache · 2 Geschlecht der Substantive ·
 3 biti & Verneinung · 4 Fragen & Fragewörter · 5 Regelmäßiges Präsens ·
@@ -114,7 +114,7 @@ auf der passenden Grammatikseite nach.
 13 Adjektive & Angleichung
 
 **B1 (14–23):** 14 Perfekt · 15 Futur I · 16 Reflexive Verben ·
-17 Genitiv · 18 Dativ · 19 Instrumental · 20 Possessivpronomen ·
+17 Genitiv · 18 Dativ · 19 Instrumental · 19a Adjektivdeklination · 20 Possessivpronomen ·
 21 Demonstrativpronomen · 22 Komparation · 23 Der Vokativ
 
 **B2 (24–29):** 24 Verbalaspekt · 25 Zahlen & Numeralia ·
@@ -130,7 +130,10 @@ auf der passenden Grammatikseite nach.
 Bewusste Taxonomie-Entscheidungen: Nominativ/Akkusativ getrennt ·
 Dativ/Instrumental getrennt · Possessiv-/Demonstrativpronomen getrennt ·
 Vokativ auf B1 (nicht C1) · Fälle decken Sg./Pl. intern ab
-(keine eigene Pluralbildungs-Seite) · Aorist/Imperfekt erst auf C2.
+(keine eigene Pluralbildungs-Seite) · Aorist/Imperfekt erst auf C2 ·
+Adjektivdeklination als 19a nach dem letzten Fall-Kapitel und vor den Pronomen, die darauf
+aufbauen. Die Nummer 19a statt einer Neunummerierung, weil die Seiten Kapitelnummern im
+Fließtext nennen („Kapitel 26") – diese Verweise blieben sonst falsch zurück.
 
 ---
 

@@ -517,7 +517,7 @@
   /* ==========================================================
      4. AUTOMATISCHE ERFASSUNG AUF GRAMMATIK-DETAILSEITEN
 
-     Die 37 Grammatikseiten werden NICHT einzeln angefasst. Alle
+     Die 38 Grammatikseiten werden NICHT einzeln angefasst. Alle
      benutzen laut WORKFLOW_Grammatikseiten.md dieselben, fest
      eingefrorenen Quiz-IDs (quizContainer, quizResult, resultScore).
      Deshalb genügt dieser eine zentrale Block — und jede künftige

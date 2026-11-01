@@ -77,6 +77,13 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 
 | Bosnisch | Deutsch | Wortart | Niveau-Vorschlag | Zielkapitel-Idee |
 |---|---|---|---|---|
+| subotom | samstags | Adverb | A2 | Häufige Adverbien 2 (neu); gebraucht in Übung „Adjektivendungen" |
+| ljeti | im Sommer | Adverb | A2 | Häufige Adverbien 2 (neu); gebraucht in Übung „Adjektivendungen" |
+| zbog | wegen | Präposition | A2 | Konnektoren 2 (neu); gebraucht in Übung „Adjektivendungen" |
+| pred | vor | Präposition | A2 | – (Präpositionen, siehe Notiz); gebraucht in Übung „Adjektivendungen" |
+| pod | unter | Präposition | A2 | – (Präpositionen; der Bestand kennt `pod` nur als „Boden"); gebraucht in Übung „Adjektivendungen" |
+| puno | viel | Adverb | A2 | Häufige Adverbien 2 (neu); gebraucht in Übung „Adjektivendungen" |
+| nijedan | kein einziger | Pronomen | B1 | –; gebraucht in Übung „Adjektivendungen" |
 | čim | sobald | Konjunktion | B1 | Konnektoren 2 (neu) |
 | nakon što | nachdem | Konjunktion | B1 | Konnektoren 2 (neu) |
 | prije nego što | bevor | Konjunktion | B1 | Konnektoren 2 (neu) |
@@ -140,6 +147,14 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 
 | Bosnisch | Deutsch | Aspekt | Partner (Vorschlag) | Niveau-Vorschlag |
 |---|---|---|---|---|
+| poznavati | kennen | nesvršeni | – (⚠️ nicht ungeprüft mit `upoznati` verlinken, das heißt „kennenlernen"); gebraucht in Übung „Adjektivendungen" | A1 |
+| pozdravljati | grüßen | nesvršeni | pozdraviti (svršeni) – beide fehlen; gebraucht in Übung „Adjektivendungen" | A2 |
+| upoznavati | kennenlernen | nesvršeni | **`upoznati` steht bereits im Bestand**; gebraucht in Übung „Adjektivendungen" | A2 |
+| pokazivati | zeigen | nesvršeni | pokazati (svršeni, prüfen); gebraucht in Übung „Adjektivendungen" | A2 |
+| vraćati se | zurückkehren | nesvršeni | vratiti se (svršeni, prüfen; Backlog hat sonst nur `vraćati` = zurückgeben); gebraucht in Übung „Adjektivendungen" | A2 |
+| uživati | genießen | nesvršeni | – (prüfen); gebraucht in Übung „Adjektivendungen" | A2 |
+| ostajati | bleiben | nesvršeni | ostati (svršeni, prüfen); gebraucht in Übung „Adjektivendungen" | A2 |
+| nemati | nicht haben | nesvršeni | – (kein Aspektpartner); gebraucht in Übung „Adjektivendungen" | A1 |
 | morati | müssen | nesvršeni | – (Modalverb, kein Aspektpartner) | A1 |
 | smjeti | dürfen | nesvršeni | – (Modalverb, kein Aspektpartner) | A1 |
 | pušiti | rauchen | nesvršeni | – (kein echtes Paar nötig) | A2 |
@@ -203,6 +218,15 @@ Aufgefallen bei: Lernen-Übung „Aspektwahl", Set 1, 2026-08-26
 
 | Bosnisch | Deutsch | Wortart (Genus) | Niveau-Vorschlag | Zielkapitel-Idee |
 |---|---|---|---|---|
+| čokolada | Schokolade | Substantiv (f) | A1 | Essen & Trinken; gebraucht in Übung „Adjektivendungen" |
+| torta | Torte | Substantiv (f) | A2 | Essen & Trinken (bisher nur `svadbena torta`); gebraucht in Übung „Adjektivendungen" |
+| izlet | Ausflug | Substantiv (m) | A2 | Reisen; gebraucht in Übung „Adjektivendungen" |
+| prošli | vergangen, letzter | Adjektiv | A2 | –; gebraucht in Übung „Adjektivendungen" |
+| drvo | Baum / Holz | Substantiv (n) | A1 | Natur; gebraucht in Übung „Adjektivendungen" |
+| hrana | Essen / Nahrung | Substantiv (f) | A1 | Essen & Trinken; gebraucht in Übung „Adjektivendungen" |
+| kraj | Ende | Substantiv (m) | A2 | –; gebraucht in Übung „Adjektivendungen" |
+| odmor | Pause / Erholung / Urlaub | Substantiv (m) | A2 | – (der Bestand hat nur `godišnji odmor`); gebraucht in Übung „Adjektivendungen" |
+| ukus | Geschmack | Substantiv (m) | A2 | Essen & Trinken; gebraucht in Übung „Adjektivendungen" |
 | mašina | Maschine | Substantiv (f) | B1 | Werkzeug & Baustelle (Kap 60) |
 | šetnja | Spaziergang | Substantiv (f) | A2 | Hobbys & Freizeit (Kap 28/29) |
 | sendvič | Sandwich | Substantiv (m) | A2 | Essen & Trinken (Kap 11 ist voll) |

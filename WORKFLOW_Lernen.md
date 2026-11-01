@@ -107,7 +107,54 @@ Aspektpaare in der Vokabel-JSON ergänzt werden.
 | Aspektpaar-Zuordnung | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze fürs Feedback) | 92 Paare (`ap01`–`ap92`, lückenlos), 3 Sets: A1–A2 (54) / B1–C1 (38) / alle (92) |
 | Aspektpaare – freie Eingabe | ✅ fertig | `Code/4_Lernen/lernen-aspektpaare-frei.html` | `vokabeln_flat.json` (`par_id`, `aspekt`) **+** `Code/4_Lernen/aspektpaare_data.json` (Beispielsätze; optionaler `frei`-Block für Alternativformen) | dieselben 92 Paare, 3 Sets nach Niveau wie bei der Zuordnung |
 | Satzbau-Puzzle (Enklitika/Wortstellung) | ✅ fertig (Enklitika, B2) | `Code/4_Lernen/lernen-satzbau.html` | eigene JSON (`Code/4_Lernen/satzbau_data.json`) | 63 Sätze, 4 Sets: Zweitstellung (20) / Die Kette (25) / Fragen & Betonung (18) / alle gemischt (63, in JS berechnet) |
+| Adjektivendungen (Adjektivdeklination) | ✅ fertig (Set 1–6) | `Code/4_Lernen/lernen-adjektive.html` | eigene JSON (`Code/4_Lernen/adjektive_data.json`) | 183 Sätze in 4 Wortbank-Sets: `singular` (60) · `plural` (32) · `stolperfallen` (42) · `staemme` (49), je Runde reihum nach `regel` gezogen · `selbst_schreiben` (Freitext, nutzt dieselben 183 Sätze, keine eigenen) · `erzaehltext` (8 Texte à 5 Lücken, je Runde 2 Texte) |
 | Aspektwahl (Verbalaspekt in der Anwendung) | ✅ Set 1–4 fertig | `Code/4_Lernen/lernen-aspektwahl.html` | eigene JSON (`Code/4_Lernen/aspektwahl_data.json`) | Set 1 „Signalwörter" (41 Einträge: 18 nesvršeni / 10 svršeni / 13 offen) · Set 2 „Aspektwahl im Satz" (64 Sätze über 9 Regelmuster) · Set 3 „Situation → Satz" (56 Aufgaben über 7 Bedeutungsmuster) · Set 4 „Erzähltext" (10 Texte à 5 Lücken) |
+
+> ⚠️ **Adjektivendungen (2026-11-01) – Regeln für jede Ergänzung, ausführlich im Feld
+> `_regeln_fuer_neue_saetze` der JSON:**
+>
+> **(a) Keine attributive Kurzform, auch nicht als Distraktor** (`nov grad`, Alens Entscheidung).
+> **Adjektive mit Stammwechsel (`dobar`, `sretan`, `težak`, `topao` …) erscheinen deshalb nie im
+> Nominativ oder unbelebten Akkusativ maskulin Singular:** Dort wäre `dobar film` die übliche
+> Form und `dobri film` klingt oft unnatürlich. Ohne diese Stelle stimmt die Übung in beiden
+> Sprachgefühlen.
+>
+> **(b) Lange Formen (`novoga`, `novome`) nie als Distraktor.** Sie sind korrekt, und
+> die Übung würde richtige Antworten als falsch werten. Im Set `selbst_schreiben` gelten sie
+> als richtig, über das Feld `auch_richtig`. ⚠️ Beim Instrumental feminin (`s novom knjigom`)
+> gibt es keine lange Form, dort steht deshalb kein `novome`. Neue Sätze brauchen dieses Feld
+> von Hand, wenn die Lösung auf `-og`, `-eg`, `-em` oder als Maskulin/Neutrum auf `-om` endet.
+> ⚠️ **`-ima` vor dem Nomen ist falsch (Alens Entscheidung, 2026-11-01):** Es heißt immer
+> `u novim gradovima`, nie `u novima gradovima`, auch wenn der `bosnisch-pruefer` die Form als
+> selten, aber möglich einstuft. Sie steht deshalb nicht in `auch_richtig`, und das Set
+> `selbst_schreiben` meldet bei dieser Eingabe eigens „endet auf -im, nicht auf -ima", ohne
+> Selbstkorrektur. Nur das allein stehende Adjektiv kennt `-ima` (`Pomažem starima.`).
+>
+> **(c) Genitiv Singular und Plural lauten bei vielen Substantiven gleich** (`prijatelja`,
+> `profesora`, `prozora`, `sela`). Bei `iz ___ sela` wären `malog` und `malih` beide richtig.
+> Die `-ih`-Form steht deshalb nur in der Wortbank, wenn ein Wort den Numerus festlegt
+> (`mnogo`, `nijednog`, `jednog`, `mog`, `mojih`). Das ist selbst eine Lektion: die Regel
+> `og_ih` im Set Stolperfallen. Befund des `bosnisch-pruefer`: Bei der i-Deklination (`stvari`)
+> wäre sogar die `-e`-Form ein korrekter Genitiv Singular, solche Wörter stehen deshalb nicht
+> im Genitiv. Und bei belebtem Akkusativ und Genitiv maskulin/neutrum gibt es keine Distraktoren
+> auf `-a` (`stara prijatelja`): Das sind archaische Formen, also nicht einfach falsch.
+>
+> **(d) Der Pool folgt der Erklärseite.** Nicht drin: Vokativ, Zahlwörter (`dva nova grada`) und
+> Stammwechsel, die die Seite nicht zeigt (`sladak → slatkog`, `nizak → niskog`,
+> `bolestan → bolesnog`).
+>
+> **(e) Freitext mit Selbstkorrektur.** Es gelten die Freitext-Regeln weiter unten: fehlende
+> Sonderzeichen zählen als „fast richtig", Tippfehler nicht. Eine Tippfehler-Toleranz ginge hier
+> gar nicht, weil sich `novog`, `novom` und `novoj` nur um einen Buchstaben unterscheiden.
+> Schreibt jemand die Kurzform (`Kupujem nov telefon`), gilt das als falsch: Die Übung lehrt sie
+> nicht, und die Taste „Meine Antwort war auch richtig" fängt es auf. Nach dieser Taste sagt der
+> grüne Kasten „Als richtig gezählt", nicht mehr „Leider falsch".
+>
+> **(f) Prüfung:** `test_lernen_uebung.py` klickt nur die erste Set-Karte und deckt damit weder
+> den Freitext noch den Erzähltext ab. Beide Sets wurden einzeln im Browser durchgespielt: exakte
+> Eingabe, fehlende Sonderzeichen, `dj`-Schreibung, lange Form, leeres Feld, falsche Antwort samt
+> Selbstkorrektur (doppelt geklickt), „Lösung zeigen", Enter, Ergebnisschirm; beim Erzähltext eine
+> Runde nur mit falschen Antworten. Wer die Seite ändert, muss das erneut tun.
 
 > ⚠️ **„Vokabeln wiederholen" (2026-10-07) ist keine Übung im Sinne der anderen Zeilen,
 > sondern die Schaltzentrale für die fälligen Wiederholungen des Vokabeltrainers.**
@@ -794,7 +841,8 @@ Bereits verlinkt: `grammatik-akkusativ.html` → Lückentext (`?thema=akkusativ`
 `grammatik-faelle.html` → Lückentext (`?thema=gemischt`, mit „für später"-Text, weil die
 Seite A1 ist und die Übung B1-Wissen voraussetzt),
 `grammatik-enklitika.html` → Satzbau-Puzzle,
-`grammatik-verbalaspekt.html` → Aspektpaare.
+`grammatik-verbalaspekt.html` → Aspektpaare,
+`grammatik-adjektive-deklination.html` → Adjektivendungen (ohne Parameter, mehrere Sets).
 
 **Rückweg: jede Übung hat selbst einen „Grammatik nachlesen"-Button (seit 2026-10-15).**
 Die Verlinkung oben führt von der Grammatik zur Übung; umgekehrt muss man aus der
@@ -809,7 +857,8 @@ Die Verlinkung oben führt von der Grammatik zur Übung; umgekehrt muss man aus 
   ⚠️ **Neuer Tab ist Absicht:** Der Übungsstand liegt nur im Speicher; ein Klick im selben
   Tab würde die laufende Runde verwerfen.
 - **Statische Übungen** (Aspektpaare, Aspektpaare frei, Aspektwahl → `grammatik-verbalaspekt`;
-  Satzbau-Puzzle → `grammatik-enklitika`): fester Link im HTML, damit er auch für
+  Satzbau-Puzzle → `grammatik-enklitika`; Adjektivendungen →
+  `grammatik-adjektive-deklination`): fester Link im HTML, damit er auch für
   Suchmaschinen sichtbar ist.
 - **Lückentext** hängt am Thema: Das Feld `grammatik_url` jedes Themas in
   `luckentext_data.json` wird in `zeigeGrammatikLink()` in den Button gesetzt, der Button

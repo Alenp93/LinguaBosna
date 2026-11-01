@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       lernen-adjektive.html
+       Übungsart: „Adjektivendungen üben"
+       LinguaBosna | Menüpunkt „Lernen"
+
+       Festigt die Regeln von grammatik-adjektive-deklination.html.
+       Drei Aufgabenarten, gesteuert über das Feld „typ" im Set:
+       - ohne typ: Satz mit Lücke, dazu vier anklickbare Formen
+       - „frei":   derselbe Satz, die Form wird selbst geschrieben
+       - „text":   kleine Geschichte, fünf Lücken nacheinander
+
+       Die Seite hat 3 Bildschirme (per JavaScript umgeschaltet):
+       1. Startschirm  – Set-Auswahl
+       2. Übung        – eine Aufgabe nach der anderen
+       3. Ergebnis     – Punktzahl + Auswertung nach Regel
+
+       Die Aufgaben kommen aus adjektive_data.json. Mit ?set=singular
+       (auch plural, stolperfallen, staemme, selbst_schreiben,
+       erzaehltext) startet ein Set direkt.
+       ====================================================== -->
+
+  <!-- Zeichensatz & Viewport: müssen als ERSTES im <head> stehen -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Globales Design + seiteneigenes CSS -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/4_Lernen/Style_4_Lernen.css">
+  <!-- Bindet Header + Footer dynamisch ein (siehe LB_main.js) -->
+  <script src="/Code/LB_main.js" defer></script>
+
+  <!-- SEO -->
+  <title>LinguaBosna – Adjektivendungen üben</title>
+  <meta name="description" content="Bosnische Adjektivendungen üben: novog, novom, novoj, novim in echten Sätzen. Singular, Plural, Stolperfallen und Stammwechsel – kostenlos im Browser.">
+  <link rel="canonical" href="https://linguabosna.com/Code/4_Lernen/lernen-adjektive.html">
+
+  <!-- ── Open Graph (Vorschau beim Teilen) ──────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="LinguaBosna – Adjektivendungen üben">
+  <meta property="og:description" content="Bosnische Adjektivendungen üben: novog, novom, novoj, novim in echten Sätzen. Singular, Plural, Stolperfallen und Stammwechsel – kostenlos im Browser.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/4_Lernen/lernen-adjektive.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Adjektivendungen üben">
+  <meta name="twitter:description" content="Bosnische Adjektivendungen üben: novog, novom, novoj, novim in echten Sätzen. Singular, Plural, Stolperfallen und Stammwechsel – kostenlos im Browser.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+
+  <!-- ── Strukturierte Daten (schema.org) ─────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "name": "Adjektivendungen üben",
+        "description": "Bosnische Adjektivendungen üben: novog, novom, novoj, novim in echten Sätzen. Singular, Plural, Stolperfallen und Stammwechsel – kostenlos im Browser.",
+        "url": "https://linguabosna.com/Code/4_Lernen/lernen-adjektive.html",
+        "inLanguage": "de",
+        "learningResourceType": "Interaktive Übung",
+        "educationalLevel": "B1",
+        "teaches": "Bosnische Grammatik: Adjektivdeklination",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Course",
+          "name": "Bosnisch lernen",
+          "url": "https://linguabosna.com/"
+        },
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Lernen",
+            "item": "https://linguabosna.com/Code/4_Lernen/lernen-uebersicht.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Adjektivendungen üben"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header wird hier von LB_main.js hineingeladen -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- ── Seitentitel ───────────────────────────────── -->
+    <h1>Adjektivendungen üben</h1>
+    <p class="subtitle">Das Substantiv wechselt den Fall, das Adjektiv zieht mit: Wähle die passende Form.</p>
+
+    <!-- Zurück zur Lernen-Übersicht (bleibt in allen drei Bildschirmen sichtbar) -->
+    <div class="lernen-zurueck">
+      <a href="/Code/4_Lernen/lernen-uebersicht.html" class="btn-outline btn-zurueck">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Zurück zur Übersicht
+      </a>
+      <!-- Öffnet in einem NEUEN Tab, weil der Übungsstand nur im Speicher
+           liegt und beim Verlassen dieser Seite verloren ginge. -->
+      <a href="/Code/3_Grammatik/Grammatik_B1/grammatik-adjektive-deklination.html"
+         class="btn-outline btn-zurueck" target="_blank" rel="noopener"
+         aria-label="Grammatik nachlesen: Adjektivdeklination (öffnet in neuem Tab)">
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        Grammatik nachlesen
+      </a>
+    </div>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 1 — STARTSCHIRM (Set-Auswahl)
+         Wird ausgeblendet, sobald ein Set startet.
+         ===================================================== -->
+    <section id="startScreen">
+      <div class="section-intro">
+        <h2>Womit möchtest du üben?</h2>
+        <p>Wähle ein Set. Pro Durchgang bekommst du 10 Aufgaben, bei jedem Start andere.</p>
+      </div>
+
+      <!-- Hier fügt das JavaScript die Set-Karten ein -->
+      <div class="thema-grid" id="themaGrid"></div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 2 — ÜBUNG
+         Standardmäßig versteckt (Klasse "hidden").
+         ===================================================== -->
+    <section id="uebungScreen" class="hidden">
+      <div class="uebung-container">
+
+        <!-- Fortschritt -->
+        <div class="uebung-progress" id="uebungProgress">Aufgabe 1 von 10</div>
+        <div class="uebung-bar"><div class="uebung-bar-fill" id="uebungBarFill"></div></div>
+
+        <!-- Der Satz mit der Lücke (vom JS gefüllt) -->
+        <div class="uebung-satz" id="uebungSatz" lang="bs"></div>
+
+        <!-- Aufgabentyp „text": eine Geschichte, deren Lücken nacheinander
+             gefüllt werden. Die Klassen stammen aus der Aspektwahl. -->
+        <div id="textBereich" class="hidden">
+          <h3 class="text-titel" id="textTitel" lang="bs"></h3>
+          <p class="erzaehl-text" id="erzaehlText" lang="bs"></p>
+        </div>
+
+        <!-- Das Adjektiv in der Grundform, z. B. „(nov)" -->
+        <div class="grundform-hinweis" id="uebungGrundform" lang="bs"></div>
+
+        <!-- Die Wortbank (Antwort-Buttons, vom JS erstellt) -->
+        <div class="wortbank" id="wortbank" lang="bs"></div>
+
+        <!-- Aufgabentyp „frei": Die Form wird selbst geschrieben.
+             Die Klassen stammen aus lernen-aspektpaare-frei.html. -->
+        <div id="freiBereich" class="hidden">
+          <input type="text"
+                 id="freiInput"
+                 class="frei-input"
+                 lang="bs"
+                 aria-label="Form des Adjektivs eingeben"
+                 placeholder="Form eintippen …"
+                 autocomplete="off"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 spellcheck="false"
+                 inputmode="text">
+
+          <!-- Sonderzeichen, die deutsche Tastaturen nicht haben -->
+          <div class="frei-zeichen" id="freiZeichen" lang="bs"></div>
+
+          <div class="frei-aktionen">
+            <button class="btn-primary btn-klein" id="pruefenBtn">Prüfen</button>
+            <button class="btn-outline btn-klein" id="loesungBtn">Lösung zeigen</button>
+          </div>
+          <div class="frei-fehler hidden" id="freiFehler"></div>
+        </div>
+
+        <!-- Feedback nach der Antwort (versteckt bis zur Auswahl) -->
+        <div class="uebung-feedback hidden" id="uebungFeedback"></div>
+
+        <!-- Selbstkorrektur – erscheint nur bei einer als falsch
+             gewerteten freien Eingabe -->
+        <div class="frei-korrektur hidden" id="freiKorrektur">
+          <button class="btn-outline btn-klein" id="korrekturBtn">
+            <i class="fas fa-rotate-left" aria-hidden="true"></i> Meine Antwort war auch richtig
+          </button>
+          <span class="frei-korrektur-hinweis">
+            Manche Sätze lassen mehr als eine Form zu. Wenn deine Form stimmt, zähl sie hier als richtig.
+          </span>
+        </div>
+
+        <!-- „Nächste Aufgabe"-Button (versteckt bis zur Auswahl) -->
+        <div class="uebung-next-wrap">
+          <button class="btn-primary hidden" id="nextBtn">Nächste Aufgabe →</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BILDSCHIRM 3 — ERGEBNIS
+         Standardmäßig versteckt.
+         ===================================================== -->
+    <section id="ergebnisScreen" class="hidden">
+      <div class="uebung-result">
+        <i class="fas fa-trophy"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <div class="result-actions">
+          <button class="btn-primary" id="retryBtn">Wiederholen</button>
+          <button class="btn-outline" id="otherBtn">Anderes Set</button>
+        </div>
+
+        <!-- Auswertung nach Regel. Die Klassen liegen schon in
+             Style_4_Lernen.css, weil Aspektwahl und Lückentext dieselbe
+             Auswertung benutzen. -->
+        <div class="kategorie-auswertung hidden" id="regelAuswertung"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer wird hier von LB_main.js hineingeladen -->
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       JavaScript: Übungslogik
+
+       Ablauf:
+       - JSON laden → Set-Karten anzeigen
+       - Set starten → 10 Aufgaben reihum nach Regel ziehen
+       - Antwort prüfen → Feedback → nächste Aufgabe
+       - Am Ende: Ergebnis und „Wo lagen die Fehler?"
+       ====================================================== -->
+  <script>
+  "use strict";
+
+  /* ── Einstellungen ───────────────────────────────────── */
+  var AUFGABEN_PRO_RUNDE = 10;   // wie viele Aufgaben ein Durchgang hat
+  var TEXTE_PRO_RUNDE    = 2;    // nur Typ „text": 2 Texte à 5 Lücken = 10
+  var SONDERZEICHEN      = ['č', 'ć', 'š', 'ž', 'đ'];   // nur Typ „frei"
+
+  /* ── Globale Zustandsvariablen (nur im Speicher) ─────── */
+  var alleSets       = [];    // alle Sets aus der JSON
+  var aktivSet       = null;  // das gerade gewählte Set
+  var aufgaben       = [];    // die 10 Aufgaben dieses Durchgangs
+  var aktuelleNr     = 0;     // Index der aktuellen Aufgabe (0-basiert)
+  var punkte         = 0;     // richtig beantwortete Aufgaben
+  var beantwortet    = false; // verhindert Doppelklick auf die Wortbank
+  var regelStatistik = {};    // pro Regel: { richtig: n, gesamt: n }
+  var punktVergeben  = false; // nur Typ „frei": schon gezählt? (Selbstkorrektur)
+
+  /* Kurzschreibweise für document.getElementById */
+  function $(id) { return document.getElementById(id); }
+
+  /* Aufgabenart des gewählten Sets. Sets ohne Feld „typ" sind Wortbank-Sets. */
+  function aufgabenTyp() {
+    return (aktivSet && aktivSet.typ) || 'wortbank';
+  }
+
+  /* Minimal-Escaping für Text, der per innerHTML eingesetzt wird.
+     Die Daten stammen aus unserer eigenen JSON, das ist also reine
+     Vorsicht – aber billig und verhindert, dass ein „<" im Text
+     die Seite zerlegt. */
+  function sicher(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+
+  /* ── Hilfsfunktion: Array zufällig mischen ───────────── */
+  /* Fisher-Yates-Verfahren. Es verändert das übergebene Array direkt. */
+  function mischen(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+
+  /* ── Aufgaben für einen Durchgang ziehen ─────────────── */
+  /* Rein zufällig könnte eine Runde zehnmal dieselbe Endung abfragen.
+     Deshalb wird nach dem Feld „regel" gruppiert und reihum je eine
+     Aufgabe pro Regel gezogen – dasselbe Verfahren wie im Lückentext
+     (Thema „gemischt") und in lernen-aspektwahl.html. So kommt jede
+     Regel dran, und bei einer Wiederholung sind es andere Sätze. */
+  function zieheAufgaben(set, anzahl) {
+    // Typ „text": Gezogen werden ganze Texte. Aus ihren Lücken entsteht
+    // eine flache Liste, dadurch funktionieren Fortschritt, Statistik
+    // und Ergebnis wie bei den anderen Sets. Die Lücken bleiben in
+    // Textreihenfolge, eine Geschichte ergibt nur der Reihe nach Sinn.
+    if (set.typ === 'text') {
+      var liste = [];
+      mischen(set.aufgaben.slice()).slice(0, TEXTE_PRO_RUNDE).forEach(function (text) {
+        text.luecken.forEach(function (luecke, i) {
+          liste.push(Object.assign({}, luecke, { _text: text, _index: i }));
+        });
+      });
+      return liste;
+    }
+
+    // 1. Nach Regel gruppieren
+    var nachRegel = {};
+    set.aufgaben.forEach(function (a) {
+      if (!nachRegel[a.regel]) { nachRegel[a.regel] = []; }
+      nachRegel[a.regel].push(a);
+    });
+
+    // 2. Jede Gruppe für sich mischen
+    var gruppen = Object.keys(nachRegel).map(function (k) {
+      return mischen(nachRegel[k].slice());
+    });
+
+    // 3. Gruppen-Reihenfolge mischen – sonst bekäme immer dieselbe
+    //    Regel die Extraplätze
+    mischen(gruppen);
+
+    // 4. Reihum je eine Aufgabe aus jeder Gruppe
+    var auswahl = [];
+    var runde = 0;
+    while (auswahl.length < anzahl) {
+      var etwasGenommen = false;
+      for (var i = 0; i < gruppen.length && auswahl.length < anzahl; i++) {
+        if (gruppen[i].length > runde) {
+          auswahl.push(gruppen[i][runde]);
+          etwasGenommen = true;
+        }
+      }
+      if (!etwasGenommen) { break; }   // Pool erschöpft
+      runde++;
+    }
+
+    // 5. Zum Schluss durchmischen, damit die Regeln nicht in fester
+    //    Reihenfolge abgefragt werden
+    return mischen(auswahl);
+  }
+
+
+  /* ── 1. JSON laden ───────────────────────────────────── */
+  /* Absolute Pfade (mit führendem /), wie im Projekt üblich.
+     Läuft nur über einen Webserver, nicht per file:// .     */
+  fetch('/Code/4_Lernen/adjektive_data.json')
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      alleSets = data.sets;
+      alleSets.forEach(function (set) {
+        if (set.typ === 'frei') { fuelleFreiSet(set); }
+      });
+      baueSonderzeichen();
+      zeigeSetKarten();
+
+      // Falls die Seite mit ?set=plural aufgerufen wurde, starten
+      // wir dieses Set direkt.
+      var params = new URLSearchParams(window.location.search);
+      var wunschSet = params.get('set');
+      if (wunschSet) {
+        var gefunden = alleSets.find(function (s) { return s.id === wunschSet; });
+        if (gefunden) { starteSet(gefunden); }
+      }
+    })
+    .catch(function (fehler) {
+      $('themaGrid').innerHTML =
+        '<p>Die Übungen konnten nicht geladen werden. Bitte lade die Seite neu.</p>';
+      console.error('Fehler beim Laden der Adjektiv-Daten:', fehler);
+    });
+
+
+  /* Das Set „Selbst schreiben" hat keine eigenen Sätze: Es übernimmt die
+     der Sets in „quelle" und wertet nach diesen Sets aus. So muss ein
+     neuer Satz nur einmal gepflegt werden. */
+  function fuelleFreiSet(frei) {
+    frei.aufgaben = [];
+    frei.regeln = {};
+    frei.quelle.forEach(function (id) {
+      var quelle = alleSets.find(function (s) { return s.id === id; });
+      frei.regeln[id] = quelle.titel;
+      quelle.aufgaben.forEach(function (a) {
+        frei.aufgaben.push(Object.assign({}, a, { regel: id }));
+      });
+    });
+  }
+
+
+  /* ── 2. Set-Karten auf dem Startschirm anzeigen ──────── */
+  function zeigeSetKarten() {
+    var grid = $('themaGrid');
+    grid.innerHTML = '';
+
+    alleSets.forEach(function (set) {
+      var einheit = (set.typ === 'text') ? ' Texte' : ' Sätze';
+
+      // Jede Karte ist ein Button (gut für Tastatur/Barrierefreiheit)
+      var karte = document.createElement('button');
+      karte.className = 'thema-card';
+      karte.innerHTML =
+        '<div class="thema-icon"><i class="fas ' + sicher(set.icon) + '" aria-hidden="true"></i></div>' +
+        '<span class="thema-niveau">' + sicher(set.niveau) + ' · ' + set.aufgaben.length + einheit + '</span>' +
+        '<h3>' + sicher(set.titel) + '</h3>' +
+        '<p>' + sicher(set.beschreibung) + '</p>';
+
+      karte.addEventListener('click', function () { starteSet(set); });
+      grid.appendChild(karte);
+    });
+  }
+
+
+  /* ── 3. Ein Set starten ──────────────────────────────── */
+  function starteSet(set) {
+    aktivSet = set;
+    aufgaben = zieheAufgaben(set, AUFGABEN_PRO_RUNDE);
+    aktuelleNr = 0;
+    punkte = 0;
+    regelStatistik = {};
+
+    // Bildschirm wechseln: Start ausblenden, Übung einblenden
+    $('startScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.remove('hidden');
+
+    zeigeAufgabe();
+  }
+
+
+  /* ── 4. Eine Aufgabe anzeigen ────────────────────────── */
+  function zeigeAufgabe() {
+    var aufgabe = aufgaben[aktuelleNr];
+    var typ = aufgabenTyp();
+    beantwortet = false;
+
+    // Fortschritt aktualisieren
+    $('uebungProgress').textContent =
+      (typ === 'text' ? 'Lücke ' : 'Aufgabe ') + (aktuelleNr + 1) + ' von ' + aufgaben.length;
+    $('uebungBarFill').style.width =
+      ((aktuelleNr / aufgaben.length) * 100) + '%';
+
+    // Nur die Bereiche dieser Aufgabenart zeigen
+    $('uebungSatz').classList.toggle('hidden', typ === 'text');
+    $('textBereich').classList.toggle('hidden', typ !== 'text');
+    $('wortbank').classList.toggle('hidden', typ === 'frei');
+    $('freiBereich').classList.toggle('hidden', typ !== 'frei');
+
+    if (typ === 'text') {
+      $('textTitel').textContent = aufgabe._text.titel;
+      $('erzaehlText').innerHTML = baueTextHtml(aufgabe, null);
+    } else {
+      // Satz mit Lücke aufbauen: das „___" wird durch eine
+      // gestrichelte Box ersetzt.
+      $('uebungSatz').innerHTML = sicher(aufgabe.satz).split('___').join(
+        '<span class="luecke" id="lueckeBox">?</span>'
+      );
+    }
+
+    // Grundform-Hinweis, z. B. „(nov)"
+    $('uebungGrundform').textContent = '(' + aufgabe.grundform + ')';
+
+    if (typ === 'frei') {
+      setzeFreiZurueck();
+    } else {
+      baueWortbank(aufgabe);
+    }
+
+    // Feedback und „Weiter"-Button verstecken
+    $('uebungFeedback').classList.add('hidden');
+    $('freiKorrektur').classList.add('hidden');
+    $('nextBtn').classList.add('hidden');
+  }
+
+
+  /* Baut den Erzähltext mit dem aktuellen Stand der Lücken:
+     - schon beantwortet → die richtige Form steht da
+     - die aktuelle      → hervorgehoben, nach der Antwort grün/rot
+     - noch kommende     → blass, als „___"
+     ergebnis = null solange offen, sonst 'richtig' / 'falsch'. */
+  function baueTextHtml(aufgabe, ergebnis) {
+    var text  = aufgabe._text;
+    var teile = text.text.split('___');
+    var html  = sicher(teile[0]);
+
+    for (var i = 0; i < text.luecken.length; i++) {
+      if (i < aufgabe._index) {
+        html += '<span class="luecke gefuellt">' + sicher(text.luecken[i].loesung) + '</span>';
+      } else if (i > aufgabe._index) {
+        html += '<span class="luecke luecke-spaeter">___</span>';
+      } else if (ergebnis) {
+        html += '<span class="luecke gefuellt luecke-' + ergebnis + '">' +
+                sicher(text.luecken[i].loesung) + '</span>';
+      } else {
+        html += '<span class="luecke luecke-aktiv">___</span>';
+      }
+      html += sicher(teile[i + 1] || '');
+    }
+    return html;
+  }
+
+
+  /* Wortbank-Buttons für Typ „wortbank" und „text" */
+  function baueWortbank(aufgabe) {
+    // Optionen zusammenstellen und mischen, damit die richtige
+    // nicht immer an derselben Stelle steht.
+    var optionen = aufgabe.distraktoren.slice();
+    optionen.push(aufgabe.loesung);
+    mischen(optionen);
+
+    // Wortbank-Buttons erstellen
+    var bank = $('wortbank');
+    bank.innerHTML = '';
+    optionen.forEach(function (wort) {
+      var btn = document.createElement('button');
+      btn.className = 'wortbank-btn';
+      btn.textContent = wort;
+      btn.dataset.correct = (wort === aufgabe.loesung) ? 'true' : 'false';
+      btn.addEventListener('click', function () { pruefeAntwort(btn); });
+      bank.appendChild(btn);
+    });
+  }
+
+
+  /* Trägt die Form in die Lücke ein. Steht die Lücke am Satzanfang,
+     beginnt sie groß; die Wortbank bleibt kleingeschrieben, damit die
+     Großschreibung die Lösung nicht verrät. */
+  function fuelleLuecke(aufgabe, form, istRichtig) {
+    if (aufgabenTyp() === 'text') {
+      $('erzaehlText').innerHTML = baueTextHtml(aufgabe, istRichtig ? 'richtig' : 'falsch');
+      return;
+    }
+    var box = $('lueckeBox');
+    box.textContent = (aufgabe.satz.indexOf('___') === 0)
+      ? form.charAt(0).toUpperCase() + form.slice(1)
+      : form;
+    box.classList.add('gefuellt');
+  }
+
+
+  /* Zusatz im Feedback: die Übersetzung. Beim Erzähltext erst am Ende
+     des Textes, vorher würde sie die folgenden Lücken verraten. */
+  function uebersetzungHtml(aufgabe) {
+    if (aufgabenTyp() !== 'text') {
+      return '<span class="feedback-uebersetzung">' + sicher(aufgabe.uebersetzung) + '</span>';
+    }
+    return (aufgabe._index === aufgabe._text.luecken.length - 1)
+      ? '<span class="feedback-textuebersetzung">' + sicher(aufgabe._text.uebersetzung) + '</span>'
+      : '';
+  }
+
+
+  /* Statistik je Regel mitführen */
+  function zaehle(aufgabe, istRichtig) {
+    if (!regelStatistik[aufgabe.regel]) {
+      regelStatistik[aufgabe.regel] = { richtig: 0, gesamt: 0 };
+    }
+    regelStatistik[aufgabe.regel].gesamt++;
+    if (istRichtig) { regelStatistik[aufgabe.regel].richtig++; }
+  }
+
+
+  /* Weiter-Button zeigen. Beim letzten Satz führt er zum Ergebnis, und
+     beginnt ein neuer Text, sagen wir das – sonst wirkt der Sprung in
+     eine fremde Geschichte verwirrend. */
+  function zeigeWeiter(aufgabe) {
+    var naechste = aufgaben[aktuelleNr + 1];
+    var beschriftung = 'Nächste Aufgabe →';
+    if (!naechste) {
+      beschriftung = 'Ergebnis anzeigen →';
+    } else if (aufgabenTyp() === 'text') {
+      beschriftung = (naechste._text !== aufgabe._text) ? 'Nächster Text →' : 'Nächste Lücke →';
+    }
+    $('nextBtn').textContent = beschriftung;
+    $('nextBtn').classList.remove('hidden');
+  }
+
+
+  /* ── 5. Antwort prüfen (Wortbank) ────────────────────── */
+  function pruefeAntwort(btn) {
+    if (beantwortet) { return; }   // schon beantwortet → ignorieren
+    beantwortet = true;
+
+    var aufgabe  = aufgaben[aktuelleNr];
+    var feedback = $('uebungFeedback');
+    var istRichtig = (btn.dataset.correct === 'true');
+
+    // Alle Buttons durchgehen: richtige grün, gewählte falsche rot
+    document.querySelectorAll('.wortbank-btn').forEach(function (b) {
+      if (b.dataset.correct === 'true') { b.classList.add('correct'); }
+      b.disabled = true;   // nach der Antwort nicht mehr klickbar
+    });
+    if (!istRichtig) { btn.classList.add('wrong'); }
+
+    zaehle(aufgabe, istRichtig);
+    fuelleLuecke(aufgabe, aufgabe.loesung, istRichtig);
+
+    // Feedback-Text zusammenbauen (Erklärung + Übersetzung)
+    var zusatz = sicher(aufgabe.erklaerung) + uebersetzungHtml(aufgabe);
+
+    if (istRichtig) {
+      punkte++;
+      feedback.innerHTML = '<i class="fas fa-check-circle" aria-hidden="true"></i> Richtig! ' + zusatz;
+      feedback.className = 'uebung-feedback feedback-correct';
+    } else {
+      feedback.innerHTML = '<i class="fas fa-times-circle" aria-hidden="true"></i> Leider falsch. Richtig ist „' +
+        '<span lang="bs">' + sicher(aufgabe.loesung) + '</span>". ' + zusatz;
+      feedback.className = 'uebung-feedback feedback-wrong';
+    }
+    feedback.classList.remove('hidden');
+
+    zeigeWeiter(aufgabe);
+  }
+
+
+  /* ── 5b. Freie Eingabe (Typ „frei") ──────────────────── */
+  /* Regeln aus WORKFLOW_Lernen.md: fehlende Sonderzeichen zählen als
+     „fast richtig", Tippfehler nicht. Eine Tippfehler-Toleranz wäre
+     hier fatal, denn die Formen eines Adjektivs unterscheiden sich oft
+     nur um einen Buchstaben (novog, novom, novoj). Die Sonderzeichen
+     sind dagegen gefahrlos: Innerhalb einer Aufgabe fällt keine Form
+     mit einer anderen zusammen.                                        */
+
+  /* Macht aus „VRUĆEG " → „vruceg". „dj" ist die übliche Ersatzschreibung
+     für „đ" (smedju → smeđu). */
+  function normalisiere(text) {
+    return saeubere(text)
+      .replace(/[čć]/g, 'c')
+      .replace(/š/g, 's')
+      .replace(/ž/g, 'z')
+      .replace(/đ/g, 'd')
+      .replace(/dj/g, 'd');
+  }
+
+  /* Eingabe nur säubern, ohne Sonderzeichen zu entfernen */
+  function saeubere(text) {
+    return String(text === undefined || text === null ? '' : text)
+      .trim()
+      .toLowerCase();
+  }
+
+  /* Vergleicht die Eingabe mit der Lösung und den Formen aus
+     „auch_richtig" (lange Formen, Genitiv Plural). */
+  function bewerte(eingabe, aufgabe) {
+    var auch = aufgabe.auch_richtig || [];
+    var exakt = saeubere(eingabe);
+
+    if (exakt === aufgabe.loesung) { return { art: 'exakt', form: exakt }; }
+    if (auch.indexOf(exakt) !== -1) { return { art: 'alternative', form: exakt }; }
+
+    var alle = [aufgabe.loesung].concat(auch);
+    for (var i = 0; i < alle.length; i++) {
+      if (normalisiere(alle[i]) === normalisiere(eingabe)) {
+        return { art: 'schreibweise', form: alle[i] };
+      }
+    }
+    return { art: 'falsch', form: aufgabe.loesung };
+  }
+
+  /* Sonderzeichenleiste: fügt das Zeichen an der Cursorposition ein */
+  function baueSonderzeichen() {
+    SONDERZEICHEN.forEach(function (zeichen) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'frei-zeichen-btn';
+      btn.textContent = zeichen;
+      btn.setAttribute('aria-label', 'Zeichen ' + zeichen + ' einfügen');
+      btn.addEventListener('click', function () { fuegeZeichenEin(zeichen); });
+      $('freiZeichen').appendChild(btn);
+    });
+  }
+
+  function fuegeZeichenEin(zeichen) {
+    var feld = $('freiInput');
+    if (feld.disabled) { return; }
+
+    var start = feld.selectionStart;
+    var ende  = feld.selectionEnd;
+    var wert  = feld.value;
+
+    // Falls der Browser keine Cursorposition liefert: hinten anhängen
+    if (start === null || start === undefined) {
+      start = ende = wert.length;
+    }
+    feld.value = wert.slice(0, start) + zeichen + wert.slice(ende);
+    feld.focus();
+    feld.setSelectionRange(start + zeichen.length, start + zeichen.length);
+    $('freiFehler').classList.add('hidden');
+  }
+
+  /* Eingabebereich für die nächste Aufgabe leeren und freigeben */
+  function setzeFreiZurueck() {
+    var feld = $('freiInput');
+    feld.value = '';
+    feld.disabled = false;
+    feld.classList.remove('correct', 'fast', 'wrong');
+    $('pruefenBtn').disabled = false;
+    $('loesungBtn').disabled = false;
+    $('freiFehler').classList.add('hidden');
+    punktVergeben = false;
+    freiZeichenAktiv(true);
+
+    // Autofokus nur ab Tablet: Auf dem Handy würde die eingeblendete
+    // Tastatur sonst die Aufgabe verdecken.
+    if (window.innerWidth > 900) { feld.focus(); }
+  }
+
+  function freiZeichenAktiv(aktiv) {
+    document.querySelectorAll('.frei-zeichen-btn').forEach(function (btn) {
+      btn.disabled = !aktiv;
+    });
+  }
+
+  function pruefeFrei() {
+    if (beantwortet) { return; }
+    var eingabe = $('freiInput').value;
+
+    if (saeubere(eingabe) === '') {
+      $('freiFehler').textContent = 'Schreib zuerst eine Form – oder nimm „Lösung zeigen".';
+      $('freiFehler').classList.remove('hidden');
+      return;
+    }
+    werteFreiAus(bewerte(eingabe, aufgaben[aktuelleNr]), eingabe);
+  }
+
+  /* art: exakt, schreibweise, alternative, falsch oder aufgegeben */
+  function werteFreiAus(ergebnis, eingabe) {
+    beantwortet = true;
+    $('freiFehler').classList.add('hidden');
+
+    var aufgabe = aufgaben[aktuelleNr];
+    var feld = $('freiInput');
+    var fb   = $('uebungFeedback');
+    var loesung = sicher(aufgabe.loesung);
+    var istRichtig = (ergebnis.art === 'exakt' ||
+                      ergebnis.art === 'schreibweise' ||
+                      ergebnis.art === 'alternative');
+    var kopf, klasse, feldKlasse, zusatz = '';
+
+    // Eingabefeld sperren
+    feld.disabled = true;
+    $('pruefenBtn').disabled = true;
+    $('loesungBtn').disabled = true;
+    freiZeichenAktiv(false);
+
+    if (ergebnis.art === 'exakt') {
+      kopf = '<i class="fas fa-check-circle" aria-hidden="true"></i> Richtig! ';
+      klasse = 'feedback-correct';
+      feldKlasse = 'correct';
+
+    } else if (ergebnis.art === 'schreibweise') {
+      kopf = '<i class="fas fa-circle-check" aria-hidden="true"></i> Richtig – bis auf die Schreibweise. ';
+      klasse = 'feedback-fast';
+      feldKlasse = 'fast';
+      zusatz = '<span class="feedback-schreibweise">Mit Sonderzeichen: <span lang="bs">' +
+               sicher(ergebnis.form) + '</span></span>';
+
+    } else if (ergebnis.art === 'alternative') {
+      kopf = '<i class="fas fa-check-circle" aria-hidden="true"></i> Richtig – das geht auch. ';
+      klasse = 'feedback-correct';
+      feldKlasse = 'correct';
+      zusatz = '<span class="feedback-schreibweise">Hier geübt: <span lang="bs">' + loesung + '</span></span>';
+
+    } else if (ergebnis.art === 'aufgegeben') {
+      kopf = '<i class="fas fa-eye" aria-hidden="true"></i> Die Lösung lautet <strong lang="bs">' + loesung + '</strong>. ';
+      klasse = 'feedback-wrong';
+      feldKlasse = 'wrong';
+      feld.value = aufgabe.loesung;
+
+    } else {
+      kopf = '<i class="fas fa-times-circle" aria-hidden="true"></i> Leider falsch. Richtig ist <strong lang="bs">' + loesung + '</strong>. ';
+      klasse = 'feedback-wrong';
+      feldKlasse = 'wrong';
+      zusatz = '<span class="feedback-schreibweise">Deine Eingabe: <span lang="bs">' + sicher(saeubere(eingabe)) + '</span></span>';
+
+      // Häufiger Fehler: Das -ima des Substantivs aufs Adjektiv übertragen.
+      // Vor dem Nomen ist das falsch („u novim gradovima"), deshalb gibt es
+      // hier auch keine Selbstkorrektur.
+      if (normalisiere(eingabe) === normalisiere(aufgabe.loesung) + 'a' && /im$/.test(aufgabe.loesung)) {
+        zusatz += '<span class="feedback-schreibweise">Vor dem Substantiv endet das Adjektiv auf -im, nicht auf -ima.</span>';
+        ergebnis.art = 'ima_fehler';
+      }
+    }
+
+    feld.classList.add(feldKlasse);
+    fuelleLuecke(aufgabe, istRichtig ? ergebnis.form : aufgabe.loesung, istRichtig);
+
+    fb.innerHTML = kopf + sicher(aufgabe.erklaerung) + zusatz + uebersetzungHtml(aufgabe);
+    fb.className = 'uebung-feedback ' + klasse;
+    fb.classList.remove('hidden');
+
+    zaehle(aufgabe, istRichtig);
+    if (istRichtig) {
+      punkte++;
+      punktVergeben = true;
+    }
+
+    // Selbstkorrektur nur bei einer eigenen, als falsch gewerteten
+    // Antwort (nach „Lösung zeigen" wäre sie sinnlos).
+    if (ergebnis.art === 'falsch') {
+      $('freiKorrektur').classList.remove('hidden');
+    }
+
+    zeigeWeiter(aufgabe);
+
+    // Fokus auf „Weiter": Enter prüft, das nächste Enter blättert weiter.
+    if (window.innerWidth > 900) { $('nextBtn').focus(); }
+  }
+
+  /* Selbstkorrektur: Die Übung kann nicht jede gültige Form kennen.
+     Ohne diesen Ausgang würde sie korrektes Bosnisch als Fehler werten. */
+  $('korrekturBtn').addEventListener('click', function () {
+    if (punktVergeben) { return; }
+
+    punkte++;
+    punktVergeben = true;
+    regelStatistik[aufgaben[aktuelleNr].regel].richtig++;
+
+    $('freiInput').classList.remove('wrong');
+    $('freiInput').classList.add('correct');
+    // Der Kasten wird grün, also darf er nicht mehr „Leider falsch" sagen
+    $('uebungFeedback').innerHTML = $('uebungFeedback').innerHTML
+      .replace('fa-times-circle', 'fa-check-circle')
+      .replace('Leider falsch. Richtig ist', 'Als richtig gezählt. Hier geübt:');
+    $('uebungFeedback').className = 'uebung-feedback feedback-correct';
+    $('freiKorrektur').classList.add('hidden');
+  });
+
+  $('pruefenBtn').addEventListener('click', pruefeFrei);
+
+  $('loesungBtn').addEventListener('click', function () {
+    if (!beantwortet) { werteFreiAus({ art: 'aufgegeben' }, ''); }
+  });
+
+  // Enter im Eingabefeld prüft die Antwort
+  $('freiInput').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      pruefeFrei();
+    }
+  });
+
+  // Sobald wieder getippt wird, verschwindet der Leer-Hinweis
+  $('freiInput').addEventListener('input', function () {
+    $('freiFehler').classList.add('hidden');
+  });
+
+
+  /* ── 6. Nächste Aufgabe / Ergebnis ───────────────────── */
+  $('nextBtn').addEventListener('click', function () {
+    if (aktuelleNr < aufgaben.length - 1) {
+      aktuelleNr++;
+      zeigeAufgabe();
+    } else {
+      zeigeErgebnis();
+    }
+  });
+
+
+  /* ── 7. Ergebnis anzeigen ────────────────────────────── */
+  function zeigeErgebnis() {
+    $('uebungScreen').classList.add('hidden');
+    $('ergebnisScreen').classList.remove('hidden');
+
+    $('resultScore').textContent = punkte + ' von ' + aufgaben.length + ' richtig';
+
+    // Aufmunternder Text je nach Punktzahl
+    var text = '';
+    var anzahl = aufgaben.length;
+    if (punkte === anzahl) {
+      text = 'Perfekt! Alle Endungen sitzen. 🎉';
+    } else if (punkte >= anzahl * 0.7) {
+      text = 'Sehr gut! Nur wenige Ausrutscher – weiter so.';
+    } else if (punkte >= anzahl * 0.5) {
+      text = 'Guter Anfang! Geh die Endungen noch einmal in Ruhe durch.';
+    } else {
+      text = 'Kein Problem – schau dir die Tabellen auf der Erklärseite noch einmal an und versuch es erneut!';
+    }
+    $('resultText').textContent = text;
+
+    zeigeRegelAuswertung();
+  }
+
+
+  /* ── 7b. Auswertung nach Regel ───────────────────────── */
+  /* Zeigt nicht nur WIE VIELE Fehler es gab, sondern BEI WELCHER
+     REGEL. Die lesbaren Namen stehen im Feld „regeln" des Sets. */
+  function zeigeRegelAuswertung() {
+    var box = $('regelAuswertung');
+    var schluessel = Object.keys(regelStatistik);
+
+    // Schwächste Regeln zuerst – da lohnt das Nacharbeiten
+    schluessel.sort(function (a, b) {
+      var qa = regelStatistik[a].richtig / regelStatistik[a].gesamt;
+      var qb = regelStatistik[b].richtig / regelStatistik[b].gesamt;
+      return qa - qb;
+    });
+
+    var html = '<h3>Wo lagen die Fehler?</h3>';
+    schluessel.forEach(function (regel) {
+      var werte = regelStatistik[regel];
+      var klasse = (werte.richtig === werte.gesamt) ? 'kat-alle' : 'kat-luecke';
+
+      html +=
+        '<div class="kat-zeile">' +
+          '<span class="kat-name">' + sicher(aktivSet.regeln[regel] || regel) + '</span>' +
+          '<span class="kat-score ' + klasse + '">' +
+            werte.richtig + ' / ' + werte.gesamt +
+          '</span>' +
+        '</div>';
+    });
+
+    box.innerHTML = html;
+    box.classList.remove('hidden');
+  }
+
+
+  /* ── 8. Buttons im Ergebnis-Bildschirm ───────────────── */
+
+  // „Wiederholen" → dasselbe Set erneut (neu gezogen)
+  $('retryBtn').addEventListener('click', function () {
+    starteSet(aktivSet);
+  });
+
+  // „Anderes Set" → zurück zum Startschirm
+  $('otherBtn').addEventListener('click', function () {
+    $('ergebnisScreen').classList.add('hidden');
+    $('uebungScreen').classList.add('hidden');
+    $('startScreen').classList.remove('hidden');
+  });
+
+  </script>
+
+</body>
+</html>

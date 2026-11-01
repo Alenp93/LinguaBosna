@@ -1,0 +1,413 @@
+{
+  "_hinweis": "Aufgaben-Datenbank fuer lernen-adjektive.html (Adjektivdeklination, B1). Pro Set: Metadaten, 'regeln' (Schluessel -> lesbarer Name fuer die Auswertung) und 'aufgaben'. Jede Aufgabe: 'satz' (mit ___ als Luecke), 'grundform' (das Adjektiv in Woerterbuchform), 'loesung' (genau EINE richtige Form), 'distraktoren' (immer drei falsche Formen), 'uebersetzung', 'erklaerung', 'regel' (Schluessel aus 'regeln'). Das JavaScript zieht je Runde 10 Aufgaben, reihum nach 'regel', damit jede Regel drankommt. Optional 'auch_richtig': Formen, die nur die freie Eingabe (Set selbst_schreiben) ebenfalls akzeptiert: lange Formen (novoga, novome) und die Genitiv-Plural-Form, wo das Substantiv in beiden Numeri gleich lautet. Set selbst_schreiben hat keine eigenen Saetze, das JavaScript baut sie aus den Sets in 'quelle'. Set erzaehltext: je Text 5 Luecken in Textreihenfolge, je Runde 2 Texte.",
+
+  "_regeln_fuer_neue_saetze": [
+    "Der Pool folgt der Erklaerseite grammatik-adjektive-deklination.html. Nur dort gelehrte Formen werden abgefragt.",
+    "KEINE attributive Kurzform (nov grad, dobar film), auch nicht als Distraktor. Alens Entscheidung: Vor dem Nomen steht immer die Form auf -i.",
+    "Adjektive mit Stammwechsel (dobar, sretan, kratak, tezak, topao, veseo ...) erscheinen NIE im Nominativ oder unbelebten Akkusativ maskulin Singular. Dort waere die uebliche Form die Kurzform (dobar film), die Form auf -i klingt oft unnatuerlich. So bleibt die Uebung auf beiden Seiten richtig. Fuer die Akkusativ-/Nominativ-Regeln in Set 1 und 2 deshalb nur Adjektive ohne Stammwechsel.",
+    "Lange Formen (novoga, novome, novomu) sind korrektes Bosnisch und duerfen deshalb nie als Distraktor stehen; in auch_richtig stehen sie mit -oga/-ega und -ome/-omu/-emu. Die Form -ima vor dem Nomen ist dagegen FALSCH (Alens Entscheidung): Es heisst immer u novim gradovima, nie u novima gradovima. Sie steht deshalb nicht in auch_richtig, und die Seite weist bei dieser Eingabe eigens darauf hin. Nur das allein stehende Adjektiv kennt -ima (Pomazem starima).",
+    "Genitiv Singular und Plural koennen beim Substantiv gleich lauten (prijatelja, profesora, prozora, sela). Dort darf die -ih-Form nur dann als Distraktor stehen, wenn ein Wort im Satz den Numerus erzwingt (mnogo, nijednog, jednog, mog, mojih). Das ist die Regel 'og_ih' in Set 3. Ohne solches Wort: keine -ih-Form in der Wortbank. Auch die i-Deklination faellt zusammen (stvari, noci = Genitiv Sg und Pl), dort waere sogar die -e-Form richtig: Solche Woerter nicht im Genitiv verwenden.",
+    "Bei belebtem Akkusativ und Genitiv maskulin/neutrum keinen Distraktor auf -a (stara prijatelja, visoka drveta): Das sind archaische Formen der Volksdichtung, also nicht einfach falsch. Stattdessen -im.",
+    "Der Vokativ ist bewusst nicht dabei: Beim Adjektiv ist er gleich dem Nominativ, und er konkurriert mit keinem anderen Fall (wie im Luckentext-Thema gemischt).",
+    "Zahlwoerter (dva nova grada) kommen nicht vor, die Erklaerseite behandelt sie nicht. Mengenwoerter wie mnogo und puno sind erlaubt: Bei zaehlbaren Dingen verlangen sie den Genitiv Plural (bei Stoffnamen den Singular: mnogo vode).",
+    "Nach 's' steht 'sa', wenn das Adjektiv mit s, z, s-Haken oder z-Haken beginnt (sa starom). Sonst 's'.",
+    "Nicht aufgenommene Stammwechsel, weil die Seite sie nicht zeigt: sladak -> slatkog, nizak -> niskog, uzak -> uskog, blizak -> bliskog, rijedak -> rijetkog, bolestan -> bolesnog, koristan -> korisnog."
+  ],
+
+  "sets": [
+    {
+      "id": "singular",
+      "titel": "Singular",
+      "niveau": "B1",
+      "icon": "fa-table-list",
+      "beschreibung": "Alle Endungen im Satz: -og, -om, -oj, -u, -e und -im, nach Fall und Geschlecht.",
+      "regeln": {
+        "nom": "Nominativ: -i, -a, -o",
+        "gen_mn": "Genitiv maskulin/neutrum: -og",
+        "gen_f": "Genitiv feminin: -e",
+        "dat_lok_mn": "Dativ/Lokativ maskulin/neutrum: -om",
+        "dat_lok_f": "Dativ/Lokativ feminin: -oj",
+        "akk_wie_nom": "Akkusativ wie Nominativ: Sachen, Neutrum",
+        "akk_belebt": "Akkusativ belebt: -og",
+        "akk_f": "Akkusativ feminin: -u",
+        "inst_mn": "Instrumental maskulin/neutrum: -im",
+        "inst_f": "Instrumental feminin: -om"
+      },
+      "aufgaben": [
+
+        { "satz": "___ student uči u biblioteci.", "grundform": "mlad", "loesung": "mladi", "distraktoren": ["mladog", "mlada", "mlade"], "uebersetzung": "Der junge Student lernt in der Bibliothek.", "erklaerung": "„student“ ist hier Subjekt und maskulin: Nominativ auf -i.", "regel": "nom" },
+        { "satz": "___ kuća je na kraju ulice.", "grundform": "nov", "loesung": "nova", "distraktoren": ["novu", "novoj", "novi"], "uebersetzung": "Das neue Haus steht am Ende der Straße.", "erklaerung": "„kuća“ ist Subjekt und feminin: Nominativ auf -a.", "regel": "nom" },
+        { "satz": "___ selo je blizu grada.", "grundform": "lijep", "loesung": "lijepo", "distraktoren": ["lijepi", "lijepa", "lijepog"], "uebersetzung": "Das schöne Dorf liegt nahe der Stadt.", "erklaerung": "„selo“ ist Subjekt und neutrum: Nominativ auf -o.", "regel": "nom" },
+        { "satz": "___ auto stoji ispred zgrade.", "grundform": "crven", "loesung": "crveni", "distraktoren": ["crvenog", "crvena", "crvene"], "uebersetzung": "Das rote Auto steht vor dem Gebäude.", "erklaerung": "„auto“ ist im Bosnischen maskulin, hier Subjekt: Nominativ auf -i.", "regel": "nom" },
+        { "satz": "___ djevojka čita knjigu.", "grundform": "mlad", "loesung": "mlada", "distraktoren": ["mladu", "mladi", "mladoj"], "uebersetzung": "Die junge Frau liest ein Buch.", "erklaerung": "„djevojka“ ist Subjekt und feminin: Nominativ auf -a.", "regel": "nom" },
+        { "satz": "___ more je lijepo.", "grundform": "plav", "loesung": "plavo", "distraktoren": ["plavi", "plava", "plavog"], "uebersetzung": "Das blaue Meer ist schön.", "erklaerung": "„more“ ist Subjekt und neutrum: Nominativ auf -o.", "regel": "nom" },
+
+        { "satz": "Dolazim iz ___ grada.", "grundform": "velik", "loesung": "velikog", "distraktoren": ["veliki", "velikom", "velike"], "uebersetzung": "Ich komme aus einer großen Stadt.", "erklaerung": "„iz“ verlangt den Genitiv, „grad“ ist maskulin: -og.", "regel": "gen_mn", "auch_richtig": ["velikoga"] },
+        { "satz": "Živim blizu ___ mosta.", "grundform": "star", "loesung": "starog", "distraktoren": ["stari", "starom", "starim"], "uebersetzung": "Ich wohne nahe der alten Brücke.", "erklaerung": "„blizu“ verlangt den Genitiv, „most“ ist maskulin: -og.", "regel": "gen_mn", "auch_richtig": ["staroga"] },
+        { "satz": "Ovo je auto ___ profesora.", "grundform": "mlad", "loesung": "mladog", "distraktoren": ["mladi", "mladom", "mladim"], "uebersetzung": "Das ist das Auto des jungen Professors.", "erklaerung": "Wem es gehört, steht im Genitiv. Maskulin: -og.", "regel": "gen_mn", "auch_richtig": ["mladoga", "mladih"] },
+        { "satz": "Dolazimo iz ___ sela.", "grundform": "mali", "loesung": "malog", "distraktoren": ["mali", "malom", "male"], "uebersetzung": "Wir kommen aus einem kleinen Dorf.", "erklaerung": "„iz“ verlangt den Genitiv. Neutrum geht hier wie maskulin: -og.", "regel": "gen_mn", "auch_richtig": ["maloga", "malih"] },
+        { "satz": "Stojimo ispred ___ pozorišta.", "grundform": "nov", "loesung": "novog", "distraktoren": ["novo", "novom", "novoj"], "uebersetzung": "Wir stehen vor dem neuen Theater.", "erklaerung": "„ispred“ verlangt den Genitiv. Neutrum geht hier wie maskulin: -og.", "regel": "gen_mn", "auch_richtig": ["novoga", "novih"] },
+        { "satz": "Stojim pored ___ drveta.", "grundform": "visok", "loesung": "visokog", "distraktoren": ["visoko", "visokom", "visokim"], "uebersetzung": "Ich stehe neben dem hohen Baum.", "erklaerung": "„pored“ verlangt den Genitiv, „drvo“ ist neutrum: -og.", "regel": "gen_mn", "auch_richtig": ["visokoga"] },
+
+        { "satz": "Dolazim iz ___ zemlje.", "grundform": "mali", "loesung": "male", "distraktoren": ["maloj", "malu", "mala"], "uebersetzung": "Ich komme aus einem kleinen Land.", "erklaerung": "„iz“ verlangt den Genitiv, „zemlja“ ist feminin: -e.", "regel": "gen_f" },
+        { "satz": "Živimo blizu ___ škole.", "grundform": "nov", "loesung": "nove", "distraktoren": ["novoj", "novu", "nova"], "uebersetzung": "Wir wohnen nahe der neuen Schule.", "erklaerung": "„blizu“ verlangt den Genitiv, „škola“ ist feminin: -e.", "regel": "gen_f" },
+        { "satz": "Ovo je torba ___ djevojke.", "grundform": "mlad", "loesung": "mlade", "distraktoren": ["mladoj", "mladu", "mlada"], "uebersetzung": "Das ist die Tasche der jungen Frau.", "erklaerung": "Wem sie gehört, steht im Genitiv. Feminin: -e.", "regel": "gen_f" },
+        { "satz": "Stojim ispred ___ zgrade.", "grundform": "visok", "loesung": "visoke", "distraktoren": ["visokoj", "visoku", "visoka"], "uebersetzung": "Ich stehe vor dem hohen Gebäude.", "erklaerung": "„ispred“ verlangt den Genitiv, „zgrada“ ist feminin: -e.", "regel": "gen_f" },
+        { "satz": "Bez ___ vode ne možemo živjeti.", "grundform": "čist", "loesung": "čiste", "distraktoren": ["čistoj", "čistu", "čista"], "uebersetzung": "Ohne sauberes Wasser können wir nicht leben.", "erklaerung": "„bez“ verlangt den Genitiv, „voda“ ist feminin: -e.", "regel": "gen_f" },
+        { "satz": "Čekam te pored ___ kuće.", "grundform": "bijel", "loesung": "bijele", "distraktoren": ["bijeloj", "bijelu", "bijela"], "uebersetzung": "Ich warte neben dem weißen Haus auf dich.", "erklaerung": "„pored“ verlangt den Genitiv, „kuća“ ist feminin: -e.", "regel": "gen_f" },
+
+        { "satz": "Pišem pismo ___ prijatelju.", "grundform": "star", "loesung": "starom", "distraktoren": ["starog", "stari", "starim"], "uebersetzung": "Ich schreibe einem alten Freund einen Brief.", "erklaerung": "Wem schreibe ich? Das ist der Dativ. Maskulin: -om.", "regel": "dat_lok_mn", "auch_richtig": ["starome", "staromu"] },
+        { "satz": "Živim u ___ stanu.", "grundform": "nov", "loesung": "novom", "distraktoren": ["novog", "novi", "novoj"], "uebersetzung": "Ich wohne in einer neuen Wohnung.", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „stan“ ist maskulin: -om.", "regel": "dat_lok_mn", "auch_richtig": ["novome", "novomu"] },
+        { "satz": "Djeca se igraju u ___ parku.", "grundform": "velik", "loesung": "velikom", "distraktoren": ["velikog", "veliki", "velikoj"], "uebersetzung": "Die Kinder spielen in einem großen Park.", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „park“ ist maskulin: -om.", "regel": "dat_lok_mn", "auch_richtig": ["velikome", "velikomu"] },
+        { "satz": "Vjerujem ___ ljekaru.", "grundform": "mlad", "loesung": "mladom", "distraktoren": ["mladog", "mladi", "mladim"], "uebersetzung": "Ich vertraue dem jungen Arzt.", "erklaerung": "„vjerovati“ verlangt den Dativ, „ljekar“ ist maskulin: -om.", "regel": "dat_lok_mn", "auch_richtig": ["mladome", "mladomu"] },
+        { "satz": "Moja baka živi u ___ selu.", "grundform": "lijep", "loesung": "lijepom", "distraktoren": ["lijepog", "lijepo", "lijepoj"], "uebersetzung": "Meine Oma lebt in einem schönen Dorf.", "erklaerung": "Wo? Lokativ. Neutrum geht hier wie maskulin: -om.", "regel": "dat_lok_mn", "auch_richtig": ["lijepome", "lijepomu"] },
+        { "satz": "Dajem igračku ___ djetetu.", "grundform": "mali", "loesung": "malom", "distraktoren": ["malog", "male", "malim"], "uebersetzung": "Ich gebe dem kleinen Kind ein Spielzeug.", "erklaerung": "Wem gebe ich etwas? Das ist der Dativ. Neutrum: -om.", "regel": "dat_lok_mn", "auch_richtig": ["malome", "malomu"] },
+
+        { "satz": "Živim u ___ kući.", "grundform": "velik", "loesung": "velikoj", "distraktoren": ["veliku", "velike", "velikom"], "uebersetzung": "Ich wohne in einem großen Haus.", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „kuća“ ist feminin: -oj.", "regel": "dat_lok_f" },
+        { "satz": "Pomažem ___ komšinici.", "grundform": "star", "loesung": "staroj", "distraktoren": ["staru", "stare", "starom"], "uebersetzung": "Ich helfe der alten Nachbarin.", "erklaerung": "„pomagati“ verlangt den Dativ, „komšinica“ ist feminin: -oj.", "regel": "dat_lok_f" },
+        { "satz": "Radim u ___ školi.", "grundform": "nov", "loesung": "novoj", "distraktoren": ["novu", "nove", "novom"], "uebersetzung": "Ich arbeite in einer neuen Schule.", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „škola“ ist feminin: -oj.", "regel": "dat_lok_f" },
+        { "satz": "Šaljem poruku ___ prijateljici.", "grundform": "drag", "loesung": "dragoj", "distraktoren": ["dragu", "drage", "dragom"], "uebersetzung": "Ich schicke der lieben Freundin eine Nachricht.", "erklaerung": "Wem schicke ich etwas? Das ist der Dativ. Feminin: -oj.", "regel": "dat_lok_f" },
+        { "satz": "Knjiga je na ___ polici.", "grundform": "visok", "loesung": "visokoj", "distraktoren": ["visoku", "visoke", "visokom"], "uebersetzung": "Das Buch steht auf dem hohen Regal.", "erklaerung": "Wo? „na“ steht hier mit dem Lokativ, „polica“ ist feminin: -oj.", "regel": "dat_lok_f" },
+        { "satz": "Sjedimo u ___ bašti.", "grundform": "zelen", "loesung": "zelenoj", "distraktoren": ["zelenu", "zelene", "zelenom"], "uebersetzung": "Wir sitzen im grünen Garten.", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „bašta“ ist feminin: -oj.", "regel": "dat_lok_f" },
+
+        { "satz": "Kupujem ___ telefon.", "grundform": "nov", "loesung": "novi", "distraktoren": ["novog", "novom", "nova"], "uebersetzung": "Ich kaufe ein neues Telefon.", "erklaerung": "Ein Telefon ist eine Sache, deshalb gleicht der Akkusativ dem Nominativ: novi.", "regel": "akk_wie_nom" },
+        { "satz": "Gledam ___ film.", "grundform": "star", "loesung": "stari", "distraktoren": ["starog", "starom", "stara"], "uebersetzung": "Ich schaue einen alten Film.", "erklaerung": "Ein Film ist eine Sache, deshalb gleicht der Akkusativ dem Nominativ: stari.", "regel": "akk_wie_nom" },
+        { "satz": "Imam ___ stan.", "grundform": "mali", "loesung": "mali", "distraktoren": ["malog", "malom", "mala"], "uebersetzung": "Ich habe eine kleine Wohnung.", "erklaerung": "„stan“ ist eine Sache, deshalb gleicht der Akkusativ dem Nominativ: mali.", "regel": "akk_wie_nom" },
+        { "satz": "Vozim ___ auto.", "grundform": "crn", "loesung": "crni", "distraktoren": ["crnog", "crnom", "crna"], "uebersetzung": "Ich fahre ein schwarzes Auto.", "erklaerung": "„auto“ ist eine Sache, deshalb gleicht der Akkusativ dem Nominativ: crni.", "regel": "akk_wie_nom" },
+        { "satz": "Čitam ___ pismo.", "grundform": "nov", "loesung": "novo", "distraktoren": ["novi", "novog", "nova"], "uebersetzung": "Ich lese einen neuen Brief.", "erklaerung": "Beim Neutrum gleicht der Akkusativ immer dem Nominativ: novo.", "regel": "akk_wie_nom" },
+        { "satz": "Volim ___ more.", "grundform": "plav", "loesung": "plavo", "distraktoren": ["plavi", "plavog", "plava"], "uebersetzung": "Ich liebe das blaue Meer.", "erklaerung": "Beim Neutrum gleicht der Akkusativ immer dem Nominativ: plavo.", "regel": "akk_wie_nom" },
+
+        { "satz": "Čekam ___ prijatelja.", "grundform": "star", "loesung": "starog", "distraktoren": ["stari", "starom", "starim"], "uebersetzung": "Ich warte auf einen alten Freund.", "erklaerung": "Ein Freund ist eine Person, deshalb hat der maskuline Akkusativ die Genitivform: starog.", "regel": "akk_belebt", "auch_richtig": ["staroga"] },
+        { "satz": "Imam ___ psa.", "grundform": "mali", "loesung": "malog", "distraktoren": ["mali", "malom", "malim"], "uebersetzung": "Ich habe einen kleinen Hund.", "erklaerung": "Tiere zählen als belebt, deshalb hat der maskuline Akkusativ die Genitivform: malog.", "regel": "akk_belebt", "auch_richtig": ["maloga"] },
+        { "satz": "Poznajem ___ profesora.", "grundform": "mlad", "loesung": "mladog", "distraktoren": ["mladi", "mladom", "mladim"], "uebersetzung": "Ich kenne den jungen Professor.", "erklaerung": "Ein Professor ist eine Person, deshalb hat der maskuline Akkusativ die Genitivform: mladog.", "regel": "akk_belebt", "auch_richtig": ["mladoga"] },
+        { "satz": "Vidim ___ konja.", "grundform": "bijel", "loesung": "bijelog", "distraktoren": ["bijeli", "bijelom", "bijelim"], "uebersetzung": "Ich sehe ein weißes Pferd.", "erklaerung": "Tiere zählen als belebt, deshalb hat der maskuline Akkusativ die Genitivform: bijelog.", "regel": "akk_belebt", "auch_richtig": ["bijeloga"] },
+        { "satz": "Pozdravljam ___ učenika.", "grundform": "nov", "loesung": "novog", "distraktoren": ["novi", "novom", "novim"], "uebersetzung": "Ich begrüße den neuen Schüler.", "erklaerung": "Ein Schüler ist eine Person, deshalb hat der maskuline Akkusativ die Genitivform: novog.", "regel": "akk_belebt", "auch_richtig": ["novoga"] },
+        { "satz": "Gledam ___ dječaka.", "grundform": "visok", "loesung": "visokog", "distraktoren": ["visoki", "visokom", "visokim"], "uebersetzung": "Ich schaue den großen Jungen an.", "erklaerung": "Ein Junge ist eine Person, deshalb hat der maskuline Akkusativ die Genitivform: visokog.", "regel": "akk_belebt", "auch_richtig": ["visokoga"] },
+
+        { "satz": "Čitam ___ knjigu.", "grundform": "zanimljiv", "loesung": "zanimljivu", "distraktoren": ["zanimljiva", "zanimljive", "zanimljivoj"], "uebersetzung": "Ich lese ein interessantes Buch.", "erklaerung": "Akkusativ feminin: Adjektiv und Substantiv enden auf -u.", "regel": "akk_f" },
+        { "satz": "Kupujem ___ torbu.", "grundform": "skup", "loesung": "skupu", "distraktoren": ["skupom", "skupe", "skupoj"], "uebersetzung": "Ich kaufe eine teure Tasche.", "erklaerung": "Akkusativ feminin: Adjektiv und Substantiv enden auf -u.", "regel": "akk_f" },
+        { "satz": "Imam ___ komšinicu.", "grundform": "mlad", "loesung": "mladu", "distraktoren": ["mlada", "mlade", "mladoj"], "uebersetzung": "Ich habe eine junge Nachbarin.", "erklaerung": "Akkusativ feminin: Auch bei Personen endet er auf -u. Belebt oder unbelebt zählt nur beim Maskulin.", "regel": "akk_f" },
+        { "satz": "Gledam ___ rijeku.", "grundform": "širok", "loesung": "široku", "distraktoren": ["široka", "široke", "širokoj"], "uebersetzung": "Ich betrachte den breiten Fluss.", "erklaerung": "Akkusativ feminin: Adjektiv und Substantiv enden auf -u.", "regel": "akk_f" },
+        { "satz": "Nosim ___ košulju.", "grundform": "bijel", "loesung": "bijelu", "distraktoren": ["bijela", "bijele", "bijeloj"], "uebersetzung": "Ich trage ein weißes Hemd.", "erklaerung": "Akkusativ feminin: Adjektiv und Substantiv enden auf -u.", "regel": "akk_f" },
+        { "satz": "Tražim ___ sobu.", "grundform": "jeftin", "loesung": "jeftinu", "distraktoren": ["jeftina", "jeftine", "jeftinoj"], "uebersetzung": "Ich suche ein billiges Zimmer.", "erklaerung": "Akkusativ feminin: Adjektiv und Substantiv enden auf -u.", "regel": "akk_f" },
+
+        { "satz": "Razgovaram s ___ ljekarom.", "grundform": "mlad", "loesung": "mladim", "distraktoren": ["mladom", "mladog", "mladih"], "uebersetzung": "Ich unterhalte mich mit dem jungen Arzt.", "erklaerung": "„s“ steht hier mit dem Instrumental, „ljekar“ ist maskulin: -im.", "regel": "inst_mn" },
+        { "satz": "Režem hljeb ___ nožem.", "grundform": "velik", "loesung": "velikim", "distraktoren": ["velikom", "velikog", "veliki"], "uebersetzung": "Ich schneide das Brot mit einem großen Messer.", "erklaerung": "Das Werkzeug steht im Instrumental ohne „s“. „nož“ ist maskulin: -im.", "regel": "inst_mn" },
+        { "satz": "Šetam s ___ psom.", "grundform": "mali", "loesung": "malim", "distraktoren": ["malom", "malog", "mali"], "uebersetzung": "Ich gehe mit dem kleinen Hund spazieren.", "erklaerung": "„s“ steht hier mit dem Instrumental, „pas“ ist maskulin: -im.", "regel": "inst_mn" },
+        { "satz": "Putujem ___ vozom.", "grundform": "brz", "loesung": "brzim", "distraktoren": ["brzom", "brzog", "brzi"], "uebersetzung": "Ich reise mit einem schnellen Zug.", "erklaerung": "Das Verkehrsmittel steht im Instrumental ohne „s“. „voz“ ist maskulin: -im.", "regel": "inst_mn" },
+        { "satz": "Stojimo pred ___ pozorištem.", "grundform": "nov", "loesung": "novim", "distraktoren": ["novom", "novog", "novo"], "uebersetzung": "Wir stehen vor dem neuen Theater.", "erklaerung": "„pred“ steht hier mit dem Instrumental. Neutrum geht hier wie maskulin: -im.", "regel": "inst_mn" },
+        { "satz": "Sjedimo pod ___ drvetom.", "grundform": "star", "loesung": "starim", "distraktoren": ["starom", "starog", "staro"], "uebersetzung": "Wir sitzen unter dem alten Baum.", "erklaerung": "„pod“ steht hier mit dem Instrumental, „drvo“ ist neutrum: -im.", "regel": "inst_mn" },
+
+        { "satz": "Razgovaram s ___ prijateljicom.", "grundform": "drag", "loesung": "dragom", "distraktoren": ["dragim", "dragu", "dragoj"], "uebersetzung": "Ich unterhalte mich mit der lieben Freundin.", "erklaerung": "Instrumental feminin: -om. Die Endung -im gehört zum Maskulin und Neutrum.", "regel": "inst_f" },
+        { "satz": "Pišem ___ olovkom.", "grundform": "crven", "loesung": "crvenom", "distraktoren": ["crvenim", "crvenu", "crvenoj"], "uebersetzung": "Ich schreibe mit einem roten Stift.", "erklaerung": "Das Werkzeug steht im Instrumental, „olovka“ ist feminin: -om.", "regel": "inst_f" },
+        { "satz": "Živim sa ___ majkom.", "grundform": "star", "loesung": "starom", "distraktoren": ["starim", "staru", "staroj"], "uebersetzung": "Ich lebe mit der alten Mutter zusammen.", "erklaerung": "Vor „s…“ steht „sa“. Es verlangt den Instrumental, „majka“ ist feminin: -om.", "regel": "inst_f" },
+        { "satz": "Stojim pred ___ školom.", "grundform": "velik", "loesung": "velikom", "distraktoren": ["velikim", "veliku", "velikoj"], "uebersetzung": "Ich stehe vor der großen Schule.", "erklaerung": "„pred“ steht hier mit dem Instrumental, „škola“ ist feminin: -om.", "regel": "inst_f" },
+        { "satz": "Perem ruke ___ vodom.", "grundform": "čist", "loesung": "čistom", "distraktoren": ["čistim", "čistu", "čistoj"], "uebersetzung": "Ich wasche die Hände mit sauberem Wasser.", "erklaerung": "Das Mittel steht im Instrumental, „voda“ ist feminin: -om.", "regel": "inst_f" },
+        { "satz": "Plaćam račun ___ karticom.", "grundform": "nov", "loesung": "novom", "distraktoren": ["novim", "novu", "novoj"], "uebersetzung": "Ich bezahle die Rechnung mit der neuen Karte.", "erklaerung": "Das Mittel steht im Instrumental, „kartica“ ist feminin: -om.", "regel": "inst_f" }
+      ]
+    },
+
+    {
+      "id": "plural",
+      "titel": "Plural",
+      "niveau": "B1",
+      "icon": "fa-clone",
+      "beschreibung": "Nominativ und Akkusativ je Geschlecht, Genitiv immer -ih, alle übrigen Fälle immer -im.",
+      "regeln": {
+        "nom_pl": "Nominativ Plural: -i, -e, -a",
+        "akk_pl": "Akkusativ Plural: -e, -e, -a",
+        "gen_pl": "Genitiv Plural: -ih",
+        "dil_pl": "Dativ/Instrumental/Lokativ Plural: -im"
+      },
+      "aufgaben": [
+
+        { "satz": "___ studenti uče u biblioteci.", "grundform": "mlad", "loesung": "mladi", "distraktoren": ["mlade", "mlada", "mladih"], "uebersetzung": "Die jungen Studenten lernen in der Bibliothek.", "erklaerung": "Nominativ Plural maskulin: -i.", "regel": "nom_pl" },
+        { "satz": "___ kuće su skupe.", "grundform": "nov", "loesung": "nove", "distraktoren": ["novi", "nova", "novih"], "uebersetzung": "Neue Häuser sind teuer.", "erklaerung": "Nominativ Plural feminin: -e.", "regel": "nom_pl" },
+        { "satz": "___ sela su daleko.", "grundform": "mali", "loesung": "mala", "distraktoren": ["mali", "male", "malih"], "uebersetzung": "Die kleinen Dörfer sind weit weg.", "erklaerung": "Nominativ Plural neutrum: -a.", "regel": "nom_pl" },
+        { "satz": "___ gradovi imaju mnogo stanovnika.", "grundform": "velik", "loesung": "veliki", "distraktoren": ["velike", "velika", "velikih"], "uebersetzung": "Große Städte haben viele Einwohner.", "erklaerung": "Nominativ Plural maskulin: -i. Das k des Adjektivs bleibt erhalten: veliki, nicht „velici“.", "regel": "nom_pl" },
+        { "satz": "___ knjige su na stolu.", "grundform": "zanimljiv", "loesung": "zanimljive", "distraktoren": ["zanimljivi", "zanimljiva", "zanimljivih"], "uebersetzung": "Die interessanten Bücher liegen auf dem Tisch.", "erklaerung": "Nominativ Plural feminin: -e.", "regel": "nom_pl" },
+        { "satz": "___ pisma su u torbi.", "grundform": "star", "loesung": "stara", "distraktoren": ["stari", "stare", "starih"], "uebersetzung": "Die alten Briefe sind in der Tasche.", "erklaerung": "„pismo“ ist neutrum. Nominativ Plural neutrum: -a.", "regel": "nom_pl" },
+        { "satz": "___ ljudi često šetaju.", "grundform": "star", "loesung": "stari", "distraktoren": ["stare", "stara", "starih"], "uebersetzung": "Alte Menschen gehen oft spazieren.", "erklaerung": "„ljudi“ ist der Plural von „čovjek“, also maskulin. Nominativ Plural: -i.", "regel": "nom_pl" },
+        { "satz": "___ djevojke igraju fudbal.", "grundform": "mlad", "loesung": "mlade", "distraktoren": ["mladi", "mlada", "mladih"], "uebersetzung": "Die jungen Frauen spielen Fußball.", "erklaerung": "Nominativ Plural feminin: -e.", "regel": "nom_pl" },
+
+        { "satz": "Vidim ___ gradove.", "grundform": "nov", "loesung": "nove", "distraktoren": ["novi", "novih", "nova"], "uebersetzung": "Ich sehe neue Städte.", "erklaerung": "Akkusativ Plural maskulin: -e. Nur der Nominativ endet auf -i.", "regel": "akk_pl" },
+        { "satz": "Volim ___ prijatelje.", "grundform": "star", "loesung": "stare", "distraktoren": ["stari", "starih", "stara"], "uebersetzung": "Ich mag die alten Freunde.", "erklaerung": "Akkusativ Plural maskulin: -e. Belebt oder unbelebt spielt im Plural keine Rolle.", "regel": "akk_pl" },
+        { "satz": "Kupujem ___ knjige.", "grundform": "skup", "loesung": "skupe", "distraktoren": ["skupi", "skupih", "skupim"], "uebersetzung": "Ich kaufe teure Bücher.", "erklaerung": "Akkusativ Plural feminin: -e.", "regel": "akk_pl" },
+        { "satz": "Čitam ___ pisma.", "grundform": "star", "loesung": "stara", "distraktoren": ["stari", "stare", "starih"], "uebersetzung": "Ich lese alte Briefe.", "erklaerung": "Akkusativ Plural neutrum: -a. Beim Neutrum gleicht der Akkusativ dem Nominativ.", "regel": "akk_pl" },
+        { "satz": "Gledam ___ planine.", "grundform": "visok", "loesung": "visoke", "distraktoren": ["visoki", "visokih", "visoka"], "uebersetzung": "Ich betrachte die hohen Berge.", "erklaerung": "Akkusativ Plural feminin: -e.", "regel": "akk_pl" },
+        { "satz": "Perem ___ prozore.", "grundform": "prljav", "loesung": "prljave", "distraktoren": ["prljavi", "prljavih", "prljava"], "uebersetzung": "Ich putze die schmutzigen Fenster.", "erklaerung": "Akkusativ Plural maskulin: -e.", "regel": "akk_pl" },
+        { "satz": "Posjećujemo ___ sela.", "grundform": "mali", "loesung": "mala", "distraktoren": ["mali", "male", "malim"], "uebersetzung": "Wir besuchen kleine Dörfer.", "erklaerung": "Akkusativ Plural neutrum: -a.", "regel": "akk_pl" },
+        { "satz": "Slušam ___ pjesme.", "grundform": "bosanski", "loesung": "bosanske", "distraktoren": ["bosanski", "bosanskih", "bosanska"], "uebersetzung": "Ich höre bosnische Lieder.", "erklaerung": "Akkusativ Plural feminin: -e.", "regel": "akk_pl" },
+
+        { "satz": "Nema ___ knjiga.", "grundform": "nov", "loesung": "novih", "distraktoren": ["novoj", "novim", "nove"], "uebersetzung": "Es gibt keine neuen Bücher.", "erklaerung": "„nema“ verlangt den Genitiv. „knjiga“ ist hier Genitiv Plural, das Adjektiv endet immer auf -ih.", "regel": "gen_pl" },
+        { "satz": "Imam mnogo ___ prijatelja.", "grundform": "drag", "loesung": "dragih", "distraktoren": ["dragi", "dragim", "drage"], "uebersetzung": "Ich habe viele liebe Freunde.", "erklaerung": "Bei zählbaren Dingen verlangt „mnogo“ den Genitiv Plural: -ih.", "regel": "gen_pl" },
+        { "satz": "Ovdje živi puno ___ ljudi.", "grundform": "mlad", "loesung": "mladih", "distraktoren": ["mladi", "mladim", "mlada"], "uebersetzung": "Hier leben viele junge Menschen.", "erklaerung": "Bei zählbaren Dingen verlangt „puno“ den Genitiv Plural: -ih.", "regel": "gen_pl" },
+        { "satz": "To su slike ___ gradova.", "grundform": "velik", "loesung": "velikih", "distraktoren": ["veliki", "velikim", "velike"], "uebersetzung": "Das sind Bilder großer Städte.", "erklaerung": "Wessen Bilder? Das ist der Genitiv. Im Plural endet er immer auf -ih.", "regel": "gen_pl" },
+        { "satz": "Soba je puna ___ knjiga.", "grundform": "star", "loesung": "starih", "distraktoren": ["stari", "starim", "stare"], "uebersetzung": "Das Zimmer ist voller alter Bücher.", "erklaerung": "„pun“ verlangt den Genitiv. Im Plural endet er immer auf -ih.", "regel": "gen_pl" },
+        { "satz": "Ulica je puna ___ kuća.", "grundform": "lijep", "loesung": "lijepih", "distraktoren": ["lijepi", "lijepim", "lijepe"], "uebersetzung": "Die Straße ist voller schöner Häuser.", "erklaerung": "„pun“ verlangt den Genitiv. Im Plural endet er immer auf -ih.", "regel": "gen_pl" },
+        { "satz": "Znam mnogo ___ pjesama.", "grundform": "bosanski", "loesung": "bosanskih", "distraktoren": ["bosanski", "bosanskim", "bosanske"], "uebersetzung": "Ich kenne viele bosnische Lieder.", "erklaerung": "Bei zählbaren Dingen verlangt „mnogo“ den Genitiv Plural: -ih.", "regel": "gen_pl" },
+        { "satz": "U gradu nema ___ parkova.", "grundform": "velik", "loesung": "velikih", "distraktoren": ["veliki", "velikim", "velike"], "uebersetzung": "In der Stadt gibt es keine großen Parks.", "erklaerung": "„nema“ verlangt den Genitiv. Im Plural endet er immer auf -ih.", "regel": "gen_pl" },
+
+        { "satz": "Živimo u ___ gradovima.", "grundform": "velik", "loesung": "velikim", "distraktoren": ["velikih", "veliki", "velike"], "uebersetzung": "Wir leben in großen Städten.", "erklaerung": "Lokativ Plural: in allen Geschlechtern -im.", "regel": "dil_pl" },
+        { "satz": "Pomažem ___ ljudima.", "grundform": "star", "loesung": "starim", "distraktoren": ["starih", "stari", "stare"], "uebersetzung": "Ich helfe alten Menschen.", "erklaerung": "„pomagati“ verlangt den Dativ. Im Plural: in allen Geschlechtern -im.", "regel": "dil_pl" },
+        { "satz": "Razgovaram s ___ studentima.", "grundform": "nov", "loesung": "novim", "distraktoren": ["novih", "novi", "nove"], "uebersetzung": "Ich unterhalte mich mit den neuen Studenten.", "erklaerung": "Instrumental Plural: in allen Geschlechtern -im.", "regel": "dil_pl" },
+        { "satz": "Živimo u ___ kućama.", "grundform": "skup", "loesung": "skupim", "distraktoren": ["skupih", "skupi", "skupe"], "uebersetzung": "Wir leben in teuren Häusern.", "erklaerung": "Lokativ Plural: auch beim Feminin -im.", "regel": "dil_pl" },
+        { "satz": "Dajem poklone ___ djevojčicama.", "grundform": "mali", "loesung": "malim", "distraktoren": ["malih", "mali", "male"], "uebersetzung": "Ich gebe den kleinen Mädchen Geschenke.", "erklaerung": "Wem gebe ich etwas? Das ist der Dativ. Im Plural auch beim Feminin -im.", "regel": "dil_pl" },
+        { "satz": "Pišemo ___ olovkama.", "grundform": "crven", "loesung": "crvenim", "distraktoren": ["crvenih", "crveni", "crvene"], "uebersetzung": "Wir schreiben mit roten Stiften.", "erklaerung": "Das Werkzeug steht im Instrumental. Im Plural auch beim Feminin -im.", "regel": "dil_pl" },
+        { "satz": "Ljudi žive u ___ selima.", "grundform": "lijep", "loesung": "lijepim", "distraktoren": ["lijepih", "lijepi", "lijepa"], "uebersetzung": "Die Menschen leben in schönen Dörfern.", "erklaerung": "Lokativ Plural: auch beim Neutrum -im.", "regel": "dil_pl" },
+        { "satz": "Na ___ ulicama ima mnogo ljudi.", "grundform": "širok", "loesung": "širokim", "distraktoren": ["širokih", "široki", "široke"], "uebersetzung": "Auf breiten Straßen sind viele Menschen.", "erklaerung": "Wo? „na“ steht hier mit dem Lokativ. Im Plural auch beim Feminin -im.", "regel": "dil_pl" }
+      ]
+    },
+
+    {
+      "id": "stolperfallen",
+      "titel": "Stolperfallen",
+      "niveau": "B1",
+      "icon": "fa-triangle-exclamation",
+      "beschreibung": "Sache oder Person? -om oder -im? Eine Form mit mehreren Bedeutungen: Hier musst du den ganzen Satz im Blick haben.",
+      "regeln": {
+        "belebt_sache": "Akkusativ maskulin: Sache oder Person?",
+        "om_im_oj": "-om, -im oder -oj?",
+        "gleiche_form": "Gleiche Form, anderer Fall",
+        "og_ih": "Genitiv: Singular oder Plural?"
+      },
+      "aufgaben": [
+
+        { "satz": "Imam ___ stan.", "grundform": "nov", "loesung": "novi", "distraktoren": ["novog", "novom", "nova"], "uebersetzung": "Ich habe eine neue Wohnung.", "erklaerung": "Eine Wohnung ist eine Sache: Der Akkusativ gleicht dem Nominativ. Beim Hund wäre es novog psa.", "regel": "belebt_sache" },
+        { "satz": "Imam ___ psa.", "grundform": "nov", "loesung": "novog", "distraktoren": ["novi", "novom", "novim"], "uebersetzung": "Ich habe einen neuen Hund.", "erklaerung": "Ein Hund ist belebt: Der Akkusativ hat die Genitivform. Bei der Wohnung wäre es novi stan.", "regel": "belebt_sache", "auch_richtig": ["novoga"] },
+        { "satz": "Vidim ___ most.", "grundform": "velik", "loesung": "veliki", "distraktoren": ["velikog", "velikom", "velika"], "uebersetzung": "Ich sehe eine große Brücke.", "erklaerung": "Eine Brücke ist eine Sache: Der Akkusativ gleicht dem Nominativ. Beim Pferd wäre es velikog konja.", "regel": "belebt_sache" },
+        { "satz": "Vidim ___ konja.", "grundform": "velik", "loesung": "velikog", "distraktoren": ["veliki", "velikom", "velikim"], "uebersetzung": "Ich sehe ein großes Pferd.", "erklaerung": "Ein Pferd ist belebt: Der Akkusativ hat die Genitivform. Bei der Brücke wäre es veliki most.", "regel": "belebt_sache", "auch_richtig": ["velikoga"] },
+        { "satz": "Tražim ___ stan.", "grundform": "mali", "loesung": "mali", "distraktoren": ["malog", "malom", "mala"], "uebersetzung": "Ich suche eine kleine Wohnung.", "erklaerung": "Eine Wohnung ist eine Sache: Der Akkusativ gleicht dem Nominativ. Beim Hund wäre es malog psa.", "regel": "belebt_sache" },
+        { "satz": "Tražim ___ psa.", "grundform": "mali", "loesung": "malog", "distraktoren": ["mali", "malom", "malim"], "uebersetzung": "Ich suche den kleinen Hund.", "erklaerung": "Ein Hund ist belebt: Der Akkusativ hat die Genitivform. Bei der Wohnung wäre es mali stan.", "regel": "belebt_sache", "auch_richtig": ["maloga"] },
+        { "satz": "Poznajem ___ grad.", "grundform": "star", "loesung": "stari", "distraktoren": ["starog", "starom", "stara"], "uebersetzung": "Ich kenne die alte Stadt.", "erklaerung": "Eine Stadt ist eine Sache: Der Akkusativ gleicht dem Nominativ. Beim Professor wäre es starog profesora.", "regel": "belebt_sache" },
+        { "satz": "Poznajem ___ profesora.", "grundform": "star", "loesung": "starog", "distraktoren": ["stari", "starom", "starim"], "uebersetzung": "Ich kenne den alten Professor.", "erklaerung": "Ein Professor ist eine Person: Der Akkusativ hat die Genitivform. Bei der Stadt wäre es stari grad.", "regel": "belebt_sache", "auch_richtig": ["staroga"] },
+        { "satz": "Slušam ___ radio.", "grundform": "star", "loesung": "stari", "distraktoren": ["starog", "starom", "stara"], "uebersetzung": "Ich höre das alte Radio.", "erklaerung": "„radio“ ist maskulin und eine Sache: Der Akkusativ gleicht dem Nominativ. Beim Professor wäre es starog profesora.", "regel": "belebt_sache" },
+        { "satz": "Slušam ___ profesora.", "grundform": "star", "loesung": "starog", "distraktoren": ["stari", "starom", "starim"], "uebersetzung": "Ich höre dem alten Professor zu.", "erklaerung": "Ein Professor ist eine Person: Der Akkusativ hat die Genitivform. Beim Radio wäre es stari radio.", "regel": "belebt_sache", "auch_richtig": ["staroga"] },
+        { "satz": "Kupujem ___ auto.", "grundform": "crn", "loesung": "crni", "distraktoren": ["crnog", "crnom", "crna"], "uebersetzung": "Ich kaufe ein schwarzes Auto.", "erklaerung": "Ein Auto ist eine Sache: Der Akkusativ gleicht dem Nominativ. Beim Pferd wäre es crnog konja.", "regel": "belebt_sache" },
+        { "satz": "Kupujem ___ konja.", "grundform": "crn", "loesung": "crnog", "distraktoren": ["crni", "crnom", "crnim"], "uebersetzung": "Ich kaufe ein schwarzes Pferd.", "erklaerung": "Ein Pferd ist belebt: Der Akkusativ hat die Genitivform. Beim Auto wäre es crni auto.", "regel": "belebt_sache", "auch_richtig": ["crnoga"] },
+
+        { "satz": "Živim u ___ stanu.", "grundform": "nov", "loesung": "novom", "distraktoren": ["novoj", "novim", "nove"], "uebersetzung": "Ich wohne in einer neuen Wohnung.", "erklaerung": "Lokativ maskulin: -om. Dieselbe Endung hat der Instrumental feminin (pred novom kućom).", "regel": "om_im_oj", "auch_richtig": ["novome", "novomu"] },
+        { "satz": "Živim u ___ kući.", "grundform": "nov", "loesung": "novoj", "distraktoren": ["novom", "novim", "nove"], "uebersetzung": "Ich wohne in einem neuen Haus.", "erklaerung": "Lokativ feminin: -oj. Das -om gehört zum Maskulin und Neutrum (u novom stanu).", "regel": "om_im_oj" },
+        { "satz": "Stojim pred ___ kućom.", "grundform": "nov", "loesung": "novom", "distraktoren": ["novoj", "novim", "nove"], "uebersetzung": "Ich stehe vor dem neuen Haus.", "erklaerung": "Instrumental feminin: -om. Dieselbe Endung hat der Lokativ maskulin (u novom stanu).", "regel": "om_im_oj" },
+        { "satz": "Stojim pred ___ mostom.", "grundform": "nov", "loesung": "novim", "distraktoren": ["novom", "novoj", "nove"], "uebersetzung": "Ich stehe vor der neuen Brücke.", "erklaerung": "Instrumental maskulin: -im. Das -om gehört im Instrumental zum Feminin (pred novom kućom).", "regel": "om_im_oj" },
+        { "satz": "Pričam o ___ profesoru.", "grundform": "mlad", "loesung": "mladom", "distraktoren": ["mladoj", "mladim", "mlade"], "uebersetzung": "Ich erzähle von dem jungen Professor.", "erklaerung": "„o“ steht mit dem Lokativ. Maskulin: -om.", "regel": "om_im_oj", "auch_richtig": ["mladome", "mladomu"] },
+        { "satz": "Pričam o ___ učiteljici.", "grundform": "mlad", "loesung": "mladoj", "distraktoren": ["mladom", "mladim", "mlade"], "uebersetzung": "Ich erzähle von der jungen Lehrerin.", "erklaerung": "„o“ steht mit dem Lokativ. Feminin: -oj.", "regel": "om_im_oj" },
+        { "satz": "Razgovaram s ___ učiteljicom.", "grundform": "mlad", "loesung": "mladom", "distraktoren": ["mladoj", "mladim", "mlade"], "uebersetzung": "Ich unterhalte mich mit der jungen Lehrerin.", "erklaerung": "„s“ steht hier mit dem Instrumental. Feminin: -om.", "regel": "om_im_oj" },
+        { "satz": "Razgovaram s ___ profesorom.", "grundform": "mlad", "loesung": "mladim", "distraktoren": ["mladom", "mladoj", "mlade"], "uebersetzung": "Ich unterhalte mich mit dem jungen Professor.", "erklaerung": "„s“ steht hier mit dem Instrumental. Maskulin: -im, nicht -om.", "regel": "om_im_oj" },
+        { "satz": "Igramo se u ___ parku.", "grundform": "velik", "loesung": "velikom", "distraktoren": ["velikoj", "velikim", "velike"], "uebersetzung": "Wir spielen in einem großen Park.", "erklaerung": "Wo? Lokativ maskulin: -om.", "regel": "om_im_oj", "auch_richtig": ["velikome", "velikomu"] },
+        { "satz": "Igramo se u ___ bašti.", "grundform": "velik", "loesung": "velikoj", "distraktoren": ["velikom", "velikim", "velike"], "uebersetzung": "Wir spielen in einem großen Garten.", "erklaerung": "Wo? Lokativ feminin: -oj.", "regel": "om_im_oj" },
+        { "satz": "Igramo se pred ___ zgradom.", "grundform": "velik", "loesung": "velikom", "distraktoren": ["velikoj", "velikim", "velike"], "uebersetzung": "Wir spielen vor dem großen Gebäude.", "erklaerung": "„pred“ steht hier mit dem Instrumental. Feminin: -om.", "regel": "om_im_oj" },
+        { "satz": "Igramo se pred ___ kinom.", "grundform": "velik", "loesung": "velikim", "distraktoren": ["velikom", "velikoj", "velike"], "uebersetzung": "Wir spielen vor dem großen Kino.", "erklaerung": "„pred“ steht hier mit dem Instrumental. „kino“ ist neutrum: -im.", "regel": "om_im_oj" },
+
+        { "satz": "___ student dolazi.", "grundform": "nov", "loesung": "novi", "distraktoren": ["novog", "nove", "novih"], "uebersetzung": "Der neue Student kommt.", "erklaerung": "Nominativ Singular maskulin: novi. Dieselbe Form hat der Nominativ Plural (novi studenti).", "regel": "gleiche_form" },
+        { "satz": "___ studenti dolaze.", "grundform": "nov", "loesung": "novi", "distraktoren": ["novog", "nove", "novih"], "uebersetzung": "Die neuen Studenten kommen.", "erklaerung": "Nominativ Plural maskulin: novi. Es ist dieselbe Form wie im Singular (novi student).", "regel": "gleiche_form" },
+        { "satz": "Kupujem ___ telefon.", "grundform": "nov", "loesung": "novi", "distraktoren": ["novog", "nove", "novih"], "uebersetzung": "Ich kaufe ein neues Telefon.", "erklaerung": "Akkusativ Singular maskulin, Sache: novi. Es ist dieselbe Form wie im Nominativ.", "regel": "gleiche_form" },
+        { "satz": "Živim blizu ___ škole.", "grundform": "nov", "loesung": "nove", "distraktoren": ["novoj", "novu", "nova"], "uebersetzung": "Ich wohne nahe der neuen Schule.", "erklaerung": "Genitiv Singular feminin: nove. Dieselbe Form hat der Plural im Nominativ und Akkusativ.", "regel": "gleiche_form" },
+        { "satz": "___ škole su velike.", "grundform": "nov", "loesung": "nove", "distraktoren": ["novi", "nova", "novih"], "uebersetzung": "Die neuen Schulen sind groß.", "erklaerung": "Nominativ Plural feminin: nove. Dieselbe Form hat der Genitiv Singular (blizu nove škole).", "regel": "gleiche_form" },
+        { "satz": "Gradimo ___ škole.", "grundform": "nov", "loesung": "nove", "distraktoren": ["novi", "nova", "novih"], "uebersetzung": "Wir bauen neue Schulen.", "erklaerung": "Akkusativ Plural feminin: nove.", "regel": "gleiche_form" },
+        { "satz": "Gradimo ___ mostove.", "grundform": "nov", "loesung": "nove", "distraktoren": ["novi", "nova", "novih"], "uebersetzung": "Wir bauen neue Brücken.", "erklaerung": "Akkusativ Plural maskulin: Auch hier steht nove, nicht novi.", "regel": "gleiche_form" },
+        { "satz": "___ škola je velika.", "grundform": "nov", "loesung": "nova", "distraktoren": ["nove", "novu", "novoj"], "uebersetzung": "Die neue Schule ist groß.", "erklaerung": "Nominativ Singular feminin: nova. Dieselbe Form hat der Plural beim Neutrum (nova pisma).", "regel": "gleiche_form" },
+        { "satz": "___ pisma su na stolu.", "grundform": "nov", "loesung": "nova", "distraktoren": ["novi", "nove", "novih"], "uebersetzung": "Die neuen Briefe liegen auf dem Tisch.", "erklaerung": "Nominativ Plural neutrum: nova. Es ist dieselbe Form wie im Nominativ Singular feminin (nova škola).", "regel": "gleiche_form" },
+        { "satz": "Čitam ___ pisma.", "grundform": "nov", "loesung": "nova", "distraktoren": ["novi", "nove", "novih"], "uebersetzung": "Ich lese neue Briefe.", "erklaerung": "Akkusativ Plural neutrum: nova. Es ist dieselbe Form wie im Nominativ Plural.", "regel": "gleiche_form" },
+
+        { "satz": "Nemam nijednog ___ prijatelja.", "grundform": "star", "loesung": "starog", "distraktoren": ["starih", "starom", "stari"], "uebersetzung": "Ich habe keinen einzigen alten Freund.", "erklaerung": "„prijatelja“ kann Singular oder Plural sein. „nijednog“ legt den Singular fest: -og.", "regel": "og_ih", "auch_richtig": ["staroga"] },
+        { "satz": "Imam mnogo ___ prijatelja.", "grundform": "star", "loesung": "starih", "distraktoren": ["starog", "starim", "stari"], "uebersetzung": "Ich habe viele alte Freunde.", "erklaerung": "„prijatelja“ kann Singular oder Plural sein. „mnogo“ legt den Plural fest: -ih.", "regel": "og_ih" },
+        { "satz": "Dolazim iz jednog ___ sela.", "grundform": "mali", "loesung": "malog", "distraktoren": ["malih", "malom", "malim"], "uebersetzung": "Ich komme aus einem kleinen Dorf.", "erklaerung": "„sela“ kann Singular oder Plural sein. „jednog“ legt den Singular fest: -og.", "regel": "og_ih", "auch_richtig": ["maloga"] },
+        { "satz": "U Bosni ima mnogo ___ sela.", "grundform": "mali", "loesung": "malih", "distraktoren": ["malog", "malim", "male"], "uebersetzung": "In Bosnien gibt es viele kleine Dörfer.", "erklaerung": "„sela“ kann Singular oder Plural sein. „mnogo“ legt den Plural fest: -ih.", "regel": "og_ih" },
+        { "satz": "Ovo je auto mog ___ profesora.", "grundform": "mlad", "loesung": "mladog", "distraktoren": ["mladih", "mladom", "mladi"], "uebersetzung": "Das ist das Auto meines jungen Professors.", "erklaerung": "„profesora“ kann Singular oder Plural sein. „mog“ legt den Singular fest: -og.", "regel": "og_ih", "auch_richtig": ["mladoga"] },
+        { "satz": "Ovo su knjige mojih ___ profesora.", "grundform": "mlad", "loesung": "mladih", "distraktoren": ["mladog", "mladim", "mladi"], "uebersetzung": "Das sind die Bücher meiner jungen Professoren.", "erklaerung": "„profesora“ kann Singular oder Plural sein. „mojih“ legt den Plural fest: -ih.", "regel": "og_ih" },
+        { "satz": "Soba nema nijednog ___ prozora.", "grundform": "velik", "loesung": "velikog", "distraktoren": ["velikih", "velikom", "veliki"], "uebersetzung": "Das Zimmer hat kein einziges großes Fenster.", "erklaerung": "„prozora“ kann Singular oder Plural sein. „nijednog“ legt den Singular fest: -og.", "regel": "og_ih", "auch_richtig": ["velikoga"] },
+        { "satz": "Soba ima mnogo ___ prozora.", "grundform": "velik", "loesung": "velikih", "distraktoren": ["velikog", "velikim", "veliki"], "uebersetzung": "Das Zimmer hat viele große Fenster.", "erklaerung": "„prozora“ kann Singular oder Plural sein. „mnogo“ legt den Plural fest: -ih.", "regel": "og_ih" }
+      ]
+    },
+
+    {
+      "id": "staemme",
+      "titel": "Weiche Stämme & Stammwechsel",
+      "niveau": "B1",
+      "icon": "fa-shuffle",
+      "beschreibung": "vrućeg statt vrućog, dobrog statt dobarog, toplom statt topaom: Hier ändert sich mehr als nur die Endung.",
+      "regeln": {
+        "weich_mn": "Weicher Stamm, maskulin/neutrum: -eg, -em, -e",
+        "weich_f": "Weicher Stamm, feminin: keine Änderung",
+        "stamm_ar_an": "-ar und -an: Das a fällt weg",
+        "stamm_ak": "-ak: Das a fällt weg",
+        "stamm_ao": "-ao und -eo: Das l kehrt zurück"
+      },
+      "aufgaben": [
+
+        { "satz": "Čaša ___ čaja stoji na stolu.", "grundform": "vruć", "loesung": "vrućeg", "distraktoren": ["vrućog", "vruće", "vrućem"], "uebersetzung": "Ein Glas heißer Tee steht auf dem Tisch.", "erklaerung": "Genitiv maskulin. Nach ć wird aus -og die Form -eg.", "regel": "weich_mn", "auch_richtig": ["vrućega"] },
+        { "satz": "Uživam u ___ hljebu.", "grundform": "svjež", "loesung": "svježem", "distraktoren": ["svježom", "svježog", "svježe"], "uebersetzung": "Ich genieße das frische Brot.", "erklaerung": "Lokativ maskulin. Nach ž wird aus -om die Form -em.", "regel": "weich_mn", "auch_richtig": ["svježemu"] },
+        { "satz": "Bojim se ___ psa.", "grundform": "divlji", "loesung": "divljeg", "distraktoren": ["divljog", "divlji", "divljem"], "uebersetzung": "Ich habe Angst vor dem wilden Hund.", "erklaerung": "„bojati se“ verlangt den Genitiv. Nach lj wird aus -og die Form -eg.", "regel": "weich_mn", "auch_richtig": ["divljega"] },
+        { "satz": "Danas smo govorili o ___ filmu.", "grundform": "loš", "loesung": "lošem", "distraktoren": ["lošom", "lošeg", "loše"], "uebersetzung": "Heute haben wir über einen schlechten Film gesprochen.", "erklaerung": "Lokativ maskulin. Nach š wird aus -om die Form -em.", "regel": "weich_mn", "auch_richtig": ["lošemu"] },
+        { "satz": "Živim na ___ spratu.", "grundform": "zadnji", "loesung": "zadnjem", "distraktoren": ["zadnjom", "zadnjeg", "zadnje"], "uebersetzung": "Ich wohne im letzten Stock.", "erklaerung": "Lokativ maskulin. Nach nj wird aus -om die Form -em.", "regel": "weich_mn", "auch_richtig": ["zadnjemu"] },
+        { "satz": "Volim ukus ___ sira.", "grundform": "domaći", "loesung": "domaćeg", "distraktoren": ["domaćog", "domaće", "domaćem"], "uebersetzung": "Ich mag den Geschmack von hausgemachtem Käse.", "erklaerung": "Genitiv maskulin. Nach ć wird aus -og die Form -eg.", "regel": "weich_mn", "auch_richtig": ["domaćega"] },
+        { "satz": "Pijem ___ mlijeko.", "grundform": "vruć", "loesung": "vruće", "distraktoren": ["vrućo", "vrući", "vrućeg"], "uebersetzung": "Ich trinke heiße Milch.", "erklaerung": "Akkusativ neutrum. Nach ć wird aus -o die Form -e.", "regel": "weich_mn" },
+        { "satz": "Jedem ___ voće.", "grundform": "svjež", "loesung": "svježe", "distraktoren": ["svježo", "svježi", "svježeg"], "uebersetzung": "Ich esse frisches Obst.", "erklaerung": "Akkusativ neutrum. Nach ž wird aus -o die Form -e.", "regel": "weich_mn" },
+        { "satz": "Danas je ___ vrijeme.", "grundform": "loš", "loesung": "loše", "distraktoren": ["lošo", "loši", "lošeg"], "uebersetzung": "Heute ist schlechtes Wetter.", "erklaerung": "Nominativ neutrum. Nach š wird aus -o die Form -e.", "regel": "weich_mn" },
+        { "satz": "Zbog ___ vremena ostajemo kod kuće.", "grundform": "loš", "loesung": "lošeg", "distraktoren": ["lošog", "loše", "lošem"], "uebersetzung": "Wegen des schlechten Wetters bleiben wir zu Hause.", "erklaerung": "„zbog“ verlangt den Genitiv. Nach š wird aus -og die Form -eg.", "regel": "weich_mn", "auch_richtig": ["lošega", "loših"] },
+        { "satz": "Hvala na ___ jelu.", "grundform": "domaći", "loesung": "domaćem", "distraktoren": ["domaćom", "domaćeg", "domaće"], "uebersetzung": "Danke für das hausgemachte Essen.", "erklaerung": "„na“ steht hier mit dem Lokativ, „jelo“ ist neutrum. Nach ć wird aus -om die Form -em.", "regel": "weich_mn", "auch_richtig": ["domaćemu"] },
+        { "satz": "Stigli smo u ___ trenutku.", "grundform": "posljednji", "loesung": "posljednjem", "distraktoren": ["posljednjom", "posljednjeg", "posljednje"], "uebersetzung": "Wir sind im letzten Moment angekommen.", "erklaerung": "Lokativ maskulin. Nach nj wird aus -om die Form -em.", "regel": "weich_mn", "auch_richtig": ["posljednjemu"] },
+
+        { "satz": "Perem ruke u ___ vodi.", "grundform": "vruć", "loesung": "vrućoj", "distraktoren": ["vrućem", "vruću", "vruće"], "uebersetzung": "Ich wasche die Hände in heißem Wasser.", "erklaerung": "Lokativ feminin: -oj. Das Feminin ändert sich auch beim weichen Stamm nicht.", "regel": "weich_f" },
+        { "satz": "Pijem ___ kahvu.", "grundform": "vruć", "loesung": "vruću", "distraktoren": ["vrućom", "vrućoj", "vrućeg"], "uebersetzung": "Ich trinke heißen Kaffee.", "erklaerung": "Akkusativ feminin: -u, wie bei jedem anderen Adjektiv.", "regel": "weich_f" },
+        { "satz": "Čitam ___ knjigu.", "grundform": "loš", "loesung": "lošu", "distraktoren": ["lošom", "lošoj", "lošeg"], "uebersetzung": "Ich lese ein schlechtes Buch.", "erklaerung": "Akkusativ feminin: -u, wie bei jedem anderen Adjektiv.", "regel": "weich_f" },
+        { "satz": "Spavamo u ___ sobi.", "grundform": "zadnji", "loesung": "zadnjoj", "distraktoren": ["zadnjem", "zadnju", "zadnje"], "uebersetzung": "Wir schlafen im letzten Zimmer.", "erklaerung": "Lokativ feminin: -oj. Das Feminin ändert sich auch beim weichen Stamm nicht.", "regel": "weich_f" },
+        { "satz": "Jedem hljeb s ___ supom.", "grundform": "vruć", "loesung": "vrućom", "distraktoren": ["vrućem", "vrućim", "vruću"], "uebersetzung": "Ich esse Brot mit heißer Suppe.", "erklaerung": "Instrumental feminin: -om. Das Feminin ändert sich auch beim weichen Stamm nicht.", "regel": "weich_f" },
+        { "satz": "Nosim ___ jaknu.", "grundform": "smeđ", "loesung": "smeđu", "distraktoren": ["smeđom", "smeđoj", "smeđe"], "uebersetzung": "Ich trage eine braune Jacke.", "erklaerung": "Akkusativ feminin: -u, wie bei jedem anderen Adjektiv.", "regel": "weich_f" },
+        { "satz": "Bojim se ___ životinje.", "grundform": "divlji", "loesung": "divlje", "distraktoren": ["divljoj", "divlju", "divljeg"], "uebersetzung": "Ich habe Angst vor dem wilden Tier.", "erklaerung": "„bojati se“ verlangt den Genitiv. Feminin: -e, wie bei jedem anderen Adjektiv.", "regel": "weich_f" },
+        { "satz": "Uživamo u ___ hrani.", "grundform": "domaći", "loesung": "domaćoj", "distraktoren": ["domaćem", "domaću", "domaćom"], "uebersetzung": "Wir genießen das hausgemachte Essen.", "erklaerung": "Lokativ feminin: -oj. Das Feminin ändert sich auch beim weichen Stamm nicht.", "regel": "weich_f" },
+        { "satz": "___ hrana je ukusna.", "grundform": "domaći", "loesung": "domaća", "distraktoren": ["domaću", "domaćoj", "domaće"], "uebersetzung": "Das hausgemachte Essen ist lecker.", "erklaerung": "Nominativ feminin: -a, wie bei jedem anderen Adjektiv.", "regel": "weich_f" },
+
+        { "satz": "Vjerujem ___ ljekaru.", "grundform": "dobar", "loesung": "dobrom", "distraktoren": ["dobarom", "dobra", "dobrog"], "uebersetzung": "Ich vertraue dem guten Arzt.", "erklaerung": "Dativ maskulin: -om. Das a aus „dobar“ fällt weg: dobr-.", "regel": "stamm_ar_an", "auch_richtig": ["dobrome", "dobromu"] },
+        { "satz": "Imam ___ prijateljicu.", "grundform": "dobar", "loesung": "dobru", "distraktoren": ["dobaru", "dobra", "dobroj"], "uebersetzung": "Ich habe eine gute Freundin.", "erklaerung": "Akkusativ feminin: -u. Das a aus „dobar“ fällt weg: dobr-.", "regel": "stamm_ar_an" },
+        { "satz": "Živimo u ___ porodici.", "grundform": "sretan", "loesung": "sretnoj", "distraktoren": ["sretanoj", "sretnu", "sretnom"], "uebersetzung": "Wir leben in einer glücklichen Familie.", "erklaerung": "Lokativ feminin: -oj. Das a aus „sretan“ fällt weg: sretn-.", "regel": "stamm_ar_an" },
+        { "satz": "Pričamo o ___ djetetu.", "grundform": "sretan", "loesung": "sretnom", "distraktoren": ["sretanom", "sretno", "sretnoj"], "uebersetzung": "Wir erzählen von dem glücklichen Kind.", "erklaerung": "„o“ steht mit dem Lokativ, „dijete“ ist neutrum: -om. Das a aus „sretan“ fällt weg: sretn-.", "regel": "stamm_ar_an", "auch_richtig": ["sretnome", "sretnomu"] },
+        { "satz": "Pijem čašu ___ vode.", "grundform": "hladan", "loesung": "hladne", "distraktoren": ["hladane", "hladnu", "hladnoj"], "uebersetzung": "Ich trinke ein Glas kaltes Wasser.", "erklaerung": "Genitiv feminin: -e. Das a aus „hladan“ fällt weg: hladn-.", "regel": "stamm_ar_an" },
+        { "satz": "Ne volim ___ supu.", "grundform": "hladan", "loesung": "hladnu", "distraktoren": ["hladanu", "hladna", "hladnoj"], "uebersetzung": "Ich mag keine kalte Suppe.", "erklaerung": "Akkusativ feminin: -u. Das a aus „hladan“ fällt weg: hladn-.", "regel": "stamm_ar_an" },
+        { "satz": "Poznajem ___ učenika.", "grundform": "pametan", "loesung": "pametnog", "distraktoren": ["pametanog", "pametni", "pametnom"], "uebersetzung": "Ich kenne den klugen Schüler.", "erklaerung": "Akkusativ belebt: -og. Das a aus „pametan“ fällt weg: pametn-.", "regel": "stamm_ar_an", "auch_richtig": ["pametnoga"] },
+        { "satz": "Hranim ___ psa.", "grundform": "gladan", "loesung": "gladnog", "distraktoren": ["gladanog", "gladni", "gladnom"], "uebersetzung": "Ich füttere den hungrigen Hund.", "erklaerung": "Akkusativ belebt: -og. Das a aus „gladan“ fällt weg: gladn-.", "regel": "stamm_ar_an", "auch_richtig": ["gladnoga"] },
+        { "satz": "Pomažem ___ ljudima.", "grundform": "siromašan", "loesung": "siromašnim", "distraktoren": ["siromašanim", "siromašni", "siromašnih"], "uebersetzung": "Ich helfe armen Menschen.", "erklaerung": "Dativ Plural: -im. Das a aus „siromašan“ fällt weg: siromašn-.", "regel": "stamm_ar_an" },
+        { "satz": "Razgovaram s ___ čovjekom.", "grundform": "hrabar", "loesung": "hrabrim", "distraktoren": ["hrabarim", "hrabrom", "hrabrog"], "uebersetzung": "Ich unterhalte mich mit dem mutigen Mann.", "erklaerung": "Instrumental maskulin: -im. Das a aus „hrabar“ fällt weg: hrabr-.", "regel": "stamm_ar_an" },
+        { "satz": "Hodam u ___ cipelama.", "grundform": "mokar", "loesung": "mokrim", "distraktoren": ["mokarim", "mokre", "mokrih"], "uebersetzung": "Ich laufe in nassen Schuhen.", "erklaerung": "Lokativ Plural: -im. Das a aus „mokar“ fällt weg: mokr-.", "regel": "stamm_ar_an" },
+
+        { "satz": "Pišem ___ poruku.", "grundform": "kratak", "loesung": "kratku", "distraktoren": ["kratka", "kratkoj", "kratakom"], "uebersetzung": "Ich schreibe eine kurze Nachricht.", "erklaerung": "Akkusativ feminin: -u. Das zweite a aus „kratak“ fällt weg: kratk-.", "regel": "stamm_ak" },
+        { "satz": "Vidimo se nakon ___ odmora.", "grundform": "kratak", "loesung": "kratkog", "distraktoren": ["kratakog", "kratko", "kratkom"], "uebersetzung": "Wir sehen uns nach einer kurzen Pause.", "erklaerung": "„nakon“ verlangt den Genitiv. Maskulin: -og. Das zweite a aus „kratak“ fällt weg: kratk-.", "regel": "stamm_ak", "auch_richtig": ["kratkoga", "kratkih"] },
+        { "satz": "Učim iz ___ knjige.", "grundform": "težak", "loesung": "teške", "distraktoren": ["težke", "tešku", "teškoj"], "uebersetzung": "Ich lerne aus einem schwierigen Buch.", "erklaerung": "„iz“ verlangt den Genitiv. Feminin: -e. Aus „težak“ wird tešk-, das ž wird zu š.", "regel": "stamm_ak" },
+        { "satz": "Razmišljam o ___ zadatku.", "grundform": "težak", "loesung": "teškom", "distraktoren": ["težakom", "težkom", "teškoj"], "uebersetzung": "Ich denke über eine schwierige Aufgabe nach.", "erklaerung": "„o“ steht mit dem Lokativ. Maskulin: -om. Aus „težak“ wird tešk-, das ž wird zu š.", "regel": "stamm_ak", "auch_richtig": ["teškome", "teškomu"] },
+        { "satz": "Nosim ___ torbu.", "grundform": "težak", "loesung": "tešku", "distraktoren": ["težku", "teška", "teškom"], "uebersetzung": "Ich trage eine schwere Tasche.", "erklaerung": "Akkusativ feminin: -u. Aus „težak“ wird tešk-, das ž wird zu š.", "regel": "stamm_ak" },
+        { "satz": "Pišem ___ olovkom.", "grundform": "tanak", "loesung": "tankom", "distraktoren": ["tanakom", "tankim", "tanku"], "uebersetzung": "Ich schreibe mit einem dünnen Stift.", "erklaerung": "Instrumental feminin: -om. Das zweite a aus „tanak“ fällt weg: tank-.", "regel": "stamm_ak" },
+        { "satz": "Djeca se igraju u ___ vodi.", "grundform": "plitak", "loesung": "plitkoj", "distraktoren": ["plitakoj", "plitku", "plitkom"], "uebersetzung": "Die Kinder spielen im flachen Wasser.", "erklaerung": "Lokativ feminin: -oj. Das a aus „plitak“ fällt weg: plitk-.", "regel": "stamm_ak" },
+
+        { "satz": "Volim ___ ljeto.", "grundform": "topao", "loesung": "toplo", "distraktoren": ["topla", "topli", "toplog"], "uebersetzung": "Ich liebe den warmen Sommer.", "erklaerung": "Akkusativ neutrum: -o. Im Stamm steckt ein l: topl-. „topao“ gibt es nur als Grundform.", "regel": "stamm_ao" },
+        { "satz": "Pijem čašu ___ mlijeka.", "grundform": "topao", "loesung": "toplog", "distraktoren": ["topaog", "toplo", "toplom"], "uebersetzung": "Ich trinke ein Glas warme Milch.", "erklaerung": "Genitiv neutrum: -og. Im Stamm steckt ein l: topl-.", "regel": "stamm_ao", "auch_richtig": ["toploga"] },
+        { "satz": "Spavamo u ___ sobi.", "grundform": "topao", "loesung": "toploj", "distraktoren": ["topaoj", "toplu", "toplom"], "uebersetzung": "Wir schlafen in einem warmen Zimmer.", "erklaerung": "Lokativ feminin: -oj. Im Stamm steckt ein l: topl-.", "regel": "stamm_ao" },
+        { "satz": "Perem kosu ___ vodom.", "grundform": "topao", "loesung": "toplom", "distraktoren": ["toplim", "toplu", "toploj"], "uebersetzung": "Ich wasche die Haare mit warmem Wasser.", "erklaerung": "Instrumental feminin: -om. Im Stamm steckt ein l: topl-.", "regel": "stamm_ao" },
+        { "satz": "Razgovaram s ___ djevojčicom.", "grundform": "veseo", "loesung": "veselom", "distraktoren": ["veseom", "veselim", "veselu"], "uebersetzung": "Ich unterhalte mich mit dem fröhlichen Mädchen.", "erklaerung": "Instrumental feminin: -om. Im Stamm steckt ein l: vesel-.", "regel": "stamm_ao" },
+        { "satz": "Volim ___ ljude.", "grundform": "veseo", "loesung": "vesele", "distraktoren": ["veseli", "veselih", "vesela"], "uebersetzung": "Ich mag fröhliche Menschen.", "erklaerung": "Akkusativ Plural maskulin: -e. Im Stamm steckt ein l: vesel-.", "regel": "stamm_ao" },
+        { "satz": "Poznajem ___ dječaka.", "grundform": "veseo", "loesung": "veselog", "distraktoren": ["veseog", "veseli", "veselom"], "uebersetzung": "Ich kenne den fröhlichen Jungen.", "erklaerung": "Akkusativ belebt: -og. Im Stamm steckt ein l: vesel-.", "regel": "stamm_ao", "auch_richtig": ["veseloga"] },
+        { "satz": "Hranim ___ mačku.", "grundform": "debeo", "loesung": "debelu", "distraktoren": ["debela", "debeloj", "debeou"], "uebersetzung": "Ich füttere die dicke Katze.", "erklaerung": "Akkusativ feminin: -u. Im Stamm steckt ein l: debel-.", "regel": "stamm_ao" },
+        { "satz": "Imam ___ psa.", "grundform": "debeo", "loesung": "debelog", "distraktoren": ["debeog", "debeli", "debelom"], "uebersetzung": "Ich habe einen dicken Hund.", "erklaerung": "Akkusativ belebt: -og. Im Stamm steckt ein l: debel-.", "regel": "stamm_ao", "auch_richtig": ["debeloga"] },
+        { "satz": "Živim u ___ stanu.", "grundform": "svijetao", "loesung": "svijetlom", "distraktoren": ["svijetaom", "svijetlim", "svijetloj"], "uebersetzung": "Ich wohne in einer hellen Wohnung.", "erklaerung": "Lokativ maskulin: -om. Im Stamm steckt ein l: svijetl-.", "regel": "stamm_ao", "auch_richtig": ["svijetlome", "svijetlomu"] }
+      ]
+    },
+
+    {
+      "id": "selbst_schreiben",
+      "titel": "Selbst schreiben",
+      "niveau": "B1",
+      "icon": "fa-keyboard",
+      "typ": "frei",
+      "quelle": ["singular", "plural", "stolperfallen", "staemme"],
+      "beschreibung": "Ohne Auswahl: Schreib die passende Form selbst. Die Sätze kommen aus allen vier Sets davor.",
+      "aufgaben": []
+    },
+
+    {
+      "id": "erzaehltext",
+      "titel": "Erzähltext",
+      "niveau": "B1",
+      "icon": "fa-book-open",
+      "typ": "text",
+      "beschreibung": "Kleine Geschichten aus dem Alltag: Fünf Lücken je Text, alle Fälle bunt gemischt.",
+      "regeln": {
+        "nominativ": "Nominativ",
+        "genitiv": "Genitiv",
+        "dativ": "Dativ",
+        "akkusativ": "Akkusativ",
+        "instrumental": "Instrumental",
+        "lokativ": "Lokativ"
+      },
+      "aufgaben": [
+
+        { "titel": "Novi stan",
+          "text": "Prošlog mjeseca smo se preselili u ___ stan. Zgrada je blizu ___ parka. U ___ sobi spavaju djeca. Već smo upoznali ___ komšinicu. Ona živi s ___ psom.",
+          "uebersetzung": "Letzten Monat sind wir in eine neue Wohnung umgezogen. Das Gebäude ist nahe einem großen Park. Im kleinen Zimmer schlafen die Kinder. Wir haben schon die alte Nachbarin kennengelernt. Sie lebt mit einem kleinen Hund.",
+          "luecken": [
+            { "grundform": "nov", "loesung": "novi", "distraktoren": ["novom", "novog", "nova"], "regel": "akkusativ", "erklaerung": "Wohin? „u“ steht hier mit dem Akkusativ. „stan“ ist eine Sache, also wie der Nominativ: novi." },
+            { "grundform": "velik", "loesung": "velikog", "distraktoren": ["velikom", "veliki", "velike"], "regel": "genitiv", "erklaerung": "„blizu“ verlangt den Genitiv, „park“ ist maskulin: -og." },
+            { "grundform": "mali", "loesung": "maloj", "distraktoren": ["malom", "malu", "male"], "regel": "lokativ", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „soba“ ist feminin: -oj." },
+            { "grundform": "star", "loesung": "staru", "distraktoren": ["staroj", "stare", "stara"], "regel": "akkusativ", "erklaerung": "„komšinicu“ ist das Objekt und feminin: Akkusativ auf -u." },
+            { "grundform": "mali", "loesung": "malim", "distraktoren": ["malom", "malog", "mali"], "regel": "instrumental", "erklaerung": "„s“ steht hier mit dem Instrumental, „pas“ ist maskulin: -im." }
+          ] },
+
+        { "titel": "Na pijaci",
+          "text": "Subotom idem na ___ pijacu. Tamo kupujem sir iz ___ sela. Prodavačica daje ___ kupcu jabuku. Razgovaram s ___ komšinicom. Kući nosim ___ voće.",
+          "uebersetzung": "Samstags gehe ich auf den großen Markt. Dort kaufe ich Käse aus einem kleinen Dorf. Die Verkäuferin gibt dem jungen Kunden einen Apfel. Ich unterhalte mich mit der lieben Nachbarin. Nach Hause trage ich frisches Obst.",
+          "luecken": [
+            { "grundform": "velik", "loesung": "veliku", "distraktoren": ["velikoj", "velike", "velika"], "regel": "akkusativ", "erklaerung": "Wohin? „na“ steht hier mit dem Akkusativ, „pijaca“ ist feminin: -u." },
+            { "grundform": "mali", "loesung": "malog", "distraktoren": ["malom", "mali", "male"], "regel": "genitiv", "erklaerung": "„iz“ verlangt den Genitiv, „selo“ ist neutrum: -og." },
+            { "grundform": "mlad", "loesung": "mladom", "distraktoren": ["mladog", "mladi", "mladim"], "regel": "dativ", "erklaerung": "Wem gibt sie etwas? Das ist der Dativ. Maskulin: -om." },
+            { "grundform": "drag", "loesung": "dragom", "distraktoren": ["dragim", "dragu", "dragoj"], "regel": "instrumental", "erklaerung": "„s“ steht hier mit dem Instrumental, „komšinica“ ist feminin: -om." },
+            { "grundform": "svjež", "loesung": "svježe", "distraktoren": ["svježo", "svježi", "svježeg"], "regel": "akkusativ", "erklaerung": "Akkusativ neutrum. Nach ž wird aus -o die Form -e." }
+          ] },
+
+        { "titel": "Kod bake",
+          "text": "Ljeti putujemo u Bosnu ___ autom. Moja baka živi u ___ kući pored rijeke. Pred kućom je ___ drvo. Baka nam uvijek sprema ___ jelo. Uveče pričamo o ___ prijateljima.",
+          "uebersetzung": "Im Sommer reisen wir mit dem neuen Auto nach Bosnien. Meine Oma lebt in einem alten Haus am Fluss. Vor dem Haus ist ein hoher Baum. Die Oma kocht uns immer ein hausgemachtes Essen. Abends erzählen wir von alten Freunden.",
+          "luecken": [
+            { "grundform": "nov", "loesung": "novim", "distraktoren": ["novom", "novog", "novi"], "regel": "instrumental", "erklaerung": "Das Verkehrsmittel steht im Instrumental, „auto“ ist maskulin: -im." },
+            { "grundform": "star", "loesung": "staroj", "distraktoren": ["stare", "staru", "starom"], "regel": "lokativ", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „kuća“ ist feminin: -oj." },
+            { "grundform": "visok", "loesung": "visoko", "distraktoren": ["visoki", "visoka", "visokog"], "regel": "nominativ", "erklaerung": "„drvo“ ist hier Subjekt und neutrum: Nominativ auf -o." },
+            { "grundform": "domaći", "loesung": "domaće", "distraktoren": ["domaćo", "domaći", "domaćeg"], "regel": "akkusativ", "erklaerung": "Akkusativ neutrum. Nach ć wird aus -o die Form -e." },
+            { "grundform": "star", "loesung": "starim", "distraktoren": ["starih", "stari", "stare"], "regel": "lokativ", "erklaerung": "„o“ steht mit dem Lokativ. Im Plural: in allen Geschlechtern -im." }
+          ] },
+
+        { "titel": "Prvi dan na poslu",
+          "text": "Danas je moj prvi dan u ___ firmi. Šef me upoznaje s ___ radnikom. Sestri pišem ___ poruku. Nakon ___ dana idem kući. Tamo sve pričam ___ prijateljici.",
+          "uebersetzung": "Heute ist mein erster Tag in der neuen Firma. Der Chef macht mich mit einem jungen Arbeiter bekannt. Meiner Schwester schreibe ich eine kurze Nachricht. Nach einem schweren Tag gehe ich nach Hause. Dort erzähle ich alles der lieben Freundin.",
+          "luecken": [
+            { "grundform": "nov", "loesung": "novoj", "distraktoren": ["novu", "nove", "novom"], "regel": "lokativ", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „firma“ ist feminin: -oj." },
+            { "grundform": "mlad", "loesung": "mladim", "distraktoren": ["mladom", "mladog", "mladi"], "regel": "instrumental", "erklaerung": "„s“ steht hier mit dem Instrumental, „radnik“ ist maskulin: -im." },
+            { "grundform": "kratak", "loesung": "kratku", "distraktoren": ["kratka", "kratkoj", "kratakom"], "regel": "akkusativ", "erklaerung": "Akkusativ feminin: -u. Das zweite a aus „kratak“ fällt weg: kratk-." },
+            { "grundform": "težak", "loesung": "teškog", "distraktoren": ["težakog", "teško", "teškom"], "regel": "genitiv", "erklaerung": "„nakon“ verlangt den Genitiv. Maskulin: -og. Aus „težak“ wird tešk-." },
+            { "grundform": "drag", "loesung": "dragoj", "distraktoren": ["dragu", "drage", "dragom"], "regel": "dativ", "erklaerung": "Wem erzähle ich alles? Das ist der Dativ. Feminin: -oj." }
+          ] },
+
+        { "titel": "Kod ljekara",
+          "text": "Jutros idem kod ___ ljekara. On radi u ___ zgradi. Ljekar često pomaže ___ ljudima. Meni kaže da pijem ___ vodu. Kući se vraćam ___ autobusom.",
+          "uebersetzung": "Heute Morgen gehe ich zum neuen Arzt. Er arbeitet in einem hohen Gebäude. Der Arzt hilft oft alten Menschen. Mir sagt er, dass ich warmes Wasser trinken soll. Nach Hause fahre ich mit dem blauen Bus.",
+          "luecken": [
+            { "grundform": "nov", "loesung": "novog", "distraktoren": ["novom", "novi", "nove"], "regel": "genitiv", "erklaerung": "„kod“ verlangt den Genitiv, „ljekar“ ist maskulin: -og." },
+            { "grundform": "visok", "loesung": "visokoj", "distraktoren": ["visoku", "visoke", "visokom"], "regel": "lokativ", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „zgrada“ ist feminin: -oj." },
+            { "grundform": "star", "loesung": "starim", "distraktoren": ["starih", "stari", "stare"], "regel": "dativ", "erklaerung": "„pomagati“ verlangt den Dativ. Im Plural: in allen Geschlechtern -im." },
+            { "grundform": "topao", "loesung": "toplu", "distraktoren": ["topla", "toploj", "toplom"], "regel": "akkusativ", "erklaerung": "Akkusativ feminin: -u. Im Stamm steckt ein l: topl-." },
+            { "grundform": "plav", "loesung": "plavim", "distraktoren": ["plavom", "plavog", "plavi"], "regel": "instrumental", "erklaerung": "Das Verkehrsmittel steht im Instrumental, „autobus“ ist maskulin: -im." }
+          ] },
+
+        { "titel": "Rođendan",
+          "text": "Moja sestra slavi rođendan u ___ restoranu. Kupili smo joj ___ poklon. Dolazi mnogo ___ prijatelja. Djeca jedu tortu s ___ čokoladom. Na kraju svi pjevamo ___ pjesme.",
+          "uebersetzung": "Meine Schwester feiert ihren Geburtstag in einem schönen Restaurant. Wir haben ihr ein großes Geschenk gekauft. Es kommen viele liebe Freunde. Die Kinder essen Torte mit dunkler Schokolade. Am Ende singen wir alle bosnische Lieder.",
+          "luecken": [
+            { "grundform": "lijep", "loesung": "lijepom", "distraktoren": ["lijepog", "lijepi", "lijepoj"], "regel": "lokativ", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „restoran“ ist maskulin: -om." },
+            { "grundform": "velik", "loesung": "veliki", "distraktoren": ["velikog", "velikom", "velika"], "regel": "akkusativ", "erklaerung": "„poklon“ ist eine Sache, deshalb gleicht der Akkusativ dem Nominativ: veliki." },
+            { "grundform": "drag", "loesung": "dragih", "distraktoren": ["dragi", "dragim", "drage"], "regel": "genitiv", "erklaerung": "Bei zählbaren Dingen verlangt „mnogo“ den Genitiv Plural: -ih." },
+            { "grundform": "crn", "loesung": "crnom", "distraktoren": ["crnim", "crnu", "crnoj"], "regel": "instrumental", "erklaerung": "„s“ steht hier mit dem Instrumental, „čokolada“ ist feminin: -om." },
+            { "grundform": "bosanski", "loesung": "bosanske", "distraktoren": ["bosanski", "bosanskih", "bosanska"], "regel": "akkusativ", "erklaerung": "Akkusativ Plural feminin: -e." }
+          ] },
+
+        { "titel": "Zimski dan",
+          "text": "Napolju pada ___ snijeg. Djeca nose ___ jakne. Igraju se u ___ parku. Poslije igre piju čašu ___ čaja. Mama daje jabuku ___ dječaku.",
+          "uebersetzung": "Draußen fällt weißer Schnee. Die Kinder tragen warme Jacken. Sie spielen in einem kleinen Park. Nach dem Spiel trinken sie ein Glas heißen Tee. Mama gibt dem hungrigen Jungen einen Apfel.",
+          "luecken": [
+            { "grundform": "bijel", "loesung": "bijeli", "distraktoren": ["bijelog", "bijelom", "bijela"], "regel": "nominativ", "erklaerung": "„snijeg“ ist hier Subjekt und maskulin: Nominativ auf -i." },
+            { "grundform": "topao", "loesung": "tople", "distraktoren": ["topla", "toplih", "topli"], "regel": "akkusativ", "erklaerung": "Akkusativ Plural feminin: -e. Im Stamm steckt ein l: topl-." },
+            { "grundform": "mali", "loesung": "malom", "distraktoren": ["malog", "mali", "maloj"], "regel": "lokativ", "erklaerung": "Wo? „u“ steht hier mit dem Lokativ, „park“ ist maskulin: -om." },
+            { "grundform": "vruć", "loesung": "vrućeg", "distraktoren": ["vrućog", "vruće", "vrućem"], "regel": "genitiv", "erklaerung": "Nach „čašu“ steht der Genitiv, „čaj“ ist maskulin. Nach ć wird aus -og die Form -eg." },
+            { "grundform": "gladan", "loesung": "gladnom", "distraktoren": ["gladanom", "gladno", "gladnoj"], "regel": "dativ", "erklaerung": "Wem gibt sie etwas? Das ist der Dativ. Maskulin: -om. Das a aus „gladan“ fällt weg: gladn-." }
+          ] },
+
+        { "titel": "Izlet u Sarajevo",
+          "text": "Studenti vole ___ grad. Hodaju pored ___ rijeke. Na ___ trgu čekaju autobus. Profesor pokazuje put ___ studentima. Uveče razgovaraju s ___ prodavačicom.",
+          "uebersetzung": "Die Studenten lieben die alte Stadt. Sie gehen am kleinen Fluss entlang. Auf dem großen Platz warten sie auf den Bus. Der Professor zeigt den neuen Studenten den Weg. Abends unterhalten sie sich mit einer fröhlichen Verkäuferin.",
+          "luecken": [
+            { "grundform": "star", "loesung": "stari", "distraktoren": ["starog", "starom", "stara"], "regel": "akkusativ", "erklaerung": "„grad“ ist eine Sache, deshalb gleicht der Akkusativ dem Nominativ: stari." },
+            { "grundform": "mali", "loesung": "male", "distraktoren": ["maloj", "malu", "mala"], "regel": "genitiv", "erklaerung": "„pored“ verlangt den Genitiv, „rijeka“ ist feminin: -e." },
+            { "grundform": "velik", "loesung": "velikom", "distraktoren": ["velikog", "veliki", "velikoj"], "regel": "lokativ", "erklaerung": "Wo? „na“ steht hier mit dem Lokativ, „trg“ ist maskulin: -om." },
+            { "grundform": "nov", "loesung": "novim", "distraktoren": ["novih", "novi", "nove"], "regel": "dativ", "erklaerung": "Wem zeigt er den Weg? Das ist der Dativ. Im Plural: in allen Geschlechtern -im." },
+            { "grundform": "veseo", "loesung": "veselom", "distraktoren": ["veseom", "veselim", "veselu"], "regel": "instrumental", "erklaerung": "Instrumental feminin: -om. Im Stamm steckt ein l: vesel-." }
+          ] }
+      ]
+    }
+  ]
+}

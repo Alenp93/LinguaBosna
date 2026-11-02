@@ -183,6 +183,28 @@ analog zu WORKFLOW_Grammatikseiten.md:
 nicht, aus denselben Gründen wie bei den Grammatikseiten. Nach jeder neuen/geänderten
 Übung: Status-Tabelle in `WORKFLOW_Lernen.md` aktualisieren.
 
+## Kultur-Bereich erstellen – IMMER zuerst diese Datei lesen
+
+Seit November 2026 gibt es den Kultur-Bereich (Menüpunkt „Kultur“,
+`/Code/5_Kultur/kultur-uebersicht.html`). Arbeitsgrundlage, analog zu den Grammatikseiten:
+
+1. `WORKFLOW_Kultur.md` – Zweck, Rubriken, 8-Block-Aufbau, Tonalität und die Figur
+   „Tetka Fata“, Bildregeln (Lizenzen, KI-Bilder), NO-GOs, Prüfweg, Status-Tabelle
+2. `TEMPLATE_Kultur_Beitrag.html` – Vorlage mit `[ECKIGEN KLAMMERN]`
+3. `test_kultur_beitrag.py` – Pflicht-Prüfung nach jedem neuen/geänderten Beitrag
+   (auch für `kultur-uebersicht.html`); dazu wie immer `bosnisch-pruefer`
+4. `.claude/agents/kultur-pruefer.md` – Subagent für die unabhängige **inhaltliche**
+   Prüfung (Fakten per Websuche, Mythen, NO-GOs, Ausgewogenheit, Ton/Tetka Fata,
+   Bildregeln). MUSS nach jedem neuen/geänderten Kultur-Beitrag laufen, zusätzlich zu
+   Skript und `bosnisch-pruefer`. Nur Leserechte, korrigiert nichts, liefert eine
+   ✓/⚠-Liste zur Entscheidung durch Alen.
+
+Kurz die festen Entscheidungen (Details nur in der Workflow-Datei): Kultur ist der
+Einstieg zur Sprache, kein eigener Blog. Jeder Beitrag verlinkt Wörter ins Wörterbuch
+(`?q=`, **nie** `?kapitel=N`). Das Kulturverständnis ist offen bosnisch-herzegowinisch,
+Restaurants werden nie namentlich genannt, es gibt keine eigene Farbe pro Rubrik, und
+etwa ein Beitrag pro Woche erscheint.
+
 ## Vokabular-System
 
 - Kanonische Datei: `vokabeln_flat.json` – ca. 3.391 Einträge über 110 Kapitel (A1–C2)
@@ -510,6 +532,10 @@ die andere.
 Für Lernen-Übungen gilt der Sprach-Check (bosnisch-pruefer) ebenso; die Struktur-Prüfung
 läuft dort über `test_lernen_uebung.py` (siehe `WORKFLOW_Lernen.md`, Abschnitt 6).
 
+Für Kultur-Beiträge sind es drei Prüfungen: `test_kultur_beitrag.py` (Struktur),
+`bosnisch-pruefer` (Sprache) und `kultur-pruefer` (Fakten, NO-GOs, Ton) – siehe
+`WORKFLOW_Kultur.md`, Abschnitt 8.
+
 **Vokabel-Prüfung (nach jeder Änderung an `vokabeln_flat.json`, verbindlich):**
 - `python test_vokabeln.py` prüft die Regeln aus dem Abschnitt „Vokabular-System"
   maschinell nach: Wortart-Konvention (`Wortart (Genus)` vs. `Wortart`), ein Niveau je
@@ -584,9 +610,11 @@ playwright install chromium
 
 ## Pausierte / auskommentierte Bereiche
 
-Kultur- und Blog-Navigationslinks in `LB_header.html` sind bewusst auskommentiert
-(Inhalte noch nicht fertig) – nicht versehentlich reaktivieren. Ebenso die
-Kultur-Feature-Karte in `LB_1_Startseite.html`.
+Der Blog-Navigationslink in `LB_header.html` ist bewusst auskommentiert
+(Inhalte noch nicht fertig) – nicht versehentlich reaktivieren.
+
+Der „Kultur“-Menüpunkt und die Kultur-Feature-Karte auf der Startseite
+(`index.html`) sind seit November 2026 **aktiv** (siehe „Kultur-Bereich“ oben).
 
 Der „Lernen"-Menüpunkt ist dagegen **aktiv** (`LB_header.html`, verlinkt auf
 `/Code/4_Lernen/lernen-uebersicht.html`), seit die ersten Übungen (Lückentext,
@@ -601,7 +629,8 @@ Aspektpaare) fertig sind.
   Console einrichten, Long-Tail-Keywords, dediziertes 1200×630-OG-Bild
 - Audio-Feature reaktivieren (Google Cloud TTS Free Tier)
 - Mögliche zukünftige englische Version (nach Phase 3; JSON hat bereits English-Feldgrundlage)
-- Kultur-/Blog-Sektionen aktivieren, sobald Grammatik weiter fortgeschritten ist
+- Kultur-Bereich ausbauen (ca. 1 Beitrag/Woche, Plan in `WORKFLOW_Kultur.md`, Abschnitt 11);
+  Blog-Sektion erst später aktivieren
 - **Falls je eine KI-Funktion eingebaut wird** (z. B. Chat-Hilfe, automatische
   Übersetzungs-/Grammatikprüfung mit einem LLM): dann Schutz gegen Prompt-Injection
   konkret mitplanen (klare Trennung System-Prompt/Nutzereingabe, Behandlung von

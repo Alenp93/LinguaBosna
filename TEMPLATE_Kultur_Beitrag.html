@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       TEMPLATE_Kultur_Beitrag.html
+       Vorlage für alle Beiträge im Kultur-Bereich | LinguaBosna
+
+       ────────────────────────────────────────────────────
+       SO WIRD DIE VORLAGE BENUTZT
+       ────────────────────────────────────────────────────
+       Verbindliche Regeln: WORKFLOW_Kultur.md (zuerst lesen!)
+
+       1. Datei kopieren nach /Code/5_Kultur/ und umbenennen:
+          kultur-[thema].html  (klein, Bindestriche, NUR ASCII –
+          also kultur-cevapi.html, nicht kultur-ćevapi.html)
+
+       2. Alle Stellen mit [ECKIGEN KLAMMERN] ersetzen.
+          Suche nach "[" um keine zu übersehen. [TITEL] und
+          [BESCHREIBUNG] kommen mehrfach vor (Title, OG, Twitter,
+          JSON-LD) – ALLE ersetzen.
+
+       3. Die 8 Blöcke füllen (Reihenfolge NICHT verändern):
+          1 Kopf          – Rubrik, Titel, Unterzeile, Lesezeit, Bild
+          2 Auf einen Blick – genau 3 Stichpunkte
+          3 Abschnitte    – 2 bis 4, Überschrift als Frage,
+                            je höchstens ~120 Wörter
+          4 Interaktiv    – optional, ganzen Block löschen, wenn keiner
+          5 Wörter        – 5 bis 10 Wörter, Link zur Wörterbuch-Suche
+          6 Mini-Quiz     – 4 bis 6 Fragen (JSON unten), HTML nicht anfassen
+          7 Weiter geht's – 2 bis 4 Links (Kultur, Grammatik, Lernen)
+          8 Quellen       – Quellen + Bildnachweis
+
+       4. Prüfen: test_kultur_beitrag.py (Struktur), Subagent
+          bosnisch-pruefer (Sprache) und Subagent kultur-pruefer
+          (Fakten, NO-GOs, Ton) – siehe WORKFLOW_Kultur.md, Abschnitt 8.
+
+       5. Danach: Karte in kultur-uebersicht.html von „Demnächst"
+          auf aktiven Link umstellen (oder neu anlegen).
+
+       FESTE REGELN (nie ändern):
+       - Quiz-IDs (quizContainer, quizQuestion, …)
+       - Pfade beginnen mit /Code/ bzw. /Bilder/ (absolut!)
+       - Jedes bosnische Wort im Text: <strong lang="bs">wort</strong>
+       - Keine ?kapitel=N-Links (Kapitelnummern können sich ändern)
+       ====================================================== -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO: Titel, Beschreibung, Canonical ─────────────────────
+       [thema] = Dateiname ohne "kultur-" und ohne ".html"          -->
+  <title>LinguaBosna – [TITEL]</title>
+  <meta name="description" content="[BESCHREIBUNG: ca. 150 Zeichen. Macht neugierig, nennt das Thema und 1–2 bosnische Stichwörter.]">
+  <link rel="canonical" href="https://linguabosna.com/Code/5_Kultur/kultur-[thema].html">
+
+  <!-- ── Open Graph (Vorschau beim Teilen auf WhatsApp/Instagram/…)
+       og:image: das Beitragsbild als ABSOLUTE URL (ideal 1200×630).
+       Solange es keins gibt, bleibt das Logo stehen.               -->
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="LinguaBosna – [TITEL]">
+  <meta property="og:description" content="[BESCHREIBUNG wie oben]">
+  <meta property="og:url"         content="https://linguabosna.com/Code/5_Kultur/kultur-[thema].html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ─────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – [TITEL]">
+  <meta name="twitter:description" content="[BESCHREIBUNG wie oben]">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+
+  <!-- Basisstyles + Kultur-Styles -->
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/5_Kultur/Style_5_Kultur.css">
+  <!-- defer: blockiert das Rendern nicht -->
+  <script src="/Code/LB_main.js" defer></script>
+  <script src="/Code/5_Kultur/kultur.js" defer></script>
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+  <!-- ── Strukturierte Daten (schema.org / JSON-LD) ───────────────
+       [DATUM] im Format JJJJ-MM-TT (z. B. 2026-11-02).
+       dateModified bei jeder inhaltlichen Änderung anpassen.
+       Nach dem Ausfüllen prüfen: https://validator.schema.org/    -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "[TITEL]",
+        "description": "[BESCHREIBUNG wie oben]",
+        "url": "https://linguabosna.com/Code/5_Kultur/kultur-[thema].html",
+        "mainEntityOfPage": "https://linguabosna.com/Code/5_Kultur/kultur-[thema].html",
+        "image": "https://linguabosna.com/Bilder/logo/Logo-Version2.png",
+        "inLanguage": "de",
+        "datePublished": "[DATUM]",
+        "dateModified": "[DATUM]",
+        "isAccessibleForFree": true,
+        "articleSection": "Kultur – [RUBRIK]",
+        "author":    { "@type": "Organization", "name": "LinguaBosna", "url": "https://linguabosna.com/" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/",
+          "logo": { "@type": "ImageObject", "url": "https://linguabosna.com/Bilder/logo/Logo-Version2.png" }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Kultur", "item": "https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html" },
+          { "@type": "ListItem", "position": 2, "name": "[TITEL]" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body class="kultur-beitrag">
+
+  <div id="header"></div>
+
+  <main>
+
+    <!-- =====================================================
+         BLOCK 1 — KOPF
+         Rubrik = einer der Namen aus WORKFLOW_Kultur.md, Abschnitt 2.
+         Lesezeit: Wortzahl ÷ 200, aufgerundet
+         (test_kultur_beitrag.py rechnet nach und meldet Abweichungen).
+         ===================================================== -->
+    <nav class="breadcrumb" aria-label="Brotkrümel-Navigation">
+      <a href="/Code/5_Kultur/kultur-uebersicht.html">Kultur</a>
+      <span class="breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+      <span>[TITEL KURZ]</span>
+    </nav>
+
+    <span class="kultur-rubrik">[RUBRIK]</span>
+    <h1>[TITEL]</h1>
+    <p class="kultur-unterzeile">[UNTERZEILE: 1 Satz mit Augenzwinkern, der neugierig macht.]</p>
+    <p class="kultur-meta"><i class="far fa-clock" aria-hidden="true"></i>[N] Min. Lesezeit</p>
+
+    <!-- Beitragsbild. Bildregeln: WORKFLOW_Kultur.md, Abschnitt 6.
+         - Datei unter /Bilder/kultur/[thema].webp, ~1200px breit, < 250 KB
+         - width/height angeben (verhindert Springen beim Laden)
+         - figcaption mit Bildnachweis ist PFLICHT
+           („Foto: Name / Plattform (Lizenz)" oder „Bild: KI-generiert (Werkzeug)")
+         Ganz ohne Bild: den <figure>-Block einfach löschen. -->
+    <figure class="kultur-bild">
+      <img src="/Bilder/kultur/[thema].webp" width="1200" height="675"
+           alt="[ALT-TEXT: Was ist auf dem Bild zu sehen? 1 Satz.]">
+      <figcaption>[BILDUNTERSCHRIFT optional] · Foto: [URHEBER] / [PLATTFORM] ([LIZENZ])</figcaption>
+    </figure>
+
+
+    <!-- =====================================================
+         BLOCK 2 — AUF EINEN BLICK
+         Genau 3 Stichpunkte, je 1 Satz. Wer nur diesen Kasten
+         liest, soll das Wichtigste trotzdem mitnehmen.
+         ===================================================== -->
+    <section class="kultur-blick" aria-labelledby="blick-titel">
+      <h2 id="blick-titel">Auf einen Blick</h2>
+      <ul>
+        <li>[KERNAUSSAGE 1]</li>
+        <li>[KERNAUSSAGE 2]</li>
+        <li>[KERNAUSSAGE 3]</li>
+      </ul>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 3 — ABSCHNITTE
+         2 bis 4 Abschnitte. Überschrift als Frage formulieren.
+         Je Abschnitt höchstens ~120 Wörter – lieber ein Abschnitt
+         mehr als ein langer.
+         Optional pro Abschnitt: eine „Wusstest du?"-Box.
+         Pro Beitrag 1–2 „Tetka Fata meint"-Boxen (Regeln zur Figur:
+         WORKFLOW_Kultur.md, Abschnitt 4).
+         ===================================================== -->
+    <section class="kultur-abschnitt">
+      <h2>[FRAGE 1?]</h2>
+      <p>[TEXT. Bosnische Wörter so: <strong lang="bs">wort</strong>.]</p>
+
+      <div class="kultur-wusstest">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        <p><strong>Wusstest du?</strong> [ÜBERRASCHENDER FAKT in 1–3 Sätzen.]</p>
+      </div>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>[FRAGE 2?]</h2>
+      <p>[TEXT]</p>
+
+      <!-- Optional: Begriffsliste (bosnisches Wort + Erklärung) -->
+      <dl class="kultur-begriffe">
+        <dt lang="bs">[WORT]</dt><dd>[ERKLÄRUNG]</dd>
+        <dt lang="bs">[WORT]</dt><dd>[ERKLÄRUNG]</dd>
+      </dl>
+
+      <aside class="kultur-tetka" aria-label="Tetka Fata meint">
+        <div class="kultur-tetka-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+        <div class="kultur-tetka-blase">
+          <span class="kultur-tetka-name">Tetka Fata meint</span>
+          <p>[1–3 SÄTZE in Tetka Fatas Stimme. Warm, neugierig, nie verletzend.]</p>
+        </div>
+      </aside>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 4 — INTERAKTIV (optional)
+         Nur der Rahmen ist einheitlich. Die Logik kommt als eigenes
+         <script> ans Ende dieser Datei. Buttons: class="kultur-wahl-btn"
+         (min. 44px hoch, aria-pressed für den gewählten Zustand).
+         Braucht der Beitrag kein interaktives Element: Block löschen.
+         ===================================================== -->
+    <section class="kultur-interaktiv" aria-labelledby="interaktiv-titel">
+      <h2 id="interaktiv-titel"><i class="fas fa-[ICON]" aria-hidden="true"></i> [TITEL DES ELEMENTS]</h2>
+      <p class="kultur-interaktiv-hinweis">[1 SATZ: Was kann man hier ausprobieren?]</p>
+      <!-- [INHALT DES ELEMENTS] -->
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 5 — WÖRTER AUS DIESEM BEITRAG
+         5 bis 10 Wörter. Wortform IMMER aus vokabeln_flat.json.
+         Link = Wörterbuch-Suche: ?q= + Wort (Sonderzeichen dürfen
+         so stehen bleiben, der Browser kodiert sie selbst).
+         ===================================================== -->
+    <section class="kultur-woerter" aria-labelledby="woerter-titel">
+      <h2 id="woerter-titel">Wörter aus diesem Beitrag</h2>
+      <ul>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=[wort]"><span class="wort" lang="bs">[wort]</span><span class="bedeutung">[Bedeutung]</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=[wort]"><span class="wort" lang="bs">[wort]</span><span class="bedeutung">[Bedeutung]</span></a></li>
+      </ul>
+      <p class="kultur-woerter-hinweis">Alle Wörter findest du im <a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html">Wörterbuch</a> und im <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html">Vokabeltrainer</a>.</p>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 6 — MINI-QUIZ
+         HTML NICHT VERÄNDERN. Fragen stehen unten im JSON-Block
+         (id="kulturQuizDaten"), die Logik in /Code/5_Kultur/kultur.js.
+         ===================================================== -->
+    <section class="kultur-quiz" aria-labelledby="quiz-titel">
+      <h2 id="quiz-titel">Hast du aufgepasst?</h2>
+
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <span id="quizProgress">Frage 1</span>
+          <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBarFill"></div></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion" aria-live="polite"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback hidden" id="quizFeedback" aria-live="polite"></div>
+        <button type="button" class="quiz-next-btn hidden" id="quizNextBtn">Nächste Frage →</button>
+      </div>
+
+      <div class="quiz-result hidden" id="quizResult">
+        <i class="fas fa-trophy" aria-hidden="true"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <button type="button" class="quiz-retry-btn" id="quizRetryBtn">Quiz wiederholen</button>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 7 — WEITER GEHT'S
+         2 bis 4 Links: ein weiterer Kultur-Beitrag, eine passende
+         Grammatikseite oder Lernen-Übung. Jeder Beitrag führt
+         zurück zur Sprache – das ist der Sinn des Bereichs.
+         ===================================================== -->
+    <section class="kultur-weiter" aria-labelledby="weiter-titel">
+      <h2 id="weiter-titel">Weiter geht's</h2>
+      <div class="kultur-weiter-grid">
+        <a href="[ABSOLUTER PFAD]">
+          <i class="fas fa-[ICON]" aria-hidden="true"></i>
+          <span><strong>[LINKTITEL]</strong>[1 Satz, warum es passt.]</span>
+        </a>
+        <a href="[ABSOLUTER PFAD]">
+          <i class="fas fa-[ICON]" aria-hidden="true"></i>
+          <span><strong>[LINKTITEL]</strong>[1 Satz, warum es passt.]</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 8 — QUELLEN & BILDNACHWEIS
+         Jede Faktenaussage braucht intern eine Quelle. Hier stehen
+         die wichtigsten 1–4. Bildnachweise stehen zusätzlich direkt
+         am Bild (figcaption).
+         ===================================================== -->
+    <section class="kultur-quellen" aria-labelledby="quellen-titel">
+      <h2 id="quellen-titel">Quellen &amp; Bildnachweis</h2>
+      <ul>
+        <li>[QUELLE 1: Autor, Titel, Jahr – oder Website mit Abrufdatum]</li>
+        <li>[BILDNACHWEIS bzw. „Illustration: LinguaBosna"]</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       QUIZ-DATEN (JSON)
+       - 4 bis 6 Fragen, je genau 3 Optionen
+       - "richtig" = Index der richtigen Option (0, 1 oder 2),
+         über die Fragen streuen (nicht immer dieselbe Stelle)
+       - Anführungszeichen im Text: typografisch („ “) – ein
+         gerades " würde das JSON beenden
+       - ergebnis.top = alles richtig, gut = ab 60 %, rest = darunter
+       ====================================================== -->
+  <script type="application/json" id="kulturQuizDaten">
+  {
+    "fragen": [
+      {
+        "frage": "[FRAGE 1]",
+        "optionen": ["[OPTION A]", "[OPTION B]", "[OPTION C]"],
+        "richtig": 0,
+        "erklaerung": "[ERKLÄRUNG 1]"
+      },
+      {
+        "frage": "[FRAGE 2]",
+        "optionen": ["[OPTION A]", "[OPTION B]", "[OPTION C]"],
+        "richtig": 1,
+        "erklaerung": "[ERKLÄRUNG 2]"
+      },
+      {
+        "frage": "[FRAGE 3]",
+        "optionen": ["[OPTION A]", "[OPTION B]", "[OPTION C]"],
+        "richtig": 2,
+        "erklaerung": "[ERKLÄRUNG 3]"
+      },
+      {
+        "frage": "[FRAGE 4]",
+        "optionen": ["[OPTION A]", "[OPTION B]", "[OPTION C]"],
+        "richtig": 1,
+        "erklaerung": "[ERKLÄRUNG 4]"
+      }
+    ],
+    "ergebnis": {
+      "top":  "[ALLES RICHTIG: Lob, gern in Tetka-Fata-Ton] 🎉",
+      "gut":  "[GUT: Lob + Hinweis, was man nochmal lesen kann]",
+      "rest": "Kein Problem – lies den Beitrag in Ruhe nochmal und versuch es erneut!"
+    }
+  }
+  </script>
+
+  <!-- Optional: Skript für das interaktive Element (Block 4) -->
+
+</body>
+</html>

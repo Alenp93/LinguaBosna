@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       kultur-uebersicht.html — Kultur-Übersichtsseite
+       LinguaBosna
+
+       Kartenraster aller Kultur-Beiträge. Regeln für neue Karten:
+       WORKFLOW_Kultur.md, Abschnitt 9.
+
+       - Aktiver Beitrag:  <a class="kultur-card" href="…" data-rubrik="…">
+       - Geplant:          <div class="kultur-card demnaechst" data-rubrik="…">
+       - data-rubrik = Schlüssel aus WORKFLOW_Kultur.md, Abschnitt 2
+       - Neueste Beiträge stehen VORN.
+
+       Der Rubrik-Filter über dem Raster wird von kultur.js aus den
+       Karten erzeugt – hier muss dafür nichts gepflegt werden. Ohne
+       JavaScript bleibt er unsichtbar (class="hidden") und alle
+       Karten sind zu sehen.
+       ====================================================== -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>LinguaBosna – Kultur</title>
+  <meta name="description" content="Bosnische Kultur kurz und mit Augenzwinkern erklärt: Familie, Essen, Musik, Bräuche und Geschichte aus Bosnien und Herzegowina – mit den passenden Wörtern.">
+  <link rel="canonical" href="https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html">
+
+  <!-- ── Open Graph ─────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="LinguaBosna – Kultur">
+  <meta property="og:description" content="Bosnische Kultur kurz und mit Augenzwinkern erklärt: Familie, Essen, Musik, Bräuche und Geschichte aus Bosnien und Herzegowina – mit den passenden Wörtern.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Kultur">
+  <meta name="twitter:description" content="Bosnische Kultur kurz und mit Augenzwinkern erklärt: Familie, Essen, Musik, Bräuche und Geschichte aus Bosnien und Herzegowina – mit den passenden Wörtern.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/5_Kultur/Style_5_Kultur.css">
+  <script src="/Code/LB_main.js" defer></script>
+  <script src="/Code/5_Kultur/kultur.js" defer></script>
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+  <!-- ── Strukturierte Daten (schema.org / JSON-LD) ─────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Kultur",
+    "description": "Bosnische Kultur kurz und mit Augenzwinkern erklärt: Familie, Essen, Musik, Bräuche und Geschichte aus Bosnien und Herzegowina.",
+    "url": "https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html",
+    "inLanguage": "de",
+    "isPartOf": { "@type": "WebSite", "name": "LinguaBosna", "url": "https://linguabosna.com/" }
+  }
+  </script>
+
+</head>
+<body class="kultur-uebersicht">
+
+  <div id="header"></div>
+
+  <main>
+
+    <h1>Kultur</h1>
+    <p class="kultur-untertitel">Familie, Essen, Musik und Bräuche aus Bosnien und Herzegowina – kurz erklärt, mit einem Augenzwinkern und den passenden Wörtern.</p>
+
+    <!-- Begrüßung durch Tetka Fata (die wiederkehrende Figur des Bereichs) -->
+    <aside class="kultur-tetka" aria-label="Tetka Fata begrüßt dich">
+      <div class="kultur-tetka-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+      <div class="kultur-tetka-blase">
+        <span class="kultur-tetka-name">Tetka Fata</span>
+        <p><span lang="bs">Hajde, sjedi!</span> Ich bin Tetka Fata. Hier erzähle ich dir, wie es bei uns zugeht – von der Familie bis zur Pita. Der Kaffee ist schon fertig.</p>
+      </div>
+    </aside>
+
+    <!-- Rubrik-Filter: Buttons erzeugt kultur.js aus den Karten -->
+    <div class="kultur-filter hidden" role="group" aria-label="Nach Rubrik filtern"></div>
+
+    <div class="kultur-grid">
+
+      <!-- ── Familien-Stammbaum — AKTIV ── -->
+      <a href="/Code/5_Kultur/kultur-familie-stammbaum.html" class="kultur-card" data-rubrik="familie">
+        <div class="kultur-card-bild" aria-hidden="true"><i class="fas fa-people-roof"></i></div>
+        <div class="kultur-card-body">
+          <span class="kultur-card-rubrik">Familie &amp; Zusammenleben</span>
+          <h3><span lang="bs">Amidža, daidža, zet</span> – wer ist hier eigentlich wer?</h3>
+          <p>Im Bosnischen hat fast jeder Verwandte sein eigenes Wort. Mit Stammbaum-Rechner zum Ausprobieren.</p>
+          <span class="kultur-card-meta"><i class="far fa-clock" aria-hidden="true"></i>3 Min. Lesezeit</span>
+        </div>
+      </a>
+
+      <!-- ── Geplante Beiträge (Demnächst) ── -->
+      <div class="kultur-card demnaechst" data-rubrik="essen">
+        <div class="kultur-card-bild" aria-hidden="true"><i class="fas fa-utensils"></i></div>
+        <div class="kultur-card-body">
+          <span class="kultur-card-rubrik">Essen &amp; Trinken</span>
+          <h3>Burek oder Sirnica?</h3>
+          <p>Warum in Bosnien nicht jede Pita ein Burek ist – und warum das wichtig ist.</p>
+          <span class="soon-badge"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Demnächst</span>
+        </div>
+      </div>
+
+      <div class="kultur-card demnaechst" data-rubrik="essen">
+        <div class="kultur-card-bild" aria-hidden="true"><i class="fas fa-fire"></i></div>
+        <div class="kultur-card-body">
+          <span class="kultur-card-rubrik">Essen &amp; Trinken</span>
+          <h3>Ćevapi: Woran erkennst du gute?</h3>
+          <p>Somun, Zwiebeln, Kajmak – und wie man richtig bestellt.</p>
+          <span class="soon-badge"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Demnächst</span>
+        </div>
+      </div>
+
+      <div class="kultur-card demnaechst" data-rubrik="essen">
+        <div class="kultur-card-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+        <div class="kultur-card-body">
+          <span class="kultur-card-rubrik">Essen &amp; Trinken</span>
+          <h3>Bosanska kahva</h3>
+          <p>Džezva, Fildžan, Rahat lokum: ein Kaffee, der nie nur ein Kaffee ist.</p>
+          <span class="soon-badge"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Demnächst</span>
+        </div>
+      </div>
+
+      <div class="kultur-card demnaechst" data-rubrik="musik">
+        <div class="kultur-card-bild" aria-hidden="true"><i class="fas fa-music"></i></div>
+        <div class="kultur-card-body">
+          <span class="kultur-card-rubrik">Musik &amp; Tanz</span>
+          <h3>Was ist eigentlich Sevdah?</h3>
+          <p>Ein Gefühl, ein Liedstil und ein Wort, das sich kaum übersetzen lässt.</p>
+          <span class="soon-badge"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Demnächst</span>
+        </div>
+      </div>
+
+      <div class="kultur-card demnaechst" data-rubrik="geschichte">
+        <div class="kultur-card-bild" aria-hidden="true"><i class="fas fa-monument"></i></div>
+        <div class="kultur-card-body">
+          <span class="kultur-card-rubrik">Geschichte &amp; Schrift</span>
+          <h3>Stećci &amp; Bosančica</h3>
+          <p>Mittelalterliche Grabsteine und eine eigene Schrift – Bosniens steinernes Gedächtnis.</p>
+          <span class="soon-badge"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Demnächst</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="footer"></div>
+
+</body>
+</html>

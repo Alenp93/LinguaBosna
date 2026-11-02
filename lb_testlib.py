@@ -151,6 +151,7 @@ SKIP_NAMES = {
     "LB_header.html",
     "LB_footer.html",
     "TEMPLATE_Grammatik_Detailseite.html",
+    "TEMPLATE_Kultur_Beitrag.html",
 }
 
 

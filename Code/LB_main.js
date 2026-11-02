@@ -214,6 +214,7 @@ window.LBSuche = (function () {
                 if (pfad.indexOf('/Code/3_Grammatik/') !== -1 ||
                     pfad.indexOf('/Code/1_Startseite/LB_3_Grammatik.html') !== -1) return 'grammatik';
                 if (pfad.indexOf('/Code/4_Lernen/') !== -1) return 'lernen';
+                if (pfad.indexOf('/Code/5_Kultur/') !== -1) return 'kultur';
                 return null;
             }
 

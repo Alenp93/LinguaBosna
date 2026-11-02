@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       kultur-familie-stammbaum.html
+       Kultur-Beitrag: Bosnische Verwandtschaftswörter | LinguaBosna
+       Rubrik: Familie & Zusammenleben · Typ: Wer ist wer?
+       Erstellt aus TEMPLATE_Kultur_Beitrag.html – Regeln in
+       WORKFLOW_Kultur.md.
+
+       Besonderheit: Der Stammbaum-Rechner (Block 4) liest seine
+       Daten aus der Tabelle „Alle Verwandten auf einen Blick"
+       darunter. Wer ein Wort ändern will, ändert es NUR in der
+       Tabelle – der Rechner übernimmt es automatisch.
+       ====================================================== -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ─────────────────────────────────────────────────── -->
+  <title>LinguaBosna – Amidža, daidža, zet: Bosnische Verwandtschaft</title>
+  <meta name="description" content="Amidža, daidža, tetak, zet, jetrva: Warum das Bosnische für fast jeden Verwandten ein eigenes Wort hat – mit Stammbaum-Rechner zum Ausprobieren.">
+  <link rel="canonical" href="https://linguabosna.com/Code/5_Kultur/kultur-familie-stammbaum.html">
+
+  <!-- ── Open Graph ─────────────────────────────────────────────── -->
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="LinguaBosna – Amidža, daidža, zet: Bosnische Verwandtschaft">
+  <meta property="og:description" content="Amidža, daidža, tetak, zet, jetrva: Warum das Bosnische für fast jeden Verwandten ein eigenes Wort hat – mit Stammbaum-Rechner zum Ausprobieren.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/5_Kultur/kultur-familie-stammbaum.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Amidža, daidža, zet: Bosnische Verwandtschaft">
+  <meta name="twitter:description" content="Amidža, daidža, tetak, zet, jetrva: Warum das Bosnische für fast jeden Verwandten ein eigenes Wort hat – mit Stammbaum-Rechner zum Ausprobieren.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/5_Kultur/Style_5_Kultur.css">
+  <script src="/Code/LB_main.js" defer></script>
+  <script src="/Code/5_Kultur/kultur.js" defer></script>
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+  <!-- ── Strukturierte Daten (schema.org / JSON-LD) ─────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Amidža, daidža, zet – wer ist hier eigentlich wer?",
+        "description": "Amidža, daidža, tetak, zet, jetrva: Warum das Bosnische für fast jeden Verwandten ein eigenes Wort hat – mit Stammbaum-Rechner zum Ausprobieren.",
+        "url": "https://linguabosna.com/Code/5_Kultur/kultur-familie-stammbaum.html",
+        "mainEntityOfPage": "https://linguabosna.com/Code/5_Kultur/kultur-familie-stammbaum.html",
+        "image": "https://linguabosna.com/Bilder/logo/Logo-Version2.png",
+        "inLanguage": "de",
+        "datePublished": "2026-11-02",
+        "dateModified": "2026-11-02",
+        "isAccessibleForFree": true,
+        "articleSection": "Kultur – Familie & Zusammenleben",
+        "author":    { "@type": "Organization", "name": "LinguaBosna", "url": "https://linguabosna.com/" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/",
+          "logo": { "@type": "ImageObject", "url": "https://linguabosna.com/Bilder/logo/Logo-Version2.png" }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Kultur", "item": "https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html" },
+          { "@type": "ListItem", "position": 2, "name": "Amidža, daidža, zet – wer ist hier eigentlich wer?" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body class="kultur-beitrag">
+
+  <div id="header"></div>
+
+  <main>
+
+    <!-- =====================================================
+         BLOCK 1 — KOPF
+         ===================================================== -->
+    <nav class="breadcrumb" aria-label="Brotkrümel-Navigation">
+      <a href="/Code/5_Kultur/kultur-uebersicht.html">Kultur</a>
+      <span class="breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+      <span>Bosnische Verwandtschaft</span>
+    </nav>
+
+    <span class="kultur-rubrik">Familie &amp; Zusammenleben</span>
+    <h1><span lang="bs">Amidža, daidža, zet</span> – wer ist hier eigentlich wer?</h1>
+    <p class="kultur-unterzeile">Im Deutschen ist man einfach „der Onkel“. Im Bosnischen will die Familie es genauer wissen.</p>
+    <p class="kultur-meta"><i class="far fa-clock" aria-hidden="true"></i>3 Min. Lesezeit</p>
+
+    <!-- Kopfbild: eigene SVG-Illustration (keine Bildrechte nötig).
+         Drei Generationen: oben die Großeltern beider Seiten, in der
+         Mitte Eltern mit ihren Geschwistern, unten „ich" (gold) mit
+         Schwester. Rein dekorativ (aria-hidden), die Bildunterschrift
+         sagt, worum es geht. -->
+    <figure class="kultur-bild">
+      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="stammbaumVerlauf" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0A3D62"/>
+            <stop offset="1" stop-color="#1a5876"/>
+          </linearGradient>
+          <!-- Eine Person: Kopf + Schultern, um (0,0) zentriert -->
+          <g id="person">
+            <circle cx="0" cy="-14" r="12"/>
+            <path d="M-18 20 Q-18 2 0 2 Q18 2 18 20 Z"/>
+          </g>
+        </defs>
+        <rect width="800" height="300" rx="14" fill="url(#stammbaumVerlauf)"/>
+
+        <!-- Verbindungslinien -->
+        <g stroke="#ffffff" stroke-opacity="0.4" stroke-width="3" fill="none">
+          <!-- Großeltern väterlicherseits → amidža, tetka, babo -->
+          <path d="M190 75 H230 M210 75 V112 M110 112 H290 M110 112 V128 M190 112 V128 M290 112 V128"/>
+          <!-- Großeltern mütterlicherseits → mama, daidža, tetka -->
+          <path d="M570 75 H610 M590 75 V112 M510 112 H690 M510 112 V128 M610 112 V128 M690 112 V128"/>
+          <!-- babo + mama → ich + Schwester -->
+          <path d="M310 165 H490 M400 165 V205 M365 205 H435 M365 205 V218 M435 205 V218"/>
+        </g>
+
+        <!-- Personen -->
+        <g fill="#ffffff" fill-opacity="0.85">
+          <use href="#person" x="170" y="70"/>
+          <use href="#person" x="250" y="70"/>
+          <use href="#person" x="550" y="70"/>
+          <use href="#person" x="630" y="70"/>
+          <use href="#person" x="110" y="160"/>
+          <use href="#person" x="190" y="160"/>
+          <use href="#person" x="290" y="160"/>
+          <use href="#person" x="510" y="160"/>
+          <use href="#person" x="610" y="160"/>
+          <use href="#person" x="690" y="160"/>
+          <use href="#person" x="435" y="250"/>
+        </g>
+        <!-- „Ich" in Gold -->
+        <g fill="#F4C542">
+          <use href="#person" x="365" y="250"/>
+        </g>
+      </svg>
+      <figcaption>Wer gehört zu wem? Im Bosnischen hat fast jeder Platz im Stammbaum sein eigenes Wort. · Illustration: LinguaBosna</figcaption>
+    </figure>
+
+
+    <!-- =====================================================
+         BLOCK 2 — AUF EINEN BLICK
+         ===================================================== -->
+    <section class="kultur-blick" aria-labelledby="blick-titel">
+      <h2 id="blick-titel">Auf einen Blick</h2>
+      <ul>
+        <li>Das Bosnische unterscheidet, ob ein Onkel von Vaters oder von Mutters Seite kommt.</li>
+        <li>Wo das Deutsche „Schwager“ und „Schwägerin“ sagt, will das Bosnische genau wissen, über wen ihr verwandt seid.</li>
+        <li>Wer in die Familie einheiratet, wird für fast alle zum <strong lang="bs">zet</strong> oder zur <strong lang="bs">snaha</strong>.</li>
+      </ul>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 3 — ABSCHNITTE
+         ===================================================== -->
+    <section class="kultur-abschnitt">
+      <h2>Warum reicht „Onkel“ nicht?</h2>
+      <p>Auf einer deutschen Familienfeier stellst du jemanden vor: „Das ist mein Onkel.“ Fertig. Auf einer bosnischen Feier kommt sofort die Rückfrage: Welcher? Der Bruder deines Vaters ist dein <strong lang="bs">amidža</strong>, der Bruder deiner Mutter dein <strong lang="bs">daidža</strong>. Die beiden verwechselt man besser nicht – schon gar nicht, wenn sie mit am Tisch sitzen.</p>
+      <p>Beide Wörter kamen in osmanischer Zeit über das Türkische ins Bosnische (türkisch <i>amca</i> und <i>dayı</i>). Daneben gibt es <strong lang="bs">stric</strong> und <strong lang="bs">ujak</strong>, die in der ganzen Region verstanden werden – Kroaten und Serben sagen meist so. Besonders in bosniakischen Familien klingen <strong lang="bs">amidža</strong> und <strong lang="bs">daidža</strong> aber einfach nach Zuhause.</p>
+
+      <div class="kultur-wusstest">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        <p><strong>Wusstest du?</strong> Auch Ehefrauen und Kinder bekommen eigene Namen: Die Frau des amidža ist die <strong lang="bs">amidžinica</strong>, die Frau des daidža die <strong lang="bs">daidžinica</strong>. Ihre Kinder heißen <strong lang="bs">amidžić</strong> und <strong lang="bs">amidžična</strong> bzw. <strong lang="bs">daidžić</strong> und <strong lang="bs">daidžična</strong>. Ein Cousin verrät also schon mit seinem Titel, über welchen Onkel ihr verwandt seid.</p>
+      </div>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Und die Tanten?</h2>
+      <p>Hier wird es überraschend einfach. Die Schwester deines Vaters und die Schwester deiner Mutter sind beide deine <strong lang="bs">tetka</strong>. Ihr Mann ist der <strong lang="bs">tetak</strong>, ihre Kinder sind <strong lang="bs">tetić</strong> und <strong lang="bs">tetična</strong>. Bei den Großeltern wird es dafür wieder herzlich bosnisch: Oma und Opa heißen vor allem in bosniakischen Familien <strong lang="bs">nana</strong> und <strong lang="bs">dedo</strong>. Kroaten und Serben sagen eher <strong lang="bs">baka</strong> und <strong lang="bs">djed</strong>.</p>
+
+      <aside class="kultur-tetka" aria-label="Tetka Fata meint">
+        <div class="kultur-tetka-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+        <div class="kultur-tetka-blase">
+          <span class="kultur-tetka-name">Tetka Fata meint</span>
+          <p>Ob väterlicherseits oder mütterlicherseits – ich bin für alle die tetka. Und als tetka darf ich bei jedem Besuch fragen: <span lang="bs">„Kad ćeš se udati?“</span> oder <span lang="bs">„Kad ćeš se oženiti?“</span></p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Wie viele Schwager hast du eigentlich?</h2>
+      <p>Richtig genau wird es durch die Heirat. Wo das Deutsche einfach „Schwager“ und „Schwägerin“ sagt, will das Bosnische wissen: Bruder von wem? Schwester von wem?</p>
+
+      <dl class="kultur-begriffe">
+        <dt lang="bs">djever</dt><dd>Bruder des Ehemanns</dd>
+        <dt lang="bs">zaova</dt><dd>Schwester des Ehemanns</dd>
+        <dt lang="bs">šura</dt><dd>Bruder der Ehefrau</dd>
+        <dt lang="bs">svastika</dt><dd>Schwester der Ehefrau</dd>
+        <dt lang="bs">jetrva</dt><dd>So nennen sich die Frauen zweier Brüder untereinander.</dd>
+        <dt lang="bs">badžanak</dt><dd>So nennen sich die Männer zweier Schwestern untereinander (ugs. <span lang="bs">badžo</span>).</dd>
+      </dl>
+
+      <p><strong lang="bs">Badžanaci</strong> verbindet eigentlich nur eins: Sie haben Schwestern geheiratet. Das reicht für eine lebenslange Freundschaft – oder für einen lebenslangen Wettstreit, wer das bessere Auto hat.</p>
+      <p>Bei den Schwiegereltern geht es genauso weiter: Die Eltern des Mannes sind <strong lang="bs">svekar</strong> und <strong lang="bs">svekrva</strong>, die Eltern der Frau <strong lang="bs">punac</strong> und <strong lang="bs">punica</strong>. Mit „meine Schwiegermutter“ verrät man also gleich, ob man Ehemann oder Ehefrau ist.</p>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Wer ist alles ein zet?</h2>
+      <p>Kurze Antwort: fast jeder Mann, der in die Familie einheiratet. Der Mann deiner Schwester ist dein <strong lang="bs">zet</strong>, der Mann deiner Tochter auch. Für die ganze Verwandtschaft ist er einfach <strong lang="bs">„naš zet“</strong> – unser zet. Das weibliche Gegenstück ist die <strong lang="bs">snaha</strong>: die Frau deines Bruders oder deines Sohnes.</p>
+      <p>Ein zet bleibt übrigens zet, auch nach dreißig Jahren Ehe. Er bekommt beim Besuch das beste Stück vom Braten – und die meisten Fragen.</p>
+
+      <div class="kultur-wusstest">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        <p><strong>Wusstest du?</strong> Sogar die Eltern eines Brautpaares haben füreinander Wörter: Ab der Hochzeit sind die anderen Eltern <strong lang="bs">prijatelj</strong> (der Vater) und <strong lang="bs">prija</strong> (die Mutter). Ja, <strong lang="bs">prijatelj</strong> heißt sonst „Freund“. Im Deutschen gibt es dafür kein gebräuchliches Wort.</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 4 — INTERAKTIV: STAMMBAUM-RECHNER
+         Der Rechner (#stammbaumRechner) ist ohne JavaScript
+         versteckt; die Tabelle darunter ist immer sichtbar und
+         enthält alle Wörter. Das Skript am Ende dieser Datei
+         baut die Buttons aus der Tabelle:
+           <details data-ich="…">  → Button in Schritt 1
+           <tr data-wahl="…">      → Button in Schritt 2
+           data-fata="…" (optional)→ Tetka-Fata-Kommentar im Ergebnis
+         Spalten je Zeile: Wer? | Bosnisch | Hinweis
+         ===================================================== -->
+    <section class="kultur-interaktiv" aria-labelledby="interaktiv-titel">
+      <h2 id="interaktiv-titel"><i class="fas fa-sitemap" aria-hidden="true"></i> Stammbaum-Rechner</h2>
+      <p class="kultur-interaktiv-hinweis">Wähle aus, über wen ihr verwandt seid – der Rechner verrät dir das bosnische Wort.</p>
+
+      <div id="stammbaumRechner" class="hidden">
+        <p class="kultur-schritt">1. Über wen?</p>
+        <div class="kultur-wahl" id="rechnerSchritt1" role="group" aria-label="Über wen seid ihr verwandt?"></div>
+
+        <div id="rechnerSchritt2Box" class="hidden">
+          <p class="kultur-schritt">2. Wer genau?</p>
+          <div class="kultur-wahl" id="rechnerSchritt2" role="group" aria-label="Wer genau?"></div>
+        </div>
+
+        <div class="kultur-ergebnis hidden" id="rechnerErgebnis" aria-live="polite">
+          <p class="kultur-ergebnis-pfad"></p>
+          <p class="kultur-ergebnis-wort" lang="bs"></p>
+          <p class="kultur-ergebnis-text"></p>
+          <p class="kultur-ergebnis-fata hidden"><i class="fas fa-mug-hot" aria-hidden="true"></i><span></span></p>
+        </div>
+      </div>
+
+      <h3 class="kultur-unterueberschrift">Alle Verwandten auf einen Blick</h3>
+      <div id="stammbaumTabelle">
+
+        <details class="kultur-aufklapp" data-ich="Mein Vater">
+          <summary>Von Vaters Seite <span class="anzahl">10 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="sein Vater"><td>Vater des Vaters (Opa)</td><td lang="bs">dedo</td><td>Standard: <span lang="bs">djed</span></td></tr>
+                <tr data-wahl="seine Mutter" data-fata="Bei nana schmeckt alles besser. Frag nicht, warum."><td>Mutter des Vaters (Oma)</td><td lang="bs">nana</td><td>Standard: <span lang="bs">baka</span></td></tr>
+                <tr data-wahl="sein Bruder"><td>Bruder des Vaters</td><td lang="bs">amidža</td><td>auch: <span lang="bs">stric</span></td></tr>
+                <tr data-wahl="die Frau seines Bruders"><td>Frau des amidža</td><td lang="bs">amidžinica</td><td>auch: <span lang="bs">strina</span></td></tr>
+                <tr data-wahl="der Sohn seines Bruders"><td>Sohn des amidža</td><td lang="bs">amidžić</td><td>Cousin</td></tr>
+                <tr data-wahl="die Tochter seines Bruders"><td>Tochter des amidža</td><td lang="bs">amidžična</td><td>Cousine</td></tr>
+                <tr data-wahl="seine Schwester" data-fata="Das bin ich! Hast du schon gegessen?"><td>Schwester des Vaters</td><td lang="bs">tetka</td><td>gleiches Wort wie mütterlicherseits</td></tr>
+                <tr data-wahl="der Mann seiner Schwester"><td>Mann der tetka</td><td lang="bs">tetak</td><td></td></tr>
+                <tr data-wahl="der Sohn seiner Schwester"><td>Sohn der tetka</td><td lang="bs">tetić</td><td>Cousin</td></tr>
+                <tr data-wahl="die Tochter seiner Schwester"><td>Tochter der tetka</td><td lang="bs">tetična</td><td>Cousine</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="kultur-aufklapp" data-ich="Meine Mutter">
+          <summary>Von Mutters Seite <span class="anzahl">10 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="ihr Vater"><td>Vater der Mutter (Opa)</td><td lang="bs">dedo</td><td>Standard: <span lang="bs">djed</span></td></tr>
+                <tr data-wahl="ihre Mutter" data-fata="Bei nana schmeckt alles besser. Frag nicht, warum."><td>Mutter der Mutter (Oma)</td><td lang="bs">nana</td><td>Standard: <span lang="bs">baka</span></td></tr>
+                <tr data-wahl="ihr Bruder" data-fata="Beim daidža gibt es immer Süßigkeiten. Das ist kein Gesetz – aber fast."><td>Bruder der Mutter</td><td lang="bs">daidža</td><td>auch: <span lang="bs">ujak</span></td></tr>
+                <tr data-wahl="die Frau ihres Bruders"><td>Frau des daidža</td><td lang="bs">daidžinica</td><td>auch: <span lang="bs">ujna</span></td></tr>
+                <tr data-wahl="der Sohn ihres Bruders"><td>Sohn des daidža</td><td lang="bs">daidžić</td><td>Cousin</td></tr>
+                <tr data-wahl="die Tochter ihres Bruders"><td>Tochter des daidža</td><td lang="bs">daidžična</td><td>Cousine</td></tr>
+                <tr data-wahl="ihre Schwester" data-fata="Das bin ich! Hast du schon gegessen?"><td>Schwester der Mutter</td><td lang="bs">tetka</td><td>gleiches Wort wie väterlicherseits</td></tr>
+                <tr data-wahl="der Mann ihrer Schwester"><td>Mann der tetka</td><td lang="bs">tetak</td><td></td></tr>
+                <tr data-wahl="der Sohn ihrer Schwester"><td>Sohn der tetka</td><td lang="bs">tetić</td><td>Cousin</td></tr>
+                <tr data-wahl="die Tochter ihrer Schwester"><td>Tochter der tetka</td><td lang="bs">tetična</td><td>Cousine</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="kultur-aufklapp" data-ich="Mein Bruder">
+          <summary>Über den Bruder <span class="anzahl">3 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="seine Frau"><td>Frau des Bruders</td><td lang="bs">snaha</td><td>auch: Schwiegertochter</td></tr>
+                <tr data-wahl="sein Sohn"><td>Sohn des Bruders (Neffe)</td><td lang="bs">bratić</td><td>allgemein auch: <span lang="bs">nećak</span> · Achtung: im Kroatischen heißt <span lang="bs">bratić</span> „Cousin“</td></tr>
+                <tr data-wahl="seine Tochter"><td>Tochter des Bruders (Nichte)</td><td lang="bs">bratična</td><td>allgemein auch: <span lang="bs">nećakinja</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="kultur-aufklapp" data-ich="Meine Schwester">
+          <summary>Über die Schwester <span class="anzahl">3 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="ihr Mann" data-fata="„Naš zet!“ Gib ihm das größte Stück Pita – und dann frag ihn aus."><td>Mann der Schwester</td><td lang="bs">zet</td><td>auch: Schwiegersohn</td></tr>
+                <tr data-wahl="ihr Sohn"><td>Sohn der Schwester (Neffe)</td><td lang="bs">sestrić</td><td>allgemein auch: <span lang="bs">nećak</span></td></tr>
+                <tr data-wahl="ihre Tochter"><td>Tochter der Schwester (Nichte)</td><td lang="bs">sestrična</td><td>allgemein auch: <span lang="bs">nećakinja</span> · Achtung: im Kroatischen heißt <span lang="bs">sestrična</span> „Cousine“</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="kultur-aufklapp" data-ich="Mein Mann">
+          <summary>Über den Ehemann <span class="anzahl">5 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="sein Vater"><td>Vater des Ehemanns</td><td lang="bs">svekar</td><td>Schwiegervater</td></tr>
+                <tr data-wahl="seine Mutter" data-fata="Ich bin selbst svekrva. Ich frage nur, ob genug Salz drin ist – mehr nicht!"><td>Mutter des Ehemanns</td><td lang="bs">svekrva</td><td>Schwiegermutter</td></tr>
+                <tr data-wahl="sein Bruder"><td>Bruder des Ehemanns</td><td lang="bs">djever</td><td>Schwager</td></tr>
+                <tr data-wahl="seine Schwester"><td>Schwester des Ehemanns</td><td lang="bs">zaova</td><td>Schwägerin</td></tr>
+                <tr data-wahl="die Frau seines Bruders" data-fata="Zwei jetrve auf einer Feier: Die eine bringt Pita mit, die andere auch. Jetzt muss man beide loben."><td>Frau des Bruders des Ehemanns</td><td lang="bs">jetrva</td><td>So nennen sich die beiden Frauen gegenseitig.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="kultur-aufklapp" data-ich="Meine Frau">
+          <summary>Über die Ehefrau <span class="anzahl">5 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="ihr Vater"><td>Vater der Ehefrau</td><td lang="bs">punac</td><td>Schwiegervater</td></tr>
+                <tr data-wahl="ihre Mutter"><td>Mutter der Ehefrau</td><td lang="bs">punica</td><td>Schwiegermutter</td></tr>
+                <tr data-wahl="ihr Bruder"><td>Bruder der Ehefrau</td><td lang="bs">šura</td><td>Schwager</td></tr>
+                <tr data-wahl="ihre Schwester"><td>Schwester der Ehefrau</td><td lang="bs">svastika</td><td>Schwägerin</td></tr>
+                <tr data-wahl="der Mann ihrer Schwester"><td>Mann der Schwester der Ehefrau</td><td lang="bs">badžanak</td><td>ugs.: <span lang="bs">badžo</span> – so nennen sich die beiden Männer gegenseitig.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="kultur-aufklapp" data-ich="Mein Sohn">
+          <summary>Über den Sohn <span class="anzahl">3 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="seine Frau"><td>Frau des Sohnes</td><td lang="bs">snaha</td><td>Schwiegertochter</td></tr>
+                <tr data-wahl="sein Sohn"><td>Sohn des Sohnes</td><td lang="bs">unuk</td><td>Enkel</td></tr>
+                <tr data-wahl="seine Tochter"><td>Tochter des Sohnes</td><td lang="bs">unuka</td><td>Enkelin</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="kultur-aufklapp" data-ich="Meine Tochter">
+          <summary>Über die Tochter <span class="anzahl">3 Wörter</span></summary>
+          <div class="kultur-tabelle-wrap">
+            <table class="kultur-tabelle">
+              <thead><tr><th>Wer?</th><th>Bosnisch</th><th>Hinweis</th></tr></thead>
+              <tbody>
+                <tr data-wahl="ihr Mann" data-fata="„Naš zet!“ Gib ihm das größte Stück Pita – und dann frag ihn aus."><td>Mann der Tochter</td><td lang="bs">zet</td><td>Schwiegersohn</td></tr>
+                <tr data-wahl="ihr Sohn"><td>Sohn der Tochter</td><td lang="bs">unuk</td><td>Enkel</td></tr>
+                <tr data-wahl="ihre Tochter"><td>Tochter der Tochter</td><td lang="bs">unuka</td><td>Enkelin</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 5 — WÖRTER AUS DIESEM BEITRAG
+         Wortformen aus vokabeln_flat.json (daidža, nicht dajdža).
+         ===================================================== -->
+    <section class="kultur-woerter" aria-labelledby="woerter-titel">
+      <h2 id="woerter-titel">Wörter aus diesem Beitrag</h2>
+      <ul>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=porodično%20stablo"><span class="wort" lang="bs">porodično stablo</span><span class="bedeutung">Stammbaum</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=amidža"><span class="wort" lang="bs">amidža</span><span class="bedeutung">Onkel (Bruder des Vaters)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=daidža"><span class="wort" lang="bs">daidža</span><span class="bedeutung">Onkel (Bruder der Mutter)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=tetka"><span class="wort" lang="bs">tetka</span><span class="bedeutung">Tante</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=zet"><span class="wort" lang="bs">zet</span><span class="bedeutung">Schwiegersohn, Schwager</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=snaha"><span class="wort" lang="bs">snaha</span><span class="bedeutung">Schwiegertochter, Schwägerin</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=jetrva"><span class="wort" lang="bs">jetrva</span><span class="bedeutung">Frauen von Brüdern zueinander</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=badžanak"><span class="wort" lang="bs">badžanak</span><span class="bedeutung">Männer von Schwestern zueinander</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=svekrva"><span class="wort" lang="bs">svekrva</span><span class="bedeutung">Schwiegermutter (Mutter des Mannes)</span></a></li>
+      </ul>
+      <p class="kultur-woerter-hinweis">Alle Familienwörter findest du im <a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=porodica">Wörterbuch</a> und zum Üben im <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html">Vokabeltrainer</a>.</p>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 6 — MINI-QUIZ (HTML nicht verändern)
+         ===================================================== -->
+    <section class="kultur-quiz" aria-labelledby="quiz-titel">
+      <h2 id="quiz-titel">Hast du aufgepasst?</h2>
+
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <span id="quizProgress">Frage 1</span>
+          <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBarFill"></div></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion" aria-live="polite"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback hidden" id="quizFeedback" aria-live="polite"></div>
+        <button type="button" class="quiz-next-btn hidden" id="quizNextBtn">Nächste Frage →</button>
+      </div>
+
+      <div class="quiz-result hidden" id="quizResult">
+        <i class="fas fa-trophy" aria-hidden="true"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <button type="button" class="quiz-retry-btn" id="quizRetryBtn">Quiz wiederholen</button>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 7 — WEITER GEHT'S
+         ===================================================== -->
+    <section class="kultur-weiter" aria-labelledby="weiter-titel">
+      <h2 id="weiter-titel">Weiter geht's</h2>
+      <div class="kultur-weiter-grid">
+        <a href="/Code/3_Grammatik/Grammatik_A1/grammatik-geschlecht.html">
+          <i class="fas fa-venus-mars" aria-hidden="true"></i>
+          <span><strong>Geschlecht der Substantive</strong>Warum <span lang="bs">amidža</span> und <span lang="bs">daidža</span> männlich sind, obwohl sie auf -a enden.</span>
+        </a>
+        <a href="/Code/3_Grammatik/Grammatik_B1/grammatik-possessivpronomen.html">
+          <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+          <span><strong>Possessivpronomen</strong><span lang="bs">moj amidža, moja tetka</span>: So sagst du „mein“ und „meine“.</span>
+        </a>
+        <a href="/Code/5_Kultur/kultur-uebersicht.html">
+          <i class="fas fa-landmark" aria-hidden="true"></i>
+          <span><strong>Mehr Kultur</strong>Essen, Musik, Bräuche: alle Beiträge im Überblick.</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 8 — QUELLEN & BILDNACHWEIS
+         ===================================================== -->
+    <section class="kultur-quellen" aria-labelledby="quellen-titel">
+      <h2 id="quellen-titel">Quellen &amp; Bildnachweis</h2>
+      <ul>
+        <li>Wortformen: Wortschatz von LinguaBosna (<a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html">Wörterbuch</a>)</li>
+        <li>Zur Herkunft von <span lang="bs">amidža</span> und <span lang="bs">daidža</span>: Abdulah Škaljić, <i lang="bs">Turcizmi u srpskohrvatskom jeziku</i>, Sarajevo: Svjetlost, 1965</li>
+        <li>Illustration (Stammbaum): LinguaBosna</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       QUIZ-DATEN (JSON) — Logik in /Code/5_Kultur/kultur.js
+       ====================================================== -->
+  <script type="application/json" id="kulturQuizDaten">
+  {
+    "fragen": [
+      {
+        "frage": "Der Bruder deiner Mutter ist dein …",
+        "optionen": ["amidža", "daidža", "tetak"],
+        "richtig": 1,
+        "erklaerung": "Der Bruder der Mutter ist der daidža (auch: ujak). Der amidža ist der Bruder des Vaters, der tetak der Mann einer Tante."
+      },
+      {
+        "frage": "Deine Schwester heiratet. Ihr Mann ist für dich …",
+        "optionen": ["zet", "djever", "šura"],
+        "richtig": 0,
+        "erklaerung": "Der Mann der Schwester ist der zet – genau wie der Mann der Tochter. Djever und šura sind Brüder des Ehepartners."
+      },
+      {
+        "frage": "Zwei Frauen haben zwei Brüder geheiratet. Füreinander sind sie …",
+        "optionen": ["svastike", "zaove", "jetrve"],
+        "richtig": 2,
+        "erklaerung": "Die Frauen zweier Brüder sind jetrve. Svastika ist die Schwester der Ehefrau, zaova die Schwester des Ehemanns."
+      },
+      {
+        "frage": "Ein Mann spricht von der Mutter seiner Ehefrau. Sie ist seine …",
+        "optionen": ["svekrva", "punica", "nana"],
+        "richtig": 1,
+        "erklaerung": "Die Mutter der Ehefrau ist die punica. Die svekrva ist die Mutter des Ehemanns – das Wort verrät also, wer spricht."
+      },
+      {
+        "frage": "Wie heißt die Frau des amidža?",
+        "optionen": ["amidžinica", "daidžinica", "tetka"],
+        "richtig": 0,
+        "erklaerung": "Die Frau des amidža ist die amidžinica (auch: strina). Die daidžinica ist die Frau des daidža."
+      }
+    ],
+    "ergebnis": {
+      "top":  "Bravo! Tetka Fata ist stolz – du kennst dich in der Familie besser aus als mancher zet nach dreißig Jahren. 🎉",
+      "gut":  "Gut gemacht! Probier den Stammbaum-Rechner noch einmal aus – dann sitzt auch der Rest.",
+      "rest": "Kein Problem – das Bosnische hat einfach viele Verwandte. Probier den Stammbaum-Rechner aus und versuch es noch einmal!"
+    }
+  }
+  </script>
+
+
+  <!-- ======================================================
+       STAMMBAUM-RECHNER (Block 4)
+
+       Liest alle Daten aus der Tabelle „Alle Verwandten auf einen
+       Blick" – es gibt also nur EINE Stelle, an der die Wörter
+       stehen. Ablauf:
+         1. Für jedes <details data-ich="…"> ein Button in Schritt 1
+         2. Klick → für jede Zeile <tr data-wahl="…"> ein Button in
+            Schritt 2
+         3. Klick → Ergebnis-Karte: Weg, bosnisches Wort, Erklärung
+            und ggf. ein Kommentar von Tetka Fata (data-fata)
+       Ohne JavaScript bleibt der Rechner versteckt, die Tabelle
+       ist trotzdem vollständig lesbar.
+       ====================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var rechner  = document.getElementById('stammbaumRechner');
+      var gruppen  = document.querySelectorAll('#stammbaumTabelle details[data-ich]');
+      if (!rechner || !gruppen.length) return;
+
+      var schritt1    = document.getElementById('rechnerSchritt1');
+      var schritt2Box = document.getElementById('rechnerSchritt2Box');
+      var schritt2    = document.getElementById('rechnerSchritt2');
+      var ergebnis    = document.getElementById('rechnerErgebnis');
+
+      // Einen Auswahl-Button bauen (Optik: .kultur-wahl-btn in Style_5_Kultur.css)
+      function knopf(text, beiKlick) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'kultur-wahl-btn';
+        btn.textContent = text;
+        btn.setAttribute('aria-pressed', 'false');
+        btn.addEventListener('click', function () { beiKlick(btn); });
+        return btn;
+      }
+
+      // Den gewählten Button markieren, alle anderen der Gruppe zurücksetzen
+      function markieren(gruppe, gewaehlt) {
+        gruppe.querySelectorAll('button').forEach(function (b) {
+          b.setAttribute('aria-pressed', b === gewaehlt ? 'true' : 'false');
+        });
+      }
+
+      // Schritt 1: „Über wen?"
+      gruppen.forEach(function (gruppe) {
+        schritt1.appendChild(knopf(gruppe.getAttribute('data-ich'), function (btn) {
+          markieren(schritt1, btn);
+          schritt2Zeigen(gruppe);
+        }));
+      });
+
+      // Schritt 2: „Wer genau?" – Buttons aus den Tabellenzeilen der Gruppe
+      function schritt2Zeigen(gruppe) {
+        schritt2.innerHTML = '';
+        ergebnis.classList.add('hidden');
+        gruppe.querySelectorAll('tr[data-wahl]').forEach(function (zeile) {
+          schritt2.appendChild(knopf(zeile.getAttribute('data-wahl'), function (btn) {
+            markieren(schritt2, btn);
+            ergebnisZeigen(gruppe, zeile);
+          }));
+        });
+        schritt2Box.classList.remove('hidden');
+      }
+
+      // Ergebnis: Spalten der Zeile = Wer? | Bosnisch | Hinweis
+      function ergebnisZeigen(gruppe, zeile) {
+        var zellen  = zeile.querySelectorAll('td');
+        var hinweis = zellen[2] ? zellen[2].textContent.trim() : '';
+
+        ergebnis.querySelector('.kultur-ergebnis-pfad').textContent =
+          gruppe.getAttribute('data-ich') + ' → ' + zeile.getAttribute('data-wahl');
+        ergebnis.querySelector('.kultur-ergebnis-wort').textContent = zellen[1].textContent.trim();
+        ergebnis.querySelector('.kultur-ergebnis-text').textContent =
+          zellen[0].textContent.trim() + (hinweis ? ' · ' + hinweis : '');
+
+        // Optionaler Kommentar von Tetka Fata
+        var fata = ergebnis.querySelector('.kultur-ergebnis-fata');
+        var spruch = zeile.getAttribute('data-fata');
+        fata.querySelector('span').textContent = spruch ? 'Tetka Fata: ' + spruch : '';
+        fata.classList.toggle('hidden', !spruch);
+
+        ergebnis.classList.remove('hidden');
+      }
+
+      rechner.classList.remove('hidden');
+    })();
+  </script>
+
+</body>
+</html>

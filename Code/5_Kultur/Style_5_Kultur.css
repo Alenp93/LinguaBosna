@@ -1,0 +1,1191 @@
+/* ======================================================
+   Style_5_Kultur.css
+   Kultur-Bereich — LinguaBosna
+
+   EINE Datei für den ganzen Bereich: die Übersichtsseite
+   (kultur-uebersicht.html) UND alle Beiträge. Unterschieden
+   wird über die Body-Klasse:
+     <body class="kultur-uebersicht">  → breites Kartenraster
+     <body class="kultur-beitrag">     → schmale Lesebreite
+
+   Farben: NUR die Projektfarben aus Style.css
+   (--primary, --accent, --accent-text, --secondary,
+   --bg-light, --neutral). Bewusst KEINE eigene Farbe pro
+   Rubrik (Entscheidung Alen, November 2026) – die Rubrik
+   steht als Text auf der Karte, nicht als Farbe.
+
+   Aufbau:
+   1.  Grundlayout (main, Überschriften)
+   2.  Bosnische Wörter im Fließtext
+   3.  Übersicht: Einleitung, Filter, Kartenraster
+   4.  Beitrag: Kopfbereich (Hero) & Bild
+   5.  Beitrag: „Auf einen Blick"
+   6.  Beitrag: Abschnitte, Begriffsliste
+   7.  Boxen: „Wusstest du?" & „Tetka Fata meint"
+   8.  Interaktives Element (Rahmen)
+   9.  Aufklapp-Tabelle (<details>)
+   10. „Wörter aus diesem Beitrag"
+   11. Mini-Quiz
+   12. „Weiter geht's" & Quellen
+   13. Fokus & Hilfsklassen
+   14. Responsive (900px / 768px / 480px)
+   ====================================================== */
+
+
+/* ── 1. Grundlayout ──────────────────────────────────── */
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  margin-top: 90px;                 /* Platz für den fixierten Header */
+  padding: 40px 5% 70px;
+  /* WICHTIG: main ist ein Flex-Item (body ist flex-column). Ohne feste
+     Breite schrumpft es auf Inhaltsbreite und eine breite Tabelle bläht
+     es über den Bildschirm hinaus – siehe CLAUDE.md „Mobile Overflow". */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kultur-uebersicht main { max-width: 1200px; }
+.kultur-beitrag main    { max-width: 780px; }   /* angenehme Lesebreite */
+
+main h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  line-height: 1.25;
+}
+
+.kultur-uebersicht main h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;          /* Haupttitel in Großbuchstaben */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.kultur-beitrag main h1 {
+  font-size: 2.1rem;
+  margin-bottom: 12px;
+}
+
+main h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--primary);
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+main p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #333;
+}
+
+/* Lange Wörter dürfen notfalls umbrechen (schmale Handys) */
+main h1, main h2, main h3, main p, main li, main figcaption {
+  overflow-wrap: break-word;
+}
+
+
+/* ── 2. Bosnische Wörter im Fließtext ────────────────── */
+/* Jedes bosnische Wort im deutschen Text steht als
+   <strong lang="bs">…</strong>. lang="bs" sorgt für die richtige
+   Screenreader-Aussprache, die Regel hier für die Optik:
+   fett in Dunkelblau mit dezenter goldener Unterstreichung. */
+strong[lang="bs"] {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+
+/* ── 3. Übersicht ────────────────────────────────────── */
+
+.kultur-untertitel {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 640px;
+}
+
+/* Tetka-Fata-Begrüßung auf der Übersicht: gleiche Box wie im Beitrag,
+   nur mittig und etwas schmaler */
+.kultur-uebersicht .kultur-tetka {
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+/* Rubrik-Filter. Die Buttons erzeugt kultur.js aus den Karten – hier
+   steht nur das Layout. Optik kommt von .level-btn (Style.css). */
+.kultur-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.kultur-filter .level-btn {
+  min-height: 44px;                   /* Mindest-Touch-Target */
+}
+
+.kultur-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.kultur-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  overflow: hidden;                   /* Bild folgt den runden Ecken */
+  color: var(--primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.kultur-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+/* Bildbereich der Karte: entweder <img> oder – solange es noch kein
+   Bild gibt – ein Icon auf Farbverlauf. Feste Seitenverhältnis-Box,
+   damit alle Karten gleich hoch beginnen. */
+.kultur-card-bild {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--primary) 0%, #1a5876 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kultur-card-bild img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kultur-card-bild i {
+  font-size: 2.8rem;
+  color: var(--accent);
+}
+
+.kultur-card-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kultur-card-rubrik {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--secondary);
+  margin-bottom: 6px;
+}
+
+.kultur-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.kultur-card p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.kultur-card-meta {
+  margin-top: auto;                   /* immer am unteren Kartenrand */
+  font-size: 0.82rem;
+  color: #666;
+}
+
+.kultur-card-meta i {
+  margin-right: 5px;
+}
+
+/* „Demnächst"-Karten: sichtbar, aber gedämpft und nicht klickbar.
+   Zeigt Besuchern, dass der Bereich wächst. */
+.kultur-card.demnaechst {
+  opacity: 0.6;
+}
+
+.kultur-card.demnaechst .kultur-card-bild {
+  background: linear-gradient(135deg, #8a99a6 0%, #a9b4bd 100%);
+}
+
+.kultur-card.demnaechst .kultur-card-bild i {
+  color: #fff;
+}
+
+.soon-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #666;
+  margin-top: auto;
+}
+
+
+/* ── 4. Beitrag: Kopfbereich & Bild ──────────────────── */
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: #707070;                     /* 4,5:1 auf Weiß */
+  margin-bottom: 22px;
+}
+
+.breadcrumb a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-text);
+}
+
+.breadcrumb-sep {
+  margin: 0 8px;
+  font-size: 0.65rem;
+  color: #aaa;
+}
+
+.kultur-rubrik {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.kultur-unterzeile {
+  font-size: 1.12rem;
+  color: var(--secondary);
+  margin-bottom: 14px;
+}
+
+.kultur-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 26px;
+}
+
+.kultur-meta i {
+  margin-right: 5px;
+}
+
+/* Bilder im Beitrag. Bildnachweis steht IMMER in der figcaption
+   (Pflicht laut WORKFLOW_Kultur.md, wird von test_kultur_beitrag.py
+   geprüft). */
+.kultur-bild {
+  margin: 0 0 34px;
+}
+
+.kultur-bild img,
+.kultur-bild svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.kultur-bild figcaption {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+
+/* ── 5. „Auf einen Blick" ────────────────────────────── */
+
+.kultur-blick {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-left: 5px solid var(--accent);
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin-bottom: 44px;
+}
+
+.kultur-blick h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.kultur-blick ul {
+  list-style: none;
+}
+
+.kultur-blick li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.kultur-blick li:last-child {
+  margin-bottom: 0;
+}
+
+/* Kleiner Goldpunkt statt Standard-Aufzählungszeichen */
+.kultur-blick li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+
+/* ── 6. Abschnitte & Begriffsliste ───────────────────── */
+
+.kultur-abschnitt {
+  margin-bottom: 42px;
+}
+
+.kultur-abschnitt p + p {
+  margin-top: 14px;
+}
+
+/* Begriffsliste: bosnisches Wort links, Erklärung rechts.
+   Als <dl> ausgezeichnet (Begriff + Bedeutung). */
+.kultur-begriffe {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 18px;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+
+.kultur-begriffe dt {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.kultur-begriffe dd {
+  color: #444;
+  line-height: 1.55;
+}
+
+
+/* ── 7. Boxen ────────────────────────────────────────── */
+
+/* „Wusstest du?" – ein überraschender Fakt */
+.kultur-wusstest {
+  display: flex;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin: 22px 0;
+}
+
+.kultur-wusstest > i {
+  font-size: 1.4rem;
+  color: var(--accent-text);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.kultur-wusstest p {
+  min-width: 0;                       /* darf schmaler werden als das längste Wort */
+  font-size: 0.97rem;
+}
+
+.kultur-wusstest strong:first-child {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+/* „Tetka Fata meint …" – die wiederkehrende Figur.
+   Rundes Bild links (Icon, bis es eine Illustration gibt),
+   Sprechblase rechts. Siehe WORKFLOW_Kultur.md, Abschnitt 4. */
+.kultur-tetka {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 26px 0;
+}
+
+.kultur-tetka-bild {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.kultur-tetka-bild img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.kultur-tetka-blase {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  background: #FFF8E1;                /* sehr helles Gold, Text bleibt dunkel */
+  border: 1px solid #EAD9A0;
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+/* Kleines Dreieck, das zur Figur zeigt */
+.kultur-tetka-blase::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 20px;
+  width: 14px;
+  height: 14px;
+  background: #FFF8E1;
+  border-left: 1px solid #EAD9A0;
+  border-bottom: 1px solid #EAD9A0;
+  transform: rotate(45deg);
+}
+
+.kultur-tetka-name {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--secondary);
+  margin-bottom: 4px;
+}
+
+.kultur-tetka-blase p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+/* ── 8. Interaktives Element (Rahmen) ────────────────── */
+/* Nur der äußere Rahmen ist hier einheitlich. Was darin passiert,
+   legt jeder Beitrag selbst fest (eigenes <script> im Beitrag). */
+.kultur-interaktiv {
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 26px 26px 28px;
+  margin: 10px 0 44px;
+}
+
+.kultur-interaktiv > h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kultur-interaktiv > h2 i {
+  color: var(--accent-text);
+}
+
+.kultur-interaktiv-hinweis {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* Allgemeine Auswahl-Buttons für interaktive Elemente */
+.kultur-wahl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.kultur-wahl-btn {
+  min-height: 44px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.93rem;
+  padding: 9px 16px;
+  border: 2px solid var(--neutral);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.kultur-wahl-btn:hover {
+  border-color: var(--primary);
+}
+
+.kultur-wahl-btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary);
+}
+
+.kultur-schritt {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+/* Ergebnis-Karte eines interaktiven Elements (z. B. Stammbaum-Rechner):
+   oben der Weg dorthin, groß das bosnische Wort, darunter Erklärung */
+.kultur-ergebnis {
+  background: var(--bg-light);
+  border: 1px solid var(--neutral);
+  border-left: 5px solid var(--accent);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 26px;
+}
+
+.kultur-ergebnis-pfad {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.kultur-ergebnis-wort {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--primary);
+  overflow-wrap: break-word;
+}
+
+.kultur-ergebnis-text {
+  font-size: 0.97rem !important;
+  margin-top: 4px;
+}
+
+.kultur-ergebnis-fata {
+  font-size: 0.92rem !important;
+  color: var(--secondary) !important;
+  margin-top: 10px;
+}
+
+.kultur-ergebnis-fata i {
+  margin-right: 6px;
+  color: var(--accent-text);
+}
+
+.kultur-unterueberschrift {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--primary);
+  margin: 6px 0 12px;
+}
+
+
+/* ── 9. Aufklapp-Tabelle (<details>) ─────────────────── */
+/* Lange Übersichten stehen zugeklappt im HTML: für Google und ohne
+   JavaScript vollständig lesbar, aber ohne die Seite zu verlängern. */
+.kultur-aufklapp {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.kultur-aufklapp summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.kultur-aufklapp summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Eigener Pfeil, dreht sich beim Aufklappen */
+.kultur-aufklapp summary::before {
+  content: "\f054";                   /* FontAwesome chevron-right */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.75rem;
+  color: var(--accent-text);
+  transition: transform 0.2s ease;
+}
+
+.kultur-aufklapp[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.kultur-aufklapp summary .anzahl {
+  margin-left: auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.kultur-tabelle-wrap {
+  overflow-x: auto;                   /* falls doch zu breit: Tabelle scrollt, nicht die Seite */
+  padding: 0 18px 16px;
+}
+
+.kultur-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+.kultur-tabelle th,
+.kultur-tabelle td {
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--neutral);
+  vertical-align: top;
+}
+
+.kultur-tabelle th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--secondary);
+}
+
+.kultur-tabelle td[lang="bs"] {
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.kultur-tabelle tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* ── 10. „Wörter aus diesem Beitrag" ─────────────────── */
+
+.kultur-woerter {
+  margin-bottom: 44px;
+}
+
+.kultur-woerter ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* Jedes Wort ist ein Link zur Wörterbuch-Suche (?q=…) */
+.kultur-woerter a {
+  display: flex;
+  flex-direction: column;
+  min-height: 44px;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kultur-woerter a:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.kultur-woerter .wort {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.kultur-woerter .bedeutung {
+  font-size: 0.88rem;
+  color: #555;
+}
+
+.kultur-woerter-hinweis {
+  font-size: 0.9rem !important;
+  color: #555 !important;
+  margin-top: 12px;
+}
+
+.kultur-woerter-hinweis a {
+  display: inline;
+  border: none;
+  padding: 0;
+  min-height: 0;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+
+/* ── 11. Mini-Quiz ───────────────────────────────────── */
+/* Gleiche IDs und Klassen wie das Grammatik-Quiz (Optik dort aus
+   Style_3_Grammatik_Detail.css übernommen), damit sich beide gleich
+   anfühlen. Die Logik steckt in kultur.js. */
+.kultur-quiz {
+  margin-bottom: 44px;
+}
+
+.quiz-container,
+.quiz-result {
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 28px 26px;
+}
+
+.quiz-progress {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #707070;
+  margin-bottom: 10px;
+}
+
+.quiz-bar {
+  height: 4px;
+  background: var(--neutral);
+  border-radius: 3px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.quiz-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.quiz-question {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: var(--primary);
+  margin-bottom: 18px;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.quiz-option-btn {
+  min-height: 44px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 12px 18px;
+  border: 2px solid var(--neutral);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+  text-align: left;
+  overflow-wrap: break-word;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.quiz-option-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: #f8f8f8;
+}
+
+.quiz-option-btn.correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+  color: #1e7e46;
+  font-weight: 600;
+}
+
+.quiz-option-btn.wrong {
+  border-color: #c0392b;
+  background: #fdecea;
+  color: #922b21;
+}
+
+.quiz-option-btn:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.quiz-feedback {
+  font-size: 0.92rem;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.quiz-feedback i {
+  margin-right: 6px;
+}
+
+.feedback-correct {
+  background: #eafaf1;
+  color: #1e7e46;
+  border: 1px solid #a3dfbb;
+}
+
+.feedback-wrong {
+  background: #fdecea;
+  color: #922b21;
+  border: 1px solid #f0a0a0;
+}
+
+.quiz-next-btn,
+.quiz-retry-btn {
+  min-height: 44px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-next-btn {
+  border: 2px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.quiz-next-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary);
+}
+
+.quiz-result {
+  text-align: center;
+}
+
+.quiz-result > i {
+  font-size: 2.4rem;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.result-score {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem !important;
+  color: var(--primary) !important;
+  margin-bottom: 6px;
+}
+
+.result-text {
+  font-size: 0.95rem !important;
+  color: #555 !important;
+  margin-bottom: 22px;
+}
+
+.quiz-retry-btn {
+  border: 2px solid var(--primary);
+  background: #fff;
+  color: var(--primary);
+}
+
+.quiz-retry-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+
+/* ── 12. „Weiter geht's" & Quellen ───────────────────── */
+
+.kultur-weiter {
+  margin-bottom: 40px;
+}
+
+.kultur-weiter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.kultur-weiter-grid a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  background: #fff;
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  padding: 16px 18px;
+  color: var(--primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kultur-weiter-grid a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.kultur-weiter-grid i {
+  font-size: 1.5rem;
+  color: var(--accent-text);
+  flex-shrink: 0;
+  width: 30px;
+  text-align: center;
+}
+
+.kultur-weiter-grid span {
+  min-width: 0;
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+
+.kultur-weiter-grid strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.kultur-quellen {
+  border-top: 1px solid var(--neutral);
+  padding-top: 18px;
+  font-size: 0.82rem;
+  color: #666;
+}
+
+.kultur-quellen h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.kultur-quellen ul {
+  padding-left: 18px;
+}
+
+.kultur-quellen li {
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+
+/* ── 13. Fokus & Hilfsklassen ────────────────────────── */
+
+/* Sichtbarer Fokusring für Tastaturbedienung (Usability-Checkliste) */
+.kultur-card:focus-visible,
+.kultur-wahl-btn:focus-visible,
+.kultur-aufklapp summary:focus-visible,
+.kultur-woerter a:focus-visible,
+.kultur-weiter-grid a:focus-visible,
+.quiz-option-btn:focus-visible,
+.quiz-next-btn:focus-visible,
+.quiz-retry-btn:focus-visible,
+.kultur-filter .level-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* ── 14. Responsive ──────────────────────────────────── */
+
+/* Tablet (≤900px): Schriftgrößen reduzieren, Raster zweispaltig */
+@media (max-width: 900px) {
+  .kultur-uebersicht main h1 { font-size: 2rem; }
+  .kultur-beitrag main h1    { font-size: 1.8rem; }
+  main h2                    { font-size: 1.3rem; }
+
+  .kultur-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mobil (≤768px): 50px 5%, alles einspaltig */
+@media (max-width: 768px) {
+  main {
+    padding: 50px 5%;
+  }
+
+  .kultur-grid,
+  .kultur-weiter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kultur-beitrag main h1 { font-size: 1.55rem; }
+  .kultur-unterzeile      { font-size: 1rem; }
+
+  .kultur-interaktiv,
+  .quiz-container,
+  .quiz-result {
+    padding: 22px 18px;
+  }
+
+  /* Begriffsliste: Wort über der Erklärung statt daneben */
+  .kultur-begriffe {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 16px 18px;
+  }
+
+  .kultur-begriffe dd {
+    margin-bottom: 10px;
+  }
+
+  .kultur-begriffe dd:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Schmale Handys (≤600px): Tabellenzeilen als kleine Karten.
+   Drei Spalten passen hier nicht nebeneinander – lange deutsche Wörter
+   wie „Schwiegervater" würden die Hinweis-Spalte abschneiden. Statt
+   Wörter zu zerhacken (siehe CLAUDE.md „Mobile Overflow"), steht jede
+   Zeile untereinander: bosnisches Wort oben, darunter „Wer?" und der
+   Hinweis. Die Spaltenköpfe sind dann überflüssig und werden nur
+   optisch ausgeblendet (Screenreader lesen sie weiterhin). */
+@media (max-width: 600px) {
+  .kultur-tabelle thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .kultur-tabelle,
+  .kultur-tabelle tbody,
+  .kultur-tabelle td {
+    display: block;
+    width: 100%;
+  }
+
+  .kultur-tabelle tr {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--neutral);
+  }
+
+  .kultur-tabelle tr:last-child {
+    border-bottom: none;
+  }
+
+  .kultur-tabelle td {
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .kultur-tabelle td[lang="bs"] {
+    order: -1;                        /* bosnisches Wort zuerst */
+    font-size: 1.05rem;
+    white-space: normal;
+  }
+
+  .kultur-tabelle td:first-child {
+    color: #444;
+  }
+
+  .kultur-tabelle td:last-child {
+    font-size: 0.86rem;
+    color: #555;
+  }
+
+  .kultur-tabelle td:empty {
+    display: none;
+  }
+}
+
+/* Sehr klein (≤480px): 40px 4% */
+@media (max-width: 480px) {
+  main {
+    padding: 40px 4%;
+  }
+
+  .kultur-uebersicht main h1 { font-size: 1.6rem; }
+  .kultur-beitrag main h1    { font-size: 1.38rem; }
+  main h2                    { font-size: 1.18rem; }
+
+  .kultur-woerter ul {
+    grid-template-columns: 1fr;
+  }
+
+  .kultur-blick,
+  .kultur-wusstest {
+    padding: 18px 16px;
+  }
+
+  .kultur-tetka-bild {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
+
+  .kultur-tabelle-wrap {
+    padding: 0 14px 6px;
+  }
+}

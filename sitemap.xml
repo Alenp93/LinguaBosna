@@ -421,6 +421,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://linguabosna.com/Code/5_Kultur/kultur-familie-stammbaum.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://linguabosna.com/</loc>
     <lastmod>2026-09-01</lastmod>
     <priority>1.0</priority>

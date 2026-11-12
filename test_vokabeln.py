@@ -38,12 +38,17 @@ HARTE FEHLER (Exit 1) — technisch bindend, brechen eine konsumierende Seite
       Partner; ein Paar über zwei Niveaus landet im falschen Übungsset
   [8] Datei nach Kapitelnummer sortiert (die Kapitelreihenfolge innerhalb
       eines Niveaus ergibt sich aus dem ersten Auftreten in der JSON)
+      UND Kapitelnummern steigen mit dem Niveau (A1 → C2). Die Buttons
+      "Vorheriges/Nächstes Kapitel" gehen strikt nach Nummer: Stehen A2-
+      Kapitel hinter C2-Kapiteln, überspringt "Weiter" Kapitel und springt
+      zurück. Abhilfe: python build_kapitelnummern.py
 
 HINWEISE (⚠, kein Fehlschlag) — Ermessen oder Altbestand
 --------------------------------------------------------
-  [9]  Wortart-Monokultur in Kapiteln ab Nr. 98. Ältere Kapitel waren schon
-       vor der Regel so geschnitten (CLAUDE.md: „Ausgenommen sind
-       Altbestandskapitel") und werden deshalb nicht gemeldet
+  [9]  Wortart-Monokultur je Kapitel. Zwölf Altkapitel waren schon vor der
+       Regel so geschnitten (CLAUDE.md: „Ausgenommen sind
+       Altbestandskapitel") und stehen in MISCHUNG_AUSNAHMEN — sie werden
+       deshalb nicht gemeldet
   [10] Progression: Grundwort auf höherem Niveau als das Kompositum.
        Legitime Ausnahmen sind dokumentiert (anderes Bedeutungsfeld wie
        `slava`/`krsna slava`, oder feste Formeln wie `vozačka dozvola`) —
@@ -79,9 +84,27 @@ NIVEAUS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 NIVEAU_RANG = {n: i for i, n in enumerate(NIVEAUS)}
 
 # Die Wortart-Mischungsregel gilt seit dem Tiere-Block (September 2026).
-# Kapitel davor waren teils schon als reine Substantiv-/Verbkapitel
+# Zwölf Kapitel davor waren schon als reine Substantiv-/Verb-/Phrasenkapitel
 # geschnitten und sollen nicht dauerhaft Hinweise erzeugen.
-MISCHUNG_AB_KAPITEL = 98
+# Die Ausnahmen stehen bewusst als KAPITELNAME, nicht als Nummer: Die
+# Nummern sind seit November 2026 nach Niveau sortiert und verschieben sich
+# mit jedem neuen Kapitel (siehe build_kapitelnummern.py), die Namen nicht.
+# (Früher hieß die Regel „ab Kapitel 98" — das stimmte nur, solange neue
+# Kapitel immer hinten angehängt wurden.)
+MISCHUNG_AUSNAHMEN = {
+    "Häufige Verben & Handlungen",
+    "Obst & Gemüse",
+    "Tiere",
+    "Natur & Länder",
+    "Berufe & Arbeit 2",
+    "Bosnische Küche",
+    "Kollokationen & feste Wendungen",
+    "Gehobene & abstrakte Lexik 1",
+    "Redewendungen & Idiome",
+    "Sprichwörter",
+    "Orientalizmi – Kulturlexik",
+    "Traditionelle Baukultur",
+}
 
 # Erlaubte Werte im Feld "Wortart". Bewusst KEIN "Satz"/"Redewendung"/
 # "Sprichwort"/"Nominalphrase" — alles Mehrteilige ist "Phrase".
@@ -303,12 +326,44 @@ def main():
     else:
         gut("Kapiteleinträge stehen aufsteigend nach Kapitelnummer")
 
+    # Kapitelnummern müssen mit dem Niveau aufsteigen. Die Navigation
+    # "Vorheriges/Nächstes Kapitel" geht strikt nach Nummer; bei gemischter
+    # Reihenfolge überspringt sie Kapitel desselben Niveaus und springt am
+    # Ende eines Niveaus ggf. zurück (so war es bis November 2026).
+    niveau_je_nummer = {k: v[0]["Niveau"] for k, v in nach_kapitel.items()
+                        if isinstance(k, int) and v[0].get("Niveau") in NIVEAU_RANG}
+    nummern_sortiert = sorted(niveau_je_nummer)
+    ruecksprung = [(a, b) for a, b in zip(nummern_sortiert, nummern_sortiert[1:])
+                   if NIVEAU_RANG[niveau_je_nummer[b]]
+                   < NIVEAU_RANG[niveau_je_nummer[a]]]
+    kap_luecken = [n for n in range(1, (nummern_sortiert[-1]
+                                        if nummern_sortiert else 0) + 1)
+                   if n not in niveau_je_nummer]
+    for a, b in ruecksprung[:10]:
+        fail(f"Kapitel {b} ({niveau_je_nummer[b]}) folgt auf Kapitel {a} "
+             f"({niveau_je_nummer[a]}) — Nummern müssen von A1 bis C2 "
+             f"aufsteigen, sonst springt \"Weiter\" zurück/überspringt "
+             f"Kapitel. Abhilfe: python build_kapitelnummern.py")
+    if len(ruecksprung) > 10:
+        fail(f"… und {len(ruecksprung) - 10} weitere Niveau-Rücksprünge")
+    if kap_luecken:
+        # Nur ein Hinweis: Die Navigation sortiert die vorhandenen Nummern
+        # dynamisch, eine Lücke führt also nicht zu einem Sprung.
+        warn(f"Lücken in der Kapitelnummerierung: {kap_luecken[:15]}"
+             f"{' …' if len(kap_luecken) > 15 else ''} — harmlos für die "
+             f"Navigation, aber unschön. Abhilfe: "
+             f"python build_kapitelnummern.py")
+    if not ruecksprung and not kap_luecken and nummern_sortiert:
+        gut(f"Kapitelnummern 1–{nummern_sortiert[-1]} lückenlos, Niveau "
+            f"steigt von {niveau_je_nummer[nummern_sortiert[0]]} bis "
+            f"{niveau_je_nummer[nummern_sortiert[-1]]}")
+
     # ── [9] Wortart-Mischung (Hinweis) ───────────────────────────────
-    print("\n[9] Wortart-Mischung je Kapitel (ab Kapitel "
-          f"{MISCHUNG_AB_KAPITEL})")
+    print("\n[9] Wortart-Mischung je Kapitel (Ausnahmen: "
+          f"{len(MISCHUNG_AUSNAHMEN)} Altkapitel)")
     mono = []
     for k in sorted(x for x in nach_kapitel if isinstance(x, int)):
-        if k < MISCHUNG_AB_KAPITEL:
+        if nach_kapitel[k][0].get("Kapitelname") in MISCHUNG_AUSNAHMEN:
             continue
         arten = set(wortart_von(e) for e in nach_kapitel[k])
         if len(arten) == 1:
@@ -318,7 +373,7 @@ def main():
         warn(f"Kapitel {k} „{name}“ besteht aus {n}× {art} — reine "
              f"Wortartkapitel lehren eine Liste, keinen benutzbaren Wortschatz")
     if not mono:
-        gut("Keine Wortart-Monokultur in den neueren Kapiteln")
+        gut("Keine Wortart-Monokultur außerhalb der Altbestands-Ausnahmen")
 
     # ── [10] Progression Grundwort/Kompositum (Hinweis) ──────────────
     print("\n[10] Progression: Grundwort nicht über dem Kompositum")

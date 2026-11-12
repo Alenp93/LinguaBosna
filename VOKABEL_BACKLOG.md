@@ -388,7 +388,7 @@ Bestandsform gleich natürlich war, wurde sie eingesetzt (`policajac` statt `str
 |---|---|---|
 | **38 Beispielsätze für `ap93`–`ap111`** | `Code/4_Lernen/aspektpaare_data.json` deckt 92 der jetzt 111 Paare ab. Die 19 neuen Tier-Paare erscheinen in der Übung korrekt, im Feedback fehlt aber der Beispielsatz (`beispielHtml()` liefert dann bewusst einen leeren String – kein Fehler, nur eine Lücke). | `lernen-aspektpaare.html` |
 | **`hrana` (Essen / Nahrung, Substantiv f, A1)** | Beim Abgleich aufgefallen: steht **nur** gebunden (`stočna hrana`, `hrana za kućne ljubimce`, `brza hrana`), nie als eigenes Lemma – dasselbe Muster wie bei `priča`/`pričati` und `pomoć` weiter oben. Verstößt außerdem gegen „Grundwort nie über dem Kompositum". | `vokabeln_flat.json` |
-| **Geräuschsätze als Lückentext-Übung** | Die 22 Sätze aus Block 15 (`Krava muče.`, `Pijetao kukuriče.`) sind jetzt Kapiteleinträge in Kap. 99/102. Sie wären zusätzlich eine natürliche Vorlage für ein Lückentext-Set „Tierlaute" (Verb in der 3. Sg. einsetzen). | `WORKFLOW_Lernen.md` |
+| **Geräuschsätze als Lückentext-Übung** | Die 22 Sätze aus Block 15 (`Krava muče.`, `Pijetao kukuriče.`) sind jetzt Kapiteleinträge in Kap. 41/73. Sie wären zusätzlich eine natürliche Vorlage für ein Lückentext-Set „Tierlaute" (Verb in der 3. Sg. einsetzen). | `WORKFLOW_Lernen.md` |
 
 ---
 
@@ -418,13 +418,13 @@ Damit dieselbe Frage nicht zweimal geprüft wird:
   („entkommen"), ein näherer Partner existiert aber nicht (`bjegnuti` ist regional/selten).
   Weil die Übung Bedeutung und Niveau vom `nesvršeni`-Partner nimmt, entsteht kein falscher
   Lerninhalt. Nicht erneut prüfen.
-- **Kapitel 99 bleibt A2, obwohl die Präsensstämme schwer sind** (`groktati → grokće`,
+- **Kapitel 41 bleibt A2, obwohl die Präsensstämme schwer sind** (`groktati → grokće`,
   `kokodakati → kokodače`). Grund: In genau diesem Kapitel steht zu jedem Lautverb der
   Beispielsatz mit der 3. Person Singular – der Lernende sieht die Form also unmittelbar
-  neben dem Infinitiv. Offen bleibt nur `musti → muze` und `strići → strižem` in Kap. 100,
+  neben dem Infinitiv. Offen bleibt nur `musti → muze` und `strići → strižem` in Kap. 42,
   wo kein solcher Satz danebensteht.
 - **Kein Schlusspunkt bei Sprichwörtern** – `Poklonjenom konju se ne gleda u zube` steht
-  ohne Punkt, `Pas laje.` mit. Das ist kein Versehen: Kapitel 90 „Sprichwörter" führt alle
+  ohne Punkt, `Pas laje.` mit. Das ist kein Versehen: Kapitel 121 „Sprichwörter" führt alle
   30 Einträge ohne Schlusspunkt, gewöhnliche Beispielsätze bekommen einen.
 
 - **`bajram` bleibt klein geschrieben (entschieden 2026-09-07).** Der `bosnisch-pruefer`

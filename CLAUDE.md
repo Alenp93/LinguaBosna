@@ -207,7 +207,8 @@ etwa ein Beitrag pro Woche erscheint.
 
 ## Vokabular-System
 
-- Kanonische Datei: `vokabeln_flat.json` – ca. 3.391 Einträge über 110 Kapitel (A1–C2)
+- Kanonische Datei: `vokabeln_flat.json` – ca. 4.055 Einträge über 130 Kapitel (A1–C2),
+  davon 316 reine `nur_woerterbuch`-Einträge
 - **`vokabeln_flat.json` ist die Referenz für die Wortform – projektweit, nicht nur
   für den Vokabeltrainer.** Wo das Bosnische zulässige Dubletten kennt (`jučer`/`juče`,
   `nikada`/`nikad`, `sviđati se`/`dopadati se`), gilt die Form aus der JSON – auch in
@@ -287,19 +288,20 @@ etwa ein Beitrag pro Woche erscheint.
   Adjektive deshalb bewusst auf mehrere Kapitel verteilt statt nach Wortart gebündelt.
   Ausgenommen sind Altbestandskapitel, die schon vorher so geschnitten waren (z. B. Kap. 18).
 - **Vollständige Sätze sind zulässig, aber nur als `"Wortart": "Phrase"`.** Der Bestand
-  kannte Sätze bis September 2026 nur als Sprichwörter (Kap. 90). Mit dem Tiere-Block kamen
+  kannte Sätze bis September 2026 nur als Sprichwörter (Kapitel „Sprichwörter"). Mit dem Tiere-Block kamen
   Sätze als reguläre Lerneinträge dazu (`Pas laje.` = „Der Hund bellt.") – es gibt weiterhin
   **keinen** Wortart-Wert `Satz`, `Redewendung`, `Sprichwort`, `Nominalphrase` oder
   `Präpositionalphrase`. Alles Mehrteilige ist `Phrase`. Faustregel für die Auswahl: Sätze,
   die als *Einheit* gelernt werden (Tierlaute, Alltagsfragen), gehören in ein Kapitel;
   Sätze, die nur eine Grammatikform vorführen, gehören in `nur_woerterbuch` oder in eine
   Lernen-Übung – nicht in den Vokabeltrainer.
-- **Der Tiere-Block (September 2026, Kapitel 98–110).** 496 neue Einträge aus einer
+- **Der Tiere-Block (September 2026).** 496 neue Einträge aus einer
   Sammelliste, davon 424 in 13 neuen Kapiteln, 48 reine `nur_woerterbuch`-Einträge und
   19 Aspektpartner (`ap93`–`ap111`); zusätzlich wurde Kap. 18 „Tiere" (A1) von 30 auf 35
-  aufgefüllt. Die neuen Kapitel wurden **hinten angehängt (98–110) statt thematisch
-  einsortiert** – eine Neunummerierung wie im August 2026 hätte alle `?kapitel=N`-Links
-  erneut verschoben, ohne inhaltlichen Gewinn. Fachlich enge Arten (`kozorog`, `raža`,
+  aufgefüllt. Die neuen Kapitel wurden zunächst **hinten angehängt (98–110)** – das war
+  ein Fehler, denn dadurch standen A2-Kapitel hinter C2-Kapiteln und der „Weiter"-Button
+  sprang durch die Niveaus (siehe „Kapitelnummern steigen mit dem Niveau" unten; im
+  November 2026 behoben, die Kapitel stehen jetzt bei ihrem Niveau). Fachlich enge Arten (`kozorog`, `raža`,
   `sipa`, `punoglavac`), Nischenzubehör (`brnjica`, `mikročip`) und konnotierte Wörter
   (`kuja`, `pecaroš`) stehen bewusst nur im Wörterbuch: Sie sollen auffindbar sein, aber
   keine Trainerkarte belegen.
@@ -321,7 +323,8 @@ build_b1_split.py → build_b2.py → build_resplit.py → build_c1.py → build
 diese Datei ist am kritischsten für Konsistenz.
 
 ⚠️ **Stand August 2026: Diese Build-Skripte liegen nicht im Repository** (nur `build_sitemap.py`
-und `build_kapitel_index.py` sind vorhanden). Die Kapitel 81–90 (ehemals 73–82) wurden deshalb direkt in `vokabeln_flat.json`
+und `build_kapitel_index.py` sind vorhanden). Die Kapitel 81–90 (ehemals 73–82; Nummern
+Stand August 2026, seither erneut verschoben) wurden deshalb direkt in `vokabeln_flat.json`
 geschrieben, nicht über die Pipeline erzeugt. Wer neue Kapitel anlegt, arbeitet also an der JSON
 selbst – und muss die Regeln oben (Kapitelgröße, ein Niveau je Kapitel, Wortart-Konvention,
 Sortierung nach Kapitelnummer) von Hand einhalten. Geprüft werden diese Regeln seit
@@ -338,6 +341,25 @@ Kapitel-Navigation sortiert die vorhandenen Nummern dynamisch, und `vokabel_ref`
 erhalten** – sie ist der Grund, warum eine Neunummerierung überhaupt möglich war.
 Einziger Nebeneffekt: alte `?kapitel=N`-Links (Lesezeichen, Google-Index) zeigen jetzt auf
 ein anderes Kapitel.
+
+⚠️ **Kapitelnummern steigen mit dem Niveau (November 2026, verbindlich).** Die Buttons
+„Vorheriges/Nächstes Kapitel" (`LB_2-1_Vokabeln_Master.html` und `vokabeltrainer.html`)
+gehen strikt nach Nummer. Tiere- und Familien-Block waren hinten angehängt worden
+(98–130), hatten aber Niveaus von A2 bis C2: „Weiter" sprang von Kap. 39 (A2) auf Kap. 40
+(B1) und ließ neun A2-Kapitel aus, nach dem letzten C2-Kapitel ging es zurück zu A2.
+Deshalb wurde global neu nummeriert, sortiert nach (Niveau, bisherige Nummer): A1 = 1–22,
+A2 = 23–48, B1 = 49–84, B2 = 85–106, C1 = 107–120, C2 = 121–130. Die Reihenfolge der
+Kapitel innerhalb eines Niveaus ist dabei gleich geblieben.
+**Neue Kapitel** also hinten anhängen (nächste freie Nummer, richtiges Niveau) und dann
+`python build_kapitelnummern.py` ausführen – es sortiert nach Niveau, schiebt die
+Nummern nach und behält Dateiformat und Reihenfolge der Einträge bei (`--check` prüft nur).
+Danach wie immer `build_kapitel_index.py` → `build_woerterbuch.py` → `build_sitemap.py`.
+`test_vokabeln.py` meldet eine falsche Reihenfolge als harten Fehler.
+Nebeneffekt wie im August 2026: alte `?kapitel=N`-Links zeigen auf ein anderes Kapitel,
+und gespeicherter Lernfortschritt zu verschobenen Kapiteln wird zurückgesetzt (der
+„geübt"-Haken über die Kapitelnamen-Gegenprobe, der Karteikasten über
+`kartenAufraeumen()`). **Kapitelnummern in Prosa-Dokumenten deshalb möglichst als Name
+nennen**, nicht als Nummer – sie ändern sich bei jeder Neunummerierung.
 
 ## Wörterbuch-Bereich
 
@@ -541,10 +563,12 @@ Für Kultur-Beiträge sind es drei Prüfungen: `test_kultur_beitrag.py` (Struktu
   maschinell nach: Wortart-Konvention (`Wortart (Genus)` vs. `Wortart`), ein Niveau je
   Kapitel, Kapitelgröße ≤ 35, Kapitelnummer ↔ -name eindeutig, `nur_woerterbuch` ohne
   Kapitelfelder, Aspektpaare (genau zwei Partner, je ein Aspekt, ein Niveau) und die
-  Sortierung nach Kapitelnummer. Das sind harte Fehler (Exit 1), weil jeder davon eine
-  konsumierende Seite bricht. Zusätzlich als Hinweis: Wortart-Monokultur (erst ab
-  Kapitel 98, ältere Kapitel sind ausgenommen), Grundwort-über-Kompositum, doppelte
-  bosnische Formen, `par_id`-Lücken. `--quiet` unterdrückt die ✓-Zeilen.
+  Sortierung nach Kapitelnummer samt aufsteigendem Niveau (A1 → C2). Das sind harte
+  Fehler (Exit 1), weil jeder davon eine konsumierende Seite bricht. Zusätzlich als
+  Hinweis: Wortart-Monokultur (zwölf Altkapitel sind per Namensliste
+  `MISCHUNG_AUSNAHMEN` ausgenommen), Grundwort-über-Kompositum, doppelte
+  bosnische Formen, `par_id`-Lücken, Lücken in der Kapitelnummerierung.
+  `--quiet` unterdrückt die ✓-Zeilen.
 - ⚠ Das Skript prüft **Struktur, nicht Sprache** – für ijekavische Form, Register und
   Bosnisch-Standard bleibt der `bosnisch-pruefer`-Subagent zuständig, genau wie bei den
   Grammatikseiten.

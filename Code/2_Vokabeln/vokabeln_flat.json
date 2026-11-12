@@ -10757,24 +10757,6 @@
     "Kapitel": 39,
     "Kapitelname": "Feiertage & Bräuche",
     "Niveau": "A2",
-    "Bosnisch": "mevlud",
-    "Deutsch": "Mevlud (Andacht zur Geburt des Propheten; auch Anlassfeier)",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 39",
-    "Kapitel": 39,
-    "Kapitelname": "Feiertage & Bräuche",
-    "Niveau": "A2",
-    "Bosnisch": "tevhid",
-    "Deutsch": "Tevhid (Totengedenken)",
-    "Wortart (Genus)": "Substantiv (m)"
-  },
-  {
-    "kategorie": "Kapitel 39",
-    "Kapitel": 39,
-    "Kapitelname": "Feiertage & Bräuche",
-    "Niveau": "A2",
     "Bosnisch": "Božić",
     "Deutsch": "Weihnachten",
     "Wortart (Genus)": "Substantiv (m)"
@@ -10802,8 +10784,8 @@
     "Kapitel": 39,
     "Kapitelname": "Feiertage & Bräuche",
     "Niveau": "A2",
-    "Bosnisch": "Uskrs",
-    "Deutsch": "Ostern (orth. auch: Vaskrs)",
+    "Bosnisch": "Uskrs (kath.) / Vaskrs (orth.)",
+    "Deutsch": "Ostern",
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
@@ -10811,18 +10793,9 @@
     "Kapitel": 39,
     "Kapitelname": "Feiertage & Bräuche",
     "Niveau": "A2",
-    "Bosnisch": "pisanica",
-    "Deutsch": "bemaltes Osterei (kath./kroat.; auch: farbano jaje)",
-    "Wortart (Genus)": "Substantiv (f)"
-  },
-  {
-    "kategorie": "Kapitel 39",
-    "Kapitel": 39,
-    "Kapitelname": "Feiertage & Bräuche",
-    "Niveau": "A2",
-    "Bosnisch": "krsna slava",
-    "Deutsch": "Krsna Slava (orth. Familienheiligenfest)",
-    "Wortart (Genus)": "Substantiv (f)"
+    "Bosnisch": "šareno jaje",
+    "Deutsch": "buntes oder gemustertes Ei",
+    "Wortart (Genus)": "Substantiv (n)"
   },
   {
     "kategorie": "Kapitel 39",
@@ -29859,7 +29832,7 @@
     "Kapitelname": "Familie: Verwandtschaft & Generationen",
     "Niveau": "A2",
     "Bosnisch": "babo",
-    "Deutsch": "Papa (vertraut)",
+    "Deutsch": "Papa (bosn.; orient. Variante)",
     "Wortart (Genus)": "Substantiv (m)"
   },
   {
@@ -30085,15 +30058,6 @@
     "Niveau": "A2",
     "Bosnisch": "Ličim na majku.",
     "Deutsch": "Ich sehe meiner Mutter ähnlich.",
-    "Wortart": "Phrase"
-  },
-  {
-    "kategorie": "Kapitel 111",
-    "Kapitel": 111,
-    "Kapitelname": "Familie: Verwandtschaft & Generationen",
-    "Niveau": "A2",
-    "Bosnisch": "Sav je na oca.",
-    "Deutsch": "Er kommt ganz nach dem Vater. (f: Sva je na oca.)",
     "Wortart": "Phrase"
   },
   {

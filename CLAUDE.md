@@ -355,11 +355,15 @@ Kapitel innerhalb eines Niveaus ist dabei gleich geblieben.
 Nummern nach und behält Dateiformat und Reihenfolge der Einträge bei (`--check` prüft nur).
 Danach wie immer `build_kapitel_index.py` → `build_woerterbuch.py` → `build_sitemap.py`.
 `test_vokabeln.py` meldet eine falsche Reihenfolge als harten Fehler.
-Nebeneffekt wie im August 2026: alte `?kapitel=N`-Links zeigen auf ein anderes Kapitel,
-und gespeicherter Lernfortschritt zu verschobenen Kapiteln wird zurückgesetzt (der
-„geübt"-Haken über die Kapitelnamen-Gegenprobe, der Karteikasten über
-`kartenAufraeumen()`). **Kapitelnummern in Prosa-Dokumenten deshalb möglichst als Name
-nennen**, nicht als Nummer – sie ändern sich bei jeder Neunummerierung.
+Nebeneffekt wie im August 2026: alte `?kapitel=N`-Links zeigen auf ein anderes Kapitel.
+Der gespeicherte Lernfortschritt der Besucher (Haken, Karteikasten) wurde im November 2026
+**mitgenommen**: `LB_fortschritt.js` rechnet Stände der Version < 3 einmalig über die Tabelle
+`KAPITEL_UMNUMMERIERUNG` um (siehe „Lernfortschritt-System"). **Bei jeder künftigen
+Neunummerierung, die Nummern verschiebt,** muss dafür eine neue Tabelle samt
+`SCHEMA_VERSION` + 1 ergänzt werden – sonst setzen die Kapitelnamen-Gegenprobe (Haken) und
+`kartenAufraeumen()` (Karteikasten) den Fortschritt still zurück. **Kapitelnummern in
+Prosa-Dokumenten möglichst als Name nennen**, nicht als Nummer – sie ändern sich bei jeder
+Neunummerierung.
 
 ## Wörterbuch-Bereich
 
@@ -423,12 +427,21 @@ steckt in `/Code/LB_fortschritt.js`; das Modul wird von `LB_main.js` per
 auf jeder Seite. Es hängt sich öffentlich an `window.LBFortschritt`.
 
 - **Speicher-Key:** `linguabosna.fortschritt`, ein einziges JSON-Objekt mit
-  `version` (aktuell `2`), `vokabeln` (Kapitelnummer → `{name, zuletzt,
+  `version` (aktuell `3`), `vokabeln` (Kapitelnummer → `{name, zuletzt,
   durchgaenge}`), `grammatik` (Dateiname → `{gelesen, zuletzt, quiz:
   {punkte, max, am}}`) und `wiederholung` (siehe unten). Beim Vokabeleintrag steht der Kapitelname als
   Gegenprobe mit dabei: stimmt er nicht mehr mit der Karte überein (z. B. nach
   einer künftigen Kapitel-Neunummerierung wie im August 2026), wird der
   Eintrag ignoriert statt am falschen Kapitel angezeigt zu werden.
+  **Schema-Version 3 (November 2026) = Kapitelnummern-Umzug:** Die Vokabelkapitel wurden
+  nach Niveau neu nummeriert (89 Kapitel mit neuer Nummer). `migrieren()` rechnet Stände
+  der Version 1/2 einmalig mit `KAPITEL_UMNUMMERIERUNG` (alte → neue Nummer) um – die
+  Schlüssel in `vokabeln` **und** den Nummernteil vor dem `|` in `wiederholung` – und
+  `laden()` legt den umgezogenen Stand sofort als Version 3 ab. Version-3-Stände werden nie
+  erneut umgezogen (sonst würde z. B. 40 → 49 doppelt greifen). Der Umzug baut bewusst
+  neue Objekte auf, statt Schlüssel umzubenennen, sonst würden sich Ketten wie
+  40 → 49 → 58 überlagern. Verloren geht nur, was vor dem Umzug auf der Live-Seite
+  schon neu überschrieben oder vom Trainer aufgeräumt wurde.
 - **Was zählt als „geübt"/„gelesen":** Im Vokabeltrainer nur eine
   *vollständig* durchgearbeitete Lerneinheit (Teil 1 oder Teil 2 eines
   Kapitels) – die Wiederholung „nur falscher Karten" zählt nicht mit. Auf

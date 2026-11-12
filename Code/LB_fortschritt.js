@@ -20,7 +20,7 @@
    Key: "linguabosna.fortschritt"
 
    {
-     "version": 2,
+     "version": 3,
      "vokabeln": {
        "12": {                        // Schlüssel = Kapitelnummer
          "name": "Zahlen & Mengen",   // Gegenprobe, s. u.
@@ -45,11 +45,24 @@
    }
 
    Warum steht bei den Vokabeln der Kapitelname mit drin?
-   Kapitelnummern sind im Projekt schon einmal global verschoben
-   worden (August 2026). Ohne Gegenprobe würde ein gespeichertes
-   "Kapitel 12 geübt" nach so einer Verschiebung am falschen Kapitel
-   kleben. Stimmt der Name nicht mehr, wird der Eintrag ignoriert —
-   lieber ein stiller Reset als eine falsche Anzeige.
+   Kapitelnummern sind im Projekt schon zweimal global verschoben
+   worden (August und November 2026). Ohne Gegenprobe würde ein
+   gespeichertes "Kapitel 12 geübt" nach so einer Verschiebung am
+   falschen Kapitel kleben. Stimmt der Name nicht mehr, wird der
+   Eintrag ignoriert — lieber ein stiller Reset als eine falsche Anzeige.
+
+   Kapitelnummern-Umzug (Schema-Version 3, November 2026)
+   Im November 2026 wurden die Vokabelkapitel nach Niveau neu nummeriert
+   (89 Kapitel bekamen eine neue Nummer, siehe build_kapitelnummern.py).
+   Damit Besucher ihren Fortschritt behalten, rechnet migrieren() Stände
+   der Version 1/2 einmalig mit der Tabelle KAPITEL_UMNUMMERIERUNG um —
+   sowohl die "geübt"-Einträge als auch die Nummer vor dem "|" in den
+   Karteikasten-Schlüsseln. Danach steht der Stand als Version 3 im
+   Speicher. Wer vor der Umnummerierung geübt hat, behält also seine
+   Haken und seinen Karteikasten. (Der Kapitelname bleibt als
+   Gegenprobe erhalten und passt nach dem Umzug wieder zur Nummer.)
+   Für künftige Umnummerierungen gilt: entweder eine neue Tabelle samt
+   Version 4 ergänzen oder den stillen Reset bewusst in Kauf nehmen.
 
    Warum "max" beim Quiz und nicht fest 10?
    Die meisten Grammatikseiten haben 10 Fragen, grammatik-alphabet.html
@@ -110,7 +123,27 @@
 
   // ── Konstanten ────────────────────────────────────────────
   var SPEICHER_KEY   = 'linguabosna.fortschritt';
-  var SCHEMA_VERSION = 2;
+  var SCHEMA_VERSION = 3;
+
+  // Alte Kapitelnummer → neue Kapitelnummer (Umnummerierung November 2026,
+  // nach Niveau sortiert: A1 1–22, A2 23–48, B1 49–84, B2 85–106,
+  // C1 107–120, C2 121–130). Nur die 89 Kapitel, deren Nummer sich
+  // geändert hat — alles, was hier fehlt (1–39 und 129/130), blieb gleich.
+  // Wird ausschließlich von migrieren() für Stände der Version < 3 benutzt.
+  var KAPITEL_UMNUMMERIERUNG = {
+    40: 49, 41: 50, 42: 51, 43: 52, 44: 53, 45: 54, 46: 55, 47: 56,
+    48: 57, 49: 58, 50: 59, 51: 60, 52: 61, 53: 62, 54: 63, 55: 64,
+    56: 65, 57: 66, 58: 67, 59: 68, 60: 69, 61: 70, 62: 71, 63: 72,
+    64: 85, 65: 86, 66: 87, 67: 88, 68: 89, 69: 90, 70: 91, 71: 92,
+    72: 93, 73: 94, 74: 95, 75: 96, 76: 97, 77: 98, 78: 99, 79: 100,
+    80: 107, 81: 108, 82: 109, 83: 110, 84: 111, 85: 112, 86: 113, 87: 114,
+    88: 115, 89: 116, 90: 121, 91: 122, 92: 123, 93: 124, 94: 125, 95: 126,
+    96: 127, 97: 128, 98: 40, 99: 41, 100: 42, 101: 43, 102: 73, 103: 74,
+    104: 75, 105: 76, 106: 77, 107: 78, 108: 44, 109: 101, 110: 117, 111: 45,
+    112: 46, 113: 47, 114: 48, 115: 79, 116: 80, 117: 81, 118: 82, 119: 83,
+    120: 84, 121: 102, 122: 103, 123: 104, 124: 105, 125: 106, 126: 118, 127: 119,
+    128: 120
+  };
 
   // Ab diesem Anteil richtiger Antworten gilt ein Grammatik-Quiz
   // als bestanden (0.7 = 70 %, also z. B. 7 von 10).
@@ -160,7 +193,13 @@
       var daten = JSON.parse(roh);
       if (!daten || typeof daten !== 'object') return leeresModell();
 
-      return migrieren(daten);
+      var vorher = Number(daten.version) || 1;   // fehlend/kaputt = ganz alt
+      var stand  = migrieren(daten);
+
+      // Wurde gerade umgebaut, den neuen Stand sofort ablegen — so
+      // passiert der Umzug genau einmal und nicht bei jedem Lesen neu.
+      if (vorher < SCHEMA_VERSION) speichern(stand);
+      return stand;
     } catch (e) {
       // Kaputtes JSON o. Ä. — lieber neu anfangen als abstürzen.
       return leeresModell();
@@ -181,15 +220,57 @@
     }
   }
 
+  // Eine alte Kapitelnummer (Zahl oder Text) in die neue umrechnen.
+  // Liefert immer einen Text, denn Objekt-Schlüssel sind Texte.
+  // Nummern, die nicht in der Tabelle stehen (1–39, 129/130 oder
+  // Unsinn wie "abc"), bleiben unverändert.
+  function neueKapitelnummer(alt) {
+    var n = Number(alt);
+    if (Object.prototype.hasOwnProperty.call(KAPITEL_UMNUMMERIERUNG, n)) {
+      return String(KAPITEL_UMNUMMERIERUNG[n]);
+    }
+    return String(alt);
+  }
+
+  // Version 2 → 3: Kapitelnummern auf die Nummerierung nach Niveau umziehen.
+  // WICHTIG: Es wird je ein NEUES Objekt aufgebaut statt Schlüssel im alten
+  // umzubenennen. Sonst würde z. B. erst 40 → 49 und danach 49 → 58
+  // greifen, und der Eintrag landete beim falschen Kapitel.
+  function kapitelnummernUmziehen(daten) {
+    // "geübt"-Einträge: Schlüssel = Kapitelnummer
+    var vokabeln = {};
+    Object.keys(daten.vokabeln).forEach(function (k) {
+      vokabeln[neueKapitelnummer(k)] = daten.vokabeln[k];
+    });
+    daten.vokabeln = vokabeln;
+
+    // Karteikasten: Schlüssel = "Kapitel|bosnische Form". Nur der Teil vor
+    // dem ersten "|" ist die Nummer; die Form bleibt, wie sie ist.
+    var karten = {};
+    Object.keys(daten.wiederholung).forEach(function (k) {
+      var pos = k.indexOf('|');
+      var neu = pos < 0 ? k : neueKapitelnummer(k.slice(0, pos)) + k.slice(pos);
+      karten[neu] = daten.wiederholung[k];
+    });
+    daten.wiederholung = karten;
+  }
+
   // Alten Stand auf das aktuelle Schema bringen.
-  // Version 1 → 2: Es kam nur das Unterobjekt "wiederholung" dazu.
-  // Nichts muss umgerechnet werden — wer schon Kapitel geübt hat,
-  // startet einfach mit einem leeren Karteikasten. Deshalb genügt es,
-  // die Unterobjekte notfalls anzulegen (das deckt Version 1 mit ab).
+  // Version 1 → 2: Es kam nur das Unterobjekt "wiederholung" dazu —
+  //   nichts muss umgerechnet werden, es genügt, die Unterobjekte
+  //   notfalls anzulegen (das deckt Version 1 mit ab).
+  // Version 2 → 3: Kapitelnummern-Umzug, siehe kapitelnummernUmziehen().
   function migrieren(daten) {
+    var vorher = Number(daten.version) || 1;   // fehlend/kaputt = ganz alt
+
     if (!daten.vokabeln     || typeof daten.vokabeln     !== 'object') daten.vokabeln     = {};
     if (!daten.grammatik    || typeof daten.grammatik    !== 'object') daten.grammatik    = {};
     if (!daten.wiederholung || typeof daten.wiederholung !== 'object') daten.wiederholung = {};
+
+    // Nur Stände VOR Version 3 tragen noch die alten Kapitelnummern.
+    // Version-3-Stände nie anfassen, sonst würde doppelt umgezogen.
+    if (vorher < 3) kapitelnummernUmziehen(daten);
+
     daten.version = SCHEMA_VERSION;
     return daten;
   }

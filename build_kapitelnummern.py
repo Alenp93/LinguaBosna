@@ -35,8 +35,13 @@ SO ARBEITEST DU MIT NEUEN KAPITELN
 Das Verschieben von Nummern ist unkritisch, weil keine Datei Kapitelnummern
 fest verdrahtet hat (siehe CLAUDE.md, „Globale Neunummerierung"). Einziger
 Nebeneffekt: alte `?kapitel=N`-Links (Lesezeichen, Google) zeigen danach auf
-ein anderes Kapitel, und gespeicherter Lernfortschritt zu verschobenen
-Kapiteln wird zurückgesetzt (LB_fortschritt.js erkennt das am Kapitelnamen).
+ein anderes Kapitel. Und: Der im Browser der Besucher gespeicherte
+Lernfortschritt (Haken, Karteikasten) hängt an den Kapitelnummern. Für die
+Umnummerierung vom November 2026 rechnet LB_fortschritt.js ihn über die
+Tabelle KAPITEL_UMNUMMERIERUNG um (Schema-Version 3). Verschiebt dieses
+Skript künftig erneut Nummern, braucht es dort eine NEUE Tabelle samt
+SCHEMA_VERSION + 1 — sonst wird der Fortschritt still zurückgesetzt
+(die Liste "alt → neu", die das Skript am Ende ausgibt, ist die Vorlage).
 
 WAS DAS SKRIPT AN DER DATEI ÄNDERT
 ----------------------------------

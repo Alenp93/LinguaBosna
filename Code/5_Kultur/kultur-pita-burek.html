@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       kultur-pita-burek.html
+       Kultur-Beitrag: Burek, sirnica & Co. – die bosnische Pita | LinguaBosna
+       Rubrik: Essen & Trinken · Typ: Duell
+       Erstellt aus TEMPLATE_Kultur_Beitrag.html – Regeln in
+       WORKFLOW_Kultur.md.
+
+       Besonderheit: Der Persönlichkeitstest „Welche Pita bist du?"
+       (Block 4) steht komplett im HTML: Fragen, Antworten und die
+       vier Ergebnisse. Das Skript am Ende der Datei blendet nur
+       ein und aus und zählt mit. Wer eine Antwort oder einen
+       Tetka-Fata-Spruch ändern will, ändert ihn direkt im HTML.
+       ====================================================== -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ─────────────────────────────────────────────────── -->
+  <title>LinguaBosna – Burek oder Sirnica? Die bosnische Pita</title>
+  <meta name="description" content="Burek, sirnica, zeljanica, krompiruša: Warum in Bosnien nicht jede Pita ein Burek ist – mit Test „Welche Pita bist du?“ zum Ausprobieren.">
+  <link rel="canonical" href="https://linguabosna.com/Code/5_Kultur/kultur-pita-burek.html">
+
+  <!-- ── Open Graph ─────────────────────────────────────────────── -->
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="LinguaBosna – Burek oder Sirnica? Die bosnische Pita">
+  <meta property="og:description" content="Burek, sirnica, zeljanica, krompiruša: Warum in Bosnien nicht jede Pita ein Burek ist – mit Test „Welche Pita bist du?“ zum Ausprobieren.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/5_Kultur/kultur-pita-burek.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Burek oder Sirnica? Die bosnische Pita">
+  <meta name="twitter:description" content="Burek, sirnica, zeljanica, krompiruša: Warum in Bosnien nicht jede Pita ein Burek ist – mit Test „Welche Pita bist du?“ zum Ausprobieren.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/5_Kultur/Style_5_Kultur.css">
+  <script src="/Code/LB_main.js" defer></script>
+  <script src="/Code/5_Kultur/kultur.js" defer></script>
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+  <!-- ── Strukturierte Daten (schema.org / JSON-LD) ─────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Burek oder Sirnica?",
+        "description": "Burek, sirnica, zeljanica, krompiruša: Warum in Bosnien nicht jede Pita ein Burek ist – mit Test „Welche Pita bist du?“ zum Ausprobieren.",
+        "url": "https://linguabosna.com/Code/5_Kultur/kultur-pita-burek.html",
+        "mainEntityOfPage": "https://linguabosna.com/Code/5_Kultur/kultur-pita-burek.html",
+        "image": "https://linguabosna.com/Bilder/logo/Logo-Version2.png",
+        "inLanguage": "de",
+        "datePublished": "2026-11-16",
+        "dateModified": "2026-11-16",
+        "isAccessibleForFree": true,
+        "articleSection": "Kultur – Essen & Trinken",
+        "author":    { "@type": "Organization", "name": "LinguaBosna", "url": "https://linguabosna.com/" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/",
+          "logo": { "@type": "ImageObject", "url": "https://linguabosna.com/Bilder/logo/Logo-Version2.png" }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Kultur", "item": "https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html" },
+          { "@type": "ListItem", "position": 2, "name": "Burek oder Sirnica?" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body class="kultur-beitrag">
+
+  <div id="header"></div>
+
+  <main>
+
+    <!-- =====================================================
+         BLOCK 1 — KOPF
+         ===================================================== -->
+    <nav class="breadcrumb" aria-label="Brotkrümel-Navigation">
+      <a href="/Code/5_Kultur/kultur-uebersicht.html">Kultur</a>
+      <span class="breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+      <span>Burek oder Sirnica?</span>
+    </nav>
+
+    <span class="kultur-rubrik">Essen &amp; Trinken</span>
+    <h1><span lang="bs">Burek</span> oder <span lang="bs">Sirnica</span>?</h1>
+    <p class="kultur-unterzeile">In Bosnien ist nicht jede Pita ein Burek. Wer das verwechselt, bekommt eine kleine Lektion gratis dazu.</p>
+    <p class="kultur-meta"><i class="far fa-clock" aria-hidden="true"></i>3 Min. Lesezeit</p>
+
+    <!-- Kopfbild: eigene SVG-Illustration (keine Bildrechte nötig).
+         Von oben gesehen eine runde Kupfer-tepsija mit einer als
+         Schnecke gerollten Pita, daneben ein Glas jogurt.
+         Die Spirale ist eine archimedische Spirale (berechnet, nicht
+         von Hand gezeichnet): unten ein dunkler Strich als Schatten
+         zwischen den Windungen, darüber der goldbraune Teig und ein
+         schmaler heller Glanz. Rein dekorativ (aria-hidden), die
+         Bildunterschrift sagt, worum es geht. -->
+    <figure class="kultur-bild">
+      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="pitaVerlauf" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0A3D62"/>
+            <stop offset="1" stop-color="#1a5876"/>
+          </linearGradient>
+          <!-- Die gerollte Pita: einmal definiert, dreimal benutzt -->
+          <path id="pitaSpirale" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                d="M5.0 0.0 L5.7 1.7 L5.7 3.8 L4.9 6.1 L3.2 8.1 L0.8 9.6 L-2.3 10.3 L-5.7 10.0 L-9.0 8.5 L-12.0 5.9 L-14.1 2.3 L-15.0 -2.1 L-14.6 -6.8 L-12.6 -11.4 L-9.2 -15.4 L-4.5 -18.3 L1.2 -19.8 L7.3 -19.4 L13.2 -17.2 L18.4 -13.1 L22.3 -7.4 L24.4 -0.5 L24.4 7.0 L22.0 14.3 L17.5 20.9 L10.9 25.9 L2.9 28.9 L-5.9 29.4 L-14.7 27.2 L-22.7 22.3 L-29.1 15.1 L-33.1 6.0 L-34.4 -4.1 L-32.5 -14.4 L-27.5 -23.9 L-19.8 -31.7 L-9.8 -37.0 L1.5 -39.2 L13.3 -37.9 L24.4 -33.1 L33.8 -25.0 L40.5 -14.3 L43.8 -1.8 L43.3 11.4 L38.9 24.1 L30.7 35.2 L19.4 43.5 L5.8 48.1 L-8.7 48.6 L-23.1 44.8 L-35.8 36.7 L-45.8 25.0 L-52.1 10.6 L-53.8 -5.3 L-50.7 -21.2 L-43.0 -35.8 L-31.1 -47.6 L-16.0 -55.5 L1.1 -58.7 L18.5 -56.7 L34.9 -49.5 L48.6 -37.6 L58.4 -22.0 L63.2 -3.9 L62.4 15.1 L56.1 33.2 L44.5 48.9 L28.5 60.6 L9.6 67.3 L-10.8 68.0 L-30.7 62.7 L-48.4 51.6 L-62.2 35.6 L-70.8 15.9 L-73.3 -5.7 L-69.2 -27.3 L-58.9 -47.0 L-43.0 -63.0 L-22.9 -73.7 L-0.2 -78.1 L23.0 -75.6 L44.7 -66.3 L63.0 -50.8 L76.0 -30.4 L82.5 -6.8 L81.7 17.9 L73.7 41.6 L58.8 62.1 L38.4 77.5 L14.1 86.2 L-12.0 87.5 L-37.6 80.9 L-60.3 67.0 L-78.1 46.8 L-89.3 22.0"/>
+        </defs>
+        <rect width="800" height="300" rx="14" fill="url(#pitaVerlauf)"/>
+
+        <!-- Dezente Goldpunkte als Schmuck -->
+        <g fill="#F4C542" fill-opacity="0.5">
+          <circle cx="120" cy="70" r="4"/>
+          <circle cx="160" cy="215" r="3"/>
+          <circle cx="680" cy="80" r="3"/>
+          <circle cx="700" cy="225" r="4"/>
+        </g>
+
+        <!-- Tepsija (Kupfer) mit Pita, Mittelpunkt bei 340/150 -->
+        <g transform="translate(340 150)">
+          <circle r="128" fill="#b8733c"/>
+          <circle r="126" fill="none" stroke="#dc9a5e" stroke-width="3"/>
+          <circle r="112" fill="#8f5428"/>
+          <circle r="104" fill="#a86d24"/>
+          <use href="#pitaSpirale" stroke="#8a5a1c" stroke-width="19"/>
+          <use href="#pitaSpirale" stroke="#e0a948" stroke-width="13"/>
+          <use href="#pitaSpirale" stroke="#f6d48e" stroke-width="3" stroke-opacity="0.7"/>
+        </g>
+
+        <!-- Glas jogurt, von der Seite -->
+        <g>
+          <path d="M520 92 H600 L592 236 H528 Z" fill="#ffffff" fill-opacity="0.14"
+                stroke="#ffffff" stroke-opacity="0.6" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M523.6 122 H596.4 L592 236 H528 Z" fill="#fbf8f0"/>
+          <ellipse cx="560" cy="122" rx="36.4" ry="5" fill="#ffffff"/>
+          <!-- Glanzstreifen am Glas -->
+          <path d="M532 104 L538 222" stroke="#ffffff" stroke-opacity="0.55" stroke-width="4" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <figcaption>Von oben sieht man es nicht: Ob <span lang="bs">burek</span> oder <span lang="bs">sirnica</span>, verrät erst die Füllung. · Illustration: LinguaBosna</figcaption>
+    </figure>
+
+
+    <!-- =====================================================
+         BLOCK 2 — AUF EINEN BLICK
+         ===================================================== -->
+    <section class="kultur-blick" aria-labelledby="blick-titel">
+      <h2 id="blick-titel">Auf einen Blick</h2>
+      <ul>
+        <li>In Bosnien, vor allem in Sarajevo, heißt nur die Pita mit Fleisch <strong lang="bs">burek</strong> – <strong lang="bs">pita</strong> ist der Oberbegriff für alle.</li>
+        <li>Mit Käse ist es eine <strong lang="bs">sirnica</strong>, mit Spinat eine <strong lang="bs">zeljanica</strong>, mit Kartoffeln eine <strong lang="bs">krompiruša</strong>.</li>
+        <li>Eine gute Pita erkennst du am hauchdünnen Teig, der von Hand gezogen und gerollt in der runden <strong lang="bs">tepsija</strong> gebacken wird.</li>
+      </ul>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 3 — ABSCHNITTE
+         ===================================================== -->
+    <section class="kultur-abschnitt">
+      <h2>Ist das nicht alles Burek?</h2>
+      <p>In vielen Bäckereien in Deutschland und Österreich ist die Sache klar: Burek gibt es mit Käse, mit Spinat oder mit Fleisch. In Bosnien und Herzegowina sieht man das vielerorts anders, am strengsten in Sarajevo. Dort ist <strong lang="bs">pita</strong> der Oberbegriff für alles, was aus hauchdünnem Teig gerollt und gebacken wird. Und der <strong lang="bs">burek</strong> ist genau eine davon: die Pita mit Hackfleisch und Zwiebeln. Alle anderen haben ihren eigenen Namen:</p>
+
+      <dl class="kultur-begriffe">
+        <dt lang="bs">burek</dt><dd>mit Hackfleisch und Zwiebeln</dd>
+        <dt lang="bs">sirnica</dt><dd>mit Käse (von <span lang="bs">sir</span>, Käse)</dd>
+        <dt lang="bs">zeljanica</dt><dd>mit Spinat oder anderem Blattgemüse (von <span lang="bs">zelje</span>, Blattgemüse)</dd>
+        <dt lang="bs">krompiruša</dt><dd>mit Kartoffeln (von <span lang="bs">krompir</span>, Kartoffel)</dd>
+        <dt lang="bs">tikvenica</dt><dd>mit Kürbis oder Zucchini (von <span lang="bs">tikva</span>, Kürbis)</dd>
+      </dl>
+
+      <div class="kultur-wusstest">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        <p><strong>Wusstest du?</strong> Mit dem Fladenbrot, das man in Deutschland vom Gyros kennt, teilt die bosnische <strong lang="bs">pita</strong> das Wort, aber nicht das Rezept. Viel näher verwandt ist die griechische <i lang="el-Latn">tiropita</i>, eine Käse-Pastete aus dünnem Teig.</p>
+      </div>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Ist „Burek mit Käse“ also falsch?</h2>
+      <p>Nicht unbedingt – es kommt darauf an, wo du gerade stehst. In Serbien oder Kroatien ist <strong lang="bs">burek sa sirom</strong> ein ganz normaler Name, und dort ist er auch richtig. Teiggerichte dieser Art gibt es vom Balkan bis in die Türkei, und jede Gegend hat ihre eigenen Wörter dafür. Der bosnische Streit ist also ein Wortstreit, kein Geschmacksstreit.</p>
+      <p>Viele Kinder aus der Diaspora lernen das erst im Sommerurlaub. Sie bestellen in Sarajevo stolz einen <strong lang="bs">burek sa sirom</strong> und bekommen zweierlei: eine <strong lang="bs">sirnica</strong> – und einen kurzen, freundlichen Vortrag.</p>
+
+      <aside class="kultur-tetka" aria-label="Tetka Fata meint">
+        <div class="kultur-tetka-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+        <div class="kultur-tetka-blase">
+          <span class="kultur-tetka-name">Tetka Fata meint</span>
+          <p><span lang="bs">„Burek je s mesom, sve ostalo je pita!“</span> – Burek ist mit Fleisch, alles andere ist Pita. Das sage ich jedem, der mich fragt. Und jedem, der nicht fragt, auch.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Woran erkennst du eine gute Pita?</h2>
+      <p>Am Teig. Für eine richtige Pita wird er nicht nur ausgerollt, sondern auf einem großen Tisch von Hand gezogen, bis er hauchdünn ist – so dünn, dass man angeblich die Zeitung durch ihn lesen kann. Diese Teigplatte heißt <strong lang="bs">jufka</strong>. Sie wird mit der Füllung belegt, zu einer langen Rolle gewickelt und meist als Schnecke in die runde <strong lang="bs">tepsija</strong> gelegt. Traditionell backt man sie <strong lang="bs">ispod sača</strong>: unter einer Glocke aus Eisen, auf der glühende Kohlen liegen. Eine gute Pita ist außen knusprig und goldbraun, innen saftig – und sie schwimmt nicht in Fett.</p>
+
+      <div class="kultur-wusstest">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        <p><strong>Wusstest du?</strong> <strong lang="bs">Burek</strong>, <strong lang="bs">jufka</strong>, <strong lang="bs">tepsija</strong> und <strong lang="bs">sač</strong> kamen alle in osmanischer Zeit aus dem Türkischen ins Bosnische (türkisch <i lang="tr">börek</i>, <i lang="tr">yufka</i>, <i lang="tr">tepsi</i> und <i lang="tr">sac</i>).</p>
+      </div>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Und wie isst man sie?</h2>
+      <p>Am liebsten warm und zu jeder Tageszeit: zum Frühstück, mittags oder spät am Abend. Dazu gehört ein Glas <strong lang="bs">jogurt</strong>. Achtung: Der bosnische Joghurt ist meist flüssig und wird getrunken. Oder man nimmt <strong lang="bs">kiselo mlijeko</strong>, Sauermilch. In der <strong lang="bs">buregdžinica</strong>, dem Burek-Imbiss, kauft man nach Stück oder nach Gewicht, zum Beispiel <strong lang="bs">četvrt kile</strong>, ein Viertelkilo. Zu Hause kommt die Pita in der <strong lang="bs">tepsija</strong> auf den Tisch, und der Gast bekommt das größte Stück.</p>
+
+      <aside class="kultur-tetka" aria-label="Tetka Fata meint">
+        <div class="kultur-tetka-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+        <div class="kultur-tetka-blase">
+          <span class="kultur-tetka-name">Tetka Fata meint</span>
+          <p>Nach dem Backen deckst du die Pita kurz mit einem Tuch ab, damit die Kruste weich wird. Und dann: <span lang="bs">polako</span>, immer mit der Ruhe. Die Pita braucht ihre Pause – genau wie du nach dem dritten Stück.</p>
+        </div>
+      </aside>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 4 — INTERAKTIV: „WELCHE PITA BIST DU?"
+         Persönlichkeitstest mit 5 Fragen à 4 Antworten.
+         Alles steht hier im HTML, das Skript am Ende der Datei
+         zeigt immer nur eine Frage und zählt mit:
+           <div class="pita-frage">        → eine Frage
+           <button data-pita="…">          → zählt für diese Pita
+           <div class="kultur-ergebnis"
+                data-pita="…">             → Ergebnis dieser Pita
+         Die vier Schlüssel: burek, sirnica, zeljanica, krompirusa
+         (nur ASCII, weil sie nirgends angezeigt werden).
+         Die Reihenfolge der Antworten ist je Frage bewusst
+         gemischt, damit man das Muster nicht sofort durchschaut.
+         Ohne JavaScript bleibt der Test versteckt (class="hidden"),
+         stattdessen erscheint der <noscript>-Hinweis.
+         ===================================================== -->
+    <section class="kultur-interaktiv" aria-labelledby="interaktiv-titel">
+      <h2 id="interaktiv-titel"><i class="fas fa-clipboard-question" aria-hidden="true"></i> Welche Pita bist du?</h2>
+      <p class="kultur-interaktiv-hinweis">Fünf Fragen, keine falschen Antworten: Finde heraus, welche Pita zu dir passt.</p>
+
+      <noscript><p>Für den Test brauchst du JavaScript. Der Rest des Beitrags funktioniert auch ohne.</p></noscript>
+
+      <div id="pitaTest" class="hidden">
+        <p class="kultur-schritt" id="pitaFortschritt">Frage 1 von 5</p>
+
+        <div class="pita-frage">
+          <p class="kultur-frage" id="pitaFrage1" tabindex="-1">Wie sieht dein perfekter Sonntag aus?</p>
+          <div class="kultur-wahl kultur-wahl-liste" role="group" aria-labelledby="pitaFrage1">
+            <button type="button" class="kultur-wahl-btn" data-pita="sirnica">Freunde treffen, Kaffee trinken, viel lachen – Pläne braucht keiner.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="burek">Großes Familienessen: alle am Tisch, laut und lange.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="krompirusa">Sofa, Decke, Serie – und bitte ruft niemand an.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="zeljanica">Raus in die Natur, Hauptsache frische Luft.</button>
+          </div>
+        </div>
+
+        <div class="pita-frage hidden">
+          <p class="kultur-frage" id="pitaFrage2" tabindex="-1">Die Familie fährt im Sommer nach Bosnien. Was ist deine Rolle?</p>
+          <div class="kultur-wahl kultur-wahl-liste" role="group" aria-labelledby="pitaFrage2">
+            <button type="button" class="kultur-wahl-btn" data-pita="zeljanica">Ich plane einen Umweg über die Berge – man will ja etwas sehen.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="krompirusa">Ich schlafe, bis wir da sind. Weckt mich, wenn es Essen gibt.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="burek">Ich packe den Kofferraum. Nach System. Kein Zentimeter bleibt frei.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="sirnica">Ich mache die Musik und sorge für gute Stimmung.</button>
+          </div>
+        </div>
+
+        <div class="pita-frage hidden">
+          <p class="kultur-frage" id="pitaFrage3" tabindex="-1">Tetka Fata bietet dir zum dritten Mal Nachschlag an. Du sagst …</p>
+          <div class="kultur-wahl kultur-wahl-liste" role="group" aria-labelledby="pitaFrage3">
+            <button type="button" class="kultur-wahl-btn" data-pita="burek"><span lang="bs">„Može!“</span> (Gerne!) – und erzählst nebenbei, wie deine <span lang="bs">nana</span> (Oma) die Pita früher gemacht hat.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="zeljanica"><span lang="bs">„Hvala, dosta!“</span> (Danke, genug!) – und meinst es wirklich so.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="sirnica"><span lang="bs">„Samo malo!“</span> (Nur ein bisschen!) – und nimmst dann doch ein großes Stück.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="krompirusa">Nichts. Du nickst nur, der Mund ist noch voll.</button>
+          </div>
+        </div>
+
+        <div class="pita-frage hidden">
+          <p class="kultur-frage" id="pitaFrage4" tabindex="-1">Welcher Spruch passt zu dir?</p>
+          <div class="kultur-wahl kultur-wahl-liste" role="group" aria-labelledby="pitaFrage4">
+            <button type="button" class="kultur-wahl-btn" data-pita="krompirusa"><span lang="bs">„Polako, polako.“</span> – Immer mit der Ruhe.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="sirnica">Hauptsache, wir sind alle zusammen.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="burek">Das Original kann man nicht ersetzen.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="zeljanica">Wer nichts Neues probiert, verpasst das Beste.</button>
+          </div>
+        </div>
+
+        <div class="pita-frage hidden">
+          <p class="kultur-frage" id="pitaFrage5" tabindex="-1">Neben dir bestellt jemand „Burek mit Käse“. Was machst du?</p>
+          <div class="kultur-wahl kultur-wahl-liste" role="group" aria-labelledby="pitaFrage5">
+            <button type="button" class="kultur-wahl-btn" data-pita="burek">Ich erkläre freundlich, aber ausführlich, warum das eine <span lang="bs">sirnica</span> ist.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="krompirusa">Ich bestelle einfach dasselbe. Name egal, Hauptsache warm.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="zeljanica">Ich bestelle etwas, das ich noch nie probiert habe.</button>
+            <button type="button" class="kultur-wahl-btn" data-pita="sirnica">Ich lächle nur. Wer Käse will, soll Käse bekommen.</button>
+          </div>
+        </div>
+
+        <!-- Die vier Ergebnisse (immer nur eins sichtbar) -->
+        <div class="kultur-ergebnis hidden" data-pita="burek" tabindex="-1">
+          <p class="kultur-ergebnis-pfad">Dein Ergebnis – du bist:</p>
+          <p class="kultur-ergebnis-wort" lang="bs">burek</p>
+          <p class="kultur-ergebnis-text">Der Klassiker. Du bist verlässlich, stehst gern im Mittelpunkt und hältst Traditionen hoch. Ohne dich fängt keine Feier an.</p>
+          <p class="kultur-ergebnis-fata"><i class="fas fa-mug-hot" aria-hidden="true"></i><span>Tetka Fata: Bravo! Stolz sein ist schön – aber lass den anderen auch noch etwas in der <span lang="bs">tepsija</span>.</span></p>
+        </div>
+
+        <div class="kultur-ergebnis hidden" data-pita="sirnica" tabindex="-1">
+          <p class="kultur-ergebnis-pfad">Dein Ergebnis – du bist:</p>
+          <p class="kultur-ergebnis-wort" lang="bs">sirnica</p>
+          <p class="kultur-ergebnis-text">Du kommst mit allen gut aus, bringst Leute an einen Tisch und passt zu jeder Gelegenheit. Dich mögen alle – manche bestellen dich sogar unter falschem Namen.</p>
+          <p class="kultur-ergebnis-fata"><i class="fas fa-mug-hot" aria-hidden="true"></i><span>Tetka Fata: <span lang="bs">Sirnica, dušo!</span> (Sirnica, Schatz!) Die Leute sagen „Burek mit Käse“ und meinen dich. Beliebter geht es nicht.</span></p>
+        </div>
+
+        <div class="kultur-ergebnis hidden" data-pita="zeljanica" tabindex="-1">
+          <p class="kultur-ergebnis-pfad">Dein Ergebnis – du bist:</p>
+          <p class="kultur-ergebnis-wort" lang="bs">zeljanica</p>
+          <p class="kultur-ergebnis-text">Frisch, neugierig und immer für etwas Neues zu haben. Viele unterschätzen dich – bis sie dich näher kennenlernen.</p>
+          <p class="kultur-ergebnis-fata"><i class="fas fa-mug-hot" aria-hidden="true"></i><span>Tetka Fata: Endlich jemand, der auf mich hört, wenn ich sage: Iss mehr Grünes!</span></p>
+        </div>
+
+        <div class="kultur-ergebnis hidden" data-pita="krompirusa" tabindex="-1">
+          <p class="kultur-ergebnis-pfad">Dein Ergebnis – du bist:</p>
+          <p class="kultur-ergebnis-wort" lang="bs">krompiruša</p>
+          <p class="kultur-ergebnis-text">Bodenständig, gemütlich und ehrlich. Bei dir fühlen sich alle sofort zu Hause – und satt wird auch jeder.</p>
+          <p class="kultur-ergebnis-fata"><i class="fas fa-mug-hot" aria-hidden="true"></i><span>Tetka Fata: Einfach, warm und ehrlich. Wer <span lang="bs">krompiruša</span> nicht mag, hat sie noch nicht probiert.</span></p>
+        </div>
+
+        <button type="button" class="kultur-wahl-btn hidden" id="pitaNochmal"><i class="fas fa-rotate-left" aria-hidden="true"></i> Test wiederholen</button>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 5 — WÖRTER AUS DIESEM BEITRAG
+         Wortformen aus vokabeln_flat.json (Kapitel „Bosnische Küche"
+         und „Essen & Trinken"). jufka, jogurt, tikvenica und sač
+         stehen (noch) nicht im Bestand und fehlen deshalb hier.
+         ===================================================== -->
+    <section class="kultur-woerter" aria-labelledby="woerter-titel">
+      <h2 id="woerter-titel">Wörter aus diesem Beitrag</h2>
+      <ul>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=pita"><span class="wort" lang="bs">pita</span><span class="bedeutung">Pita (aus dünn gezogenem Teig)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=burek"><span class="wort" lang="bs">burek</span><span class="bedeutung">Pita mit Fleisch</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=sirnica"><span class="wort" lang="bs">sirnica</span><span class="bedeutung">Käse-Pita</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=zeljanica"><span class="wort" lang="bs">zeljanica</span><span class="bedeutung">Blattgemüse-Pita (meist Spinat)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=krompiruša"><span class="wort" lang="bs">krompiruša</span><span class="bedeutung">Kartoffel-Pita</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=tepsija"><span class="wort" lang="bs">tepsija</span><span class="bedeutung">Backform (für Pita meist rund)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=buregdžinica"><span class="wort" lang="bs">buregdžinica</span><span class="bedeutung">Burek-Imbiss</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=kiselo%20mlijeko"><span class="wort" lang="bs">kiselo mlijeko</span><span class="bedeutung">Sauermilch</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=meso"><span class="wort" lang="bs">meso</span><span class="bedeutung">Fleisch</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=sir"><span class="wort" lang="bs">sir</span><span class="bedeutung">Käse</span></a></li>
+      </ul>
+      <p class="kultur-woerter-hinweis">Noch mehr Küchenwörter findest du im <a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=pita">Wörterbuch</a> und zum Üben im Kapitel „Bosnische Küche“ des <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html">Vokabeltrainers</a>.</p>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 6 — MINI-QUIZ (HTML nicht verändern)
+         ===================================================== -->
+    <section class="kultur-quiz" aria-labelledby="quiz-titel">
+      <h2 id="quiz-titel">Hast du aufgepasst?</h2>
+
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <span id="quizProgress">Frage 1</span>
+          <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBarFill"></div></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion" aria-live="polite"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback hidden" id="quizFeedback" aria-live="polite"></div>
+        <button type="button" class="quiz-next-btn hidden" id="quizNextBtn">Nächste Frage →</button>
+      </div>
+
+      <div class="quiz-result hidden" id="quizResult">
+        <i class="fas fa-trophy" aria-hidden="true"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <button type="button" class="quiz-retry-btn" id="quizRetryBtn">Quiz wiederholen</button>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 7 — WEITER GEHT'S
+         ===================================================== -->
+    <section class="kultur-weiter" aria-labelledby="weiter-titel">
+      <h2 id="weiter-titel">Weiter geht's</h2>
+      <div class="kultur-weiter-grid">
+        <a href="/Code/3_Grammatik/Grammatik_B1/grammatik-instrumental.html">
+          <i class="fas fa-utensils" aria-hidden="true"></i>
+          <span><strong>Instrumental</strong><span lang="bs">s mesom, sa sirom</span>: So sagst du, was in der Pita steckt.</span>
+        </a>
+        <a href="/Code/3_Grammatik/Grammatik_B1/grammatik-genitiv.html">
+          <i class="fas fa-scale-balanced" aria-hidden="true"></i>
+          <span><strong>Genitiv</strong><span lang="bs">četvrt kile, čaša jogurta</span>: Nach Mengenangaben steht der Genitiv.</span>
+        </a>
+        <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html">
+          <i class="fas fa-book-open" aria-hidden="true"></i>
+          <span><strong>Vokabeln: Bosnische Küche</strong>Von <span lang="bs">baklava</span> bis <span lang="bs">zeljanica</span>: alle Wörter zum Üben im Vokabeltrainer.</span>
+        </a>
+        <a href="/Code/5_Kultur/kultur-familie-stammbaum.html">
+          <i class="fas fa-people-roof" aria-hidden="true"></i>
+          <span><strong lang="bs">Amidža, daidža, zet</strong>Wer bekommt beim Besuch das größte Stück? Oft der <span lang="bs">zet</span> – wer das ist, steht hier.</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 8 — QUELLEN & BILDNACHWEIS
+         ===================================================== -->
+    <section class="kultur-quellen" aria-labelledby="quellen-titel">
+      <h2 id="quellen-titel">Quellen &amp; Bildnachweis</h2>
+      <ul>
+        <li>Wortformen: Wortschatz von LinguaBosna (<a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html">Wörterbuch</a>)</li>
+        <li>Zur Herkunft von <span lang="bs">burek</span>, <span lang="bs">jufka</span>, <span lang="bs">tepsija</span> und <span lang="bs">sač</span>: Abdulah Škaljić, <i lang="bs">Turcizmi u srpskohrvatskom jeziku</i>, Sarajevo: Svjetlost, 1965</li>
+        <li>Zur Pita-Kultur in Bosnien: Radio Slobodna Evropa, <a href="https://www.slobodnaevropa.org/a/pita-je-cudnovato-jelo/24985645.html" lang="bs">„Pita je čudnovato jelo“</a> (abgerufen am 16.11.2026)</li>
+        <li>Illustration (Pita in der <span lang="bs">tepsija</span>): LinguaBosna</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       QUIZ-DATEN (JSON) — Logik in /Code/5_Kultur/kultur.js
+       ====================================================== -->
+  <script type="application/json" id="kulturQuizDaten">
+  {
+    "fragen": [
+      {
+        "frage": "Was ist in Sarajevo ein burek?",
+        "optionen": ["Jede Pita, egal mit welcher Füllung", "Die Pita mit Fleisch", "Die Pita mit Käse"],
+        "richtig": 1,
+        "erklaerung": "In Sarajevo und vielerorts in Bosnien heißt nur die Pita mit Hackfleisch burek. Pita ist der Oberbegriff für alle Sorten."
+      },
+      {
+        "frage": "Du willst eine Pita mit Käse. Was bestellst du in Sarajevo?",
+        "optionen": ["sirnica", "zeljanica", "krompiruša"],
+        "richtig": 0,
+        "erklaerung": "Die Pita mit Käse ist die sirnica – von sir, Käse. Die zeljanica hat Spinat, die krompiruša Kartoffeln."
+      },
+      {
+        "frage": "Wie heißt die Pita mit Spinat?",
+        "optionen": ["tikvenica", "sirnica", "zeljanica"],
+        "richtig": 2,
+        "erklaerung": "Die zeljanica wird mit Spinat oder anderem Blattgemüse gefüllt. In der tikvenica steckt Kürbis oder Zucchini, in der sirnica Käse."
+      },
+      {
+        "frage": "Wie heißt die hauchdünne, von Hand gezogene Teigplatte?",
+        "optionen": ["tepsija", "jufka", "somun"],
+        "richtig": 1,
+        "erklaerung": "Die Teigplatte ist die jufka. In der tepsija wird gebacken, und somun ist das Fladenbrot, das man von den ćevapi kennt."
+      },
+      {
+        "frage": "Was trinkt man in Bosnien gern zur Pita?",
+        "optionen": ["Kaffee mit Sahne", "Limonade", "Jogurt oder kiselo mlijeko"],
+        "richtig": 2,
+        "erklaerung": "Zur Pita gehört ein Glas jogurt – in Bosnien meist flüssig und zum Trinken – oder kiselo mlijeko, Sauermilch."
+      }
+    ],
+    "ergebnis": {
+      "top":  "Bravo! Tetka Fata gibt dir jetzt das größte Stück burek – mit Fleisch, versteht sich. 🎉",
+      "gut":  "Gut gemacht! Lies noch einmal nach, welche Pita welche Füllung hat – dann bestellst du im Sommer wie ein Profi.",
+      "rest": "Kein Problem – über die Namen wird sogar in Bosnien gestritten. Lies den Beitrag in Ruhe nochmal und versuch es erneut!"
+    }
+  }
+  </script>
+
+
+  <!-- ======================================================
+       PERSÖNLICHKEITSTEST „WELCHE PITA BIST DU?" (Block 4)
+
+       Liest alles aus dem HTML oben – es gibt also nur EINE
+       Stelle, an der Fragen und Ergebnisse stehen. Ablauf:
+         1. Es ist immer nur eine .pita-frage sichtbar.
+         2. Klick auf eine Antwort → deren data-pita wird gemerkt,
+            die nächste Frage erscheint.
+         3. Nach der letzten Frage gewinnt die Pita mit den meisten
+            Stimmen. Bei Gleichstand gewinnt die, die zuletzt
+            gewählt wurde (so gibt es immer genau ein Ergebnis).
+         4. „Test wiederholen" setzt alles zurück.
+       Der Fokus springt nach jedem Klick auf die neue Frage bzw.
+       das Ergebnis – wichtig für Tastatur und Screenreader, weil
+       der angeklickte Button sonst verschwindet und der Fokus
+       „ins Leere" fällt.
+       ====================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var test = document.getElementById('pitaTest');
+      if (!test) return;
+
+      var fragen      = test.querySelectorAll('.pita-frage');
+      var ergebnisse  = test.querySelectorAll('.kultur-ergebnis[data-pita]');
+      var fortschritt = document.getElementById('pitaFortschritt');
+      var nochmal     = document.getElementById('pitaNochmal');
+      if (!fragen.length || !ergebnisse.length) return;
+
+      var antworten = [];   // gewählte Pita je Frage, in Reihenfolge
+      var aktuell = 0;      // Nummer der gerade sichtbaren Frage (ab 0)
+
+      // Eine Frage zeigen, alle anderen ausblenden
+      function frageZeigen(nr, fokus) {
+        fragen.forEach(function (frage, i) {
+          frage.classList.toggle('hidden', i !== nr);
+        });
+        fortschritt.textContent = 'Frage ' + (nr + 1) + ' von ' + fragen.length;
+        fortschritt.classList.remove('hidden');
+        if (fokus) {
+          var text = fragen[nr].querySelector('.kultur-frage');
+          if (text) text.focus();
+        }
+      }
+
+      // Welche Pita hat die meisten Stimmen?
+      function auswerten() {
+        var zaehler = {};
+        var hoechste = 0;
+        antworten.forEach(function (pita) {
+          zaehler[pita] = (zaehler[pita] || 0) + 1;
+          if (zaehler[pita] > hoechste) hoechste = zaehler[pita];
+        });
+        // Gleichstand: von hinten suchen – die zuletzt gewählte gewinnt
+        for (var i = antworten.length - 1; i >= 0; i--) {
+          if (zaehler[antworten[i]] === hoechste) return antworten[i];
+        }
+        return antworten[antworten.length - 1];
+      }
+
+      function ergebnisZeigen() {
+        var sieger = auswerten();
+        fragen.forEach(function (frage) { frage.classList.add('hidden'); });
+        fortschritt.classList.add('hidden');
+
+        var box = null;
+        ergebnisse.forEach(function (e) {
+          var passt = e.getAttribute('data-pita') === sieger;
+          e.classList.toggle('hidden', !passt);
+          if (passt) box = e;
+        });
+        nochmal.classList.remove('hidden');
+        if (box) box.focus();
+      }
+
+      // Antwort-Buttons verdrahten
+      fragen.forEach(function (frage, nr) {
+        var knoepfe = frage.querySelectorAll('button[data-pita]');
+        knoepfe.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', 'false');
+          btn.addEventListener('click', function () {
+            if (nr !== aktuell) return;     // Doppelklick-Schutz
+            knoepfe.forEach(function (b) {
+              b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+            });
+            antworten[nr] = btn.getAttribute('data-pita');
+            aktuell++;
+            if (aktuell < fragen.length) frageZeigen(aktuell, true);
+            else ergebnisZeigen();
+          });
+        });
+      });
+
+      // Neu starten
+      nochmal.addEventListener('click', function () {
+        antworten = [];
+        aktuell = 0;
+        ergebnisse.forEach(function (e) { e.classList.add('hidden'); });
+        nochmal.classList.add('hidden');
+        test.querySelectorAll('button[data-pita]').forEach(function (b) {
+          b.setAttribute('aria-pressed', 'false');
+        });
+        frageZeigen(0, true);
+      });
+
+      frageZeigen(0, false);
+      test.classList.remove('hidden');
+    })();
+  </script>
+
+</body>
+</html>

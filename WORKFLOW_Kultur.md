@@ -269,7 +269,7 @@ Alle Ergebnisse Alen zeigen, bevor committed wird.
 | Beitrag | Datei | Rubrik | Typ | Status |
 |---|---|---|---|---|
 | Amidža, daidža, zet – wer ist hier eigentlich wer? | `kultur-familie-stammbaum.html` | Familie & Zusammenleben | Wer ist wer? | Entwurf (Nov. 2026): Struktur ✓, Sprache ✓ (bosnisch-pruefer), Inhalt: kultur-pruefer |
-| Burek oder Sirnica? | – | Essen & Trinken | Duell | geplant |
+| Burek oder Sirnica? | `kultur-pita-burek.html` | Essen & Trinken | Duell | Entwurf (Nov. 2026): Struktur ✓, Sprache ✓ (bosnisch-pruefer), Inhalt ✓ (kultur-pruefer, kein NO-GO); Hinweise beider eingearbeitet, offen: tikvenica vs. tikvenjača |
 | Ćevapi: Woran erkennst du gute? | – | Essen & Trinken | Erklärstück | geplant |
 | Bosanska kahva | – | Essen & Trinken | Erklärstück | geplant |
 | Was ist eigentlich Sevdah? | – | Musik & Tanz | Erklärstück | geplant |

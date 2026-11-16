@@ -88,6 +88,16 @@ main p {
   color: #333;
 }
 
+/* Bosnische Wörter in Überschriften (<span lang="bs"> im <h1>/<h3>)
+   sollen die Schrift der Überschrift behalten. Ohne diese Regel greift
+   die globale Regel * { font-family: 'Open Sans' } aus Style.css, und
+   „Burek“ stünde im Titel in einer anderen Schrift als „oder“. */
+main h1 [lang="bs"],
+main h2 [lang="bs"],
+main h3 [lang="bs"] {
+  font-family: inherit;
+}
+
 /* Lange Wörter dürfen notfalls umbrechen (schmale Handys) */
 main h1, main h2, main h3, main p, main li, main figcaption {
   overflow-wrap: break-word;
@@ -569,6 +579,31 @@ a.kultur-card:hover {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--primary);
+}
+
+/* Antwortliste: Auswahl-Buttons untereinander statt nebeneinander.
+   Für Antworten, die ganze Sätze sind (z. B. der Persönlichkeitstest
+   „Welche Pita bist du?“). Einfach zusätzlich zu .kultur-wahl setzen:
+   <div class="kultur-wahl kultur-wahl-liste"> */
+.kultur-wahl-liste {
+  flex-direction: column;
+}
+
+.kultur-wahl-liste .kultur-wahl-btn {
+  width: 100%;
+  text-align: left;
+  line-height: 1.45;
+  padding: 11px 16px;
+}
+
+/* Frage eines interaktiven Elements (gleiche Optik wie die Quizfrage) */
+.kultur-frage {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.08rem;
+  line-height: 1.4;
+  color: var(--primary);
+  margin-bottom: 14px;
 }
 
 .kultur-schritt {

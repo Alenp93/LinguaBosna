@@ -111,6 +111,13 @@
      zerstört nicht das ganze Skript – test_kultur_beitrag.py prüft
      die Daten vorab.
 
+     Bosnische Wörter in Frage, Optionen, Erklärung und Ergebnistext
+     stehen in geschweiften Klammern: "optionen": ["{zet}", "{djever}"]
+     oder "erklaerung": "Die Teigplatte ist die {jufka}." Daraus wird
+     <span lang="bs">…</span>, damit der Screenreader sie bosnisch
+     vorliest (Usability-Checkliste in CLAUDE.md). Die Klammern selbst
+     erscheinen nicht auf der Seite.
+
      Die IDs (quizContainer, quizQuestion, …) sind dieselben wie im
      Grammatik-Quiz. So kann LB_fortschritt.js die Kultur-Quizze
      später ohne Umbau mitzählen (siehe WORKFLOW_Kultur.md).
@@ -151,18 +158,36 @@
     var punkte = 0;
     var beantwortet = false;
 
+    // Text in ein Element schreiben; {…} wird zu <span lang="bs">…</span>.
+    // Bewusst mit createTextNode/createElement statt innerHTML: So kann
+    // ein Zeichen wie < im Quiztext nie als HTML ausgeführt werden.
+    function textMitBosnisch(ziel, text) {
+      String(text || '').split(/(\{[^{}]*\})/).forEach(function (teil) {
+        if (!teil) return;
+        if (teil.charAt(0) === '{' && teil.charAt(teil.length - 1) === '}') {
+          var span = document.createElement('span');
+          span.lang = 'bs';
+          span.textContent = teil.slice(1, -1);
+          ziel.appendChild(span);
+        } else {
+          ziel.appendChild(document.createTextNode(teil));
+        }
+      });
+    }
+
     function frageZeigen() {
       var f = fragen[aktuell];
       el.fortschritt.textContent = 'Frage ' + (aktuell + 1) + ' von ' + fragen.length;
       el.balken.style.width = ((aktuell / fragen.length) * 100) + '%';
-      el.frage.textContent = f.frage;
+      el.frage.textContent = '';
+      textMitBosnisch(el.frage, f.frage);
 
       el.optionen.innerHTML = '';
       f.optionen.forEach(function (text, i) {
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'quiz-option-btn';
-        btn.textContent = text;
+        textMitBosnisch(btn, text);
         btn.addEventListener('click', function () { pruefen(i); });
         el.optionen.appendChild(btn);
       });
@@ -191,7 +216,8 @@
       icon.setAttribute('aria-hidden', 'true');
       el.feedback.appendChild(icon);
       el.feedback.appendChild(document.createTextNode(
-        (richtig ? 'Richtig! ' : 'Leider falsch. ') + f.erklaerung));
+        richtig ? 'Richtig! ' : 'Leider falsch. '));
+      textMitBosnisch(el.feedback, f.erklaerung);
       el.feedback.className = 'quiz-feedback ' + (richtig ? 'feedback-correct' : 'feedback-wrong');
 
       if (aktuell < fragen.length - 1) {
@@ -212,7 +238,8 @@
       var text = anteil === 1 ? texte.top
                : anteil >= 0.6 ? texte.gut
                : texte.rest;
-      el.text.textContent = text || '';
+      el.text.textContent = '';
+      textMitBosnisch(el.text, text);
     }
 
     el.weiter.addEventListener('click', function () {

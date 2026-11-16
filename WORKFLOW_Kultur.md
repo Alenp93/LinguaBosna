@@ -122,6 +122,12 @@ JavaScript vollständig im HTML, aber ohne die Seite optisch zu verlängern.
   „kada“). Für Lemmata (Wörterliste, Tabellen, Quizoptionen) gilt weiter die JSON-Form.
 - Beim ersten Vorkommen kurz übersetzen. Kein Lehrbuch-Ton, aber auch keine
   Wörter ohne Erklärung.
+- **Im Quiz-JSON** (Block 6) gibt es kein HTML. Bosnische Wörter stehen dort in
+  geschweiften Klammern: `"optionen": ["{zet}", "{djever}", "{šura}"]`,
+  `"erklaerung": "Die Teigplatte ist die {jufka}."` – `kultur.js` macht daraus
+  `<span lang="bs">`, die Klammern sind auf der Seite unsichtbar. Gilt für
+  Frage, Optionen, Erklärung und Ergebnistexte. `test_kultur_beitrag.py` meldet
+  offene oder verschachtelte Klammern als Fehler.
 
 ### Verlinkung
 
@@ -269,7 +275,7 @@ Alle Ergebnisse Alen zeigen, bevor committed wird.
 | Beitrag | Datei | Rubrik | Typ | Status |
 |---|---|---|---|---|
 | Amidža, daidža, zet – wer ist hier eigentlich wer? | `kultur-familie-stammbaum.html` | Familie & Zusammenleben | Wer ist wer? | Entwurf (Nov. 2026): Struktur ✓, Sprache ✓ (bosnisch-pruefer), Inhalt: kultur-pruefer |
-| Burek oder Sirnica? | `kultur-pita-burek.html` | Essen & Trinken | Duell | Entwurf (Nov. 2026): Struktur ✓, Sprache ✓ (bosnisch-pruefer), Inhalt ✓ (kultur-pruefer, kein NO-GO); Hinweise beider eingearbeitet, offen: tikvenica vs. tikvenjača |
+| Burek oder Sirnica? | `kultur-pita-burek.html` | Essen & Trinken | Duell | Online seit 16.11.2026: Struktur ✓, Sprache ✓ (bosnisch-pruefer), Inhalt ✓ (kultur-pruefer, kein NO-GO). Wortform „tikvenica“ (nicht „tikvenjača“, Entscheidung Alen) |
 | Ćevapi: Woran erkennst du gute? | – | Essen & Trinken | Erklärstück | geplant |
 | Bosanska kahva | – | Essen & Trinken | Erklärstück | geplant |
 | Was ist eigentlich Sevdah? | – | Musik & Tanz | Erklärstück | geplant |

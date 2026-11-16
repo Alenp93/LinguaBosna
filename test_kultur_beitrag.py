@@ -388,6 +388,26 @@ def pruefe_quiz():
         "Ergebnistexte top/gut/rest vorhanden" if not fehlt
         else "Ergebnistexte fehlen: " + ", ".join(fehlt))
 
+    # Bosnische Wörter stehen im Quiz als {wort} (kultur.js → <span lang="bs">).
+    # Eine offene oder verschachtelte Klammer stünde sonst sichtbar im Quiz.
+    alle_texte = []
+    for f in fragen:
+        alle_texte += [f.get("frage", ""), f.get("erklaerung", "")]
+        alle_texte += list(f.get("optionen") or [])
+    alle_texte += [v for v in texte.values() if isinstance(v, str)]
+    kaputt = [t for t in alle_texte
+              if re.sub(r"\{[^{}]*\}", "", str(t)).count("{")
+              or re.sub(r"\{[^{}]*\}", "", str(t)).count("}")]
+    n_bs = sum(len(re.findall(r"\{[^{}]*\}", str(t))) for t in alle_texte)
+    if kaputt:
+        for t in kaputt:
+            fail(f"Quiz: offene/verschachtelte {{Klammer}} in „{str(t)[:50]}“")
+    elif n_bs:
+        ok(f"Quiz: {n_bs} bosnische Wörter als {{…}} ausgezeichnet (lang=\"bs\")")
+    else:
+        warn("Quiz: keine bosnischen Wörter als {…} ausgezeichnet — "
+             "Wörter wie {sirnica} werden sonst deutsch vorgelesen")
+
 
 # ── Beitrag: [4] Links ───────────────────────────────────────────
 def pruefe_links():

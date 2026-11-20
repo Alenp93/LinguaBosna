@@ -276,7 +276,7 @@ Alle Ergebnisse Alen zeigen, bevor committed wird.
 |---|---|---|---|---|
 | Amidža, daidža, zet – wer ist hier eigentlich wer? | `kultur-familie-stammbaum.html` | Familie & Zusammenleben | Wer ist wer? | Entwurf (Nov. 2026): Struktur ✓, Sprache ✓ (bosnisch-pruefer), Inhalt: kultur-pruefer |
 | Burek oder Sirnica? | `kultur-pita-burek.html` | Essen & Trinken | Duell | Online seit 16.11.2026: Struktur ✓, Sprache ✓ (bosnisch-pruefer), Inhalt ✓ (kultur-pruefer, kein NO-GO). Wortform „tikvenica“ (nicht „tikvenjača“, Entscheidung Alen) |
-| Ćevapi: Woran erkennst du gute? | – | Essen & Trinken | Erklärstück | geplant |
+| Ćevapi: Woran erkennst du gute? | `kultur-cevapi.html` | Essen & Trinken | Erklärstück | Entwurf (20.11.2026) mit Bestell-Generator (Satzbausteine im JSON `bestellDaten`): Struktur ✓, Sprache ✓ (bosnisch-pruefer, alle 64 Kombinationen), Inhalt ✓ nach Korrektur (kultur-pruefer: Banja Luka ist als garantiert traditionelle Spezialität geschützt, nicht „beantragt“; kein NO-GO). „sa lukom/sa kajmakom“ bleibt überall (gesprochene Bestellform, Entscheidung Alen; die Schulregel „s lukom“ erklärt die Aufklappbox). Offen: Kurzform für den ganzen Somun |
 | Bosanska kahva | – | Essen & Trinken | Erklärstück | geplant |
 | Was ist eigentlich Sevdah? | – | Musik & Tanz | Erklärstück | geplant |
 | Stećci & Bosančica | – | Geschichte & Schrift | Erklärstück | geplant |

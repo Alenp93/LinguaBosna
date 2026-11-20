@@ -416,6 +416,41 @@ a.kultur-card:hover {
   line-height: 1.55;
 }
 
+/* Begriffsliste innerhalb einer Aufklapp-Box (<details>):
+   etwas Innenabstand, damit sie nicht am Rand klebt */
+.kultur-aufklapp > .kultur-begriffe {
+  margin: 0 14px 14px;
+}
+
+/* Aufzählung im Fließtext (z. B. „Woran erkennst du gute Ćevapi?“).
+   Gleicher Goldpunkt wie bei „Auf einen Blick“. */
+.kultur-liste {
+  list-style: none;
+  margin: 14px 0 0;
+}
+
+.kultur-liste li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.kultur-liste li:last-child {
+  margin-bottom: 0;
+}
+
+.kultur-liste li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 
 /* ── 7. Boxen ────────────────────────────────────────── */
 
@@ -640,6 +675,14 @@ a.kultur-card:hover {
   line-height: 1.2;
   color: var(--primary);
   overflow-wrap: break-word;
+}
+
+/* Variante für ganze Sätze statt eines einzelnen Wortes
+   (z. B. Bestell-Generator im Ćevapi-Beitrag): kleiner, mehr Zeilenhöhe */
+.kultur-ergebnis-satz {
+  font-size: 1.35rem;
+  line-height: 1.4;
+  margin-bottom: 4px;
 }
 
 .kultur-ergebnis-text {
@@ -1207,6 +1250,10 @@ a.kultur-card:hover {
 
   .kultur-woerter ul {
     grid-template-columns: 1fr;
+  }
+
+  .kultur-ergebnis-satz {
+    font-size: 1.15rem;
   }
 
   .kultur-blick,

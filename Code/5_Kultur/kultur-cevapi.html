@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <!-- ======================================================
+       kultur-cevapi.html
+       Kultur-Beitrag: Ćevapi – woran erkennst du gute? | LinguaBosna
+       Rubrik: Essen & Trinken · Typ: Erklärstück
+       Erstellt aus TEMPLATE_Kultur_Beitrag.html – Regeln in
+       WORKFLOW_Kultur.md.
+
+       Besonderheit: Der Bestell-Generator (Block 4) baut aus fünf
+       Auswahlen einen bosnischen Bestellsatz. ALLE Satzbausteine
+       (bosnisch + deutsch) und die Tetka-Fata-Sprüche stehen an
+       EINER Stelle: im JSON-Block id="bestellDaten" am Ende der
+       Datei. Wer einen Baustein ändern will, ändert ihn dort –
+       das Skript darunter setzt nur zusammen.
+
+       NO-GO 7: Es werden keine Restaurants, Imbisse oder Orte als
+       „die besten" genannt – nur Kriterien.
+       ====================================================== -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ─────────────────────────────────────────────────── -->
+  <title>LinguaBosna – Ćevapi: Woran erkennst du gute?</title>
+  <meta name="description" content="Somun, luk, kajmak: Woran du gute Ćevapi erkennst, was sarajevski und banjalučki unterscheidet und was „deset u pola“ heißt – mit Bestell-Generator.">
+  <link rel="canonical" href="https://linguabosna.com/Code/5_Kultur/kultur-cevapi.html">
+
+  <!-- ── Open Graph ─────────────────────────────────────────────── -->
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="LinguaBosna – Ćevapi: Woran erkennst du gute?">
+  <meta property="og:description" content="Somun, luk, kajmak: Woran du gute Ćevapi erkennst, was sarajevski und banjalučki unterscheidet und was „deset u pola“ heißt – mit Bestell-Generator.">
+  <meta property="og:url"         content="https://linguabosna.com/Code/5_Kultur/kultur-cevapi.html">
+  <meta property="og:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+  <meta property="og:site_name"   content="LinguaBosna">
+  <meta property="og:locale"      content="de_DE">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="LinguaBosna – Ćevapi: Woran erkennst du gute?">
+  <meta name="twitter:description" content="Somun, luk, kajmak: Woran du gute Ćevapi erkennst, was sarajevski und banjalučki unterscheidet und was „deset u pola“ heißt – mit Bestell-Generator.">
+  <meta name="twitter:image"       content="https://linguabosna.com/Bilder/logo/Logo-Version2.png">
+
+  <link rel="stylesheet" href="/Code/Style.css">
+  <link rel="stylesheet" href="/Code/5_Kultur/Style_5_Kultur.css">
+  <script src="/Code/LB_main.js" defer></script>
+  <script src="/Code/5_Kultur/kultur.js" defer></script>
+
+  <!-- Google Fonts (Pflicht) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (Pflicht) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── Favicon (LinguaBosna-Logo) ───────────────────────────── -->
+  <link rel="icon" type="image/png" href="/Bilder/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/Bilder/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/Bilder/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Bilder/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="LinguaBosna" />
+  <link rel="manifest" href="/Bilder/favicon/site.webmanifest" />
+
+  <!-- ── Strukturierte Daten (schema.org / JSON-LD) ─────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Ćevapi: Woran erkennst du gute?",
+        "description": "Somun, luk, kajmak: Woran du gute Ćevapi erkennst, was sarajevski und banjalučki unterscheidet und was „deset u pola“ heißt – mit Bestell-Generator.",
+        "url": "https://linguabosna.com/Code/5_Kultur/kultur-cevapi.html",
+        "mainEntityOfPage": "https://linguabosna.com/Code/5_Kultur/kultur-cevapi.html",
+        "image": "https://linguabosna.com/Bilder/logo/Logo-Version2.png",
+        "inLanguage": "de",
+        "datePublished": "2026-11-20",
+        "dateModified": "2026-11-20",
+        "isAccessibleForFree": true,
+        "articleSection": "Kultur – Essen & Trinken",
+        "author":    { "@type": "Organization", "name": "LinguaBosna", "url": "https://linguabosna.com/" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "LinguaBosna",
+          "url": "https://linguabosna.com/",
+          "logo": { "@type": "ImageObject", "url": "https://linguabosna.com/Bilder/logo/Logo-Version2.png" }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Kultur", "item": "https://linguabosna.com/Code/5_Kultur/kultur-uebersicht.html" },
+          { "@type": "ListItem", "position": 2, "name": "Ćevapi: Woran erkennst du gute?" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body class="kultur-beitrag">
+
+  <div id="header"></div>
+
+  <main>
+
+    <!-- =====================================================
+         BLOCK 1 — KOPF
+         ===================================================== -->
+    <nav class="breadcrumb" aria-label="Brotkrümel-Navigation">
+      <a href="/Code/5_Kultur/kultur-uebersicht.html">Kultur</a>
+      <span class="breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+      <span>Ćevapi</span>
+    </nav>
+
+    <span class="kultur-rubrik">Essen &amp; Trinken</span>
+    <h1><span lang="bs">Ćevapi</span>: Woran erkennst du gute?</h1>
+    <p class="kultur-unterzeile">Fünf oder zehn, halber oder ganzer Somun, mit oder ohne Zwiebeln: Beim Ćevapi-Bestellen gibt es mehr zu entscheiden, als man denkt.</p>
+    <p class="kultur-meta"><i class="far fa-clock" aria-hidden="true"></i>3 Min. Lesezeit</p>
+
+    <!-- Kopfbild: eigene SVG-Illustration (keine Bildrechte nötig).
+         Von oben gesehen: ein Teller mit einem halben somun, darin
+         fünf ćevapi („pet u pola“) mit gehackten Zwiebeln, daneben
+         ein Schälchen kajmak und ein Glas jogurt (wie im Pita-Beitrag).
+         Ein einzelner ćevap ist einmal als <g id="cevapStueck">
+         definiert und wird fünfmal leicht gedreht benutzt.
+         Rein dekorativ (aria-hidden), die Bildunterschrift sagt,
+         worum es geht. -->
+    <figure class="kultur-bild">
+      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="cevapiVerlauf" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0A3D62"/>
+            <stop offset="1" stop-color="#1a5876"/>
+          </linearGradient>
+          <!-- Ein ćevap: Röllchen + heller Glanz + zwei Grillstreifen -->
+          <g id="cevapStueck">
+            <rect x="-11" y="-38" width="22" height="76" rx="11" fill="#7a4422"/>
+            <rect x="-6" y="-31" width="5" height="58" rx="2.5" fill="#a5663a" fill-opacity="0.85"/>
+            <path d="M-9 -12 L9 -17 M-9 8 L9 3" stroke="#4a2611" stroke-width="3" stroke-linecap="round" stroke-opacity="0.75"/>
+          </g>
+        </defs>
+        <rect width="800" height="300" rx="14" fill="url(#cevapiVerlauf)"/>
+
+        <!-- Dezente Goldpunkte als Schmuck -->
+        <g fill="#F4C542" fill-opacity="0.5">
+          <circle cx="90" cy="70" r="4"/>
+          <circle cx="130" cy="225" r="3"/>
+          <circle cx="710" cy="70" r="3"/>
+          <circle cx="730" cy="230" r="4"/>
+        </g>
+
+        <!-- Teller -->
+        <circle cx="300" cy="158" r="122" fill="#f4f0e8"/>
+        <circle cx="300" cy="158" r="106" fill="none" stroke="#e1d9c9" stroke-width="3"/>
+
+        <!-- Halber somun: Kruste, darauf die aufgeschnittene Innenseite -->
+        <path d="M202 126 A98 98 0 0 0 398 126 Z" fill="#d9a55a" stroke="#b07a36" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M217 129 A83 83 0 0 0 383 129 Z" fill="#f2d7a0"/>
+
+        <!-- Fünf ćevapi, leicht aufgefächert -->
+        <use href="#cevapStueck" transform="translate(244 146) rotate(-9)"/>
+        <use href="#cevapStueck" transform="translate(272 142) rotate(-4)"/>
+        <use href="#cevapStueck" transform="translate(300 140)"/>
+        <use href="#cevapStueck" transform="translate(328 142) rotate(4)"/>
+        <use href="#cevapStueck" transform="translate(356 146) rotate(9)"/>
+
+        <!-- Gehackte Zwiebel (luk) -->
+        <g fill="#fbf7fd" stroke="#d6c3e0" stroke-width="1.5">
+          <rect x="250" y="178" width="10" height="10" rx="2" transform="rotate(15 255 183)"/>
+          <rect x="281" y="168" width="9" height="9" rx="2" transform="rotate(-20 285 172)"/>
+          <rect x="305" y="183" width="10" height="10" rx="2" transform="rotate(30 310 188)"/>
+          <rect x="333" y="170" width="9" height="9" rx="2" transform="rotate(-10 337 174)"/>
+          <rect x="350" y="186" width="10" height="10" rx="2" transform="rotate(25 355 191)"/>
+          <rect x="268" y="194" width="9" height="9" rx="2" transform="rotate(-30 272 198)"/>
+          <rect x="320" y="200" width="9" height="9" rx="2" transform="rotate(12 324 204)"/>
+          <rect x="292" y="156" width="8" height="8" rx="2" transform="rotate(40 296 160)"/>
+        </g>
+
+        <!-- Schälchen kajmak -->
+        <circle cx="470" cy="222" r="34" fill="#e6dfd0"/>
+        <circle cx="470" cy="222" r="26" fill="#fffaf0"/>
+        <path d="M456 224 Q463 212 472 218 Q480 224 486 214" fill="none" stroke="#eadcc2" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- Glas jogurt, von der Seite -->
+        <g>
+          <path d="M560 92 H640 L632 236 H568 Z" fill="#ffffff" fill-opacity="0.14"
+                stroke="#ffffff" stroke-opacity="0.6" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M563.6 122 H636.4 L632 236 H568 Z" fill="#fbf8f0"/>
+          <ellipse cx="600" cy="122" rx="36.4" ry="5" fill="#ffffff"/>
+          <path d="M572 104 L578 222" stroke="#ffffff" stroke-opacity="0.55" stroke-width="4" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <figcaption><span lang="bs">Pet u pola</span>: fünf <span lang="bs">ćevapi</span> im halben <span lang="bs">somun</span> mit Zwiebeln, dazu <span lang="bs">kajmak</span> und ein Glas <span lang="bs">jogurt</span>. · Illustration: LinguaBosna</figcaption>
+    </figure>
+
+
+    <!-- =====================================================
+         BLOCK 2 — AUF EINEN BLICK
+         ===================================================== -->
+    <section class="kultur-blick" aria-labelledby="blick-titel">
+      <h2 id="blick-titel">Auf einen Blick</h2>
+      <ul>
+        <li><strong lang="bs">Ćevapi</strong> sind kleine Hackfleischröllchen vom Grill, serviert im Fladenbrot (<strong lang="bs">somun</strong> oder <strong lang="bs">lepinja</strong>) mit rohen Zwiebeln (<strong lang="bs">luk</strong>) und gern mit <strong lang="bs">kajmak</strong>.</li>
+        <li><strong lang="bs">Sarajevski ćevapi</strong> sind einzelne Röllchen, bei <strong lang="bs">banjalučki ćevapi</strong> hängen meist vier als flaches Stück zusammen.</li>
+        <li>In Sarajevo bestellt man nach Stück, <strong lang="bs">pet</strong> (fünf) oder <strong lang="bs">deset</strong> (zehn), und <strong lang="bs">deset u pola</strong> heißt: zehn im halben Somun.</li>
+      </ul>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 3 — ABSCHNITTE
+         ===================================================== -->
+    <section class="kultur-abschnitt">
+      <h2>Was gehört zu <span lang="bs">Ćevapi</span>?</h2>
+      <p><strong lang="bs">Ćevapi</strong> sind kleine, etwa fingerlange Röllchen aus Hackfleisch, gegrillt auf dem <strong lang="bs">roštilj</strong>. In Sarajevo gehören nach dem traditionellen Rezept nur Rindfleisch und Salz hinein – keine Gewürze, kein Paniermehl. Früher kam in manchen Rezepten noch etwas Lammfleisch dazu. Serviert werden sie dort im <strong lang="bs">somun</strong>, einem runden, weichen Fladenbrot, mit fein gehackter roher Zwiebel (<strong lang="bs">luk</strong>). Wer mag, nimmt <strong lang="bs">kajmak</strong> dazu, einen cremigen Rahmaufstrich aus Milch. Mehr braucht es nicht: Das Fleisch soll für sich sprechen.</p>
+
+      <div class="kultur-wusstest">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        <p><strong>Wusstest du?</strong> In Deutschland stehen sie oft als „Cevapcici“ auf der Karte, nach der Verkleinerungsform <span lang="bs">ćevapčići</span>. In Bosnien und Herzegowina sagt man meist <strong lang="bs">ćevapi</strong>, ein einzelnes Röllchen ist ein <strong lang="bs">ćevap</strong>. Das Wort kam in osmanischer Zeit aus dem Türkischen (<i lang="tr">kebap</i>). Auch im Namen des Lokals steckt Türkisch: Die <strong lang="bs">ćevabdžinica</strong> kommt von <span lang="bs">ćevabdžija</span>, dem Ćevapi-Griller (türkisch <i lang="tr">-cı</i>), dazu die slawische Ortsendung <span lang="bs">-nica</span> – genau wie bei der <span lang="bs">buregdžinica</span>.</p>
+      </div>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2><span lang="bs">Sarajevski</span> oder <span lang="bs">banjalučki</span> – was ist der Unterschied?</h2>
+      <p>Ćevapi gibt es in ganz Bosnien und Herzegowina, und viele Städte haben ihre eigene Art. Zwei der bekanntesten: <strong lang="bs">sarajevski ćevapi</strong> sind einzelne Röllchen, etwa fünf bis sechs Zentimeter lang, und liegen im <strong lang="bs">somun</strong>. Bei <strong lang="bs">banjalučki ćevapi</strong> hängen meist vier Röllchen nebeneinander zusammen, wie ein kleines, flaches Stück Fleisch. Sie kommen in eine <strong lang="bs">lepinja</strong>, ein anderes rundes Fladenbrot. Auch aus Travnik oder Tuzla kennt man eigene Varianten. Welche die beste ist? Das ist Geschmackssache – und in vielen Familien ein beliebtes Gesprächsthema.</p>
+
+      <div class="kultur-wusstest">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        <p><strong>Wusstest du?</strong> Beide Varianten sind seit 2024 in Bosnien und Herzegowina offiziell geschützt, nur auf verschiedene Art: Der <span lang="bs">sarajevski ćevap</span> ist als geschützte geografische Angabe eingetragen – er muss aus dem Raum Sarajevo kommen und nach festgelegtem Rezept gemacht sein. Beim <span lang="bs">banjalučki ćevap</span> ist das überlieferte Rezept geschützt, als garantiert traditionelle Spezialität.</p>
+      </div>
+
+      <aside class="kultur-tetka" aria-label="Tetka Fata meint">
+        <div class="kultur-tetka-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+        <div class="kultur-tetka-blase">
+          <span class="kultur-tetka-name">Tetka Fata meint</span>
+          <p><span lang="bs">Sarajevski, banjalučki</span> – mir egal, <span lang="bs">dušo</span> (Schatz). Hauptsache, du isst sie, solange sie warm sind!</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Woran erkennst du gute <span lang="bs">Ćevapi</span>?</h2>
+      <p>Ein Geheimrezept gibt es nicht, aber ein paar Zeichen, auf die Kenner achten:</p>
+      <ul class="kultur-liste">
+        <li><strong>Saftig statt trocken:</strong> außen leicht gebräunt, innen noch saftig. Krümelige, harte Röllchen sind kein gutes Zeichen.</li>
+        <li><strong>Frisch vom Grill:</strong> Gute Ćevapi kommen direkt vom <strong lang="bs">roštilj</strong> und liegen nicht lange warm.</li>
+        <li><strong>Ein guter Somun:</strong> frisch, weich und warm, damit er den Fleischsaft aufnimmt.</li>
+        <li><strong>Wenig Schnickschnack:</strong> gutes Fleisch, frisches Brot, Zwiebeln. Gute Ćevapi brauchen keine Soße.</li>
+        <li><strong>Eine kurze Karte:</strong> Wo fast nur Ćevapi angeboten werden, ist das oft ein gutes Zeichen.</li>
+      </ul>
+
+      <aside class="kultur-tetka" aria-label="Tetka Fata meint">
+        <div class="kultur-tetka-bild" aria-hidden="true"><i class="fas fa-mug-hot"></i></div>
+        <div class="kultur-tetka-blase">
+          <span class="kultur-tetka-name">Tetka Fata meint</span>
+          <p>Ketchup auf Ćevapi? <span lang="bs">Ma kakav kečap!</span> (Von wegen Ketchup!) Gute Ćevapi brauchen nur Zwiebeln – und ordentlich Hunger.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="kultur-abschnitt">
+      <h2>Wie bestellt man richtig?</h2>
+      <p>In Sarajevo bestellst du (<strong lang="bs">naručiti</strong>) nach Stück, meist <strong lang="bs">pet</strong> (fünf) oder <strong lang="bs">deset</strong> (zehn). Fünf bekommst du oft im halben Somun, zehn im ganzen. Wer viel Fleisch und wenig Brot möchte, sagt <strong lang="bs">deset u pola</strong>: zehn Ćevapi im halben Somun. Dann kommt die wichtigste Frage: <strong lang="bs">sa lukom</strong> oder <strong lang="bs">bez luka</strong>, mit oder ohne Zwiebeln? Wer <strong lang="bs">kajmak</strong> möchte, sagt <strong lang="bs">sa kajmakom</strong>. Zum Trinken nimmt man gern <strong lang="bs">jogurt</strong>.</p>
+      <p>Übrigens: Nach Zahlen ab fünf steht der Genitiv Plural, also <strong lang="bs">pet ćevapa</strong>. Beim Bestellen lässt man das Wort aber meist ganz weg – <span lang="bs">„Pet u pola!“</span> versteht jeder.</p>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 4 — INTERAKTIV: BESTELL-GENERATOR
+         Fünf Auswahl-Gruppen (.kultur-wahl mit data-feld), je
+         Button ein data-wert. Das Skript am Ende der Datei liest
+         die passenden Bausteine aus dem JSON-Block id="bestellDaten"
+         und setzt Satz, Übersetzung, Kurzform und Tetka-Spruch
+         zusammen – bei jedem Klick sofort neu.
+         Die Ergebnis-Karte enthält schon im HTML den Satz für die
+         Grundeinstellung (pet, u pola, sa lukom, ohne kajmak,
+         jogurt). So steht ohne JavaScript ein Beispiel da, und
+         Suchmaschinen sehen einen vollständigen Satz.
+         Ohne JavaScript bleiben die Auswahl-Buttons versteckt
+         (class="hidden"), stattdessen erscheint der <noscript>-Hinweis.
+         ===================================================== -->
+    <section class="kultur-interaktiv" aria-labelledby="interaktiv-titel">
+      <h2 id="interaktiv-titel"><i class="fas fa-receipt" aria-hidden="true"></i> Dein Bestell-Generator</h2>
+      <p class="kultur-interaktiv-hinweis">Stell dir deine Portion zusammen – der Generator baut dir den passenden bosnischen Satz dazu.</p>
+
+      <noscript><p>Für den Generator brauchst du JavaScript. Hier ein Beispiel, wie eine Bestellung klingt:</p></noscript>
+
+      <div id="bestellWahl" class="hidden">
+        <p class="kultur-schritt" id="wahlMenge">1. Wie viele?</p>
+        <div class="kultur-wahl" role="group" aria-labelledby="wahlMenge" data-feld="menge">
+          <button type="button" class="kultur-wahl-btn" data-wert="pet"><span lang="bs">pet</span> (5)</button>
+          <button type="button" class="kultur-wahl-btn" data-wert="deset"><span lang="bs">deset</span> (10)</button>
+        </div>
+
+        <p class="kultur-schritt" id="wahlSomun">2. Wie viel Somun?</p>
+        <div class="kultur-wahl" role="group" aria-labelledby="wahlSomun" data-feld="somun">
+          <button type="button" class="kultur-wahl-btn" data-wert="pola"><span lang="bs">u pola</span> – halber Somun</button>
+          <button type="button" class="kultur-wahl-btn" data-wert="cijeli"><span lang="bs">u cijelom somunu</span> – ganzer Somun</button>
+        </div>
+
+        <p class="kultur-schritt" id="wahlLuk">3. Zwiebeln?</p>
+        <div class="kultur-wahl" role="group" aria-labelledby="wahlLuk" data-feld="luk">
+          <button type="button" class="kultur-wahl-btn" data-wert="da"><span lang="bs">sa lukom</span> – mit</button>
+          <button type="button" class="kultur-wahl-btn" data-wert="ne"><span lang="bs">bez luka</span> – ohne</button>
+        </div>
+
+        <p class="kultur-schritt" id="wahlKajmak">4. Kajmak?</p>
+        <div class="kultur-wahl" role="group" aria-labelledby="wahlKajmak" data-feld="kajmak">
+          <button type="button" class="kultur-wahl-btn" data-wert="da"><span lang="bs">sa kajmakom</span> – mit</button>
+          <button type="button" class="kultur-wahl-btn" data-wert="ne"><span lang="bs">bez kajmaka</span> – ohne</button>
+        </div>
+
+        <p class="kultur-schritt" id="wahlPice">5. Und zu trinken?</p>
+        <div class="kultur-wahl" role="group" aria-labelledby="wahlPice" data-feld="pice">
+          <button type="button" class="kultur-wahl-btn" data-wert="jogurt"><span lang="bs">jogurt</span> (Joghurt)</button>
+          <button type="button" class="kultur-wahl-btn" data-wert="kiselo"><span lang="bs">kiselo mlijeko</span> (Sauermilch)</button>
+          <button type="button" class="kultur-wahl-btn" data-wert="voda"><span lang="bs">kisela voda</span> (Mineralwasser)</button>
+          <button type="button" class="kultur-wahl-btn" data-wert="sok"><span lang="bs">sok</span> (Saft/Limo)</button>
+        </div>
+      </div>
+
+      <!-- Ergebnis-Karte. aria-live: Screenreader lesen den neuen
+           Satz und die Übersetzung vor, sobald sich etwas ändert. -->
+      <div class="kultur-ergebnis">
+        <p class="kultur-ergebnis-pfad">So bestellst du:</p>
+        <p class="kultur-ergebnis-wort kultur-ergebnis-satz" lang="bs" id="bestellSatz" aria-live="polite">Molim vas, pet ćevapa u pola somuna sa lukom. I jedan jogurt.</p>
+        <p class="kultur-ergebnis-text" id="bestellDeutsch" aria-live="polite">Bitte fünf Ćevapi im halben Somun mit Zwiebeln. Und einen Joghurt.</p>
+        <p class="kultur-ergebnis-text"><strong>Kurz wie ein Stammgast:</strong> <span lang="bs" id="bestellKurz">Pet u pola, sa lukom!</span></p>
+        <p class="kultur-ergebnis-fata"><i class="fas fa-mug-hot" aria-hidden="true"></i><span id="bestellFata">Tetka Fata: <span lang="bs">Pet u pola</span> – der Klassiker für den kleinen Hunger. Und danach eine <span lang="bs">kahva</span> (Kaffee)?</span></p>
+      </div>
+
+      <!-- Grammatik zum Satz, zugeklappt (für Neugierige) -->
+      <details class="kultur-aufklapp">
+        <summary>Warum heißt es so? Die Grammatik im Satz</summary>
+        <dl class="kultur-begriffe">
+          <dt lang="bs">pet / deset ćevapa</dt><dd>Nach Zahlen ab fünf steht der Genitiv Plural: <span lang="bs">ćevapi</span> → <span lang="bs">ćevapa</span>.</dd>
+          <dt lang="bs">u pola somuna</dt><dd>Nach <span lang="bs">pola</span> (halb) steht der Genitiv: <span lang="bs">somun</span> → <span lang="bs">somuna</span>.</dd>
+          <dt lang="bs">u cijelom somunu</dt><dd><span lang="bs">u</span> + Lokativ (wo?): <span lang="bs">cijeli somun</span> → <span lang="bs">u cijelom somunu</span>.</dd>
+          <dt lang="bs">sa lukom, sa kajmakom</dt><dd><span lang="bs">s</span>/<span lang="bs">sa</span> (mit) + Instrumental. Nach der Schulregel heißt es <span lang="bs">s lukom</span>, <span lang="bs">s kajmakom</span> (<span lang="bs">sa</span> nur vor s, z, š, ž, z. B. <span lang="bs">sa sirom</span>). Beim Bestellen hört man in Bosnien aber fast immer <span lang="bs">sa lukom</span>.</dd>
+          <dt lang="bs">bez luka</dt><dd><span lang="bs">bez</span> (ohne) + Genitiv: <span lang="bs">luk</span> → <span lang="bs">luka</span>. Wer keinen Kajmak will, sagt einfach nichts – deshalb fehlt er dann im Satz.</dd>
+          <dt lang="bs">jedan / jedno / jednu</dt><dd>Akkusativ, und <span lang="bs">jedan</span> richtet sich nach dem Geschlecht: <span lang="bs">jedan jogurt</span> (m), <span lang="bs">jedno kiselo mlijeko</span> (n), <span lang="bs">jednu kiselu vodu</span> (f).</dd>
+        </dl>
+      </details>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 5 — WÖRTER AUS DIESEM BEITRAG
+         Wortformen aus vokabeln_flat.json: Kapitel „Zahlen & Mengen"
+         (deset), „Essen & Trinken" (ćevapi, naručiti), „Bosnische
+         Küche" (somun, lepinja, kajmak, roštilj), „Obst & Gemüse"
+         (luk), „Uhrzeit & Jahreszeiten" (pola) und ein C2-Kapitel
+         (ćevabdžinica). jogurt, sok und kisela voda stehen (noch)
+         nicht im Bestand und fehlen deshalb hier.
+         ===================================================== -->
+    <section class="kultur-woerter" aria-labelledby="woerter-titel">
+      <h2 id="woerter-titel">Wörter aus diesem Beitrag</h2>
+      <ul>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=ćevapi"><span class="wort" lang="bs">ćevapi</span><span class="bedeutung">Ćevapi (Hackfleischröllchen)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=somun"><span class="wort" lang="bs">somun</span><span class="bedeutung">Fladenbrot (für Ćevapi)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=lepinja"><span class="wort" lang="bs">lepinja</span><span class="bedeutung">Fladenbrot (regional)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=luk"><span class="wort" lang="bs">luk</span><span class="bedeutung">Zwiebel</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=kajmak"><span class="wort" lang="bs">kajmak</span><span class="bedeutung">Kajmak (Rahmaufstrich)</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=roštilj"><span class="wort" lang="bs">roštilj</span><span class="bedeutung">Grill / Gegrilltes</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=ćevabdžinica"><span class="wort" lang="bs">ćevabdžinica</span><span class="bedeutung">Ćevapi-Lokal</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=naručiti"><span class="wort" lang="bs">naručiti</span><span class="bedeutung">bestellen</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=deset"><span class="wort" lang="bs">deset</span><span class="bedeutung">zehn</span></a></li>
+        <li><a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=pola"><span class="wort" lang="bs">pola</span><span class="bedeutung">halb / Hälfte</span></a></li>
+      </ul>
+      <p class="kultur-woerter-hinweis">Noch mehr Küchenwörter findest du im <a href="/Code/2_Vokabeln/LB_2-2_Woerterbuch.html?q=somun">Wörterbuch</a> und zum Üben in den Kapiteln „Essen &amp; Trinken“ und „Bosnische Küche“ des <a href="/Code/2_Vokabeln/LB_2_Vokabeln.html">Vokabeltrainers</a>.</p>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 6 — MINI-QUIZ (HTML nicht verändern)
+         ===================================================== -->
+    <section class="kultur-quiz" aria-labelledby="quiz-titel">
+      <h2 id="quiz-titel">Hast du aufgepasst?</h2>
+
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <span id="quizProgress">Frage 1</span>
+          <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBarFill"></div></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion" aria-live="polite"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback hidden" id="quizFeedback" aria-live="polite"></div>
+        <button type="button" class="quiz-next-btn hidden" id="quizNextBtn">Nächste Frage →</button>
+      </div>
+
+      <div class="quiz-result hidden" id="quizResult">
+        <i class="fas fa-trophy" aria-hidden="true"></i>
+        <p class="result-score" id="resultScore"></p>
+        <p class="result-text" id="resultText"></p>
+        <button type="button" class="quiz-retry-btn" id="quizRetryBtn">Quiz wiederholen</button>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 7 — WEITER GEHT'S
+         ===================================================== -->
+    <section class="kultur-weiter" aria-labelledby="weiter-titel">
+      <h2 id="weiter-titel">Weiter geht's</h2>
+      <div class="kultur-weiter-grid">
+        <a href="/Code/3_Grammatik/Grammatik_B2/grammatik-zahlen.html">
+          <i class="fas fa-list-ol" aria-hidden="true"></i>
+          <span><strong>Zahlen</strong><span lang="bs">pet ćevapa, deset ćevapa</span>: Warum sich das Nomen nach der Zahl ändert.</span>
+        </a>
+        <a href="/Code/3_Grammatik/Grammatik_B1/grammatik-genitiv.html">
+          <i class="fas fa-scale-balanced" aria-hidden="true"></i>
+          <span><strong>Genitiv</strong><span lang="bs">bez luka, u pola somuna</span>: Nach „bez“ und „pola“ steht der Genitiv.</span>
+        </a>
+        <a href="/Code/3_Grammatik/Grammatik_B1/grammatik-instrumental.html">
+          <i class="fas fa-utensils" aria-hidden="true"></i>
+          <span><strong>Instrumental</strong><span lang="bs">sa lukom, sa kajmakom</span>: So sagst du, was mit dazugehört.</span>
+        </a>
+        <a href="/Code/5_Kultur/kultur-pita-burek.html">
+          <i class="fas fa-chart-pie" aria-hidden="true"></i>
+          <span><strong><span lang="bs">Burek</span> oder <span lang="bs">Sirnica</span>?</strong>Der nächste Imbiss, die nächste Lektion: Warum nicht jede Pita ein Burek ist.</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BLOCK 8 — QUELLEN & BILDNACHWEIS
+         ===================================================== -->
+    <section class="kultur-quellen" aria-labelledby="quellen-titel">
+      <h2 id="quellen-titel">Quellen &amp; Bildnachweis</h2>
+      <ul>
+        <li>Zu Fleisch, Zubereitung und Schutz des <span lang="bs">sarajevski ćevap</span>: N1 Sarajevo, <a href="https://n1info.rs/region/sarajevo-ce-zastititi-svoje-cevape-udruzenje-cevabdzija-trazi-registraciju/" lang="bs">„Sarajevo će zaštititi svoje ćevape“</a> (21.11.2023) und <a href="https://n1info.rs/region/velika-sa-lukom-mala-sa-kajmakom-deset-u-pola-sarajevski-cevap-od-sada-kao-domaci-proizvod/" lang="bs">„Velika sa lukom, mala sa kajmakom, deset u pola“</a> (14.08.2024), abgerufen am 20.11.2026</li>
+        <li>Zu den beiden geschützten Varianten: Agencija za sigurnost hrane BiH, Produktspezifikationen <a href="https://fsa.gov.ba/wp-content/uploads/2024/05/Specifikacija-proizvoda-Sarajevski-cevap.pdf" lang="bs">„Sarajevski ćevap“</a> und <a href="https://fsa.gov.ba/wp-content/uploads/2024/06/Specifikacija-Banjalucki-cevap.pdf" lang="bs">„Banjalučki ćevap“</a> (PDF, 2024, abgerufen am 20.11.2026)</li>
+        <li>Zur Herkunft von <span lang="bs">ćevap</span>: Abdulah Škaljić, <i lang="bs">Turcizmi u srpskohrvatskom jeziku</i>, Sarajevo: Svjetlost, 1965</li>
+        <li>Illustration (<span lang="bs">ćevapi</span> im <span lang="bs">somun</span>): LinguaBosna</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+
+  <!-- ======================================================
+       QUIZ-DATEN (JSON) — Logik in /Code/5_Kultur/kultur.js
+       ====================================================== -->
+  <script type="application/json" id="kulturQuizDaten">
+  {
+    "fragen": [
+      {
+        "frage": "Was bekommst du, wenn du „{deset u pola}“ bestellst?",
+        "optionen": ["Zehn {ćevapi} im halben {somun}", "Fünf {ćevapi} für zwei Personen", "Zehn {ćevapi}, nur halb durchgebraten"],
+        "richtig": 0,
+        "erklaerung": "{Deset u pola} heißt: zehn {ćevapi} im halben {somun} – viel Fleisch, wenig Brot."
+      },
+      {
+        "frage": "Was gehört nach dem traditionellen Rezept in {sarajevski ćevapi}?",
+        "optionen": ["Hackfleisch mit Paniermehl und Kräutern", "Rindfleisch und Salz", "Lammfleisch mit Paprika und Knoblauch"],
+        "richtig": 1,
+        "erklaerung": "In {sarajevski ćevapi} gehören nur Rindfleisch und Salz. Früher kam in manchen Rezepten noch etwas Lammfleisch dazu."
+      },
+      {
+        "frage": "Was ist {kajmak}?",
+        "optionen": ["Eine scharfe Paprikasoße", "Ein rundes Fladenbrot", "Ein cremiger Rahmaufstrich aus Milch"],
+        "richtig": 2,
+        "erklaerung": "{Kajmak} ist ein cremiger Rahmaufstrich. Die Paprikasoße wäre {ajvar}, das Fladenbrot {somun}."
+      },
+      {
+        "frage": "Woran erkennst du {banjalučki ćevapi}?",
+        "optionen": ["Meist vier Röllchen hängen als flaches Stück zusammen", "Sie sind doppelt so lang wie andere", "Sie werden in Suppe serviert"],
+        "richtig": 0,
+        "erklaerung": "Bei {banjalučki ćevapi} hängen meist vier Röllchen zusammen. Serviert werden sie in einer {lepinja}."
+      },
+      {
+        "frage": "Du willst keine Zwiebeln. Was sagst du?",
+        "optionen": ["{sa lukom}", "{bez luka}", "{bez luk}"],
+        "richtig": 1,
+        "erklaerung": "Nach {bez} (ohne) steht der Genitiv: {luk} wird zu {bez luka}. Mit Zwiebeln heißt {sa lukom}."
+      },
+      {
+        "frage": "Warum sagt man „{pet ćevapa}“ und nicht „{pet ćevapi}“?",
+        "optionen": ["Weil fünf eine ungerade Zahl ist", "Weil man beim Bestellen immer abkürzt", "Weil nach Zahlen ab fünf der Genitiv Plural steht"],
+        "richtig": 2,
+        "erklaerung": "Ab {pet} (fünf) steht das Nomen im Genitiv Plural: {ćevapi} wird zu {pet ćevapa}, {deset ćevapa}."
+      }
+    ],
+    "ergebnis": {
+      "top":  "{Svaka čast!} (Hut ab!) Du bestellst wie ein Stammgast – Tetka Fata lädt dich auf die nächste Portion ein. 🎉",
+      "gut":  "Gut gemacht! Schau dir noch einmal an, wie man bestellt – dann klappt es im Sommer auch mit {deset u pola}.",
+      "rest": "Kein Problem – lies den Beitrag in Ruhe nochmal, probier den Bestell-Generator aus und versuch es erneut!"
+    }
+  }
+  </script>
+
+
+  <!-- ======================================================
+       BESTELL-DATEN (JSON) — Bausteine für den Generator (Block 4)
+
+       Hier steht ALLES, was der Generator sagt. Aufbau:
+         rahmen  – Satzanfang (bosnisch / deutsch)
+         menge   – pet / deset      (bs = im Satz, kurz = Kurzform)
+         somun   – pola / cijeli
+         zusatz  – Zwiebel + Kajmak zusammen, Schlüssel "luk-kajmak"
+                   (da = mit, ne = ohne). Kajmak „ne“ wird im Satz
+                   nicht erwähnt: Wer keinen will, sagt nichts.
+         pice    – Getränk als eigener kurzer Satz
+         fata    – Tetka-Fata-Sprüche. Bosnische Wörter in {Klammern}
+                   (wie im Quiz) → werden zu <span lang="bs">.
+       Zusammengesetzt wird:
+         Satz:  rahmen.bs + menge.bs + somun.bs + zusatz.bs + "." + pice.bs
+         Kurz:  menge.kurz + somun.kurz + "," + zusatz.bs + "!"
+       Typografische Anführungszeichen („ “) verwenden – ein
+       gerades " würde das JSON beenden.
+       ====================================================== -->
+  <script type="application/json" id="bestellDaten">
+  {
+    "rahmen": { "bs": "Molim vas,", "de": "Bitte" },
+    "menge": {
+      "pet":   { "bs": "pet ćevapa",   "kurz": "Pet",   "de": "fünf Ćevapi" },
+      "deset": { "bs": "deset ćevapa", "kurz": "Deset", "de": "zehn Ćevapi" }
+    },
+    "somun": {
+      "pola":   { "bs": "u pola somuna",    "kurz": "u pola",           "de": "im halben Somun" },
+      "cijeli": { "bs": "u cijelom somunu", "kurz": "u cijelom somunu", "de": "im ganzen Somun" }
+    },
+    "zusatz": {
+      "da-da": { "bs": "sa lukom i kajmakom",   "de": "mit Zwiebeln und Kajmak" },
+      "da-ne": { "bs": "sa lukom",              "de": "mit Zwiebeln" },
+      "ne-da": { "bs": "bez luka, sa kajmakom", "de": "ohne Zwiebeln, mit Kajmak" },
+      "ne-ne": { "bs": "bez luka",              "de": "ohne Zwiebeln" }
+    },
+    "pice": {
+      "jogurt": { "bs": "I jedan jogurt.",         "de": "Und einen Joghurt." },
+      "kiselo": { "bs": "I jedno kiselo mlijeko.", "de": "Und eine Sauermilch." },
+      "voda":   { "bs": "I jednu kiselu vodu.",    "de": "Und ein Mineralwasser." },
+      "sok":    { "bs": "I jedan sok.",            "de": "Und einen Saft (oder eine Limo)." }
+    },
+    "fata": {
+      "ohneLuk":     "{Bez luka?} Aha … hast du heute noch ein Rendezvous, {dušo}?",
+      "petPola":     "{Pet u pola} – der Klassiker für den kleinen Hunger. Und danach eine {kahva} (Kaffee)?",
+      "petCijeli":   "Fünf im ganzen {somun}? Da wirst du vom Brot satt, nicht vom Fleisch – aber Hauptsache, du wirst satt, {dušo}!",
+      "desetPola":   "{Deset u pola} – so bestellt jemand, der weiß, was er will: viel Fleisch, wenig Brot. {Svaka čast!} (Hut ab!)",
+      "desetCijeli": "Zehn im ganzen {somun}? Da hat jemand richtig Hunger. {Prijatno!} (Guten Appetit!)"
+    }
+  }
+  </script>
+
+
+  <!-- ======================================================
+       BESTELL-GENERATOR (Block 4)
+
+       Ablauf:
+         1. Grundeinstellung = die Werte in "wahl" unten (passt zum
+            Beispielsatz, der schon im HTML der Ergebnis-Karte steht).
+         2. Klick auf einen Button → Wert merken, Button markieren
+            (aria-pressed), Satz sofort neu zusammensetzen.
+         3. Welcher Tetka-Spruch erscheint, entscheidet fataSchluessel():
+            ohne Zwiebeln hat Vorrang, sonst Menge + Somun.
+       Texte werden nur per textContent bzw. createElement gesetzt
+       (kein innerHTML) – so kann kein Zeichen aus dem JSON
+       versehentlich als HTML gelesen werden.
+       ====================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var wahlBox = document.getElementById('bestellWahl');
+      var datenEl = document.getElementById('bestellDaten');
+      if (!wahlBox || !datenEl) return;
+
+      var daten;
+      try {
+        daten = JSON.parse(datenEl.textContent);
+      } catch (e) {
+        return;   // Daten kaputt: Beispielsatz im HTML bleibt einfach stehen
+      }
+
+      var satzEl    = document.getElementById('bestellSatz');
+      var deutschEl = document.getElementById('bestellDeutsch');
+      var kurzEl    = document.getElementById('bestellKurz');
+      var fataEl    = document.getElementById('bestellFata');
+
+      // Grundeinstellung (muss zum Beispielsatz im HTML passen)
+      var wahl = { menge: 'pet', somun: 'pola', luk: 'da', kajmak: 'ne', pice: 'jogurt' };
+
+      // Text mit {bosnisch}-Klammern in ein Element schreiben:
+      // jedes {wort} wird zu <span lang="bs">wort</span>
+      function mitBosnisch(el, text) {
+        el.textContent = '';
+        text.split(/(\{[^}]*\})/).forEach(function (teil) {
+          if (!teil) return;
+          if (teil.charAt(0) === '{') {
+            var span = document.createElement('span');
+            span.lang = 'bs';
+            span.textContent = teil.slice(1, -1);
+            el.appendChild(span);
+          } else {
+            el.appendChild(document.createTextNode(teil));
+          }
+        });
+      }
+
+      // Welcher Tetka-Fata-Spruch passt zur Auswahl?
+      function fataSchluessel() {
+        if (wahl.luk === 'ne') return 'ohneLuk';
+        if (wahl.menge === 'deset') return wahl.somun === 'pola' ? 'desetPola' : 'desetCijeli';
+        return wahl.somun === 'pola' ? 'petPola' : 'petCijeli';
+      }
+
+      // Satz, Übersetzung, Kurzform und Spruch neu zusammensetzen
+      function aktualisieren() {
+        var m = daten.menge[wahl.menge];
+        var s = daten.somun[wahl.somun];
+        var z = daten.zusatz[wahl.luk + '-' + wahl.kajmak];
+        var p = daten.pice[wahl.pice];
+        if (!m || !s || !z || !p) return;
+
+        satzEl.textContent    = daten.rahmen.bs + ' ' + m.bs + ' ' + s.bs + ' ' + z.bs + '. ' + p.bs;
+        deutschEl.textContent = daten.rahmen.de + ' ' + m.de + ' ' + s.de + ' ' + z.de + '. ' + p.de;
+        kurzEl.textContent    = m.kurz + ' ' + s.kurz + ', ' + z.bs + '!';
+
+        fataEl.textContent = 'Tetka Fata: ';
+        var spruch = document.createElement('span');
+        mitBosnisch(spruch, daten.fata[fataSchluessel()] || '');
+        fataEl.appendChild(spruch);
+      }
+
+      // Buttons verdrahten: je Gruppe (data-feld) ein gewählter Wert
+      wahlBox.querySelectorAll('.kultur-wahl[data-feld]').forEach(function (gruppe) {
+        var feld = gruppe.getAttribute('data-feld');
+        var knoepfe = gruppe.querySelectorAll('button[data-wert]');
+        knoepfe.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-wert') === wahl[feld] ? 'true' : 'false');
+          btn.addEventListener('click', function () {
+            wahl[feld] = btn.getAttribute('data-wert');
+            knoepfe.forEach(function (b) {
+              b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+            });
+            aktualisieren();
+          });
+        });
+      });
+
+      aktualisieren();
+      wahlBox.classList.remove('hidden');
+    })();
+  </script>
+
+</body>
+</html>
